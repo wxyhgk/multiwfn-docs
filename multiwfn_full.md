@@ -1,5 +1,6 @@
 # Multiwfn 官方手册（PDF 转 Markdown）
 > 来源：`Multiwfn_manual_2026.10.1.pdf`，共 1161 页，由 PyMuPDF 直接提取（可复制文本）。等宽终端输出保留为代码块，独立显示公式渲染为图片，行内公式保留原文字符。
+
 ## 目录（来自 PDF 书签）
 - !!!!!!!!!! ALL USERS MUST READ !!!!!!!!!!（p.2）
 - Linux and Mac OS USERS MUST READ（p.3）

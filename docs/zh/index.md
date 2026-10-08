@@ -1,22 +1,87 @@
-# Multiwfn 官方手册 · 中文分章索引
+# Multiwfn 官方手册 · 中文分节索引
 
-> PDF 共 1161 页，已转为 Markdown 并译为简体中文。英文分章见 `../en/index.md`；图片统一在 `../imgs/`（972 张，中英文共用）。
+> PDF 共 1161 页，按书二级目录分为 83 节。图片统一在 `../imgs/`（中英文共用）。
 
-## 中文章节（11 章，页标记/图片与英文 1:1 对齐）
-
-- [书内目录（PDF p.5–21）](./zh_00_目录.md)：原书详细目录 631 条
-- [01 前言与总览（p.1–30）](./zh_01_前言总览.md)：封面、必读、Linux/Mac 说明、第 1 章 Overview
-- [02 基本信息（p.31–76）](./zh_02_基本信息.md)：安装、使用、输入文件、实空间函数、用户自定义函数、周期体系
-- [03 功能 3.2–3.13（p.77–182）](./zh_03_功能3.2-3.13.md)：结构显示、点/线/面性质输出、布居分析、轨道成分、键级、DOS、光谱
-- [04 功能 3.14–3.22（p.183–309）](./zh_04_功能3.14-3.22.md)：拓扑分析、分子表面、格点数据、AdNDP、盆分析、激发分析
-- [05 功能 3.23–3.300（p.310–457）](./zh_05_功能3.23-3.300.md)：弱作用可视化、能量分解、CDFT、ETS-NOCV、超极化率
-- [06 教程 4.0–4.8（p.458–616）](./zh_06_教程4.0-4.8.md)：轨道显示、拓扑实例、作图、波函数修改、布居电荷、轨道成分
-- [07 教程 4.9–4.12（p.617–730）](./zh_07_教程4.9-4.12.md)：键级、DOS 图、各类光谱、分子表面定量分析
-- [08 教程 4.13–4.19（p.731–872）](./zh_08_教程4.13-4.19.md)：格点数据、AdNDP、电荷分解、盆分析、激发分析、轨道定域
-- [09 教程 4.20–4.24（p.873–989）](./zh_09_教程4.20-4.24.md)：弱作用、能量分解、CDFT、ETS-NOCV、极化率
-- [10 教程 4.25–附录（p.990–1161）](./zh_10_教程4.25-附录.md)：离域与芳香性、其它功能、专题教程、使用技巧、附录
-
-## 翻译说明
-
-- 首章 pilot 验证 prompt 后，其余 8 章切成 71 个 ~16 页小段并行翻译，合并时校验页标记与图片数 1:1。
-- 保留：Markdown 结构、页标记、图片引用、URL/路径；菜单为"中文（English）"形式；Multiwfn/Gaussian/settings.ini/参数名/LaTeX/代码块不译。
+- [必读（p.1–2）](./zh_01_must-read.md)
+- [Linux 和 Mac 说明（p.3–21）](./zh_02_linux-and-mac-os-notes.md)
+- [1 总览（p.22–30）](./zh_03_1-overview.md)
+- [安装（Install）（p.31–32）](./zh_04_2-1-install.md)
+- [Multiwfn的使用（Using Multiwfn）（p.33–33）](./zh_05_2-2-using-multiwfn.md)
+- [Multiwfn的文件（Files of Multiwfn）（p.34–40）](./zh_06_2-3-files-of-multiwfn.md)
+- [实空间函数（Real space functions）（p.41–53）](./zh_07_2-6-real-space-functions.md)
+- [用户自定义实空间函数（User-defined real space funct（p.54–69）](./zh_08_2-7-user-defined-real-space-function.md)
+- [图形格式与图像尺寸（Graphic formats and image size（p.70–76）](./zh_09_2-8-graphic-formats-and-image-size.md)
+- [显示分子结构与查看轨道 /（p.77–79）](./zh_10_3-2-showing-molecular-structure-and-viewing-orbi.md)
+- [输出某点处的所有性质(1)（p.80–80）](./zh_11_3-3-outputting-all-properties-at-a-point-1.md)
+- [在一条线上输出与绘制指定性质(3)（p.81–81）](./zh_12_3-4-outputting-and-plotting-specific-property-in.md)
+- [在平面上输出与绘制指定性质(4)（p.82–92）](./zh_13_3-5-outputting-and-plotting-specific-property-in.md)
+- [在空间区域内输出并绘制特定属性 (5)（p.93–96）](./zh_14_3-6-outputting-and-plotting-specific-property-wi.md)
+- [自定义操作、promolecular 与 deformation 性质（主功能 （p.97–99）](./zh_15_3-7-custom-operation-promolecular-and-deformatio.md)
+- [检查与修改波函数 (6)（p.100–102）](./zh_16_3-8-checking-modifying-wavefunction-6.md)
+- [布居分析与原子电荷计算（p.103–133）](./zh_17_3-9-population-analysis-and-calculation-of-atomi.md)
+- [轨道组成分析(Orbital composition analysis)(8)（p.134–140）](./zh_18_3-10-orbital-composition-analysis-8.md)
+- [键序分析(Bond order analysis) (9)（p.141–154）](./zh_19_3-11-bond-order-analysis-9.md)
+- [态密度图(DOS)、光电子（p.155–162）](./zh_20_3-12-plotting-density-of-states-dos-photoelectro.md)
+- [绘制IR、Raman、UV-Vis、ECD、VCD、ROA和NMR光谱 (Plo（p.163–182）](./zh_21_3-13-plotting-ir-raman-uv-vis-ecd-vcd-roa-and-nm.md)
+- [拓扑分析（Topology analysis）（2）（p.183–191）](./zh_22_3-14-topology-analysis-2.md)
+- [分子表面的定量分析（Quantitative analysis of molec（p.192–209）](./zh_23_3-15-quantitative-analysis-of-molecular-surface.md)
+- [处理格点数据（Processing grid data）（13）（p.210–216）](./zh_24_3-16-processing-grid-data-13.md)
+- [自适应自然密度划分（Adaptive natural density parti（p.217–221）](./zh_25_3-17-adaptive-natural-density-partitioning-adndp.md)
+- [模糊原子空间分析（Fuzzy atomic space analysis）（15（p.222–239）](./zh_26_3-18-fuzzy-atomic-space-analysis-15.md)
+- [电荷分解分析与绘制轨道相互作用图（Charge decomposition an（p.240–246）](./zh_27_3-19-charge-decomposition-analysis-and-plotting.md)
+- [盆分析（Basin analysis）（17）（p.247–256）](./zh_28_3-20-basin-analysis-17.md)
+- [电子激发分析（Electron excitation analysis）（18）（p.257–304）](./zh_29_3-21-electron-excitation-analysis-18.md)
+- [轨道定域分析（Orbital localization analysis）（19（p.305–309）](./zh_30_3-22-orbital-localization-analysis-19.md)
+- [弱相互作用的可视化研究 (Visual study of weak intera（p.310–332）](./zh_31_3-23-visual-study-of-weak-interaction-20.md)
+- [能量分解分析 (21)（p.333–340）](./zh_32_3-24-energy-decomposition-analysis-21.md)
+- [概念密度泛函理论 (CDFT) 分析（p.341–353）](./zh_33_3-25-conceptual-density-functional-theory-cdft-a.md)
+- [扩展过渡态-化学价自然轨道 (ETS-NOCV) 分析 (23) (Extend（p.354–360）](./zh_34_3-26-extended-transition-state-natural-orbitals.md)
+- [(超)极化率分析[(Hyper)polarizability analysis]（p.361–376）](./zh_35_3-27-hyper-polarizability-analysis-24.md)
+- [电子离域与芳香性分析 (Electron delocalization and （p.377–383）](./zh_36_3-28-electron-delocalization-and-aromaticity-ana.md)
+- [其它功能，第 1 部分 (Other functions, part 1) (1（p.384–408）](./zh_37_3-100-other-functions-part-1-100.md)
+- [其他功能，第二部分 (Other functions, part 2) (200（p.409–436）](./zh_38_3-200-other-functions-part-2-200.md)
+- [其它功能，第3部分(300)(Other functions, part 3 (（p.437–457）](./zh_39_3-300-other-functions-part-3-300.md)
+- [Prologue and generation of input files（p.458–460）](./zh_40_prologue-and-generation-of-input-files.md)
+- [查看轨道与结构（p.461–467）](./zh_41_4-0-view-orbitals-and-structure.md)
+- [计算某点处的性质（p.468–471）](./zh_42_4-1-calculate-properties-at-a-point.md)
+- [拓扑分析（p.472–504）](./zh_43_4-2-topology-analysis.md)
+- [在一条线上输出并绘制各种性质（p.505–511）](./zh_44_4-3-output-and-plot-various-properties-in-a-line.md)
+- [在平面内输出和绘制各种性质（p.512–540）](./zh_45_4-4-output-and-plot-various-properties-in-a-plan.md)
+- [生成格点数据并查看等值面图（p.541–557）](./zh_46_4-5-generate-grid-data-and-view-isosurface-map.md)
+- [修改和检查波函数（p.558–562）](./zh_47_4-6-modify-and-check-wavefunction.md)
+- [布居分析和原子电荷计算（p.563–599）](./zh_48_4-7-population-analysis-and-atomic-charge-calcul.md)
+- [分子轨道组成分析（Molecular orbital composition a（p.600–616）](./zh_49_4-8-molecular-orbital-composition-analysis.md)
+- [键级分析(Bond order analysis)（p.617–633）](./zh_50_4-9-bond-order-analysis.md)
+- [绘制态密度(DOS)图（p.634–654）](./zh_51_4-10-plot-density-of-states-dos-maps.md)
+- [绘制各种光谱 (Plot various kinds of spectra)（p.655–693）](./zh_52_4-11-plot-various-kinds-of-spectra.md)
+- [分子表面的定量分析（p.694–730）](./zh_53_4-12-quantitative-analysis-of-molecular-surface.md)
+- [处理格点数据 (Process grid data)（p.731–742）](./zh_54_4-13-process-grid-data.md)
+- [自适应自然密度划分 (Adaptive natural density part（p.743–752）](./zh_55_4-14-adaptive-natural-density-partitioning-adndp.md)
+- [模糊原子空间分析（p.753–764）](./zh_56_4-15-fuzzy-atomic-space-analysis.md)
+- [电荷分解分析与轨道相互作用图的绘制(Charge decomposition a（p.765–774）](./zh_57_4-16-charge-decomposition-analysis-and-plotting.md)
+- [盆分析(Basin analysis)（p.775–803）](./zh_58_4-17-basin-analysis.md)
+- [电子激发分析(Electron excitation analysis)（p.804–864）](./zh_59_4-18-electron-excitation-analysis.md)
+- [轨道定域化分析(Orbital localization analysis)（p.865–872）](./zh_60_4-19-orbital-localization-analysis.md)
+- [弱相互作用的可视化研究(Visual study of weak interac（p.873–912）](./zh_61_4-20-visual-study-of-weak-interactions.md)
+- [能量分解分析（p.913–930）](./zh_62_4-21-energy-decomposition-analysis.md)
+- [概念密度泛函理论（p.931–948）](./zh_63_4-22-examples-of-conceptual-density-functional-t.md)
+- [ETS-NOCV分析的例子（p.949–968）](./zh_64_4-23-examples-of-ets-nocv-analysis.md)
+- [(超)极化率分析实例（p.969–989）](./zh_65_4-24-examples-of-hyper-polarizability-analyses.md)
+- [电子离域与芳香性分析示例（p.990–1005）](./zh_66_4-25-examples-of-electron-delocalization-and-aro.md)
+- [其他功能（第一部分）(Other functions (Part 1))（p.1006–1030）](./zh_67_4-100-other-functions-part-1.md)
+- [其它功能（第二部分）(Other functions (Part 2))（p.1031–1066）](./zh_68_4-200-other-functions-part-2.md)
+- [其他功能(Other functions)(第三部分，Part 3)（p.1067–1083）](./zh_69_4-300-other-functions-part-3.md)
+- [教程与实例（Tutorials and Examples） ..........（p.1084–1141）](./zh_70_4-a-special-topics-and-advanced-tutorials.md)
+- [使 Multiwfn 支持更多的量子化学（p.1142–1143）](./zh_71_5-1-make-multiwfn-support-more-quantum-chemistry.md)
+- [在批处理模式下运行 Multiwfn（p.1144–1145）](./zh_72_5-3-running-multiwfn-in-batch-mode.md)
+- [从命令行窗口复制输出到剪贴板（p.1146–1146）](./zh_73_5-4-copy-outputs-from-command-line-window-to-cli.md)
+- [使命令行窗口能记录更多（p.1147–1147）](./zh_74_5-5-make-command-line-window-capable-to-record-m.md)
+- [快速将文件载入 Multiwfn（p.1148–1148）](./zh_75_5-6-rapidly-load-a-file-into-multiwfn.md)
+- [利用 Gaussian 软件包中的 cubegen 工具（p.1149–1149）](./zh_76_5-7-make-use-of-cubegen-utility-in-gaussian-pack.md)
+- [获得理想绘图质量的一些技巧(Some tips on achieving ide（p.1150–1151）](./zh_77_5-8-some-tips-on-achieving-ideal-drawing-quality.md)
+- [在Windows下为Gaussian设置运行环境(Setting up runn（p.1152–1154）](./zh_78_6-1-setting-up-running-environment-for-gaussian.md)
+- [内建原子密度的细节(Detail of built-in atomic dens（p.1155–1155）](./zh_79_6-3-detail-of-built-in-atomic-densities.md)
+- [关于为涉及赝势的波函数补充内层芯电子密度的细节(Details about su（p.1156–1156）](./zh_80_6-4-details-about-supplying-inner-core-electron.md)
+- [检查波函数的合理性(Check sanity of wavefunction)（p.1157–1157）](./zh_81_6-5-check-sanity-of-wavefunction.md)
+- [特殊功能(Special functions)（p.1158–1158）](./zh_82_6-6-special-functions.md)
+- [关于向Multiwfn提供Fock/KS矩阵(About providing F（p.1159–1161）](./zh_83_6-7-about-providing-fock-ks-matrix-to-multiwfn.md)
