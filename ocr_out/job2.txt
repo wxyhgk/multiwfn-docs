@@ -1,0 +1,27 @@
+=== 09_func_3.26-3.100_p354-408 尝试 1 ===
+Result saved to: ocr_out/09_func_3.26-3.100_p354-408.json
+=== 10_func_3.200-3.300_p409-457 尝试 1 ===
+Error: Request timed out: HTTPSConnectionPool(host='paddleocr.aistudio-app.com', port=443): Read timed out. (read timeout=300.0)
+=== 10_func_3.200-3.300_p409-457 尝试 2 ===
+Result saved to: ocr_out/10_func_3.200-3.300_p409-457.json
+=== 11_tut_prologue-4.2_p458-504 尝试 1 ===
+Result saved to: ocr_out/11_tut_prologue-4.2_p458-504.json
+=== 12_tut_4.3-4.6_p505-562 尝试 1 ===
+Result saved to: ocr_out/12_tut_4.3-4.6_p505-562.json
+=== 13_tut_4.7-4.8_p563-616 尝试 1 ===
+Error: Request timed out: HTTPSConnectionPool(host='paddleocr.aistudio-app.com', port=443): Max retries exceeded with url: /api/v2/ocr/jobs (Caused by ConnectTimeoutError(<HTTPSConnection(host='paddleocr.aistudio-app.com', port=443) at 0x12823bb60>, 'Connection to paddleocr.aistudio-app.com timed out. (connect timeout=300.0)'))
+=== 13_tut_4.7-4.8_p563-616 尝试 2 ===
+Error: Job 101339949505626112 failed: 系统错误-拆页
+=== 13_tut_4.7-4.8_p563-616 尝试 3 ===
+Result saved to: ocr_out/13_tut_4.7-4.8_p563-616.json
+=== 14_tut_4.9-4.10_p617-654 尝试 1 ===
+Result saved to: ocr_out/14_tut_4.9-4.10_p617-654.json
+=== 15_tut_4.11_p655-693 尝试 1 ===
+Error: Request timed out: HTTPSConnectionPool(host='paddleocr.aistudio-app.com', port=443): Read timed out. (read timeout=300.0)
+=== 15_tut_4.11_p655-693 尝试 2 ===
+Result saved to: ocr_out/15_tut_4.11_p655-693.json
+=== 16_tut_4.12_p694-730 尝试 1 ===
+Error: Request timed out: HTTPSConnectionPool(host='paddleocr.aistudio-app.com', port=443): Max retries exceeded with url: /api/v2/ocr/jobs (Caused by ConnectTimeoutError(<HTTPSConnection(host='paddleocr.aistudio-app.com', port=443) at 0x11ef3bb60>, 'Connection to paddleocr.aistudio-app.com timed out. (connect timeout=300.0)'))
+=== 16_tut_4.12_p694-730 尝试 2 ===
+Result saved to: ocr_out/16_tut_4.12_p694-730.json
+ALL DONE

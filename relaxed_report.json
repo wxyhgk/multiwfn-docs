@@ -1,0 +1,125 @@
+{
+ "replaced": [],
+ "kept": [
+  {
+   "line": 1282,
+   "page": 42,
+   "why": "score=5,gr=1",
+   "text": "operator −φφ|)2/1(|2 can be recovered by integrating kinetic energy density f"
+  },
+  {
+   "line": 2325,
+   "page": 73,
+   "why": "score=0,gr=0",
+   "text": "cell angles (α, β, γ). For example, the following content defines a = 15 Å, b = "
+  },
+  {
+   "line": 4550,
+   "page": 146,
+   "why": "score=8,gr=0",
+   "text": ", then MCBO can be simplified to ,() ()d adeeae EAPSPS = "
+  },
+  {
+   "line": 4554,
+   "page": 146,
+   "why": "score=8,gr=0",
+   "text": ", then MCBO can be simplified to ,,()c acdd ad DBPSA = "
+  },
+  {
+   "line": 4558,
+   "page": 146,
+   "why": "score=8,gr=0",
+   "text": ", then MCBO can be finally simplified to ,,()b abcc ac CCPSB = "
+  },
+  {
+   "line": 4702,
+   "page": 151,
+   "why": "score=5,gr=0",
+   "text": "iajb shellshell"
+  },
+  {
+   "line": 6640,
+   "page": 214,
+   "why": "score=7,gr=0",
+   "text": "Rrrr tot =  allall kkkkk ff ( ) /( )"
+  },
+  {
+   "line": 7162,
+   "page": 230,
+   "why": "score=11,gr=0",
+   "text": "SUMError −= I i ji jij N atom ,, "
+  },
+  {
+   "line": 7308,
+   "page": 233,
+   "why": "score=2,gr=0",
+   "text": "B AB A "
+  },
+  {
+   "line": 7564,
+   "page": 241,
+   "why": "score=4,gr=0",
+   "text": "AmBn "
+  },
+  {
+   "line": 7568,
+   "page": 241,
+   "why": "score=4,gr=0",
+   "text": "AmBn "
+  },
+  {
+   "line": 7572,
+   "page": 241,
+   "why": "score=4,gr=0",
+   "text": "AmBn "
+  },
+  {
+   "line": 9429,
+   "page": 296,
+   "why": "score=6,gr=0",
+   "text": "where a i is contribution of MO transition between i and a to the  index:"
+  },
+  {
+   "line": 9839,
+   "page": 307,
+   "why": "score=0,gr=0",
+   "text": "change of 2()iAiAPp= is used for judging convergence."
+  },
+  {
+   "line": 11506,
+   "page": 361,
+   "why": "score=4,gr=1",
+   "text": "EEEEEE 16121)()( FFFFFFFF0F +∂∂+∂∂+∂∂+∂∂+= FFFF ==== 0 2 02 32 03 43 24 04 4  "
+  },
+  {
+   "line": 12426,
+   "page": 388,
+   "why": "score=4,gr=0",
+   "text": "LOL( )LOL( )dr=  LOL  LOL( )LOL( )d r rrr rrr 2 "
+  },
+  {
+   "line": 13482,
+   "page": 420,
+   "why": "score=3,gr=0",
+   "text": "MMMM vvvv jijiijii jijiijii −=== −=== 0 0   "
+  },
+  {
+   "line": 13929,
+   "page": 432,
+   "why": "score=8,gr=0",
+   "text": "1( )SDI( ) ff==  |( ) |d|( ) | d norm rrrr n ff norm rr "
+  },
+  {
+   "line": 15757,
+   "page": 498,
+   "why": "score=0,gr=0",
+   "text": "After some adjustments of visualization setting, the isosurface of ESP = 0.055 "
+  },
+  {
+   "line": 30285,
+   "page": 1036,
+   "why": "score=0,gr=0",
+   "text": "this output shows that NO 50.7408 MO 60.6412 MO 70.1788 MO 9=−−  The"
+  }
+ ]
+}

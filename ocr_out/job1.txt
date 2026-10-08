@@ -1,0 +1,23 @@
+=== 01_front_overview_p1-30 尝试 1 ===
+Result saved to: ocr_out/01_front_overview_p1-30.json
+=== 02_general_info_p31-76 尝试 1 ===
+Result saved to: ocr_out/02_general_info_p31-76.json
+=== 03_func_3.2-3.9_p77-133 尝试 1 ===
+Result saved to: ocr_out/03_func_3.2-3.9_p77-133.json
+=== 04_func_3.10-3.13_p134-182 尝试 1 ===
+Error: Job 101339267336589312 failed: 系统错误-拆页
+=== 04_func_3.10-3.13_p134-182 尝试 2 ===
+Result saved to: ocr_out/04_func_3.10-3.13_p134-182.json
+=== 05_func_3.14-3.17_p183-221 尝试 1 ===
+Error: Request timed out: HTTPSConnectionPool(host='paddleocr.aistudio-app.com', port=443): Max retries exceeded with url: /api/v2/ocr/jobs (Caused by ConnectTimeoutError(<HTTPSConnection(host='paddleocr.aistudio-app.com', port=443) at 0x12b93bb60>, 'Connection to paddleocr.aistudio-app.com timed out. (connect timeout=300.0)'))
+=== 05_func_3.14-3.17_p183-221 尝试 2 ===
+Result saved to: ocr_out/05_func_3.14-3.17_p183-221.json
+=== 06_func_3.18-3.20_p222-256 尝试 1 ===
+Result saved to: ocr_out/06_func_3.18-3.20_p222-256.json
+=== 07_func_3.21-3.22_p257-309 尝试 1 ===
+Result saved to: ocr_out/07_func_3.21-3.22_p257-309.json
+=== 08_func_3.23-3.25_p310-353 尝试 1 ===
+Error: Job 101341173642608640 failed: 系统错误-拆页
+=== 08_func_3.23-3.25_p310-353 尝试 2 ===
+Result saved to: ocr_out/08_func_3.23-3.25_p310-353.json
+ALL DONE

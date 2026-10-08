@@ -1,0 +1,2538 @@
+{
+ "replaced": [
+  {
+   "line": 1295,
+   "page": 43,
+   "score": 6,
+   "latex": "G(\\mathbf{r})=\\frac{1}{2}\\sum_{i}\\eta_{i}\\left|\\nabla\\varphi_{i}(\\mathbf{r})\\right|^{2}=\\frac{1}{2}\\"
+  },
+  {
+   "line": 1297,
+   "page": 43,
+   "score": 6,
+   "latex": "V_{\\mathrm{nuc}}(\\mathbf{r})=\\sum_{A}\\frac{Z_{A}}{\\left|\\mathbf{r}-\\mathbf{R}_{A}\\right|}"
+  },
+  {
+   "line": 1337,
+   "page": 44,
+   "score": 5,
+   "latex": "\\mathrm{ELF}(\\mathbf{r})=\\frac{1}{1+[\\boldsymbol{D}(\\mathbf{r})/\\boldsymbol{D}_{0}(\\mathbf{r})]^{2}}"
+  },
+  {
+   "line": 1346,
+   "page": 44,
+   "score": 4,
+   "latex": "\\mathrm{ELF}(\\mathbf{r})=\\frac{1}{1+[\\boldsymbol{D}(\\mathbf{r})/\\boldsymbol{D}_{0}(\\mathbf{r})]^{2}}"
+  },
+  {
+   "line": 1350,
+   "page": 44,
+   "score": 5,
+   "latex": "\\mathrm{ELF}(\\mathbf{r})=\\frac{1}{1+[\\boldsymbol{D}(\\mathbf{r})/\\boldsymbol{D}_{0}(\\mathbf{r})]^{2}}"
+  },
+  {
+   "line": 1431,
+   "page": 46,
+   "score": 4,
+   "latex": "V_{\\mathrm{ESP}}(\\mathbf{r})=V_{\\mathrm{nuc}}(\\mathbf{r})+V_{\\mathrm{ele}}(\\mathbf{r})=\\sum_{A}\\frac"
+  },
+  {
+   "line": 1437,
+   "page": 46,
+   "score": 12,
+   "latex": "V_{\\mathrm{ESP}}(\\mathbf{r})=V_{\\mathrm{nuc}}(\\mathbf{r})+V_{\\mathrm{ele}}(\\mathbf{r})=\\sum_{A}\\frac"
+  },
+  {
+   "line": 1472,
+   "page": 48,
+   "score": 8,
+   "latex": "\\rho^{\\mathrm{p r o}}(\\mathbf{r})=\\sum_{A}\\rho_{A}^{\\mathrm{f r e e,f i t}}(\\mathbf{r}-\\mathbf{R}_{A"
+  },
+  {
+   "line": 1496,
+   "page": 48,
+   "score": 4,
+   "latex": "\\pi(\\mathbf{r}_{1},\\mathbf{r}_{2})=N(N-1)\\int\\int\\cdots\\int\\left|\\Psi(\\mathbf{x}_{1},\\mathbf{x}_{2}\\"
+  },
+  {
+   "line": 1509,
+   "page": 49,
+   "score": 4,
+   "latex": "f_{\\mathrm{XC}}^{\\sigma_{1}\\sigma_{2}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\frac{h_{\\mathrm{XC}}^{\\sigma_"
+  },
+  {
+   "line": 1538,
+   "page": 49,
+   "score": 5,
+   "latex": "f_{\\mathrm{XC}}^{\\sigma_{1}\\sigma_{2}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\frac{h_{\\mathrm{XC}}^{\\sigma_"
+  },
+  {
+   "line": 1565,
+   "page": 50,
+   "score": 7,
+   "latex": "\\Gamma_{\\mathrm{X C}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\Gamma_{\\mathrm{X C}}^{\\a"
+  },
+  {
+   "line": 1567,
+   "page": 50,
+   "score": 10,
+   "latex": "\\begin{aligned}\\Gamma_{\\mathrm{C,approx}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})&=\\Gam"
+  },
+  {
+   "line": 1573,
+   "page": 50,
+   "score": 9,
+   "latex": "\\Gamma_{\\mathrm{XC,approx}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=-\\sum_{i\\in\\alpha}\\"
+  },
+  {
+   "line": 1579,
+   "page": 50,
+   "score": 9,
+   "latex": "\\Gamma_{\\mathrm{XC},\\mathrm{approx}}^{\\alpha,\\mathrm{tot}}"
+  },
+  {
+   "line": 1585,
+   "page": 50,
+   "score": 8,
+   "latex": "\\Gamma_{\\mathrm{XC,approx}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=-\\sum_{i\\in\\alpha}\\"
+  },
+  {
+   "line": 1589,
+   "page": 50,
+   "score": 7,
+   "latex": "\\Gamma_{\\mathrm{XC},\\mathrm{approx}}^{\\alpha,\\mathrm{tot}}"
+  },
+  {
+   "line": 1620,
+   "page": 51,
+   "score": 7,
+   "latex": "\\Gamma_{\\mathrm{XC,approx}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})"
+  },
+  {
+   "line": 1622,
+   "page": 51,
+   "score": 7,
+   "latex": "\\Gamma_{\\mathrm{XC,approx}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})"
+  },
+  {
+   "line": 1682,
+   "page": 53,
+   "score": 4,
+   "latex": "\\begin{aligned}&EDR(\\mathbf{r};d)=\\int g_{d}(\\mathbf{r},\\mathbf{r}^{\\prime})\\gamma(\\mathbf{r},\\mathb"
+  },
+  {
+   "line": 1690,
+   "page": 53,
+   "score": 7,
+   "latex": "\\delta g(\\mathbf{r})=g^{\\mathrm{I G M}}(\\mathbf{r})-g(\\mathbf{r})=\\left|\\sum_{A}\\mathrm{a b s}[\\nabl"
+  },
+  {
+   "line": 1746,
+   "page": 55,
+   "score": 4,
+   "latex": "V_{\\mathrm{ESP}}(\\mathbf{r}) / \\rho(\\mathbf{r})"
+  },
+  {
+   "line": 1752,
+   "page": 55,
+   "score": 5,
+   "latex": "V_{\\mathrm{ESP}}(\\mathbf{r}) / \\rho(\\mathbf{r})"
+  },
+  {
+   "line": 1758,
+   "page": 55,
+   "score": 4,
+   "latex": "(x^2 + y^2 + z^2)\\rho(\\mathbf{r})"
+  },
+  {
+   "line": 1772,
+   "page": 56,
+   "score": 8,
+   "latex": "V_{\\mathrm{ele}}(\\mathbf{r}) = V_{\\mathrm{ESP}}(\\mathbf{r}) - V_{\\mathrm{nuc}}(\\mathbf{r}) = -\\int \\"
+  },
+  {
+   "line": 1782,
+   "page": 56,
+   "score": 8,
+   "latex": "V_{\\mathrm{ele}}(\\mathbf{r}) = V_{\\mathrm{ESP}}(\\mathbf{r}) - V_{\\mathrm{nuc}}(\\mathbf{r}) = -\\int \\"
+  },
+  {
+   "line": 1788,
+   "page": 56,
+   "score": 10,
+   "latex": "V_{\\mathrm{ele}}(\\mathbf{r}) = V_{\\mathrm{ESP}}(\\mathbf{r}) - V_{\\mathrm{nuc}}(\\mathbf{r}) = -\\int \\"
+  },
+  {
+   "line": 1792,
+   "page": 56,
+   "score": 8,
+   "latex": "V_{\\mathrm{ele}}(\\mathbf{r}) = V_{\\mathrm{ESP}}(\\mathbf{r}) - V_{\\mathrm{nuc}}(\\mathbf{r}) = -\\int \\"
+  },
+  {
+   "line": 1796,
+   "page": 56,
+   "score": 8,
+   "latex": "V_{\\mathrm{ele}}(\\mathbf{r}) = V_{\\mathrm{ESP}}(\\mathbf{r}) - V_{\\mathrm{nuc}}(\\mathbf{r}) = -\\int \\"
+  },
+  {
+   "line": 1815,
+   "page": 57,
+   "score": 4,
+   "latex": "E_{\\mathrm{att}}(\\mathbf{r}) = \\frac{n \\sum_{i=LUMO}^{E_i < 0} |\\varphi_i(\\mathbf{r})|^2 \\varepsilon"
+  },
+  {
+   "line": 1821,
+   "page": 57,
+   "score": 6,
+   "latex": "\\begin{array}{r l r l}{{3}960\\mathrm{(2012))}\\mathrm{:}}&{\\chi(\\mathbf{r}_{1},\\mathbf{r}_{2})\\approx"
+  },
+  {
+   "line": 1823,
+   "page": 57,
+   "score": 10,
+   "latex": "E_{\\mathrm{att}}(\\mathbf{r}) = \\frac{n \\sum_{i=LUMO}^{E_i < 0} |\\varphi_i(\\mathbf{r})|^2 \\varepsilon"
+  },
+  {
+   "line": 1829,
+   "page": 57,
+   "score": 9,
+   "latex": "E_{\\mathrm{att}}(\\mathbf{r}) = \\frac{n \\sum_{i=LUMO}^{E_i < 0} |\\varphi_i(\\mathbf{r})|^2 \\varepsilon"
+  },
+  {
+   "line": 1839,
+   "page": 57,
+   "score": 10,
+   "latex": "E_{\\mathrm{att}}(\\mathbf{r}) = \\frac{n \\sum_{i=LUMO}^{E_i < 0} |\\varphi_i(\\mathbf{r})|^2 \\varepsilon"
+  },
+  {
+   "line": 1843,
+   "page": 57,
+   "score": 8,
+   "latex": "E_{\\mathrm{att}}(\\mathbf{r}) = \\frac{n \\sum_{i=LUMO}^{E_i < 0} |\\varphi_i(\\mathbf{r})|^2 \\varepsilon"
+  },
+  {
+   "line": 1853,
+   "page": 58,
+   "score": 11,
+   "latex": "V_{\\mathrm{P A E M}}(\\mathbf{r})=-V_{\\mathrm{E S P}}(\\mathbf{r})+V_{\\mathrm{X C}}(\\mathbf{r})=-V_{\\m"
+  },
+  {
+   "line": 1863,
+   "page": 58,
+   "score": 10,
+   "latex": "V_{\\mathrm{P A E M}}(\\mathbf{r})=-V_{\\mathrm{E S P}}(\\mathbf{r})+V_{\\mathrm{X C}}(\\mathbf{r})=-V_{\\m"
+  },
+  {
+   "line": 1867,
+   "page": 58,
+   "score": 12,
+   "latex": "V_{\\mathrm{P A E M}}(\\mathbf{r})=-V_{\\mathrm{E S P}}(\\mathbf{r})+V_{\\mathrm{X C}}(\\mathbf{r})=-V_{\\m"
+  },
+  {
+   "line": 1869,
+   "page": 58,
+   "score": 14,
+   "latex": "V_{\\mathrm{P A E M}}(\\mathbf{r})=-V_{\\mathrm{E S P}}(\\mathbf{r})+V_{\\mathrm{X C}}(\\mathbf{r})=-V_{\\m"
+  },
+  {
+   "line": 1875,
+   "page": 58,
+   "score": 13,
+   "latex": "V_{\\mathrm{P A E M}}(\\mathbf{r})=-V_{\\mathrm{E S P}}(\\mathbf{r})+V_{\\mathrm{X C}}(\\mathbf{r})=-V_{\\m"
+  },
+  {
+   "line": 1881,
+   "page": 59,
+   "score": 7,
+   "latex": "V_{\\mathrm{n}}(\\mathbf{r}) = \\sum_{A \\neq K} \\frac{Z_A}{|\\mathbf{r} - \\mathbf{R}_A|} - \\int \\frac{\\r"
+  },
+  {
+   "line": 1887,
+   "page": 59,
+   "score": 7,
+   "latex": "V_{\\mathrm{n}}(\\mathbf{r}) = \\sum_{A \\neq K} \\frac{Z_A}{|\\mathbf{r} - \\mathbf{R}_A|} - \\int \\frac{\\r"
+  },
+  {
+   "line": 1891,
+   "page": 59,
+   "score": 4,
+   "latex": "\\mathrm{ELF}(\\mathbf{r}) = 1/[1+\\zeta^{2}(\\mathbf{r})]"
+  },
+  {
+   "line": 1895,
+   "page": 59,
+   "score": 5,
+   "latex": "V_{\\mathrm{n}}(\\mathbf{r}) = \\sum_{A \\neq K} \\frac{Z_A}{|\\mathbf{r} - \\mathbf{R}_A|} - \\int \\frac{\\r"
+  },
+  {
+   "line": 1909,
+   "page": 60,
+   "score": 4,
+   "latex": "k_{\\mathrm{B}}(PNAS, 81, 8028"
+  },
+  {
+   "line": 1915,
+   "page": 60,
+   "score": 5,
+   "latex": "k_{\\mathrm{B}}(PNAS, 81, 8028"
+  },
+  {
+   "line": 1919,
+   "page": 60,
+   "score": 4,
+   "latex": "s(\\mathbf{r}) = (3/2)\\rho(\\mathbf{r})\\{\\lambda + \\ln[t(\\mathbf{r})/t_{\\mathrm{TF}}(\\mathbf{r})]\\}"
+  },
+  {
+   "line": 1951,
+   "page": 61,
+   "score": 5,
+   "latex": "q_\\theta(\\mathbf{r}) = \\nabla^2 V_\\theta(\\mathbf{r}) / (-4\\pi)"
+  },
+  {
+   "line": 1972,
+   "page": 61,
+   "score": 8,
+   "latex": "\\upsilon_{\\mathrm{e}}(\\mathbf{r})=\\rho(\\mathbf{r})\\left[\\int\\frac{\\rho(\\mathbf{r}^{\\prime})}{|\\mathb"
+  },
+  {
+   "line": 1987,
+   "page": 62,
+   "score": 6,
+   "latex": "m_{\\mathrm{tot}}(\\mathbf{r}) = \\sqrt{m_x^2(\\mathbf{r}) + m_y^2(\\mathbf{r}) + m_z^2(\\mathbf{r})}"
+  },
+  {
+   "line": 1989,
+   "page": 62,
+   "score": 7,
+   "latex": "m_{\\mathrm{tot}}(\\mathbf{r}) = \\sqrt{m_x^2(\\mathbf{r}) + m_y^2(\\mathbf{r}) + m_z^2(\\mathbf{r})}"
+  },
+  {
+   "line": 2038,
+   "page": 63,
+   "score": 7,
+   "latex": "\\epsilon_{\\sigma H} = |\\lambda_{1\\sigma}| / |\\lambda_{2\\sigma}| - 1"
+  },
+  {
+   "line": 2060,
+   "page": 64,
+   "score": 4,
+   "latex": "\\sigma_{i,j}(\\mathbf{r})=-\\frac{1}{4}\\sum_{t}\\eta_{t}\\left[2\\frac{\\partial\\varphi_{t}(\\mathbf{r})}{\\"
+  },
+  {
+   "line": 2080,
+   "page": 65,
+   "score": 5,
+   "latex": "E_{b}(\\mathbf{r})=\\sum_{i}P_{i b}\\chi_{i}(\\mathbf{r})"
+  },
+  {
+   "line": 2091,
+   "page": 65,
+   "score": 8,
+   "latex": "e_{\\mathrm{H F X}}^{\\alpha}(\\mathbf{r})=-\\frac{1}{2}\\sum_{b d}E_{b}^{\\alpha}(\\mathbf{r})E_{d}^{\\alph"
+  },
+  {
+   "line": 2095,
+   "page": 65,
+   "score": 5,
+   "latex": "E_{b}(\\mathbf{r})=\\sum_{i}P_{i b}\\chi_{i}(\\mathbf{r})"
+  },
+  {
+   "line": 2099,
+   "page": 65,
+   "score": 5,
+   "latex": "V_{\\mathrm{XC}}(\\mathbf{r}) = \\delta E_{\\mathrm{XC}} / \\delta\\rho(\\mathbf{r})"
+  },
+  {
+   "line": 2103,
+   "page": 65,
+   "score": 5,
+   "latex": "V_{\\mathrm{XC}}(\\mathbf{r}) = \\delta E_{\\mathrm{XC}} / \\delta\\rho(\\mathbf{r})"
+  },
+  {
+   "line": 2107,
+   "page": 65,
+   "score": 5,
+   "latex": "V_{\\mathrm{XC}}(\\mathbf{r}) = \\delta E_{\\mathrm{XC}} / \\delta\\rho(\\mathbf{r})"
+  },
+  {
+   "line": 2145,
+   "page": 67,
+   "score": 12,
+   "latex": "\\bullet\\mathrm{iKEDsel}=10:\\mathrm{Pearson}\\mathrm{KED},\\tau_{\\mathrm{Pear}}^{\\sigma}=\\tau_{\\mathrm{"
+  },
+  {
+   "line": 2163,
+   "page": 67,
+   "score": 12,
+   "latex": "s_{r}^{\\sigma}(\\mathbf{r})=s^{\\sigma}(\\mathbf{r})/[2(6\\pi^{2})^{1/3}],\\mathrm{similarly}\\mathrm{here"
+  },
+  {
+   "line": 2194,
+   "page": 68,
+   "score": 5,
+   "latex": "F_{\\mathrm{P W86}}^{\\sigma}=\\left\\{1+1.296[s_{r}^{\\sigma}(\\mathbf{r})]^{2}+14[s_{r}^{\\sigma}(\\mathbf"
+  },
+  {
+   "line": 2198,
+   "page": 68,
+   "score": 12,
+   "latex": "F_{\\mathrm{P W}91}^{\\sigma}=\\frac{1+a_{1}s_{r}^{\\sigma}(\\mathbf{r})\\operatorname{a r c s i n h}[b\\ti"
+  },
+  {
+   "line": 2204,
+   "page": 68,
+   "score": 7,
+   "latex": "F_{\\mathrm{LG}94}^{\\sigma}=\\frac{\\left\\{1+a_{2}[s_{r}^{\\sigma}(\\mathbf{r})]^{2}+a_{4}[s_{r}^{\\sigma}"
+  },
+  {
+   "line": 2216,
+   "page": 69,
+   "score": 4,
+   "latex": "\\tau_{\\mathrm{GEA4}}^{\\sigma}=\\tau_{\\mathrm{GEA2}}^{\\sigma}+\\frac{(6\\pi^{2})^{-2/3}}{540}\\left[\\rho^"
+  },
+  {
+   "line": 2873,
+   "page": 98,
+   "score": 6,
+   "latex": "P^{\\mathrm{pro}}(\\mathbf{r})=\\sum_{A}P_{A}^{\\mathrm{free}}(\\mathbf{r}-\\mathbf{R}_{A})"
+  },
+  {
+   "line": 2877,
+   "page": 98,
+   "score": 6,
+   "latex": "P^{\\mathrm{pro}}(\\mathbf{r})=\\sum_{A}P_{A}^{\\mathrm{free}}(\\mathbf{r}-\\mathbf{R}_{A})"
+  },
+  {
+   "line": 3013,
+   "page": 103,
+   "score": 14,
+   "latex": "E_{Coul-int}=\\sum_{A\\in frag1}\\sum_{B\\in frag2}\\frac{q_{A} q_{B}}{\\left|\\mathbf{R}_{A}-\\mathbf{R}_{B"
+  },
+  {
+   "line": 3039,
+   "page": 104,
+   "score": 10,
+   "latex": "w_{_{A}}^{^{Hirsh}}\\left(\\mathbf{r}\\right)=\\frac{\\rho_{_{A}}^{^{free}}\\left(\\mathbf{r}-\\mathbf{R}_{_"
+  },
+  {
+   "line": 3043,
+   "page": 104,
+   "score": 12,
+   "latex": "\\begin{aligned}&q_{_{A}}=-\\int w_{_{A}}^{Hirsh}(\\mathbf{r})[\\rho(\\mathbf{r})-\\rho^{pro}(\\mathbf{r})]"
+  },
+  {
+   "line": 3088,
+   "page": 105,
+   "score": 7,
+   "latex": "\\mathrm{I}=\\int\\left(\\sum_{a}C_{a,i}\\chi_{a}(\\mathbf{r})\\right)^{2}\\mathrm{d}\\mathbf{r}=\\sum_{a}C_{a"
+  },
+  {
+   "line": 3094,
+   "page": 105,
+   "score": 7,
+   "latex": "\\mathrm{I}=\\int\\left(\\sum_{a}C_{a,i}\\chi_{a}(\\mathbf{r})\\right)^{2}\\mathrm{d}\\mathbf{r}=\\sum_{a}C_{a"
+  },
+  {
+   "line": 3098,
+   "page": 106,
+   "score": 5,
+   "latex": "S_{a,b}=\\int\\chi_{a}(\\mathbf{r})\\chi_{b}(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "line": 3111,
+   "page": 106,
+   "score": 5,
+   "latex": "q_{_{A}}=Z_{_{A}}-\\sum_{i}n_{_{i,A}}=Z_{_{A}}-\\sum_{i}\\eta_{_{i}}\\sum_{a\\in A}\\Theta_{_{i,a}}"
+  },
+  {
+   "line": 3151,
+   "page": 107,
+   "score": 4,
+   "latex": "\\Gamma_{a,b}=\\sum_{i}\\Gamma_{a,b}^{i}=\\sum_{i}\\eta_{i}C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "line": 3199,
+   "page": 108,
+   "score": 5,
+   "latex": "1=\\sum_{a}C_{a,i}^{2}+\\sum_{a}\\sum_{b\\neq a}C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "line": 3233,
+   "page": 109,
+   "score": 6,
+   "latex": "\\Lambda_{a}=\\sum_{i}\\eta_{i}C_{a,i}^{2}+\\sum_{b\\neq a}w_{a,b}\\sum_{i}2\\eta_{i}C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "line": 3237,
+   "page": 109,
+   "score": 7,
+   "latex": "w_{a,b}=\\frac{\\displaystyle\\sum_{k}\\eta_{k}C_{a,k}^{2}}{\\displaystyle\\sum_{i}\\eta_{i}C_{a,i}^{2}+\\di"
+  },
+  {
+   "line": 3297,
+   "page": 110,
+   "score": 7,
+   "latex": "F=\\sum_{B}\\frac{\\left(\\Delta q_{A\\rightarrow B}\\right)^{2}}{v_{AB}}+\\alpha\\sum_{B}\\Delta q_{A\\righta"
+  },
+  {
+   "line": 3319,
+   "page": 111,
+   "score": 4,
+   "latex": "\\left\\langle\\mathbf{R}_{B}\\right\\rangle=\\frac{\\displaystyle\\sum_{B}\\upsilon_{A B}\\mathbf{R}_{B}}{\\di"
+  },
+  {
+   "line": 3367,
+   "page": 112,
+   "score": 6,
+   "latex": "\\left[\\begin{array}{c c c c c}A_{11}&A_{12}&\\cdots&A_{1N}&1\\\\ A_{21}&A_{22}&\\cdots&A_{2N}&1\\\\ \\vdots"
+  },
+  {
+   "line": 3371,
+   "page": 112,
+   "score": 8,
+   "latex": "\\mathbf{A}_{A,B}=\\sum_{i}\\frac{1}{r_{i A}r_{i B}}\\qquad\\mathbf{B}_{A}=\\sum_{i}\\frac{V(\\mathbf{r}_{i}"
+  },
+  {
+   "line": 3466,
+   "page": 115,
+   "score": 7,
+   "latex": "w_{A}^{(n)}(\\mathbf{r}-\\mathbf{R}_{A})=\\frac{\\rho_{A}^{(n-1)}(\\mathbf{r}-\\mathbf{R}_{A})}{\\displayst"
+  },
+  {
+   "line": 3470,
+   "page": 115,
+   "score": 11,
+   "latex": "\\rho_{_{A}}^{(n)}(r)=(q_{_{\\mathrm{u p}}}-q_{_{A}}^{(n-1)})\\rho_{_{A,\\mathrm{l o w}}}^{\\mathrm{f r e"
+  },
+  {
+   "line": 3478,
+   "page": 116,
+   "score": 6,
+   "latex": "\\rho_{_{A}}^{(n)}(r)=0.8\\times\\rho_{_{A,q=0}}^{free}(r)+0.2\\times\\rho_{_{A,q=+1}}^{free}(r)"
+  },
+  {
+   "line": 3597,
+   "page": 120,
+   "score": 6,
+   "latex": "\\chi_{i}=A_{i}+B_{i}q_{i}+\\kappa\\sum_{j\\neq i}\\frac{q_{j}}{r_{i,j}}"
+  },
+  {
+   "line": 3612,
+   "page": 120,
+   "score": 8,
+   "latex": "\\left[\\begin{matrix}{B_{1}}&{\\frac{\\kappa}{r_{1,2}}}&{\\cdots}&{\\frac{\\kappa}{r_{1,N}}}&{-1}\\\\ {\\frac"
+  },
+  {
+   "line": 3699,
+   "page": 123,
+   "score": 9,
+   "latex": "F=\\left[\\sum_{i}\\left(V_{i}-\\sum_{A}q_{A}\\sum_{a\\in A}\\frac{1}{r_{ia}}\\right)\\right]^{2}+\\lambda\\lef"
+  },
+  {
+   "line": 3707,
+   "page": 124,
+   "score": 8,
+   "latex": "\\frac{\\partial F}{\\partial q_{B}}=0=-2\\left(\\sum_{b\\in B}\\frac{1}{r_{ib}}\\right)\\sum_{i}\\left(V_{i}-"
+  },
+  {
+   "line": 3713,
+   "page": 124,
+   "score": 7,
+   "latex": "\\frac{\\partial F}{\\partial q_{B}}=0=-2\\left(\\sum_{b\\in B}\\frac{1}{r_{ib}}\\right)\\sum_{i}\\left(V_{i}-"
+  },
+  {
+   "line": 3717,
+   "page": 124,
+   "score": 6,
+   "latex": "\\begin{aligned}\\begin{bmatrix}A_{11}&A_{12}&\\cdots&A_{1N}&n_{1}\\\\A_{21}&A_{22}&\\cdots&A_{2N}&n_{2}\\\\"
+  },
+  {
+   "line": 3730,
+   "page": 124,
+   "score": 6,
+   "latex": "\\partial\\chi^{2}_{rstr}/\\partial q_{A}=aq_{A}(q^{2}_{A}+b^{2})^{-1/2}"
+  },
+  {
+   "line": 3739,
+   "page": 124,
+   "score": 13,
+   "latex": "\\begin{aligned}\\begin{bmatrix}A_{11}&A_{12}&\\cdots&A_{1N}&n_{1}\\\\A_{21}&A_{22}&\\cdots&A_{2N}&n_{2}\\\\"
+  },
+  {
+   "line": 3797,
+   "page": 126,
+   "score": 6,
+   "latex": "\\left[\\begin{array}{c c c c c c c}A_{11}&A_{12}&\\cdots&A_{1N}&n_{1}&1&0\\\\ A_{21}&A_{22}&\\cdots&A_{2N"
+  },
+  {
+   "line": 3947,
+   "page": 131,
+   "score": 4,
+   "latex": "\\Delta q_{A}^{(n)}=f^{n}\\left(\\sum_{K}\\frac{\\chi_{K}^{(n-1)}-\\chi_{A}^{(n-1)}}{\\chi_{A}^{q=1}}+\\sum_"
+  },
+  {
+   "line": 3960,
+   "page": 131,
+   "score": 5,
+   "latex": "\\Delta q_{A}^{(n)}=f^{n}\\left(\\sum_{K}\\frac{\\chi_{K}^{(n-1)}-\\chi_{A}^{(n-1)}}{\\chi_{A}^{q=1}}+\\sum_"
+  },
+  {
+   "line": 4242,
+   "page": 137,
+   "score": 8,
+   "latex": "\\sum_{a\\in frag1} \\sum_{b\\notin frag1} w_{a,b} 2C_{a,i} C_{b,i} S_{a,b} \\times 100\\%"
+  },
+  {
+   "line": 4246,
+   "page": 137,
+   "score": 9,
+   "latex": "\\sum_{a\\in frag1} \\sum_{b\\notin frag1} w_{a,b} 2C_{a,i} C_{b,i} S_{a,b} \\times 100\\%"
+  },
+  {
+   "line": 4308,
+   "page": 139,
+   "score": 5,
+   "latex": "\\int \\varphi_i^2(\\mathbf{r}) w_A(\\mathbf{r}) \\mathrm{d}\\mathbf{r} \\times 100\\%"
+  },
+  {
+   "line": 4451,
+   "page": 143,
+   "score": 8,
+   "latex": "\\begin{aligned}&I_{ABC}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}(\\mathbf{PS})_{ab}(\\mathbf{PS})_{bc}("
+  },
+  {
+   "line": 4469,
+   "page": 143,
+   "score": 12,
+   "latex": "I_{A B C D E F\\ldots K}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}\\ldots\\sum_{k\\in K}(\\mathbf{P}^{\\math"
+  },
+  {
+   "line": 4548,
+   "page": 146,
+   "score": 8,
+   "latex": "I_{A B C D E}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}\\sum_{d\\in D}\\sum_{e\\in E}(P S)_{a b}(P S)_{b c"
+  },
+  {
+   "line": 4550,
+   "page": 146,
+   "score": 8,
+   "latex": "I_{A B C D E}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}\\sum_{d\\in D}\\sum_{e\\in E}(P S)_{a b}(P S)_{b c"
+  },
+  {
+   "line": 4554,
+   "page": 146,
+   "score": 8,
+   "latex": "I_{A B C D E}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}\\sum_{d\\in D}\\sum_{e\\in E}(P S)_{a b}(P S)_{b c"
+  },
+  {
+   "line": 4558,
+   "page": 146,
+   "score": 8,
+   "latex": "I_{A B C D E}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}\\sum_{d\\in D}\\sum_{e\\in E}(P S)_{a b}(P S)_{b c"
+  },
+  {
+   "line": 4600,
+   "page": 148,
+   "score": 6,
+   "latex": "I_{_{AB}}=\\sum_{i}\\eta_{i}\\sum_{a\\in A}\\sum_{b\\in B}2C_{a,i}C_{b,i}S_{a,b}=2\\sum_{a\\in A}\\sum_{b\\in "
+  },
+  {
+   "line": 4617,
+   "page": 148,
+   "score": 6,
+   "latex": "I_{A,B}^{*}=I_{AB}^{*,\\alpha}+I_{AB}^{*,\\beta}=2\\sum_{a\\in A}\\sum_{b\\in B}[(\\mathbf{P}_{X}^{\\alpha}\\"
+  },
+  {
+   "line": 4886,
+   "page": 156,
+   "score": 11,
+   "latex": "\\mathrm{OPDOS}^{\\mathrm{near}}(E)=\\sum_{i}\\sum_{A}n_{A,A_{\\mathrm{adj}}}^{i}F(E-\\varepsilon_{i})"
+  },
+  {
+   "line": 4894,
+   "page": 156,
+   "score": 12,
+   "latex": "\\mathcal{E}_{c,F}=\\frac{\\displaystyle\\int_{\\mathrm{low}}^{\\mathrm{high}}E\\times\\mathrm{PDOS}_{F}(E)\\"
+  },
+  {
+   "line": 5087,
+   "page": 164,
+   "score": 4,
+   "latex": "esu^2cm^2"
+  },
+  {
+   "line": 5116,
+   "page": 165,
+   "score": 8,
+   "latex": "I_{i}=\\frac{C(v_{0}-v_{i})^{4}S_{i}}{v_{i}B_{i}}\\quad B_{i}=1-\\exp\\left(-\\frac{h c v_{i}}{k T}\\right"
+  },
+  {
+   "line": 5160,
+   "page": 167,
+   "score": 14,
+   "latex": "\\mathrm{ROA~intensity}\\equiv I_{i}^{\\mathrm{R}}-I_{i}^{\\mathrm{L}}\\propto\\frac{\\left(\\nu_{0}-\\nu_{i}"
+  },
+  {
+   "line": 5166,
+   "page": 167,
+   "score": 14,
+   "latex": "\\mathrm{Raman~intensity}\\equiv I_{i}^{\\mathrm{R}}+I_{i}^{\\mathrm{L}}\\propto\\frac{\\left(\\nu_{0}-\\nu_{"
+  },
+  {
+   "line": 5649,
+   "page": 179,
+   "score": 10,
+   "latex": "I^{i}=s\\sum_{\\sigma=x,y,z}\\left[I_{A,\\mathrm{intra}}^{i,\\sigma}+I_{B,\\mathrm{intra}}^{i,\\sigma}+I_{A"
+  },
+  {
+   "line": 5653,
+   "page": 179,
+   "score": 10,
+   "latex": "I_{A,\\mathrm{intra}}^{i,\\sigma}=\\left(\\sum_{j\\in A}\\frac{\\partial\\mu_{\\sigma}}{\\partial x_{j}}L_{j,i"
+  },
+  {
+   "line": 5659,
+   "page": 179,
+   "score": 13,
+   "latex": "I_{A}^{i}=s\\sum_{\\sigma=x,y,z}\\left(I_{A,\\mathrm{intra}}^{i,\\sigma}+\\frac{1}{2}I_{AB}^{i,\\sigma}\\rig"
+  },
+  {
+   "line": 5684,
+   "page": 180,
+   "score": 8,
+   "latex": "\\mathcal{E}_{A B}(E)=c\\sum_{i}\\Theta_{A B}^{i}f_{i}G(E-E_{i}^{\\mathrm{v i b}})"
+  },
+  {
+   "line": 5976,
+   "page": 191,
+   "score": 8,
+   "latex": "SA=\\ln(N)-\\sum_{i}^{N}(-p_{i}\\ln p_{i})\\quad p_{i}=\\frac{\\rho(\\mathbf{r}_{BCP_{i}})}{\\sum_{i}^{N}\\rh"
+  },
+  {
+   "line": 6090,
+   "page": 194,
+   "score": 8,
+   "latex": "\\Delta H_{\\mathrm{s u b}}=a A^{2}+b\\sqrt{\\nu\\sigma_{\\mathrm{tot}}^{2}}+c"
+  },
+  {
+   "line": 6122,
+   "page": 195,
+   "score": 9,
+   "latex": "\\rho=\\alpha\\frac{M}{V_{\\mathrm{m}}}+\\beta\\left(\\frac{\\overline{V}_{S(\\mathrm{cation})}^{+}}{A_{(\\mat"
+  },
+  {
+   "line": 6208,
+   "page": 198,
+   "score": 4,
+   "latex": "\\overline{V}_{s}=(1/A)\\sum_{i}^{N}A_{i}F_{i}"
+  },
+  {
+   "line": 6422,
+   "page": 207,
+   "score": 7,
+   "latex": "w_{A}^{\\mathrm{H i r s h}}(\\mathbf{r})=\\frac{\\rho_{A}^{0}(\\mathbf{r})}{\\displaystyle\\sum_{B}\\rho_{B}"
+  },
+  {
+   "line": 6547,
+   "page": 212,
+   "score": 4,
+   "latex": "e.g.A^{1.3}=C"
+  },
+  {
+   "line": 6740,
+   "page": 218,
+   "score": 5,
+   "latex": "P^{(\\boldsymbol{A},\\boldsymbol{B},\\boldsymbol{C},\\boldsymbol{D})}=\\left[\\begin{matrix}{P_{\\boldsymbo"
+  },
+  {
+   "line": 6877,
+   "page": 223,
+   "score": 9,
+   "latex": "w_{_{A}}^{^{Hirsh}}(\\mathbf{r})=\\frac{\\rho_{_{A}}^{^{free}}(\\mathbf{r}-\\mathbf{R}_{_{A}})}{\\sum\\limi"
+  },
+  {
+   "line": 6935,
+   "page": 224,
+   "score": 8,
+   "latex": "w_{A}^{\\mathrm{Becke}}\\left(\\mathbf{r}\\right)=\\frac{P_{A}(\\mathbf{r})}{\\sum_{B}P_{B}(\\mathbf{r})}"
+  },
+  {
+   "line": 6941,
+   "page": 225,
+   "score": 6,
+   "latex": "P_{A}(\\mathbf{r})=\\prod_{B\\neq A}s_{k}(v_{_{AB}}(\\mathbf{r}))\\quad v_{_{AB}}(\\mathbf{r})=\\mu_{_{AB}}"
+  },
+  {
+   "line": 6943,
+   "page": 225,
+   "score": 7,
+   "latex": "a_{_{AB}}=\\frac{u_{_{AB}}}{u_{_{AB}}^{2}-1}\\quad u_{_{AB}}=\\frac{\\chi_{_{AB}}-1}{\\chi_{_{AB}}+1}\\qua"
+  },
+  {
+   "line": 7039,
+   "page": 227,
+   "score": 7,
+   "latex": "\\mathbf{\\mu}^{A}=\\left[\\begin{matrix}{\\mu_{x}^{A}}\\\\ {\\mu_{y}^{A}}\\\\ {\\mu_{z}^{A}}\\\\ \\end{matrix}\\ri"
+  },
+  {
+   "line": 7056,
+   "page": 228,
+   "score": 7,
+   "latex": "\\mathbf{\\Theta}^{A}=\\left[\\begin{matrix}{\\Theta_{x x}^{A}}&{\\Theta_{x y}^{A}}&{\\Theta_{x z}^{A}}\\\\ {"
+  },
+  {
+   "line": 7117,
+   "page": 229,
+   "score": 7,
+   "latex": "\\Theta_{xy}=\\frac{3}{2}\\Biggl[\\sum_{A}R_{x}^{A}R_{y}^{A}Z_{A}-\\sum_{A}\\int xy w_{A}(\\mathbf{r})\\rho("
+  },
+  {
+   "line": 7188,
+   "page": 230,
+   "score": 8,
+   "latex": "\\delta^{\\alpha}(A\\to B)=-\\int_{A}\\int_{B}\\Gamma_{\\mathrm{X C}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},"
+  },
+  {
+   "line": 7196,
+   "page": 231,
+   "score": 8,
+   "latex": "\\delta^{\\alpha}(B\\to A)=-\\int_{B}\\int_{A}\\Gamma_{\\mathrm{X C}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},"
+  },
+  {
+   "line": 7202,
+   "page": 231,
+   "score": 8,
+   "latex": "\\delta^{\\alpha}(B\\to A)=-\\int_{B}\\int_{A}\\Gamma_{\\mathrm{X C}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},"
+  },
+  {
+   "line": 7206,
+   "page": 231,
+   "score": 7,
+   "latex": "\\delta^{\\alpha}(B\\to A)=-\\int_{B}\\int_{A}\\Gamma_{\\mathrm{X C}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},"
+  },
+  {
+   "line": 7212,
+   "page": 231,
+   "score": 9,
+   "latex": "\\begin{aligned}&\\lambda^{\\alpha}(A)+(1/2)\\sum_{B\\neq A}\\delta^{\\alpha}(A,B)\\equiv\\lambda^{\\alpha}(A)"
+  },
+  {
+   "line": 7218,
+   "page": 231,
+   "score": 5,
+   "latex": "\\delta^{\\alpha}(A,B)=2\\sum_{i\\in\\alpha}\\sum_{j\\in\\alpha}\\sqrt{\\eta_{i}\\eta_{j}}S_{i j}(A)S_{i j}(B)"
+  },
+  {
+   "line": 7240,
+   "page": 231,
+   "score": 10,
+   "latex": "\\begin{aligned}&\\lambda^{\\alpha}(A)+(1/2)\\sum_{B\\neq A}\\delta^{\\alpha}(A,B)\\equiv\\lambda^{\\alpha}(A)"
+  },
+  {
+   "line": 7242,
+   "page": 231,
+   "score": 5,
+   "latex": "\\delta(A,B)=2\\delta^{\\alpha}(A,B)=2\\times2\\sum_{m}\\sum_{n}\\sqrt{\\frac{\\eta_{m}}{2}\\frac{\\eta_{n}}{2}"
+  },
+  {
+   "line": 7277,
+   "page": 232,
+   "score": 6,
+   "latex": "\\begin{aligned}&\\delta^{\\alpha}(F,G)=2\\sum_{i\\in\\alpha}\\sum_{j\\in\\alpha}\\sqrt{\\eta_{i}\\eta_{j}}S_{ij"
+  },
+  {
+   "line": 7290,
+   "page": 233,
+   "score": 7,
+   "latex": "\\delta^{\\alpha}(A,B)=2\\sum_{i\\in\\alpha}^{cc}\\sum_{j\\in\\alpha}^{occ}S_{ij}(A)S_{ij}(B)"
+  },
+  {
+   "line": 7292,
+   "page": 233,
+   "score": 7,
+   "latex": "\\delta^{\\alpha}(A,B)=2\\sum_{i\\in\\alpha}^{cc}\\sum_{j\\in\\alpha}^{occ}S_{ij}(A)S_{ij}(B)"
+  },
+  {
+   "line": 7294,
+   "page": 233,
+   "score": 6,
+   "latex": "\\delta(A,B)=4\\sum_{m}^{occ}\\sum_{n}^{occ}S_{mn}(A)S_{mn}(B)"
+  },
+  {
+   "line": 7316,
+   "page": 233,
+   "score": 6,
+   "latex": "\\sigma^{2}(A)=N_{A}-\\lambda(A)=-\\sum_{B\\neq A}\\mathrm{cov}(A,B)=\\sum_{B\\neq A}\\delta(A,B)/2"
+  },
+  {
+   "line": 7367,
+   "page": 235,
+   "score": 11,
+   "latex": "FLU=\\frac{1}{n}\\sum_{A-B}^{ring}\\left[\\left(\\frac{V(B)}{V(A)}\\right)^{\\alpha}\\left(\\frac{\\delta(A,B)"
+  },
+  {
+   "line": 7386,
+   "page": 235,
+   "score": 10,
+   "latex": "FLU=\\frac{1}{n}\\sum_{A-B}^{ring}\\left[\\left(\\frac{V(B)}{V(A)}\\right)^{\\alpha}\\left(\\frac{\\delta(A,B)"
+  },
+  {
+   "line": 7414,
+   "page": 236,
+   "score": 6,
+   "latex": "\\chi(\\mathbf{r}_{1},\\mathbf{r}_{2})\\approx4\\sum_{i\\in\\mathrm{occ}}\\sum_{j\\in\\mathrm{vir}}\\frac{\\varp"
+  },
+  {
+   "line": 7420,
+   "page": 236,
+   "score": 10,
+   "latex": "\\chi_{_{A,B}}=\\int_{A}\\int_{B}\\chi(\\mathbf{r}_{1},\\mathbf{r}_{2})\\mathrm{d}\\mathbf{r}_{1}\\mathrm{d}\\"
+  },
+  {
+   "line": 7430,
+   "page": 237,
+   "score": 7,
+   "latex": "\\mathcal{X}_{A,B}^{(i)}=4\\sum_{j\\in\\mathrm{vir}}\\frac{S_{ij}(A)S_{ji}(B)}{\\varepsilon_{i}-\\varepsilo"
+  },
+  {
+   "line": 7439,
+   "page": 237,
+   "score": 5,
+   "latex": "PLR(A,B)=\\frac{\\chi_{1,4}+\\chi_{2,5}+\\chi_{3,6}}{3}"
+  },
+  {
+   "line": 7454,
+   "page": 237,
+   "score": 11,
+   "latex": "\\delta(A,B,C...H)=2^{n-1}\\sum_{i}\\sum_{j}\\sum_{k}\\cdots\\sum_{q}S_{i j}(A)S_{j k}(B)S_{k l}(C)\\cdots "
+  },
+  {
+   "line": 7473,
+   "page": 238,
+   "score": 15,
+   "latex": "\\mathrm{A t o m i c~S h a n n o n~e n t r o p y:}~s_{s}(A)=\\int-\\rho(\\mathbf{r})\\ln\\rho(\\mathbf{r})w"
+  },
+  {
+   "line": 7475,
+   "page": 238,
+   "score": 14,
+   "latex": "\\mathrm{A t o m i c~F i s h e r~i n f o r m a t i o n:}i_{\\mathrm{F}}(A)=\\int|\\nabla\\rho(\\mathbf{r})"
+  },
+  {
+   "line": 7477,
+   "page": 238,
+   "score": 17,
+   "latex": "\\mathrm{A t o m i c G B P e n t r o p y}\\colon s_{\\mathrm{G B P}}(A)=\\int(3/2)\\rho(\\mathbf{r})\\{\\lam"
+  },
+  {
+   "line": 7500,
+   "page": 238,
+   "score": 7,
+   "latex": "V_{A}^{\\mathrm{e f f}}=\\int\\rho(\\mathbf{r})w_{A}(\\mathbf{r})\\mid\\mathbf{r}-\\mathbf{R}_{A}\\mid^{3}\\ma"
+  },
+  {
+   "line": 7521,
+   "page": 239,
+   "score": 8,
+   "latex": "C_{6,A A}^{\\mathrm{T S}}=\\left(\\frac{V_{A}^{\\mathrm{e f f}}}{V_{A}^{\\mathrm{f r e e}}}\\right)^{2}C_{"
+  },
+  {
+   "line": 7525,
+   "page": 239,
+   "score": 7,
+   "latex": "C_{6,A B}^{\\mathrm{T S}}=\\frac{2C_{6,A A}^{\\mathrm{T S}}C_{6,B B}^{\\mathrm{T S}}}{\\frac{\\alpha_{B}^{"
+  },
+  {
+   "line": 7529,
+   "page": 239,
+   "score": 8,
+   "latex": "C_{6}^{\\mathrm{m o l}}=\\sum_{A\\in\\mathrm{m o l}1}\\sum_{B\\in\\mathrm{m o l}2}C_{6,A B}^{\\mathrm{T S}}"
+  },
+  {
+   "line": 7572,
+   "page": 241,
+   "score": 9,
+   "latex": "d_{i}=\\sum_{m\\in A}^{occ}\\sum_{n\\in B}^{vir}\\eta_{i}C_{m,i}C_{n,i}S_{m,n}"
+  },
+  {
+   "line": 7576,
+   "page": 241,
+   "score": 9,
+   "latex": "d_{i}=\\sum_{m\\in A}^{occ}\\sum_{n\\in B}^{vir}\\eta_{i}C_{m,i}C_{n,i}S_{m,n}"
+  },
+  {
+   "line": 7580,
+   "page": 241,
+   "score": 7,
+   "latex": "d_{i}=\\sum_{m\\in A}^{occ}\\sum_{n\\in B}^{vir}\\eta_{i}C_{m,i}C_{n,i}S_{m,n}"
+  },
+  {
+   "line": 7600,
+   "page": 241,
+   "score": 12,
+   "latex": "\\begin{aligned}t_{i}&=\\sum_{m\\in A}\\sum_{n\\in B}\\eta_{i}\\frac{\\left|\\eta_{m}^{\\mathrm{FO}}-\\eta_{n}^"
+  },
+  {
+   "line": 7602,
+   "page": 241,
+   "score": 11,
+   "latex": "\\begin{aligned}t_{i}&=\\sum_{m\\in A}\\sum_{n\\in B}\\eta_{i}\\frac{\\left|\\eta_{m}^{\\mathrm{FO}}-\\eta_{n}^"
+  },
+  {
+   "line": 7919,
+   "page": 256,
+   "score": 6,
+   "latex": "S_{ij}(K) = \\int_{\\Omega_K} \\varphi_i(\\mathbf{r}) \\varphi_j(\\mathbf{r}) \\, \\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "line": 8198,
+   "page": 264,
+   "score": 11,
+   "latex": "\\rho^{\\mathrm{hole}}(\\mathbf{r})=\\rho_{(\\mathrm{loc})}^{\\mathrm{hole}}(\\mathbf{r})+\\rho_{(\\mathrm{cr"
+  },
+  {
+   "line": 8202,
+   "page": 264,
+   "score": 7,
+   "latex": "\\sum_{i\\to a}\\equiv\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}\\qquad\\sum_{i\\to a}\\sum_{j\\neq "
+  },
+  {
+   "line": 8246,
+   "page": 265,
+   "score": 8,
+   "latex": "\\rho_{(\\mathrm{loc})}^{\\mathrm{hole}}=\\sum_{i\\rightarrow a}(w_{i}^{a})^{2}\\rho_{i}-\\sum_{i\\leftarrow"
+  },
+  {
+   "line": 8250,
+   "page": 265,
+   "score": 11,
+   "latex": "\\begin{array}{r l}&{\\rho_{\\mathrm{(c r o s s)}}^{\\mathrm{h o l e}}=\\displaystyle\\sum_{i\\to a}\\displa"
+  },
+  {
+   "line": 8252,
+   "page": 265,
+   "score": 11,
+   "latex": "\\begin{array}{r l}&{\\rho_{\\mathrm{(c r o s s)}}^{\\mathrm{h o l e}}=\\displaystyle\\sum_{i\\to a}\\displa"
+  },
+  {
+   "line": 8254,
+   "page": 265,
+   "score": 8,
+   "latex": "\\begin{array}{r l}&{\\rho_{\\mathrm{(c r o s s)}}^{\\mathrm{h o l e}}=\\displaystyle\\sum_{i\\to a}\\displa"
+  },
+  {
+   "line": 8256,
+   "page": 265,
+   "score": 6,
+   "latex": "\\rho_{(\\mathrm{c r o s s})}^{\\mathrm{e l e}}=\\sum_{i\\rightarrow a i\\rightarrow b\\neq a}w_{i}^{a}w_{i"
+  },
+  {
+   "line": 8262,
+   "page": 265,
+   "score": 7,
+   "latex": "\\rho_{(\\mathrm{loc})}^{\\mathrm{hole}}=\\sum_{i\\rightarrow a}(w_{i}^{a})^{2}\\rho_{i}-\\sum_{i\\leftarrow"
+  },
+  {
+   "line": 8273,
+   "page": 265,
+   "score": 10,
+   "latex": "\\Theta_{A}^{\\mathrm{h o l e}}=\\int w_{A}^{\\mathrm{H i r s h}}(\\mathbf{r})\\rho^{\\mathrm{h o l e}}(\\ma"
+  },
+  {
+   "line": 8288,
+   "page": 266,
+   "score": 10,
+   "latex": "\\Theta_{A}^{\\mathrm{h o l e}}=\\sum_{i,j\\rightarrow a}w_{i}^{a}w_{j}^{a}\\frac{1}{2}\\Biggl(\\sum_{\\mu\\i"
+  },
+  {
+   "line": 8292,
+   "page": 266,
+   "score": 10,
+   "latex": "\\Theta_{A}^{\\mathrm{h o l e}}=\\sum_{i,j\\rightarrow a}w_{i}^{a}w_{j}^{a}\\frac{1}{2}\\Biggl(\\sum_{\\mu\\i"
+  },
+  {
+   "line": 8296,
+   "page": 266,
+   "score": 9,
+   "latex": "\\Theta_{A}^{\\mathrm{h o l e}}=\\sum_{i,j\\rightarrow a}w_{i}^{a}w_{j}^{a}\\frac{1}{2}\\Biggl(\\sum_{\\mu\\i"
+  },
+  {
+   "line": 8298,
+   "page": 266,
+   "score": 7,
+   "latex": "\\Theta_{A}^{\\mathrm{c l e}}=\\sum_{i\\rightarrow a,b}w_{i}^{a}w_{i}^{b}\\frac{1}{2}\\Biggl(\\sum_{\\mu\\in "
+  },
+  {
+   "line": 8300,
+   "page": 266,
+   "score": 10,
+   "latex": "\\Theta_{A}^{\\mathrm{h o l e}}=\\sum_{i,j\\rightarrow a}w_{i}^{a}w_{j}^{a}\\frac{1}{2}\\Biggl(\\sum_{\\mu\\i"
+  },
+  {
+   "line": 8304,
+   "page": 266,
+   "score": 9,
+   "latex": "\\Theta_{A}^{\\mathrm{h o l e}}=\\sum_{i,j\\rightarrow a}w_{i}^{a}w_{j}^{a}\\frac{1}{2}\\Biggl(\\sum_{\\mu\\i"
+  },
+  {
+   "line": 8306,
+   "page": 266,
+   "score": 7,
+   "latex": "\\Theta_{A}^{\\mathrm{c l e}}=\\sum_{i\\rightarrow a,b}w_{i}^{a}w_{i}^{b}\\frac{1}{2}\\Biggl(\\sum_{\\mu\\in "
+  },
+  {
+   "line": 8312,
+   "page": 266,
+   "score": 8,
+   "latex": "\\Theta_{f r a g}^{\\mathrm{h o l e}}=\\sum_{A\\in f r a g}\\Theta_{A}^{\\mathrm{h o l e}}\\quad\\Theta_{f r"
+  },
+  {
+   "line": 8316,
+   "page": 266,
+   "score": 10,
+   "latex": "\\Theta_{A}^{\\mathrm{C D D}}=\\Theta_{A}^{\\mathrm{e l e}}-\\Theta_{A}^{\\mathrm{h o l e}}\\quad\\Theta_{f "
+  },
+  {
+   "line": 8341,
+   "page": 267,
+   "score": 11,
+   "latex": "S_{\\mathrm{m}}\\mathrm{index}=\\int S_{\\mathrm{m}}(\\mathbf{r})\\mathrm{d}\\mathbf{r}\\equiv\\int\\min[\\rho^"
+  },
+  {
+   "line": 8367,
+   "page": 268,
+   "score": 7,
+   "latex": "D_{\\mathrm{x}}=\\left|X_{\\mathrm{ele}}-X_{\\mathrm{hole}}\\right|\\quad D_{\\mathrm{y}}=\\left|Y_{\\mathrm{"
+  },
+  {
+   "line": 8371,
+   "page": 268,
+   "score": 7,
+   "latex": "\\sigma_{\\mathrm{hole,x}}=\\sqrt{\\int\\left(x-X_{\\mathrm{hole}}\\right)^{2}\\rho^{\\mathrm{hole}}(\\mathbf{"
+  },
+  {
+   "line": 8377,
+   "page": 268,
+   "score": 9,
+   "latex": "H\\operatorname{index}=\\left(\\left|\\pmb{\\sigma}_{\\mathrm{c l c}}\\right|+\\left|\\pmb{\\sigma}_{\\mathrm{h"
+  },
+  {
+   "line": 8379,
+   "page": 268,
+   "score": 10,
+   "latex": "\\Delta\\sigma\\ \\mathrm{index}=\\mid\\pmb{\\sigma}_{\\mathrm{ele}}\\mid-\\mid\\pmb{\\sigma}_{\\mathrm{hole}}\\mi"
+  },
+  {
+   "line": 8383,
+   "page": 268,
+   "score": 7,
+   "latex": "D_{\\mathrm{x}}=\\left|X_{\\mathrm{ele}}-X_{\\mathrm{hole}}\\right|\\quad D_{\\mathrm{y}}=\\left|Y_{\\mathrm{"
+  },
+  {
+   "line": 8414,
+   "page": 269,
+   "score": 10,
+   "latex": "C_{\\mathrm{hole}}(\\mathbf{r})=A_{\\mathrm{hole}}\\exp\\left(-\\frac{(x-X_{\\mathrm{hole}})^{2}}{2\\sigma_{"
+  },
+  {
+   "line": 8430,
+   "page": 269,
+   "score": 7,
+   "latex": "T(\\mathbf{r};\\mathbf{r}^{\\prime})\\equiv T(\\mathbf{r}_{1};\\mathbf{r}_{1}^{\\prime})=\\int\\Phi^{0}(\\math"
+  },
+  {
+   "line": 8474,
+   "page": 270,
+   "score": 6,
+   "latex": "D_{x}=\\int T_{x}(\\mathbf{r})\\mathrm{d}\\mathbf{r}\\qquad D_{y}=\\int T_{y}(\\mathbf{r})\\mathrm{d}\\mathbf"
+  },
+  {
+   "line": 8491,
+   "page": 271,
+   "score": 11,
+   "latex": "M_{x}=\\left\\langle\\Phi^{0}\\Big|y\\frac{\\partial}{\\partial z}-z\\frac{\\partial}{\\partial y}\\Big|\\Psi^{\\"
+  },
+  {
+   "line": 8505,
+   "page": 271,
+   "score": 10,
+   "latex": "m_{\\mathrm{x}}(\\mathbf{r})=\\sum_{i\\rightarrow a}w_{i}^{a}\\varphi_{i}(\\mathbf{r})\\Bigg[y\\frac{\\partia"
+  },
+  {
+   "line": 8510,
+   "page": 271,
+   "score": 7,
+   "latex": "E_{\\mathrm{C}}=\\iint\\frac{\\rho^{\\mathrm{hole}}(\\mathbf{r}_{1})\\rho^{\\mathrm{ele}}(\\mathbf{r}_{2})}{|"
+  },
+  {
+   "line": 8617,
+   "page": 274,
+   "score": 10,
+   "latex": "P_{\\mu\\nu}^{\\mathrm{t r a n}}=\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}w_{i}^{a}C_{\\mu i}C_"
+  },
+  {
+   "line": 8634,
+   "page": 274,
+   "score": 7,
+   "latex": "P_{\\mu\\nu}^{\\mathrm{t r a n}}=\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}w_{i}^{a}C_{\\mu i}C_"
+  },
+  {
+   "line": 8653,
+   "page": 275,
+   "score": 8,
+   "latex": "Way1\\colon p_{A B}=\\sum_{\\mu\\in A}\\sum_{\\nu\\in B}(P_{\\mu\\nu}^{\\mathrm{t r a n}})^{2}"
+  },
+  {
+   "line": 8655,
+   "page": 275,
+   "score": 8,
+   "latex": "Way1\\colon p_{A B}=\\sum_{\\mu\\in A}\\sum_{\\nu\\in B}(P_{\\mu\\nu}^{\\mathrm{t r a n}})^{2}"
+  },
+  {
+   "line": 8659,
+   "page": 275,
+   "score": 8,
+   "latex": "Way1\\colon p_{A B}=\\sum_{\\mu\\in A}\\sum_{\\nu\\in B}(P_{\\mu\\nu}^{\\mathrm{t r a n}})^{2}"
+  },
+  {
+   "line": 8772,
+   "page": 278,
+   "score": 10,
+   "latex": "\\begin{aligned}&\\Delta r=\\left|\\left\\langle\\varphi_{a}\\left|\\mathbf{r}\\right|\\varphi_{a}\\right\\rangl"
+  },
+  {
+   "line": 8802,
+   "page": 279,
+   "score": 5,
+   "latex": "\\Delta\\rho(\\mathbf{r})=\\rho_{\\mathrm{E X}}(\\mathbf{r})-\\rho_{\\mathrm{G S}}(\\mathbf{r})"
+  },
+  {
+   "line": 8830,
+   "page": 280,
+   "score": 9,
+   "latex": "\\begin{aligned}&\\Delta\\sigma_{\\lambda}=\\sigma_{+,,\\lambda}-\\sigma_{-,,\\lambda}\\qquad\\lambda=\\{x,y,z\\"
+  },
+  {
+   "line": 8836,
+   "page": 280,
+   "score": 6,
+   "latex": "\\Delta\\mu_{_{X}}=(X_{+}-X_{-})q_{\\mathrm{CT}}\\quad\\Delta\\mu_{_{Y}}=(Y_{+}-Y_{-})q_{\\mathrm{CT}}\\quad"
+  },
+  {
+   "line": 8852,
+   "page": 280,
+   "score": 9,
+   "latex": "\\begin{aligned}&\\Delta\\sigma_{\\lambda}=\\sigma_{+,,\\lambda}-\\sigma_{-,,\\lambda}\\qquad\\lambda=\\{x,y,z\\"
+  },
+  {
+   "line": 8867,
+   "page": 281,
+   "score": 6,
+   "latex": "C_{+}(\\mathbf{r})=A_{+}\\exp\\left(-\\frac{\\left(x-X_{+}\\right)^{2}}{2\\sigma_{+,x}^{2}}-\\frac{\\left(y-Y"
+  },
+  {
+   "line": 8955,
+   "page": 283,
+   "score": 9,
+   "latex": "\\mathbf{D}_{0\\rightarrow K}=\\left\\langle\\Psi_{0}\\left|-\\mathbf{r}\\right|\\Psi_{K}\\right\\rangle=\\sum_{"
+  },
+  {
+   "line": 8961,
+   "page": 283,
+   "score": 9,
+   "latex": "\\mathbf{M}_{0\\rightarrow K}=\\left\\langle\\psi_{0}\\left|\\mathbf{r}\\times\\nabla\\right|\\psi_{K}\\right\\ra"
+  },
+  {
+   "line": 8967,
+   "page": 283,
+   "score": 12,
+   "latex": "\\mathbf{T}_{K\\rightarrow L}=\\left\\langle\\psi_{K}\\left|\\hat{\\mathbf{v}}\\right|\\psi_{L}\\right\\rangle=\\"
+  },
+  {
+   "line": 8973,
+   "page": 284,
+   "score": 5,
+   "latex": "V^{i a j b}=\\begin{cases}{\\left\\langle\\varphi_{i}\\right\\vert\\hat{\\mathbf{v}}\\big\\vert\\varphi_{a}\\big"
+  },
+  {
+   "line": 9050,
+   "page": 286,
+   "score": 11,
+   "latex": "\\omega_{\\mathrm{low}}=\\underbrace{\\sum_{i,a}\\left[\\frac{\\left(w_{i}^{a}\\right)^{2}}{\\sum_{i,a}\\left("
+  },
+  {
+   "line": 9110,
+   "page": 288,
+   "score": 11,
+   "latex": "\\begin{aligned}\\Delta p_{_{R}}&=\\sum_{S\\neq R}(Q_{_{S,R}}-Q_{_{R,S}})=\\sum_{S\\neq R}(\\Theta_{_{S,\\ma"
+  },
+  {
+   "line": 9114,
+   "page": 288,
+   "score": 8,
+   "latex": "\\begin{aligned}\\Delta p_{_{R}}&=\\sum_{S\\neq R}(Q_{_{S,R}}-Q_{_{R,S}})=\\sum_{S\\neq R}(\\Theta_{_{S,\\ma"
+  },
+  {
+   "line": 9116,
+   "page": 288,
+   "score": 6,
+   "latex": "\\begin{aligned}\\Delta p_{_{R}}&=\\sum_{S\\neq R}(Q_{_{S,R}}-Q_{_{R,S}})=\\sum_{S\\neq R}(\\Theta_{_{S,\\ma"
+  },
+  {
+   "line": 9118,
+   "page": 288,
+   "score": 5,
+   "latex": "\\begin{aligned}\\Delta p_{_{R}}&=\\sum_{S\\neq R}(Q_{_{S,R}}-Q_{_{R,S}})=\\sum_{S\\neq R}(\\Theta_{_{S,\\ma"
+  },
+  {
+   "line": 9211,
+   "page": 290,
+   "score": 11,
+   "latex": "P_{\\mu\\nu}^{\\mathrm{t r a n}}=\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}w_{i,a}^{K}C_{\\mu i}"
+  },
+  {
+   "line": 9217,
+   "page": 290,
+   "score": 12,
+   "latex": "P_{\\mu\\nu}^{K L}=\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}w_{i,a}^{K}\\sum_{j}^{\\mathrm{o c "
+  },
+  {
+   "line": 9219,
+   "page": 290,
+   "score": 7,
+   "latex": "P_{\\mu\\nu}^{K L}=\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}w_{i,a}^{K}\\sum_{j}^{\\mathrm{o c "
+  },
+  {
+   "line": 9245,
+   "page": 291,
+   "score": 6,
+   "latex": "T^{K L}(\\mathbf{r};\\mathbf{r}^{\\prime})=\\int\\Psi^{K}(\\mathbf{r},\\mathbf{r}_{2},...,\\mathbf{r}_{N})\\P"
+  },
+  {
+   "line": 9249,
+   "page": 291,
+   "score": 11,
+   "latex": "\\begin{array}{r l}{\\Psi^{K}=\\displaystyle\\sum_{i}^{\\mathrm{o c c}}\\displaystyle\\sum_{a}^{\\mathrm{v i"
+  },
+  {
+   "line": 9253,
+   "page": 291,
+   "score": 14,
+   "latex": "T^{K L}(\\mathbf{r};\\mathbf{r}^{\\prime})=\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}w_{i,a}^{K"
+  },
+  {
+   "line": 9268,
+   "page": 292,
+   "score": 11,
+   "latex": "T^{KL}(\\mathbf{r};\\mathbf{r}^{\\prime})=\\left\\{\\begin{aligned}0&\\quad(i\\neq j,a\\neq b)\\\\ \\sum_{i}\\sum"
+  },
+  {
+   "line": 9279,
+   "page": 292,
+   "score": 8,
+   "latex": "T^{KL}(\\mathbf{r};\\mathbf{r}^{\\prime})=\\left\\{\\begin{aligned}0&\\quad(i\\neq j,a\\neq b)\\\\ \\sum_{i}\\sum"
+  },
+  {
+   "line": 9336,
+   "page": 293,
+   "score": 6,
+   "latex": "\\mathbf{D}_{\\mu}=P_{\\mu\\mu}^{\\mathrm{t r a n}}\\left\\langle\\boldsymbol{\\chi}_{\\mu}\\middle|-\\mathbf{r}"
+  },
+  {
+   "line": 9342,
+   "page": 294,
+   "score": 6,
+   "latex": "\\mathbf{M}_{\\mu}=P_{\\mu\\mu}^{\\mathrm{t r a n}}\\left\\langle\\boldsymbol{\\chi}_{\\mu}\\middle|\\mathbf{r}\\"
+  },
+  {
+   "line": 9409,
+   "page": 296,
+   "score": 7,
+   "latex": "\\begin{array}{r}{\\Delta\\mathbf{P}^{\\mathrm{l o c a l}}=\\displaystyle\\sum_{i\\to a}(w_{i}^{a})^{2}(-\\m"
+  },
+  {
+   "line": 9417,
+   "page": 296,
+   "score": 7,
+   "latex": "\\begin{array}{r}{\\Delta\\mathbf{P}^{\\mathrm{l o c a l}}=\\displaystyle\\sum_{i\\to a}(w_{i}^{a})^{2}(-\\m"
+  },
+  {
+   "line": 9464,
+   "page": 297,
+   "score": 8,
+   "latex": "\\begin{aligned}\\Lambda=&\\int\\left|\\varphi_{i}(\\mathbf{r})\\right|\\left|\\varphi_{a}(\\mathbf{r})\\right|"
+  },
+  {
+   "line": 9764,
+   "page": 305,
+   "score": 7,
+   "latex": "\\left\\langle\\Omega\\right\\rangle_{\\mathrm{B o y s}}=\\sum_{i}\\iint\\rho_{i}(\\mathbf{r}_{1})(\\mathbf{r}_"
+  },
+  {
+   "line": 9910,
+   "page": 309,
+   "score": 4,
+   "latex": "\\mathbf{D}_{i}=\\left\\langle\\varphi_{i}\\left|-(\\mathbf{r}-\\mathbf{r}_{\\mathrm{c}}^{i})\\right|\\varphi_"
+  },
+  {
+   "line": 10137,
+   "page": 320,
+   "score": 4,
+   "latex": "\\mathrm{aRDG}(\\mathbf{r})=\\frac{1}{2(3\\pi^{2})^{1/3}}\\frac{|\\overline{\\nabla\\rho}(\\mathbf{r})|}{\\lef"
+  },
+  {
+   "line": 10199,
+   "page": 322,
+   "score": 4,
+   "latex": "\\mathrm{DORI}(\\mathbf{r})=\\frac{\\theta(\\mathbf{r})}{1+\\theta(\\mathbf{r})}"
+  },
+  {
+   "line": 10247,
+   "page": 324,
+   "score": 6,
+   "latex": "g(\\mathbf{r})=\\left|\\sum_{i}\\nabla\\rho_{i}^{\\mathrm{f r e e}}(\\mathbf{r})\\right|\\qquad g^{\\mathrm{I "
+  },
+  {
+   "line": 10253,
+   "page": 324,
+   "score": 8,
+   "latex": "g^{\\mathrm{IGM,inter}}(\\mathbf{r})=\\sum_{A}\\left|\\sum_{i\\in A}\\nabla\\rho_{i}^{\\mathrm{free}}(\\mathbf"
+  },
+  {
+   "line": 10262,
+   "page": 324,
+   "score": 9,
+   "latex": "g^{\\mathrm{IGM,inter}}(\\mathbf{r})=\\sum_{A}\\left|\\sum_{i\\in A}\\nabla\\rho_{i}^{\\mathrm{free}}(\\mathbf"
+  },
+  {
+   "line": 10282,
+   "page": 325,
+   "score": 11,
+   "latex": "\\delta G_{i,j}^{\\mathrm{pair}}=\\int\\delta g_{i,j}(\\mathbf{r})\\mathrm{d}\\mathbf{r}=\\int[g_{i,j}^{\\mat"
+  },
+  {
+   "line": 10286,
+   "page": 325,
+   "score": 6,
+   "latex": "g_{i,j}(\\mathbf{r})=\\left|\\nabla\\rho_{i}^{\\mathrm{f r e e}}(\\mathbf{r})+\\nabla\\rho_{j}^{\\mathrm{f r "
+  },
+  {
+   "line": 10288,
+   "page": 325,
+   "score": 7,
+   "latex": "g_{i,j}^{\\mathrm{IGM}}(\\mathbf{r})=\\left|\\nabla\\rho_{i}^{\\mathrm{free}}(\\mathbf{r})\\right|+\\left|\\na"
+  },
+  {
+   "line": 10292,
+   "page": 325,
+   "score": 11,
+   "latex": "\\delta G_{i,j}^{\\mathrm{pair}}(\\%)=\\frac{\\delta G_{i,j}^{\\mathrm{pair}}}{\\sum\\limits_{k\\in A}\\sum\\li"
+  },
+  {
+   "line": 10307,
+   "page": 325,
+   "score": 9,
+   "latex": "\\delta G_{i}^{\\mathrm{atom}}=\\sum_{j\\in B}\\delta G_{i,j}^{\\mathrm{pair}}"
+  },
+  {
+   "line": 10343,
+   "page": 326,
+   "score": 9,
+   "latex": "IGM\\_inter.vmd"
+  },
+  {
+   "line": 10361,
+   "page": 326,
+   "score": 8,
+   "latex": "IGM\\_inter.vmd"
+  },
+  {
+   "line": 10407,
+   "page": 328,
+   "score": 8,
+   "latex": "w_{i}(\\mathbf{r})=\\frac{\\rho_{i}^{\\mathrm{f r e e}}(\\mathbf{r})}{\\rho^{\\mathrm{p r o}}(\\mathbf{r})}="
+  },
+  {
+   "line": 10420,
+   "page": 328,
+   "score": 8,
+   "latex": "\\frac{\\partial\\rho_{i}^{Hirsh}}{\\partial\\mu}=w_{i}\\frac{\\partial\\rho}{\\partial\\mu}-\\rho\\frac{\\partia"
+  },
+  {
+   "line": 10455,
+   "page": 329,
+   "score": 12,
+   "latex": "E_{AB}^{\\mathrm{vdW}}=E_{AB}^{\\mathrm{repul}}+E_{AB}^{\\mathrm{disp}}=\\varepsilon_{AB}\\left(\\frac{R_{"
+  },
+  {
+   "line": 10463,
+   "page": 330,
+   "score": 12,
+   "latex": "V^{\\mathrm{vdW}}(\\mathbf{r})=V^{\\mathrm{repul}}(\\mathbf{r})+V^{\\mathrm{disp}}(\\mathbf{r})=\\sum_{A}\\v"
+  },
+  {
+   "line": 10571,
+   "page": 333,
+   "score": 8,
+   "latex": "\\mathrm{TFI}^{\\mathrm{amIGM}}(\\mathbf{r})=\\frac{s t d(\\delta g^{\\mathrm{inter}})(\\mathbf{r})}{\\delta"
+  },
+  {
+   "line": 10573,
+   "page": 333,
+   "score": 11,
+   "latex": "\\mathrm{TFI}^{\\mathrm{amIGM}}(\\mathbf{r})=\\frac{s t d(\\delta g^{\\mathrm{inter}})(\\mathbf{r})}{\\delta"
+  },
+  {
+   "line": 10613,
+   "page": 334,
+   "score": 8,
+   "latex": "E_{_{AB}}^{\\mathrm{vdW}}=E_{_{AB}}^{\\mathrm{rep}}+E_{_{AB}}^{\\mathrm{disp}}"
+  },
+  {
+   "line": 10718,
+   "page": 337,
+   "score": 14,
+   "latex": "E_{\\mathrm{e l e c t r o s t a t i c}}=E_{\\mathrm{J}}+E_{\\mathrm{N-E}}+E_{\\mathrm{N-N}}=\\iint\\frac{\\"
+  },
+  {
+   "line": 10994,
+   "page": 346,
+   "score": 4,
+   "latex": "\\omega_{cubic}"
+  },
+  {
+   "line": 11016,
+   "page": 347,
+   "score": 8,
+   "latex": "\\begin{array}{r l r l}&{f_{w}^{+}(\\mathbf{r})=\\displaystyle\\sum_{i=\\mathrm{L U M O}}^{\\infty}w_{i}\\m"
+  },
+  {
+   "line": 11018,
+   "page": 347,
+   "score": 7,
+   "latex": "\\begin{array}{r l}{f_{w}^{-}(\\mathbf{r})=\\displaystyle\\sum_{i}^{\\mathrm{H O M O}}w_{i}\\mid\\varphi_{i"
+  },
+  {
+   "line": 11161,
+   "page": 351,
+   "score": 7,
+   "latex": "D^{N}(A)=2\\sum_{i}^{unocc}\\sum_{\\mu\\in A}\\frac{C_{\\mu,i}^{2}}{\\alpha-\\varepsilon_{i}}"
+  },
+  {
+   "line": 11531,
+   "page": 362,
+   "score": 10,
+   "latex": "\\mathbf{\\mu}=-\\frac{\\partial E}{\\partial\\mathbf{F}}=\\mathbf{\\mu}_{0}+\\underbrace{\\mathbf{\\alpha}\\mat"
+  },
+  {
+   "line": 11535,
+   "page": 362,
+   "score": 8,
+   "latex": "\\boldsymbol{\\mu}_{1}=\\boldsymbol{\\alpha}\\cdot\\mathbf{F}\\quad\\Rightarrow\\quad\\begin{bmatrix}\\mu_{x}\\\\"
+  },
+  {
+   "line": 11569,
+   "page": 362,
+   "score": 10,
+   "latex": "\\boldsymbol{\\mu}_{1}=\\boldsymbol{\\alpha}\\cdot\\mathbf{F}\\quad\\Rightarrow\\quad\\begin{bmatrix}\\mu_{x}\\\\"
+  },
+  {
+   "line": 11582,
+   "page": 363,
+   "score": 5,
+   "latex": "\\mathrm{d e f}2:\\quad<\\gamma>=(1/5)(\\gamma_{x x x x}+\\gamma_{y y y y}+\\gamma_{z z z z}+\\gamma_{x x y"
+  },
+  {
+   "line": 11609,
+   "page": 363,
+   "score": 6,
+   "latex": "\\mathrm{d e f}2:\\quad<\\gamma>=(1/5)(\\gamma_{x x x x}+\\gamma_{y y y y}+\\gamma_{z z z z}+\\gamma_{x x y"
+  },
+  {
+   "line": 11613,
+   "page": 363,
+   "score": 6,
+   "latex": "\\mathrm{d e f}2:\\quad<\\gamma>=(1/5)(\\gamma_{x x x x}+\\gamma_{y y y y}+\\gamma_{z z z z}+\\gamma_{x x y"
+  },
+  {
+   "line": 11632,
+   "page": 364,
+   "score": 5,
+   "latex": "\\beta_{\\mathrm{H R S}}(-2\\omega;\\omega,\\omega)=\\sqrt{\\left\\langle\\beta_{Z Z Z}^{2}\\right\\rangle+\\lef"
+  },
+  {
+   "line": 11634,
+   "page": 364,
+   "score": 8,
+   "latex": "\\begin{aligned}\\left\\langle\\beta_{X Z Z}^{2}\\right\\rangle=&\\frac{1}{35}\\sum_{\\zeta}\\beta_{\\zeta\\vars"
+  },
+  {
+   "line": 11641,
+   "page": 364,
+   "score": 8,
+   "latex": "\\begin{aligned}\\left\\langle\\beta_{X Z Z}^{2}\\right\\rangle=&\\frac{1}{35}\\sum_{\\zeta}\\beta_{\\zeta\\vars"
+  },
+  {
+   "line": 11667,
+   "page": 365,
+   "score": 7,
+   "latex": "\\begin{aligned}&|\\boldsymbol{\\beta}_{J=1}|=\\sqrt{6\\left\\langle\\boldsymbol{\\beta}_{ZZZ}^{2}\\right\\ran"
+  },
+  {
+   "line": 11687,
+   "page": 365,
+   "score": 8,
+   "latex": "\\begin{aligned}&|\\boldsymbol{\\beta}_{J=1}|=\\sqrt{6\\left\\langle\\boldsymbol{\\beta}_{ZZZ}^{2}\\right\\ran"
+  },
+  {
+   "line": 11695,
+   "page": 365,
+   "score": 9,
+   "latex": "\\begin{aligned}&|\\boldsymbol{\\beta}_{J=1}|=\\sqrt{6\\left\\langle\\boldsymbol{\\beta}_{ZZZ}^{2}\\right\\ran"
+  },
+  {
+   "line": 11719,
+   "page": 366,
+   "score": 10,
+   "latex": "HRS\\_angle.txt"
+  },
+  {
+   "line": 11767,
+   "page": 368,
+   "score": 4,
+   "latex": "\\alpha_{_{AB}}(-\\omega;\\omega)=\\sum_{i\\neq0}\\left[\\frac{\\mu_{0i}^{A}\\mu_{i0}^{B}}{\\Delta_{i}-\\omega}"
+  },
+  {
+   "line": 11769,
+   "page": 368,
+   "score": 6,
+   "latex": "\\beta_{A B C}(-\\omega_{\\sigma};\\omega_{1},\\omega_{2})=\\hat{P}[A(-\\omega_{\\sigma}),B(\\omega_{1}),C(\\o"
+  },
+  {
+   "line": 11786,
+   "page": 368,
+   "score": 6,
+   "latex": "\\begin{aligned}\\gamma_{ABCD}(-\\boldsymbol{\\omega}_{\\sigma};\\boldsymbol{\\omega}_{1},\\boldsymbol{\\omeg"
+  },
+  {
+   "line": 11788,
+   "page": 368,
+   "score": 7,
+   "latex": "\\begin{aligned}\\gamma_{ABCD}(-\\boldsymbol{\\omega}_{\\sigma};\\boldsymbol{\\omega}_{1},\\boldsymbol{\\omeg"
+  },
+  {
+   "line": 11790,
+   "page": 368,
+   "score": 6,
+   "latex": "\\begin{aligned}\\gamma_{ABCD}(-\\boldsymbol{\\omega}_{\\sigma};\\boldsymbol{\\omega}_{1},\\boldsymbol{\\omeg"
+  },
+  {
+   "line": 11799,
+   "page": 368,
+   "score": 9,
+   "latex": "\\begin{aligned}\\gamma_{ABCD}(-\\boldsymbol{\\omega}_{\\sigma};\\boldsymbol{\\omega}_{1},\\boldsymbol{\\omeg"
+  },
+  {
+   "line": 11803,
+   "page": 368,
+   "score": 8,
+   "latex": "\\begin{aligned}\\gamma_{ABCD}(-\\boldsymbol{\\omega}_{\\sigma};\\boldsymbol{\\omega}_{1},\\boldsymbol{\\omeg"
+  },
+  {
+   "line": 11805,
+   "page": 368,
+   "score": 8,
+   "latex": "\\begin{aligned}\\gamma_{ABCD}(-\\boldsymbol{\\omega}_{\\sigma};\\boldsymbol{\\omega}_{1},\\boldsymbol{\\omeg"
+  },
+  {
+   "line": 11865,
+   "page": 370,
+   "score": 4,
+   "latex": "\\beta_{ABC}(-\\omega_{\\sigma};\\omega_{1},\\omega_{2})=\\hat{P}[A(-\\omega_{\\sigma}),B(\\omega_{1}),C(\\ome"
+  },
+  {
+   "line": 11875,
+   "page": 370,
+   "score": 6,
+   "latex": "\\beta_{ABC}(-\\omega_{\\sigma};\\omega_{1},\\omega_{2})=\\hat{P}[A(-\\omega_{\\sigma}),B(\\omega_{1}),C(\\ome"
+  },
+  {
+   "line": 11881,
+   "page": 370,
+   "score": 5,
+   "latex": "\\beta_{ZZZ}^{SOS}=6\\sum_{i\\neq0}\\sum_{j\\neq0}\\frac{\\mu_{0i}^{Z}\\overline{\\mu_{ij}^{Z}}\\mu_{j0}^{Z}}{"
+  },
+  {
+   "line": 11895,
+   "page": 371,
+   "score": 5,
+   "latex": "\\beta_{ZZZ}^{\\mathrm{sos}}=\\sum_{i}6\\frac{\\left(\\mu_{0i}^{Z}\\right)^{2}\\Delta\\mu_{i}^{Z}}{\\Delta_{i}"
+  },
+  {
+   "line": 11908,
+   "page": 371,
+   "score": 5,
+   "latex": "\\beta_{Z Z Z}^{\\mathrm{S O S}}=9\\Delta\\mu_{i}^{Z}f_{i}^{Z}/\\Delta_{i}^{3}"
+  },
+  {
+   "line": 11918,
+   "page": 371,
+   "score": 5,
+   "latex": "\\beta_{ZZZ}^{\\mathrm{sos}}=\\sum_{i}6\\frac{\\left(\\mu_{0i}^{Z}\\right)^{2}\\Delta\\mu_{i}^{Z}}{\\Delta_{i}"
+  },
+  {
+   "line": 11951,
+   "page": 372,
+   "score": 5,
+   "latex": "\\mathbf{\\mu}_{0}=-\\frac{\\partial E}{\\partial\\mathbf{F}}\\bigg|_{\\mathbf{F}=0}\\quad\\mathbf{a}=-\\frac{\\"
+  },
+  {
+   "line": 12023,
+   "page": 374,
+   "score": 5,
+   "latex": "\\mathbf{p}=\\mathbf{p}_{0}+\\mathbf{a}\\cdot\\mathbf{F}+(1/2)\\mathbf{β}\\cdot\\mathbf{F}\\cdot\\mathbf{F}+(1"
+  },
+  {
+   "line": 12029,
+   "page": 374,
+   "score": 4,
+   "latex": "\\boldsymbol{\\beta}^{\\mathrm{e f f}}(\\theta,\\phi)=\\boldsymbol{\\beta}\\cdot\\mathbf{e}(\\theta,\\phi)\\cdot"
+  },
+  {
+   "line": 12048,
+   "page": 375,
+   "score": 4,
+   "latex": "\\boldsymbol{\\alpha}^{\\mathrm{eff}}(\\theta,\\phi)"
+  },
+  {
+   "line": 12050,
+   "page": 375,
+   "score": 4,
+   "latex": "\\begin{aligned}\\mathbf{a}^{\\mathrm{eff}}(\\theta,\\phi)&=\\mathbf{a}\\cdot\\mathbf{e}(\\theta,\\phi)\\\\\\bold"
+  },
+  {
+   "line": 12052,
+   "page": 375,
+   "score": 8,
+   "latex": "\\begin{aligned}\\mathbf{a}^{\\mathrm{eff}}(\\theta,\\phi)&=\\mathbf{a}\\cdot\\mathbf{e}(\\theta,\\phi)\\\\\\bold"
+  },
+  {
+   "line": 12054,
+   "page": 375,
+   "score": 8,
+   "latex": "\\begin{aligned}\\mathbf{a}^{\\mathrm{eff}}(\\theta,\\phi)&=\\mathbf{a}\\cdot\\mathbf{e}(\\theta,\\phi)\\\\\\bold"
+  },
+  {
+   "line": 12063,
+   "page": 375,
+   "score": 8,
+   "latex": "\\begin{aligned}\\mathbf{a}^{\\mathrm{eff}}(\\theta,\\phi)&=\\mathbf{a}\\cdot\\mathbf{e}(\\theta,\\phi)\\\\\\bold"
+  },
+  {
+   "line": 12542,
+   "page": 391,
+   "score": 10,
+   "latex": "\\Delta E_{\\mathrm{o r b}}=E_{\\mathrm{S C F,l a s t}}-E_{\\mathrm{S C F,l s t}}"
+  },
+  {
+   "line": 12684,
+   "page": 395,
+   "score": 13,
+   "latex": "\\begin{aligned}&C^{\\alpha}_{biortho}=\\mathbf{U}\\mathbf{C}^{\\alpha}_{original}\\\\&C^{\\beta}_{biortho}="
+  },
+  {
+   "line": 12690,
+   "page": 395,
+   "score": 13,
+   "latex": "\\begin{aligned}&C^{\\alpha}_{biortho}=\\mathbf{U}\\mathbf{C}^{\\alpha}_{original}\\\\&C^{\\beta}_{biortho}="
+  },
+  {
+   "line": 12704,
+   "page": 395,
+   "score": 9,
+   "latex": "\\mathbf{F}_{\\mathrm{b i o r t h o}}^{\\alpha}=(\\mathbf{C}^{\\alpha})^{\\mathrm{T}}\\mathbf{F}_{\\mathrm{A"
+  },
+  {
+   "line": 12762,
+   "page": 397,
+   "score": 10,
+   "latex": "S_{i,j}^{\\mathrm{i n t e r}}=\\int\\varphi_{i}^{\\mathrm{m o n o m e r1}}(\\mathbf{r})\\varphi_{j}^{\\math"
+  },
+  {
+   "line": 12826,
+   "page": 399,
+   "score": 13,
+   "latex": "G_{rs}^{(0)\\mathrm{R/A}}(E_{\\mathrm{F}})=\\frac{C_{r\\mathrm{HOMO}}C_{s\\mathrm{HOMO}}^{*}}{E_{\\mathrm{"
+  },
+  {
+   "line": 12895,
+   "page": 401,
+   "score": 12,
+   "latex": "\\mathbf{F}_{A}=-\\Big\\langle\\Psi\\Big|\\frac{\\hat{H}}{\\partial\\mathbf{R}_{A}}\\Big|\\Psi\\Big\\rangle=\\math"
+  },
+  {
+   "line": 12903,
+   "page": 402,
+   "score": 7,
+   "latex": "\\mathbf{F}_{A}^{\\mathrm{Q C}}=-\\frac{\\partial E}{\\partial\\mathbf{R}_{A}}=-\\big\\langle\\Psi\\big|\\frac{"
+  },
+  {
+   "line": 12934,
+   "page": 403,
+   "score": 5,
+   "latex": "\\mathbf{I}=\\left[\\begin{matrix}{I_{X X}}&{I_{X Y}}&{I_{X Z}}\\\\ {I_{Y X}}&{I_{Y Y}}&{I_{Y Z}}\\\\ {I_{Z"
+  },
+  {
+   "line": 13101,
+   "page": 408,
+   "score": 7,
+   "latex": "RMSE=\\sqrt{\\frac{\\sum_{i}\\left[V(\\mathbf{r}_{i})-V^{\\prime}(\\mathbf{r}_{i})\\right]^{2}}{N}}\\quad RRM"
+  },
+  {
+   "line": 13263,
+   "page": 414,
+   "score": 13,
+   "latex": "\\mathbf{\\mu}=\\mathbf{\\mu}^{\\mathrm{nuc}}+\\mathbf{\\mu}^{\\mathrm{ele}}=\\sum_{A}Z_{A}\\mathbf{R}_{A}-\\su"
+  },
+  {
+   "line": 13271,
+   "page": 414,
+   "score": 12,
+   "latex": "\\boldsymbol{\\mu}=\\sum_{A}\\boldsymbol{\\mu}_{A}^{\\mathrm{tot}}+\\sum_{A}\\sum_{B>A}\\boldsymbol{\\mu}_{A B"
+  },
+  {
+   "line": 13285,
+   "page": 415,
+   "score": 10,
+   "latex": "\\begin{array}{r l}{\\pmb{\\mu}_{A}^{\\mathrm{p o p}}=-p_{A}^{\\mathrm{l o c}}\\pmb{R}_{A}}&{{}p_{A}^{\\mat"
+  },
+  {
+   "line": 13289,
+   "page": 415,
+   "score": 12,
+   "latex": "\\begin{aligned}\\boldsymbol{\\mu}_{A}^{\\mathrm{d i p}}=&-\\sum_{i\\in A}\\sum_{j\\in A}P_{i,j}\\left\\langle"
+  },
+  {
+   "line": 13293,
+   "page": 415,
+   "score": 9,
+   "latex": "\\begin{array}{r l}{\\pmb{\\mu}_{A B}^{\\mathrm{p o p}}=-p_{A B}\\mathbf{R}_{A B}}&{{}p_{A B}=2\\displayst"
+  },
+  {
+   "line": 13297,
+   "page": 415,
+   "score": 13,
+   "latex": "\\begin{aligned}\\boldsymbol{\\mu}_{AB}^{\\mathrm{dip}}&=-2\\sum_{i\\in A}\\sum_{j\\in B}P_{i,j}\\left\\langle"
+  },
+  {
+   "line": 13308,
+   "page": 415,
+   "score": 12,
+   "latex": "\\begin{array}{r l}{\\pmb{\\mu}_{A}^{\\mathrm{^{\\prime}\\mathrm{p o p}}}=-\\pmb{p}_{A}^{\\mathrm{M u l}}\\pm"
+  },
+  {
+   "line": 13312,
+   "page": 415,
+   "score": 12,
+   "latex": "\\mathbf{\\mu}_{A}^{\\prime\\mathrm{d i p}}=-\\sum_{B}\\sum_{i\\in B}\\sum_{j\\in B}P_{i,j}\\left\\langle\\chi_{"
+  },
+  {
+   "line": 13364,
+   "page": 416,
+   "score": 7,
+   "latex": "I(r^{\\prime})=\\int_{r_{\\mathrm{low}}}^{r^{\\prime}}R D F(r)\\mathrm{d}r=\\int_{r_{\\mathrm{low}}}^{r^{\\p"
+  },
+  {
+   "line": 13387,
+   "page": 417,
+   "score": 8,
+   "latex": "\\left|i\\right\\rangle=\\sum_{j}C_{i,j}\\left|j\\right\\rangle\\quad\\mathrm{where}\\quad C_{i,j}=\\left\\langl"
+  },
+  {
+   "line": 13472,
+   "page": 419,
+   "score": 5,
+   "latex": "\\mathbf{\\mu}_{i j}=\\mathbf{\\mu}_{j i}=<\\mathbf{\\varphi}_{i}\\mid-\\mathbf{r}\\mid\\mathbf{\\varphi}_{j}>"
+  },
+  {
+   "line": 13537,
+   "page": 420,
+   "score": 6,
+   "latex": "\\mathbf{\\mu}=\\left[\\begin{matrix}{\\mu_{x}}\\\\ {\\mu_{y}}\\\\ {\\mu_{z}}\\\\ \\end{matrix}\\right]=\\int\\left[\\"
+  },
+  {
+   "line": 13543,
+   "page": 421,
+   "score": 4,
+   "latex": "\\langle r^2 \\rangle = \\int(x^2 + y^2 + z^2)f(\\mathbf{r})d\\mathbf{r}"
+  },
+  {
+   "line": 13572,
+   "page": 422,
+   "score": 5,
+   "latex": "\\mathrm{EI}_{A}=\\frac{\\displaystyle\\sum_{i}^{\\mathrm{val}}\\varepsilon_{i}\\eta_{i}\\Theta_{i,A}}{\\disp"
+  },
+  {
+   "line": 13645,
+   "page": 423,
+   "score": 5,
+   "latex": "\\frac{\\partial F}{\\partial p_{i}}=0\\quad\\Rightarrow\\quad\\sum_{j}p_{j}\\sum_{\\mu}|\\varphi_{i}(\\mathbf{"
+  },
+  {
+   "line": 13649,
+   "page": 423,
+   "score": 5,
+   "latex": "\\left[\\begin{array}{c c c c}{A_{1,1}}&{\\cdots}&{A_{1,N}}&{1}\\\\ {\\vdots}&{\\ddots}&{\\vdots}&{\\vdots}\\\\"
+  },
+  {
+   "line": 13655,
+   "page": 424,
+   "score": 9,
+   "latex": "\\mathrm{definition}1\\colon\\int\\left|\\Delta\\rho(\\mathbf{r})-\\sum_{i}p_{i}\\mid\\varphi_{i}(\\mathbf{r})\\"
+  },
+  {
+   "line": 13657,
+   "page": 424,
+   "score": 9,
+   "latex": "\\mathrm{definition}1\\colon\\int\\left|\\Delta\\rho(\\mathbf{r})-\\sum_{i}p_{i}\\mid\\varphi_{i}(\\mathbf{r})\\"
+  },
+  {
+   "line": 13734,
+   "page": 426,
+   "score": 14,
+   "latex": "q_{\\mathrm{rep}}=\\int_{\\lambda_{2}(\\mathbf{r})>0}\\rho^{n}(\\mathbf{r})\\mathrm{d}\\mathbf{r}\\quad\\mathr"
+  },
+  {
+   "line": 13869,
+   "page": 429,
+   "score": 9,
+   "latex": "(ii\\mid jj)=(d_{\\mathrm{x}}d_{\\mathrm{y}}d_{\\mathrm{z}})^{2}\\sum_{k}\\varphi_{i}^{2}(\\mathbf{r}_{k})\\"
+  },
+  {
+   "line": 13871,
+   "page": 429,
+   "score": 9,
+   "latex": "(ii\\mid jj)=(d_{\\mathrm{x}}d_{\\mathrm{y}}d_{\\mathrm{z}})^{2}\\sum_{k}\\varphi_{i}^{2}(\\mathbf{r}_{k})\\"
+  },
+  {
+   "line": 13889,
+   "page": 430,
+   "score": 4,
+   "latex": "\\varphi_i^2(\\mathbf{r}_k) < \\zeta_J"
+  },
+  {
+   "line": 13953,
+   "page": 432,
+   "score": 5,
+   "latex": "\\mathrm{S D I}=\\frac{1}{\\sqrt{\\int\\left|f_{\\mathrm{n o r m}}(\\mathbf{r})\\right|^{n}\\mathrm{d}\\mathbf"
+  },
+  {
+   "line": 14020,
+   "page": 434,
+   "score": 6,
+   "latex": "\\delta(A,B)=-2\\int_{A}\\int_{B}\\Gamma_{\\mathrm{XC}}(\\mathbf{r}_{1},\\mathbf{r}_{2})\\mathrm{d}\\mathbf{r"
+  },
+  {
+   "line": 14037,
+   "page": 434,
+   "score": 8,
+   "latex": "\\rho_{_{AB}}(\\mathbf{r})=\\sum_{i}^{occ}\\sum_{j}^{occ}\\varphi_{i}^{*}(\\mathbf{r})D_{i,j}^{AB}\\varphi_"
+  },
+  {
+   "line": 14060,
+   "page": 435,
+   "score": 8,
+   "latex": "\\mathrm{BOD}_{AB}^{\\sigma}(\\mathbf{r})=2\\rho_{AB}^{\\sigma}(\\mathbf{r})=\\sum_{i\\in\\sigma}^{\\mathrm{oc"
+  },
+  {
+   "line": 14062,
+   "page": 435,
+   "score": 4,
+   "latex": "\\mathbf{D}^{\\sigma,A B}=\\mathbf{S}^{\\sigma}(A)\\mathbf{S}^{\\sigma}(B)+\\mathbf{S}^{\\sigma}(B)\\mathbf{S"
+  },
+  {
+   "line": 14064,
+   "page": 435,
+   "score": 6,
+   "latex": "S_{i,j}^{\\sigma}(A)=\\int_{A}\\varphi_{i}^{*}(\\mathbf{r})\\varphi_{j}(\\mathbf{r})\\mathrm{d}\\mathbf{r}\\q"
+  },
+  {
+   "line": 14075,
+   "page": 435,
+   "score": 9,
+   "latex": "D_{i,j}^{\\sigma,A B}=\\sum_{k\\in\\sigma}^{\\mathrm{o c c}}\\Big[S_{i,k}^{\\sigma}(A)S_{k,j}^{\\sigma}(B)+S"
+  },
+  {
+   "line": 14079,
+   "page": 435,
+   "score": 9,
+   "latex": "\\begin{aligned}\\int\\mathrm{BOD}_{AB}^{\\sigma}(\\mathbf{r})\\mathrm{d}\\mathbf{r}=&\\sum_{i\\in\\sigma}^{\\m"
+  },
+  {
+   "line": 14081,
+   "page": 435,
+   "score": 7,
+   "latex": "D_{i,j}^{\\sigma,A B}=\\sum_{k\\in\\sigma}^{\\mathrm{o c c}}\\Big[S_{i,k}^{\\sigma}(A)S_{k,j}^{\\sigma}(B)+S"
+  },
+  {
+   "line": 14083,
+   "page": 435,
+   "score": 7,
+   "latex": "D_{i,j}^{\\sigma,A B}=\\sum_{k\\in\\sigma}^{\\mathrm{o c c}}\\Big[S_{i,k}^{\\sigma}(A)S_{k,j}^{\\sigma}(B)+S"
+  },
+  {
+   "line": 14233,
+   "page": 440,
+   "score": 4,
+   "latex": "\\rho(r)\\approx\\rho^{\\mathrm{f i t}}(r)\\quad\\forall r"
+  },
+  {
+   "line": 14235,
+   "page": 440,
+   "score": 9,
+   "latex": "\\rho^{\\mathrm{fit}}(r)\\left\\{\\begin{aligned}&\\sum_{i\\in\\mathrm{STO}}c_{i}e^{-\\zeta r}\\\\ &\\sum_{i\\in\\"
+  },
+  {
+   "line": 14241,
+   "page": 440,
+   "score": 15,
+   "latex": "\\mathrm{(3)}Minimizing~error~of~radial~distribution~function~(RDF):\\sum_{i}\\Big[4\\pi r_{i}^{2}\\Big(\\"
+  },
+  {
+   "line": 14243,
+   "page": 440,
+   "score": 12,
+   "latex": "\\mathrm{(3)}Minimizing~error~of~radial~distribution~function~(RDF):\\sum_{i}\\Big[4\\pi r_{i}^{2}\\Big(\\"
+  },
+  {
+   "line": 14245,
+   "page": 440,
+   "score": 17,
+   "latex": "\\mathrm{(3)}Minimizing~error~of~radial~distribution~function~(RDF):\\sum_{i}\\Big[4\\pi r_{i}^{2}\\Big(\\"
+  },
+  {
+   "line": 14285,
+   "page": 442,
+   "score": 9,
+   "latex": "\\lambda=\\frac{N_{elec}}{\\int4\\pi r^{2}\\rho^{fit}(r)\\mathrm{d}r}"
+  },
+  {
+   "line": 14297,
+   "page": 442,
+   "score": 8,
+   "latex": "RMSE=\\sqrt{\\frac{\\sum_{i}^{N}(\\rho_{i}-\\rho_{i}^{fit})^{2}}{N}}"
+  },
+  {
+   "line": 14471,
+   "page": 448,
+   "score": 7,
+   "latex": "\\mathbf{\\mu}=\\left[\\begin{matrix}{\\mu_{x}}\\\\ {\\mu_{y}}\\\\ {\\mu_{z}}\\\\ \\end{matrix}\\right]=\\sum_{A}q_{"
+  },
+  {
+   "line": 14475,
+   "page": 448,
+   "score": 5,
+   "latex": "\\mathbf{\\mu}=\\left[\\begin{matrix}{\\mu_{x}}\\\\ {\\mu_{y}}\\\\ {\\mu_{z}}\\\\ \\end{matrix}\\right]=\\sum_{A}q_{"
+  },
+  {
+   "line": 14477,
+   "page": 448,
+   "score": 4,
+   "latex": "\\mathbf{\\mu}=\\left[\\begin{matrix}{\\mu_{x}}\\\\ {\\mu_{y}}\\\\ {\\mu_{z}}\\\\ \\end{matrix}\\right]=\\sum_{A}q_{"
+  },
+  {
+   "line": 14481,
+   "page": 449,
+   "score": 7,
+   "latex": "\\Theta_{xyz}=\\sum_{A}q_{A}X_{A}Y_{A}Z_{A}-\\int xyz\\rho(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "line": 14505,
+   "page": 449,
+   "score": 5,
+   "latex": "\\Theta_{xyz}=\\sum_{A}q_{A}X_{A}Y_{A}Z_{A}-\\int xyz\\rho(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "line": 14507,
+   "page": 449,
+   "score": 4,
+   "latex": "\\mathcal{Q}_{2,-1}=\\sqrt{3}\\Theta_{yz}\\qquad\\mathcal{Q}_{2,1}=\\sqrt{3}\\Theta_{xz}"
+  },
+  {
+   "line": 14511,
+   "page": 449,
+   "score": 6,
+   "latex": "\\Theta_{xyz}=\\sum_{A}q_{A}X_{A}Y_{A}Z_{A}-\\int xyz\\rho(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "line": 15137,
+   "page": 470,
+   "score": 4,
+   "latex": "\\Delta\\Delta V_{\\mathrm{n}}=\\Delta V_{\\mathrm{n-D}}-\\Delta V_{\\mathrm{n-A}}=(V_{\\mathrm{n-D^{\\prime}"
+  },
+  {
+   "line": 15222,
+   "page": 474,
+   "score": 12,
+   "latex": "BE\\approx-332.34\\times\\rho(\\mathbf{r}_{\\mathrm{BCP}})-1.0661\\ (for\\ charged\\ H-bond)"
+  },
+  {
+   "line": 15234,
+   "page": 474,
+   "score": 10,
+   "latex": "BE\\approx-332.34\\times\\rho(\\mathbf{r}_{\\mathrm{BCP}})-1.0661\\ (for\\ charged\\ H-bond)"
+  },
+  {
+   "line": 15267,
+   "page": 475,
+   "score": 5,
+   "latex": "BE=V(\\mathbf{r}_{BCP})/2"
+  },
+  {
+   "line": 15997,
+   "page": 509,
+   "score": 8,
+   "latex": "V_{\\mathrm{PAEM}}(\\mathbf{r}) = -V_{\\mathrm{ESP}}(\\mathbf{r}) + V_{\\mathrm{XC}}(\\mathbf{r})"
+  },
+  {
+   "line": 16653,
+   "page": 548,
+   "score": 15,
+   "latex": "\\mathrm{Nucleophilic~attack:}\\;f^{+}(\\mathbf{r})=\\rho_{N+1}(\\mathbf{r})-\\rho_{N}(\\mathbf{r})\\approx\\"
+  },
+  {
+   "line": 16655,
+   "page": 548,
+   "score": 14,
+   "latex": "\\mathrm{Nucleophilic~attack:}\\;f^{+}(\\mathbf{r})=\\rho_{N+1}(\\mathbf{r})-\\rho_{N}(\\mathbf{r})\\approx\\"
+  },
+  {
+   "line": 16657,
+   "page": 548,
+   "score": 14,
+   "latex": "Radical~attack:f^{0}(\\mathbf{r})=\\frac{f^{+}(\\mathbf{r})+f^{-}(\\mathbf{r})}{2}=\\frac{\\rho_{N+1}(\\mat"
+  },
+  {
+   "line": 17189,
+   "page": 568,
+   "score": 4,
+   "latex": "f_{A}^{+}=q_{N}^{A}-q_{N+1}^{A}"
+  },
+  {
+   "line": 18067,
+   "page": 592,
+   "score": 9,
+   "latex": "q^{\\mathrm{R E S P2}}=(1-\\delta)q_{\\mathrm{g a s}}^{\\mathrm{R E S P}}+\\delta q_{\\mathrm{w a t e r}}^"
+  },
+  {
+   "line": 18860,
+   "page": 614,
+   "score": 8,
+   "latex": "\\mathrm{ODI}_{i}^{\\mathrm{frag}}=0.01\\times\\sum_{A\\in\\mathrm{frag}}\\left(\\frac{\\Theta_{A,i}}{p_{i}}\\"
+  },
+  {
+   "line": 24052,
+   "page": 800,
+   "score": 4,
+   "latex": "E_{_\\Omega}=\\frac{E_{_{QC}}}{T}\\times T_{_\\Omega}"
+  },
+  {
+   "line": 26047,
+   "page": 874,
+   "score": 4,
+   "latex": "sign(\\lambda_2)\\rho"
+  },
+  {
+   "line": 26451,
+   "page": 896,
+   "score": 6,
+   "latex": "\\delta g^{inter}"
+  },
+  {
+   "line": 26499,
+   "page": 899,
+   "score": 6,
+   "latex": "\\delta g^{inter}"
+  },
+  {
+   "line": 26551,
+   "page": 900,
+   "score": 9,
+   "latex": "IGM\\_inter.vmd"
+  },
+  {
+   "line": 26675,
+   "page": 907,
+   "score": 10,
+   "latex": "IGMH\\_colorbar.png"
+  },
+  {
+   "line": 28008,
+   "page": 956,
+   "score": 5,
+   "latex": "\\Delta\\rho^{\\mathrm{Pauli}}"
+  },
+  {
+   "line": 28245,
+   "page": 964,
+   "score": 4,
+   "latex": "(CO)_{5}Cr=CH_{2}"
+  },
+  {
+   "line": 30655,
+   "page": 1048,
+   "score": 6,
+   "latex": "\\delta g^{\\mathrm{inter}}"
+  },
+  {
+   "line": 30674,
+   "page": 1048,
+   "score": 6,
+   "latex": "\\delta g^{\\mathrm{inter}}"
+  },
+  {
+   "line": 32178,
+   "page": 1101,
+   "score": 7,
+   "latex": "\\rho_{k}^{\\mathrm{odd}}(\\mathbf{r})=min(2-n_{k},n_{k})\\rho_{k}(\\mathbf{r})"
+  },
+  {
+   "line": 32558,
+   "page": 1111,
+   "score": 6,
+   "latex": "\\varphi_{a}^{A}(\\mathbf{r})=\\sum_{I}\\frac{Z_{I}}{|\\mathbf{r}-\\mathbf{R}_{I}|}-\\int\\frac{\\rho_{a}(\\ma"
+  },
+  {
+   "line": 32685,
+   "page": 1115,
+   "score": 8,
+   "latex": "\\begin{aligned}V_{aa^{\\prime},bb^{\\prime}}^{A,B}=\\delta_{a,a^{\\prime}}\\delta_{b,b^{\\prime}}\\sum_{I\\i"
+  },
+  {
+   "line": 32687,
+   "page": 1115,
+   "score": 7,
+   "latex": "\\begin{aligned}V_{aa^{\\prime},bb^{\\prime}}^{A,B}=\\delta_{a,a^{\\prime}}\\delta_{b,b^{\\prime}}\\sum_{I\\i"
+  },
+  {
+   "line": 32699,
+   "page": 1115,
+   "score": 7,
+   "latex": "V_{aa^{\\prime},bb^{\\prime}}^{A,B}\\approx\\sum_{I\\in A}\\sum_{J\\in B}\\frac{q_{a,a^{\\prime}}^{I}q_{b,b^{"
+  },
+  {
+   "line": 33746,
+   "page": 1158,
+   "score": 10,
+   "latex": "E_{\\mathrm{M O}i-\\mathrm{f r a g}}=\\left\\langle\\varphi_{i}\\right|\\sum_{A\\in\\mathrm{f r a g}}\\frac{Z_"
+  },
+  {
+   "line": 33758,
+   "page": 1158,
+   "score": 12,
+   "latex": "E_{\\mathrm{M O}i-\\mathrm{f r a g}}^{\\mathrm{2H}}=\\int w_{2\\mathrm{H}}(\\mathbf{r})\\left|\\varphi_{i}(\\"
+  }
+ ],
+ "kept": [
+  {
+   "line": 815,
+   "page": 23,
+   "why": "score=0",
+   "text": " Showing molecular structure and viewing orbitals (MO, NBO, natural orbital, NT"
+  },
+  {
+   "line": 1282,
+   "page": 42,
+   "why": "score=3",
+   "text": "operator −|)2/1(|2 can be recovered by integrating kinetic energy density f"
+  },
+  {
+   "line": 1335,
+   "page": 44,
+   "why": "score=2",
+   "text": "D 3/53/53/220 3)( rrr += ])()([)6(10  "
+  },
+  {
+   "line": 1513,
+   "page": 49,
+   "why": "score=3",
+   "text": "1212121212XC12( ,)( )( )( ,)=+ r rrrr r"
+  },
+  {
+   "line": 1748,
+   "page": 55,
+   "why": "score=3",
+   "text": "2 Beta density: 2/)]()([)(rrrs−="
+  },
+  {
+   "line": 1754,
+   "page": 55,
+   "why": "score=3",
+   "text": "5 Integrand of Weizsäcker functional (closed-shell form): 2W( )( )/[8 ( )]= "
+  },
+  {
+   "line": 2325,
+   "page": 73,
+   "why": "score=1",
+   "text": "cell angles (, , ). For example, the following content defines a = 15 Å, b = "
+  },
+  {
+   "line": 2427,
+   "page": 76,
+   "why": "score=1",
+   "text": " .cif file  .molden file produced by CP2K and modified according to Section 2."
+  },
+  {
+   "line": 3793,
+   "page": 126,
+   "why": "score=3",
+   "text": "+== FqFqF 1 '0''0'00 21 0 + +== FqFq 2 0 == Fq NNq "
+  },
+  {
+   "line": 6192,
+   "page": 197,
+   "why": "score=3",
+   "text": "−SV, SV, , 2+, 2− and so on. Here I briefly describe how these properties are"
+  },
+  {
+   "line": 6945,
+   "page": 225,
+   "why": "score=2",
+   "text": " aa aa ABAB ABAB −−= = 5.0if5.0 5.0if5.0 "
+  },
+  {
+   "line": 6947,
+   "page": 225,
+   "why": "score=3",
+   "text": " BAAB )( RrRrRRr −=−=−=−= rr rrRR BBAABAABAB"
+  },
+  {
+   "line": 7284,
+   "page": 232,
+   "why": "score=3",
+   "text": "A FB AF  ()"
+  },
+  {
+   "line": 7348,
+   "page": 234,
+   "why": "score=3",
+   "text": ")6,3()5,2()4,1(PDI++= 3"
+  },
+  {
+   "line": 9551,
+   "page": 299,
+   "why": "score=3",
+   "text": ",,,,( )( )( )( )( )A AB BA BB AEEEEE+++="
+  },
+  {
+   "line": 10482,
+   "page": 330,
+   "why": "score=3",
+   "text": "( ) |( ) | /[ ( )]aIRI= rrr"
+  },
+  {
+   "line": 10508,
+   "page": 331,
+   "why": "score=3",
+   "text": "On the IRI- IRI- is a byproduct in my study of IRI, it is simply defined as th"
+  },
+  {
+   "line": 11024,
+   "page": 347,
+   "why": "score=3",
+   "text": "=− fff www ( )( )( ) rrr +−"
+  },
+  {
+   "line": 11074,
+   "page": 348,
+   "why": "score=3",
+   "text": "QQQ( )( )( )fff+−=−rrr"
+  },
+  {
+   "line": 11518,
+   "page": 361,
+   "why": "score=2",
+   "text": "EEEEEE 16121)()( FFFFFFFF0F +++++= FFFF ==== 0 2 02 32 03 43 24 04 4  "
+  },
+  {
+   "line": 11598,
+   "page": 363,
+   "why": "score=2",
+   "text": "and zZ)5/1()(=⊥."
+  },
+  {
+   "line": 11735,
+   "page": 366,
+   "why": "score=3",
+   "text": " 1 a.u. 8.4783510-30 C m 2.54175 10-18 esu  1 a.u. 1.648810-41 C2m2J-1 1.48"
+  },
+  {
+   "line": 11861,
+   "page": 370,
+   "why": "score=3",
+   "text": "to plot relief map of \" vs. 1,2\"."
+  },
+  {
+   "line": 11982,
+   "page": 373,
+   "why": "score=2",
+   "text": "FFFF−−−+−= zzzF 3)3( )2()(2)(2)2( zzzz )(2 z"
+  },
+  {
+   "line": 13150,
+   "page": 410,
+   "why": "score=0",
+   "text": "screenshot of ELF topology analysis result for the HFHF dimer"
+  },
+  {
+   "line": 13170,
+   "page": 411,
+   "why": "score=0",
+   "text": "the HFHF (H4-F3H1-F2) dimer as example, the ELF curve plotted between F2 a"
+  },
+  {
+   "line": 13176,
+   "page": 411,
+   "why": "score=0",
+   "text": "HFHF dimer as example, boot up Multiwfn and input below commands"
+  },
+  {
+   "line": 13636,
+   "page": 423,
+   "why": "score=3",
+   "text": "== Fip i 0{1,2,3}  "
+  },
+  {
+   "line": 14509,
+   "page": 449,
+   "why": "score=3",
+   "text": "QQ 3, 33,3 − =−=− 5 / 8(3)5 / 8(3) xxyyyyxxxyyx"
+  },
+  {
+   "line": 16009,
+   "page": 510,
+   "why": "score=2",
+   "text": ")()(ˆrr=h"
+  },
+  {
+   "line": 16705,
+   "page": 550,
+   "why": "score=3",
+   "text": "−= fff )()()( rrr +−=−−−= )()(2)()]()([)]()([  −+ NNNNNNN −+−+ 1111rrrrr"
+  },
+  {
+   "line": 17165,
+   "page": 568,
+   "why": "score=3",
+   "text": ")()()(1rrrNNf−=++"
+  },
+  {
+   "line": 19847,
+   "page": 646,
+   "why": "score=0",
+   "text": "20  TDOS  PDOS (Na3O)  HOMO"
+  },
+  {
+   "line": 19915,
+   "page": 648,
+   "why": "score=0",
+   "text": "(1)  MOs: 19-36 (2) in-plane  MOs: 37,39,40,45,46,49,50,53,54 (3) out-plane  "
+  },
+  {
+   "line": 20915,
+   "page": 682,
+   "why": "score=3",
+   "text": "4.11.12.1 PVS-NC decomposition analysis of IR spectrum of C18B9N9"
+  },
+  {
+   "line": 20988,
+   "page": 687,
+   "why": "score=3",
+   "text": "4.11.12.2 PVS-I decomposition analysis of IR spectrum of C18B9N9 complex"
+  },
+  {
+   "line": 20992,
+   "page": 687,
+   "why": "score=3",
+   "text": "4.11.12.3 PVDOS analysis of vibrational spectrum C18B9N9 complex"
+  },
+  {
+   "line": 21507,
+   "page": 709,
+   "why": "score=3",
+   "text": "Since the sequence of electron density at these maxima is 32>1, one can expect "
+  },
+  {
+   "line": 24447,
+   "page": 814,
+   "why": "score=0",
+   "text": "·S0→S1：LE excitation of n-* type on the nitro group ·S0→S2：CT excitation of -"
+  },
+  {
+   "line": 26459,
+   "page": 897,
+   "why": "score=0",
+   "text": "we try to identify character of peaks in the scatter graph. In the region where "
+  },
+  {
+   "line": 28584,
+   "page": 974,
+   "why": "score=0",
+   "text": "Subsequently, we calculate (-2;,) at =0.0656 a.u. Select option 2 again and"
+  },
+  {
+   "line": 28596,
+   "page": 974,
+   "why": "score=0",
+   "text": "Multiwfn is also capable of calculating third hyperpolarizability (-;1,2,3,"
+  },
+  {
+   "line": 28630,
+   "page": 975,
+   "why": "score=0",
+   "text": "the variation of (-1;1,0) as 1 varies from 0 to 0.5 a.u. with stepsize of 0."
+  },
+  {
+   "line": 28653,
+   "page": 976,
+   "why": "score=0",
+   "text": "Magnitude of  (−1;1,0) 80000 70000 60000 50000 40000 30000 20000"
+  },
+  {
+   "line": 28665,
+   "page": 976,
+   "why": "score=0",
+   "text": "Scanning both 1 and 2 of (-(1+2);1,2) By subfunction 19 of the SOS module"
+  },
+  {
+   "line": 28673,
+   "page": 976,
+   "why": "score=0",
+   "text": "This kind map exhibits one photon resonance (-1;1,0) or (-2;0,2), sum freq"
+  },
+  {
+   "line": 29361,
+   "page": 1001,
+   "why": "score=2",
+   "text": "It can be seen that  electrons have considerable influence on NICSZZ around rin"
+  },
+  {
+   "line": 30020,
+   "page": 1027,
+   "why": "score=0",
+   "text": "mentioned how to make Multiwfn automatically detect  molecular orbitals for an "
+  },
+  {
+   "line": 30305,
+   "page": 1036,
+   "why": "score=3",
+   "text": "this output shows that NO 50.7408 MO 60.6412 MO 70.1788 MO 9=−−  The"
+  },
+  {
+   "line": 30624,
+   "page": 1047,
+   "why": "score=0",
+   "text": "to H-bond of N23-H25O1 and N2-H12N13, respectively."
+  }
+ ]
+}

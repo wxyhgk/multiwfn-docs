@@ -1,0 +1,74 @@
+site_name: Multiwfn 官方手册
+site_description: Multiwfn 官方手册中文翻译 + 英文原文（由 PDF 转换，共 1161 页，行间公式为 LaTeX）
+site_author: PDF 转 Markdown + AI 翻译
+site_url: https://wxyhgk.github.io/multiwfn-docs/
+repo_url: https://github.com/wxyhgk/multiwfn-docs
+
+docs_dir: docs
+site_dir: site
+use_directory_urls: false
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/lang-switch.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search:
+      lang: en
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+
+nav:
+  - 首页: index.md
+  - 中文文档:
+      - 总览: zh/index.md
+      - 书内目录: zh/zh_00_目录.md
+      - 01 前言与总览: zh/zh_01_前言总览.md
+      - 02 基本信息: zh/zh_02_基本信息.md
+      - 03 功能3.2–3.13: zh/zh_03_功能3.2-3.13.md
+      - 04 功能3.14–3.22: zh/zh_04_功能3.14-3.22.md
+      - 05 功能3.23–3.300: zh/zh_05_功能3.23-3.300.md
+      - 06 教程4.0–4.8: zh/zh_06_教程4.0-4.8.md
+      - 07 教程4.9–4.12: zh/zh_07_教程4.9-4.12.md
+      - 08 教程4.13–4.19: zh/zh_08_教程4.13-4.19.md
+      - 09 教程4.20–4.24: zh/zh_09_教程4.20-4.24.md
+      - 10 教程4.25–附录: zh/zh_10_教程4.25-附录.md
+  - English:
+      - Overview: en/index.md
+      - Contents: en/00_目录.md
+      - 01 Foreword & Overview: en/01_前言总览.md
+      - 02 General Information: en/02_基本信息.md
+      - 03 Functions 3.2–3.13: en/03_功能3.2-3.13.md
+      - 04 Functions 3.14–3.22: en/04_功能3.14-3.22.md
+      - 05 Functions 3.23–3.300: en/05_功能3.23-3.300.md
+      - 06 Tutorials 4.0–4.8: en/06_教程4.0-4.8.md
+      - 07 Tutorials 4.9–4.12: en/07_教程4.9-4.12.md
+      - 08 Tutorials 4.13–4.19: en/08_教程4.13-4.19.md
+      - 09 Tutorials 4.20–4.24: en/09_教程4.20-4.24.md
+      - 10 Tutorials 4.25–Appendix: en/10_教程4.25-附录.md

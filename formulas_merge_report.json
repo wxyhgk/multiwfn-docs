@@ -1,0 +1,1773 @@
+{
+ "replaced": [
+  {
+   "page": 41,
+   "img": "formula_p41_001.png",
+   "latex": "\\rho(\\mathbf{r})=\\sum_{i}\\eta_{i}\\left|\\varphi_{i}(\\mathbf{r})\\right|^{2}=\\sum_{i}\\eta_{i}\\left|\\sum_{\\mu}C_{\\mu,i}\\chi_"
+  },
+  {
+   "page": 41,
+   "img": "formula_p41_002.png",
+   "latex": "\\left|\\nabla\\rho(\\mathbf{r})\\right|=\\sqrt{\\left(\\frac{\\partial\\rho(\\mathbf{r})}{\\partial x}\\right)^{2}+\\left(\\frac{\\part"
+  },
+  {
+   "page": 42,
+   "img": "formula_p42_003.png",
+   "latex": "\\nabla^{2}\\rho(\\mathbf{r})=\\frac{\\partial^{2}\\rho(\\mathbf{r})}{\\partial x^{2}}+\\frac{\\partial^{2}\\rho(\\mathbf{r})}{\\part"
+  },
+  {
+   "page": 42,
+   "img": "formula_p42_004.png",
+   "latex": "\\varphi_{i}(\\mathbf{r})=\\sum_{\\mu}C_{\\mu,i}\\chi_{\\mu}(\\mathbf{r})"
+  },
+  {
+   "page": 42,
+   "img": "formula_p42_005.png",
+   "latex": "\\rho^{s}(\\mathbf{r})=\\rho^{\\alpha}(\\mathbf{r})-\\rho^{\\beta}(\\mathbf{r})"
+  },
+  {
+   "page": 42,
+   "img": "formula_p42_006.png",
+   "latex": "\\zeta(\\mathbf{r})=\\frac{\\rho^{\\alpha}(\\mathbf{r})-\\rho^{\\beta}(\\mathbf{r})}{\\rho^{\\alpha}(\\mathbf{r})+\\rho^{\\beta}(\\math"
+  },
+  {
+   "page": 43,
+   "img": "formula_p43_007.png",
+   "latex": "K(\\mathbf{r})=-\\frac{1}{2}\\sum_{i}\\eta_{i}\\varphi_{i}^{*}(\\mathbf{r})\\nabla^{2}\\varphi_{i}(\\mathbf{r})"
+  },
+  {
+   "page": 43,
+   "img": "formula_p43_008.png",
+   "latex": "\\nabla^{2}\\rho(\\mathbf{r})/4=G(\\mathbf{r})-K(\\mathbf{r})"
+  },
+  {
+   "page": 43,
+   "img": "formula_p43_009.png",
+   "latex": "V_{\\mathrm{nuc}}(\\mathbf{r})=\\sum_{A}\\frac{Z_{A}}{\\left|\\mathbf{r}-\\mathbf{R}_{A}\\right|}"
+  },
+  {
+   "page": 44,
+   "img": "formula_p44_010.png",
+   "latex": "\\mathrm{ELF}(\\mathbf{r})=\\frac{1}{1+[\\boldsymbol{D}(\\mathbf{r})/\\boldsymbol{D}_{0}(\\mathbf{r})]^{2}}"
+  },
+  {
+   "page": 44,
+   "img": "formula_p44_011.png",
+   "latex": "D(\\mathbf{r})=\\frac{1}{2}\\sum_{i}\\eta_{i}\\big|\\nabla\\varphi_{i}(\\mathbf{r})\\big|^{2}-\\frac{1}{8}\\Biggl[\\frac{\\big|\\nabla"
+  },
+  {
+   "page": 44,
+   "img": "formula_p44_012.png",
+   "latex": "D(\\mathbf{r})=\\frac{1}{2}\\sum_{i}\\eta_{i}\\left|\\nabla\\varphi_{i}(\\mathbf{r})\\right|^{2}-\\frac{1}{8}\\frac{\\left|\\nabla\\rh"
+  },
+  {
+   "page": 45,
+   "img": "formula_p45_013.png",
+   "latex": "(1/2)\\sum_{i}\\eta_{i}\\left|\\nabla\\varphi_{i}(\\mathbf{r})\\right|^{2}\\approx\\tau_{\\mathrm{T F}}(\\mathbf{r})+(1/72)\\left|\\n"
+  },
+  {
+   "page": 45,
+   "img": "formula_p45_014.png",
+   "latex": "\\frac{1}{1+D(\\mathbf{r})/D_{0}(\\mathbf{r})}"
+  },
+  {
+   "page": 45,
+   "img": "formula_p45_015.png",
+   "latex": "\\mathrm{LOL}(\\mathbf{r})=\\frac{\\tau(\\mathbf{r})}{1+\\tau(\\mathbf{r})}"
+  },
+  {
+   "page": 45,
+   "img": "formula_p45_016.png",
+   "latex": "\\tau(\\mathbf{r})=\\frac{D_{0}(\\mathbf{r})}{(1/2)\\sum_{i}\\eta_{i}\\left|\\nabla\\varphi_{i}(\\mathbf{r})\\right|^{2}}"
+  },
+  {
+   "page": 46,
+   "img": "formula_p46_017.png",
+   "latex": "V_{\\mathrm{ESP}}(\\mathbf{r})=V_{\\mathrm{nuc}}(\\mathbf{r})+V_{\\mathrm{ele}}(\\mathbf{r})=\\sum_{A}\\frac{Z_{A}}{\\left|\\mathb"
+  },
+  {
+   "page": 47,
+   "img": "formula_p47_018.png",
+   "latex": "\\mathrm{RDG}(\\mathbf{r})=\\frac{1}{2(3\\pi^{2})^{1/3}}\\frac{\\left|\\nabla\\rho(\\mathbf{r})\\right|}{\\rho(\\mathbf{r})^{4/3}}"
+  },
+  {
+   "page": 48,
+   "img": "formula_p48_019.png",
+   "latex": "\\Omega(\\mathbf{r})=sign[\\lambda_{2}(\\mathbf{r})]\\rho(\\mathbf{r})"
+  },
+  {
+   "page": 48,
+   "img": "formula_p48_020.png",
+   "latex": "\\mathbf{r}"
+  },
+  {
+   "page": 49,
+   "img": "formula_p49_021.png",
+   "latex": "\\pi^{\\sigma_{1}\\sigma_{2}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\rho^{\\sigma_{1}}(\\mathbf{r}_{1})\\rho^{\\sigma_{2}}(\\mathbf{r}_"
+  },
+  {
+   "page": 49,
+   "img": "formula_p49_022.png",
+   "latex": "h_{\\mathrm{XC}}^{\\sigma_{1}\\sigma_{2}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\frac{\\Gamma_{XC}^{\\sigma_{1}\\sigma_{2}}(\\mathbf{r"
+  },
+  {
+   "page": 49,
+   "img": "formula_p49_023.png",
+   "latex": "f_{\\mathrm{XC}}^{\\sigma_{1}\\sigma_{2}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\frac{h_{\\mathrm{XC}}^{\\sigma_{1}\\sigma_{2}}(\\math"
+  },
+  {
+   "page": 49,
+   "img": "formula_p49_024.png",
+   "latex": "\\pi^{\\sigma_{1}\\sigma_{2}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\rho^{\\sigma_{1}}(\\mathbf{r}_{1})\\rho^{\\sigma_{2}}(\\mathbf{r}_"
+  },
+  {
+   "page": 50,
+   "img": "formula_p50_025.png",
+   "latex": "\\Gamma_{\\mathrm{XC}}^{\\sigma,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\Gamma_{\\mathrm{XC}}^{\\sigma\\alpha}(\\mathbf{r}"
+  },
+  {
+   "page": 50,
+   "img": "formula_p50_026.png",
+   "latex": "\\Gamma_{\\mathrm{X C}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\Gamma_{\\mathrm{X C}}^{\\alpha\\alpha}(\\mathbf{"
+  },
+  {
+   "page": 51,
+   "img": "formula_p51_027.png",
+   "latex": "\\rho^{\\sigma}(\\mathbf{r})=\\sum_{i\\in\\sigma}\\eta_{i}\\left|\\varphi_{i}(\\mathbf{r})\\right|^{2}"
+  },
+  {
+   "page": 51,
+   "img": "formula_p51_028.png",
+   "latex": "\\bar{I}(\\mathbf{r})=\\frac{\\displaystyle\\sum_{i}\\rho_{i}(\\mathbf{r})\\mid\\varepsilon_{i}\\mid}{\\rho(\\mathbf{r})}"
+  },
+  {
+   "page": 52,
+   "img": "formula_p52_029.png",
+   "latex": "\\overline{I}_{i}(\\mathbf{r})=\\frac{\\rho_{i}(\\mathbf{r})\\mid\\varepsilon_{i}\\mid}{\\rho(\\mathbf{r})}"
+  },
+  {
+   "page": 52,
+   "img": "formula_p52_030.png",
+   "latex": "\\rho(\\mathbf{r})=\\int S F(\\mathbf{r},\\mathbf{r}^{\\prime})\\mathrm{d}\\mathbf{r}^{\\prime}"
+  },
+  {
+   "page": 53,
+   "img": "formula_p53_031.png",
+   "latex": "\\begin{aligned}&EDR(\\mathbf{r};d)=\\int g_{d}(\\mathbf{r},\\mathbf{r}^{\\prime})\\gamma(\\mathbf{r},\\mathbf{r}^{\\prime})d\\math"
+  },
+  {
+   "page": 54,
+   "img": "formula_p54_032.png",
+   "latex": "IRI(\\mathbf{r})=\\frac{|\\nabla\\rho(\\mathbf{r})|}{\\left[\\rho(\\mathbf{r})\\right]^{a}}"
+  },
+  {
+   "page": 56,
+   "img": "formula_p56_033.png",
+   "latex": "V_{\\mathrm{ele}}(\\mathbf{r}) = V_{\\mathrm{ESP}}(\\mathbf{r}) - V_{\\mathrm{nuc}}(\\mathbf{r}) = -\\int \\frac{\\rho(\\mathbf{r}"
+  },
+  {
+   "page": 61,
+   "img": "formula_p61_034.png",
+   "latex": "\\upsilon_{\\mathrm{e}}(\\mathbf{r})=\\rho(\\mathbf{r})\\left[\\int\\frac{\\rho(\\mathbf{r}^{\\prime})}{|\\mathbf{r}-\\mathbf{r}^{\\pr"
+  },
+  {
+   "page": 62,
+   "img": "formula_p62_035.png",
+   "latex": "m_{\\mathrm{tot}}(\\mathbf{r}) = \\sqrt{m_x^2(\\mathbf{r}) + m_y^2(\\mathbf{r}) + m_z^2(\\mathbf{r})}"
+  },
+  {
+   "page": 62,
+   "img": "formula_p62_036.png",
+   "latex": "m_{x}(\\mathbf{r})=-\\sum_{i}\\eta_{i}\\varphi_{i}^{*}(\\mathbf{r})\\Bigg[y\\frac{\\partial\\varphi_{i}(\\mathbf{r})}{\\partial z}-"
+  },
+  {
+   "page": 62,
+   "img": "formula_p62_037.png",
+   "latex": "m_{y}(\\mathbf{r})=-\\sum_{i}\\eta_{i}\\varphi_{i}^{*}(\\mathbf{r})\\Bigg[z\\frac{\\partial\\varphi_{i}(\\mathbf{r})}{\\partial x}-"
+  },
+  {
+   "page": 63,
+   "img": "formula_p63_038.png",
+   "latex": "\\mathbf{\\sigma}(\\mathbf{r})=-\\frac{1}{4}\\Big[\\big(\\nabla\\nabla^{\\prime}+\\nabla^{\\prime}\\nabla-\\nabla\\nabla-\\nabla^{\\prim"
+  },
+  {
+   "page": 64,
+   "img": "formula_p64_039.png",
+   "latex": "\\sigma_{i,j}(\\mathbf{r})=-\\frac{1}{4}\\Biggl[\\Biggl(\\frac{\\partial^{2}}{\\partial r_{i}^{\\phantom{*}}\\partial r_{j}^{\\prim"
+  },
+  {
+   "page": 65,
+   "img": "formula_p65_040.png",
+   "latex": "E_{d}(\\mathbf{r})=\\sum_{i}P_{id}\\chi_{i}(\\mathbf{r})"
+  },
+  {
+   "page": 68,
+   "img": "formula_p68_042.png",
+   "latex": "\\bullet\\mathrm{i K E D s e l=12:L e e-L e e-P a r r~K E D},F_{\\mathrm{L L P}}^{\\sigma}=1+\\frac{0.0044188[s^{\\sigma}(\\mat"
+  },
+  {
+   "page": 98,
+   "img": "formula_p98_043.png",
+   "latex": "P^{\\mathrm{def}}\\left(\\mathbf{r}\\right)=P^{\\mathrm{mol}}\\left(\\mathbf{r}\\right)-P^{\\mathrm{pro}}\\left(\\mathbf{r}\\right)"
+  },
+  {
+   "page": 104,
+   "img": "formula_p104_044.png",
+   "latex": "\\begin{aligned}&q_{_{A}}=-\\int w_{_{A}}^{Hirsh}(\\mathbf{r})[\\rho(\\mathbf{r})-\\rho^{pro}(\\mathbf{r})]\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 106,
+   "img": "formula_p106_046.png",
+   "latex": "\\Theta_{i,a}=C_{a,i}^{2}+\\sum_{b\\neq a}C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "page": 106,
+   "img": "formula_p106_047.png",
+   "latex": "2C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "page": 107,
+   "img": "formula_p107_048.png",
+   "latex": "\\Gamma_{a,b}=\\sum_{i}\\Gamma_{a,b}^{i}=\\sum_{i}\\eta_{i}C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "page": 107,
+   "img": "formula_p107_049.png",
+   "latex": "\\mathbf{X}=\\mathbf{U}\\mathbf{s}^{1/2}\\mathbf{U}^{\\mathrm{T}}"
+  },
+  {
+   "page": 108,
+   "img": "formula_p108_050.png",
+   "latex": "\\Theta_{i,a}=\\frac{C_{a,i}^{2}}{\\sum\\limits_{b}C_{b,i}^{2}}"
+  },
+  {
+   "page": 108,
+   "img": "formula_p108_051.png",
+   "latex": "1=\\sum_{a}C_{a,i}^{2}+\\sum_{a}\\sum_{b\\neq a}C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "page": 108,
+   "img": "formula_p108_052.png",
+   "latex": "\\Theta_{i,a}=C_{a,i}^{2}+\\frac{C_{a,i}^{2}}{\\displaystyle\\sum_{b}C_{b,i}^{2}}\\sum_{a}\\sum_{b\\neq a}C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "page": 109,
+   "img": "formula_p109_053.png",
+   "latex": "\\Lambda_{a}=\\sum_{i}\\eta_{i}C_{a,i}^{2}+\\sum_{b\\neq a}w_{a,b}\\sum_{i}2\\eta_{i}C_{a,i}C_{b,i}S_{a,b}"
+  },
+  {
+   "page": 109,
+   "img": "formula_p109_054.png",
+   "latex": "q_{A}=Z_{A}-\\int w_{A}(\\mathbf{r})\\rho(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 110,
+   "img": "formula_p110_055.png",
+   "latex": "\\mathbf{\\mu}_{A}=\\sum_{B}\\Delta q_{A\\rightarrow B}\\mathbf{R}_{B}"
+  },
+  {
+   "page": 110,
+   "img": "formula_p110_056.png",
+   "latex": "\\Delta q_{A\\rightarrow B}=\\frac{\\mathcal{V}_{A B}}{\\sum_{B}\\mathcal{V}_{A B}}[(\\mathbf{R}_{B}-\\left\\langle\\mathbf{R}_{B}"
+  },
+  {
+   "page": 111,
+   "img": "formula_p111_057.png",
+   "latex": "\\mathbf{\\Lambda}=\\left\\langle\\mathbf{R}_{B}\\cdot\\left(\\mathbf{R}_{B}\\right)^{\\mathrm{T}}\\right\\rangle-\\left\\langle\\mathb"
+  },
+  {
+   "page": 112,
+   "img": "formula_p112_058.png",
+   "latex": "F(q_{1},q_{2}...q_{N})=\\sum_{i}[V_{q}(\\mathbf{r}_{i})-V(\\mathbf{r}_{i})]^{2}"
+  },
+  {
+   "page": 112,
+   "img": "formula_p112_059.png",
+   "latex": "\\mathbf{A}\\mathbf{q}=\\mathbf{B}"
+  },
+  {
+   "page": 112,
+   "img": "formula_p112_060.png",
+   "latex": "RMSE=\\sqrt{\\frac{\\sum_{i}[V_{q}(\\mathbf{r}_{i})-V(\\mathbf{r}_{i})]^{2}}{N}}"
+  },
+  {
+   "page": 120,
+   "img": "formula_p120_061.png",
+   "latex": "\\chi_{i}=(\\chi_{i}^{0}+\\Delta\\chi_{i})+2(\\eta_{i}^{0}+\\Delta\\eta_{i})q_{i}+\\sum_{j\\neq i}\\frac{q_{j}}{r_{i,j}}"
+  },
+  {
+   "page": 120,
+   "img": "formula_p120_062.png",
+   "latex": "\\begin{aligned}&\\chi_{1}=\\chi_{2}=\\ldots=\\chi_{N}=\\chi_{mol}\\\\ &\\sum_{i}q_{i}=Q\\\\ \\end{aligned}"
+  },
+  {
+   "page": 124,
+   "img": "formula_p124_063.png",
+   "latex": "\\begin{array}{r l r l r}{A_{A,B}=\\displaystyle\\sum_{a\\in A}\\displaystyle\\sum_{b\\in B}\\displaystyle\\sum_{i}\\frac{1}{r_{i "
+  },
+  {
+   "page": 124,
+   "img": "formula_p124_064.png",
+   "latex": "\\sum_{A}q_{A}\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{i}\\frac{1}{r_{ia}r_{ib}}+aq_{A}(q_{A}^{2}+b^{2})^{-1/2}+\\lambda=\\sum_{b\\in "
+  },
+  {
+   "page": 125,
+   "img": "formula_p125_065.png",
+   "latex": "\\mathbf{A}=\\sum_{\\mu}w_{\\mu}\\mathbf{A}^{\\mu}\\qquad\\mathbf{B}=\\sum_{\\mu}w_{\\mu}\\mathbf{B}^{\\mu}"
+  },
+  {
+   "page": 126,
+   "img": "formula_p126_066.png",
+   "latex": "\\frac{\\partial F}{\\partial\\lambda^{\\prime}}=0=q_{1}+q_{N}-0.5\\quad\\frac{\\partial F}{\\partial\\lambda^{\\prime\\prime}}=0=q_"
+  },
+  {
+   "page": 131,
+   "img": "formula_p131_067.png",
+   "latex": "\\Delta q_{A}^{(n)}=f^{n}\\left(\\sum_{K}\\frac{\\chi_{K}^{(n-1)}-\\chi_{A}^{(n-1)}}{\\chi_{A}^{q=1}}+\\sum_{L}\\frac{\\chi_{L}^{("
+  },
+  {
+   "page": 132,
+   "img": "formula_p132_068.png",
+   "latex": "\\rho_{A i}^{0}(\\mathbf{r})=N_{A i}f_{A i}(\\mathbf{r})=N_{A i}\\frac{1}{\\sigma_{A i}{}^{3}8\\pi}\\mathrm{e x p}\\left(-\\frac{"
+  },
+  {
+   "page": 132,
+   "img": "formula_p132_069.png",
+   "latex": "\\rho_{A}^{0}(\\mathbf{r})=\\sum_{i=1}^{m_{A}}\\rho_{A i}^{0}(\\mathbf{r})"
+  },
+  {
+   "page": 133,
+   "img": "formula_p133_070.png",
+   "latex": "N_{A i}=\\int\\rho(\\mathbf{r})\\frac{\\rho_{A i}^{0}(\\mathbf{r})}{\\rho_{0}(\\mathbf{r})}\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 133,
+   "img": "formula_p133_071.png",
+   "latex": "\\sigma_{A i}=\\frac{1}{3N_{A i}}\\int\\rho(\\mathbf{r})\\frac{\\rho_{A i}^{0}(\\mathbf{r})}{\\rho_{0}(\\mathbf{r})}|\\mathbf{r}-\\m"
+  },
+  {
+   "page": 133,
+   "img": "formula_p133_072.png",
+   "latex": "q_{A}=Z_{A}-\\sum_{i=1}^{m_{A}}N_{Ai}"
+  },
+  {
+   "page": 133,
+   "img": "formula_p133_073.png",
+   "latex": "\\sigma_{Ai}=\\frac{1}{2Z_{A}^{1-[(i-1)/(m_{A}-1)]}}"
+  },
+  {
+   "page": 133,
+   "img": "formula_p133_074.png",
+   "latex": "\\int\\rho(\\mathbf{r})w_{A}(\\mathbf{r})\\mathrm{d}\\mathbf{r}=\\int\\rho_{A}^{0}(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 137,
+   "img": "formula_p137_075.png",
+   "latex": "\\sum_{a\\in frag1} C_{a,i}^2 \\times 100\\%"
+  },
+  {
+   "page": 141,
+   "img": "formula_p141_076.png",
+   "latex": "I_{_{AB}}=I_{_{AB}}^{\\alpha}+I_{_{AB}}^{\\beta}=2\\sum_{a\\in A}\\sum_{b\\in B}[(\\mathbf{P}^{\\alpha}\\mathbf{S})_{ba}(\\mathbf{"
+  },
+  {
+   "page": 141,
+   "img": "formula_p141_077.png",
+   "latex": "I_{_{AB}}=\\sum_{a\\in A}\\sum_{b\\in B}[(\\mathbf{P}\\mathbf{S})_{ba}(\\mathbf{P}\\mathbf{S})_{ab}+(\\mathbf{P}^{\\mathrm{s}}\\mat"
+  },
+  {
+   "page": 142,
+   "img": "formula_p142_078.png",
+   "latex": "I_{_{AB}}=\\sum_{a\\in A}\\sum_{b\\in B}(\\mathbf{PS})_{ab}(\\mathbf{PS})_{ba}"
+  },
+  {
+   "page": 142,
+   "img": "formula_p142_079.png",
+   "latex": "F_{A}=V_{A}-\\sum_{B\\neq A}I_{AB}=\\sum_{a\\in A}\\sum_{b\\in A}(\\mathbf{P}^{\\mathrm{s}}\\mathbf{S})_{ab}(\\mathbf{P}^{\\mathrm{"
+  },
+  {
+   "page": 142,
+   "img": "formula_p142_080.png",
+   "latex": "V_{A}=\\sum_{B\\neq A}I_{AB}"
+  },
+  {
+   "page": 143,
+   "img": "formula_p143_081.png",
+   "latex": "\\begin{aligned}&I_{ABC}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}(\\mathbf{PS})_{ab}(\\mathbf{PS})_{bc}(\\mathbf{PS})_{ca}\\\\&"
+  },
+  {
+   "page": 143,
+   "img": "formula_p143_082.png",
+   "latex": "I_{ABCDEF\\ldots K}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}\\cdots\\sum_{k\\in K}(\\mathbf{PS})_{ab}(\\mathbf{PS})_{bc}(\\mathb"
+  },
+  {
+   "page": 143,
+   "img": "formula_p143_083.png",
+   "latex": "\\begin{aligned}I_{ABCDEF\\cdots K}&=I_{ABCDEF\\cdots K}^{\\alpha}+I_{ABCDEF\\cdots K}^{\\beta}\\\\&=2^{n-1}\\left[\\sum_{a\\in A}\\"
+  },
+  {
+   "page": 144,
+   "img": "formula_p144_084.png",
+   "latex": "I_{_{ABCDEF\\ldots K}}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}\\cdots\\sum_{k\\in K}P_{ab}P_{bc}P_{cd}\\cdots P_{ka}"
+  },
+  {
+   "page": 145,
+   "img": "formula_p145_085.png",
+   "latex": "\\mathrm{M C I}=\\frac{1}{2n}\\sum_{\\hat{P}(A,B,C\\ldots)}I_{A,B,C\\ldots}"
+  },
+  {
+   "page": 149,
+   "img": "formula_p149_086.png",
+   "latex": "S_{\\mu\\nu}^{A}=\\int w_{A}(\\mathbf{r})\\chi_{\\mu}^{*}(\\mathbf{r})\\chi_{\\nu}(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 149,
+   "img": "formula_p149_087.png",
+   "latex": "L_{A,B}=-10\\times\\int\\limits_{\\nabla^{2}\\rho<0}w_{A}(\\mathbf{r})w_{B}(\\mathbf{r})\\nabla^{2}\\rho(\\mathbf{r})\\mathrm{d}\\ma"
+  },
+  {
+   "page": 150,
+   "img": "formula_p150_088.png",
+   "latex": "I_{_{AB}}=\\sum_{a\\in A}\\sum_{b\\in B}P_{ab}^{2}"
+  },
+  {
+   "page": 151,
+   "img": "formula_p151_089.png",
+   "latex": "I_{_{ABC}}=\\sum_{a\\in A}\\sum_{b\\in B}\\sum_{c\\in C}P_{ab}P_{bc}P_{ca}"
+  },
+  {
+   "page": 151,
+   "img": "formula_p151_090.png",
+   "latex": "\\mathrm{IBSI}=\\frac{(1/d^{2})\\int\\delta g^{\\mathrm{pair}}\\mathrm{d}\\mathbf{r}}{(1/d^{2}_{H_{2}})\\int\\delta g^{\\mathrm{H}"
+  },
+  {
+   "page": 155,
+   "img": "formula_p155_091.png",
+   "latex": "\\mathrm{TDOS}(E)=\\sum_{i}\\delta(E-\\varepsilon_{i})"
+  },
+  {
+   "page": 156,
+   "img": "formula_p156_092.png",
+   "latex": "\\mathrm{P D O S}_{A}(E)=\\sum_{i}\\Theta_{i,A}F(E-\\varepsilon_{i})"
+  },
+  {
+   "page": 156,
+   "img": "formula_p156_093.png",
+   "latex": "\\mathrm{OPDOS}_{A,B}(E)=\\sum_{i}\\mathrm{X}_{A,B}^{i}F(E-\\varepsilon_{i})"
+  },
+  {
+   "page": 160,
+   "img": "formula_p160_094.png",
+   "latex": "\\mathrm{L D O S}(\\mathbf{r},E)=\\sum_{i}\\varphi_{i}^{2}(\\mathbf{r})f(E-\\varepsilon_{i})"
+  },
+  {
+   "page": 164,
+   "img": "formula_p164_095.png",
+   "latex": "\\frac{1000cm^{2}}{mol}(cm^{-1})=\\frac{1000cm}{mol}=\\frac{0.01km}{mol}"
+  },
+  {
+   "page": 174,
+   "img": "formula_p174_096.png",
+   "latex": "in front of the legend to let Multiwfn know it is legend rather than weight. For example,"
+  },
+  {
+   "page": 174,
+   "img": "formula_p174_097.png",
+   "latex": "\\delta=a\\times\\sigma+b"
+  },
+  {
+   "page": 175,
+   "img": "formula_p175_098.png",
+   "latex": "\\overline{\\delta^{A}}=\\sum_{i}p_{i}\\delta_{i}^{A}"
+  },
+  {
+   "page": 177,
+   "img": "formula_p177_099.png",
+   "latex": "\\varepsilon(E)=c\\sum_{i}f_{i}G(E-E_{i}^{\\mathrm{v i b}})"
+  },
+  {
+   "page": 178,
+   "img": "formula_p178_100.png",
+   "latex": "\\mathcal{E}_{A}(E)=c\\sum_{i}\\Theta_{A}^{i}f_{i}G(E-E_{i}^{\\mathrm{v i b}})"
+  },
+  {
+   "page": 178,
+   "img": "formula_p178_101.png",
+   "latex": "\\rho(E)=c\\sum_{i}G(E-E_{i}^{\\mathrm{v i b}})"
+  },
+  {
+   "page": 178,
+   "img": "formula_p178_102.png",
+   "latex": "\\rho_{_{A}}(E)=c\\sum_{i}\\Theta_{_{A}}^{i}G(E-E_{i}^{\\mathrm{v i b}})"
+  },
+  {
+   "page": 178,
+   "img": "formula_p178_103.png",
+   "latex": "\\Theta_{A}^{i}=100\\%\\times\\sum_{j\\in A}L_{j,i}^{2}"
+  },
+  {
+   "page": 178,
+   "img": "formula_p178_104.png",
+   "latex": "I^{i}=s\\left|\\frac{\\partial\\boldsymbol{\\mu}}{\\partial q_{i}}\\right|^{2}=s\\sum_{\\sigma=x,y,z}\\left(\\frac{\\partial\\boldsym"
+  },
+  {
+   "page": 179,
+   "img": "formula_p179_105.png",
+   "latex": "\\frac{\\partial\\mu_{\\sigma}}{\\partial q_{i}}=\\sum_{j}\\frac{\\partial\\mu_{\\sigma}}{\\partial x_{j}}\\frac{\\partial x_{j}}{\\pa"
+  },
+  {
+   "page": 179,
+   "img": "formula_p179_106.png",
+   "latex": "I_{AB}^{i,\\sigma}"
+  },
+  {
+   "page": 180,
+   "img": "formula_p180_107.png",
+   "latex": "\\mathcal{E}_{A B}(E)=c\\sum_{i}\\Theta_{A B}^{i}f_{i}G(E-E_{i}^{\\mathrm{v i b}})"
+  },
+  {
+   "page": 193,
+   "img": "formula_p193_108.png",
+   "latex": "\\begin{array}{r l}{\\overline{{V}}_{S}^{+}=(1/N_{+})\\displaystyle\\sum_{i}^{N_{+}}V(\\mathbf{r}_{i})}&{{}\\quad\\overline{{V}"
+  },
+  {
+   "page": 193,
+   "img": "formula_p193_109.png",
+   "latex": "\\overline{V}_{s}=(1/N)\\sum_{i}^{N}V(\\mathbf{r}_{i})"
+  },
+  {
+   "page": 193,
+   "img": "formula_p193_110.png",
+   "latex": "\\Pi=(1/N)\\sum_{i}^{N}\\left|V(\\mathbf{r}_{i})-\\overline{V}_{s}\\right|"
+  },
+  {
+   "page": 193,
+   "img": "formula_p193_111.png",
+   "latex": "\\sigma_{\\mathrm{tot}}^{2}=\\sigma_{+}^{2}+\\sigma_{-}^{2}=(1/N_{+})\\sum_{i}^{N_{+}}[V(\\mathbf{r}_{i})-\\overline{V}_{s}^{+}"
+  },
+  {
+   "page": 193,
+   "img": "formula_p193_112.png",
+   "latex": "\\nu=\\frac{\\sigma_{+}^{2}\\sigma_{-}^{2}}{\\left(\\sigma_{\\mathrm{tot}}^{2}\\right)^{2}}"
+  },
+  {
+   "page": 194,
+   "img": "formula_p194_113.png",
+   "latex": "\\mathrm{MPI}=(1/N)\\sum_{i}^{N}\\left|V(\\mathbf{r}_{i})\\right|\\equiv(1/A)\\iint\\limits_{S}\\left|V(\\mathbf{r})\\right|\\mathrm"
+  },
+  {
+   "page": 194,
+   "img": "formula_p194_114.png",
+   "latex": "\\tilde{\\mu}_{3}(V_{S}^{+})=\\frac{\\displaystyle\\sum_{i}^{N_{+}}[V(\\mathbf{r}_{i})-\\overline{V}_{S}^{+}]^{3}}{N_{+}(\\sigma"
+  },
+  {
+   "page": 194,
+   "img": "formula_p194_115.png",
+   "latex": "\\Delta H_{\\mathrm{vap}}=a\\sqrt{A}+b\\sqrt{\\nu\\sigma_{\\mathrm{tot}}^{2}}+c"
+  },
+  {
+   "page": 195,
+   "img": "formula_p195_116.png",
+   "latex": "\\Delta H_{\\mathrm{s u b}}=4.4307\\times10^{-4}A^{2}+2.0599\\sqrt{\\nu\\sigma_{\\mathrm{tot}}^{2}}-2.4825"
+  },
+  {
+   "page": 195,
+   "img": "formula_p195_117.png",
+   "latex": "\\rho=\\alpha\\frac{M}{V_{\\mathrm{m}}}+\\beta(v\\sigma_{\\mathrm{tot}}^{2})+\\gamma"
+  },
+  {
+   "page": 195,
+   "img": "formula_p195_118.png",
+   "latex": "T_{\\mathrm{b p}}=\\alpha A+\\beta\\sqrt{\\nu\\sigma_{\\mathrm{tot}}^{2}}+\\gamma"
+  },
+  {
+   "page": 196,
+   "img": "formula_p196_119.png",
+   "latex": "\\begin{aligned}\\Delta G_{solv}(kJ/mol)=&0.17201W_{min}-2.6412\\times10^{-5}(V_{S,max}-V_{S,min})^{3}\\\\&+0.051892A^{-}\\ove"
+  },
+  {
+   "page": 197,
+   "img": "formula_p197_120.png",
+   "latex": "S=\\frac{\\pi^{1/3}(6V)^{2/3}}{A}"
+  },
+  {
+   "page": 198,
+   "img": "formula_p198_121.png",
+   "latex": "\\overline{V}_{s}=(1/A)\\sum_{i}^{N}A_{i}F_{i}"
+  },
+  {
+   "page": 199,
+   "img": "formula_p199_122.png",
+   "latex": "w_{_{A}}=1-\\frac{\\left|\\mathbf{r}-\\mathbf{r}_{_{A}}\\right|}{R_{_{A}}}"
+  },
+  {
+   "page": 214,
+   "img": "formula_p214_123.png",
+   "latex": "\\mathbf{R}_{+}=\\sum_{i}^{+}\\mathbf{r}_{i}f(\\mathbf{r}_{i})/\\sum_{i}^{+}f(\\mathbf{r}_{i})"
+  },
+  {
+   "page": 214,
+   "img": "formula_p214_124.png",
+   "latex": "I(z^{\\prime})=\\int\\limits_{z_{ini}}^{z^{\\prime}}\\int\\limits_{-\\infty}^{+\\infty}\\int\\limits_{-\\infty}^{+\\infty}p(x,y,z)\\m"
+  },
+  {
+   "page": 215,
+   "img": "formula_p215_125.png",
+   "latex": "p_{\\mathrm{avg}}(z)=\\frac{\\displaystyle\\int\\limits_{-\\infty}^{+\\infty}\\int\\limits_{-\\infty}^{+\\infty}p(x,y,z)\\mathrm{d}x"
+  },
+  {
+   "page": 223,
+   "img": "formula_p223_127.png",
+   "latex": "\\begin{aligned}&0\\leq w_{A}(\\mathbf{r})\\leq1\\quad\\forall A\\\\&\\sum_{B}w_{B}(\\mathbf{r})=1\\\\ \\end{aligned}"
+  },
+  {
+   "page": 224,
+   "img": "formula_p224_128.png",
+   "latex": "p(d)=(3/2)d-(1/2)d^{3}"
+  },
+  {
+   "page": 224,
+   "img": "formula_p224_129.png",
+   "latex": "s_{k}(t)=(1/2)[1-f_{k}(t)]"
+  },
+  {
+   "page": 226,
+   "img": "formula_p226_130.png",
+   "latex": "I_{A}=\\int_{A}w_{A}(\\mathbf{r})f(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 226,
+   "img": "formula_p226_131.png",
+   "latex": "I_{_{AB}}=\\int_{_{A}}w_{_{A}}(\\mathbf{r})w_{_{B}}(\\mathbf{r})f(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 227,
+   "img": "formula_p227_133.png",
+   "latex": "x=r_{x}-R_{x}^{A}\\quad y=r_{y}-R_{y}^{A}\\quad z=r_{z}-R_{z}^{A}"
+  },
+  {
+   "page": 227,
+   "img": "formula_p227_134.png",
+   "latex": "p_{A}=-\\int w_{A}(\\mathbf{r})\\rho(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 227,
+   "img": "formula_p227_135.png",
+   "latex": "\\mathbf{\\mu}^{A}=\\left[\\begin{matrix}{\\mu_{x}^{A}}\\\\ {\\mu_{y}^{A}}\\\\ {\\mu_{z}^{A}}\\\\ \\end{matrix}\\right]=-\\int\\left[\\beg"
+  },
+  {
+   "page": 227,
+   "img": "formula_p227_136.png",
+   "latex": "\\left|\\boldsymbol{\\mu}^{A}\\right|=\\sqrt{\\left(\\boldsymbol{\\mu}_{x}^{A}\\right)^{2}+\\left(\\boldsymbol{\\mu}_{y}^{A}\\right)^"
+  },
+  {
+   "page": 228,
+   "img": "formula_p228_137.png",
+   "latex": "\\mathbf{\\Theta}^{A}=\\left[\\begin{matrix}{\\Theta_{x x}^{A}}&{\\Theta_{x y}^{A}}&{\\Theta_{x z}^{A}}\\\\ {\\Theta_{y x}^{A}}&{\\"
+  },
+  {
+   "page": 228,
+   "img": "formula_p228_138.png",
+   "latex": "\\langle r_{A}^{2}\\rangle=\\int r^{2}w_{A}(\\mathbf{r})\\rho(\\mathbf{r})\\mathrm{d}\\mathbf{r}=\\langle x_{A}^{2}\\rangle+\\langl"
+  },
+  {
+   "page": 228,
+   "img": "formula_p228_139.png",
+   "latex": "R_{2,-1}=\\sqrt{3}y z\\quad R_{2,1}=\\sqrt{3}x z"
+  },
+  {
+   "page": 228,
+   "img": "formula_p228_140.png",
+   "latex": "\\left|Q_{l}^{A}\\right|=\\sqrt{\\sum_{m}\\left(Q_{l,m}^{A}\\right)^{2}}"
+  },
+  {
+   "page": 229,
+   "img": "formula_p229_141.png",
+   "latex": "\\mathbf{\\mu}^{\\mathrm{m o l}}=\\sum_{A}(q_{A}\\mathbf{R}^{A}+\\mathbf{\\mu}^{A})"
+  },
+  {
+   "page": 229,
+   "img": "formula_p229_142.png",
+   "latex": "\\Theta_{xy}=\\frac{3}{2}\\Biggl[\\sum_{A}R_{x}^{A}R_{y}^{A}Z_{A}-\\sum_{A}\\int xy w_{A}(\\mathbf{r})\\rho(\\mathbf{r})\\mathrm{d"
+  },
+  {
+   "page": 229,
+   "img": "formula_p229_143.png",
+   "latex": "S_{i j}(A)=\\int_{A}\\varphi_{i}(\\mathbf{r})\\varphi_{j}(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 230,
+   "img": "formula_p230_144.png",
+   "latex": "\\mathbf{S U M}=\\sum_{A}\\mathbf{S}(A)=\\mathbf{I}"
+  },
+  {
+   "page": 231,
+   "img": "formula_p231_145.png",
+   "latex": "\\delta^{\\alpha}(B\\to A)=-\\int_{B}\\int_{A}\\Gamma_{\\mathrm{X C}}^{\\alpha,\\mathrm{tot}}(\\mathbf{r}_{1},\\mathbf{r}_{2})\\math"
+  },
+  {
+   "page": 231,
+   "img": "formula_p231_146.png",
+   "latex": "\\delta^{\\alpha}(A,B)=2\\sum_{i\\in\\alpha}\\sum_{j\\in\\alpha}\\sqrt{\\eta_{i}\\eta_{j}}S_{i j}(A)S_{i j}(B)"
+  },
+  {
+   "page": 232,
+   "img": "formula_p232_147.png",
+   "latex": "\\lambda(A)=\\sum_{m}\\sum_{n}\\sqrt{\\eta_{m}\\eta_{n}}S_{mn}(A)S_{mn}(A)"
+  },
+  {
+   "page": 232,
+   "img": "formula_p232_148.png",
+   "latex": "\\begin{aligned}&\\delta^{\\alpha}(F,G)=2\\sum_{i\\in\\alpha}\\sum_{j\\in\\alpha}\\sqrt{\\eta_{i}\\eta_{j}}S_{ij}(F)S_{ij}(G)\\\\&\\rig"
+  },
+  {
+   "page": 232,
+   "img": "formula_p232_149.png",
+   "latex": "\\begin{aligned}&\\lambda^{\\alpha}(F)=\\sum_{i\\in\\alpha}\\sum_{j\\in\\alpha}\\sqrt{\\eta_{i}\\eta_{j}}S_{ij}(F)S_{ij}(F)\\\\&\\right"
+  },
+  {
+   "page": 233,
+   "img": "formula_p233_151.png",
+   "latex": "V(A)=\\sum_{B\\neq A}\\delta(A,B)"
+  },
+  {
+   "page": 233,
+   "img": "formula_p233_152.png",
+   "latex": "\\delta_{\\sigma}^{\\alpha}(A,B)=2\\sum_{i\\in\\alpha}^{\\sigma}\\sum_{j\\in\\alpha}^{\\sigma}\\sqrt{\\eta_{i}\\eta_{j}}S_{i j}(A)S_{i"
+  },
+  {
+   "page": 234,
+   "img": "formula_p234_153.png",
+   "latex": "l(A)=\\lambda(A)/N_{A}"
+  },
+  {
+   "page": 235,
+   "img": "formula_p235_154.png",
+   "latex": "FLU=\\frac{1}{n}\\sum_{A-B}^{ring}\\left[\\left(\\frac{V(B)}{V(A)}\\right)^{\\alpha}\\left(\\frac{\\delta(A,B)-\\delta_{ref}(A,B)}{"
+  },
+  {
+   "page": 236,
+   "img": "formula_p236_155.png",
+   "latex": "\\chi(\\mathbf{r}_{1},\\mathbf{r}_{2})=\\left(\\frac{\\delta^{2}E}{\\delta\\nu(\\mathbf{r}_{1})\\delta\\nu(\\mathbf{r}_{2})}\\right)_"
+  },
+  {
+   "page": 239,
+   "img": "formula_p239_156.png",
+   "latex": "\\alpha_{_{A}}^{\\%}=\\frac{\\alpha_{_{A}}^{\\mathrm{eff}}(0)}{\\sum\\limits_{A}\\alpha_{_{A}}^{\\mathrm{eff}}(0)}\\times100\\%"
+  },
+  {
+   "page": 242,
+   "img": "formula_p242_157.png",
+   "latex": "\\Theta_{m,i}=\\left(C_{m,i}^{2}+\\sum_{n\\neq m}C_{m,i}C_{n,i}S_{m,n}\\right)\\times100\\%"
+  },
+  {
+   "page": 258,
+   "img": "formula_p258_158.png",
+   "latex": "\\Psi^{\\mathrm{e x c}}=\\sum_{i\\rightarrow a}w_{i}^{a}\\Phi_{i}^{a}\\equiv\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}"
+  },
+  {
+   "page": 258,
+   "img": "formula_p258_159.png",
+   "latex": "100\\% \\times (w_i^a)^2"
+  },
+  {
+   "page": 258,
+   "img": "formula_p258_160.png",
+   "latex": "\\Psi^{\\mathrm{e x c}}=\\sum_{i\\rightarrow a}w_{i}^{a}\\Phi_{i}^{a}+\\sum_{i\\leftarrow a}w_{i}^{\\prime a}\\Phi_{i}^{a}"
+  },
+  {
+   "page": 258,
+   "img": "formula_p258_161.png",
+   "latex": "\\sum_{i\\rightarrow a}(w_{i}^{a})^{2}-\\sum_{i\\leftarrow a}(w_{i}^{\\prime a})^{2}=1"
+  },
+  {
+   "page": 264,
+   "img": "formula_p264_162.png",
+   "latex": "\\int\\rho^{\\mathrm{h o l e}}(\\mathbf{r})\\mathrm{d}\\mathbf{r}=1\\quad\\int\\rho^{\\mathrm{e l e}}(\\mathbf{r})\\mathrm{d}\\mathbf"
+  },
+  {
+   "page": 264,
+   "img": "formula_p264_163.png",
+   "latex": "\\rho^{\\mathrm{excited}}(\\mathbf{r})=\\rho^{\\mathrm{ground}}(\\mathbf{r})-\\rho^{\\mathrm{hole}}(\\mathbf{r})+\\rho^{\\mathrm{el"
+  },
+  {
+   "page": 264,
+   "img": "formula_p264_164.png",
+   "latex": "S_{\\mathrm{m}}(\\mathbf{r})=\\min[\\rho^{\\mathrm{hole}}(\\mathbf{r}),\\rho^{\\mathrm{ele}}(\\mathbf{r})]"
+  },
+  {
+   "page": 264,
+   "img": "formula_p264_165.png",
+   "latex": "S_{\\mathrm{r}}(\\mathbf{r})=\\sqrt{\\rho^{\\mathrm{hole}}(\\mathbf{r})\\rho^{\\mathrm{ele}}(\\mathbf{r})}"
+  },
+  {
+   "page": 265,
+   "img": "formula_p265_166.png",
+   "latex": "\\rho_{(\\mathrm{loc})}^{\\mathrm{hole}}=\\sum_{i\\rightarrow a}(w_{i}^{a})^{2}\\rho_{i}-\\sum_{i\\leftarrow a}(w_{i}^{\\prime a}"
+  },
+  {
+   "page": 266,
+   "img": "formula_p266_167.png",
+   "latex": "\\int\\left(\\sum_{i,j\\rightarrow a}w_{i}^{a}w_{j}^{a}\\sum_{\\mu}\\sum_{\\nu}C_{\\mu,i}C_{\\nu,j}\\chi_{\\mu}\\chi_{\\nu}\\right)\\mat"
+  },
+  {
+   "page": 267,
+   "img": "formula_p267_168.png",
+   "latex": "\\Theta_{A}^{\\mathrm{o v l p}}=\\sqrt{\\Theta_{A}^{\\mathrm{e l e}}\\Theta_{A}^{\\mathrm{h o l e}}}\\quad\\Theta_{f r a g}^{\\mat"
+  },
+  {
+   "page": 267,
+   "img": "formula_p267_169.png",
+   "latex": "S_{\\mathrm{m}}\\mathrm{index}=\\int S_{\\mathrm{m}}(\\mathbf{r})\\mathrm{d}\\mathbf{r}\\equiv\\int\\min[\\rho^{\\mathrm{hole}}(\\mat"
+  },
+  {
+   "page": 268,
+   "img": "formula_p268_170.png",
+   "latex": "D\\operatorname{index}=|\\mathbf{D}|\\equiv\\sqrt{(D_{x})^{2}+(D_{y})^{2}+(D_{z})^{2}}"
+  },
+  {
+   "page": 268,
+   "img": "formula_p268_171.png",
+   "latex": "\\begin{aligned}&HDI=100\\times\\sqrt{\\int[\\rho^{hole}(\\mathbf{r})]^{2}d\\mathbf{r}}\\\\ &EDI=100\\times\\sqrt{\\int[\\rho^{ele}(\\"
+  },
+  {
+   "page": 270,
+   "img": "formula_p270_172.png",
+   "latex": "T(\\mathbf{r};\\mathbf{r}^{\\prime})=\\sum_{i}\\sum_{a}w_{i}^{a}\\varphi_{i}(\\mathbf{r})\\varphi_{a}(\\mathbf{r}^{\\prime})"
+  },
+  {
+   "page": 270,
+   "img": "formula_p270_173.png",
+   "latex": "T(\\mathbf{r})=\\sum_{i}\\sum_{a}w_{i}^{a}\\varphi_{i}(\\mathbf{r})\\varphi_{a}(\\mathbf{r})"
+  },
+  {
+   "page": 270,
+   "img": "formula_p270_174.png",
+   "latex": "\\begin{aligned}&\\hat{\\mathbf{L}}=-i\\left(\\mathbf{r}\\times\\nabla\\right)=\\hat{\\mathbf{i}}L_{\\mathrm{x}}+\\hat{\\mathbf{j}}L_"
+  },
+  {
+   "page": 274,
+   "img": "formula_p274_175.png",
+   "latex": "P_{\\mu\\nu}^{\\mathrm{t r a n}}=\\sum_{i}^{\\mathrm{o c c}}\\sum_{a}^{\\mathrm{v i r}}w_{i}^{a}C_{\\mu i}C_{v a}"
+  },
+  {
+   "page": 275,
+   "img": "formula_p275_176.png",
+   "latex": "\\overline{P}_{\\mu\\nu}^{\\mathrm{tran}}=\\frac{P_{\\mu\\nu}^{\\mathrm{tran}}+P_{\\nu\\mu}^{\\mathrm{tran}}}{\\sqrt{2}}"
+  },
+  {
+   "page": 275,
+   "img": "formula_p275_177.png",
+   "latex": "\\mathbf{p}\\equiv\\mathrm{e l e c t r o n}\\left[\\begin{matrix}{1,N}&{2,N}&{\\cdots}&{N,N}\\\\ {\\vdots}&{\\vdots}&{\\ddots}&{\\vd"
+  },
+  {
+   "page": 278,
+   "img": "formula_p278_178.png",
+   "latex": "\\Delta r_{i}^{a}=\\frac{(K_{i}^{a})^{2}}{\\displaystyle\\sum_{i,a}(K_{i}^{a})^{2}}\\big|\\big\\langle\\varphi_{a}\\big|\\mathbf{r"
+  },
+  {
+   "page": 279,
+   "img": "formula_p279_179.png",
+   "latex": "\\Delta\\rho(\\mathbf{r})=\\rho_{\\mathrm{E X}}(\\mathbf{r})-\\rho_{\\mathrm{G S}}(\\mathbf{r})"
+  },
+  {
+   "page": 280,
+   "img": "formula_p280_180.png",
+   "latex": "\\begin{aligned}\\mathbf{R}_{+}=&\\int\\mathbf{r}\\rho_{+}(\\mathbf{r})\\mathrm{d}\\mathbf{r}/\\int\\rho_{+}(\\mathbf{r})\\mathrm{d}"
+  },
+  {
+   "page": 280,
+   "img": "formula_p280_181.png",
+   "latex": "\\sqrt{(D_x)^2 + (D_y)^2 + (D_z)^2} \\equiv |\\mathbf{R}_+ - \\mathbf{R}_-|"
+  },
+  {
+   "page": 280,
+   "img": "formula_p280_182.png",
+   "latex": "\\sigma_{a,\\lambda}=\\sqrt{\\frac{\\int\\rho_{a}(\\mathbf{r})(\\lambda^{\\prime}-\\lambda_{a})^{2}\\mathrm{d}\\mathbf{r}}{\\int\\rho_"
+  },
+  {
+   "page": 280,
+   "img": "formula_p280_183.png",
+   "latex": "\\sigma_{+,y}=\\sqrt{\\frac{\\int\\rho_{+}(\\mathbf{r})(y-Y_{+})^{2}\\mathrm{d}\\mathbf{r}}{\\int\\rho_{+}(\\mathbf{r})\\mathrm{d}\\m"
+  },
+  {
+   "page": 280,
+   "img": "formula_p280_184.png",
+   "latex": "\\begin{aligned}&\\Delta\\sigma_{\\lambda}=\\sigma_{+,,\\lambda}-\\sigma_{-,,\\lambda}\\qquad\\lambda=\\{x,y,z\\}\\\\&\\Delta\\sigma ind"
+  },
+  {
+   "page": 281,
+   "img": "formula_p281_185.png",
+   "latex": "\\begin{aligned}&H_{\\lambda}=(\\sigma_{+,\\lambda}+\\sigma_{-,\\lambda})/2\\quad\\lambda=\\{x,y,z\\}\\\\&H_{\\mathrm{CT}}=\\mid\\mathb"
+  },
+  {
+   "page": 281,
+   "img": "formula_p281_186.png",
+   "latex": "S_{+-}=\\int\\sqrt{C_{+}(\\mathbf{r})/A_{+}}\\sqrt{C_{-}(\\mathbf{r})/A_{-}}\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 284,
+   "img": "formula_p284_187.png",
+   "latex": "\\mathbf{v}^{0}=\\sum_{l}^{\\mathrm{o c c}}\\eta_{l}\\left\\langle\\varphi_{l}\\right|\\hat{\\mathbf{v}}\\left|\\varphi_{l}\\right\\ra"
+  },
+  {
+   "page": 288,
+   "img": "formula_p288_188.png",
+   "latex": "\\begin{aligned}\\Delta p_{_{R}}&=\\sum_{S\\neq R}(Q_{_{S,R}}-Q_{_{R,S}})=\\sum_{S\\neq R}(\\Theta_{_{S,\\mathrm{hole}}}\\Theta_{"
+  },
+  {
+   "page": 288,
+   "img": "formula_p288_189.png",
+   "latex": "\\begin{aligned}&\\sum_{R}\\sum_{S\\neq R}Q_{R,S}+\\sum_{S}Q_{S,S}\\\\&=\\sum_{R}\\sum_{S}Q_{R,S}\\\\&=\\sum_{R}\\sum_{S}\\Theta_{R,\\m"
+  },
+  {
+   "page": 291,
+   "img": "formula_p291_190.png",
+   "latex": "\\begin{aligned}&=0\\quad\\left(i\\neq j,a\\neq b\\right)\\\\&=\\left\\langle a\\middle|h\\middle|b\\right\\rangle\\quad\\left(i=j,a\\neq"
+  },
+  {
+   "page": 292,
+   "img": "formula_p292_191.png",
+   "latex": "\\begin{aligned}T^{KL}(\\mathbf{r};\\mathbf{r}^{\\prime})=&\\sum_{i}\\sum_{a}\\sum_{b}w_{i,a}^{K}w_{i,b}^{L}\\varphi_{a}(\\mathbf"
+  },
+  {
+   "page": 292,
+   "img": "formula_p292_192.png",
+   "latex": "\\mathbf{D}^{\\mathrm{t r a n}}=\\sum_{i,a}(w_{i,a}+w_{i,a}^{\\prime})\\langle\\varphi_{i}\\big|-\\mathbf{r}\\big|\\varphi_{a}\\ran"
+  },
+  {
+   "page": 293,
+   "img": "formula_p293_194.png",
+   "latex": "\\mathbf{M}^{\\mathrm{t r a n}}=\\sum_{i,a}(w_{i,a}-w_{i,a}^{\\prime})\\left\\langle\\varphi_{i}\\left|\\mathbf{r}\\times\\nabla\\ri"
+  },
+  {
+   "page": 294,
+   "img": "formula_p294_195.png",
+   "latex": "D_{A,B}^{X}=\\sum_{\\mu\\in A}\\sum_{\\nu\\in B}P_{\\mu\\nu}^{\\mathrm{t r a n}}\\left\\langle\\chi_{\\mu}\\right|-x\\left|\\chi_{\\mu}\\r"
+  },
+  {
+   "page": 294,
+   "img": "formula_p294_196.png",
+   "latex": "\\Theta_{\\mu}^{\\mathrm{t r a n}}=P_{\\mu\\mu}^{\\mathrm{t r a n}}+\\sum_{\\nu\\neq\\mu}S_{\\mu\\nu}(P_{\\mu\\nu}^{\\mathrm{t r a n}}+"
+  },
+  {
+   "page": 295,
+   "img": "formula_p295_197.png",
+   "latex": "\\mathbf{P}^{\\mathrm{E S}}=\\mathbf{P}^{\\mathrm{G S}}+\\Delta\\mathbf{P}^{\\mathrm{l o c a l}}+\\Delta\\mathbf{P}^{\\mathrm{c r "
+  },
+  {
+   "page": 296,
+   "img": "formula_p296_198.png",
+   "latex": "\\begin{array}{r}{\\Delta\\mathbf{P}^{\\mathrm{l o c a l}}=\\displaystyle\\sum_{i\\to a}(w_{i}^{a})^{2}(-\\mathbf{P}^{i i}+\\math"
+  },
+  {
+   "page": 296,
+   "img": "formula_p296_199.png",
+   "latex": "\\Lambda_{i}^{a}=\\frac{(K_{i}^{a})^{2}}{\\displaystyle\\sum_{i,a}(K_{i}^{a})^{2}}\\int\\bigl|\\varphi_{i}(\\mathbf{r})\\bigr|\\bi"
+  },
+  {
+   "page": 299,
+   "img": "formula_p299_200.png",
+   "latex": "\\varepsilon(E)=c\\sum_{i}f_{i}G(E-E_{i}^{\\mathrm{exc}})"
+  },
+  {
+   "page": 299,
+   "img": "formula_p299_201.png",
+   "latex": "\\mathcal{E}_{A,B}(E)=\\sum_{i}f_{i}Q_{i}^{A,B}G(E-E_{i}^{\\mathrm{e x c}})"
+  },
+  {
+   "page": 299,
+   "img": "formula_p299_202.png",
+   "latex": "\\mathcal{E}_{A,A}(E)=\\sum_{i}f_{i}Q_{i}^{A,A}G(E-E_{i}^{\\mathrm{e x c}})"
+  },
+  {
+   "page": 300,
+   "img": "formula_p300_203.png",
+   "latex": "|\\Psi_{0}\\rangle=\\sum_{k=0}^{\\infty}c_{k}|\\psi_{k}^{(0)}\\rangle"
+  },
+  {
+   "page": 301,
+   "img": "formula_p301_204.png",
+   "latex": "c_{k}=-\\frac{\\left\\langle\\Psi_{k}^{(0)}\\right|\\delta v\\left|\\Psi_{0}^{(0)}\\right\\rangle}{E_{k}^{(0)}-E_{0}^{(0)}}=-\\frac"
+  },
+  {
+   "page": 301,
+   "img": "formula_p301_205.png",
+   "latex": "\\rho_{\\mathrm{p o l}}(\\mathbf{r})=\\rho_{\\mathrm{p e r t}}(\\mathbf{r})-\\rho_{0}(\\mathbf{r})\\approx2\\sum_{k=1}^{\\infty}c_{"
+  },
+  {
+   "page": 301,
+   "img": "formula_p301_206.png",
+   "latex": "\\delta N = \\frac{1}{2} \\int |\\rho_{\\mathrm{pol}}(\\mathbf{r})| \\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 301,
+   "img": "formula_p301_207.png",
+   "latex": "E^{(1)}=\\left\\langle\\Psi_{0}^{(0)}\\right|\\delta v\\left|\\Psi_{0}^{(0)}\\right\\rangle=\\int\\rho_{0}(\\mathbf{r})\\delta v(\\mat"
+  },
+  {
+   "page": 301,
+   "img": "formula_p301_208.png",
+   "latex": "E^{(2)}=\\sum_{k>0}^{\\infty}\\frac{\\left|\\left\\langle\\Psi_{k}^{(0)}\\right|\\delta v\\left|\\Psi_{0}^{(0)}\\right\\rangle\\right|"
+  },
+  {
+   "page": 303,
+   "img": "formula_p303_209.png",
+   "latex": "g_{\\mathrm{a b s}}=\\frac{\\varepsilon_{\\mathrm{L}}-\\varepsilon_{\\mathrm{R}}}{\\frac{1}{2}(\\varepsilon_{\\mathrm{L}}+\\vareps"
+  },
+  {
+   "page": 303,
+   "img": "formula_p303_210.png",
+   "latex": "g_{abs}=4\\frac{R}{D}"
+  },
+  {
+   "page": 304,
+   "img": "formula_p304_211.png",
+   "latex": "g_{\\mathrm{lum}}=\\frac{I_{\\mathrm{L}}-I_{\\mathrm{R}}}{\\frac{1}{2}\\left(I_{\\mathrm{L}}+I_{\\mathrm{R}}\\right)}"
+  },
+  {
+   "page": 305,
+   "img": "formula_p305_212.png",
+   "latex": "\\left\\langle\\Omega\\right\\rangle_{\\mathrm{E R}}=\\sum_{i}\\iint\\rho_{i}(\\mathbf{r}_{1})\\frac{1}{\\left|\\mathbf{r}_{1}-\\mathb"
+  },
+  {
+   "page": 305,
+   "img": "formula_p305_213.png",
+   "latex": "p_{A}^{i}"
+  },
+  {
+   "page": 306,
+   "img": "formula_p306_214.png",
+   "latex": "\\begin{array}{r}{Q_{A}^{i j}=\\frac{1}{2}\\displaystyle\\sum_{\\mu\\in A}\\displaystyle\\sum_{v}[C_{v i}C_{\\mu j}+C_{\\mu i}C_{v"
+  },
+  {
+   "page": 306,
+   "img": "formula_p306_215.png",
+   "latex": "Q_{A}^{i j}=\\frac{1}{2}\\sum_{\\mu\\in A}[C_{\\mu j}(\\mathbf{S C})_{\\mu i}+C_{\\mu i}(\\mathbf{S C})_{\\mu j}]"
+  },
+  {
+   "page": 306,
+   "img": "formula_p306_216.png",
+   "latex": "\\boldsymbol{Q}_{A}^{ij}=\\boldsymbol{\\mathbf{c}}_{i}^{\\mathrm{T}}\\boldsymbol{\\mathbf{S}}^{A}\\boldsymbol{\\mathbf{c}}_{j}"
+  },
+  {
+   "page": 309,
+   "img": "formula_p309_217.png",
+   "latex": "\\mathbf{D}_{i}=\\left\\langle\\boldsymbol{\\varphi}_{i}\\middle|-\\mathbf{r}\\middle|\\boldsymbol{\\varphi}_{i}\\right\\rangle"
+  },
+  {
+   "page": 311,
+   "img": "formula_p311_218.png",
+   "latex": "\\mathrm{RDG}(\\mathbf{r})=\\frac{1}{2(3\\pi^{2})^{1/3}}\\frac{\\left|\\nabla\\rho(\\mathbf{r})\\right|}{\\rho(\\mathbf{r})^{4/3}}"
+  },
+  {
+   "page": 320,
+   "img": "formula_p320_219.png",
+   "latex": "\\mathrm{TFI}(\\mathbf{r})=\\frac{std[\\rho(\\mathbf{r})]}{\\overline{\\rho}(\\mathbf{r})}"
+  },
+  {
+   "page": 321,
+   "img": "formula_p321_220.png",
+   "latex": "s t d[\\rho(\\mathbf{r})]=\\sqrt{\\frac{\\sum_{i}[\\rho_{i}(\\mathbf{r})-\\overline{\\rho}(\\mathbf{r})]^{2}}{n}}"
+  },
+  {
+   "page": 322,
+   "img": "formula_p322_221.png",
+   "latex": "\\mathrm{DORI}(\\mathbf{r})=\\frac{\\theta(\\mathbf{r})}{1+\\theta(\\mathbf{r})}"
+  },
+  {
+   "page": 324,
+   "img": "formula_p324_222.png",
+   "latex": "g^{\\mathrm{inter}}(\\mathbf{r})=\\left|\\sum_{A}\\sum_{i\\in A}\\nabla\\rho_{i}^{\\mathrm{free}}(\\mathbf{r})\\right|"
+  },
+  {
+   "page": 325,
+   "img": "formula_p325_223.png",
+   "latex": "\\delta G_{i}^{\\mathrm{atom}}=\\sum_{j\\in B}\\delta G_{i,j}^{\\mathrm{pair}}"
+  },
+  {
+   "page": 328,
+   "img": "formula_p328_224.png",
+   "latex": "\\frac{\\partial\\rho_{i}^{IGMH}}{\\partial\\mu}=\\frac{\\partial(\\rho w_{i})}{\\partial\\mu}=w_{i}\\frac{\\partial\\rho}{\\partial\\m"
+  },
+  {
+   "page": 334,
+   "img": "formula_p334_225.png",
+   "latex": "E_{_{AB}}^{ele}=\\frac{q_{_{A}}q_{_{B}}}{r_{_{AB}}}"
+  },
+  {
+   "page": 334,
+   "img": "formula_p334_226.png",
+   "latex": "E_{_{AB}}^{\\mathrm{vdW}}=E_{_{AB}}^{\\mathrm{rep}}+E_{_{AB}}^{\\mathrm{disp}}"
+  },
+  {
+   "page": 334,
+   "img": "formula_p334_227.png",
+   "latex": "E_{AB}^{\\mathrm{rep}}=\\varepsilon_{AB}\\left(\\frac{R_{AB}^{0}}{r_{AB}}\\right)^{12}\\quad E_{AB}^{\\mathrm{disp}}=-2\\varepsi"
+  },
+  {
+   "page": 334,
+   "img": "formula_p334_228.png",
+   "latex": "E_{IJ}^{\\mathrm{ele}}=\\sum_{A\\in I}\\sum_{B\\in J}E_{AB}^{\\mathrm{ele}}\\qquad E_{IJ}^{\\mathrm{rep}}=\\sum_{A\\in I}\\sum_{B\\i"
+  },
+  {
+   "page": 337,
+   "img": "formula_p337_229.png",
+   "latex": "E_{\\mathrm{s t e r i c}}=T_{\\mathrm{W}}=\\left|\\nabla\\rho(\\mathbf{r})\\right|^{2}/\\left[8\\rho(\\mathbf{r})\\right]"
+  },
+  {
+   "page": 339,
+   "img": "formula_p339_230.png",
+   "latex": "\\rho_{\\mathrm{d i s p}}(\\mathbf{r})=\\left(\\frac{\\pi}{\\alpha}\\right)^{-3/2}\\sum_{A}\\varepsilon_{A}e^{-\\alpha(\\mathbf{r}-\\"
+  },
+  {
+   "page": 342,
+   "img": "formula_p342_231.png",
+   "latex": "f_{A,B}^{+}=P_{A,B}(N+1)-P_{A,B}(N)"
+  },
+  {
+   "page": 343,
+   "img": "formula_p343_232.png",
+   "latex": "\\omega_{cubic}"
+  },
+  {
+   "page": 343,
+   "img": "formula_p343_234.png",
+   "latex": "\\omega_{\\mathrm{cubic}}^A = \\omega_{\\mathrm{cubic}} f_A^+"
+  },
+  {
+   "page": 344,
+   "img": "formula_p344_235.png",
+   "latex": "b=\\frac{I_{1}-A^{\\prime}}{2}-\\frac{I_{1}+A^{\\prime}}{2}c"
+  },
+  {
+   "page": 344,
+   "img": "formula_p344_236.png",
+   "latex": "v_{N-\\mathrm{p h i l e}}(\\mathbf{r})\\approx V_{N-\\mathrm{p h i l e}}^{\\mathrm{E S P}}(\\mathbf{r})-\\Delta N\\int\\frac{f_{N"
+  },
+  {
+   "page": 344,
+   "img": "formula_p344_237.png",
+   "latex": "V_{f^{-}}(\\mathbf{r})=\\int\\frac{f^{-}(\\mathbf{r}^{\\prime})}{|\\mathbf{r}-\\mathbf{r}^{\\prime}|}\\mathrm{d}\\mathbf{r}^{\\prim"
+  },
+  {
+   "page": 344,
+   "img": "formula_p344_238.png",
+   "latex": "D D P(\\mathbf{r})=\\int\\frac{\\Delta f(\\mathbf{r}^{\\prime})}{|\\mathbf{r}-\\mathbf{r}^{\\prime}|}\\mathrm{d}\\mathbf{r}^{\\prime"
+  },
+  {
+   "page": 349,
+   "img": "formula_p349_239.png",
+   "latex": "f^{+}_{\\Delta N_{S}<0}(\\mathbf{r})=\\frac{\\rho_{N+p_\\beta}(\\mathbf{r})-\\rho_{N}(\\mathbf{r})}{p_\\beta}"
+  },
+  {
+   "page": 350,
+   "img": "formula_p350_240.png",
+   "latex": "f^{+}_{\\Delta N_{S}>0}(\\mathbf{r})=\\frac{\\rho_{N+p_{\\alpha}}(\\mathbf{r})-\\rho_{N}(\\mathbf{r})}{p_{\\alpha}}"
+  },
+  {
+   "page": 350,
+   "img": "formula_p350_241.png",
+   "latex": "f_{\\Delta N_{S}<0}^{-}(\\mathbf{r})=\\frac{\\rho_{N}(\\mathbf{r})-\\rho_{N-q_{\\alpha}}(\\mathbf{r})}{q_{\\alpha}}"
+  },
+  {
+   "page": 350,
+   "img": "formula_p350_242.png",
+   "latex": "f_{\\Delta N_{S}>0}^{-}(\\mathbf{r})=\\frac{\\rho_{N}(\\mathbf{r})-\\rho_{N-q_{\\beta}}(\\mathbf{r})}{q_{\\beta}}"
+  },
+  {
+   "page": 351,
+   "img": "formula_p351_243.png",
+   "latex": "D^{N}(A)=2\\sum_{i}^{unocc}\\sum_{\\mu\\in A}\\frac{C_{\\mu,i}^{2}}{\\alpha-\\varepsilon_{i}}"
+  },
+  {
+   "page": 351,
+   "img": "formula_p351_244.png",
+   "latex": "D^{N}(A)=2\\sum_{i}^{unocc}\\frac{\\Theta_{A,i}}{\\alpha-\\varepsilon_{i}}"
+  },
+  {
+   "page": 352,
+   "img": "formula_p352_245.png",
+   "latex": "\\delta_{A,B}^{\\mathrm{A L M}}=\\sum_{i,j}\\eta_{i}\\eta_{j}S_{i j}(A)S_{i j}(B)"
+  },
+  {
+   "page": 352,
+   "img": "formula_p352_246.png",
+   "latex": "\\left(\\frac{\\partial\\delta_{A,B}}{\\partial N}\\right)^{-}=4\\sum_{i<H}S_{\\mathrm{H}i}(A)S_{\\mathrm{H}i}(B)+4S_{\\mathrm{H H"
+  },
+  {
+   "page": 352,
+   "img": "formula_p352_247.png",
+   "latex": "\\left(\\frac{\\partial\\delta_{A,B}}{\\partial N}\\right)^{+}=f_{A B}^{+}=4\\sum_{i\\in\\mathrm{o c c}}S_{\\mathrm{L}i}(A)S_{\\mat"
+  },
+  {
+   "page": 353,
+   "img": "formula_p353_248.png",
+   "latex": "\\begin{aligned}\\boldsymbol{g}_{AB}^{+}&=\\boldsymbol{S}_{\\mathrm{LL}}(A)\\boldsymbol{S}_{\\mathrm{LL}}(B)\\\\\\boldsymbol{g}_{"
+  },
+  {
+   "page": 353,
+   "img": "formula_p353_249.png",
+   "latex": "\\begin{aligned}f_{AB}^{+}&=\\frac{1}{n_{\\mathrm{L}}}\\sum_{l\\in\\mathrm{L}}f_{AB}^{+(l)}\\quad&f_{AB}^{-}&=\\frac{1}{n_{\\math"
+  },
+  {
+   "page": 356,
+   "img": "formula_p356_250.png",
+   "latex": "\\Delta\\rho^{\\mathrm{o r b}}(\\mathbf{r})=\\sum_{i=1}^{N}v_{i}\\varphi_{i}^{2}(\\mathbf{r})"
+  },
+  {
+   "page": 356,
+   "img": "formula_p356_251.png",
+   "latex": "\\Delta\\rho^{\\mathrm{o r b}}(\\mathbf{r})=\\sum_{i=1}^{N/2}v_{i}\\varphi_{i}^{2}(\\mathbf{r})+v_{-i}\\varphi_{-i}^{2}(\\mathbf{"
+  },
+  {
+   "page": 356,
+   "img": "formula_p356_252.png",
+   "latex": "\\Delta E_{\\mathrm{orb}}=\\mathrm{Tr}\\big(\\Delta\\mathbf{P}^{\\mathrm{orb}}\\mathbf{F}^{\\mathrm{TS}}\\big)=\\sum_{\\mu}^{N}\\sum_"
+  },
+  {
+   "page": 357,
+   "img": "formula_p357_253.png",
+   "latex": "\\Delta E_{\\mathrm{orb}}=\\sum_{i=1}^{N}\\Delta E_{i}^{\\mathrm{orb}}=\\sum_{i=1}^{N}\\nu_{i}\\tilde{F}_{i,i}^{\\mathrm{TS}}"
+  },
+  {
+   "page": 357,
+   "img": "formula_p357_254.png",
+   "latex": "\\Delta E_{\\mathrm{orb}}=\\sum_{i=1}^{N/2}v_{i}\\big[\\tilde{F}_{i,i}^{\\mathrm{TS}}-\\tilde{F}_{-i,-i}^{\\mathrm{TS}}\\big]"
+  },
+  {
+   "page": 357,
+   "img": "formula_p357_255.png",
+   "latex": "\\Delta\\rho(\\mathbf{r})=\\Delta\\rho^{\\mathrm{o r b}}(\\mathbf{r})+\\Delta\\rho^{\\mathrm{P a u l i}}(\\mathbf{r})=\\rho(\\mathbf{"
+  },
+  {
+   "page": 361,
+   "img": "formula_p361_256.png",
+   "latex": "\\begin{align*}E(\\mathbf{F})&=E(\\mathbf{0})+\\frac{\\partial E}{\\partial\\mathbf{F}}\\bigg|_{\\mathbf{F}=0}\\mathbf{F}+\\frac{1}"
+  },
+  {
+   "page": 362,
+   "img": "formula_p362_257.png",
+   "latex": "\\boldsymbol{\\mu}_{1}=\\boldsymbol{\\alpha}\\cdot\\mathbf{F}\\quad\\Rightarrow\\quad\\begin{bmatrix}\\mu_{x}\\\\ \\mu_{y}\\\\ \\mu_{z}\\e"
+  },
+  {
+   "page": 362,
+   "img": "formula_p362_258.png",
+   "latex": "\\langle\\alpha\\rangle=\\mathrm{T r}(\\mathbf{a})/3=(\\alpha_{x x}+\\alpha_{y y}+\\alpha_{z z})/3"
+  },
+  {
+   "page": 362,
+   "img": "formula_p362_259.png",
+   "latex": "\\Delta\\alpha=\\sqrt{[(\\alpha_{xx}-\\alpha_{yy})^{2}+(\\alpha_{xx}-\\alpha_{zz})^{2}+(\\alpha_{yy}-\\alpha_{zz})^{2}+6(\\alpha_{"
+  },
+  {
+   "page": 362,
+   "img": "formula_p362_260.png",
+   "latex": "\\Delta\\alpha=\\sqrt{[(\\alpha_{xx}-\\alpha_{yy})^{2}+(\\alpha_{xx}-\\alpha_{zz})^{2}+(\\alpha_{yy}-\\alpha_{zz})^{2}]}/2"
+  },
+  {
+   "page": 363,
+   "img": "formula_p363_261.png",
+   "latex": "\\beta_{i}=(1/3)\\sum_{j}(\\beta_{i j j}+\\beta_{j j i}+\\beta_{j i j})\\quad i,j=\\left\\{x,y,z\\right\\}"
+  },
+  {
+   "page": 363,
+   "img": "formula_p363_262.png",
+   "latex": "\\boldsymbol{\\beta}_{\\mathrm{p r j}}=\\sum_{i}\\frac{\\mu_{i}\\boldsymbol{\\beta}_{i}}{\\left|\\boldsymbol{\\mu}\\right|}\\qquad\\bo"
+  },
+  {
+   "page": 363,
+   "img": "formula_p363_263.png",
+   "latex": "\\gamma_{i}=(1/15)\\sum_{j}(\\gamma_{ijji}+\\gamma_{ijij}+\\gamma_{iijj})\\quad i,j=\\left\\{x,y,z\\right\\}"
+  },
+  {
+   "page": 363,
+   "img": "formula_p363_264.png",
+   "latex": "\\gamma_{\\perp}=(1/15)\\sum_{i}\\sum_{j}(2\\gamma_{i j j i}-\\gamma_{i i j j})\\quad i,j=\\left\\{x,y,z\\right\\}"
+  },
+  {
+   "page": 364,
+   "img": "formula_p364_266.png",
+   "latex": "\\beta_{\\mathrm{H R S}}(-2\\omega;\\omega,\\omega)=\\sqrt{\\left\\langle\\beta_{Z Z Z}^{2}\\right\\rangle+\\left\\langle\\beta_{X Z Z"
+  },
+  {
+   "page": 364,
+   "img": "formula_p364_267.png",
+   "latex": "\\left\\langle\\beta_{X Z Z}^{2}\\right\\rangle=\\frac{1}{45}\\mid\\beta_{J=1}\\mid^{2}+\\frac{4}{105}\\mid\\beta_{J=3}\\mid^{2}"
+  },
+  {
+   "page": 365,
+   "img": "formula_p365_268.png",
+   "latex": "\\begin{aligned}&|\\boldsymbol{\\beta}_{J=1}|=\\sqrt{6\\left\\langle\\boldsymbol{\\beta}_{ZZZ}^{2}\\right\\rangle-9\\left\\langle\\bo"
+  },
+  {
+   "page": 365,
+   "img": "formula_p365_269.png",
+   "latex": "\\rho = |\\beta_{J=3}| / |\\beta_{J=1}|"
+  },
+  {
+   "page": 365,
+   "img": "formula_p365_270.png",
+   "latex": "\\mathrm{I}_{\\Psi\\mathrm{V}}^{2\\omega}\\propto\\left\\langle\\beta_{X Z Z}^{2}\\right\\rangle\\cos^{4}\\Psi+\\left\\langle\\beta_{Z "
+  },
+  {
+   "page": 368,
+   "img": "formula_p368_271.png",
+   "latex": "\\beta_{A B C}(-\\omega_{\\sigma};\\omega_{1},\\omega_{2})=\\hat{P}[A(-\\omega_{\\sigma}),B(\\omega_{1}),C(\\omega_{2})]\\sum_{i\\ne"
+  },
+  {
+   "page": 368,
+   "img": "formula_p368_272.png",
+   "latex": "\\begin{aligned}\\gamma_{ABCD}(-\\boldsymbol{\\omega}_{\\sigma};\\boldsymbol{\\omega}_{1},\\boldsymbol{\\omega}_{2},\\boldsymbol{\\"
+  },
+  {
+   "page": 371,
+   "img": "formula_p371_273.png",
+   "latex": "\\beta_{ZZZ}^{\\mathrm{sos}}=\\sum_{i}6\\frac{\\left(\\mu_{0i}^{Z}\\right)^{2}\\Delta\\mu_{i}^{Z}}{\\Delta_{i}^{2}}+\\sum_{i}\\sum_{"
+  },
+  {
+   "page": 372,
+   "img": "formula_p372_274.png",
+   "latex": "\\mathbf{\\mu}(\\mathbf{F})=-\\frac{\\partial E}{\\partial\\mathbf{F}}=\\mathbf{\\mu}_{0}+\\mathbf{\\alpha}\\mathbf{F}+(1/2)\\mathbf{"
+  },
+  {
+   "page": 372,
+   "img": "formula_p372_275.png",
+   "latex": "\\boldsymbol{\\mu}(\\mathbf{F}) = \\int -\\rho(\\mathbf{r}, \\mathbf{F}) \\mathbf{r} \\, \\mathrm{d} \\mathbf{r}"
+  },
+  {
+   "page": 372,
+   "img": "formula_p372_276.png",
+   "latex": "\\mathbf{\\boldsymbol{\\beta}}=\\int-\\mathbf{\\boldsymbol{\\rho}}^{(2)}(\\mathbf{r})\\mathbf{r}\\mathrm{d}\\mathbf{r}\\qquad\\boldsy"
+  },
+  {
+   "page": 372,
+   "img": "formula_p372_277.png",
+   "latex": "\\rho_{ijk}^{(3)}(\\mathbf{r})=\\frac{\\partial^{3}\\rho(\\mathbf{r})}{\\partial F_{i}\\partial F_{j}\\partial F_{k}}\\bigg|_{\\mat"
+  },
+  {
+   "page": 373,
+   "img": "formula_p373_278.png",
+   "latex": "\\rho_{zzz}^{(3)}(\\mathbf{r})=\\frac{\\partial^{3}\\rho(\\mathbf{r})}{\\partial F_{z}^{3}}\\bigg|_{F_{z}=0}"
+  },
+  {
+   "page": 373,
+   "img": "formula_p373_279.png",
+   "latex": "\\gamma_{z z z z}=\\int-z\\rho_{z z z}^{(3)}(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 375,
+   "img": "formula_p375_280.png",
+   "latex": "\\boldsymbol{\\beta}_{i}^{\\mathrm{e f f}}=\\sum_{j}\\sum_{k}\\beta_{i,j,k}\\boldsymbol{e}_{k}\\boldsymbol{e}_{j}\\quad i,j,k=\\{\\"
+  },
+  {
+   "page": 375,
+   "img": "formula_p375_281.png",
+   "latex": "\\beta_{i}=(1/3)\\sum_{j}(\\beta_{i j j}+\\beta_{j j i}+\\beta_{j i j})\\quad i,j=\\left\\{x,y,z\\right\\}"
+  },
+  {
+   "page": 375,
+   "img": "formula_p375_282.png",
+   "latex": "(\\gamma_{x},\\gamma_{y},\\gamma_{z})"
+  },
+  {
+   "page": 375,
+   "img": "formula_p375_283.png",
+   "latex": "\\gamma_{i}=(1/15)\\sum_{j}(\\gamma_{ijji}+\\gamma_{ijij}+\\gamma_{iijj})\\quad i,j=\\left\\{x,y,z\\right\\}"
+  },
+  {
+   "page": 380,
+   "img": "formula_p380_284.png",
+   "latex": "\\begin{aligned}&R_{ref}=(R_{s}+wR_{d})/(1+w)\\\\ &\\alpha=\\frac{2}{(R_{s}-R_{ref})^{2}+(R_{d}-R_{ref})^{2}}\\\\ \\end{aligned}"
+  },
+  {
+   "page": 381,
+   "img": "formula_p381_285.png",
+   "latex": "V=\\frac{100}{\\overline{N}}\\sqrt{\\frac{\\sum_{i}(N_{i.j}-\\overline{N})^{2}}{n}}\\quad N_{i.j}=\\frac{a}{R_{i,j}}-b"
+  },
+  {
+   "page": 388,
+   "img": "formula_p388_286.png",
+   "latex": "S_{i,j}^{\\alpha\\beta}=\\int\\varphi_{i}^{\\alpha}(\\mathbf{r})\\varphi_{j}^{\\beta}(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 389,
+   "img": "formula_p389_287.png",
+   "latex": "\\left\\langle S^{2}\\right\\rangle_{\\mathrm{S D}}=\\left\\langle S^{2}\\right\\rangle_{\\mathrm{e x a c t}}+N^{\\beta}-\\sum_{i}^{"
+  },
+  {
+   "page": 389,
+   "img": "formula_p389_288.png",
+   "latex": "\\left\\langle S^{2}\\right\\rangle_{\\mathrm{e x a c t}}=S(S+1)=\\frac{N^{\\alpha}-N^{\\beta}}{2}\\left(\\frac{N^{\\alpha}-N^{\\bet"
+  },
+  {
+   "page": 390,
+   "img": "formula_p390_289.png",
+   "latex": "\\Delta E_{\\mathrm{tot}}=E^{\\mathrm{c o m p l e x}}-\\sum_{i}E_{i}^{\\mathrm{f r a g}}=\\left(\\Delta E_{\\mathrm{e l s}}+\\Del"
+  },
+  {
+   "page": 391,
+   "img": "formula_p391_290.png",
+   "latex": "\\Delta E_{\\mathrm{steric}}=\\Delta E_{\\mathrm{tot}}-\\Delta E_{\\mathrm{orb}}=E_{\\mathrm{SCF,1st}}-\\sum_{i}E_{i}^{\\mathrm{f"
+  },
+  {
+   "page": 392,
+   "img": "formula_p392_291.png",
+   "latex": "CN_{_{A}}=\\sum_{_{B\\neq A}}\\frac{1}{1+\\exp\\left\\{-16\\times\\left[(4/3)(R_{_{A}}+R_{_{B}})/r_{_{AB}}-1\\right]\\right\\}}"
+  },
+  {
+   "page": 392,
+   "img": "formula_p392_292.png",
+   "latex": "I_{_{AB}}(r_{_{AB}})=\\frac{1}{1+\\exp\\{-16\\times[(4/3)(R_{_{A}}+R_{_{B}})/r_{_{AB}}-1]\\}}"
+  },
+  {
+   "page": 394,
+   "img": "formula_p394_293.png",
+   "latex": "X_{i}=\\int|\\varphi_{i}(\\mathbf{r})|^{2}x\\mathrm{d}\\mathbf{r}\\qquad Y_{i}=\\int|\\varphi_{i}(\\mathbf{r})|^{2}y\\mathrm{d}\\ma"
+  },
+  {
+   "page": 394,
+   "img": "formula_p394_294.png",
+   "latex": "\\int|\\varphi_{i}(\\mathbf{r})||\\varphi_{j}(\\mathbf{r})|\\mathrm{d}\\mathbf{r}\\qquad\\quad\\int|\\varphi_{i}(\\mathbf{r})|^{2}|\\"
+  },
+  {
+   "page": 399,
+   "img": "formula_p399_295.png",
+   "latex": "G_{r s}^{(0)\\mathrm{R/A}}(E_{\\mathrm{F}})=\\sum_{k}\\frac{C_{r k}C_{s k}^{*}}{E_{\\mathrm{F}}-\\varepsilon_{k}\\pm i\\eta}"
+  },
+  {
+   "page": 402,
+   "img": "formula_p402_296.png",
+   "latex": "R_{\\mathrm{g}}=\\sqrt{\\frac{\\sum\\limits_{i}m_{i}\\left(\\mathbf{r}_{i}-\\mathbf{r}_{\\mathrm{c}}\\right)^{2}}{\\sum\\limits_{j}m"
+  },
+  {
+   "page": 404,
+   "img": "formula_p404_297.png",
+   "latex": "MPP=\\sqrt{\\frac{1}{N_{atom}}\\sum_{i}d_{i}^{2}}"
+  },
+  {
+   "page": 407,
+   "img": "formula_p407_298.png",
+   "latex": "\\begin{aligned}&\\Theta_{i}=100\\%\\times\\sum_{j}^{\\pi_{\\mathrm{LMO}}}c_{j,i}^{2}\\\\&c_{j,i}=\\left\\langle j\\middle|i\\right\\r"
+  },
+  {
+   "page": 408,
+   "img": "formula_p408_299.png",
+   "latex": "F(p_{1},p_{2}\\ldots p_{N})=\\sum_{i}[V(\\mathbf{r}_{i})-V^{\\prime}(\\mathbf{r}_{i})]^{2}"
+  },
+  {
+   "page": 408,
+   "img": "formula_p408_300.png",
+   "latex": "V^{\\prime}(\\mathbf{r}_{i})=\\sum_{A}\\frac{p_{A}}{r_{A,i}}"
+  },
+  {
+   "page": 415,
+   "img": "formula_p415_301.png",
+   "latex": "\\mu_{A}^{nuc} + \\mu_{A}^{dip} + \\mu_{A}^{pop}"
+  },
+  {
+   "page": 416,
+   "img": "formula_p416_302.png",
+   "latex": "-\\sum_{i}\\sum_{j}P_{i,j}\\left\\langle\\chi_{i}|z\\right|\\chi_{j}\\rangle"
+  },
+  {
+   "page": 416,
+   "img": "formula_p416_303.png",
+   "latex": "R D F(r)=\\int f(r,\\Omega)r^{2}\\mathrm{d}\\Omega"
+  },
+  {
+   "page": 417,
+   "img": "formula_p417_304.png",
+   "latex": "\\sum_{j=start2}^{iend2}\\left\\langle i\\middle|j\\right\\rangle^{2}\\times100\\%=100\\%"
+  },
+  {
+   "page": 419,
+   "img": "formula_p419_305.png",
+   "latex": "\\left\\langle R\\right\\rangle=\\frac{1}{n_{\\mathrm{b}}}\\sum_{i>j}R_{i j}"
+  },
+  {
+   "page": 419,
+   "img": "formula_p419_306.png",
+   "latex": "CN=\\frac{1}{n}\\sum_{i}N_{i}"
+  },
+  {
+   "page": 420,
+   "img": "formula_p420_307.png",
+   "latex": "\\mathbf{M}_{i j}=i<\\varphi_{i}\\mid\\mathbf{r}\\times\\nabla\\mid\\varphi_{j}>"
+  },
+  {
+   "page": 420,
+   "img": "formula_p420_308.png",
+   "latex": "\\mathbf{v}_{ij}=i<\\varphi_{i}\\mid\\nabla\\mid\\varphi_{j}>"
+  },
+  {
+   "page": 420,
+   "img": "formula_p420_309.png",
+   "latex": "\\begin{array}{r}{K_{i j}=-\\frac{1}{2}\\big\\langle\\varphi_{i}\\big|\\nabla^{2}\\big|\\varphi_{j}\\big\\rangle\\quad S_{i j}=\\big\\"
+  },
+  {
+   "page": 420,
+   "img": "formula_p420_310.png",
+   "latex": "\\mathbf{r}_{\\mathrm{c}}=\\frac{\\int\\mathbf{r}\\times f(\\mathbf{r})\\mathrm{d}\\mathbf{r}}{\\int f(\\mathbf{r})\\mathrm{d}\\mathb"
+  },
+  {
+   "page": 420,
+   "img": "formula_p420_311.png",
+   "latex": "\\mathbf{\\mu}=\\left[\\begin{matrix}{\\mu_{x}}\\\\ {\\mu_{y}}\\\\ {\\mu_{z}}\\\\ \\end{matrix}\\right]=\\int\\left[\\begin{matrix}{x}\\\\ {"
+  },
+  {
+   "page": 423,
+   "img": "formula_p423_312.png",
+   "latex": "\\Delta\\rho(\\mathbf{r})\\approx\\sum_{i}p_{i}\\mid\\varphi_{i}(\\mathbf{r})\\mid^{2}"
+  },
+  {
+   "page": 423,
+   "img": "formula_p423_313.png",
+   "latex": "F=\\int\\Bigg[\\Delta\\rho(\\mathbf{r})-\\sum_{i}p_{i}\\mid\\varphi_{i}(\\mathbf{r})\\mid^{2}\\Bigg]^{2}\\mathrm{d}\\mathbf{r}+\\lambd"
+  },
+  {
+   "page": 423,
+   "img": "formula_p423_314.png",
+   "latex": "F=\\Delta_{V}\\sum_{\\mu}\\Biggl[\\Delta\\rho(\\mathbf{r})-\\sum_{i}p_{i}\\mid\\varphi_{i}(\\mathbf{r})\\mid^{2}\\Biggr]^{2}+\\lambda\\"
+  },
+  {
+   "page": 423,
+   "img": "formula_p423_315.png",
+   "latex": "\\frac{\\partial F}{\\partial p_{i}}=0\\quad i=\\{1,2,3\\ldots\\}"
+  },
+  {
+   "page": 426,
+   "img": "formula_p426_316.png",
+   "latex": "q_{\\mathrm{b i n d}}=-(q_{\\mathrm{a t t}}-q_{\\mathrm{r e p}})"
+  },
+  {
+   "page": 427,
+   "img": "formula_p427_317.png",
+   "latex": "I_{\\mathrm{N D}}=\\frac{1}{2}\\sum_{i}\\eta_{i}(1-\\eta_{i})"
+  },
+  {
+   "page": 427,
+   "img": "formula_p427_318.png",
+   "latex": "I_{\\mathrm{T}}=I_{\\mathrm{D}}+I_{\\mathrm{N D}}=\\frac{1}{4}\\sum_{i}\\sqrt{\\eta_{i}(1-\\eta_{i})}"
+  },
+  {
+   "page": 433,
+   "img": "formula_p433_320.png",
+   "latex": "\\rho_C^n(\\mathbf{r}_1,\\mathbf{r}_2\\cdots\\mathbf{r}_n)"
+  },
+  {
+   "page": 433,
+   "img": "formula_p433_321.png",
+   "latex": "\\begin{aligned}\\rho_{\\mathrm{C}}^{3}(\\mathbf{r}_{1},\\mathbf{r}_{2},\\mathbf{r}_{3})&=\\rho(\\mathbf{r}_{1})\\rho(\\mathbf{r}_"
+  },
+  {
+   "page": 434,
+   "img": "formula_p434_322.png",
+   "latex": "N(A,B...n)=\\int_{A}\\int_{B}\\cdot\\int_{n}\\cdot\\rho_{\\mathrm{C}}^{n}(\\mathbf{r}_{1}...\\mathbf{r}_{n})\\mathrm{d}\\mathbf{r}_"
+  },
+  {
+   "page": 434,
+   "img": "formula_p434_323.png",
+   "latex": "\\delta(A,B)=-2\\int_{A}\\int_{B}\\Gamma_{\\mathrm{XC}}(\\mathbf{r}_{1},\\mathbf{r}_{2})\\mathrm{d}\\mathbf{r}_{1}\\mathrm{d}\\math"
+  },
+  {
+   "page": 434,
+   "img": "formula_p434_324.png",
+   "latex": "\\mathrm{BOD}_{AB}(\\mathbf{r})=2\\rho_{AB}(\\mathbf{r})"
+  },
+  {
+   "page": 435,
+   "img": "formula_p435_325.png",
+   "latex": "\\mathrm{BOD}_{AB}^{\\sigma}(\\mathbf{r})=2\\rho_{AB}^{\\sigma}(\\mathbf{r})=\\sum_{i\\in\\sigma}^{\\mathrm{occ}}\\sum_{j\\in\\sigma}"
+  },
+  {
+   "page": 435,
+   "img": "formula_p435_326.png",
+   "latex": "\\begin{aligned}\\int\\mathrm{BOD}_{AB}^{\\sigma}(\\mathbf{r})\\mathrm{d}\\mathbf{r}=\\delta^{\\sigma}(A,B)\\ $ 1/2)\\int\\mathrm{BO"
+  },
+  {
+   "page": 446,
+   "img": "formula_p446_327.png",
+   "latex": "I(\\mathbf{r})\\propto\\sum_{a}^{E_{\\mathrm{F}}\\rightarrow E_{\\mathrm{F}}+e V}|\\varphi_{a}(\\mathbf{r})|^{2}\\qquad(V>0)"
+  },
+  {
+   "page": 448,
+   "img": "formula_p448_328.png",
+   "latex": "\\mathbf{\\mu}=\\left[\\begin{matrix}{\\mu_{x}}\\\\ {\\mu_{y}}\\\\ {\\mu_{z}}\\\\ \\end{matrix}\\right]=\\sum_{A}q_{A}\\left[\\begin{matri"
+  },
+  {
+   "page": 449,
+   "img": "formula_p449_329.png",
+   "latex": "\\Theta_{xyz}=\\sum_{A}q_{A}X_{A}Y_{A}Z_{A}-\\int xyz\\rho(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 449,
+   "img": "formula_p449_330.png",
+   "latex": "\\Theta_{x y z z}=\\sum_{A}q_{A}X_{A}Y_{A}Z_{A}Z_{A}-\\int x y z z\\rho(\\mathbf{r})\\mathrm{d}\\mathbf{r}"
+  },
+  {
+   "page": 450,
+   "img": "formula_p450_333.png",
+   "latex": "\\mathbf{\\mu}=\\left[\\begin{matrix}{\\mu_{x}}\\\\ {\\mu_{y}}\\\\ {\\mu_{z}}\\\\ \\end{matrix}\\right]=\\sum_{A}q_{A}\\left[\\begin{matri"
+  },
+  {
+   "page": 455,
+   "img": "formula_p455_335.png",
+   "latex": "n_{i}=\\frac{\\eta}{1+\\exp[(E_{i}-E_{f})/(k_{B}T)]}"
+  },
+  {
+   "page": 470,
+   "img": "formula_p470_336.png",
+   "latex": "E_{\\mathrm{n b}}=-89.2857\\times\\Delta\\Delta V_{\\mathrm{n}}-0.125"
+  },
+  {
+   "page": 548,
+   "img": "formula_p548_337.png",
+   "latex": "f(\\mathbf{r})=\\left[\\frac{\\partial\\rho(\\mathbf{r})}{\\partial N}\\right]_{\\nu}"
+  },
+  {
+   "page": 611,
+   "img": "formula_p611_338.png",
+   "latex": "ODI_{i}=0.01\\times\\sum_{A}(\\Theta_{A,i})^{2}"
+  },
+  {
+   "page": 717,
+   "img": "formula_p717_339.png",
+   "latex": "\\rho=\\alpha\\frac{M}{V_{\\mathrm{m}}}+\\beta(v\\sigma_{\\mathrm{tot}}^{2})+\\gamma"
+  },
+  {
+   "page": 729,
+   "img": "formula_p729_340.png",
+   "latex": "E A_{\\mathrm{L}}(\\mathbf{r})=\\frac{-\\sum_{i\\in\\mathrm{v i r}}\\left|\\varphi_{i}(\\mathbf{r})\\right|^{2}\\varepsilon_{i}}{\\s"
+  },
+  {
+   "page": 730,
+   "img": "formula_p730_341.png",
+   "latex": "E_{\\mathrm{att}}(\\mathbf{r})=\\frac{n\\sum\\limits_{i=LUMO}^{\\varepsilon_{i}<0}\\left|\\varphi_{i}(\\mathbf{r})\\right|^{2}\\var"
+  },
+  {
+   "page": 755,
+   "img": "formula_p755_342.png",
+   "latex": "\\mathbf{D}_{F}=\\sum_{A\\in F}\\left[Z_{A}\\mathbf{R}_{A}-\\int w_{A}(\\mathbf{r})\\rho(\\mathbf{r})\\mathbf{r}\\mathrm{d}\\mathbf{"
+  },
+  {
+   "page": 763,
+   "img": "formula_p763_343.png",
+   "latex": "t_{i}=1+v_{i}-v_{\\min}\\qquad i=1,2,3"
+  },
+  {
+   "page": 764,
+   "img": "formula_p764_344.png",
+   "latex": "l_{i}=s\\frac{t_{i}}{t_{1}+t_{2}+t_{3}}\\qquad i=1,2,3"
+  },
+  {
+   "page": 764,
+   "img": "formula_p764_345.png",
+   "latex": "t_{i}=\\frac{1}{1+v_{i}-v_{\\min}}\\qquad i=1,2,3"
+  },
+  {
+   "page": 800,
+   "img": "formula_p800_346.png",
+   "latex": "E_{_\\Omega}=\\frac{E_{_{QC}}}{T}\\times T_{_\\Omega}"
+  },
+  {
+   "page": 1039,
+   "img": "formula_p1039_347.png",
+   "latex": "\\begin{aligned}\\mathrm{BPI}_{\\mathrm{CN}}&=(\\mathrm{EI}_{\\mathrm{C}}-\\mathrm{EI}_{\\mathrm{C}}^{\\mathrm{ref}})-(\\mathrm{E"
+  },
+  {
+   "page": 1101,
+   "img": "formula_p1101_348.png",
+   "latex": "\\rho_{k}^{\\mathrm{odd}}(\\mathbf{r})=min(2-n_{k},n_{k})\\rho_{k}(\\mathbf{r})"
+  },
+  {
+   "page": 1104,
+   "img": "formula_p1104_349.png",
+   "latex": "\\rho^{\\mathrm{F O D}}(\\mathbf{r})=\\sum_{i}(\\delta_{1}-\\delta_{2}\\eta_{i})\\left|\\varphi_{i}(\\mathbf{r})\\right|^{2}"
+  },
+  {
+   "page": 1111,
+   "img": "formula_p1111_350.png",
+   "latex": "\\varphi_{aa^{\\prime}}^{A}(\\mathbf{r})=\\delta_{a,a^{\\prime}}\\sum_{I}\\frac{Z_{I}}{|\\mathbf{r}-\\mathbf{R}_{I}|}-\\int\\frac{\\"
+  },
+  {
+   "page": 1111,
+   "img": "formula_p1111_351.png",
+   "latex": "\\varphi_{a}^{A}(\\mathbf{r})=\\sum_{I}\\frac{Z_{I}}{|\\mathbf{r}-\\mathbf{R}_{I}|}-\\int\\frac{\\rho_{a}(\\mathbf{r}^{\\prime})}{|"
+  }
+ ],
+ "kept": [
+  {
+   "page": 66,
+   "img": "formula_p66_041.png",
+   "why": "no-match(score=1,rawtoks=14)",
+   "raw": "3/43/1)()/3)(4/3(r−. ⏎ equivalent form is"
+  },
+  {
+   "page": 104,
+   "img": "formula_p104_045.png",
+   "why": "no-match(score=0,rawtoks=3)",
+   "raw": "= −+ ⏎ pZ ⏎ AA"
+  },
+  {
+   "page": 222,
+   "img": "formula_p222_126.png",
+   "why": "no-match(score=0,rawtoks=5)",
+   "raw": "== ⏎ ww ⏎ ( )1if( )0if ⏎ rrrr ⏎ A ⏎ A ⏎  ⏎ A ⏎ A"
+  },
+  {
+   "page": 226,
+   "img": "formula_p226_132.png",
+   "why": "no-match(score=0,rawtoks=7)",
+   "raw": "( )( ) ( )dABABAIwwf= rrrr"
+  },
+  {
+   "page": 232,
+   "img": "formula_p232_150.png",
+   "why": "no-match(score=0,rawtoks=2)",
+   "raw": " ⏎ →+ ⏎  ⏎  ⏎ ( )( , ) ⏎ AA B"
+  },
+  {
+   "page": 292,
+   "img": "formula_p292_193.png",
+   "why": "no-match(score=0,rawtoks=7)",
+   "raw": "ww=+−Dr ⏎ tran ⏎ ()i ai aiai a ⏎ ,,,"
+  },
+  {
+   "page": 343,
+   "img": "formula_p343_233.png",
+   "why": "no-match(score=0,rawtoks=0)",
+   "raw": "2 ⏎ 26 ⏎ =−+ ⏎  ⏎ 22=−−"
+  },
+  {
+   "page": 363,
+   "img": "formula_p363_265.png",
+   "why": "no-match(score=0,rawtoks=5)",
+   "raw": "i jx y z⊥=−= ⏎ (1/15)(2),{ , , }ijjiiijjij"
+  },
+  {
+   "page": 429,
+   "img": "formula_p429_319.png",
+   "why": "no-match(score=0,rawtoks=0)",
+   "raw": ""
+  },
+  {
+   "page": 449,
+   "img": "formula_p449_331.png",
+   "why": "no-match(score=0,rawtoks=12)",
+   "raw": "=−= Q. ⏎ 3 ⏎ 233,3 ⏎ Magnitude of Q3: ⏎ ()mm ⏎ Q"
+  },
+  {
+   "page": 449,
+   "img": "formula_p449_332.png",
+   "why": "no-match(score=0,rawtoks=7)",
+   "raw": "q X Y Z Zxyzz=−rr ⏎ ( )dxyzzAAAAAA"
+  },
+  {
+   "page": 450,
+   "img": "formula_p450_334.png",
+   "why": "no-match(score=0,rawtoks=6)",
+   "raw": "== ⏎  ⏎ X ⏎ xA ⏎ μ ⏎  ⏎ qY ⏎ yAAAzA ⏎  ⏎ Z"
+  }
+ ]
+}

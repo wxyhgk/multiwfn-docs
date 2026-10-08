@@ -1,0 +1,21 @@
+=== 17_tut_4.13-4.17_p731-803 尝试 1 ===
+Result saved to: ocr_out/17_tut_4.13-4.17_p731-803.json
+=== 18_tut_4.18-4.19_p804-872 尝试 1 ===
+Result saved to: ocr_out/18_tut_4.18-4.19_p804-872.json
+=== 19_tut_4.20-4.21_p873-930 尝试 1 ===
+Result saved to: ocr_out/19_tut_4.20-4.21_p873-930.json
+=== 20_tut_4.22-4.24_p931-989 尝试 1 ===
+Error: Job 101339810387292160 failed: 系统错误-拆页
+=== 20_tut_4.22-4.24_p931-989 尝试 2 ===
+Error: Request timed out: HTTPSConnectionPool(host='paddleocr.aistudio-app.com', port=443): Max retries exceeded with url: /api/v2/ocr/jobs (Caused by ConnectTimeoutError(<HTTPSConnection(host='paddleocr.aistudio-app.com', port=443) at 0x11d23bb60>, 'Connection to paddleocr.aistudio-app.com timed out. (connect timeout=300.0)'))
+=== 20_tut_4.22-4.24_p931-989 尝试 3 ===
+Error: Job 101339951693393920 failed: 系统错误-拆页
+=== 21_tut_4.25-4.100_p990-1030 尝试 1 ===
+Result saved to: ocr_out/21_tut_4.25-4.100_p990-1030.json
+=== 22_tut_4.200-4.300_p1031-1083 尝试 1 ===
+Error: Connection failed: HTTPSConnectionPool(host='paddleocr-store-9.bj.bcebos.com', port=443): Max retries exceeded with url: /v1/job/5914198c2ee04eae05c4a6a81ac1218af3814a7c445f01fdd3b7fef262b3bdd5/json/0179e6b3ac78268f192b5ac3935affa2.json?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-10-07T15%3A29%3A59Z%2F604800%2F%2Fda08aadb5d3197b540101e5f80b7a4cc9fdf44016359e3966d076ab378b92bda (Caused by NameResolutionError("HTTPSConnection(host='paddleocr-store-9.bj.bcebos.com', port=443): Failed to resolve 'paddleocr-store-9.bj.bcebos.com' ([Errno 8] nodename nor servname provided, or not known)"))
+=== 22_tut_4.200-4.300_p1031-1083 尝试 2 ===
+Result saved to: ocr_out/22_tut_4.200-4.300_p1031-1083.json
+=== 23_tut_4A-skills-appendix_p1084-1161 尝试 1 ===
+Result saved to: ocr_out/23_tut_4A-skills-appendix_p1084-1161.json
+ALL DONE
