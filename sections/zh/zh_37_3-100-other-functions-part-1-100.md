@@ -274,9 +274,9 @@ $$I_{_{AB}}(r_{_{AB}})=\frac{1}{1+\exp\{-16\times[(4/3)(R_{_{A}}+R_{_{B}})/r_{_{
 
 本模块输出每对原子间的 I，打印阈值可由用户输入。通常，当 I 接近 1.0 时，意味着两原子成键，而若接近 0.0，则可视为它们之间无化学键相连。还输出 I 的最接近整数，即 nint(I)，以便于检查结果。
 
-对每个原子（例如原子 A），ABB A  以 “Sum of connectivity” 打印，而 I
+对每个原子（例如原子 A），ABB A ≠ 以 “Sum of connectivity” 打印，而 I
 
-()ABB A  以 “Sum of integer connectivity” 打印。前者与后者可分别视为 nint I
+()ABB A ≠ 以 “Sum of integer connectivity” 打印。前者与后者可分别视为 nint I
 
 原始与实际配位数。
 

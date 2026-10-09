@@ -258,7 +258,7 @@ and similarly for 〈𝑦𝐴 2〉 is a useful metric of overall spatial extent 
 
 The atomic quadrupole and octopole moments in spherical harmonic form are also outputted. The general expression of multipole moments in spherical harmonic form is
 
-,, ( )( ) ( )dAAl ml mAQRwρ= −rrrr
+,, ( )( ) ( )dAAl ml mAQRwρ= −∫rrrr
 
 All of the five components of quadrupole moment in spherical harmonic form correspond to
 
@@ -500,7 +500,7 @@ Covariance and relative fluctuation parameter In some papers, especially the one
 
 $$\sigma^{2}(A)=N_{A}-\lambda(A)=-\sum_{B\neq A}\mathrm{cov}(A,B)=\sum_{B\neq A}\delta(A,B)/2$$
 
-B AB A 
+B AB A ≠≠
 
 where NA is the electron population number in A. As mentioned above, the diagonal terms of the DI
 

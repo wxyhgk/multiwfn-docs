@@ -36,24 +36,24 @@ Multiwfn 以易用为目标，因此被设计为交互式程序。尽管如此�
 
 对于 Windows 用户 例如，你想静默地得到 4.4.1 节例子中的图，你需要先写一个输入流文件，内容为（红色文字为注释）：
 
-4  主功能 4
+4 ← 主功能 4
 
 
 <!-- p.1143 -->
 
 
 
-1  实空间函数 1
+1 ← 实空间函数 1
 
-1  填充色图
+1 ← 填充色图
 
- 空行，对应按一次回车(ENTER)键（使用默认格点设置）
+← 空行，对应按一次回车(ENTER)键（使用默认格点设置）
 
-2  XZ 平面
+2 ← XZ 平面
 
-0  Y=0
+0 ← Y=0
 
-0  选项 0：将图形保存到当前目录 假设该输入流文件名为 4.4.1.txt，我已在“examples”目录中提供了该文件。现在把 `settings.ini` 中的“isilent”参数由 0 改为 1（或在命令行中加“-silent”参数），这会使 Multiwfn 在运行期间禁止自动显示任何图形或 GUI，否则你必须用鼠标点击按钮来关闭窗口。然后进入 Windows 的命令行环境（点击“开始(Start)”—“运行(run)”并输入“cmd”）并运行：
+0 ← 选项 0：将图形保存到当前目录 假设该输入流文件名为 4.4.1.txt，我已在“examples”目录中提供了该文件。现在把 `settings.ini` 中的“isilent”参数由 0 改为 1（或在命令行中加“-silent”参数），这会使 Multiwfn 在运行期间禁止自动显示任何图形或 GUI，否则你必须用鼠标点击按钮来关闭窗口。然后进入 Windows 的命令行环境（点击“开始(Start)”—“运行(run)”并输入“cmd”）并运行：
 
 Multiwfn HCN.wfn < 4.4.1.txt > medinfo.txt 这里假设 Multiwfn.exe、4.4.1.txt 和 HCN.wfn 都在当前目录。几秒后，你会发现当前目录中出现了图像文件。从 medinfo.txt 中你可以找到 Multiwfn 输出的所有中间信息。
 
@@ -75,14 +75,14 @@ Multiwfn.exe       00530B3A  Unknown               Unknown  Unknown
 
 另一个例子，假设你想保存 COCl2.fch 的轨道 1 至 3 的详细组成，只需创建一个输入流文件 orbana_1_3.in，内容如下：
 
-8  轨道组成分析
+8 ← 轨道组成分析
 
-1  Mulliken 方法
+1 ← Mulliken 方法
 
-1  轨道 1
+1 ← 轨道 1
 
-2  轨道 2
+2 ← 轨道 2
 
-3  轨道 3 然后运行命令：Multiwfn COCl2.fch < orbana_1_3.in > orbana_1_3.txt。
+3 ← 轨道 3 然后运行命令：Multiwfn COCl2.fch < orbana_1_3.in > orbana_1_3.txt。
 
 注意，如果你在 Windows 环境中使用 PowerShell，由于不支持“<”重定向运算符，你应改用“Get-Content”命令和管道功能。例如，上述命令应写为（假设 Multiwfn.exe 在当前文件夹中）：Get-

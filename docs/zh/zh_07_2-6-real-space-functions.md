@@ -472,11 +472,11 @@ $$\rho(\mathbf{r})=\int S F(\mathbf{r},\mathbf{r}^{\prime})\mathrm{d}\mathbf{r}^
 
 可证
 
-其中r'遍及全空间。此方程表明SF(r,r')表示r'处电子Laplacian对r处电子密度的影响。若r'处电子聚集（即Laplacian为负，也表明势能主导动能），则r'为r处电子密度的源；反之，若r'处电子 depleted（耗尽），则r'使r处电子密度减小。若将上式积分范围限制在局域区域得到值S(r,)，则S(r,)/ρ(r)×100%可视为区域对r处电子密度的贡献。源函数有许多用途，用于讨论成键问题时，通常取键临界点为r。Gatti在Struct. & Bond., 147, 193 (2010)中对源函数的理论背景与应用给出了非常全面的综述。
+其中r'遍及全空间。此方程表明SF(r,r')表示r'处电子Laplacian对r处电子密度的影响。若r'处电子聚集（即Laplacian为负，也表明势能主导动能），则r'为r处电子密度的源；反之，若r'处电子 depleted（耗尽），则r'使r处电子密度减小。若将上式积分范围限制在局域区域Ω得到值S(r,Ω)，则S(r,Ω)/ρ(r)×100%可视为区域Ω对r处电子密度的贡献。源函数有许多用途，用于讨论成键问题时，通常取键临界点为r。Gatti在Struct. & Bond., 147, 193 (2010)中对源函数的理论背景与应用给出了非常全面的综述。
 
 在Multiwfn中，源函数有两种模式：（1）若`settings.ini`中的“srcfuncmode”设为1，则r'视为变量，r视为固定的参考点，其坐标由`settings.ini`中的“refxyz”决定。这是默认模式，有助于研究各处电子Laplacian对特定点的影响；（2）若“srcfuncmode”设为2，则r为变量而r'为参考点，有助于研究特定点电子Laplacian对各处的影响。
 
-当r=r'时，为避免数值问题该函数返回−2ρ(r')/0.001。
+当r=r'时，为避免数值问题该函数返回−∇2ρ(r')/0.001。
 
 20、21 电子离域范围函数EDR(r;d)与轨道重叠距离函数D(r)（Electron delocalization range function EDR(r;d) and orbital overlap distance function D(r)）
 

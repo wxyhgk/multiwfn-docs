@@ -16,7 +16,7 @@ Tian Lu,* Qinxue Chen, Partial Charges, In Exploring Chemical Concepts Through T
 
 Hirshfeld 是非常流行的基于 deformation 密度划分的原子布居方法，Hirshfeld 电荷定义为 (Theor. Chim. Acta (Berl.), 44, 129 (1977))
 
-def( )( )dAAqwρ= −rrr Hirsh
+def( )( )dAAqwρ= −∫rrr Hirsh
 
 其中
 
@@ -65,7 +65,7 @@ VDD 布居的结果总体上与 Hirshfeld 布居相似，因为 deformation 密�
 
 理论 Mulliken 分析是最早的基于轨道波函数的布居方法，几乎所有量子化学软件包都支持。
 
-自旋轨道波函数的正交归一条件要求 21( ) dφ= rr，若假设
+自旋轨道波函数的正交归一条件要求 21( ) dφ= ∫rr，若假设
 
 $$\mathrm{I}=\int\left(\sum_{a}C_{a,i}\chi_{a}(\mathbf{r})\right)^{2}\mathrm{d}\mathbf{r}=\sum_{a}C_{a,i}^{2}+\sum_{a}\sum_{b\neq a}C_{a,i}C_{b,i}S_{a,b}=\sum_{a}C_{a,i}^{2}+2\sum_{a}\sum_{b>a}C_{a,i}C_{b,i}S_{a,b}\right)$$
 
@@ -111,9 +111,9 @@ $$2C_{a,i}C_{b,i}S_{a,b}$$
 
 <!-- formula-ocr: formula_p106_047.png 已替换为LaTeX, 原图保留备查 -->
 
-注意输出矩阵的最后一行为相应列元之和，即相应原子的总布居数。还可选择将矩阵分解为每个占据轨道的贡献， 矩阵将输出至当前目录的 groatmdcp.txt。
+注意输出矩阵的最后一行为相应列元之和，即相应原子的总布居数。还可选择将矩阵分解为每个占据轨道的贡献，Ω 矩阵将输出至当前目录的 groatmdcp.txt。
 
-𝑖 恰为 3.11.4 节将看到的轨道 i 贡献的原子 A 与 B 间的 Mulliken 键级。顺带一提，量 2𝐴,𝐵
+𝑖 恰为 3.11.4 节将看到的轨道 i 贡献的原子 A 与 B 间的 Mulliken 键级。顺带一提，量 2Ω𝐴,𝐵
 
 ·子功能 3（输出总基函数布居矩阵并分解）(Output gross basis function population matrix and decompose it)：此选项可输出总基函数布居矩阵以进一步分析电子分布细节，矩阵元定义为
 
@@ -394,7 +394,7 @@ Cu 2.2
 
 numdata
 
-X Y Z [ESPval]  对应拟合点 1 X Y Z [ESPval]  对应拟合点 2 ... 其中 ESPval 为可选项，表示相应点处预先计算的 ESP 值。若 numdata 为负值，则拟合电荷所用的 ESP 值将从
+X Y Z [ESPval] ← 对应拟合点 1 X Y Z [ESPval] ← 对应拟合点 2 ... 其中 ESPval 为可选项，表示相应点处预先计算的 ESP 值。若 numdata 为负值，则拟合电荷所用的 ESP 值将从
 
 
 <!-- p.114 -->
@@ -407,7 +407,7 @@ X Y Z [ESPval]  对应拟合点 1 X Y Z [ESPval]  对应拟合点 2 ... �
 
 numdata
 
-X Y Z  对应额外拟合中心 1 X Y Z  对应额外拟合中心 2 ... 其中 numdata 表示该文件中有多少条记录。X、Y、Z 为坐标（以 Å 为单位）。
+X Y Z ← 对应额外拟合中心 1 X Y Z ← 对应额外拟合中心 2 ... 其中 numdata 表示该文件中有多少条记录。X、Y、Z 为坐标（以 Å 为单位）。
 
 - 选项 -3 (Option -3)：若你只想检验给定原子电荷对拟合点处 ESP 的复现能力，则可使用此选项从特定的 .chg 文件载入原子电荷。然后当你选择选项 1 (Option 1) 开始 ESP 拟合过程时，将不产生 ESP 拟合电荷，仅输出给定原子电荷的 RMSE 和 RRMSE（注意，若你已选择选项 -2 (Option -2) 载入了额外的拟合中心，则载入的 .chg 文件中的电荷数应与拟合中心总数相同）。若你只想研究特定片段周围拟合点对 ESP 的复现能力，可选择选项 4 (Option 4) 并输入原子序号。
 
@@ -558,7 +558,7 @@ CM5 电荷的表达式为
 
 BTqq ijijii Hirsh5CM +=
 
-RRrB jiijij −−−= )](exp[ α ij
+RRrB jiijij −−−= )](exp[ ≠α ij
 
 其中 rij 为原子 i 与 j 之间的距离，Bij 可视为它们的 Pauling 键级，Ri 和 Rj 为它们的原子共价半径，定义如下：对 Z=1~96，使用 CSD 半径与 Pyykkö 半径的平均值，而对 Z=97-118，采用 Pyykkö 半径。全局
 
@@ -883,27 +883,27 @@ D:\b\conf.fch  0.05
 numdata
 ```
 
-X Y Z  Additional fitting center 1 of conformer 1
+X Y Z ← Additional fitting center 1 of conformer 1
 
-X Y Z  Additional fitting center 2 of conformer 1
-
-
-```text
-[blank line]
-```
-
-X Y Z  Additional fitting center 1 of conformer 2
-
-X Y Z  Additional fitting center 2 of conformer 2
+X Y Z ← Additional fitting center 2 of conformer 1
 
 
 ```text
 [blank line]
 ```
 
-X Y Z  Additional fitting center 1 of conformer 3
+X Y Z ← Additional fitting center 1 of conformer 2
 
-X Y Z  Additional fitting center 2 of conformer 3
+X Y Z ← Additional fitting center 2 of conformer 2
+
+
+```text
+[blank line]
+```
+
+X Y Z ← Additional fitting center 1 of conformer 3
+
+X Y Z ← Additional fitting center 2 of conformer 3
 
 其中 numdata 表示每个构象的附加拟合中心数(所有构象的数量相同)。X、Y、Z 表示以 Å 为单位的坐标。你可以为任意数量的构象设置任意数量的附加拟合中心。不同构象之间的附加中心定义应以空行分隔，如上所示。注意，这些拟合中心在 RESP 电荷拟合过程中被视为极性非氢原子，然而，它们的半径设为零(即它们不影响 ESP 拟合点的数量和分布)。利用此功能的例子见第 4.7.7 节的“例 6(Example 6)”。
 

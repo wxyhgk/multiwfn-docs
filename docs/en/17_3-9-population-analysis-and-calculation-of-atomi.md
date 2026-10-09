@@ -41,7 +41,7 @@ Tian Lu,* Qinxue Chen, Partial Charges, In Exploring Chemical Concepts Through T
 
 Hirshfeld is a very popular atomic population method based on deformation density partition, Hirshfeld charge is defined as (Theor. Chim. Acta (Berl.), 44, 129 (1977))
 
-def( )( )dAAqwρ= −rrr Hirsh
+def( )( )dAAqwρ= −∫rrr Hirsh
 
 where
 
@@ -98,7 +98,7 @@ Information needed: GTFs, atom coordinates
 
 Theory Mulliken analysis is the oldest population method based on orbital wavefunction, supported by almost all quantum chemistry packages.
 
-Orthonormality condition of spin orbital wavefunction entails 21( ) dφ= rr , if we assume
+Orthonormality condition of spin orbital wavefunction entails 21( ) dφ= ∫rr , if we assume
 
 $$\mathrm{I}=\int\left(\sum_{a}C_{a,i}\chi_{a}(\mathbf{r})\right)^{2}\mathrm{d}\mathbf{r}=\sum_{a}C_{a,i}^{2}+\sum_{a}\sum_{b\neq a}C_{a,i}C_{b,i}S_{a,b}=\sum_{a}C_{a,i}^{2}+2\sum_{a}\sum_{b>a}C_{a,i}C_{b,i}S_{a,b}\right)$$
 
@@ -145,9 +145,9 @@ $$2C_{a,i}C_{b,i}S_{a,b}$$
 
 Note that the last row of outputted matrix is the sum of corresponding column elements, that is the total population number of corresponding atom. You can also choose to decompose the matrix
 
-to contribution of each occupied orbital, the  matrices will be outputted to groatmdcp.txt in current directory.
+to contribution of each occupied orbital, the Ω matrices will be outputted to groatmdcp.txt in current directory.
 
-𝑖 is just the Mulliken bond order between atom A and B contributed from orbital i, as we will see in Section 3.11.4. By the way, the quantity 2𝐴,𝐵
+𝑖 is just the Mulliken bond order between atom A and B contributed from orbital i, as we will see in Section 3.11.4. By the way, the quantity 2Ω𝐴,𝐵
 
 ·Subfunction 3 (Output gross basis function population matrix and decompose it): Gross basis function population matrix can be outputted by this option for further analyzing detail of
 
@@ -433,7 +433,7 @@ Cu 2.2
 
 numdata
 
-X Y Z [ESPval]  For fitting point 1 X Y Z [ESPval]  For fitting point 2 ... where the ESPval is an optional term, which denotes precalculated ESP value at corresponding point. If numdata is a negative value, then the ESP values used in charge fitting will be read from the
+X Y Z [ESPval] ← For fitting point 1 X Y Z [ESPval] ← For fitting point 2 ... where the ESPval is an optional term, which denotes precalculated ESP value at corresponding point. If numdata is a negative value, then the ESP values used in charge fitting will be read from the
 
 
 <!-- p.114 -->
@@ -444,7 +444,7 @@ fourth column rather than calculated by Multiwfn.
 
 numdata
 
-X Y Z  For additional fitting center 1 X Y Z  For additional fitting center 2 ... where numdata denotes how many entries are in this file. X, Y, Z are coordinates (in Å).
+X Y Z ← For additional fitting center 1 X Y Z ← For additional fitting center 2 ... where numdata denotes how many entries are in this file. X, Y, Z are coordinates (in Å).
 
 - Option -3: If you simply want to examine reproducibility for ESP at the fitting points of given atomic charges, then you can use this option to load atomic charges from specific .chg file. Then when you select option 1 to start the ESP fitting process, no ESP fitting charges will be yielded, only the RMSE and RRMSE of the given atomic charges will be outputted (note that if you have chosen option -2 to load additional fitting centers, then the number of charges in the loaded .chg file should be identical to the total number of fitting centers). If you only want to study reproducibility of ESP for the fitting points around specific fragment, you can choose option 4 and input the atom indices.
 
@@ -585,7 +585,7 @@ The expression of CM5 charge is
 
 BTqq ijijii Hirsh5CM +=
 
-RRrB jiijij −−−= )](exp[ α ij
+RRrB jiijij −−−= )](exp[ ≠α ij
 
 where rij is distance between atom i and j, Bij may be regarded as their Pauling bond order, Ri and Rj are their atomic covalent radii, which are defined as follows: For Z=1~96, the average between CSD radii and Pyykkö radii are used, while for Z=97-118, the Pyykkö radii are employed. The global
 
@@ -913,27 +913,27 @@ be used to enhance representation of ESP due to e.g. lone pairs and σ-holes. Th
 numdata
 ```
 
-X Y Z  Additional fitting center 1 of conformer 1
+X Y Z ← Additional fitting center 1 of conformer 1
 
-X Y Z  Additional fitting center 2 of conformer 1
-
-
-```text
-[blank line]
-```
-
-X Y Z  Additional fitting center 1 of conformer 2
-
-X Y Z  Additional fitting center 2 of conformer 2
+X Y Z ← Additional fitting center 2 of conformer 1
 
 
 ```text
 [blank line]
 ```
 
-X Y Z  Additional fitting center 1 of conformer 3
+X Y Z ← Additional fitting center 1 of conformer 2
 
-X Y Z  Additional fitting center 2 of conformer 3
+X Y Z ← Additional fitting center 2 of conformer 2
+
+
+```text
+[blank line]
+```
+
+X Y Z ← Additional fitting center 1 of conformer 3
+
+X Y Z ← Additional fitting center 2 of conformer 3
 
 where numdata denotes the number of additional fitting centers for each conformer (the number is the same for all conformers). X, Y, Z denote the coordinates in Å. You can set arbitrary number of additional fitting centers for arbitrary number of conformers. The additional center definition between different conformers should be separated by a blank line, as illustrated above. Note that these fitting centers are regarded as polar non-hydrogen atoms in the RESP charge fitting procedure, however, their radii are set to zero (i.e. they do not affect number and distribution of ESP fitting points). An example of utilizing this feature is given as "Example 6" of Section 4.7.7.
 

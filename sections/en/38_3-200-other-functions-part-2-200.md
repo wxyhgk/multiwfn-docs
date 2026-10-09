@@ -257,13 +257,13 @@ $$R D F(r)=\int f(r,\Omega)r^{2}\mathrm{d}\Omega$$
 
 <!-- formula-ocr: formula_p416_303.png 已替换为LaTeX, 原图保留备查 -->
 
-where r is radial distance from sphere center, and  denotes angular coordinate in a sphere layer.
+where r is radial distance from sphere center, and Ω denotes angular coordinate in a sphere layer.
 
 The integration curve of RDF can also be plotted
 
 $$I(r^{\prime})=\int_{r_{\mathrm{low}}}^{r^{\prime}}R D F(r)\mathrm{d}r=\int_{r_{\mathrm{low}}}^{r^{\prime}}\int f(r,\Omega)r^{2}\mathrm{d}\Omega\mathrm{d}r$$
 
-Clearly, if rlow is set to 0 (viz. sphere center), then I() will be the integral of f over the whole space.
+Clearly, if rlow is set to 0 (viz. sphere center), then I(∞) will be the integral of f over the whole space.
 
 In present function, one can choose the real space function to be studied, set the position of sphere center, set the lower and upper limit to be calculated and plotted, set the number of points in
 

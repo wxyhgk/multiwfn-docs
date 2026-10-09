@@ -50,7 +50,7 @@ To yield all below quantities, electronic energy (E) and electron density of N, 
 - Fukui function f(r) and dual descriptor Δf(r): See Section 4.5.4 for detailed introduction
 - Local softness: s+(r) = Sf +(r), s−(r) = Sf −(r), s0(r) = Sf 0(r) for nucleophilic, electrophilic, radical attacks, respectively, where f(r) is Fukui function of corresponding type. See Proc. Nati. Acad. Sci., 82, 6723 (1985)
 
-- Local hyper-softness: s(2)  S2Δf(r), see J. Math. Chem., 62, 461 (2024)
+- Local hyper-softness: s(2) ≈ S2Δf(r), see J. Math. Chem., 62, 461 (2024)
 - Local electrophilicity index: 𝜔loc(𝐫) = 𝜔𝑓+(𝐫)
 
 - Local nucleophilicity index: 𝑁Nu loc(𝐫) = 𝑁Nu𝑓−(𝐫) ➢ Atom indices

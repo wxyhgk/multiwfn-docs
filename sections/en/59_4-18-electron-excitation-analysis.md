@@ -190,9 +190,9 @@ Then we check contribution of atoms or fragments to hole and electron. Select su
 
 Since hydrogen atoms generally do not participate in electron excitation of chemical interest, only the information of non-hydrogen atoms is outputted, including the atomic contributions to hole, electron, hole-electron overlap, electron-hole difference (i.e. CDD). The indices of the atoms in the nitro group are 21, 22, and 23, it can be seen from the data that the two oxygens of the nitro group
 
-contribute most to the hole, the sum of their contributions is 2×46.192%. The spatial delocalization of the electron is relatively stronger, the three atoms in the nitro group contribute a total of
+contribute most to the hole, the sum of their contributions is 2×46.1≈92%. The spatial delocalization of the electron is relatively stronger, the three atoms in the nitro group contribute a total of
 
-2×24.4+33.983%, the rest part of electron is basically contributed by the atoms in the biphenyl moiety.
+2×24.4+33.9≈83%, the rest part of electron is basically contributed by the atoms in the biphenyl moiety.
 
 Although the distribution characteristics of hole and electron can be examined by visualizing isosurface map of hole and electron, the observed isosurfaces are obviously dependent on the choice of isovalue. So, it is impossible to fully display the hole and electron distribution in all regions by only one image. On the contrary, the quantitative atomic contributions given above are very definitive.
 
@@ -1300,7 +1300,7 @@ MO38→MO39 is set to zero, namely ignoring its contribution, then f will be low
 
 0 // Return to menu of electron excitation analysis -1 // Check, modify and export configuration coefficients of an excitation 1 // Choose the first excited state 1 // Set coefficient of a MO pair 38,39 // The MO indices of the MO pair
 
-1 // The transition type is chosen as "Excitation", hence MO38→MO39 is selected (if inputting 2, then what we selected will be MO38MO39)
+1 // The transition type is chosen as "Excitation", hence MO38→MO39 is selected (if inputting 2, then what we selected will be MO38←MO39)
 
 0 // Set the configuration coefficient to zero -3 // Export current excitation information to a plain text file
 

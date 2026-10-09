@@ -47,7 +47,7 @@ $$r_{i}=\sum_{m\in A}^{occ}\sum_{n\in B}^{occ}\eta_{i}C_{m,i}C_{n,i}S_{m,n}$$
 
 where i and η are index and occupation number of MO of complex, respectively.
 
-,( )( )dm nmnSφφ= rrr is overlap integral between FO m and FO n. Note that though the NA and
+,( )( )dm nmnSφφ= ∫rrr is overlap integral between FO m and FO n. Note that though the NA and
 
 NB FOs are respectively orthonormal sets, the NA set are in common not normal to the NB set, so S is not an identity matrix. Cm,i denotes the coefficient of FO m in MO i of complex. The superscript "vir" and "occ" mean virtual (viz. unoccupied) and occupied, respectively.
 

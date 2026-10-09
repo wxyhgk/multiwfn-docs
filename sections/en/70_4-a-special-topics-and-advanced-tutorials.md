@@ -696,13 +696,11 @@ Population of each type of angular moment orbitals:
 
 Theory The local total, dynamic and non-dynamic electron correlation functions proposed in J. Chem. Theory Comput., 13, 2705 (2017) are real space functions respectively aiming at revealing total, dynamic and non-dynamic electron correlation in various regions. They correspond to user-defined functions 87, 88 and 89, respectively, and defined as follows:
 
-- Local total electron correlation function: 21T4( )(1) |( ) |iiiiIηηφ=−rr, i denotes index of
+- Local total electron correlation function: $$I_{T}(\mathbf{r})=\frac{1}{4}\sum_{i}\sqrt{\eta_{i}(1-\eta_{i})}\,|\varphi_{i}(\mathbf{r})|^{2}$$, $i$ denotes index of natural spin orbital, η is corresponding occupation number. Note that in some cases, η may be marginally larger than 1.0 or negative, Multiwfn automatically sets it to 1.0 and 0.0 respectively to make the calculation feasible.
 
-natural spin orbital, η is corresponding occupation number. Note that in some cases, η may be marginally larger than 1.0 or negative, Multiwfn automatically sets it to 1.0 and 0.0 respectively to make the calculation feasible.
+- Local dynamic electron correlation function: $$I_{D}(\mathbf{r})=\frac{1}{4}\sum_{i}\left[\sqrt{\eta_{i}(1-\eta_{i})}-2\eta_{i}(1-\eta_{i})\right]|\varphi_{i}(\mathbf{r})|^{2}$$
 
-- Local dynamic electron correlation function: 21D4( )(1)2 (1) |( ) |iiiiiiIηηηηφ=−−−rr
-
-- Local nondynamic electron correlation function: 21ND2( )(1) |( ) |iiiiIηηφ=−rr
+- Local nondynamic electron correlation function: $$I_{ND}(\mathbf{r})=\frac{1}{2}\sum_{i}\eta_{i}(1-\eta_{i})\,|\varphi_{i}(\mathbf{r})|^{2}$$
 
 It is clear that IT(r) = ID(r) + IND(r). It is noteworthy that the form of these functions is closely related to the OED introduced in Section 4.A.6.
 
@@ -1152,9 +1150,9 @@ bond, hence character of chemical bonds can be characterized by various properti
 
 ·Electron density and potential energy at BCP, namely ρ(BCP) and V(BCP), are often used to discuss bonding strength. For the same kind of bond, they are usually positively and negatively correlated to bonding strength, respectively.
 
-·Laplacian of electron density at BCP, namely 2ρ(BCP), is often used to judge whether or not a bond mainly shows covalent character. Negative and positive values imply that the major nature of the bond is covalent and non-covalent, respectively. But notice that this criterion is often
+·Laplacian of electron density at BCP, namely ∇2ρ(BCP), is often used to judge whether or not a bond mainly shows covalent character. Negative and positive values imply that the major nature of the bond is covalent and non-covalent, respectively. But notice that this criterion is often
 
-wrong (e.g. CO has positive 2ρ(BCP) but it is evidently a polar covalent bond)
+wrong (e.g. CO has positive ∇2ρ(BCP) but it is evidently a polar covalent bond)
 
 ·In Angew. Chem. Int. Ed. Engl., 23, 627 (1984) it was argued that negative and positive values of energy density at BCP, i.e. H(BCP), implying the bond has covalent and non-covalent nature, respectively. But this criterion is not always true; for example, the Ca-O in CaO is typical ionic bond, but its H(BCP) is negative.
 
@@ -1187,7 +1185,7 @@ AIM topology analysis has been systematically introduced in Section 3.14 and ill
 
 The above-mentioned real space functions can also be plotted as curve map, plane map or isosurface map so that one can visually study their distribution, see Section 4.3, 4.4 and 4.5 for
 
-practical example, respectively. The contour line map and isosurface map of 2ρ(r) is particularly useful and frequently employed.
+practical example, respectively. The contour line map and isosurface map of ∇2ρ(r) is particularly useful and frequently employed.
 
 2 Bond order and delocalization index analysis Bond order is a very useful and straightforward way of characterizing chemical bonds. Multiwfn supports a lot of bond order definitions, please check Section 3.11 for detailed introduction. Different bond orders have different characters and physical meanings. For example, Laplacian bond order (LBO) measures covalent component of a bond and usually has good relationship with bond dissociation energy (BDE), while Mayer bond order essentially reflects the number of electrons shared by two interacting atoms. The bond analysis module of Multiwfn is also able to do more things than just calculating the value of bond order. For example, Multiwfn can decompose some bond orders as contributions from various orbitals, the Wiberg bond order can be decomposed as contributions from atomic orbital pairs. Many detailed analysis examples of bond order are given in Section 4.8.
 
@@ -1216,16 +1214,16 @@ isosurface around the bond. Multiwfn is also capable of studying ELF-π and ELF-
 
 Note that there are a lot of real functions having analogous distribution feature as ELF, though their underlying ideas may not be very similar to ELF. Multiwfn supports most of them and they can also be plotted in exactly the same way as ELF. These real space functions include LOL, SCI, SEDD, RoSE, PS-FID. The LOL is introduced in Section 2.6 and is sometimes preferred over ELF because of its clearer graphical effect; introduction of other real space functions can be found in Section 2.7.
 
-The negative part between two atoms in 2ρ map is able to reveal the region where electrons concentrate due to formation of covalent bond, this point is similar to ELF. In J. Phys. Chem., 100,
+The negative part between two atoms in ∇2ρ map is able to reveal the region where electrons concentrate due to formation of covalent bond, this point is similar to ELF. In J. Phys. Chem., 100,
 
-15398 (1996), Bader believes that 2ρ and ELF are homeomorphic and their similarities and
+15398 (1996), Bader believes that ∇2ρ and ELF are homeomorphic and their similarities and
 
 
 <!-- p.1122 -->
 
 differences are able to provide complementary information in understanding chemical bonds.
 
-However, notice that for bonds involving very heavy atom, 2ρ map often fails to reveal covalent character. For example, 2ρ in the interacting region of Re-Re bond is entirely positive.
+However, notice that for bonds involving very heavy atom, ∇2ρ map often fails to reveal covalent character. For example, ∇2ρ in the interacting region of Re-Re bond is entirely positive.
 
 By using Multiwfn and shell script as well as third-part software, anime of ELF or other functions during a chemical process (often represented as trajectory resulting from intrinsic reaction coordinate or rigid scan tasks) can be easily generated, such an anime is able to very vividly exhibit variation of characters of chemical bonds, see Section 4.A.1 on how to make the anime.
 

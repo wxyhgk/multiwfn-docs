@@ -107,7 +107,7 @@ molecular electrostatic potential and has been introduced in part 12 of Section 
 
 In wavefunction theory, the exchange-correlation potential can be explicitly written as
 
-1( , ')( )d( )||Vρ XCXC r rrr'rrr' =− , where Γ is known as exchange-correlation density, see part 17
+$$V_{XC}(\mathbf{r})=\frac{1}{\rho(\mathbf{r})}\int\frac{\Gamma_{XC}(\mathbf{r},\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|}\mathrm{d}\mathbf{r}'$$, where Γ is known as exchange-correlation density, see part 17
 
 of Section 2.6 for detail. In DFT theory, the XC potential directly comes from the variation of
 
@@ -128,7 +128,7 @@ The essence of HF and KS-DFT theories is the one-electron eigenvalue equation
 
 where
 
-PAEM2rVh+−= )()2/1(ˆ
+PAEM2rVh+∇−= )()2/1(ˆ
 
 Solving the equation results in a set of MOs {φ}, their eigenvalues correspond to the energy of the electrons running in the orbitals.
 

@@ -392,7 +392,7 @@ $$\Theta_{A}^{\mathrm{o v l p}}=\sqrt{\Theta_{A}^{\mathrm{e l e}}\Theta_{A}^{\ma
 
 <!-- formula-ocr: formula_p267_168.png 已替换为LaTeX, 原图保留备查 -->
 
-Notice that the overlap in this form is not additive, namely ABBAΘΘ+Θ. ovlpovlpovlp
+Notice that the overlap in this form is not additive, namely ABBAΘ≠Θ+Θ. ovlpovlpovlp
 
 Mulliken-like partition works reasonably for most cases, however, it is incompatible with diffuse functions. Another well-known shortcoming of this partition is that some atomic contributions may be small negative values in certain situations, obviously in this case the overlap between hole and electron in corresponding atomic spaces cannot be evaluated, so Multiwfn automatically sets the overlap values to zero. Obviously, when diffuse functions must be employed (e.g. anionic system, Rydberg excited state), or you have observed notable negative atomic contribution to hole or electron, you have to change to Hirshfeld partition, which is more robust but computational cost is higher.
 
@@ -547,7 +547,7 @@ Obviously, one can conveniently study contribution to transition electric dipole
 
 Next, we look at transition magnetic dipole moment. The operator for magnetic dipole moment due to movement of electrons is the angular momentum operator L (see e.g. Theor. Chim. Acta, 6, 341 (1966))
 
-Lrijk xyzˆˆˆˆ() = −×=++ iLLL
+Lrijk xyzˆˆˆˆ() = −×∇=++ iLLL
 
 
 $$\begin{aligned}&\hat{\mathbf{L}}=-i\left(\mathbf{r}\times\nabla\right)=\hat{\mathbf{i}}L_{\mathrm{x}}+\hat{\mathbf{j}}L_{\mathrm{y}}+\hat{\mathbf{k}}L_{\mathrm{z}}\\&=-i\left[\hat{\mathbf{i}}\left(y\frac{\partial}{\partial z}-z\frac{\partial}{\partial y}\right)+\hat{\mathbf{j}}\left(z\frac{\partial}{\partial x}-x\frac{\partial}{\partial z}\right)+\hat{\mathbf{k}}\left(x\frac{\partial}{\partial y}-y\frac{\partial}{\partial x}\right)\right]\\ \end{aligned}$$
@@ -569,7 +569,7 @@ should be manually divided by 2.
 
 We can define transition magnetic dipole moment density component mi(r) by considering the
 
-relationship ( )d, ,iiMmix y z==rr , so that distribution of transition magnetic dipole
+relationship ( )d, ,iiMmix y z==∫rr , so that distribution of transition magnetic dipole
 
 moment can be visualized in terms of e.g. isosurface map. Explicit expression of mi(r) of X component is given below, Y and Z components can be defined similarly.
 
@@ -839,7 +839,7 @@ The index i and a run over all occupied and virtual MOs, respectively. φ is orb
 
 of i→a. While if the method you used is TDHF or TDDFT, then 𝐾𝑖 𝑎 and 𝑤′𝑖 𝑎 denote the configuration coefficient corresponding to excitation of i→a and de-excitation of 𝑎= 𝑤𝑖 𝑎+ 𝑤′𝑖 𝑎, where 𝑤𝑖
 
-ia, respectively.
+i←a, respectively.
 
 Δr is especially useful for diagnosing when certain classes of DFT functionals are failure for TDDFT purpose. When Δr is large, pure functionals such as BLYP and PBE, and the hybrid functionals with low Hartree-Fock exchange composition such as B3LYP and PBE0, will not work well. In this case, long-range corrected functionals should be employed; for instance, CAM-B3LYP and ωB97XD.
 
@@ -1129,9 +1129,9 @@ The lower bound of TDDFT excitation energy of a CT state can be expressed as
 
 𝜔low = 𝐼𝑃𝐷−𝐸𝐴𝐴−1/𝑅 where IPD is ionization potential of electron donor moiety (energy consumption of leaving an electron), EAA is electron affinity of electron acceptor moiety (its negative is energy lowering due to receiving an electron), and R denotes the electrostatic interaction between the hole and electron
 
-after the CT excitation. According to Koopmans’ theorem, IP−εHOMO, EA−εLUMO, and we assume that the excitation fully corresponds to HOMO→LUMO transition, where HOMO and LUMO are completely localized in donor and acceptor regions respectively, we have
+after the CT excitation. According to Koopmans’ theorem, IP≈−εHOMO, EA≈−εLUMO, and we assume that the excitation fully corresponds to HOMO→LUMO transition, where HOMO and LUMO are completely localized in donor and acceptor regions respectively, we have
 
-𝜔low−𝜀HOMO + 𝜀LUMO −1/𝑅 In practice, electron excitation is contributed by multiple orbital transitions, so weighted MO energies should be employed instead. In addition, the R may be estimated using DCT index (see later). So, the above equation can be converted to
+𝜔low≈−𝜀HOMO + 𝜀LUMO −1/𝑅 In practice, electron excitation is contributed by multiple orbital transitions, so weighted MO energies should be employed instead. In addition, the R may be estimated using DCT index (see later). So, the above equation can be converted to
 
 $$\omega_{\mathrm{low}}=\underbrace{\sum_{i,a}\left[\frac{\left(w_{i}^{a}\right)^{2}}{\sum_{i,a}\left(w_{i}^{a}\right)^{2}}\left(\varepsilon_{a}-\varepsilon_{i}\right)\right]}_{\mathrm{term1}}-\frac{1}{D_{\mathrm{CT}}}_{\mathrm{term2}}$$
 
@@ -1239,7 +1239,7 @@ In the case of two fragments (R and S), the intrinsic CT% and apparent CT% must 
 
 different, both of them have their own value. Intrinsic CT% represents the amount of electrons that essentially participate in charge transfer, which does not reflect the cancellation effect between
 
-electron transfers of R→S and SR. In contrast, the apparent CT% corresponds to the apparent phenomenon of net electron transfer between R and S, namely the cancellation of the bidirectional electron transfer is taken into account. Clearly, intrinsic CT% must be equal or larger than apparent CT%, and they are equal only if the interfragment charge transfer is completely single directional, that is hole and electron fully and respectively localize on the two fragments.
+electron transfers of R→S and S←R. In contrast, the apparent CT% corresponds to the apparent phenomenon of net electron transfer between R and S, namely the cancellation of the bidirectional electron transfer is taken into account. Clearly, intrinsic CT% must be equal or larger than apparent CT%, and they are equal only if the interfragment charge transfer is completely single directional, that is hole and electron fully and respectively localize on the two fragments.
 
 It is worth to emphasize that %CT is directly dependent of the definition of fragments, because it characterizes amount of charge transfer between the fragments. In the limiting case, you define the whole system as a single fragment, then %CT must be exactly zero for all excitations.
 
@@ -1365,7 +1365,7 @@ $$\begin{aligned}T^{KL}(\mathbf{r};\mathbf{r}^{\prime})=&\sum_{i}\sum_{a}\sum_{b
 
 <!-- formula-ocr: formula_p292_191.png 已替换为LaTeX, 原图保留备查 -->
 
-where χ is basis function, we can finally reach the formula or evaluating PKL shown earlier in this section. For example, in the case of i=j, ab:
+where χ is basis function, we can finally reach the formula or evaluating PKL shown earlier in this section. For example, in the case of i=j, a≠b:
 
 $$T^{KL}(\mathbf{r};\mathbf{r}^{\prime})=\left\{\begin{aligned}0&\quad(i\neq j,a\neq b)\\ \sum_{i}\sum_{a}\sum_{b}w_{i,a}^{K}w_{i,b}^{L}\varphi_{a}(\mathbf{r})\varphi_{b}(\mathbf{r}^{\prime})&\quad(i=j,a\neq b)\\ -\sum_{i}\sum_{j}\sum_{a}w_{i,a}^{K}w_{j,a}^{L}\varphi_{j}(\mathbf{r})\varphi_{i}(\mathbf{r}^{\prime})&\quad(i\neq j,a=b)\\ \sum_{i}\sum_{a}w_{i,a}^{K}w_{i,a}^{L}\left[\sum_{p}^{N}\varphi_{p}(\mathbf{r})\varphi_{p}(\mathbf{r}^{\prime})-\varphi_{i}(\mathbf{r})\varphi_{i}(\mathbf{r}^{\prime})+\varphi_{a}(\mathbf{r})\varphi_{a}(\mathbf{r}^{\prime})\right]&\quad(i=j,a=b)\end{aligned}\right.$$
 

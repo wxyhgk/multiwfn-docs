@@ -132,7 +132,7 @@ Multiwfn 能做的事 下面简要列出 Multiwfn 针对不同主题支持的分
 - 可视化各种程序产生的各种轨道（多种形式）
 - 表征化学键：各种形式的 AIM 分析；研究实空间函数
 
-（ELF、LOL、2ρ、动能/势能密度、IRI 和 IRI-π、价电子密度、片段密度差、变形密度、source 函数、键椭率、键度、eta 指数、V(r)/G(r)、SCI、PAEM、IGM……）；各种键级分析（Mayer、Laplacian、Mulliken、Wiberg、Fuzzy 和多中心键级，以及 Mayer、Mulliken 和 Wiberg 键级的分解分析）；本征键强度指数（IBSI）；定域/离域指数；轨道定域化分析；键级密度（BOD）和自然自适应轨道（NAdO）分析；用多种方法衡量键极性和键偶极矩；电荷分解分析（CDA）；扩展跃迁态-化学价自然轨道（ETS-NOCV）；重叠布居态密度（OPDOS）；能量分解分析，等等。综述见手册4.A.11节。在扫描和 IRC 过程中各种化学键性质的变化也可通过 shell 脚本很容易研究，见手册4.A.1节。
+（ELF、LOL、∇2ρ、动能/势能密度、IRI 和 IRI-π、价电子密度、片段密度差、变形密度、source 函数、键椭率、键度、eta 指数、V(r)/G(r)、SCI、PAEM、IGM……）；各种键级分析（Mayer、Laplacian、Mulliken、Wiberg、Fuzzy 和多中心键级，以及 Mayer、Mulliken 和 Wiberg 键级的分解分析）；本征键强度指数（IBSI）；定域/离域指数；轨道定域化分析；键级密度（BOD）和自然自适应轨道（NAdO）分析；用多种方法衡量键极性和键偶极矩；电荷分解分析（CDA）；扩展跃迁态-化学价自然轨道（ETS-NOCV）；重叠布居态密度（OPDOS）；能量分解分析，等等。综述见手册4.A.11节。在扫描和 IRC 过程中各种化学键性质的变化也可通过 shell 脚本很容易研究，见手册4.A.1节。
 
 - 表征电子分布及其变化：原子电荷（AIM、Mulliken、SCPA、Hirshfeld、Hirshfeld-I、Voronoi、Löwdin、ADCH、CM5、MBIS、EEM、CHELPG、MK、RESP、RESP2……）；基函数/壳层/原子/片段的总和自旋布居分析；原子电偶极和多极矩分析（还可通过 Multiwfn 提供的绘图脚本在 VMD 程序中可视化）；对密度差的绘制/盆分析/域分析；电荷位移曲线
 

@@ -288,9 +288,9 @@ Note that the I should not be utilized as an indicator of bond order, it does no
 
 Present module outputs I between each pair of atoms, the printing threshold can be inputted by user. Commonly, when I is close to 1.0, it implies that the two atoms are bonded, while if it is close to 0.0, then they may be regarded as not bounded by chemical bond. The nearest integer of I, namely nint(I), is also outputted for facilitating examination of the result.
 
-For each atom (e.g. atom A), the ABB A  is printed as "Sum of connectivity", while I
+For each atom (e.g. atom A), the ABB A ≠ is printed as "Sum of connectivity", while I
 
-()ABB A  is printed as "Sum of integer connectivity". The former and the latter may be regarded nint I
+()ABB A ≠ is printed as "Sum of integer connectivity". The former and the latter may be regarded nint I
 
 as raw and actual coordination number, respectively.
 

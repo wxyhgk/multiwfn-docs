@@ -66,7 +66,7 @@ $$\mathrm{OPDOS}_{A,B}(E)=\sum_{i}\mathrm{X}_{A,B}^{i}F(E-\varepsilon_{i})$$
 
 其中 X𝐴,𝐵 𝑖 为轨道 i 中片段 A 与 B 间总交叉项的成分。我已
 
-在第 3.10.3 节(Section 3.10.3)中讨论了如何计算 Θ 和 。
+在第 3.10.3 节(Section 3.10.3)中讨论了如何计算 Θ 和 Χ。
 
 在 Multiwfn 中，OPDOS 也可在所有最近邻原子间计算。此时，OPDOS 计算为
 
@@ -97,9 +97,9 @@ DOS 示例：二茂铁(Illustration of DOS: Ferrocene) 下面是典型分子二�
 
 nmo inp
 
-energy occ [strength] [FWHM]  对于轨道1 energy occ [strength] [FWHM]  对于轨道2 energy occ [strength] [FWHM]  对于轨道3 ...
+energy occ [strength] [FWHM] ← 对于轨道1 energy occ [strength] [FWHM] ← 对于轨道2 energy occ [strength] [FWHM] ← 对于轨道3 ...
 
-energy occ [strength] [FWHM]  对于轨道nmo 其中energy和occ分别表示轨道能量和占据数。nmo是该文件中记录的轨道数目。inp是输入类型，有以下四种情况：
+energy occ [strength] [FWHM] ← 对于轨道nmo 其中energy和occ分别表示轨道能量和占据数。nmo是该文件中记录的轨道数目。inp是输入类型，有以下四种情况：
 
 ![](../imgs/p157_022.png)
 

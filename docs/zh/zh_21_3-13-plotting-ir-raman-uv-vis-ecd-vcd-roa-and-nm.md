@@ -229,9 +229,9 @@ CP2K的TDDFPT计算的输出文件可用作绘制(方向)UV-Vis光谱的输入�
 
 numdata inptype
 
-energy strength [FWHM]  对于跃迁1 energy strength [FWHM]  对于跃迁2 energy strength [FWHM]  对于跃迁3 ...
+energy strength [FWHM] ← 对于跃迁1 energy strength [FWHM] ← 对于跃迁2 energy strength [FWHM] ← 对于跃迁3 ...
 
-energy strength [FWHM]  对于跃迁numdata 其中numdata表示该文件中有多少条目。若inptype设为1，则只读取energy和strength，所有跃迁的FWHM将自动设置。若inptype设为2，则FWHM也会被读取。跃迁应按能量从低
+energy strength [FWHM] ← 对于跃迁numdata 其中numdata表示该文件中有多少条目。若inptype设为1，则只读取energy和strength，所有跃迁的FWHM将自动设置。若inptype设为2，则FWHM也会被读取。跃迁应按能量从低
 
 <!-- p.171 -->
 

@@ -223,7 +223,7 @@ $$\mathbf{R}_{\mathrm{tot}}=\sum_{k}^{\mathrm{a l l}}\mathbf{r}_{k}f(\mathbf{r}_
 
 该功能基于内存中的格点数据计算并绘制多种曲线，以便在特定方向定量、清晰地研究格点数据所表示的实空间函数的分布。
 
-积分曲线定义如下（如 Z 方向）。- 与  分别表示待积分方向上格点数据的下限与上限位置；p 表示格点数据所表示的实空间函数。
+积分曲线定义如下（如 Z 方向）。-∞ 与 ∞ 分别表示待积分方向上格点数据的下限与上限位置；p 表示格点数据所表示的实空间函数。
 $$I(z^{\prime})=\int\limits_{z_{ini}}^{z^{\prime}}\int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}p(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z$$
 
 <!-- formula-ocr: formula_p214_124.png 已替换为LaTeX, 原图保留备查 -->
@@ -232,7 +232,7 @@ $$I(z^{\prime})=\int\limits_{z_{ini}}^{z^{\prime}}\int\limits_{-\infty}^{+\infty
 
 显然
 
-LzI zIzz=  '( ')( )d z ini
+LzI zIzz= ∫ '( ')( )d z ini
 
 平面平均曲线定义为（如 Z 方向）
 

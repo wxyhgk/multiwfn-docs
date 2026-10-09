@@ -54,13 +54,13 @@ del null
 
 where genELFcub.txt is input stream file for generating ELF cube file, it is a plain text file having the content below
 
-5  Main function 5, calculate grid data
+5 ← Main function 5, calculate grid data
 
-9  Real space function 9, namely ELF
+9 ← Real space function 9, namely ELF
 
-2  Option 2: Medium-quality grid
+2 ← Option 2: Medium-quality grid
 
-2  Option 2: Exporting cube file in current directory
+2 ← Option 2: Exporting cube file in current directory
 
 
 <!-- p.1145 -->

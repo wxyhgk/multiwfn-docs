@@ -268,7 +268,7 @@ $$\langle r_{A}^{2}\rangle=\int r^{2}w_{A}(\mathbf{r})\rho(\mathbf{r})\mathrm{d}
 
 球谐形式的原子四极与八极矩也一并输出。球谐形式多极矩的一般表达式为
 
-,, ( )( ) ( )dAAl ml mAQRwρ= −rrrr
+,, ( )( ) ( )dAAl ml mAQRwρ= −∫rrrr
 
 球谐形式的四极矩的五个分量对应
 
@@ -514,7 +514,7 @@ $$\delta_{\sigma}^{\alpha}(A,B)=2\sum_{i\in\alpha}^{\sigma}\sum_{j\in\alpha}^{\s
 
 $$\sigma^{2}(A)=N_{A}-\lambda(A)=-\sum_{B\neq A}\mathrm{cov}(A,B)=\sum_{B\neq A}\delta(A,B)/2$$
 
-B AB A 
+B AB A ≠≠
 
 其中 NA 为 A 中的电子布居数。如上所述，Multiwfn 输出的 DI
 

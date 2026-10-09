@@ -205,7 +205,7 @@ where f is the data value, r denotes coordinate vector, the indices i, j and k r
 
 This function calculates and plots various kinds of curve based on the grid data in memory, so that distribution of the real space function represented by the grid data can be studied quantitatively and clearly in a specific direction.
 
-Integral curve is defined as below (e.g. in Z direction). The - and  denote the position of lower and upper limits of the grid data in the direction to be integrated, respectively; p denotes the real space function represented by the grid data.
+Integral curve is defined as below (e.g. in Z direction). The -∞ and ∞ denote the position of lower and upper limits of the grid data in the direction to be integrated, respectively; p denotes the real space function represented by the grid data.
 
 
 $$I(z^{\prime})=\int\limits_{z_{ini}}^{z^{\prime}}\int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}p(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z$$
@@ -216,7 +216,7 @@ Local integral curve is defined as (e.g. in Z direction)
 
 Evidently
 
-LzI zIzz=  '( ')( )d z ini
+LzI zIzz= ∫ '( ')( )d z ini
 
 Plane-averaged curve is defined as (e.g. in Z direction)
 

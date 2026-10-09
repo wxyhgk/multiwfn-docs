@@ -51,7 +51,7 @@ Tian Lu, Qinxue Chen, Realization of Conceptual Density Functional Theory and In
 - Fukui 函数 f(r) 与对偶描述符 (dual descriptor) Δf(r)：详细介绍见 4.5.4 节
 - 局域软度 (Local softness)：对于亲核、亲电、自由基进攻分别为 s+(r) = Sf +(r)、s−(r) = Sf −(r)、s0(r) = Sf 0(r)，其中 f(r) 为相应类型的 Fukui 函数。见 Proc. Nati. Acad. Sci., 82, 6723 (1985)
 
-- 局域超软度 (Local hyper-softness)：s(2)  S2Δf(r)，见 J. Math. Chem., 62, 461 (2024)
+- 局域超软度 (Local hyper-softness)：s(2) ≈ S2Δf(r)，见 J. Math. Chem., 62, 461 (2024)
 - 局域亲电性指数 (Local electrophilicity index)：𝜔loc(𝐫) = 𝜔𝑓+(𝐫)
 
 - 局域亲核性指数 (Local nucleophilicity index)：𝑁Nu loc(𝐫) = 𝑁Nu𝑓−(𝐫) ➢ 原子指数 (Atom indices)

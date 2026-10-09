@@ -47,7 +47,7 @@ $$\overline{V}_{s}=(1/N)\sum_{i}^{N}V(\mathbf{r}_{i})$$
 
 where N=N++N− is the total number of surface points.
 
- is the average deviation over the surface, which is viewed as an indicator of internal charge separation:
+Θ is the average deviation over the surface, which is viewed as an indicator of internal charge separation:
 
 
 $$\Pi=(1/N)\sum_{i}^{N}\left|V(\mathbf{r}_{i})-\overline{V}_{s}\right|$$
@@ -81,7 +81,7 @@ extent.
 
 In order to quantify molecular polarity, I defined a quantity named molecular polarity index
 
-(MPI), which is closely related to the  index.
+(MPI), which is closely related to the Π index.
 
 
 $$\mathrm{MPI}=(1/N)\sum_{i}^{N}\left|V(\mathbf{r}_{i})\right|\equiv(1/A)\iint\limits_{S}\left|V(\mathbf{r})\right|\mathrm{d}S$$
@@ -215,7 +215,7 @@ In summary, in the common task of quantitative analysis of molecular surface, wh
 
 surface (or isosurface of a specific real space function), as well as quantitative indices such as +SV,
 
-−SV, SV, , 2+σ, 2−σ and so on. Here I briefly describe how these properties are computed in
+−SV, SV, Θ, 2+σ, 2−σ and so on. Here I briefly describe how these properties are computed in
 
 Multiwfn, the basic steps are given below.
 

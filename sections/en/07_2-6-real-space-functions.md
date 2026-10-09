@@ -86,7 +86,7 @@ The absolute value of ζ going from zero to unity corresponds to the local regio
 
 6 Hamiltonian kinetic energy density K(r) The kinetic energy density is not uniquely defined, since the expected value of kinetic energy
 
-operator −φφ|)2/1(|2 can be recovered by integrating kinetic energy density from
+operator ∇−<φφ|)2/1(|2 can be recovered by integrating kinetic energy density from
 
 alternative definitions. One of commonly used definitions is
 
@@ -473,11 +473,11 @@ It can be shown that
 
 where r' ranges entire space. This equation suggests that SF(r,r') represents the effect of electronic Laplacian at r' on electron density at r. If at r' the electron is concentrated (namely Laplacian is negative, also suggesting potential energy dominates kinetic energy), then r' will be a source for the electron density at r; conversely, if at r' the electron is depleted, then r' diminish the electron density
 
-at r. If the range of integration in above formula is restricted to a local region  and we get a value S(r,), then S(r,)/ρ(r)×100% can be regarded as the contribution from region  to the electron density at r. Source function has many uses, when it is used to discuss bonding problems, usually bond critical points are taken as r. A very comprehensive review of theoretical background and applications of source function is given by Gatti in Struct. & Bond., 147, 193 (2010).
+at r. If the range of integration in above formula is restricted to a local region Ω and we get a value S(r,Ω), then S(r,Ω)/ρ(r)×100% can be regarded as the contribution from region Ω to the electron density at r. Source function has many uses, when it is used to discuss bonding problems, usually bond critical points are taken as r. A very comprehensive review of theoretical background and applications of source function is given by Gatti in Struct. & Bond., 147, 193 (2010).
 
 In Multiwfn, source function has two modes: (1) If "srcfuncmode" in `settings.ini` is set to 1, then r' is regarded as variable, while r is regarded as fixed reference point, whose coordinate is determined by “refxyz” in `settings.ini`. This is default mode, useful to study effects of electronic Laplacian at everywhere on specific point (2) If "srcfuncmode" is set to 2, then r becomes variable and r' becomes reference point, this is useful to study effect of electronic Laplacian at specific point on everywhere.
 
-When r=r', this function will return −2ρ(r')/0.001 to avoid numerical problems.
+When r=r', this function will return −∇2ρ(r')/0.001 to avoid numerical problems.
 
 20,21 Electron delocalization range function EDR(r;d) and orbital overlap distance function D(r)
 

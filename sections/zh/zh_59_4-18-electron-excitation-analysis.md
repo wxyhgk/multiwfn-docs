@@ -205,9 +205,9 @@ Coulomb attractive energy:    0.287031 a.u.  (    7.810524 eV )
 
 由于氢原子一般不参与有化学意义的电子激发，只输出非氢原子的信息，包括原子对空穴、电子、空穴-电子重叠、电子-空穴差（即 CDD）的贡献。硝基中原子的编号为 21、22 和 23，从数据可见硝基的两个氧
 
-对空穴贡献最大，它们的贡献之和为 2×46.192%。电子的空间离域相对更强，硝基中的三个原子共贡献
+对空穴贡献最大，它们的贡献之和为 2×46.1≈92%。电子的空间离域相对更强，硝基中的三个原子共贡献
 
-2×24.4+33.983%，电子的其余部分基本由联苯部分的原子贡献。
+2×24.4+33.9≈83%，电子的其余部分基本由联苯部分的原子贡献。
 
 虽然空穴和电子的分布特征可通过可视化空穴和电子的等值面图来考察，但所见等值面显然依赖于等值的选择。因此，仅用一张图不可能充分展示所有区域的空穴和电子分布。相反，上面给出的定量原子贡献是非常确切的。
 
@@ -1314,7 +1314,7 @@ MO38→MO39的组态系数设为零，即忽略其贡献，则f将明显降低�
 
 0 // 返回电子激发分析菜单(Return to menu of electron excitation analysis) -1 // 检查、修改并导出一个激发的组态系数(Check, modify and export configuration coefficients of an excitation) 1 // 选择第一激发态(Choose the first excited state) 1 // 设置一个MO对的系数(Set coefficient of a MO pair) 38,39 // 该MO对的MO序号(The MO indices of the MO pair)
 
-1 // 跃迁类型选为“激发(Excitation)”，因此选中MO38→MO39(若输入2，则选中的将是MO38←MO39)(The transition type is chosen as "Excitation", hence MO38→MO39 is selected (if inputting 2, then what we selected will be MO38MO39))
+1 // 跃迁类型选为“激发(Excitation)”，因此选中MO38→MO39(若输入2，则选中的将是MO38←MO39)(The transition type is chosen as "Excitation", hence MO38→MO39 is selected (if inputting 2, then what we selected will be MO38←MO39))
 
 0 // 将组态系数设为零(Set the configuration coefficient to zero) -3 // 将当前激发信息导出到纯文本文件(Export current excitation information to a plain text file)
 

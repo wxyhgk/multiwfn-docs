@@ -39,7 +39,7 @@ How to visualize weak interaction? The first thing is to find a way to distingui
 
 Around nuclei Around chemical bond Weak interaction region Boundary of molecule
 
-|ρ(r)| Large 0~Minor 0 ~ Small Very small ~ Small
+|∇ρ(r)| Large 0~Minor 0 ~ Small Very small ~ Small
 
 ρ(r) Large Medium Small 0~Small
 
@@ -223,7 +223,7 @@ Theory In J. Chem. Theory Comput., 9, 2226 (2013), the NCI method described in l
 
 The only difference between aNCI and the original NCI method is that in the former, the
 
-electron density ρ and its gradient norm |ρ| are not calculated for only one geometry, but for multiple frames in a trajectory file, then get average (namely 𝜌̅ and ∇𝜌̅̅̅̅). Therefore, the isosurface of averaged reduced density gradient (aRDG)
+electron density ρ and its gradient norm |∇ρ| are not calculated for only one geometry, but for multiple frames in a trajectory file, then get average (namely 𝜌̅ and ∇𝜌̅̅̅̅). Therefore, the isosurface of averaged reduced density gradient (aRDG)
 
 $$\mathrm{aRDG}(\mathbf{r})=\frac{1}{2(3\pi^{2})^{1/3}}\frac{|\overline{\nabla\rho}(\mathbf{r})|}{\left[\overline{\rho}(\mathbf{r})\right]^{4/3}}$$
 
@@ -578,7 +578,7 @@ Please read my original paper describing interaction region indicator (IRI) and 
 
 Features of IRI The IRI is defined as follows
 
-( ) |( ) | /[ ( )]aIRIρρ= rrr
+( ) |( ) | /[ ( )]aIRIρρ= ∇rrr
 
 where a corresponds to "uservar" in `settings.ini`. If "uservar" is set to 0, then a will be the recommended value 1.1.
 

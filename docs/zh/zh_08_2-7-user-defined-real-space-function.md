@@ -25,7 +25,7 @@ $$IRI(\mathbf{r})=\frac{|\nabla\rho(\mathbf{r})|}{\left[\rho(\mathbf{r})\right]^
 
 实际上，用户自定义函数对应源文件function.f90中的“userfunc”函数。自行填入适当代码即可容易扩展Multiwfn支持的函数。例如，在function.f90中“function userfunc”的适当位置填入代码“userfunc=fgrad(x,y,z,'t')**2/8/fdens(x,y,z)”并重新编译Multiwfn，Weizsäcker动能
 
-泛函的被积函数，即2W[ ]( ) /[8 ( )]dτρρρ=rrr，即可使用。写自己的代码时可参考已有代码，内置函数列表见本手册附录2。
+泛函的被积函数，即2W[ ]( ) /[8 ( )]dτρρρ=∇∫rrr，即可使用。写自己的代码时可参考已有代码，内置函数列表见本手册附录2。
 
 预置的用户自定义函数
 
@@ -132,7 +132,7 @@ i  vir
 
 局域电离能，但i遍历所有未占据轨道。见J. Mol. Model., 9, 342 (2003)。对实际分子的应用示例见4.12.13节。
 
--27 局域电子附着能：iiinE LUMOatt ( )( )( ) ==rrr ε i  0 ρ φε 2。i遍历所有能量为负的未占据
+-27 局域电子附着能：iiinE LUMOatt ( )( )( ) ==rrr ε i < 0 ρ φε 2。i遍历所有能量为负的未占据
 
 轨道。对限制性和非限制性波函数，n分别等于2和1。见J. Phys. Chem. A., 120, 10023 (2016)。该函数与LEA用途相似但更稳健。对实际分子的应用示例见4.12.13节。
 
@@ -223,7 +223,7 @@ $$s(\mathbf{r}) = (3/2)\rho(\mathbf{r})\{\lambda + \ln[t(\mathbf{r})/t_{\mathrm{
 
 Thomas-Fermi常数（3/10)(3π2)2/3=2.871234，动能密度项t(r)选用Lagrange动能密度G(r)。
 
-54 与53相同，但t(r)采用G(r) − 2ρ(r)/8，即精确对应PNAS, 81, 8028 (1984)方程22的动能密度定义。极少数情况下此动能密度定义导致很小的负值，因此时tTF(r)也非常接近零，为能正常得到结果，此时ln[t(r)/tTF(r)]简单设为零。
+54 与53相同，但t(r)采用G(r) − ∇2ρ(r)/8，即精确对应PNAS, 81, 8028 (1984)方程22的动能密度定义。极少数情况下此动能密度定义导致很小的负值，因此时tTF(r)也非常接近零，为能正常得到结果，此时ln[t(r)/tTF(r)]简单设为零。
 
 55 Rényi熵二次方形式的积分部分的被积函数： $\rho^2(\mathbf{r})$
 
@@ -250,7 +250,7 @@ Thomas-Fermi常数（3/10)(3π2)2/3=2.871234，动能密度项t(r)选用Lagrange
 
 由于Pauli力与电荷基于Pauli势由有限差分计算，而量子势/力/电荷基于Pauli势/力/电荷定义，用户自定义函数61~65也受“ispecial”影响。
 
-61 Pauli力幅值：θθ( ) |( ) |FV= −rr
+61 Pauli力幅值：θθ( ) |( ) |FV= −∇rr
 
 62 Pauli电荷：$$q_\theta(\mathbf{r}) = \nabla^2 V_\theta(\mathbf{r}) / (-4\pi)$$
 
@@ -258,18 +258,18 @@ Thomas-Fermi常数（3/10)(3π2)2/3=2.871234，动能密度项t(r)选用Lagrange
 
 VESP − VW
 
-64 量子力幅值：|)(|)(qqrrVF−=
+64 量子力幅值：|)(|)(qqrrVF−∇=
 
 
 $$\upsilon_{\mathrm{e}}(\mathbf{r})=\rho(\mathbf{r})\left[\int\frac{\rho(\mathbf{r}^{\prime})}{|\mathbf{r}-\mathbf{r}^{\prime}|}\mathrm{d}\mathbf{r}^{\prime}-\sum_{A}\frac{Z_{A}}{|\mathbf{r}-\mathbf{R}_{A}|}\right]=-V_{\mathrm{ESP}}(\mathbf{r})\rho(\mathbf{r})\mathrm{d}\mathbf{r}^{\prime}\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{r}^{\prime}\mathrm{d}\mathbf{r}$$
 
 <!-- formula-ocr: formula_p61_034.png 已替换为LaTeX, 原图保留备查 -->
 
-66 静电力幅值：ESPESP( ) |[( )]|FV= −−rr。如Phys. Chem.
+66 静电力幅值：ESPESP( ) |[( )]|FV= −∇−rr。如Phys. Chem.
 
 Chem. Phys., 19, 1496 (2017)所讨论，空间位阻力、量子力与静电力（分别为用户自定义函数43、64和66）之间有非常密切的关系。
 
-67 静电电荷：2ESPESP( )[( )] / ( 4 )qVπ= −−rr
+67 静电电荷：2ESPESP( )[( )] / ( 4 )qVπ= ∇−−rr
 
 68 Shubin Liu能量分解中静电项的电子部分的能量密度：
 
@@ -288,7 +288,7 @@ Liu能量分解见3.24.2节。
 <!-- p.62 -->
 
 
-71、72、73、74 3D表示的电子线动量密度（EMD）。电子线动量算子为−i，对轨道X方向线动量的期望值为
+71、72、73、74 3D表示的电子线动量密度（EMD）。电子线动量算子为∇−i，对轨道X方向线动量的期望值为
 
 $$m_{\mathrm{tot}}(\mathbf{r}) = \sqrt{m_x^2(\mathbf{r}) + m_y^2(\mathbf{r}) + m_z^2(\mathbf{r})}$$
 
@@ -319,7 +319,7 @@ $$m_{y}(\mathbf{r})=-\sum_{i}\eta_{i}\varphi_{i}^{*}(\mathbf{r})\Bigg[z\frac{\pa
 
 用户自定义函数为MDMD的幅值：)()()()(222totrrrrzyxmmmm++=。
 
-79 电子能量密度的梯度模：|E(r)| 80 电子能量密度的Laplacian：2E(r) 81、82、83 分别为Hamilton动能密度的X、Y、Z分量。84、85、86 分别为Lagrange动能密度的X、Y、Z分量。
+79 电子能量密度的梯度模：|∇E(r)| 80 电子能量密度的Laplacian：∇2E(r) 81、82、83 分别为Hamilton动能密度的X、Y、Z分量。84、85、86 分别为Lagrange动能密度的X、Y、Z分量。
 
 87、88、89 分别为局域总、动态、非动态电子相关函数。这些函数的介绍与计算例子见4.A.7.2节。90 Grimme在Angew. Chem. Int. Ed., 54, 1 (2015)中提出的部分占据数加权电子密度（FOD）。FOD的介绍与计算例子见4.A.7.1节。
 
@@ -453,7 +453,7 @@ $$V_{\mathrm{XC}}(\mathbf{r}) = \delta E_{\mathrm{XC}} / \delta\rho(\mathbf{r})$
 
 其中22/33TF10 (6)4.557799872Cπ==为自旋极化情形的Thomas-Fermi常数。
 
-- iKEDsel=4：Weizsäcker KED： σρρτ W)(8 )()(rrr = βασσ = , 2
+- iKEDsel=4：Weizsäcker KED： σρρτ W)(8 )()(rrr ∇= βασσ = , 2
 
 下面提到的大多数KED可用一般形式表示
 
@@ -473,7 +473,7 @@ $$\bullet\mathrm{iKEDsel}=10:\mathrm{Pearson}\mathrm{KED},\tau_{\mathrm{Pear}}^{
 
 体系总电子数
 
-- iKEDsel=10：Pearson KED，)( ζττ σσσ 6TFPearr ++= 1]/)([1 rs 1 rσ 72  ρ ρ σ )( r 2，其中ζ固定为1，
+- iKEDsel=10：Pearson KED，)( ζττ σσσ 6TFPearr ++= 1]/)([1 rs 1 rσ 72 ∇ ρ ρ σ )( r 2，其中ζ固定为1，
 
 $$s_{r}^{\sigma}(\mathbf{r})=s^{\sigma}(\mathbf{r})/[2(6\pi^{2})^{1/3}],\mathrm{similarly}\mathrm{hereinafter}$$
 
@@ -534,7 +534,7 @@ $$F_{\mathrm{LG}94}^{\sigma}=\frac{\left\{1+a_{2}[s_{r}^{\sigma}(\mathbf{r})]^{2
 
 $$\tau_{\mathrm{GEA4}}^{\sigma}=\tau_{\mathrm{GEA2}}^{\sigma}+\frac{(6\pi^{2})^{-2/3}}{540}\left[\rho^{\sigma}(\mathbf{r})\right]^{1/3}\left\{\left[\frac{\nabla^{2}\rho^{\sigma}(\mathbf{r})}{\rho^{\sigma}(\mathbf{r})}\right]^{2}-\frac{9}{8}\frac{\nabla^{2}\rho^{\sigma}(\mathbf{r})}{\rho^{\sigma}(\mathbf{r})}\left|\frac{\nabla\rho^{\sigma}(\mathbf{r})}{\rho^{\sigma}(\mathbf{r})}\right|^{2}+\frac{1}{3}\left|\frac{\nabla\rho^{\sigma}(\mathbf{r})}{\rho^{\sigma}(\mathbf{r})}\right|^{4}\right\}$$
 
-注意若`settings.ini`中的“uservar”不为零，上述所有KED都将加上“2ρ /uservar”项。例如，当iuserfunc=1200、iKEDsel=5且uservar=6时，用户自定义函数对应τGEA2+2ρ /6（即2.6节所示Tsirelson型ELF和LOL所用的KED）。
+注意若`settings.ini`中的“uservar”不为零，上述所有KED都将加上“∇2ρ /uservar”项。例如，当iuserfunc=1200、iKEDsel=5且uservar=6时，用户自定义函数对应τGEA2+∇2ρ /6（即2.6节所示Tsirelson型ELF和LOL所用的KED）。
 
 1201 “iKEDsel”选定的KED与Weizsäcker KED之差。1202 “iKEDsel”选定的KED与Lagrange KED之差。1203 “iKEDsel”选定的KED与Lagrange KED的绝对差。
 

@@ -22,7 +22,7 @@ done
 
 By the way, it is noteworthy that via sed command in Linux you can easily modify content of
 
-`settings.ini` in your script. For example, to replace "iuserfunc=0" by "iuserfunc=30", you can input below command
+`settings.ini` in your script. For example, to replace "iuserfunc=□0" by "iuserfunc=□30", you can input below command
 
 
 ```text

@@ -50,7 +50,7 @@ $$r_{i}=\sum_{m\in A}^{occ}\sum_{n\in B}^{occ}\eta_{i}C_{m,i}C_{n,i}S_{m,n}$$
 
 其中 i 与 η 分别为配合物 MO 的序号与占据数。
 
-,( )( )dm nmnSφφ= rrr 为 FO m 与 FO n 间的重叠积分。注意虽然 NA 个与
+,( )( )dm nmnSφφ= ∫rrr 为 FO m 与 FO n 间的重叠积分。注意虽然 NA 个与
 
 NB 个 FO 分别为正交归一集，但 NA 集与 NB 集一般不正交，所以 S 不是单位矩阵。Cm,i 表示配合物 MO i 中 FO m 的系数。上标 "vir" 与 "occ" 分别意为虚（即未占据）与占据。
 

@@ -33,22 +33,22 @@ Multiwfn aims for ease of use, so it is designed as an interactive program. Neve
 
 For Windows users For example, you want to obtain the graph in example 4.4.1 silently, you need to write an input stream file first, the content is (red texts are comments):
 
-4  Main function 4
+4 ← Main function 4
 
 
 <!-- p.1143 -->
 
-1  Real space function 1
+1 ← Real space function 1
 
-1  Color-filled map
+1 ← Color-filled map
 
- Space line, corresponding to press ENTER button once (use default grid setting)
+← Space line, corresponding to press ENTER button once (use default grid setting)
 
-2  XZ plane
+2 ← XZ plane
 
-0  Y=0
+0 ← Y=0
 
-0  Option 0: save graph to current directory I suppose that the inputstream file is named as 4.4.1.txt, I have already provided this file in “examples” directory. Now change “isilent” parameter in `settings.ini` from 0 to 1 (or add "-silent" argument in command line), this makes Multiwfn forbid displaying any graph or GUI automatically during running, otherwise you have to close the window by clicking mouse button. Then enter command-line environment of Windows (click “Start”-“run” and type “cmd”) and run:
+0 ← Option 0: save graph to current directory I suppose that the inputstream file is named as 4.4.1.txt, I have already provided this file in “examples” directory. Now change “isilent” parameter in `settings.ini` from 0 to 1 (or add "-silent" argument in command line), this makes Multiwfn forbid displaying any graph or GUI automatically during running, otherwise you have to close the window by clicking mouse button. Then enter command-line environment of Windows (click “Start”-“run” and type “cmd”) and run:
 
 Multiwfn HCN.wfn < 4.4.1.txt > medinfo.txt Here I assume that Multiwfn.exe, 4.4.1.txt and HCN.wfn are in current directory. After a few seconds, you will find that image file has appeared in current directory. From medinfo.txt you can find all intermediate information outputted by Multiwfn.
 
@@ -70,14 +70,14 @@ Actually they are not errors, and hence you can safely ignore them. However, if 
 
 Another example, assume that you want to save detail compositions of orbitals 1 to 3 of COCl2.fch, just create an input stream file orbana_1_3.in with the following content:
 
-8  Orbital composition analysis
+8 ← Orbital composition analysis
 
-1  Mulliken method
+1 ← Mulliken method
 
-1  Orbital 1
+1 ← Orbital 1
 
-2  Orbital 2
+2 ← Orbital 2
 
-3  Orbital 3 Then run the command: Multiwfn COCl2.fch < orbana_1_3.in > orbana_1_3.txt.
+3 ← Orbital 3 Then run the command: Multiwfn COCl2.fch < orbana_1_3.in > orbana_1_3.txt.
 
 Notice that if you are using PowerShell in Windows environment, since the "<" redirection operator is unsupported, you should use "Get-Content" command and pipeline feature instead. For example, above command should be written as (assume that Multiwfn.exe is in current folder): Get-

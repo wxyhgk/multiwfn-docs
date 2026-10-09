@@ -243,13 +243,13 @@ $$R D F(r)=\int f(r,\Omega)r^{2}\mathrm{d}\Omega$$
 
 <!-- formula-ocr: formula_p416_303.png 已替换为LaTeX, 原图保留备查 -->
 
-其中r为距球心的径向距离，表示球层中的角坐标。
+其中r为距球心的径向距离，Ω表示球层中的角坐标。
 
 还可绘制RDF的积分曲线
 
 $$I(r^{\prime})=\int_{r_{\mathrm{low}}}^{r^{\prime}}R D F(r)\mathrm{d}r=\int_{r_{\mathrm{low}}}^{r^{\prime}}\int f(r,\Omega)r^{2}\mathrm{d}\Omega\mathrm{d}r$$
 
-显然，若rlow设为0（即球心），则I()为f在全空间的积分。
+显然，若rlow设为0（即球心），则I(∞)为f在全空间的积分。
 
 在本功能中，可选择要研究的实空间函数，设置球心位置，设置要计算和绘制的下限和上限，设置
 

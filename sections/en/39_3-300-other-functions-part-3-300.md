@@ -511,7 +511,7 @@ molecules as individual fragments, this brings great disadvantage in visualizing
 
 - 27 Add boundary atoms Boundary atoms, namely the atoms lying at wall or edge of cell, will be detected and added to the present system as real atoms.
 
-- 28 Axes interconversion You can choose to perform interconversion a  b, a  c, or b  c. The selected two components of atomic fractional coordinates and cell vector lengths will be exchanged. This function is particularly useful if you want to change orientation of two-dimension material: If the cell is orthogonal and the material layer is currently parallel to XY plane, while you hope to make the layer parallel to YZ plane, then you can use the present function to interconvert a and c axes.
+- 28 Axes interconversion You can choose to perform interconversion a ↔ b, a ↔ c, or b ↔ c. The selected two components of atomic fractional coordinates and cell vector lengths will be exchanged. This function is particularly useful if you want to change orientation of two-dimension material: If the cell is orthogonal and the material layer is currently parallel to XY plane, while you hope to make the layer parallel to YZ plane, then you can use the present function to interconvert a and c axes.
 
 Information needed: Atom coordinates
 

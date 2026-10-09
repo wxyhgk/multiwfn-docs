@@ -730,7 +730,7 @@ There is a relationship E(r) = -K(r), where K(r) is Hamiltonian kinetic energy. 
 
 $$E_{_\Omega}=\frac{E_{_{QC}}}{T}\times T_{_\Omega}$$
 
-particles is absorbed into the exchange-correlation functional. Therefore, the actual E should be finally scaled as follows so that sum of all E just equals EQC:
+particles is absorbed into the exchange-correlation functional. Therefore, the actual EΩ should be finally scaled as follows so that sum of all EΩ just equals EQC:
 
 
 $$E_{_\Omega}=\frac{E_{_{QC}}}{T}\times T_{_\Omega}$$
@@ -763,7 +763,7 @@ The electronic energy yielded by quantum chemistry calculation can be manually f
 
 It is noteworthy that the actual virial ratio of H2CO.wfn is 2.009, which can be found at the end of this file and also printed after Multiwfn loading this file. Since its deviation to exact virial
 
-ratio 2.0 is insignificant, our scaling treatment of E is reasonable and acceptable.
+ratio 2.0 is insignificant, our scaling treatment of EΩ is reasonable and acceptable.
 
 An evidently more convenient and better way of deriving atomic contribution to energy is choosing user-defined function -11 as the integrand, it is scaled electron energy density involving virial ratio, whose integral over the whole space exactly equals the electronic energy given by quantum chemistry code, see corresponding part of Section 2.7 for its definition. Now we redo the example above. Open `settings.ini` and set “iuserfunc” to -11, then boot up Multiwfn and input
 

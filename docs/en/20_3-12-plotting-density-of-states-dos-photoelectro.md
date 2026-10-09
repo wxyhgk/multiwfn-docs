@@ -68,7 +68,7 @@ $$\mathrm{OPDOS}_{A,B}(E)=\sum_{i}\mathrm{X}_{A,B}^{i}F(E-\varepsilon_{i})$$
 
 where X𝐴,𝐵 𝑖 is the composition of total cross term between fragment A and B in orbital i. I have
 
-discussed how to calculate Θ and  in Section 3.10.3.
+discussed how to calculate Θ and Χ in Section 3.10.3.
 
 In Multiwfn, OPDOS can also be calculated between all nearest atoms. In this case, OPDOS is calculated as
 
@@ -100,9 +100,9 @@ For generality, Multiwfn also supports using plain text file as input file, the 
 
 nmo inp
 
-energy occ [strength] [FWHM]  For orbital 1 energy occ [strength] [FWHM]  For orbital 2 energy occ [strength] [FWHM]  For orbital 3 ...
+energy occ [strength] [FWHM] ← For orbital 1 energy occ [strength] [FWHM] ← For orbital 2 energy occ [strength] [FWHM] ← For orbital 3 ...
 
-energy occ [strength] [FWHM]  For orbital nmo where energy and occ denote orbital energy and occupation number, respectively. nmo is the number of orbitals recorded in this file. inp is input type, there are four cases:
+energy occ [strength] [FWHM] ← For orbital nmo where energy and occ denote orbital energy and occupation number, respectively. nmo is the number of orbitals recorded in this file. inp is input type, there are four cases:
 
 
 ![](../imgs/p157_022.png)

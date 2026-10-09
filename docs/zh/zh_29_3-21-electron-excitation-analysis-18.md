@@ -414,7 +414,7 @@ $$\Theta_{A}^{\mathrm{o v l p}}=\sqrt{\Theta_{A}^{\mathrm{e l e}}\Theta_{A}^{\ma
 
 <!-- formula-ocr: formula_p267_168.png 已替换为LaTeX, 原图保留备查 -->
 
-注意该形式的重叠不可加，即 ABBAΘΘ+Θ。ovlpovlpovlp
+注意该形式的重叠不可加，即 ABBAΘ≠Θ+Θ。ovlpovlpovlp
 
 类 Mulliken 划分对多数情形合理，但与弥散函数不兼容。该划分众所周知的另一缺点是某些情形一些原子贡献可能为小的负值，显然此时相应原子空间中空穴与电子的重叠不能求，所以 Multiwfn 自动把重叠值设为零。显然，当必须用弥散函数（如阴离子体系、Rydberg 激发态），或已观察到明显的对空穴或电子的负原子贡献时，须换为 Hirshfeld 划分，它更稳健但计算代价更高。
 
@@ -574,7 +574,7 @@ $$D_{x}=\int T_{x}(\mathbf{r})\mathrm{d}\mathbf{r}\qquad D_{y}=\int T_{y}(\mathb
 
 下面看跃迁磁偶极矩。电子运动产生的磁偶极矩的算符为角动量算符 L（见如 Theor. Chim. Acta, 6, 341 (1966)）
 
-Lrijk xyzˆˆˆˆ() = −×=++ iLLL
+Lrijk xyzˆˆˆˆ() = −×∇=++ iLLL
 
 
 $$\begin{aligned}&\hat{\mathbf{L}}=-i\left(\mathbf{r}\times\nabla\right)=\hat{\mathbf{i}}L_{\mathrm{x}}+\hat{\mathbf{j}}L_{\mathrm{y}}+\hat{\mathbf{k}}L_{\mathrm{z}}\\&=-i\left[\hat{\mathbf{i}}\left(y\frac{\partial}{\partial z}-z\frac{\partial}{\partial y}\right)+\hat{\mathbf{j}}\left(z\frac{\partial}{\partial x}-x\frac{\partial}{\partial z}\right)+\hat{\mathbf{k}}\left(x\frac{\partial}{\partial y}-y\frac{\partial}{\partial x}\right)\right]\\ \end{aligned}$$
@@ -594,7 +594,7 @@ My 与 Mz 可类似定义。注意要把上式给的跃迁磁偶极矩（Multiwf
 
 手动除以 2。
 
-考虑关系 ( )d, ,iiMmix y z==rr，可定义跃迁磁偶极矩密度分量 mi(r)，从而跃迁磁偶极矩
+考虑关系 ( )d, ,iiMmix y z==∫rr，可定义跃迁磁偶极矩密度分量 mi(r)，从而跃迁磁偶极矩
 
 的分布可可视化为如等值面图。mi(r) 的 X 分量显式表达式如下，Y 与 Z 分量可类似定义。
 
@@ -875,7 +875,7 @@ $$\Delta r_{i}^{a}=\frac{(K_{i}^{a})^{2}}{\displaystyle\sum_{i,a}(K_{i}^{a})^{2}
 
 i→a 激发的组态系数。而若所用方法为 TDHF 或 TDDFT，则 𝐾𝑖 𝑎 与 𝑤′𝑖 𝑎 分别表示对应 i→a 激发与 𝑎= 𝑤𝑖 𝑎+ 𝑤′𝑖 𝑎 的组态系数，其中 𝑤𝑖
 
-ia。
+i←a。
 
 Δr 对诊断某些 DFT 泛函何时对 TDDFT 失效特别有用。当 Δr 大时，BLYP、PBE 等纯泛函，以及 B3LYP、PBE0 等低 Hartree-Fock 交换成分的杂化泛函都不好用。此时应用长程校正泛函；如 CAM-B3LYP 与 ωB97XD。
 
@@ -1177,9 +1177,9 @@ TDDFT 的 CT 态激发能的下界可表为
 
 𝜔low = 𝐼𝑃𝐷−𝐸𝐴𝐴−1/𝑅 其中 IPD 为电子给体部分的电离势（失去电子的能量消耗），EAA 为电子受体部分的电子亲合能（其负值为接受电子的能量降低），R 表示 CT 激发后空穴与电子间的静电相互作用
 
-按 Koopmans 定理，IP−εHOMO, EA−εLUMO，并假设激发完全对应 HOMO→LUMO 跃迁，其中 HOMO 与 LUMO 分别完全定域在给体与受体区，有
+按 Koopmans 定理，IP≈−εHOMO, EA≈−εLUMO，并假设激发完全对应 HOMO→LUMO 跃迁，其中 HOMO 与 LUMO 分别完全定域在给体与受体区，有
 
-𝜔low−𝜀HOMO + 𝜀LUMO −1/𝑅 实际上，电子激发由多轨道跃迁贡献，所以应用加权 MO 能量代替。另外，R 可用 DCT 指数估计（见后）。所以，上式可转为
+𝜔low≈−𝜀HOMO + 𝜀LUMO −1/𝑅 实际上，电子激发由多轨道跃迁贡献，所以应用加权 MO 能量代替。另外，R 可用 DCT 指数估计（见后）。所以，上式可转为
 
 $$\omega_{\mathrm{low}}=\underbrace{\sum_{i,a}\left[\frac{\left(w_{i}^{a}\right)^{2}}{\sum_{i,a}\left(w_{i}^{a}\right)^{2}}\left(\varepsilon_{a}-\varepsilon_{i}\right)\right]}_{\mathrm{term1}}-\frac{1}{D_{\mathrm{CT}}}_{\mathrm{term2}}$$
 
@@ -1291,7 +1291,7 @@ RS
 
 有些不同，二者各有价值。内禀 CT% 表示本质参与电荷转移的电子量，不反映
 
-R→S 与 SR 电子转移间的抵消效应。相比之下，表观 CT% 对应 R 与 S 间净电子转移的表观现象，即考虑了双向电子转移的抵消。显然，内禀 CT% 必等于或大于表观 CT%，二者相等仅当片段间电荷转移完全单向，即空穴与电子分别完全定域在两片段上。
+R→S 与 S←R 电子转移间的抵消效应。相比之下，表观 CT% 对应 R 与 S 间净电子转移的表观现象，即考虑了双向电子转移的抵消。显然，内禀 CT% 必等于或大于表观 CT%，二者相等仅当片段间电荷转移完全单向，即空穴与电子分别完全定域在两片段上。
 
 值得强调的是，%CT 直接依赖片段的定义，因为它表征片段间的电荷转移量。在极限情形，把整个体系定义为单个片段，则全部激发的 %CT 必恰为零。
 
@@ -1423,7 +1423,7 @@ $$\begin{aligned}T^{KL}(\mathbf{r};\mathbf{r}^{\prime})=&\sum_{i}\sum_{a}\sum_{b
 
 <!-- formula-ocr: formula_p292_191.png 已替换为LaTeX, 原图保留备查 -->
 
-其中 χ 为基函数，最终得到本节前面所示的求 PKL 的公式。例如，在 i=j, ab 的情形：
+其中 χ 为基函数，最终得到本节前面所示的求 PKL 的公式。例如，在 i=j, a≠b 的情形：
 
 $$T^{KL}(\mathbf{r};\mathbf{r}^{\prime})=\left\{\begin{aligned}0&\quad(i\neq j,a\neq b)\\ \sum_{i}\sum_{a}\sum_{b}w_{i,a}^{K}w_{i,b}^{L}\varphi_{a}(\mathbf{r})\varphi_{b}(\mathbf{r}^{\prime})&\quad(i=j,a\neq b)\\ -\sum_{i}\sum_{j}\sum_{a}w_{i,a}^{K}w_{j,a}^{L}\varphi_{j}(\mathbf{r})\varphi_{i}(\mathbf{r}^{\prime})&\quad(i\neq j,a=b)\\ \sum_{i}\sum_{a}w_{i,a}^{K}w_{i,a}^{L}\left[\sum_{p}^{N}\varphi_{p}(\mathbf{r})\varphi_{p}(\mathbf{r}^{\prime})-\varphi_{i}(\mathbf{r})\varphi_{i}(\mathbf{r}^{\prime})+\varphi_{a}(\mathbf{r})\varphi_{a}(\mathbf{r}^{\prime})\right]&\quad(i=j,a=b)\end{aligned}\right.$$
 
