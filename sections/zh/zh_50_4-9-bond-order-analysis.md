@@ -120,7 +120,7 @@ Bond orders with absolute value >=  0.050000
 
 技巧：用 GaussView 把键级标注到分子结构图上
 
-如果你有 GaussView（版本  6.0），可以用它把 Multiwfn 计算的键级显示在分子结构图上，以方便查看其数值。这里我以乙酰胺的 Mayer 键级为例说明这一点。
+如果你有 GaussView（版本 ≥ 6.0），可以用它把 Multiwfn 计算的键级显示在分子结构图上，以方便查看其数值。这里我以乙酰胺的 Mayer 键级为例说明这一点。
 
 启动 Multiwfn 并输入 examples\CH3CONH2.fch 9 // 键级分析(Bond order analysis) 1 // 计算 Mayer 键级(Calculate Mayer bond order) y // 把键级矩阵导出为当前文件夹下的 bndmat.txt(Export the bond order matrix as bndmat.txt in current folder) 0 // 返回主菜单(Return to main menu) 1000 // 隐藏的主功能(Hidden main function) 13 // 把当前文件夹下的 bndmat.txt 转换为带键级信息的 Gaussian .gjf 文件(Convert the bndmat.txt in current folder to Gaussian .gjf file with bond order information) 现在我们在当前文件夹下得到了 gau.gjf，它不仅包含当前的分子坐标，还包含相连原子之间的键级（连接关系基于当前几何结构自动猜测，除非你使用包含连接信息的文件作为输入文件，如 .mol 和 .mol2，详见 2.5 节）。
 

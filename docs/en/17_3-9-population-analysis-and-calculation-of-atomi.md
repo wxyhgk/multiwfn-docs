@@ -161,7 +161,7 @@ $$\Gamma_{a,b}=\sum_{i}\Gamma_{a,b}^{i}=\sum_{i}\eta_{i}C_{a,i}C_{b,i}S_{a,b}$$
 
 <!-- formula-ocr: formula_p107_048.png 已替换为LaTeX, 原图保留备查 -->
 
-Likewise, in subfunction 2, the last row of the outputted matrix is total population number of corresponding basis function. You can also select to output contribution of each occupied orbital, namely 𝑎,𝑏 𝑖, to grobasdcp.txt in current directory (notice that this file is extremely large even for medium-sized system).
+Likewise, in subfunction 2, the last row of the outputted matrix is total population number of corresponding basis function. You can also select to output contribution of each occupied orbital, namely Γ𝑎,𝑏 𝑖, to grobasdcp.txt in current directory (notice that this file is extremely large even for medium-sized system).
 
 ·Subfunction 4 (Output orbital contributions to atomic populations to atmpopdcp.txt): This option is used to output contributions of occupied orbitals to atomic populations, namely all
 
@@ -746,7 +746,7 @@ $$\frac{\partial F}{\partial q_{B}}=0=-2\left(\sum_{b\in B}\frac{1}{r_{ib}}\righ
 
 The set of linear equations can be formulated as a matrix equation
 
-$$\begin{aligned}\begin{bmatrix}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}\\A_{21}&A_{22}&\cdots&A_{2N}&n_{2}\\\vdots&\vdots&\ddots&\vdots&\vdots\\A_{N1}&A_{N2}&\cdots&A_{NN}&n_{N}\\n_{1}&n_{2}&\cdots&n_{N}&0\end{bmatrix}\begin{bmatrix}q_{1}\\q_{2}\\\vdots\\q_{N}\\\lambda\end{bmatrix}=\begin{bmatrix}B_{1}\\B_{2}\\\vdots\\B_{N}\\q_{tot}\end{bmatrix}\end{aligned}\Rightarrow\mathbf{A}\mathbf{q}=\mathbf{B}$$
+$$\begin{aligned}\begin{bmatrix}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}\\A_{21}&A_{22}&\cdots&A_{2N}&n_{2}\\vdots&\vdots&\ddots&\vdots&\vdots\\A_{N1}&A_{N2}&\cdots&A_{NN}&n_{N}\n_{1}&n_{2}&\cdots&n_{N}&0\end{bmatrix}\begin{bmatrix}q_{1}\q_{2}\\vdots\q_{N}\\lambda\end{bmatrix}=\begin{bmatrix}B_{1}\\B_{2}\\vdots\\B_{N}\q_{tot}\end{bmatrix}\end{aligned}\Rightarrow\mathbf{A}\mathbf{q}=\mathbf{B}$$
 
 with
 
@@ -768,7 +768,7 @@ $$\sum_{A}q_{A}\sum_{a\in A}\sum_{b\in B}\sum_{i}\frac{1}{r_{ia}r_{ib}}+aq_{A}(q
 
 <!-- formula-ocr: formula_p124_064.png 已替换为LaTeX, 原图保留备查 -->
 
-$$\begin{aligned}\begin{bmatrix}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}\\A_{21}&A_{22}&\cdots&A_{2N}&n_{2}\\\vdots&\vdots&\ddots&\vdots&\vdots\\A_{N1}&A_{N2}&\cdots&A_{NN}&n_{N}\\n_{1}&n_{2}&\cdots&n_{N}&0\end{bmatrix}\begin{bmatrix}q_{1}\\q_{2}\\\vdots\\q_{N}\\\lambda\end{bmatrix}=\begin{bmatrix}B_{1}\\B_{2}\\\vdots\\B_{N}\\q_{tot}\end{bmatrix}\end{aligned}\Rightarrow\mathbf{A}\mathbf{q}=\mathbf{B}$$
+$$\begin{aligned}\begin{bmatrix}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}\\A_{21}&A_{22}&\cdots&A_{2N}&n_{2}\\vdots&\vdots&\ddots&\vdots&\vdots\\A_{N1}&A_{N2}&\cdots&A_{NN}&n_{N}\n_{1}&n_{2}&\cdots&n_{N}&0\end{bmatrix}\begin{bmatrix}q_{1}\q_{2}\\vdots\q_{N}\\lambda\end{bmatrix}=\begin{bmatrix}B_{1}\\B_{2}\\vdots\\B_{N}\q_{tot}\end{bmatrix}\end{aligned}\Rightarrow\mathbf{A}\mathbf{q}=\mathbf{B}$$
 
 diagonal terms of A should remain unchanged. In practical calculation, the {q} in initial A is set to zero, then updated {q'} is obtained by solving the matrix equation, after that {q'} is used to construct the A of the second iteration. The iteration is repeated until charge variation of all atoms is smaller than a given threshold.
 

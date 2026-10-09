@@ -237,11 +237,11 @@ A1AANNfqq+ +=−
 
 By analogous treatments, one can easily formulate other types of condensed Fukui function
 
-Nucleophilic attack : fqq A1 + =− AANN +
+Nucleophilic attack: $$f^{+}(\mathbf{r})=\rho_{N+1}(\mathbf{r})-\rho_{N}(\mathbf{r})\approx \rho^{\mathrm{LUMO}}(\mathbf{r})$$
 
-Electrophilic attack : fqq A1 − =− AANN −
+Electrophilic attack: $$f^{-}(\mathbf{r})=\rho_{N}(\mathbf{r})-\rho_{N-1}(\mathbf{r})\approx \rho^{\mathrm{HOMO}}(\mathbf{r})$$
 
-Radical attack : () / 2 fqq 0A11 =− AANN −+
+Radical attack: $$f^{0}(\mathbf{r})=\frac{f^{+}(\mathbf{r})+f^{-}(\mathbf{r})}{2}=\frac{\rho_{N+1}(\mathbf{r})-\rho_{N-1}(\mathbf{r})}{2}\approx \frac{\rho^{\mathrm{HOMO}}(\mathbf{r})+\rho^{\mathrm{LUMO}}(\mathbf{r})}{2}$$
 
 Similarly, condensed dual descriptor can be written as
 
@@ -763,7 +763,7 @@ residue should be constrained to be -1.0. In addition, given that the two oxygen
 
 The Gaussian input files of optimization task for the ACE-ASP-NME models corresponding to alpha helix and beta-sheet have been provided as alpha.gjf and beta.gjf in "examples\RESP\ACE-ASP-NME" folder. As can be seen in the files, the keywords correspond to B3LYP-D3/6-311G** level with IEFPCM solvation model to represent water environment. In the optimization, the phi and psi dihedrals are fixed to their initial values (the dihedrals will vary remarkably during
 
-optimization if they are not frozen). In alpha.gjf, the phi and psi are -90 and -60, respectively, corresponding to typical case of alpha helix. While in beta.gjf, the two dihedrals are set to -100 and 130, reflecting typical situation of beta-sheet.
+optimization if they are not frozen). In alpha.gjf, the phi and psi are -90° and -60°, respectively, corresponding to typical case of alpha helix. While in beta.gjf, the two dihedrals are set to -100° and 130°, reflecting typical situation of beta-sheet.
 
 Run the two .gjf files by Gaussian, and convert resulting .chk files to .fch format. The two optimized structures are shown below. The region surrounded by green dashed ellipse is the ASP residue, the charges of these atoms are what we are interested in. The phi and psi dihedrals mentioned above correspond to 6-3-1-13 and 1-3-6-19, respectively.
 

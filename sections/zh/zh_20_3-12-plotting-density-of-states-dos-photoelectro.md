@@ -155,7 +155,7 @@ energy occ [strength] [FWHM] ← 对于轨道nmo 其中energy和occ分别表示�
 
 9 切换是否用线高表示轨道简并 (Toggle using line height to show orbital degeneracy)：如果你想在DOS图中显示轨道简并，可选择此选项启用该效果，然后会被要求输入判定简并的能量差阈值。此功能可用于绘制TDOS和MO-PDOS，但不能用于绘制PDOS。
 
-一旦在DOS模块中选择选项0，Multiwfn即开始计算数据，随后弹出DOS图。你可以看到有一条垂直虚线，标示了HOMO能级的位置。注意，有人认为这是Fermi能量，但这对孤立体系而言是一个定义不清的概念，任何满足 EHOMO且< ELUMO的能量都可视为“Fermi能量”。
+一旦在DOS模块中选择选项0，Multiwfn即开始计算数据，随后弹出DOS图。你可以看到有一条垂直虚线，标示了HOMO能级的位置。注意，有人认为这是Fermi能量，但这对孤立体系而言是一个定义不清的概念，任何满足≥ EHOMO且< ELUMO的能量都可视为“Fermi能量”。
 
 关闭图形后，屏幕上会出现一个后处理菜单，其中包含许多选项，这些选项都是自解释的，可用于调整各种绘图参数。更改参数后，可选择“1 Show graph again(再次显示图形)”查看效果。值得注意的是，有一个名为“Set scale factor of Y-axis range for OPDOS(OPDOS的Y轴范围缩放因子)”的选项，如果该值设为k，且左轴(对应TDOS/PDOS)范围设为例如[-3.5, 2.0]，则右轴(对应OPDOS)范围将变为[-3.5*k, 2.0*k]。Multiwfn使用双轴的原因是OPDOS的量级一般远小于TDOS和PDOS。你还可以
 

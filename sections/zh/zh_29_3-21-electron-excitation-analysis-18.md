@@ -47,14 +47,14 @@ Multiwfn 的各类电子激发分析完全支持闭壳层与开壳层体系。
 
 3.21.A.2 单参考方法的基本知识（Basic knowledge about single-reference methods）
 
-CIS 与 TDA-DFT 方法的激发态波函数（exc）可表示为
+CIS 与 TDA-DFT 方法的激发态波函数（Ψexc）可表示为
 
 
 $$\Psi^{\mathrm{e x c}}=\sum_{i\rightarrow a}w_{i}^{a}\Phi_{i}^{a}\equiv\sum_{i}^{\mathrm{o c c}}\sum_{a}^{\mathrm{v i r}}w_{i}^{a}\Phi_{i}^{a}$$
 
 <!-- formula-ocr: formula_p258_158.png 已替换为LaTeX, 原图保留备查 -->
 
-其中 i 与 a 分别遍历全部占据与全部虚 MO，下同。𝑖 𝑎 为把电子从原来占据的 MO i 移到虚 MO a 对应的组态波函数。w 称为组态系数。CIS 或 TDA-DFT 框架下的电子激发因此可表示为轨道对跃迁的线性组合。权重系数 w 满足该归一化条件：
+其中 i 与 a 分别遍历全部占据与全部虚 MO，下同。Φ𝑖 𝑎 为把电子从原来占据的 MO i 移到虚 MO a 对应的组态波函数。w 称为组态系数。CIS 或 TDA-DFT 框架下的电子激发因此可表示为轨道对跃迁的线性组合。权重系数 w 满足该归一化条件：
 
 
 $$100\% \times (w_i^a)^2$$
@@ -111,7 +111,7 @@ end
 
 ORCA 的自旋翻转 TDDFT 输出文件也支持，只需在 %tddft 域加 SF TRUE
 
-并设参考态的自旋多重度  3。注意只有少数功能形式上支持，包括产生激发态的自然轨道、空穴-电子分析及相关分析，其它功能未经测试。特别地，直接基于跃迁密度矩阵的全部分析（包括 NTO 分析）此时不支持。
+并设参考态的自旋多重度 ≥ 3。注意只有少数功能形式上支持，包括产生激发态的自然轨道、空穴-电子分析及相关分析，其它功能未经测试。特别地，直接基于跃迁密度矩阵的全部分析（包括 NTO 分析）此时不支持。
 
 - 用 TDDFT 的 ORCA 用户：因输出文件中没有显式记录激发与退激发组态的系数，此时不仅需要 TDDFT 输出文件，还需要记录全部组态系数的 json 文件。跑完名为如 TDDFT.inp 的典型 TDDFT 输入文件后，当前文件夹有 TDDFT.gbw。再创建名为 TDDFT.json.conf 的文本文件，内容如下。
 
@@ -536,9 +536,9 @@ $$T(\mathbf{r};\mathbf{r}^{\prime})\equiv T(\mathbf{r}_{1};\mathbf{r}_{1}^{\prim
 
 
 
-其中 0 为基态波函数的 Slater 行列式。x 为自旋空间坐标，σ 表示自旋坐标。T 称为矩阵因为它有两个连续序号。
+其中 Φ0 为基态波函数的 Slater 行列式。x 为自旋空间坐标，σ 表示自旋坐标。T 称为矩阵因为它有两个连续序号。
 
-对单参考方法产生的激发态波函数，展开 exc 并用 Slater-Condon 规则后，可很容易证 T 可显式写为
+对单参考方法产生的激发态波函数，展开 Ψexc 并用 Slater-Condon 规则后，可很容易证 T 可显式写为
 
 
 $$T(\mathbf{r};\mathbf{r}^{\prime})=\sum_{i}\sum_{a}w_{i}^{a}\varphi_{i}(\mathbf{r})\varphi_{a}(\mathbf{r}^{\prime})$$
@@ -932,7 +932,7 @@ $$\Delta\rho(\mathbf{r})=\rho_{\mathrm{E X}}(\mathbf{r})-\rho_{\mathrm{G S}}(\ma
 Δρ 正部与负部的重心可算为
 
 
-$$\begin{aligned}\mathbf{R}_{+}=&\int\mathbf{r}\rho_{+}(\mathbf{r})\mathrm{d}\mathbf{r}/\int\rho_{+}(\mathbf{r})\mathrm{d}\mathbf{r}\\\mathbf{R}_{-}=&\int\mathbf{r}\rho_{-}(\mathbf{r})\mathrm{d}\mathbf{r}/\int\rho_{-}(\mathbf{r})\mathrm{d}\mathbf{r}\end{aligned}$$
+$$\begin{aligned}\mathbf{R}_{+}=&\int\mathbf{r}\rho_{+}(\mathbf{r})\mathrm{d}\mathbf{r}/\int\rho_{+}(\mathbf{r})\mathrm{d}\mathbf{r}\\mathbf{R}_{-}=&\int\mathbf{r}\rho_{-}(\mathbf{r})\mathrm{d}\mathbf{r}/\int\rho_{-}(\mathbf{r})\mathrm{d}\mathbf{r}\end{aligned}$$
 
 <!-- formula-ocr: formula_p280_180.png 已替换为LaTeX, 原图保留备查 -->
 
@@ -1398,7 +1398,7 @@ $$\begin{array}{r l}{\Psi^{K}=\displaystyle\sum_{i}^{\mathrm{o c c}}\displaystyl
 
 $$T^{K L}(\mathbf{r};\mathbf{r}^{\prime})=\sum_{i}^{\mathrm{o c c}}\sum_{a}^{\mathrm{v i r}}w_{i,a}^{K}\sum_{j}^{\mathrm{o c c}}\sum_{b}^{\mathrm{v i r}}w_{j,b}^{L}\int\Phi_{i}^{a}(\mathbf{r},\mathbf{r}_{2},\ldots,\mathbf{r}_{N})\Phi_{j}^{b}(\mathbf{r}^{\prime},\mathbf{r}_{2},\ldots,\mathbf{r}_{N})\mathrm{d}\mathbf{r}_{2}\ldots\mathrm{d}\mathbf{r}_{N}$$
 
-Slater-Condon 规则指出，对单电子算符 ℵ̂ = ∑ℎ𝑖𝑖，两单激发行列式间的积分，即 ⟨𝑖 𝑎|ℵ̂|𝑗 𝑏⟩，满足
+Slater-Condon 规则指出，对单电子算符 ℵ̂ = ∑ℎ𝑖𝑖，两单激发行列式间的积分，即 ⟨Φ𝑖 𝑎|ℵ̂|Φ𝑗 𝑏⟩，满足
 
 
 $$\begin{aligned}&=0\quad\left(i\neq j,a\neq b\right)\\&=\left\langle a\middle|h\middle|b\right\rangle\quad\left(i=j,a\neq b\right)\\&=-\left\langle j\middle|h\middle|i\right\rangle\quad\left(i\neq j,a=b\right)\\&=\sum_{p}^{N}\left\langle p\middle|h\middle|p\right\rangle-\left\langle i\middle|h\middle|i\right\rangle+\left\langle a\middle|h\middle|a\right\rangle\quad\left(i=j,a=b\right)\end{aligned}$$
@@ -1419,7 +1419,7 @@ $$T^{KL}(\mathbf{r};\mathbf{r}^{\prime})=\left\{\begin{aligned}0&\quad(i\neq j,a
 已知
 
 
-$$\begin{aligned}T^{KL}(\mathbf{r};\mathbf{r}^{\prime})=&\sum_{i}\sum_{a}\sum_{b}w_{i,a}^{K}w_{i,b}^{L}\varphi_{a}(\mathbf{r})\varphi_{b}(\mathbf{r}^{\prime})\\=&\sum_{i}\sum_{a}\sum_{b}w_{i,a}^{K}w_{i,b}^{L}\sum_{\mu}\sum_{\nu}C_{\mu a}C_{\nu b}\chi_{\mu}(\mathbf{r})\chi_{\nu}(\mathbf{r}^{\prime})\\\Rightarrow P^{KL}=&\sum_{i}\sum_{a}\sum_{b}w_{i,a}^{K}w_{i,b}^{L}C_{\mu a}C_{\nu b}\end{aligned}$$
+$$\begin{aligned}T^{KL}(\mathbf{r};\mathbf{r}^{\prime})=&\sum_{i}\sum_{a}\sum_{b}w_{i,a}^{K}w_{i,b}^{L}\varphi_{a}(\mathbf{r})\varphi_{b}(\mathbf{r}^{\prime})\\=&\sum_{i}\sum_{a}\sum_{b}w_{i,a}^{K}w_{i,b}^{L}\sum_{\mu}\sum_{\nu}C_{\mu a}C_{\nu b}\chi_{\mu}(\mathbf{r})\chi_{\nu}(\mathbf{r}^{\prime})\\Rightarrow P^{KL}=&\sum_{i}\sum_{a}\sum_{b}w_{i,a}^{K}w_{i,b}^{L}C_{\mu a}C_{\nu b}\end{aligned}$$
 
 <!-- formula-ocr: formula_p292_191.png 已替换为LaTeX, 原图保留备查 -->
 

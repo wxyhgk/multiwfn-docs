@@ -101,7 +101,7 @@ Multiwfn, here I explain the implementation detail. After the user inputted inde
 
 between two heavy atoms, such as H2O···H+···OH2, this protocol is no longer valid because its ELF curve does not show typical feature, as shown below (since the O-H-O angle in this system is close
 
-to 180, only one plot is needed):
+to 180°, only one plot is needed):
 
 It can be seen that the V(D,H) has bifurcated as V(O) and V(H). In this case you should evaluate CVB index manually by plotting ELF curve maps, and the ELF(DH-A) in the standard CVB index expression should be replaced with the ELF value at the local minimum between the V(H) and V(O) in the curve map.
 
@@ -930,7 +930,7 @@ $$N(A,B...n)=\int_{A}\int_{B}\cdot\int_{n}\cdot\rho_{\mathrm{C}}^{n}(\mathbf{r}_
 
 The subscript of the integral denotes the integration region, usually it corresponds to atomic space. After properly normalization, the n-center population can be named as n-center delocalization index to quantify multi-center delocalization extent.
 
-2 just corresponds to the negative of the well-known exchange-correlation density XC, whose integral directly defines DI (δ): It is important to note that 𝜌C
+2 just corresponds to the negative of the well-known exchange-correlation density ΓXC, whose integral directly defines DI (δ): It is important to note that 𝜌C
 
 $$\delta(A,B)=-2\int_{A}\int_{B}\Gamma_{\mathrm{XC}}(\mathbf{r}_{1},\mathbf{r}_{2})\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}\equiv2\int_{A}\int_{B}\rho_{\mathrm{C}}^{2}(\mathbf{r}_{1},\mathbf{r}_{2})\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}$$
 
@@ -994,7 +994,9 @@ $$D_{i,j}^{\sigma,A B}=\sum_{k\in\sigma}^{\mathrm{o c c}}\Big[S_{i,k}^{\sigma}(A
 
 we have (note that S is a symmetric matrix)
 
-$$\begin{aligned}\int\mathrm{BOD}_{AB}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=&\sum_{i\in\sigma}^{\mathrm{occ}}\sum_{k\in\sigma}^{\mathrm{occ}}\Big[S_{i,k}^{\sigma}(A)S_{k,i}^{\sigma}(B)+S_{i,k}^{\sigma}(B)S_{k,i}^{\sigma}(A)\Big]\\=&\sum_{i\in\sigma}^{\mathrm{occ}}\sum_{k\in\sigma}^{\mathrm{occ}}\Big[S_{i,k}^{\sigma}(A)S_{i,k}^{\sigma}(B)+S_{i,k}^{\sigma}(A)S_{i,k}^{\sigma}(B)\Big]\\=&2\sum_{i\in\sigma}^{\mathrm{occ}}\sum_{k\in\sigma}^{\mathrm{occ}}S_{i,k}^{\sigma}(A)S_{i,k}^{\sigma}(B)\end{aligned}$$
+$$\int\mathrm{BOD}_{AB}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=\delta^{\sigma}(A,B)$$
+
+$$(1/2)\int\mathrm{BOD}_{AA}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=\lambda^{\sigma}(A)$$
 
 $$D_{i,j}^{\sigma,A B}=\sum_{k\in\sigma}^{\mathrm{o c c}}\Big[S_{i,k}^{\sigma}(A)S_{k,j}^{\sigma}(B)+S_{i,k}^{\sigma}(B)S_{k,j}^{\sigma}(A)\Big]$$
 

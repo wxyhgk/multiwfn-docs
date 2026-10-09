@@ -416,7 +416,7 @@ center of negative charges is also printed. For example, X component is evaluate
 Evaluation based on atomic charges If your input file is .chg or .pqr, this function can also be used, but the dipole and multipole moments are all calculated based on atomic charges recorded in the file. For example, dipole moment in this case is expressed as
 
 
-$$\boldsymbol{\mu}=\begin{bmatrix}\mu_{x}\\\mu_{y}\\\mu_{z}\end{bmatrix}=\sum_{A}q_{A}\begin{bmatrix}X_{A}\\Y_{A}\\Z_{A}\end{bmatrix}$$
+$$\boldsymbol{\mu}=\begin{bmatrix}\mu_{x}\\mu_{y}\\mu_{z}\end{bmatrix}=\sum_{A}q_{A}\begin{bmatrix}X_{A}\\Y_{A}\\Z_{A}\end{bmatrix}$$
 
 where qA stands for atomic charge of atom A in this context.
 

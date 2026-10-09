@@ -550,7 +550,7 @@ OED 理论 空间（无自旋）自然轨道通过对角化总密度矩阵得到
 
 $$\rho_{k}^{\mathrm{odd}}(\mathbf{r})=min(2-n_{k},n_{k})\rho_{k}(\mathbf{r})$$
 
-其中 ρk(r) 和 nk 分别为自然轨道 k 的概率密度和占据数。显然，对 nk<1，前置因子直接对应于占据数，而对 nk1，前置因子对应于达到闭壳层所需的补数。min(2-nk, nk) 项衡量当前轨道占据数偏离闭壳层极限的程度，被视为该轨道表达的有效未配对电子数。
+其中 ρk(r) 和 nk 分别为自然轨道 k 的概率密度和占据数。显然，对 nk<1，前置因子直接对应于占据数，而对 nk≥1，前置因子对应于达到闭壳层所需的补数。min(2-nk, nk) 项衡量当前轨道占据数偏离闭壳层极限的程度，被视为该轨道表达的有效未配对电子数。
 
 OED 定义为所有自然轨道 OED 之和，即
 
@@ -870,7 +870,7 @@ fchk_writer = psi4.FCHKWriter(wfn)
 fchk_writer.write('HF_CCSDpT.fchk')
 ```
 
-如果你使用的PSI4版本 1.4，上面例子最后两行应替换为fchk(wfn,'HF_CCSDpT.fchk')。
+如果你使用的PSI4版本≥ 1.4，上面例子最后两行应替换为fchk(wfn,'HF_CCSDpT.fchk')。
 
 得到的HF_CCSDpT.fchk记录了Hartree-Fock分子轨道和CCSD(T)密度矩阵。如果
 

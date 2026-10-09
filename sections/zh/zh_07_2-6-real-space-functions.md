@@ -325,7 +325,7 @@ $$f_{\mathrm{XC}}^{\sigma_{1}\sigma_{2}}(\mathbf{r}_{1},\mathbf{r}_{2})=\frac{h_
 
 运动是相关的。对密度因此应用交换相关密度Г修正
 
-1212121212XC12( ,)( )( )( ,)σσσσσσπρρ=+ r rrrr r
+1212121212XC12( ,)( )( )( ,)σσσσσσπρρ=+ Γr rrrr r
 
 若已知自旋σ1的电子出现在r1，则在r2处找到自旋σ2的另一电子的概率称为条件概率（此函数也称Lennard-Jones函数）
 
@@ -392,9 +392,9 @@ $$\begin{aligned}\Gamma_{\mathrm{C,approx}}^{\alpha,\mathrm{tot}}(\mathbf{r}_{1}
 
 $$\Gamma_{\mathrm{XC,approx}}^{\alpha,\mathrm{tot}}(\mathbf{r}_{1},\mathbf{r}_{2})=-\sum_{i\in\alpha}\sum_{j\in\alpha}\sqrt{\eta_{i}\eta_{j}}\varphi_{i}^{*}(\mathbf{r}_{1})\varphi_{j}^{*}(\mathbf{r}_{2})\varphi_{j}(\mathbf{r}_{1})\varphi_{i}(\mathbf{r}_{2})$$
 
-α,tot退化为单行列式形式。so XC,approx 显然，若自然自旋轨道占据数为整数（0或1），则XC,approx α,tot可视为计算
+α,tot退化为单行列式形式。so ΓXC,approx 显然，若自然自旋轨道占据数为整数（0或1），则ΓXC,approx α,tot可视为计算
 
-交换相关密度的一般形式。注意后HF波函数已考虑非同自旋电子间的Coulomb相关，但无法分离XC,approx αα和
+交换相关密度的一般形式。注意后HF波函数已考虑非同自旋电子间的Coulomb相关，但无法分离ΓXC,approx αα和
 
 $$\Gamma_{\mathrm{XC},\mathrm{approx}}^{\alpha,\mathrm{tot}}$$
 
@@ -422,7 +422,7 @@ $$\rho^{\sigma}(\mathbf{r})=\sum_{i\in\sigma}\eta_{i}\left|\varphi_{i}(\mathbf{r
 
 <!-- formula-ocr: formula_p51_027.png 已替换为LaTeX, 原图保留备查 -->
 
-附言：可证XC,approx α,tot(𝐫1, 𝐫2)也精确满足对r2在全空间积分为−𝜌α(𝐫1)的要求。但一般，对X,approx α,tot(𝐫1,𝐫2)与C,approx α,tot(𝐫1, 𝐫2)对r2在全空间积分偏离精确形式X α,tot与α,tot和C的基本性质−𝜌α(𝐫1)和零，
+附言：可证ΓXC,approx α,tot(𝐫1, 𝐫2)也精确满足对r2在全空间积分为−𝜌α(𝐫1)的要求。但一般，对ΓX,approx α,tot(𝐫1,𝐫2)与ΓC,approx α,tot(𝐫1, 𝐫2)对r2在全空间积分偏离精确形式ΓX α,tot与α,tot和ΓC的基本性质−𝜌α(𝐫1)和零，
 
 
 > **用法（Usage）** — 在Multiwfn中，r1视为参考点，r2视为变量，定义参考点坐标只需在启动前修改`settings.ini`中的“refxyz”。

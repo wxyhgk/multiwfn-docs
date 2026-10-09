@@ -56,13 +56,13 @@ In summary, aforementioned terms can be organized as the following relationship
 
 where ΔEprep is known as preparation energy, it includes distortion energy of fragments A and B from their isolated geometries to complex geometry, and it also includes the energy change of their
 
-electronic states from most stable states to reference state A and B (for example, to use ETS-NOCV to study the double bond of H2Ge=GeH2, the reasonable fragment reference state should be triplet, however most stable state of GeH2 in its isolated status is singlet. This difference should be
+electronic states from most stable states to reference state ΨA and ΨB (for example, to use ETS-NOCV to study the double bond of H2Ge=GeH2, the reasonable fragment reference state should be triplet, however most stable state of GeH2 in its isolated status is singlet. This difference should be
 
 incorporated into the ΔEprep). Clearly the choice of reference states of the fragments affects result of ETS-NOCV analysis while it is somewhat arbitrary in certain cases.
 
 Frankly speaking, in my viewpoint, the above commonly accepted partition of interaction energy is not completely rigorous. Because during transformation of complex wavefunction from
 
-promolecular (reference) state AB to actual state AB, the electrostatic interaction energy and exchange-correlation energy must also markedly change, therefore the ΔEorb term should not be regarded as solely reflecting the contribution to interaction energy due to orbital mix effect.
+promolecular (reference) state ΨAΨB to actual state ΨAB, the electrostatic interaction energy and exchange-correlation energy must also markedly change, therefore the ΔEorb term should not be regarded as solely reflecting the contribution to interaction energy due to orbital mix effect.
 
 0 + ∆𝐸Pauli is sometimes referred to as steric term ΔEsteric in literature for convenience in discussion. Multiwfn is unable to directly evaluate it or its component, but you can The ∆𝐸els + ∆𝐸XC
 

@@ -93,7 +93,7 @@ The CVB index, namely ELF(C-V,D) - ELF(DH-A):    0.028768
 
 之间，如H2O···H+···OH2，该流程不再有效，因为其ELF曲线不显示典型特征，如下所示（由于该体系中O-H-O角接近
 
-180，只需一张图即可）：
+180°，只需一张图即可）：
 
 可见V(D,H)已分岔为V(O)和V(H)。在这种情况下你应通过绘制ELF曲线图手动评估CVB指数，标准CVB指数表达式中的ELF(DH-A)应替换为曲线图中V(H)与V(O)之间局域极小值处的ELF值。
 
@@ -925,7 +925,7 @@ $$N(A,B...n)=\int_{A}\int_{B}\cdot\int_{n}\cdot\rho_{\mathrm{C}}^{n}(\mathbf{r}_
 
 积分下标表示积分区域，通常对应于原子空间。经恰当归一化后，n 中心布居可称为 n 中心离域指数，以定量多中心离域程度。
 
-2 恰对应于熟知的交换相关密度 XC 的负值，其积分直接定义 DI (δ)：需要注意的是 𝜌C
+2 恰对应于熟知的交换相关密度 ΓXC 的负值，其积分直接定义 DI (δ)：需要注意的是 𝜌C
 
 $$\delta(A,B)=-2\int_{A}\int_{B}\Gamma_{\mathrm{XC}}(\mathbf{r}_{1},\mathbf{r}_{2})\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}\equiv2\int_{A}\int_{B}\rho_{\mathrm{C}}^{2}(\mathbf{r}_{1},\mathbf{r}_{2})\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}$$
 
@@ -1003,7 +1003,9 @@ $$D_{i,j}^{\sigma,A B}=\sum_{k\in\sigma}^{\mathrm{o c c}}\Big[S_{i,k}^{\sigma}(A
 
 σ 自旋的 BOD 也可用 σ 自旋的自然适应轨道(NAdOs, φ)表示：
 
-$$\begin{aligned}\int\mathrm{BOD}_{AB}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=\delta^{\sigma}(A,B)\ $ 1/2)\int\mathrm{BOD}_{AA}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=\lambda^{\sigma}(A)\end{aligned}$$
+$$\int\mathrm{BOD}_{AB}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=\delta^{\sigma}(A,B)$$
+
+$$(1/2)\int\mathrm{BOD}_{AA}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=\lambda^{\sigma}(A)$$
 
 <!-- formula-ocr: formula_p435_326.png 已替换为LaTeX, 原图保留备查 -->
 

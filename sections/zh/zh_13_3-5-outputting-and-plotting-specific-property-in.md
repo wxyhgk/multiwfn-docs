@@ -133,7 +133,7 @@ Multiwfn 提供 8 种定义绘图平面的模式：1. XY 平面：用户输入 Z
 
 关于绘图平面的旋转与平移 对于模式 4、5 与 8，若发现最终图形中内容偏斜，或感兴趣部分不在图形中央，可在选择这些模式之一前选择“-1：设置类型 4、5 与 8 图的平移与旋转(Set translation and rotation of the map for plane types 4, 5 and 8)”。例如，若发现之前绘制图形中的内容应平移 (-3,1.5) Bohr 再旋转
 
-35，则在该选项中应先输入 -3,1.5 再输入 35，所得图形将符合预期。使用该选项的实际例子发布于 http://bbs.keinsci.com/thread-11037-1-1.html。
+35°，则在该选项中应先输入 -3,1.5 再输入 35，所得图形将符合预期。使用该选项的实际例子发布于 http://bbs.keinsci.com/thread-11037-1-1.html。
 
 ### 3.5.3 后处理界面中的选项(Options in post-processing interface)
 

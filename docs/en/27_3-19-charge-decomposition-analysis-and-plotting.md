@@ -61,9 +61,9 @@ Generalization of CDA The original definition of CDA has two drawbacks. First, i
 
 To address the limitations of the original definition, in my paper J. Adv. Phys. Chem., 4, 111-124 (2015) (http://dx.doi.org/10.12677/JAPC.2015.44013) I proposed a generalized form of CDA, which is the form used in CDA module of Multiwfn:
 
-$$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
+$$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
 
-$$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
+$$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
 
 In the generalized CDA, orbitals of complex and fragments can be produced either by HF/DFT or by post-HF method, corresponding to MOs and NOs, respectively. η𝑚 FO stands for occupation
 
@@ -170,7 +170,7 @@ Once the loading is finished, Multiwfn starts to calculate some data. If only tw
 
 2 Show fragment orbital contributions to specific complex orbital: If you input x, then the composition of complex orbital x will be outputted (for open-shell cases, the xth alpha and the xth beta complex orbital will be outputted respectively). By default only the FOs having contribution
 
-1% will be shown, but this threshold can be altered by "compthresCDA" parameter in `settings.ini`.
+≥1% will be shown, but this threshold can be altered by "compthresCDA" parameter in `settings.ini`.
 
 If you want to obtain composition of a fragment orbital in all complex orbitals, you can input for example 1,6, which means orbital 6 of fragment 1 is selected.
 

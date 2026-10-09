@@ -525,7 +525,7 @@ occupation number between 0.0 and 2.0. The OED contributed by the kth natural or
 
 $$\rho_{k}^{\mathrm{odd}}(\mathbf{r})=min(2-n_{k},n_{k})\rho_{k}(\mathbf{r})$$
 
-where ρk(r) and nk are probability density and occupation number of natural orbital k, respectively. Clearly, for nk<1, the prefactor directly corresponds to occupation number, while for nk1, the prefactor corresponds to the complement to achieve a closed shell. The min(2-nk, nk) term, which measures the deviation from current orbital occupation number to closed-shell limit, is regarded as the effective number of unpaired electrons expressed by the orbital.
+where ρk(r) and nk are probability density and occupation number of natural orbital k, respectively. Clearly, for nk<1, the prefactor directly corresponds to occupation number, while for nk≥1, the prefactor corresponds to the complement to achieve a closed shell. The min(2-nk, nk) term, which measures the deviation from current orbital occupation number to closed-shell limit, is regarded as the effective number of unpaired electrons expressed by the orbital.
 
 The OED is defined as the sum of OED for all natural orbitals, namely
 
@@ -835,7 +835,7 @@ fchk_writer = psi4.FCHKWriter(wfn)
 fchk_writer.write('HF_CCSDpT.fchk')
 ```
 
-If the version of PSI4 you are using is 1.4, the last two lines of the example above should be replaced with fchk(wfn,'HF_CCSDpT.fchk').
+If the version of PSI4 you are using is≥ 1.4, the last two lines of the example above should be replaced with fchk(wfn,'HF_CCSDpT.fchk').
 
 The resulting HF_CCSDpT.fchk records Hartree-Fock MOs and CCSD(T) density matrix. If
 

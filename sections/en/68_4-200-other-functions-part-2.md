@@ -689,7 +689,7 @@ In this section, we will calculate BLA and BOA for a thiophene oligomer with 5 r
 
 Before calculation, you need to first determine indices of the atoms in the conjugated chain of
 
-interest. The easiest way of doing this is using GaussView. Now we use GaussView (version  6.0)
+interest. The easiest way of doing this is using GaussView. Now we use GaussView (version ≥ 6.0)
 
 
 ![](../imgs/p1054_570.png)
@@ -830,7 +830,7 @@ From the above output we can easily examine how bond angles and dihedrals vary a
 
 <!-- p.1058 -->
 
-18-membered ring. Note that the value range of dihedral (D) is 0~180, the "deviation to planar" is identical to D if the D is within 0~90, while it corresponds to 180−D if the D is within 90~180.
+18-membered ring. Note that the value range of dihedral (D) is 0~180°, the "deviation to planar" is identical to D if the D is within 0~90°, while it corresponds to 180−D if the D is within 90~180°.
 
 If you copy the data from screen (see Section 5.4 if you do not know how to do this) and plot them via external software such as Origin, you can obtain the following maps, which very clearly exhibit geometric characteristics of the ring:
 

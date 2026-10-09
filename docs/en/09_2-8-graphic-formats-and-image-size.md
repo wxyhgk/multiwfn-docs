@@ -71,7 +71,7 @@ The .molden file exported by CP2K can be used as input file of Multiwfn. In orde
 
 After calculation, you will obtain a .molden file in current folder.
 
-·For users of CP2K  2026.2 If the system is periodic, also insert WRITE_CELL T into the &MO_MOLDEN field to ask CP2K to write cell information into the .molden file as [Cell] field.
+·For users of CP2K ≥ 2026.2 If the system is periodic, also insert WRITE_CELL T into the &MO_MOLDEN field to ask CP2K to write cell information into the .molden file as [Cell] field.
 
 If pseudopotential is used, also insert WRITE_PSEUDO T into the &MO_MOLDEN field to ask CP2K to write actual number of valence electrons of every atom into the .molden file as [Pseudo] field.
 
@@ -102,7 +102,7 @@ The three highlighted rows respectively correspond to the three translation vect
 
 For convenience, you can also specify the cell information in terms of cell lengths (a, b, c) and
 
-cell angles (α, β, γ). For example, the following content defines a = 15 Å, b = 13 Å, c = 18.5 Å, α = 90, β = 90, γ = 121.3.
+cell angles (α, β, γ). For example, the following content defines a = 15 Å, b = 13 Å, c = 18.5 Å, α = 90°, β = 90°, γ = 121.3°.
 
 
 ```text

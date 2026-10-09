@@ -432,7 +432,7 @@ $$\mathbf{\mu}=\left[\begin{matrix}{\mu_{x}}\\ {\mu_{y}}\\ {\mu_{z}}\\ \end{matr
 基于原子电荷的求值(Evaluation based on atomic charges) 若你的输入文件是.chg或.pqr，本功能也可使用，但偶极与多极矩都基于文件中记录的原子电荷计算。例如，此时偶极矩表示为
 
 
-$$\boldsymbol{\mu}=\begin{bmatrix}\mu_{x}\\\mu_{y}\\\mu_{z}\end{bmatrix}=\sum_{A}q_{A}\begin{bmatrix}X_{A}\\Y_{A}\\Z_{A}\end{bmatrix}$$
+$$\boldsymbol{\mu}=\begin{bmatrix}\mu_{x}\\mu_{y}\\mu_{z}\end{bmatrix}=\sum_{A}q_{A}\begin{bmatrix}X_{A}\\Y_{A}\\Z_{A}\end{bmatrix}$$
 
 其中在此语境下qA代表原子A的原子电荷。
 

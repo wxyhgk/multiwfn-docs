@@ -244,7 +244,7 @@ examples\phenol.wfn // 中性状态的苯酚（Phenol of neutral state） 5 // �
 
 109, 205 (2005)。形式上，对偶描述符Δf与Fukui函数有密切关系：
 
-$$\\Delta f(\\mathbf{r})=f^{+}(\\mathbf{r})-f^{-}(\\mathbf{r})$$
+$$\Delta f(\mathbf{r})=f^{+}(\mathbf{r})-f^{-}(\mathbf{r})$$
 
 $$=[\rho_{N+1}(\mathbf{r})-\rho_{N}(\mathbf{r})]-[\rho_{N}(\mathbf{r})-\rho_{N-1}(\mathbf{r})]=\rho_{N+1}(\mathbf{r})-2\rho_{N}(\mathbf{r})+\rho_{N-1}(\mathbf{r})$$
 

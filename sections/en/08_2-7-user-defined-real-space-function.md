@@ -49,64 +49,64 @@ In the case that periodicity is not taken into account, the position to be evalu
 
 0 This function corresponds to a constant value of 1.0
 
-1 Alpha density: $$V_{\mathrm{ESP}}(\mathbf{r}) / \rho(\mathbf{r})$$
+1 Alpha density: $\rho^{\alpha}(\mathbf{r}) = [\rho(\mathbf{r}) + \rho^{s}(\mathbf{r})] / 2$
 
-2 Beta density: 2/)]()([)(rrrsρρρβ−=
+2 Beta density: $\rho^{\beta}(\mathbf{r}) = [\rho(\mathbf{r}) - \rho^{s}(\mathbf{r})] / 2$
 
-3 Integrand of electronic spatial extent <r2>: 222() ( )xyzρ++r
+3 Integrand of electronic spatial extent <r2>: $<r^2>$ $(x^2 + y^2 + z^2)\rho(\mathbf{r})$
 
-4 Weizsäcker potential (closed-shell form): $$V_{\mathrm{ESP}}(\mathbf{r}) / \rho(\mathbf{r})$$
+4 Weizsäcker potential (closed-shell form): $V_{\mathrm{w}}(\mathbf{r}) = \frac{1}{8} \frac{\left|\nabla \rho (\mathbf{r})\right|^2}{\rho^2 (\mathbf{r})} - \frac{1}{4} \frac{\nabla^2 \rho (\mathbf{r})}{\rho (\mathbf{r})}$
 
-5 Integrand of Weizsäcker functional (closed-shell form): 2W( )( )/[8 ( )]τρρ= ∇rrr, which is
+5 Integrand of Weizsäcker functional (closed-shell form): $\tau_{\mathrm{w}}(\mathbf{r})=\left|\nabla\rho(\mathbf{r})\right|^{2}/[8\rho(\mathbf{r})]$
 
 the exact kinetic energy density of any one-orbital system (one or two electrons, or any number of bosons). If you need spin polarized form, use user-defined function 1200.
 
-6 Radial distribution function of electron density: $$(x^2 + y^2 + z^2)\rho(\mathbf{r})$$
+6 Radial distribution function of electron density: $4\pi \times \rho(\mathbf{r}) \times (x^2 + y^2 + z^2)$
 
 spherical symmetry of electron density is assumed.
 
-7 Local temperature, in Hartree/kB (PNAS, 81, 8028): ( )[2 ( )]/[3 ( )]TGρ=rrr. Note that if ρ is
+7 Local temperature, in Hartree/kB (PNAS, 81, 8028): $T(\mathbf{r})=[2G(\mathbf{r})]/[3\rho(\mathbf{r})]$
 
 less than the “uservar” parameter in `settings.ini`, then T will be treated as 0.
 
 8 Average local electrostatic potential (J. Chem. Phys., 72, 3027 (1980)): )(/)(ESPrrρV
 
-9 Shape function: ρ(r)/N, where N is the total number of electrons
+9 Shape function: $\rho(\mathbf{r})/N$
 
 
 <!-- p.56 -->
 
-10 Potential energy density (Virial field): $$V_{\mathrm{ele}}(\mathbf{r}) = V_{\mathrm{ESP}}(\mathbf{r}) - V_{\mathrm{nuc}}(\mathbf{r}) = -\int \frac{\rho(\mathbf{r}^{\prime})}{|\mathbf{r} - \mathbf{r}^{\prime}|} \, \mathrm{d}\mathbf{r}^{\prime}$$
+10 Potential energy density (Virial field): $V(\mathbf{r}) = -K(\mathbf{r}) - G(\mathbf{r}) = (1/4)\nabla^2 \rho(\mathbf{r}) - 2G(\mathbf{r})$
 
-11 Electron energy density: ( )( )( )( )EGVK=+= −rrrr (Sometimes E is written as H). Note that
+11 Electron energy density: $E(\mathbf{r}) = G(\mathbf{r}) + V(\mathbf{r}) = -K(\mathbf{r})$ $E(\mathbf{r})$ $E_{\mathrm{scl}}(\mathbf{r}) = -K(\mathbf{r}) \times (R - 1)$ $E_{scl}(\mathbf{r})$
 
 integral of E(r) over the whole space is not exactly identical to the electronic energy printed by quantum chemistry code, because in practice the virial ratio is always more or less violated.
 
--11 Scaled electron energy density: scl( )( ) (1)EKR= −×−rr, where R is the virial ratio loaded from
+-11 Scaled electron energy density: $E(\mathbf{r}) = G(\mathbf{r}) + V(\mathbf{r}) = -K(\mathbf{r})$ $E(\mathbf{r})$ $E_{\mathrm{scl}}(\mathbf{r}) = -K(\mathbf{r}) \times (R - 1)$ $E_{scl}(\mathbf{r})$
 
 input file (beware that not all kinds of input file contain this information! fch/mwfn/wfx/wfn format have specific field to record it). Integral of Escl(r) over the whole space is exactly identical to the electronic energy printed by quantum chemistry code. Section 4.17.9 illustrates the usefulness of this function.
 
-12 Local nuclear attraction potential energy: $$V_{\mathrm{ele}}(\mathbf{r}) = V_{\mathrm{ESP}}(\mathbf{r}) - V_{\mathrm{nuc}}(\mathbf{r}) = -\int \frac{\rho(\mathbf{r}^{\prime})}{|\mathbf{r} - \mathbf{r}^{\prime}|} \, \mathrm{d}\mathbf{r}^{\prime}$$
+12 Local nuclear attraction potential energy: $-\rho(\mathbf{r}) \times V_{\mathrm{nuc}}(\mathbf{r})$
 
-13 Kinetic energy density per electron: ( ) /( )Gρrr This quantity at bond critical point is able to
+13 Kinetic energy density per electron: $G(\mathbf{r}) / \rho(\mathbf{r})$
 
 discriminate covalent bonding and closed-shell interaction, see J. Am. Soc. Chem., 120, 13429 (1998)
 
-14 Electrostatic potential from electrons: $$V_{\mathrm{ele}}(\mathbf{r}) = V_{\mathrm{ESP}}(\mathbf{r}) - V_{\mathrm{nuc}}(\mathbf{r}) = -\int \frac{\rho(\mathbf{r}^{\prime})}{|\mathbf{r} - \mathbf{r}^{\prime}|} \, \mathrm{d}\mathbf{r}^{\prime}$$
+14 Electrostatic potential from electrons: $V_{\mathrm{ele}}(\mathbf{r}) = V_{\mathrm{ESP}}(\mathbf{r}) - V_{\mathrm{nuc}}(\mathbf{r}) = -\int \frac{\rho(\mathbf{r}^{\prime})}{|\mathbf{r} - \mathbf{r}^{\prime}|} \, \mathrm{d}\mathbf{r}^{\prime}$
 
 negative of this function is also known as Hartree potential, which represents classical Coulomb potential on an electron at r caused by all electrons.
 
-15 Bond metallicity: $$V_{\mathrm{ele}}(\mathbf{r}) = V_{\mathrm{ESP}}(\mathbf{r}) - V_{\mathrm{nuc}}(\mathbf{r}) = -\int \frac{\rho(\mathbf{r}^{\prime})}{|\mathbf{r} - \mathbf{r}^{\prime}|} \, \mathrm{d}\mathbf{r}^{\prime}$$
+15 Bond metallicity: $\xi_J(\mathbf{r}) = \rho(\mathbf{r}) / \nabla^2 \rho(\mathbf{r})$ $\xi_J > 1$
 
 interaction, see J. Phys.: Condens. Matter, 14, 10251 (2002).
 
-16 Dimensionless bond metallicity: $$V_{\mathrm{ele}}(\mathbf{r}) = V_{\mathrm{ESP}}(\mathbf{r}) - V_{\mathrm{nuc}}(\mathbf{r}) = -\int \frac{\rho(\mathbf{r}^{\prime})}{|\mathbf{r} - \mathbf{r}^{\prime}|} \, \mathrm{d}\mathbf{r}^{\prime}$$
+16 Dimensionless bond metallicity: $\xi_{\mathrm{m}}(\mathbf{r})=\frac{36(3\pi)^{-2}}{5}\frac{\rho(\mathbf{r})}{\nabla^{2}\rho(\mathbf{r})}$
 
 value corresponds to stronger metallicity of the bond, see Chem. Phys. Lett., 471, 174 (2009).
 
-17 Energy density per electron: E(r)/ρ(r), this value at BCP is called as bond degree parameter (BD), see J. Chem. Phys., 117, 5529 (2002) for detail, in which the authors advocate that for covalent bonds (viz. EBCP<0), the BD renders covalence degree, and the stronger the interaction the greater the BD magnitude; while for closed-shell interactions (viz. EBCP>0), the BD can be viewed as softening degree, and the weaker the interaction the larger the BD magnitude. 18 Region of Slow Electrons (RoSE), which is defined in Chem. Phys. Lett., 582, 144 (2013) and
+17 Energy density per electron: $E(\mathbf{r})/\rho(\mathbf{r})$ $E_{\mathrm{BCP}}<0$ $E_{\mathrm{BCP}}>0$
 
-has a pattern very similar to ELF, with value space of [-1,1]: ( )( )( )( )DGDGν± −= 0 0 +rrrr
+has a pattern very similar to ELF, with value space of [-1,1]: $$\nu_{\pm} = \frac{D_{0}(\mathbf{r})-G(\mathbf{r})}{D_{0}(\mathbf{r})+G(\mathbf{r})}$$
 
 19 Single exponential decay detector (SEDD), which is highly analogous to ELF. Its updated definition in J. Chem. Theory Comput., 10, 3745 (2014) is implemented:
 
@@ -124,31 +124,31 @@ $$E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mat
 
 mainly used to reveal interatomic interaction regions, see Section 3.23.3 for more information. IRI works much better than DORI.
 
-21 Integrand of X component of electric dipole moment: −x×ρ(r) 22 Integrand of Y component of electric dipole moment: −y×ρ(r) 23 Integrand of Z component of electric dipole moment: −z×ρ(r) 24 Approximate form of DFT linear response kernel for closed-shell (Phys. Chem. Chem. Phys., 14,
+21 Integrand of X component of electric dipole moment: $-x\times\rho(\mathbf{r})$
 
 $$\begin{array}{r l r l}{{3}960\mathrm{(2012))}\mathrm{:}}&{\chi(\mathbf{r}_{1},\mathbf{r}_{2})\approx4\displaystyle\sum_{i\in\mathrm{o c c}}\displaystyle\sum_{j\in\mathrm{v i r}}\frac{\varphi_{i}^{*}(\mathbf{r}_{1})\varphi_{j}(\mathbf{r}_{1})\varphi_{j}^{*}(\mathbf{r}_{2})\varphi_{i}(\mathbf{r}_{2})}{\varepsilon_{i}-\varepsilon_{j}}}\end{array}$$
 
-25 Magnitude of fluctuation of electronic momentum: $$E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$$
+25 Magnitude of fluctuation of electronic momentum: $\tilde{P}(\mathbf{r}) = |\nabla\rho(\mathbf{r})| / [2\rho(\mathbf{r})]$
 
 localized electrons detector (LED), is useful to discuss bonding and very similar to reduced density gradient, see Theor. Chem. Acc., 127, 393 (2010)
 
 26 Integrand of Thomas-Fermi kinetic energy functional (closed-shell form): τTF(r) = CTFρ(r)5/3, where CTF=(3/10)(3π2)2/3=2.871234. This is the exact kinetic energy density of non-interacting, uniform electron gas. If you need spin-polarized form, use user-defined function 1200.
 
-27 Local electron affinity (LEA): $$E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$$
+27 Local electron affinity (LEA): $EA_{\mathrm{L}}(\mathbf{r}) = \frac{-\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2}$ $E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$
 
 i  vir
 
 local ionization energy, but i cycles all unoccupied orbitals. See J. Mol. Model., 9, 342 (2003). Illustration of applying this function for a practical molecule is given in Section 4.12.13.
 
--27 Local electron attachment energy: iiinE LUMOatt ( )( )( ) ==rrr ε i < 0 ρ φε 2 . i loops over all unoccupied
+-27 Local electron attachment energy: $EA_{\mathrm{L}}(\mathbf{r}) = \frac{-\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2}$ $E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$
 
 orbitals with negative energy. For restricted and unrestricted wavefunctions, n equals 2 and 1, respectively. See J. Phys. Chem. A., 120, 10023 (2016). This function has similar usefulness to LEA but is more robust. Illustration of applying this function for a practical molecule is given in Section 4.12.13.
 
-28 Local Mulliken electronegativity: $$E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$$
+28 Local Mulliken electronegativity: $\chi_{\mathrm{L}}(\mathbf{r}) = [\bar{I}(\mathbf{r}) + EA_{\mathrm{L}}(\mathbf{r})] / 2$
 
 (2003)
 
-29 Local hardness: $$E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$$
+29 Local hardness: $\eta_{\mathrm{L}}(\mathbf{r})=[\overline{I}(\mathbf{r})-EA_{\mathrm{L}}(\mathbf{r})]/2$ $EA_{L}$ $E_{\mathrm{att}}$ $\chi_{L}$ $\eta_{L}$ $EA_{\mathrm{L}}$ $\chi_{\mathrm{L}}$ $\eta_{\mathrm{L}}$ $E_{\mathrm{att}}$ $E_{\mathrm{att}}$ $EA_{\mathrm{L}}$ $E_{\mathrm{att}}$ $E_{att}$
 
 Note: In order to use EAL, Eatt, χL and ηL, the input file must contain both occupied and unoccupied orbitals of a single determinant wavefunction (but restricted open-shell is not supported), formats such as .mwfn, .fch, .molden and .gms should be used as input file.
 
@@ -159,17 +159,17 @@ Generally, EAL (and thus χL and ηL) is not compatible with basis sets with dif
 
 has a negative energy, while often this condition is not satisfied under commonly used levels. It is found in the original paper of Eatt that this function works reasonably with B3LYP/6-31+G(d,p) orbitals.
 
-30 Ellipticity of electron density: $$V_{\mathrm{P A E M}}(\mathbf{r})=-V_{\mathrm{E S P}}(\mathbf{r})+V_{\mathrm{X C}}(\mathbf{r})=-V_{\mathrm{E S P}}(\mathbf{r})+\frac{1}{\rho(\mathbf{r})}\int\frac{\Gamma_{\mathrm{X C}}^{\alpha,\mathrm{tot}}(\mathbf{r},\mathbf{r}^{\prime})+\Gamma_{\mathrm{X C}}^{\beta,\mathrm{tot}}(\mathbf{r},\mathbf{r}^{\prime})}{|\mathbf{r}-\mathbf{r}^{\prime}|}\mathrm{d}\mathbf{r}^{\prime},\mathrm{w h e r e}V_{\mathrm{E S P}}(\mathbf{r}^{\prime})=\Gamma_{\mathrm{X C}}(\mathbf{r}^{\prime})+\Gamma_{\mathrm{X C}}(\mathbf{r}),$$
+30 Ellipticity of electron density: $\varepsilon(\mathbf{r})=[\lambda_{1}(\mathbf{r})/\lambda_{2}(\mathbf{r})]-1$
 
 the second lowest eigenvalues of Hessian matrix of ρ, respectively. At bond critical point (BCP), λ1 and λ2 are both negative and exhibit the curvatures of electron density in the two orthogonal directions that perpendicular to the bond. The ε at BCP is often viewed as an indicator of asymmetric distribution of electron density around the bond, the higher deviation to axisymmetric distribution,
 
 the larger the ε value at BCP.
 
-31 eta index: 13( )( ) /( )ηλλ=rrr , where λ1 and λ3 are the lowest and the highest eigenvalues of
+31 eta index: $\eta(\mathbf{r}) = |\lambda_1(\mathbf{r})| / \lambda_3(\mathbf{r})$ $\lambda_1$ $\lambda_3$
 
 Hessian matrix of ρ, respectively. It was argued that the value of η at bond critical point is less than unity for closed shell interactions and increases with increasing covalent character, see Angew. Chem. Int. Ed., 53, 2766 (2014), as well as J. Phys. Chem. A, 114, 552 (2010) for discussions.
 
-32 Modified eta index by Tian Lu: $$V_{\mathrm{P A E M}}(\mathbf{r})=-V_{\mathrm{E S P}}(\mathbf{r})+V_{\mathrm{X C}}(\mathbf{r})=-V_{\mathrm{E S P}}(\mathbf{r})+\frac{1}{\rho(\mathbf{r})}\int\frac{\Gamma_{\mathrm{X C}}^{\alpha,\mathrm{tot}}(\mathbf{r},\mathbf{r}^{\prime})+\Gamma_{\mathrm{X C}}^{\beta,\mathrm{tot}}(\mathbf{r},\mathbf{r}^{\prime})}{|\mathbf{r}-\mathbf{r}^{\prime}|}\mathrm{d}\mathbf{r}^{\prime},\mathrm{w h e r e}V_{\mathrm{E S P}}(\mathbf{r}^{\prime})=\Gamma_{\mathrm{X C}}(\mathbf{r}^{\prime})+\Gamma_{\mathrm{X C}}(\mathbf{r}),$$
+32 Modified eta index by Tian Lu: $\eta'(\mathbf{r}) = |\lambda_1(\mathbf{r})| / \lambda_3(\mathbf{r}) - 1$
 
 η' corresponds to closed shell interactions. 33 Potential acting on one electron in a molecule (PAEM), see J. Comput. Chem., 35, 965 (2014):
 
@@ -194,17 +194,17 @@ $$V_{\mathrm{n}}(\mathbf{r}) = \sum_{A \neq K} \frac{Z_A}{|\mathbf{r} - \mathbf{
 
 It is worth to mention that in main function 1, when you request Multiwfn to print properties at nuclear position of an atom, the electrostatic potential without contribution of nuclear charge of this atom is automatically printed.
 
-40 Steric energy density: $$V_{\mathrm{n}}(\mathbf{r}) = \sum_{A \neq K} \frac{Z_A}{|\mathbf{r} - \mathbf{R}_A|} - \int \frac{\rho(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|} \, \mathrm{d}\mathbf{r}'$$
+40 Steric energy density: $\left|\nabla\rho(\mathbf{r})\right|^2 / [8\rho(\mathbf{r})]$
 
 functional.
 
-41 Steric potential: $$\mathrm{ELF}(\mathbf{r}) = 1/[1+\zeta^{2}(\mathbf{r})]$$
+41 Steric potential: $\upsilon_{s}(\mathbf{r}) = \frac{1}{8} \frac{|\nabla \rho(\mathbf{r})|^2}{[\rho(\mathbf{r}) + \delta]^2} - \frac{1}{4} \frac{\nabla^2 \rho(\mathbf{r})}{\rho(\mathbf{r}) + \delta}$
 
 known as one-electron potential (OEP). Notice that the δ is a very small term artificially introduced to avoid the denominator converges to zero faster than nominator. The value of δ can be determined by "steric_addminimal" in `settings.ini`. If δ is set to 0, then the original expression of steric potential is recovered.
 
-42 Steric charge: $$V_{\mathrm{n}}(\mathbf{r}) = \sum_{A \neq K} \frac{Z_A}{|\mathbf{r} - \mathbf{R}_A|} - \int \frac{\rho(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|} \, \mathrm{d}\mathbf{r}'$$
+42 Steric charge: $q_{\mathrm{s}}(\mathbf{r}) = \nabla^{2} \upsilon_{\mathrm{s}}(\mathbf{r}) / (-4\pi)$
 
-43 Magnitude of steric force: |)(|)(SSrrυ−∇=F. Evaluated analytically.
+43 Magnitude of steric force: $F_{\mathrm{S}}(\mathbf{r}) = | - \nabla v_{\mathrm{S}}(\mathbf{r}) |$
 
 Notice that the δ term, which is mentioned above, also affects steric force and steric charge. Discussions of steric energy/potential/force/charge can be found in J. Chem. Phys., 126, 244103 (2007). 44,45,46 Damped Steric potential, steric force based on damped steric potential, directly damped Steric force: Documented privately 47 Damped steric charge: Documented privately
 
@@ -217,9 +217,9 @@ where ρ0(r) is promolecular density. Before performing any analysis or visualiz
 
 wavefunction is generated by preparing wavefunction files for all atoms (see Section 3.7.3 for details) and then combining them together. Note that in the subfunction 17, when Multiwfn asks you “Do you want to make wavefunction information in memory correspond to the just generated promolecular wavefunction? (y/n)”, you should input n to avoid replacing the present wavefunction with the promolecular wavefunction.
 
-50 Shannon entropy density: $s_{\mathrm{S}}(\mathbf{r}) = -\rho(\mathbf{r}) \ln \rho(\mathbf{r})$.
+50 Shannon entropy density: $s_{\mathrm{S}}(\mathbf{r}) = -\rho(\mathbf{r}) \ln \rho(\mathbf{r})$
 
-51 Fisher information density: )(/|)(|)(2Frrrρρ∇=i. Note that this quantity is only different
+51 Fisher information density: $i_{\mathrm{F}}(\mathbf{r}) = |\nabla\rho(\mathbf{r})|^2 / \rho(\mathbf{r})$ $i_{\mathrm{F}}^{\prime}(\mathbf{r}) = -\nabla^{2} \rho(\mathbf{r}) \ln \rho(\mathbf{r})$
 
 from Weizsäcker functional by a constant factor of 1/8.
 
@@ -245,7 +245,7 @@ Thomas-Fermi constant (3/10)(3π2)2/3=2.871234, Lagrangian kinetic energy densit
 
 Note that user-defined functions 57, 58, 59 can only be studied by plotting as map in main functions 3, 4, 5, and meantime deformation and promolecular maps are not available.
 
-60 Pauli potential: Vθ. Multiwfn supports two ways to evaluate this function, depending on "ispecial" in `settings.ini`:
+60 Pauli potential: $V_{\theta}$
 
 - ispecial=0: According to Eq. 17 of Comput. Theor. Chem., 1006, 92 (2013), Vθ = μ + VESP − VXC − VW, where μ is chemical potential (assumed to be zero by Multiwfn), VESP is electrostatic potential
 

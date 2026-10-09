@@ -123,7 +123,7 @@ Octupolar contribution to beta, phi_beta(J=3):   0.411
 
 Next, if you want to study evolution of scattering intensity with respect to polarization angle of incident light, you should input y and then input an initial angle, for example, -180. After that HRS_angle.txt will be generated in current folder, which contains scattering intensity corresponding
 
-to polarization angle varying from -180 to 179 with stepsize of 1. If you use such as Origin to plot the data as "Polar theta(X) r(Y)" map, you will obtain the map below, in which the radial distance of the red curve at different angles corresponds to calculated HRS intensity. The corresponding Origin .opj file has been provided as examples\polar\HRS_angle.opj
+to polarization angle varying from -180° to 179° with stepsize of 1°. If you use such as Origin to plot the data as "Polar theta(X) r(Y)" map, you will obtain the map below, in which the radial distance of the red curve at different angles corresponds to calculated HRS intensity. The corresponding Origin .opj file has been provided as examples\polar\HRS_angle.opj
 
 90
 

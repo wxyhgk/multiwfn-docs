@@ -114,7 +114,7 @@ Comparing the result with that of Mayer bond order, you will find the results of
 
 Skill: Labelling bond orders on molecular structure map by GaussView
 
-If you have GaussView (version  6.0), you can use it to show the bond orders calculated by Multiwfn on the molecular structure map to facilitate examining their values. Here I use Mayer bond order of acetamide as instance to illustrate this point.
+If you have GaussView (version ≥ 6.0), you can use it to show the bond orders calculated by Multiwfn on the molecular structure map to facilitate examining their values. Here I use Mayer bond order of acetamide as instance to illustrate this point.
 
 Boot up Multiwfn and input examples\CH3CONH2.fch 9 // Bond order analysis 1 // Calculate Mayer bond order y // Export the bond order matrix as bndmat.txt in current folder 0 // Return to main menu 1000 // Hidden main function 13 // Convert the bndmat.txt in current folder to Gaussian .gjf file with bond order information Now we have gau.gjf in the current folder, which not only contains present molecular coordinate, but also contains bond orders between the connected atoms (the connectivity is automatically guessed based on current geometry, unless you employ a file containing connectivity information as input file, such as .mol and .mol2, see Section 2.5 for detail).
 

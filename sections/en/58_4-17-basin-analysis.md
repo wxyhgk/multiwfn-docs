@@ -65,7 +65,7 @@ Commonly the number of these two types of grids should be zero, only in rare cas
 
 Integrating basins Next, we calculate the integral of electron density (electron population number) in these basins.
 
-Select function 2, then you will see many options. Each option with the serial  1 corresponds to a real space function; if you select one of them, corresponding real space function will be integrated in the generated basins. In present example we can select option 1, which corresponds to electron density. However, since we have already calculated grid data for electron density, and the grid data of electron density thus have been stored in memory, we can directly use it rather than compute it again to reduce computational time, so here we select option 0 to use "The values of the grid data stored in memory". Since electron density at the grids does not need to be re-evaluated, the integrals are outputted immediately:
+Select function 2, then you will see many options. Each option with the serial ≥ 1 corresponds to a real space function; if you select one of them, corresponding real space function will be integrated in the generated basins. In present example we can select option 1, which corresponds to electron density. However, since we have already calculated grid data for electron density, and the grid data of electron density thus have been stored in memory, we can directly use it rather than compute it again to reduce computational time, so here we select option 0 to use "The values of the grid data stored in memory". Since electron density at the grids does not need to be re-evaluated, the integrals are outputted immediately:
 
 
 ```text

@@ -77,7 +77,7 @@ $$IRI(\mathbf{r})=\frac{|\nabla\rho(\mathbf{r})|}{\left[\rho(\mathbf{r})\right]^
 
 11 电子能量密度： $E(\mathbf{r}) = G(\mathbf{r}) + V(\mathbf{r}) = -K(\mathbf{r})$ $E(\mathbf{r})$ $E_{\mathrm{scl}}(\mathbf{r}) = -K(\mathbf{r}) \times (R - 1)$ $E_{scl}(\mathbf{r})$
 
--11 标度电子能量密度：scl( )( ) (1)EKR= −×−rr，其中R为从输入文件载入的virial比（注意并非所有输入文件都含此信息！fch/mwfn/wfx/wfn格式有特定字段记录它）。Escl(r)在全空间积与量子化学程序打印的电子能量精确相同。4.17.9节阐明了此函数的用处。
+-11 标度电子能量密度： $E(\mathbf{r}) = G(\mathbf{r}) + V(\mathbf{r}) = -K(\mathbf{r})$ $E(\mathbf{r})$ $E_{\mathrm{scl}}(\mathbf{r}) = -K(\mathbf{r}) \times (R - 1)$ $E_{scl}(\mathbf{r})$
 
 12 局域核吸引势能： $-\rho(\mathbf{r}) \times V_{\mathrm{nuc}}(\mathbf{r})$
 
@@ -132,7 +132,7 @@ i  vir
 
 局域电离能，但i遍历所有未占据轨道。见J. Mol. Model., 9, 342 (2003)。对实际分子的应用示例见4.12.13节。
 
--27 局域电子附着能：iiinE LUMOatt ( )( )( ) ==rrr ε i < 0 ρ φε 2。i遍历所有能量为负的未占据
+-27 局域电子附着能： $EA_{\mathrm{L}}(\mathbf{r}) = \frac{-\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2}$ $E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$
 
 轨道。对限制性和非限制性波函数，n分别等于2和1。见J. Phys. Chem. A., 120, 10023 (2016)。该函数与LEA用途相似但更稳健。对实际分子的应用示例见4.12.13节。
 
@@ -200,7 +200,7 @@ $$V_{\mathrm{n}}(\mathbf{r}) = \sum_{A \neq K} \frac{Z_A}{|\mathbf{r} - \mathbf{
 
 注意，上述δ项也影响空间位阻力和空间位阻电荷。空间位阻能/势/力/电荷的讨论见J. Chem. Phys., 126, 244103 (2007)。44、45、46 阻尼空间位阻势、基于阻尼空间位阻势的空间位阻力、直接阻尼空间位阻力：私下记录 47 阻尼空间位阻电荷：私下记录
 
-49 相对Shannon熵密度，亦称信息增益密度： $i_{G} = \rho(\mathbf{r})\ln\frac{\rho(\mathbf{r})}{\rho_{0}(\mathbf{r})}$
+49 相对Shannon熵密度，亦称信息增益密度： $i_{G} = \rho(\mathbf{r})\ln\frac{\rho(\mathbf{r})}{\rho_{0}(\mathbf{r})}$ $\rho_{0}(\mathbf{r})$
 
 其中ρ0(r)为promolecular密度。对此函数做任何分析或可视化前，必须进入主功能（main function）1000（隐藏功能）再选子功能（subfunction）17以构建promolecular波函数并存入内存特定空间；此promolecular
 

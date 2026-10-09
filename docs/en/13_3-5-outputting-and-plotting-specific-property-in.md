@@ -139,7 +139,7 @@ After that, you will find three commands in Multiwfn command-line window, you ca
 
 About rotation and translation of the plotting plane For the modes 4, 5 and 8, if you find the content is skewed in the final graph, or the interesting part is not located at the center of the graph, you can choose "-1: Set translation and rotation of the map for plane types 4, 5 and 8" before selecting one of these modes. For example, if you find the content in the graph your previously plotted should be translated by (-3,1.5) Bohr and then rotated
 
-by 35, then in this option you should first input -3,1.5 and then input 35, the resulting graph will meet your expectation. A practical instance of using this option was posted on http://bbs.keinsci.com/thread-11037-1-1.html.
+by 35°, then in this option you should first input -3,1.5 and then input 35, the resulting graph will meet your expectation. A practical instance of using this option was posted on http://bbs.keinsci.com/thread-11037-1-1.html.
 
 
 ### 3.5.3 Options in post-processing interface

@@ -129,7 +129,7 @@ Octupolar contribution to beta, phi_beta(J=3):   0.411
 
 接下来，如果你想研究散射强度随入射光偏振角的变化，应输入 y，然后输入一个起始角度，例如 -180。之后当前文件夹中会生成 HRS_angle.txt，其中包含
 
-偏振角从 -180 到 179、步长为 1 对应的散射强度。如果你用诸如 Origin 将数据绘制为“Polar theta(X) r(Y)”图，你将得到如下图所示，其中红色曲线在不同角度处的径向距离对应计算得到的 HRS 强度。相应的 Origin .opj 文件已作为 examples\polar\HRS_angle.opj 提供
+偏振角从 -180° 到 179°、步长为 1° 对应的散射强度。如果你用诸如 Origin 将数据绘制为“Polar theta(X) r(Y)”图，你将得到如下图所示，其中红色曲线在不同角度处的径向距离对应计算得到的 HRS 强度。相应的 Origin .opj 文件已作为 examples\polar\HRS_angle.opj 提供
 
 90
 

@@ -124,7 +124,7 @@ $$\Gamma_{a,b}=\sum_{i}\Gamma_{a,b}^{i}=\sum_{i}\eta_{i}C_{a,i}C_{b,i}S_{a,b}$$
 
 <!-- formula-ocr: formula_p107_048.png 已替换为LaTeX, 原图保留备查 -->
 
-同样，在子功能 2 中，输出矩阵的最后一行为相应基函数的总布居数。还可选择输出每个占据轨道的贡献，即 𝑎,𝑏 𝑖，至当前目录的 grobasdcp.txt（注意即使对中等大小体系该文件也极大）。
+同样，在子功能 2 中，输出矩阵的最后一行为相应基函数的总布居数。还可选择输出每个占据轨道的贡献，即 Γ𝑎,𝑏 𝑖，至当前目录的 grobasdcp.txt（注意即使对中等大小体系该文件也极大）。
 
 ·子功能 4（将轨道对原子布居的贡献输出至 atmpopdcp.txt）(Output orbital contributions to atomic populations to atmpopdcp.txt)：此选项用于输出占据轨道对原子布居的贡献，即所有
 
@@ -724,7 +724,7 @@ $$\frac{\partial F}{\partial q_{B}}=0=-2\left(\sum_{b\in B}\frac{1}{r_{ib}}\righ
 
 该线性方程组可表述为矩阵方程
 
-$$\begin{aligned}\begin{bmatrix}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}\\A_{21}&A_{22}&\cdots&A_{2N}&n_{2}\\\vdots&\vdots&\ddots&\vdots&\vdots\\A_{N1}&A_{N2}&\cdots&A_{NN}&n_{N}\\n_{1}&n_{2}&\cdots&n_{N}&0\end{bmatrix}\begin{bmatrix}q_{1}\\q_{2}\\\vdots\\q_{N}\\\lambda\end{bmatrix}=\begin{bmatrix}B_{1}\\B_{2}\\\vdots\\B_{N}\\q_{tot}\end{bmatrix}\end{aligned}\Rightarrow\mathbf{A}\mathbf{q}=\mathbf{B}$$
+$$\begin{aligned}\begin{bmatrix}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}\\A_{21}&A_{22}&\cdots&A_{2N}&n_{2}\\vdots&\vdots&\ddots&\vdots&\vdots\\A_{N1}&A_{N2}&\cdots&A_{NN}&n_{N}\n_{1}&n_{2}&\cdots&n_{N}&0\end{bmatrix}\begin{bmatrix}q_{1}\q_{2}\\vdots\q_{N}\\lambda\end{bmatrix}=\begin{bmatrix}B_{1}\\B_{2}\\vdots\\B_{N}\q_{tot}\end{bmatrix}\end{aligned}\Rightarrow\mathbf{A}\mathbf{q}=\mathbf{B}$$
 
 其中
 
@@ -746,7 +746,7 @@ $$\sum_{A}q_{A}\sum_{a\in A}\sum_{b\in B}\sum_{i}\frac{1}{r_{ia}r_{ib}}+aq_{A}(q
 
 <!-- formula-ocr: formula_p124_064.png 已替换为LaTeX, 原图保留备查 -->
 
-$$\begin{aligned}\begin{bmatrix}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}\\A_{21}&A_{22}&\cdots&A_{2N}&n_{2}\\\vdots&\vdots&\ddots&\vdots&\vdots\\A_{N1}&A_{N2}&\cdots&A_{NN}&n_{N}\\n_{1}&n_{2}&\cdots&n_{N}&0\end{bmatrix}\begin{bmatrix}q_{1}\\q_{2}\\\vdots\\q_{N}\\\lambda\end{bmatrix}=\begin{bmatrix}B_{1}\\B_{2}\\\vdots\\B_{N}\\q_{tot}\end{bmatrix}\end{aligned}\Rightarrow\mathbf{A}\mathbf{q}=\mathbf{B}$$
+$$\begin{aligned}\begin{bmatrix}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}\\A_{21}&A_{22}&\cdots&A_{2N}&n_{2}\\vdots&\vdots&\ddots&\vdots&\vdots\\A_{N1}&A_{N2}&\cdots&A_{NN}&n_{N}\n_{1}&n_{2}&\cdots&n_{N}&0\end{bmatrix}\begin{bmatrix}q_{1}\q_{2}\\vdots\q_{N}\\lambda\end{bmatrix}=\begin{bmatrix}B_{1}\\B_{2}\\vdots\\B_{N}\q_{tot}\end{bmatrix}\end{aligned}\Rightarrow\mathbf{A}\mathbf{q}=\mathbf{B}$$
 
 A 的对角元应保持不变。在实际计算中，初始 A 中的 {q} 设为零，然后通过求解矩阵方程得到更新的 {q'}，之后 {q'} 用于构建第二次迭代的 A。重复迭代，直到所有原子的电荷变化小于给定阈值。
 

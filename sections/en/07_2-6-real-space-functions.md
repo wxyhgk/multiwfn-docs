@@ -86,7 +86,7 @@ The absolute value of ζ going from zero to unity corresponds to the local regio
 
 6 Hamiltonian kinetic energy density K(r) The kinetic energy density is not uniquely defined, since the expected value of kinetic energy
 
-operator ∇−<φφ|)2/1(|2 can be recovered by integrating kinetic energy density from
+operator $\langle\varphi|-(1/2)\nabla^{2}|\varphi\rangle$ can be recovered by integrating kinetic energy density from
 
 alternative definitions. One of commonly used definitions is
 
@@ -324,7 +324,7 @@ $$f_{\mathrm{XC}}^{\sigma_{1}\sigma_{2}}(\mathbf{r}_{1},\mathbf{r}_{2})=\frac{h_
 
 motions are correlated. The pair density thereby should be corrected by exchange-correlation density Г
 
-1212121212XC12( ,)( )( )( ,)σσσσσσπρρ=+ r rrrr r
+1212121212XC12( ,)( )( )( ,)σσσσσσπρρ=+ Γr rrrr r
 
 If we have already known that an electron with spin σ1 presents at r1, then the probability of finding another electron with spin σ2 at r2 is known as conditional probability (This function is also known as Lennard-Jones function)
 
@@ -387,9 +387,9 @@ For post-HF wavefunction, exact evaluation of pair density requires two-particle
 
 $$\Gamma_{\mathrm{XC,approx}}^{\alpha,\mathrm{tot}}(\mathbf{r}_{1},\mathbf{r}_{2})=-\sum_{i\in\alpha}\sum_{j\in\alpha}\sqrt{\eta_{i}\eta_{j}}\varphi_{i}^{*}(\mathbf{r}_{1})\varphi_{j}^{*}(\mathbf{r}_{2})\varphi_{j}(\mathbf{r}_{1})\varphi_{i}(\mathbf{r}_{2})$$
 
-α,tot reduces to single-determinant form. so XC,approx Obviously, if occupation numbers of natural spin orbitals are integer (0 or 1), then XC,approx α,tot can be regarded as a general form to evaluate
+α,tot reduces to single-determinant form. so ΓXC,approx Obviously, if occupation numbers of natural spin orbitals are integer (0 or 1), then ΓXC,approx α,tot can be regarded as a general form to evaluate
 
-exchange-correlation density. Note that post-HF wavefunction has taken Coulomb correlation between unlike-spin electrons into account, however there is no way to separate XC,approx αα and
+exchange-correlation density. Note that post-HF wavefunction has taken Coulomb correlation between unlike-spin electrons into account, however there is no way to separate ΓXC,approx αα and
 
 $$\Gamma_{\mathrm{XC},\mathrm{approx}}^{\alpha,\mathrm{tot}}$$
 
@@ -418,11 +418,11 @@ $$\rho^{\sigma}(\mathbf{r})=\sum_{i\in\sigma}\eta_{i}\left|\varphi_{i}(\mathbf{r
 
 <!-- formula-ocr: formula_p51_027.png 已替换为LaTeX, 原图保留备查 -->
 
-Postscript: One can show that XC,approx α,tot(𝐫1, 𝐫2) also exactly holds the requirement that
+Postscript: One can show that ΓXC,approx α,tot(𝐫1, 𝐫2) also exactly holds the requirement that
 
-integration of r2 over the whole space is equal to −𝜌α(𝐫1). However, in common, integrating r2 over the whole space for X,approx α,tot(𝐫1,𝐫2) and C,approx α,tot(𝐫1, 𝐫2) deviate from −𝜌α(𝐫1) and zero,
+integration of r2 over the whole space is equal to −𝜌α(𝐫1). However, in common, integrating r2 over the whole space for ΓX,approx α,tot(𝐫1,𝐫2) and ΓC,approx α,tot(𝐫1, 𝐫2) deviate from −𝜌α(𝐫1) and zero,
 
-respectively, which are basic properties of exact form of X α,tot. α,tot and C
+respectively, which are basic properties of exact form of ΓX α,tot. α,tot and ΓC
 
 
 > **Usage** — In Multiwfn, r1 is seen as reference point and r2 is seen as variable, to define the coordinate of reference point, just modifying “refxyz” in `settings.ini` before booting up.

@@ -103,7 +103,7 @@ Orbital     2 of fragment  2, Occ: 2.00000    Contribution:   57.2921%
 Orbital     5 of fragment  2, Occ: 0.00000    Contribution:   14.5640%
 ```
 
-Only the FOs with contribution  1% to the complex orbital are shown (the threshold can be altered by "compthresCDA" in `settings.ini`). As already mentioned, the electron transfer from CO to BH3 is mainly due to the complex orbital 9, therefore from above data we can infer that the nature of the CO→BH3 electron transfer can be largely interpreted as the mix between FO 7 of CO (an occupied orbital) and FO 5 of BH3 (a virtual orbital). This viewpoint can also be manifested by comparing the shape of the two FOs (see below) with the shape of complex orbital 9 given above.
+Only the FOs with contribution ≥ 1% to the complex orbital are shown (the threshold can be altered by "compthresCDA" in `settings.ini`). As already mentioned, the electron transfer from CO to BH3 is mainly due to the complex orbital 9, therefore from above data we can infer that the nature of the CO→BH3 electron transfer can be largely interpreted as the mix between FO 7 of CO (an occupied orbital) and FO 5 of BH3 (a virtual orbital). This viewpoint can also be manifested by comparing the shape of the two FOs (see below) with the shape of complex orbital 9 given above.
 
 Note: Sometimes a few contributions of FOs may be negative, this is a well-known drawback of Mulliken analysis, which is the method employed in CDA module to calculate the complex orbital composition. Since the magnitudes of the negative values are often small, you can simply ignore them.
 

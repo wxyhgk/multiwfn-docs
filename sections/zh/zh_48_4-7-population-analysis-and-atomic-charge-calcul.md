@@ -751,7 +751,7 @@ with equivalence and charge constraints
 
 蛋白质的两种最典型二级结构为 α 螺旋和 β 折叠。从组成它们的残基角度看，差异来自残基主链的 phi 和 psi 二面角。已有建议认为在 ESP 拟合过程中应同时考虑对应于两种二级结构的残基构象。还注意，在 ACE-ASP-NME 体系中残基片段的净电荷必须为整数。假设 ASP 侧链羧基的质子已解离，ASP 残基的净电荷应约束为 -1.0。此外，鉴于羧酸根的两个氧在化学上等价，最好对这两个氧施加等价约束。ASP 侧链 CH2 基团中的两个氢也应约束为等价。
 
-对应于 α 螺旋和 β 折叠的 ACE-ASP-NME 模型的优化任务的 Gaussian 输入文件已提供为“examples\RESP\ACE-ASP-NME”文件夹中的 alpha.gjf 和 beta.gjf。从文件中可以看到，关键词对应于 B3LYP-D3/6-311G** 水平结合 IEFPCM 溶剂模型以表示水环境。在优化中，phi 和 psi 二面角固定为初始值（若不冻结，在优化过程中二面角会显著变化）。在 alpha.gjf 中，phi 和 psi 分别为 -90 和 -60，对应于 α 螺旋的典型情况。而在 beta.gjf 中，两个二面角设为 -100 和 130，反映 β 折叠的典型情况。
+对应于 α 螺旋和 β 折叠的 ACE-ASP-NME 模型的优化任务的 Gaussian 输入文件已提供为“examples\RESP\ACE-ASP-NME”文件夹中的 alpha.gjf 和 beta.gjf。从文件中可以看到，关键词对应于 B3LYP-D3/6-311G** 水平结合 IEFPCM 溶剂模型以表示水环境。在优化中，phi 和 psi 二面角固定为初始值（若不冻结，在优化过程中二面角会显著变化）。在 alpha.gjf 中，phi 和 psi 分别为 -90° 和 -60°，对应于 α 螺旋的典型情况。而在 beta.gjf 中，两个二面角设为 -100° 和 130°，反映 β 折叠的典型情况。
 
 用 Gaussian 运行这两个 .gjf 文件，并将生成的 .chk 文件转换为 .fch 格式。两个优化后的结构如下所示。绿色虚线椭圆包围的区域为 ASP 残基，这些原子的电荷是我们感兴趣的。上述 phi 和 psi 二面角分别对应于 6-3-1-13 和 1-3-6-19。
 
@@ -761,7 +761,7 @@ with equivalence and charge constraints
 
 残基应约束为 -1.0。此外，鉴于羧酸根的两个氧在化学上等价，最好对这两个氧施加等价约束。ASP侧链CH2基团中的两个氢也应约束为等价。
 
-对应于α螺旋和β折叠的ACE-ASP-NME模型的优化任务的Gaussian输入文件已提供为“examples\RESP\ACE-ASP-NME”文件夹中的alpha.gjf和beta.gjf。从文件中可以看到，关键词对应于B3LYP-D3/6-311G**水平结合IEFPCM溶剂模型以表示水环境。在优化中，phi和psi二面角固定为初始值（若不冻结，在优化过程中二面角会显著变化）。在alpha.gjf中，phi和psi分别为-90和-60，对应于α螺旋的典型情况。而在beta.gjf中，两个二面角设为-100和130，反映β折叠的典型情况。
+对应于α螺旋和β折叠的ACE-ASP-NME模型的优化任务的Gaussian输入文件已提供为“examples\RESP\ACE-ASP-NME”文件夹中的alpha.gjf和beta.gjf。从文件中可以看到，关键词对应于B3LYP-D3/6-311G**水平结合IEFPCM溶剂模型以表示水环境。在优化中，phi和psi二面角固定为初始值（若不冻结，在优化过程中二面角会显著变化）。在alpha.gjf中，phi和psi分别为-90°和-60°，对应于α螺旋的典型情况。而在beta.gjf中，两个二面角设为-100°和130°，反映β折叠的典型情况。
 
 用Gaussian运行这两个.gjf文件，并将生成的.chk文件转换为.fch格式。两个优化后的结构如下所示。绿色虚线椭圆包围的区域为ASP残基，这些原子的电荷是我们感兴趣的。上述phi和psi二面角分别对应于6-3-1-13和1-3-6-19。
 

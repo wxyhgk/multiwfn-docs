@@ -420,7 +420,7 @@ The number of surface maxima:     3
 
 You can choose 0 to visualize them, see below (minima are not shown)
 
-Since the sequence of electron density at these maxima is 32>1, one can expect that the sequence of H-bond strength is O24···H13  H25···N6 > H29···O8. This conclusion is identical to the AIM bond critical point analysis (Section 4.2.1).
+Since the sequence of electron density at these maxima is 3≥2>1, one can expect that the sequence of H-bond strength is O24···H13 ≥ H25···N6 > H29···O8. This conclusion is identical to the AIM bond critical point analysis (Section 4.2.1).
 
 If you want to visualize the Becke surface, simply choose option -3. If you want to plot the Becke surface colored by mapped function value, you need to utilize VMD, and there are two ways: (1) Plot the Becke surface as many points (surface vertices), as will be shown below (2) Plot the Becke surface in terms of isosurface, which will be illustrated in the next section
 

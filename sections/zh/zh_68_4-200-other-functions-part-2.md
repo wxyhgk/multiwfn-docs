@@ -736,7 +736,7 @@ Domain:      7    Grids:      427    Volume:     0.1899 Angstrom^3
 
 本节我们将计算具有5个重复单元的噻吩低聚物的BLA和BOA，在PBE0/6-31G*水平下生成的.fchk文件可在此下载：http://sobereva.com/multiwfn/extrafiles/TP5.zip。几何结构是在B3LYP/6-31G*水平下优化的。
 
-计算之前，你需要先确定所关心的共轭链中原子的序号。最简单的方法是使用GaussView。现在我们使用GaussView(版本 6.0)
+计算之前，你需要先确定所关心的共轭链中原子的序号。最简单的方法是使用GaussView。现在我们使用GaussView(版本≥ 6.0)
 
 
 ![](../imgs/p1054_570.png)
@@ -883,7 +883,7 @@ Note The unit of printed values is degree
 
 
 
-18元环的变化情况。注意二面角(D)的值域为0~180，“偏离平面的偏差(deviation to planar)”在D处于0~90范围内时与D相同，而在D处于90~180范围内时对应于180−D。
+18元环的变化情况。注意二面角(D)的值域为0~180°，“偏离平面的偏差(deviation to planar)”在D处于0~90°范围内时与D相同，而在D处于90~180°范围内时对应于180−D。
 
 如果你从屏幕上复制数据(如果你不知道如何操作，请参阅5.4节)并通过Origin等外部软件作图，你可以得到如下图，它们非常清楚地展示了该环的几何特征：
 

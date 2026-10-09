@@ -289,7 +289,7 @@ In the “examples\NICS_scan\” folder, C5H5-.pdb and C7H7+.pdb are optimized C
 
 NICSπ,ZZ curves, relevant files are also provided in the folder. Note that in the interface, you can choose option “3 Export NICS curve data along the line” to export curve data as plain text file. Then, after importing the curve data corresponding to different situations into e.g. Origin, you can plot them together, as shown below.
 
-It can be seen that σ electrons have considerable influence on NICSZZ around ring center. All the three systems show comparable π aromaticity according to the NICSπ,ZZ curves. However, their difference can be determined quantitatively from their integrals. The integral of NICSπ,ZZ for benzene, C5H5− and C7H7+ are -142.45, -134.85 and -145.02 ppm·Å, respectively, indicating that strength of π aromaticity is C7H7+  benzene > C5H5−.
+It can be seen that σ electrons have considerable influence on NICSZZ around ring center. All the three systems show comparable π aromaticity according to the NICSπ,ZZ curves. However, their difference can be determined quantitatively from their integrals. The integral of NICSπ,ZZ for benzene, C5H5− and C7H7+ are -142.45, -134.85 and -145.02 ppm·Å, respectively, indicating that strength of π aromaticity is C7H7+ ≥ benzene > C5H5−.
 
 4.25.13.3 Example 3: Calculate FiPC-NICS index for benzene
 

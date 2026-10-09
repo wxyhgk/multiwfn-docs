@@ -64,9 +64,9 @@ CDA 的推广（Generalization of CDA） 原始 CDA 定义有两个缺点。第�
 
 为克服原始定义的局限，在笔者的论文 J. Adv. Phys. Chem., 4, 111-124 (2015) (http://dx.doi.org/10.12677/JAPC.2015.44013) 中提出了广义 CDA，即 Multiwfn 的 CDA 模块中所用的形式：
 
-$$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
+$$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
 
-$$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
+$$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
 
 在广义 CDA 中，配合物与片段的轨道可由 HF/DFT 或 post-HF 方法产生，分别对应 MO 与 NO。η𝑚 FO 表示
 
@@ -179,7 +179,7 @@ CT(A→B) - CT(B→A) = \[ PL(A) + CT(A→B) \] - \[ PL(A) + CT(B→A) \] 配合
 
 2 显示特定配合物轨道的片段轨道贡献（2 Show fragment orbital contributions to specific complex orbital）：若输入 x，则输出配合物轨道 x 的成分（对开壳层情形，分别输出第 x 个 α 与第 x 个 β 配合物轨道）。默认只显示贡献
 
-1% 的 FO，但该阈值可经 `settings.ini` 中的 "compthresCDA" 参数更改。
+≥1% 的 FO，但该阈值可经 `settings.ini` 中的 "compthresCDA" 参数更改。
 
 若要获得某片段轨道在全部配合物轨道中的成分，例如可输入 1,6，即选中片段 1 的轨道 6。
 

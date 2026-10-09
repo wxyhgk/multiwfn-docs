@@ -719,7 +719,7 @@ Multiwfn provides a very useful and powerful function to predict color of a chem
 
 Theory A chemical substance displays a color if it has optical adsorption in visible light range, and the displayed color corresponds to the reflection and transmission lights. Essentially, the displayed color is the complementary color with respect to the color corresponding to the UV-Vis adsorption spectrum (i.e. adsorption color). In order to convert the UV-Vis spectrum to the displayed color, the following steps are needed:
 
-(1) Calculate X, Y, Z values of CIE1931 XYZ color space based on CIE1931 2 tristimulus
+(1) Calculate X, Y, Z values of CIE1931 XYZ color space based on CIE1931 2° tristimulus
 
 
 <!-- p.182 -->

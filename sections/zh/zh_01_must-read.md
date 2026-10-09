@@ -39,7 +39,7 @@ Beijing Kein Research Center for Natural Sciences
 
 ## !!!!!!!!!! 所有用户必读 !!!!!!!!!!
 
-1. 欢迎在 Multiwfn 英文论坛（http://sobereva.com/wfnbbs）或 Multiwfn 中文论坛（http://bbs.keinsci.com/wfn）发帖，咨询任何关于使用 Multiwfn 的问题！我始终愿意尽我所能为每一位 Multiwfn 用户提供帮助！！！\()/
+1. 欢迎在 Multiwfn 英文论坛（http://sobereva.com/wfnbbs）或 Multiwfn 中文论坛（http://bbs.keinsci.com/wfn）发帖，咨询任何关于使用 Multiwfn 的问题！我始终愿意尽我所能为每一位 Multiwfn 用户提供帮助！！！\(°°)/
 
 2. 若想非常快速地了解如何用 Multiwfn 完成最常见的任务，请查看 Multiwfn 程序包中的“Multiwfn quick start.pdf”。
 

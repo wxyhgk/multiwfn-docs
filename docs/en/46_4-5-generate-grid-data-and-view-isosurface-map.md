@@ -230,7 +230,9 @@ Theory Dual descriptor is another useful function used to reveal reactive sites,
 
 109, 205 (2005) for detail. Formally, the definition of the dual descriptor Δf has close relationship with Fukui function:
 
-−=Δ fff )()()( rrr +−=−−−= )()(2)()]()([)]()([ ρρρρρρρ −+ NNNNNNN −+−+ 1111rrrrrrr
+$$\Delta f(\mathbf{r})=f^{+}(\mathbf{r})-f^{-}(\mathbf{r})$$
+
+$$=[\rho_{N+1}(\mathbf{r})-\rho_{N}(\mathbf{r})]-[\rho_{N}(\mathbf{r})-\rho_{N-1}(\mathbf{r})]=\rho_{N+1}(\mathbf{r})-2\rho_{N}(\mathbf{r})+\rho_{N-1}(\mathbf{r})$$
 
 It is noteworthy that dual descriptor can also be evaluated in terms of spin density 𝜌𝑠. Since 𝜌𝑁+1 −𝜌𝑁 and 𝜌𝑁−𝜌𝑁−1 can be approximated as 𝜌𝑁+1 𝑠 respectively, it is clear that ∆𝑓(𝐫) ≈𝜌𝑁+1 𝑠(𝐫) . Commonly, there is no evident qualitative difference between the dual descriptor evaluated based on electron density of three states (N+1, N, N-1) and the one based on spin density of two states (N+1, N-1). 𝑠(𝐫) −𝜌𝑁−1 𝑠 and 𝜌𝑁−1
 
