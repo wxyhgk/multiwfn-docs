@@ -41,7 +41,7 @@
 - [其它功能，第 1 部分 (Other functions, part 1) (1（p.384–408）](./zh_37_3-100-other-functions-part-1-100.md)
 - [其他功能，第二部分 (Other functions, part 2) (200（p.409–436）](./zh_38_3-200-other-functions-part-2-200.md)
 - [其它功能，第3部分(300)(Other functions, part 3 (（p.437–457）](./zh_39_3-300-other-functions-part-3-300.md)
-- [Prologue and generation of input files（p.458–460）](./zh_40_prologue-and-generation-of-input-files.md)
+- [前言与输入文件的生成（p.458–460）](./zh_40_prologue-and-generation-of-input-files.md)
 - [查看轨道与结构（p.461–467）](./zh_41_4-0-view-orbitals-and-structure.md)
 - [计算某点处的性质（p.468–471）](./zh_42_4-1-calculate-properties-at-a-point.md)
 - [拓扑分析（p.472–504）](./zh_43_4-2-topology-analysis.md)
