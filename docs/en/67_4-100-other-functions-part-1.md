@@ -20,7 +20,12 @@ It is clear that the phenyl ring is aromatic, as NICSZZ above 1 Å of it is evid
 
 I suggest you read Section 3.100.4 first, the aim of this example is to show you the usefulness and universality of numerical integration. In quantum chemistry program, kinetic energy and nuclear attraction potential energy integration are evaluated analytically, analytical method has advantage in both speed and accuracy. In Multiwfn you can evaluate them by general numerical integration function. Local kinetic energy (or called “kinetic energy density”) is a built-in function, we first integrate this function over the whole space to get total kinetic energy. Boot up Multiwfn and input:
 
-examples\COCl2.wfn // HF/6-31G* wavefunction 100 // Other functions (Part 1) 4 // Integrate a function over the whole space 6 // Hamiltonian kinetic density K(r) The result is 1031.1092, which is very close to the Gaussian outputted value 1031.1107. Because I do not want the list of real space function becomes lengthy, so rarely used functions such as local nuclear attraction potential energy are not chosen as built-in function, however you can still easily make these functions available by hacking source code, please consult Appendix 2. First, search “function userfunc” in function.f90, change the default content, namely "userfunc=1.0D0", to "userfunc = -nucesp(x,y,z)*fdens(x,y,z)", then recompile Multiwfn, redo
+!!! terminal "Multiwfn session"
+
+    - **examples\COCl2.wfn** — HF/6-31G* wavefunction
+    - **100** — Other functions (Part 1)
+    - **4** — Integrate a function over the whole space
+    - **6** — Hamiltonian kinetic density K(r) The result is 1031.1092, which is very close to the Gaussian outputted value 1031.1107. Because I do not want the list of real space function becomes lengthy, so rarely used functions such as local nuclear attraction potential energy are not chosen as built-in function, however you can still easily make these functions available by hacking source code, please consult Appendix 2. First, search “function userfunc” in function.f90, change the default content, namely "userfunc=1.0D0", to "userfunc = -nucesp(x,y,z)*fdens(x,y,z)", then recompile Multiwfn, redo
 
 
 ![](../imgs/p1006_521.png)
@@ -29,7 +34,7 @@ examples\COCl2.wfn // HF/6-31G* wavefunction 100 // Other functions (Part 1) 4 /
 
 above procedure but select function 100 as integrand, you will get nuclear attraction potential energy -2839.1668, the value outputted by Gaussian is -2839.1629, evidently they are rather close. If you want to obtain nuclear attraction potential energy contributed from a specific orbital, use subfunction 26 of main function 6 to set occupation number of other orbitals to zero, and then do the integration as before.
 
-To further illustrate the flexibility of numerical integration function in Multiwfn, assume that you want to calculate expectation of r2 operator, you can modify the content of “userfunc” routine to "userfunc = (x*x+y*y+z*z)*fdens(x,y,z)", then recompile Multiwfn and redo the integration, you will get 444.6523, which is in excellent agreement with the analytically calculated <r2> 444.652363 outputted by subfunction 5 of main function 300 (see Section 3.300.5 for detail).
+To further illustrate the flexibility of numerical integration function in Multiwfn, assume that you want to calculate expectation of $r^2$ operator, you can modify the content of “userfunc” routine to "userfunc = (x*x+y*y+z*z)*fdens(x,y,z)", then recompile Multiwfn and redo the integration, you will get 444.6523, which is in excellent agreement with the analytically calculated <r2> 444.652363 outputted by subfunction 5 of main function 300 (see Section 3.300.5 for detail).
 
 Tip: You may have already noticed that the two lines of the codes colored by blue above have presented in "userfunc" routine, and they correspond to iuserfunc==12 and iuserfunc==3 respectively. So actually you needn't to modify and recompile the source code of Multiwfn, by simply changing "iuserfunc" parameter in `settings.ini` from the default value 0 to 12 and 3 respectively, the user-defined real space function will be equivalent to the two functions. For more about the built-in real space functions in "userfunc" routine, see Section 2.7.
 
@@ -48,7 +53,13 @@ The principle of the simple energy decomposition has been introduced in Section 
 
 (3) Run the input file of the two fragments by Gaussian respectively to generate NH3.out and BH3.out.
 
-(4) Boot up Multiwfn, input following commands NH3.out //Fragment 1 100 // Other functions (Part 1) 8 // Generate Gaussian input file with initial guess combined from fragment wavefunctions 2 // There are two fragments in total BH3.out //Fragment 2 Multiwfn generates new.gjf in current folder, this is the Gaussian input file for NH3BH3 with fragment-combined wavefunction as initial guess.
+(4) Boot up Multiwfn, input following commands NH3.out //Fragment 1
+
+!!! terminal "Multiwfn session"
+
+    - **100** — Other functions (Part 1)
+    - **8** — Generate Gaussian input file with initial guess combined from fragment wavefunctions
+    - **2** — There are two fragments in total BH3.out //Fragment 2 Multiwfn generates new.gjf in current folder, this is the Gaussian input file for NH3BH3 with fragment-combined wavefunction as initial guess.
 
 (5) Make sure nosymm keyword is presented in the new.gjf. In order to output SCF energy in each iteration, change "#" to "#P". pop=full keyword can be deleted.
 
@@ -57,13 +68,13 @@ The principle of the simple energy decomposition has been introduced in Section 
 
 <!-- p.1008 -->
 
-From NH3.out and BH3.out , we can find their single point energies: E(NH3) = -56.5477099 a.u. E(BH3) = -26.5929634 a.u. The single point energy of the adduct can be found in new.out: E(NH3BH3) = -83.2132069 a.u. We also refer it to as ESCF,last since it is the energy printed at last iteration of SCF procedure.
+From NH3.out and BH3.out , we can find their single point energies: E(NH3) = -56.5477099 a.u. E(BH3) = -26.5929634 a.u. The single point energy of the adduct can be found in new.out: E(NH3BH3) = -83.2132069 a.u. We also refer it to as $E_{SCF,last}$ since it is the energy printed at last iteration of SCF procedure.
 
 From line 639 of examples\EDA\EDA_simple\new.out, you can also find the energy printed at the first iteration of SCF procedure:
 
 ESCF,1st = -83.12546124 a.u. According to the equations shown in Section 3.100.8, we can calculate energy terms as
 
-ΔEtot = E(NH3BH3) - E(NH3) - E(BH3)= -0.0725336 a.u.= -190.44 kJ/mol ΔEorb = ESCF,last - ESCF,1st = -0.0877456 a.u.= -230.37 kJ/mol ΔEsteric = ΔEtot - ΔEorb = 0.017218 a.u.= 39.93 kJ/mol
+ΔEtot = E(NH3BH3) - E(NH3) - E(BH3)= -0.0725336 a.u.= -190.44 kJ/mol ΔEorb = $E_{SCF,last}$ - ESCF,1st = -0.0877456 a.u.= -230.37 kJ/mol ΔEsteric = ΔEtot - ΔEorb = 0.017218 a.u.= 39.93 kJ/mol
 
 namely the total interaction energy between NH3 and BH3 is -190.44 kJ/mol, the orbital interaction energy -230.37 kJ/mol significantly stabilized the adduct; while the steric term (sum of electrostatic interaction energy, Pauli repulsion energy and change in exchange-correlation energy), destabilized the adduct by 39.93 kJ/mol.
 
@@ -85,7 +96,14 @@ This system has 14 occupied alpha and 12 occupied beta orbitals, first let us lo
 
 It can be seen that only alpha orbital 12 pairs well with beta orbital 12, while other alpha and beta orbitals with the same index do not like with each other. Clearly, it is troublesome when we discuss orbital characteristics of this wavefunction, because we must simultaneously inspect two sets of orbitals.
 
-Now we carry out the biorthogonalization for this wavefunction. Boot up Multiwfn and input examples\ethanol_triplet.fch 100 // Other functions (Part 1) 12 // Perform biorthogonalization between alpha and beta orbitals 2 // Do biorthogonalization for all orbitals 0 // Do not evaluate energies of biorthogonalized orbitals The biorthogonalization for this wavefunction consists of three successive steps. For example, the outputted information of the first step is
+Now we carry out the biorthogonalization for this wavefunction. Boot up Multiwfn and input examples\ethanol_triplet.fch
+
+!!! terminal "Multiwfn session"
+
+    - **100** — Other functions (Part 1)
+    - **12** — Perform biorthogonalization between alpha and beta orbitals
+    - **2** — Do biorthogonalization for all orbitals
+    - **0** — Do not evaluate energies of biorthogonalized orbitals The biorthogonalization for this wavefunction consists of three successive steps. For example, the outputted information of the first step is
 
 
 ```text
@@ -148,7 +166,12 @@ Biorthogonalization can also be applied to spin polarized singlet systems such a
 
 Evaluating energy of biorthogonalized orbitals and ordering the orbitals Next, I will illustrate how to also make Multiwfn evaluate energies of the biorthogonalized orbitals and order them according to their energies, the triplet ethanol is still taken as example. Boot up Multiwfn and input
 
-examples\ethanol_triplet.fch 100 // Other functions (Part 1) 12 // Biorthogonalization between alpha and beta orbitals 2 // Perform biorthogonalization for all orbitals 1 // Evaluate energies of the biorthogonalized orbitals using the Fock matrix generated by MO energies and coefficients via F=SCEC-1 relationship
+!!! terminal "Multiwfn session"
+
+    - **examples\ethanol_triplet.fch 100** — Other functions (Part 1)
+    - **12** — Biorthogonalization between alpha and beta orbitals
+    - **2** — Perform biorthogonalization for all orbitals
+    - **1** — Evaluate energies of the biorthogonalized orbitals using the Fock matrix generated by MO energies and coefficients via F=SCEC-1 relationship
 
 y // Ordering the biorthogonalized orbitals according to their energies Now you can find the exported biortho.fch and biortho.txt in current folder. The content of the later one is:
 
@@ -190,7 +213,13 @@ In this section, I illustrate how to calculate LOLIPOP (Localized Orbital Locato
 
 In this section I take an exactly planar system phenanthrene as example, we will check which ring has relatively stronger π-stacking ability. The atomic numbering is shown below
 
-Boot up Multiwfn and input following commands examples/phenanthrene.wfn 100 // Other functions (Part 1) 14 // Calculate LOLIPOP 1 // Choose π orbitals that to be taken into account 36,40,43,44,45,46,47 // Indices of π orbitals. You can manually find out π orbitals by
+Boot up Multiwfn and input following commands examples/phenanthrene.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **100** — Other functions (Part 1)
+    - **14** — Calculate LOLIPOP
+    - **1** — Choose π orbitals that to be taken into account 36,40,43,44,45,46,47
 
 
 ![](../imgs/p1012_525.png)
@@ -226,7 +255,13 @@ Multiwfn to automatically identify the indices of π type of LMOs, see relevant 
 
 containing basis function information as input file, such as .fch, .mwfn, .molden and so on, see Section 2.5 for more information.
 
-Boot up Multiwfn and input examples\biphenyl.fch 19 // Orbital localization 1 // Only localize occupied MOs 100 // Other function (Part 1)
+Boot up Multiwfn and input examples\biphenyl.fch
+
+!!! terminal "Multiwfn session"
+
+    - **19** — Orbital localization
+    - **1** — Only localize occupied MOs
+    - **100** — Other function (Part 1)
 
 22 // Automatically detect π orbitals -1 // Current orbitals are in localized form
 
@@ -280,7 +315,14 @@ It is worth to explain the three .gjf files. The coordinates in the two monomer 
 
 <!-- p.1016 -->
 
-Now, boot up Multiwfn and input below commands: DB-TTFdimer.fchk // Wavefunction file of dimer 100 // Other functions (Part 1) 15 // Function for calculating intermolecular orbital overlap integral DB-TTF1.fchk // Wavefunction file of monomer 1 DB-TTF2.fchk // Wavefunction file of monomer 2 After that, if we input i,j, then the intermolecular orbital overlap integral between MO i in monomer 1 and MO j in monomer 2 will be printed. To obtain the integral between HOMO-HOMO, we input 78,78, the result is -0.01411983; Then input 79,79, we will find the integral between LUMO-LUMO is 0.01025897.
+Now, boot up Multiwfn and input below commands: DB-TTFdimer.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **Wavefunction file of dimer 100** — Other functions (Part 1)
+    - **15** — Function for calculating intermolecular orbital overlap integral DB-TTF1.fchk
+
+Wavefunction file of monomer 2 After that, if we input i,j, then the intermolecular orbital overlap integral between MO i in monomer 1 and MO j in monomer 2 will be printed. To obtain the integral between HOMO-HOMO, we input 78,78, the result is -0.01411983; Then input 79,79, we will find the integral between LUMO-LUMO is 0.01025897.
 
 
 ### 4.100.18 Yoshizawa's electron transmission route analysis for phenanthrene
@@ -291,7 +333,11 @@ In this example, we will use Yoshizawa's formula (Acc. Chem. Res., 45, 1612 (201
 
 Boot up Multiwfn and input following commands: examples\phenanthrene_NAOMO.out //The Gaussian output file containing "NAOMO" matrix
 
-100 // Other functions (Part 1) 18 // Yoshizawa's electron transport route analysis 2 // Select YZ plane, which is the molecular plane Then program will detect which atom has expected pz atomic orbitals, and load their expansion coefficients in all MOs.
+!!! terminal "Multiwfn session"
+
+    - **100** — Other functions (Part 1)
+    - **18** — Yoshizawa's electron transport route analysis
+    - **2** — Select YZ plane, which is the molecular plane Then program will detect which atom has expected $p_{z}$ atomic orbitals, and load their expansion coefficients in all MOs.
 
 Now we select 1, and input 2,11 to check the transmission probability between 2 and 11. From the output we can know that the transmission probability is 0.855879. The contributions from each MO are also shown. From the output we also know that the probability will be 2.144432 if only HOMO and LUMO are considered. Although Yoshizawa's paper said that in common one only need to take HOMO and LUMO into account, it seems that this approximation is not true in quantitative level. The distance route 5.674656 Å is the distance between atom 2 and 11.
 
@@ -358,7 +404,14 @@ Below I will show how to use Multiwfn to produce promolecular wavefunction for C
 
 Boot up Multiwfn and then input examples\genpromol\COBH3\CO.wfn // The path of wavefunction file of fragment 1 100 // Other functions (Part 1) 19 // Generate promolecular .wfn file from fragment wavefunctions 1 // Output to combine.wfn 2 // Two fragments in total examples\genpromol\COBH3\BH3.wfn // The path of wavefunction file of fragment 2 Now the promolecular wavefunction file of COBH3 has been outputted to combine.wfn in current folder.
 
-Let us plot ELF for this promolecular wavefunction. Reboot Multiwfn and input combine.wfn 4 // Draw plane map 9 // ELF 1 // Color-filled map [Press ENTER button] 2 // XZ plane 0 // Y=0 Interestingly, even in the promolecular state, from the resultant graph it looks as if the carbon and boron have been bonded to each other. In order to make clear how the relaxation of electron distribution affects the ELF character of COBH3, we decide to draw difference map of ELF between the actual state and promolecular state.
+Let us plot ELF for this promolecular wavefunction. Reboot Multiwfn and input combine.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **4** — Draw plane map
+    - **9** — ELF 1
+
+XZ plane 0 // Y=0 Interestingly, even in the promolecular state, from the resultant graph it looks as if the carbon and boron have been bonded to each other. In order to make clear how the relaxation of electron distribution affects the ELF character of COBH3, we decide to draw difference map of ELF between the actual state and promolecular state.
 
 Reboot Multiwfn and input examples\genpromol\COBH3\COBH3.wfn // Wavefunction file of actual state of COBH3 4 // Draw plane map 0 // Custom operation 1 // Deal with only one file -,combine.wfn // Subtracting property of COBH3.wfn by that of combine.wfn 9 // ELF 1 // Color-filled map [Press ENTER button] // Use default grid setting 2 // XZ plane 0 // Y=0 Close the graph and then input
 
@@ -367,13 +420,24 @@ Reboot Multiwfn and input examples\genpromol\COBH3\COBH3.wfn // Wavefunction fil
 
 1 // Set lower and upper limit of color scale -0.2,0.4 // Set the color scale from -0.2 to 0.4, since as you can see from the command-line window, in this plane the data range is from -0.248 to 0.436
 
-2 // Enable showing contour lines 4 // Enable showing atom labels 1 // Red -1 // Show the graph again
+!!! terminal "Multiwfn session"
+
+    - **2** — Enable showing contour lines
+    - **4** — Enable showing atom labels
+    - **1** — Red -1
 
 From this difference map of ELF, it is very clear that after electron relaxation, the electron localization character between the C-B bond enhanced evidently.
 
 Next, I will show how to create promolecular wavefunction when open-shell fragments are involved. CH3NH2 is taken as example, the two fragments are CH3 and NH2 free-radicals. Boot up Multiwfn and input
 
-examples\genpromol\CH3NH2\CH3.wfn 100 // Other functions (Part 1) 19 // Generate promolecular .wfn file from fragment wavefunctions 1 // Output as combine.wfn 2 // There are totally two fragments (including the loaded one) examples\genpromol\CH3NH2\NH2.wfn // Wavefunction file of the second fragment n // Do not flip spin of orbitals of CH3 y // Flip spin of orbitals of NH2. If you do not understand why the spin should be flipped, you can consult the corresponding CDA example in Section 4.16.2.
+!!! terminal "Multiwfn session"
+
+    - **examples\genpromol\CH3NH2\CH3.wfn 100** — Other functions (Part 1)
+    - **19** — Generate promolecular .wfn file from fragment wavefunctions
+    - **1** — Output as combine.wfn
+    - **2** — There are totally two fragments (including the loaded one) examples\genpromol\CH3NH2\NH2.wfn
+
+Do not flip spin of orbitals of CH3 y // Flip spin of orbitals of NH2. If you do not understand why the spin should be flipped, you can consult the corresponding CDA example in Section 4.16.2.
 
 Now you have promolecular wavefunction of CH3NH2 in current folder. Try to plot ELF for it and compare the result with actual state (i.e. examples\genpromol\CH3NH2\CH3NH2.wfn).
 
@@ -393,7 +457,12 @@ cyclodextrin
 
 Subfunction 21 of main function 100 can calculate molecular diameter and length/width/height, in this section I will use examples/alpha-cyclodextrin.pdb an instance to illustrate this point. Please first read Section 3.100.21 to understand how this function works.
 
-Boot up Multiwfn and input examples/alpha-cyclodextrin.pdb 100 // Other functions (Part 1) 21 // Calculate quantities that are purely based on geometry size // Calculate molecular diameter and length/width/height You will see the following information on screen
+Boot up Multiwfn and input examples/alpha-cyclodextrin.pdb
+
+!!! terminal "Multiwfn session"
+
+    - **100** — Other functions (Part 1)
+    - **21** — Calculate quantities that are purely based on geometry size
 
 
 ```text
@@ -433,11 +502,11 @@ In this section we will study planarity of [14]annulene, which is not exactly pl
 
 effect in the small ring. Its structure optimized at ωB97XD/def2-TZVP level is shown below
 
-Please read my paper J. Mol. Model., 27, 263 (2021) DOI: 10.1007/s00894-021-04884-0 or Section 3.100.21 to gain basic knowledge about molecular planarity parameter (MPP), span of deviation from plane (SDP), and signed distance to plane (ds), which will be employed in this section to characterize molecular planarity of the [14]annulene.
+Please read my paper J. Mol. Model., 27, 263 (2021) DOI: 10.1007/s00894-021-04884-0 or Section 3.100.21 to gain basic knowledge about molecular planarity parameter (MPP), span of deviation from plane (SDP), an$d^{s}$igned distance to plane (ds), which will be employed in this section to characterize molecular planarity of the [14]annulene.
 
-Boot up Multiwfn and input examples\[14]annulene.xyz // It contains the optimized structure MPP // Enter the function of studying molecular planarity 1-14 // We only use all carbon atoms to determine the planarity. You can also simply input h to choose all non-hydrogen atoms
+Boot up Multiwfn and input examples\[14]annulene.xyz // It contains the optimize$d^{s}$tructure MPP // Enter the function of studying molecular planarity 1-14 // We only use all carbon atoms to determine the planarity. You can also simply input h to choose all non-hydrogen atoms
 
-Now you can immediately see the following output, which include the parameters of the plane fitted for the selected atoms (i.e. all carbons), signed deviations of atoms to the fitting plane (ds) and their most positive and most negative values. At the end, MPP and SDP are given.
+Now you can immediately see the following output, which include the parameters of the plane fitted for the selected atoms (i.e. all carbons), signed deviations of atoms to the fitting plane ($d^{s}$) and their most positive and most negative values. At the end, MPP and SDP are given.
 
 
 ```text
@@ -502,7 +571,7 @@ Boot up Multiwfn and input examples\C18_MD_500.xyz MPP // Enter the function of 
 
 <!-- p.1025 -->
 
-In addition, ds.pqr is generated in current folder. In this file, the "atomic charge" column corresponds to the ds value of selected atoms in every frame (the value for unselected atoms is zero). With this file and a special VMD script examples\scripts\ds.tcl, we are able to visualize trajectory with dynamic atomic coloring according to ds values, so that deviation from planarity of every atom can be very vividly exhibited. Now, load the examples\C18_MD_500.xyz into VMD, then copy the ds.pqr and examples\scripts\ds.tcl to VMD installation folder, boot up VMD and input source ds.tcl in console window of VMD to run this script, then this script will load ds data from ds.pqr and set up visualization status. After that, when you play the trajectory animation or drag progress bar in VMD, the atoms will be automatically colored according to ds value of the corresponding frame. If you are confused, see video illustration: http://sobereva.com/multiwfn/res/ds_color.mp4 (in this video I also used “RMSD trajectory tool” plugin in VMD to eliminate overall molecular motion to make inspection easier). Note that the default color scale set by the ds.tcl script is from -0.4 (blue) to 0.4 (red).
+In addition, $d^s$.pqr is generated in current folder. In this file, the "atomic charge" column corresponds to the ds value of selected atoms in every frame (the value for unselected atoms is zero). With this file and a special VMD script examples\scripts\ds.tcl, we are able to visualize trajectory with dynamic atomic coloring according to ds values, so that deviation from planarity of every atom can be very vividly exhibited. Now, load the examples\C18_MD_500.xyz into VMD, then copy the ds.pqr and examples\scripts\ds.tcl to VMD installation folder, boot up VMD and input source ds.tcl in console window of VMD to run this script, then this script will load ds data from ds.pqr and set up visualization status. After that, when you play the trajectory animation or drag progress bar in VMD, the atoms will be automatically colored according to ds value of the corresponding frame. If you are confused, see video illustration: http://sobereva.com/multiwfn/res/ds_color.mp4 (in this video I also used “RMSD trajectory tool” plugin in VMD to eliminate overall molecular motion to make inspection easier). Note that the default color scale set by the ds.tcl script is from -0.4 (blue) to 0.4 (red).
 
 4.100.21.4 Evaluating cavity diameter and graphically illustrating its region
 
@@ -680,9 +749,17 @@ You can see that the evaluated π compositions are very reasonable. For example,
 
 Evaluating π composition of unoccupied MOs It is also possible to evaluate π compositions for unoccupied MOs. In this case, unoccupied LMOs are also needed. Now we do this kind of analysis. We return to main menu and then input
 
-19 // Orbital localization 2 // Localize both occupied and unoccupied orbitals 100 // Other functions (Part 1)
+!!! terminal "Multiwfn session"
 
-22 // Detect π orbitals -1 // Current orbitals are in localized form 3 // Switch the LMOs in consideration to "all localized orbitals"
+    - **19** — Orbital localization
+    - **2** — Localize both occupied and unoccupied orbitals
+    - **100** — Other functions (Part 1)
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Detect π orbitals
+    - **-1** — Current orbitals are in localized form
+    - **3** — Switch the LMOs in consideration to "all localized orbitals"
 
 2 // Change the default density threshold for identifying π orbitals. Because current geometry is highly distorted, more loose density threshold must be adopted, otherwise you will find no
 

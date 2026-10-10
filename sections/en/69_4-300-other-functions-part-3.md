@@ -29,7 +29,15 @@ CRYST1   31.064   31.100   31.093  90.00  90.00  90.00 P 1         1
 
 Meaning that the box is rectangle and the length in X, Y, Z is 31.064, 31.100, 31.093 Å, respectively.
 
-Boot up Multiwfn and input examples\coal.pdb 300 // Other functions (Part 3) 1 // Viewing free regions and calculating free volume in a cell 4 // Set method of smoothing 1 // Gaussian function 1.8 // FWHM of Gaussian function is 1.8 times of vdW radius, which is found to be able to result in satisfactory isosurface map of smoothed grid data for present system
+Boot up Multiwfn and input examples\coal.pdb
+
+!!! terminal "Multiwfn session"
+
+    - **300** — Other functions (Part 3)
+    - **1** — Viewing free regions and calculating free volume in a cell
+    - **4** — Set method of smoothing
+    - **1** — Gaussian function
+    - **1.8** — FWHM of Gaussian function is 1.8 times of vdW radius, which is found to be able to result in satisfactory isosurface map of smoothed grid data for present system
 
 1 // Set grid and start calculation [Press ENTER button] // Use default origin (0,0,0), which is suitable for present system [Press ENTER button] // Use default box lengths, which correspond to the lengths of the three
 
@@ -67,7 +75,15 @@ It is worth to note that as shown in Section 4.200.14.2, domain analysis module 
 
 Part 2: Covalent organic frame crystal Multiwfn is also able to view free region and calculate its volume for experimentally determined molecular crystal. In this example I illustrate this point by taking a covalent organic frame (COF) system as an instance. Note that though the cell of this crystal is non-orthogonal, Multiwfn also works correctly.
 
-Boot up Multiwfn and input examples\COF_12000N2.cif 300 // Other functions (Part 3) 1 // Viewing free regions and calculating free volume in a cell 1 // Set grid and start calculation [Press ENTER button] // Use default origin (0,0,0) [Press ENTER button] // Use default box lengths [Press ENTER button] // Use default grid space 0.25 Å The quantitative data shown on screen is
+Boot up Multiwfn and input examples\COF_12000N2.cif
+
+!!! terminal "Multiwfn session"
+
+    - **300** — Other functions (Part 3)
+    - **1** — Viewing free regions and calculating free volume in a cell
+    - **1** — Set grid and start calculation [Press ENTER button]
+
+Use default box lengths [Press ENTER button] // Use default grid space 0.25 Å The quantitative data shown on screen is
 
 
 ```text
@@ -101,7 +117,14 @@ Multiwfn is able to fit spherically averaged electron density of an isolated ato
 
 In this section we will fit radial density of silicon atom as linear combination of a few STOs. Since the number of fitting functions is small, the fitting procedure is rapid and evaluation of fitted density is quite expensive, however, the fitting quality is not expected to be very high.
 
-Boot up Multiwfn and input examples\atomwfn\Si.wfn // Generated at ROHF/6-31G* level 300 // Other functions (Part 3) 2 // Fitting atomic radial density as multiple STOs or GTFs 3 // Check or set initial guess of coefficients and exponents of fitting functions 2 // Set initial guess as "crude fitting by a few STOs with variable exponents". Then from screen you can find only four STOs will be employed in the fitting, their initial status are
+Boot up Multiwfn and input examples\atomwfn\Si.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **Generated at ROHF/6-31G* level 300** — Other functions (Part 3)
+    - **2** — Fitting atomic radial density as multiple STOs or GTFs
+    - **3** — Check or set initial guess of coefficients and exponents of fitting functions
+    - **2** — Set initial guess as "crude fitting by a few STOs with variable exponents". Then from screen you can find only four STOs will be employed in the fitting, their initial status are
 
 
 ![](../imgs/p1070_587.png)
@@ -202,7 +225,14 @@ Since our fitted density has passed quality check in many ways, we can finally c
 
 In order to reliably and exactly fit radial density, usually no less than 10 GTFs (with variable exponents) are needed. In this example we will fit radial density of bromine atom in this way. This kind of fitting is almost suitable for any element in the periodic table.
 
-Boot up Multiwfn and input examples\atomwfn\Br.wfn // Generated at ROHF/6-31G* level 300 // Other functions (Part 3) 2 // Fitting atomic radial density as STOs or GTFs 3 // Check or set initial guess of coefficients and exponents of fitting functions 5 // Fine fitting by 10 GTFs with variable exponents (of course, using more GTFs will result in better fitting)
+Boot up Multiwfn and input examples\atomwfn\Br.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **Generated at ROHF/6-31G* level 300** — Other functions (Part 3)
+    - **2** — Fitting atomic radial density as STOs or GTFs
+    - **3** — Check or set initial guess of coefficients and exponents of fitting functions
+    - **5** — Fine fitting by 10 GTFs with variable exponents (of course, using more GTFs will result in better fitting)
 
 As can be seen from screen, 10 GTFs will be employed in the fitting, all coefficients are initially set to 1.0, while their exponents span large range, the smallest one is 0.1, while the largest one is 381, the ratio between two neighbouring GTFs is 2.5. The GTFs with small, medium and large exponents are mainly used to represent tail region, valence region and the region very close to nucleus, respectively.
 
@@ -251,7 +281,10 @@ By the way, from the parameters of the fitted GTF functions shown earlier, you c
 
 0 // Return 3 // Check or set initial guess of coefficients and exponents. Then from screen you can find the parameters we fitted earlier
 
-10 // Combine two fitting functions together 3,4 //Indices of the two fitting functions to combine 0 // Return 1 // Start fitting Then you can use option 3 to visualize the radial density again, you will find the quality of the fitting via the current 8 GTFs is unchanged, so 8 GTFs are fully adequate to reach an accurate fitting for present atom.
+!!! terminal "Multiwfn session"
+
+    - **10** — Combine two fitting functions together 3,4 //Indices of the two fitting functions to combine
+    - **0** — Return 1
 
 The fitting module in Multiwfn is quite flexible, there are many options used to control fitting strategy, see Section 3.300.2 for more information.
 
@@ -275,7 +308,12 @@ It is important to note that in order to simulate STM in Multiwfn, the molecule 
 
 examples\phenanthrene.fch 6 // Check & modify wavefunction
 
-33 // Rotate wavefunction, namely X→Y, Y→Z, Z→X 0 // Rotate all orbitals y // Also rotate molecule structure. Then the molecule will be on XZ plane 33 // Rotate wavefunction again 0 // Rotate all orbitals y // Also rotate molecule structure Now the phenanthrene has exactly been on XY plane of Z=0 Å (you can check this point via main function 0). Then we enter main function 100, choose subfunction 2 and then select corresponding option to export the present wavefunction to a new .mwfn file. In the next sections, this new file will be referred to as mol.mwfn.
+!!! terminal "Multiwfn session"
+
+    - **33** — Rotate wavefunction, namely X→Y, Y→Z, Z→X
+    - **0** — Rotate all orbitals y
+
+Rotate wavefunction again 0 // Rotate all orbitals y // Also rotate molecule structure Now the phenanthrene has exactly been on XY plane of Z=0 Å (you can check this point via main function 0). Then we enter main function 100, choose subfunction 2 and then select corresponding option to export the present wavefunction to a new .mwfn file. In the next sections, this new file will be referred to as mol.mwfn.
 
 4.300.4.1 Simulating constant height STM image for phenanthrene
 
@@ -285,7 +323,12 @@ mol.mwfn 300 // Other function (Part 3) 4 // Simulating STM image From the messa
 
 0 Å, the distance between the nuclei and the tip is 0.7 − 0.0 = 0.7 Å. In this example, we will plot STM image with V= -5.0 V at Z=1.2 Å.
 
-Now input below command 2 // Set bias voltage -5 // Bias voltage of -5.0 V 7 // Set Z coordinate 1.2 // Z=1.2 Å 0 // Calculate tunneling current on the plane Now you can find the information below on screen
+!!! terminal "Multiwfn session"
+
+    - **Now input below command 2** — Set bias voltage
+    - **-5** — Bias voltage of -5.0 V
+    - **7** — Set Z coordinate
+    - **1.2** — Z=1.2 Å 0
 
 
 ```text
@@ -320,7 +363,11 @@ In this map, the brighter the white, the larger the LDOS and thus the stronger t
 
 In this section we again plot STM image for phenanthrene but using constant current mode. Boot up Multiwfn an input
 
-mol.mwfn 300 // Other function (Part 3) 4 // Simulating STM image 1 // Switch the mode of STM image to constant current
+!!! terminal "Multiwfn session"
+
+    - **mol.mwfn 300** — Other function (Part 3)
+    - **4** — Simulating STM image
+    - **1** — Switch the mode of STM image to constant current
 
 
 ![](../imgs/p1076_591.png)
@@ -345,7 +392,17 @@ They are proper lower and upper limits of the color scale of STM image, respecti
 
 Now you are in the interface of plotting STM image of constant current mode, we input below commands
 
-2 // Choose map type 2 // Color-filled map with contour lines 7 // Set label interval in X, Y and color scale axes 1.5,1.5,0.05 -3 // Change other plotting settings 2 // Set number of decimal places of tick labels 1 // Set X axis 1 // Set Y axis 2 // Set Z axis 0 // Return 0 // Plot the STM image
+!!! terminal "Multiwfn session"
+
+    - **2** — Choose map type
+    - **2** — Color-filled map with contour lines
+    - **7** — Set label interval in X, Y and color scale axes 1.5,1.5,0.05
+    - **-3** — Change other plotting settings
+    - **2** — Set number of decimal places of tick labels
+    - **1** — Set X axis
+    - **1** — Set Y axis
+    - **2** — Set Z axis
+    - **0** — Return 0
 
 
 ![](../imgs/p1077_592.png)
@@ -435,7 +492,11 @@ make use of this function to evaluate energies of natural transition orbitals (N
 
 First, we generate NTO orbitals, the Gaussian input file of TDDFT task is examples\excit\D-pi-A.gjf, the corresponding output file and .fchk file have also been provided in the same folder. Boot up Multiwfn and input the following commands
 
-examples\excit\D-pi-A.fchk 18 // Electron excitation analysis 6 // Generate natural transition orbitals (NTOs) examples\excit\D-pi-A.out 1 // The first excited state (S1 state) Then you can see
+!!! terminal "Multiwfn session"
+
+    - **examples\excit\D-pi-A.fchk 18** — Electron excitation analysis
+    - **6** — Generate natural transition orbitals (NTOs) examples\excit\D-pi-A.out
+    - **1** — The first excited state (S1 state) Then you can see
 
 
 ```text
@@ -524,7 +585,13 @@ As you can see, different colors nicely exhibit the distance of various regions 
 
 Next, we plot this map again but using another molecular surface definition, namely superposition of atomic van der Waals spheres. Now input the following commands
 
--1 // Return 1 // Set definition of molecular surface 3 // Superposition of atomic van der Waals spheres scaled by a factor 1 // We do not scale van der Waals radii in this example, so we set scale factor to 1 0 // Start calculation 0 // Show the map on screen Then you will see the following figure, from which it is obvious that the Ru atom is heavily buried by surrounding ligands, and due to the strong steric hindrance, foreign molecules are not easy to approach the Ru atom.
+!!! terminal "Multiwfn session"
+
+    - **-1** — Return 1
+    - **Set definition of molecular surface 3** — Superposition of atomic van der Waals spheres scaled by a factor
+    - **1** — We do not scale van der Waals radii in this example, so we set scale factor to 1
+    - **0** — Start calculation
+    - **0** — Show the map on screen Then you will see the following figure, from which it is obvious that the Ru atom is heavily buried by surrounding ligands, and due to the strong steric hindrance, foreign molecules are not easy to approach the Ru atom.
 
 
 ![](../imgs/p1083_595.png)

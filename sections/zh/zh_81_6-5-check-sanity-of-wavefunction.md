@@ -12,7 +12,11 @@
 
 examples\Pt(NH3)2Cl2.wfn Pt // 载入元素Pt的EDF信息(load EDF information for element Pt) examples\Pt_lanl2.wfx // 从该文件获取Pt的EDF信息(take EDF information of Pt from this file) Cl // 载入元素Cl的EDF信息(load EDF information for element Cl) examples\Cl_lanl2.wfx // 从该文件获取Cl的EDF信息(take EDF information of Cl from this file) q // 我们已完成，退出(we have finished, exit)现在我们可以像往常一样进行波函数分析。但最好先进行一些测试以检查内层芯电子密度是否已被正确表示，例如，我们在全空间对电子密度积分
 
-100 // 100 其他功能（第一部分）(Other functions (Part1)) 4 // 在全空间对函数积分(Integrate a function over the whole space) 1 // 电子密度(Electron density)结果为132.00，即Pt(NH3)2Cl2预期的总电子数。假设我们没有载入EDF信息，则结果将为52.00，这只是Pt(NH3)2Cl2的价电子数。
+!!! terminal "Multiwfn 交互"
+
+    - **100** — 100 其他功能（第一部分）(Other functions (Part1))
+    - **4** — 在全空间对函数积分(Integrate a function over the whole space)
+    - **1** — 电子密度(Electron density)结果为132.00，即Pt(NH3)2Cl2预期的总电子数。假设我们没有载入EDF信息，则结果将为52.00，这只是Pt(NH3)2Cl2的价电子数。
 
 注意你也可以直接输入原子序号而不是元素名，例如，输入4,8-10,11表示选择当前体系中的原子4,8,9,10,11。当然，你每次选择的原子必须对应于相同元素和相同赝势。
 

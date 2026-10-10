@@ -236,9 +236,18 @@ http://sobereva.com/multiwfn/extrafiles/C60.zip，它是当前分析的输入文
 
 4.12节中给出。下面我们将考察∆𝑓𝑤在ρ = 0.01 a.u.等值面上的极值。首先，将`settings.ini`中的“iuserfunc”参数设为98，因为如2.7节所述，∆𝑓𝑤对应第98个自定义函数。然后启动Multiwfn并输入
 
-C60.fch 12 // 定量分析分子表面(Quantitative analysis of molecular surface) 1 // 选择定义表面的方式(Select the way to define surface) 1 // 电子密度的等值面(Isosurface of electron density)
+!!! terminal "Multiwfn 交互"
 
-0.01 // 使用ρ = 0.01 a.u.等值面定义表面(Use ρ = 0.01 a.u. isosurface to define the surface) 2 // 选择映射的函数(Select mapped function) -1 // 自定义实空间函数(User-defined real space function)，此时对应∆𝑓𝑤 3 // 生成分子表面时格点的间距(Spacing of grid points for generating molecular surface)
+    - **C60.fch 12** — 定量分析分子表面(Quantitative analysis of molecular surface)
+    - **1** — 选择定义表面的方式(Select the way to define surface)
+    - **1** — 电子密度的等值面(Isosurface of electron density)
+
+!!! terminal "Multiwfn 交互"
+
+    - **0.01** — 使用ρ = 0.01 a.u.等值面定义表面(Use ρ = 0.01 a.u. isosurface to define the surface)
+    - **2** — 选择映射的函数(Select mapped function)
+    - **-1** — 自定义实空间函数(User-defined real space function)，此时对应∆𝑓𝑤
+    - **3** — 生成分子表面时格点的间距(Spacing of grid points for generating molecular surface)
 
 
 <!-- p.938 -->
@@ -266,7 +275,13 @@ C60.fch 12 // 定量分析分子表面(Quantitative analysis of molecular surfac
 
 在Multiwfn中，也可以将∆𝑓𝑤绘制为平面图。作为例子，我们将在环[18]碳的分子平面上把∆𝑓𝑤绘制为颜色填充图。我们先将`settings.ini`中的“iuserfunc”参数设为98，然后启动Multiwfn并输入
 
-C18.fchk 4 // 绘制平面图(Plot plane map) 100 // 自定义实空间函数(User-defined real space function)，此时对应∆𝑓𝑤 1 // 颜色填充图(Color-filled map) [按回车键使用默认格点设置(Press ENTER button to use default grid setting)] 1 // XY平面(XY plane) 0 // Z=0 我们关闭弹出的图，然后在后处理菜单中调整一些设置并重新绘制，之后你将看到如下的图。蓝色等值线对应vdW表面。
+!!! terminal "Multiwfn 交互"
+
+    - **C18.fchk 4** — 绘制平面图(Plot plane map)
+    - **100** — 自定义实空间函数(User-defined real space function)，此时对应∆𝑓𝑤
+    - **1** — 颜色填充图(Color-filled map) [按回车键使用默认格点设置(Press ENTER button to use default grid setting)]
+    - **1** — XY平面(XY plane)
+    - **0** — Z=0 我们关闭弹出的图，然后在后处理菜单中调整一些设置并重新绘制，之后你将看到如下的图。蓝色等值线对应vdW表面。
 
 
 ![](../imgs/p939_469.png)
@@ -412,15 +427,27 @@ Orbital    18 (HOMO-3)   Energy:    -9.234 eV  E_diff:    -2.514 eV
 
 接下来，输入以下命令获得局域超软度，它是软度平方与对偶描述符的乘积
 
-3 // 计算Fukui函数、对偶描述符及相关函数的格点数据(Calculate grid data of Fukui function, dual descriptor and related functions) -10 // 设置扩展距离(Set extension distance) 6 // 6 Bohr，比默认值稍大，以避免等值设得很小时等值面在盒子边界处被截断(6 Bohr, which is slightly larger than the default one to avoid isosurface truncation at box boundary when isovalue is set to a small value)
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 计算Fukui函数、对偶描述符及相关函数的格点数据(Calculate grid data of Fukui function, dual descriptor and related functions)
+    - **-10** — 设置扩展距离(Set extension distance)
+    - **6** — 6 Bohr，比默认值稍大，以避免等值设得很小时等值面在盒子边界处被截断(6 Bohr, which is slightly larger than the default one to avoid isosurface truncation at box boundary when isovalue is set to a small value)
 
 3 // 因C60不小，我们用高质量格点以保证格点间距不会太大从而导致等值面图质量差(Since C60 is not small, we use high-quality grid to guarantee that grid spacing will not be too large and thus leading to poor isosurface map)
 
--1 // 设置各类格点数据的缩放因子(Set the scale factor to various grid data) 21.514996 // Hartree-2单位的软度平方(Square of softness in Hartree-2) 8 // 将缩放后的对偶描述符格点数据导出为当前文件夹中的DD.cub(Export grid data of scaled dual descriptor as DD.cub in current folder) 现在当前文件夹中新生成的DD.cub对应单位为1/(Bohr3Hartree2)的局域超软度。用VMD将其绘制为等值0.001的等值面图，你将看到如下的图，它与J. Math. Chem., 62, 461 (2024)的图4基本完全相同，尽管当前基组6-311G*与该工作中用的昂贵得多的6-311+G*不同。同时，值得注意的是，此图的主要特征与4.22.2节得到的C60的∆𝑓𝑤相当。
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 设置各类格点数据的缩放因子(Set the scale factor to various grid data)
+    - **21.514996** — Hartree-2单位的软度平方(Square of softness in Hartree-2)
+    - **8** — 将缩放后的对偶描述符格点数据导出为当前文件夹中的DD.cub(Export grid data of scaled dual descriptor as DD.cub in current folder) 现在当前文件夹中新生成的DD.cub对应单位为1/(Bohr3Hartree2)的局域超软度。用VMD将其绘制为等值0.001的等值面图，你将看到如下的图，它与J. Math. Chem., 62, 461 (2024)的图4基本完全相同，尽管当前基组6-311G*与该工作中用的昂贵得多的6-311+G*不同。同时，值得注意的是，此图的主要特征与4.22.2节得到的C60的∆𝑓𝑤相当。
 
 用类似方法，我们可以得到局域软度，其定义为软度与Fukui函数的乘积。输入以下命令
 
--1 // 设置各类格点数据的缩放因子(Set the scale factor to various grid data) 4.638426 // Hartree-1单位的软度(Softness in Hartree-1) 6 // 将缩放后的f-格点数据导出为当前文件夹中的f-.cub(Export grid data of scaled f- as f-.cub in current folder)
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 设置各类格点数据的缩放因子(Set the scale factor to various grid data)
+    - **4.638426** — Hartree-1单位的软度(Softness in Hartree-1)
+    - **6** — 将缩放后的f-格点数据导出为当前文件夹中的f-.cub(Export grid data of scaled f- as f-.cub in current folder)
 
 现在新生成的f-.cub对应局域软度s−，单位为1/(Bohr3Hartree)。下图是用VMD绘制的s−的0.005和0.003等值面，前者与J. Math. Chem., 62, 461 (2024)的图2完全相同，而后者更清楚地区分最容易发生亲电攻击的键（即两个六元环共用的键），它看起来与4.22.2节中C60的𝑓𝑤−图非常相似。
 
@@ -435,7 +462,11 @@ Orbital    18 (HOMO-3)   Energy:    -9.234 eV  E_diff:    -2.514 eV
 
 请先阅读3.25.4.2节以熟悉评估开壳层情形各种形式Fukui函数和对偶描述符的工作方程。本例我们计算O2的函数，它是具有前线MO简并的代表性开壳层分子（三重态基态）。
 
-启动Multiwfn并输入examples\O2.fch // 基态O2在B3LYP/6-31G*水平下的波函数文件(Wavefunction file of ground state O2 at B3LYP/6-31G* level) 22 // 计算概念密度泛函理论中的各种量(Calculate various quantities in conceptual density functional theory) 12 // 基于概念自旋极化DFT框架计算Fukui函数和对偶描述符(Calculate Fukui function and dual descriptor based on formalism of conceptual spin-polarized DFT)
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入examples\O2.fch** — 基态O2在B3LYP/6-31G*水平下的波函数文件(Wavefunction file of ground state O2 at B3LYP/6-31G* level)
+    - **22** — 计算概念密度泛函理论中的各种量(Calculate various quantities in conceptual density functional theory)
+    - **12** — 基于概念自旋极化DFT框架计算Fukui函数和对偶描述符(Calculate Fukui function and dual descriptor based on formalism of conceptual spin-polarized DFT)
 
 1 // 设置前线分子轨道简并度(Set degeneracy of frontier molecular orbitals)
 
@@ -478,7 +509,14 @@ Degeneracy of HOMO(beta):   2
 
 本例说明为马来酸酐绘制Fukui势和对偶描述符势，后者也见于J. Math. Chem., 62, 1094 (2024)，它是在M06-2X/6-311++G(d,p)水平下计算的，所以我们将用同样水平重现该结果。若你对这两种势不熟悉，请先查看3.25.1节。
 
-启动Multiwfn并输入examples\maleic_anhydride.xyz //几何构型在M06-2X/6-311++G(d,p)水平下优化(Geometry was optimized at M06-2X/6-311++G(d,p) level) 22 // 概念DFT(CDFT)分析(Conceptual DFT (CDFT) analysis) 1 // 生成N、N+1、N-1电子态的.wfn文件(Generate .wfn files for N, N+1, N-1 electrons states) M062X/6-311++G(d,p) // 执行单点计算的Gaussian关键词(Keywords of Gaussian to perform single point calculations) [按回车键(Press ENTER button)] // 对N、N+1和N-1态使用(0 1)、(-1 2)和(1 2)(Use (0 1), (-1 2) and (1 2) for N, N+1 and N-1 states) y // 调用Gaussian计算这三个态(Invoke Gaussian to calculate the three states)（假设你已在`settings.ini`中正确设置“gaupath”(assume that you have properly set “gaupath” in `settings.ini`)）
+启动Multiwfn并输入examples\maleic_anhydride.xyz //几何构型在M06-2X/6-311++G(d,p)水平下优化(Geometry was optimized at M06-2X/6-311++G(d,p) level)
+
+!!! terminal "Multiwfn 交互"
+
+    - **22** — 概念DFT(CDFT)分析(Conceptual DFT (CDFT) analysis)
+    - **1** — 生成N、N+1、N-1电子态的.wfn文件(Generate .wfn files for N, N+1, N-1 electrons states) M062X/6-311++G(d,p)
+
+对N、N+1和N-1态使用(0 1)、(-1 2)和(1 2)(Use (0 1), (-1 2) and (1 2) for N, N+1 and N-1 states) y // 调用Gaussian计算这三个态(Invoke Gaussian to calculate the three states)（假设你已在`settings.ini`中正确设置“gaupath”(assume that you have properly set “gaupath” in `settings.ini`)）
 
 9 // 计算Fukui势和对偶描述符势的格点数据(Calculate grid data of Fukui potential and dual descriptor potential) 1 // 因计算ESP格点数据相对昂贵，所以这里选择用低质量格点(Because calculating ESP grid data is relatively expensive, so here we choose to use low-quality grid)
 
@@ -558,4 +596,8 @@ Degeneracy of HOMO(beta):   2
 
 框架下定义的量。该体系在ωB97XD/6-311G(d,p)下计算的.fch文件可从http://sobereva.com/multiwfn/extrafiles/aminobenzene_DDD.7z下载，计算水平和几何构型与DDD原始论文Phys. Chem. Chem. Phys., 28, 19133 (2026)中用的完全相同。我们将用Hirshfeld划分定义用于评估原子重叠矩阵（AOM）的原子空间，DDD原始论文中也用了该划分。
 
-启动Multiwfn并输入aminobenzene_DDD.fch // 上述压缩包中的文件(The file in the compressed package mentioned above) 22 // 概念DFT(CDFT)分析(Conceptual DFT (CDFT) analysis) 11 // 计算对偶离域描述符(DDD)(Calculate dual delocalization descriptor (DDD))
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入aminobenzene_DDD.fch** — 上述压缩包中的文件(The file in the compressed package mentioned above)
+    - **22** — 概念DFT(CDFT)分析(Conceptual DFT (CDFT) analysis)
+    - **11** — 计算对偶离域描述符(DDD)(Calculate dual delocalization descriptor (DDD))

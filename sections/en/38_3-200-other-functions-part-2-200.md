@@ -70,7 +70,11 @@ Namely ELF(C-V) = 0.0936. Hence, the CVB index for the HF···HF system should 
 
 HF···HF dimer as example, boot up Multiwfn and input below commands
 
-examples\HF_HF.wfn 200 // Other function, part 2 1 // Calculate CVB index and related quantities 2,1,3 // Index of donor atom, hydrogen and acceptor atom of the H-bond, respectively The result is
+!!! terminal "Multiwfn session"
+
+    - **examples\HF_HF.wfn 200** — Other function, part 2
+    - **1** — Calculate CVB index and related quantities
+    - **2,1,3** — Index of donor atom, hydrogen and acceptor atom of the H-bond, respectively The result is
 
 
 ```text
@@ -130,7 +134,13 @@ For this system, you can obtain ELF(C-V,D) by plotting ELF curve map between F7 
 
 ELF(DH-A) of this system can be obtained via ELF topology analysis. To do this, we input below commands in Multiwfn:
 
-2 // Topology analysis -11 // Select the real space function to be analyzed 9 // ELF 6 // Search critical points by randomly distribute initial guesses within a sphere 4 // Set the sphere center as geometry center of three atoms 1,4,8 // Center of C1, C4 and H8 will be set as the sphere center
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis
+    - **-11** — Select the real space function to be analyzed
+    - **9** — ELF 6
+
+Set the sphere center as geometry center of three atoms 1,4,8 // Center of C1, C4 and H8 will be set as the sphere center
 
 
 ![](../imgs/p413_067.png)
@@ -460,7 +470,15 @@ If the real space function of interest has both positive and negative parts with
 
 A brief example is given here. To evaluate the first and second moments of spin density (relative to the center of spin density), after loading a wavefunction file, you should input
 
-200 // Other function (Part 2) 11 // The present function 3 // Select a real space function 5 // Spin density 2 // Calculate center of spin density y // Take the calculated center for evaluating various data in option 1 1 // Evaluate various data for spin density Then the data will be shown on screen.
+!!! terminal "Multiwfn session"
+
+    - **200** — Other function (Part 2)
+    - **11** — The present function
+    - **3** — Select a real space function
+    - **5** — Spin density
+    - **2** — Calculate center of spin density y
+
+Evaluate various data for spin density Then the data will be shown on screen.
 
 See my blog article “Using Multiwfn to exhibit excess electrons and calculate their radius of gyration” (http://sobereva.com/658, in Chinese) for more illustration of using this module.
 
@@ -807,7 +825,15 @@ Note that if you need to calculate one-electron orbital integrals, you should us
 
 Example Here I use a water molecule as example to illustrate calculation of the two kinds of integrals. Boot up Multiwfn and input
 
-examples\H2O_iijj.fch // Containing molecular orbitals at HF/6-31G* level 200 // Other functions (Part 2) 17 // Calculate Coulomb and exchange integrals between two orbitals 4,10 // The two orbitals are selected to be MO4 and MO10 1 // Low-quality grid (corresponding to grid spacing of 0.2 Bohr) 1 // Calculate Coulomb integral with default truncation level. The result is 0.615700 3 // Calculate exchange integral with default truncation level. The result is 0.122246 The exact value of (ii|jj) and (ij|ji) computed by analytic integral are 0.623256 and 0.129893, respectively, clearly accuracy of our values calculated based on numerical integration is basically satisfactory. If you employ better grid, for example spacing of 0.1 Bohr (corresponding to "medium-quality grid"), the accuracy will be further noticeably improved (0.62143 and 0.12793, respectively), but the cost will be eight times higher, note that the cost is inversely proportional to cube of the grid spacing.
+!!! terminal "Multiwfn session"
+
+    - **examples\H2O_iijj.fch** — Containing molecular orbitals at HF/6-31G* level
+    - **200** — Other functions (Part 2)
+    - **17** — Calculate Coulomb and exchange integrals between two orbitals
+    - **4,10** — The two orbitals are selected to be MO4 and MO10
+    - **1** — Low-quality grid (corresponding to grid spacing of 0.2 Bohr)
+    - **1** — Calculate Coulomb integral with default truncation level. The result is 0.615700
+    - **3** — Calculate exchange integral with default truncation level. The result is 0.122246 The exact value of (ii|jj) and (ij|ji) computed by analytic integral are 0.623256 and 0.129893, respectively, clearly accuracy of our values calculated based on numerical integration is basically satisfactory. If you employ better grid, for example spacing of 0.1 Bohr (corresponding to "medium-quality grid"), the accuracy will be further noticeably improved (0.62143 and 0.12793, respectively), but the cost will be eight times higher, note that the cost is inversely proportional to cube of the grid spacing.
 
 
 ### 3.200.18 Calculate bond length/order alternation (BLA/BOA) and angle/dihedral alternation

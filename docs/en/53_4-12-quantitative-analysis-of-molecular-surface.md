@@ -183,7 +183,11 @@ examples\N-phenylpyrrole.fch 12 // Quantitative molecular surface analysis 0 // 
 
 Assume that we want to perform the analysis again. This time we can directly use the ESP data recorded in the plain text file. Input below commands
 
-5 // Loading mapped function values from external file during analysis 1 // Loading mapped function at all surface vertices from a plain text file 0 // Start the analysis Once construction of molecular surface is complete, Multiwfn will prompt you to input the path of the plain text file recording mapped function values at all surface vertices, at this point you should simply input vtx.txt.
+!!! terminal "Multiwfn session"
+
+    - **5** — Loading mapped function values from external file during analysis
+    - **1** — Loading mapped function at all surface vertices from a plain text file
+    - **0** — Start the analysis Once construction of molecular surface is complete, Multiwfn will prompt you to input the path of the plain text file recording mapped function values at all surface vertices, at this point you should simply input vtx.txt.
 
 Since this time the mapped function values, namely ESP values, are not calculated but loaded from vtx.txt directly, the analysis results immediately show up on the screen.
 
@@ -196,18 +200,35 @@ Trick: Perform ESP analysis on molecular surface solely based on cube files Some
 
 Dmol3 and FHI-aims, are unable to produce a wavefunction file that supported by Multiwfn, however in this case it is still possible to perform ESP analysis over molecular surface, as long as you can yield cube files of electron density and ESP for your system by these codes. Once the cube files are generated, you can input below commands after booting up Multiwfn:
 
-density.cub // Load cube file of electron density first 12 // Quantitative molecular surface analysis 1 // Select the way to define surface 11 // Isosurface of the grid data in memory
+!!! terminal "Multiwfn session"
 
-0.001 // Use ρ = 0.001 a.u. to define the isosurface 2 // Select mapped function 1 // ESP 5 // Set if loading mapped function values from external file 3 // The mapped function will be interpolated from an external cube file 0 // Start calculation ESP.cub // The cube file recording ESP Note that the grid setting used for yielding density.cub and ESP.cub must be exactly the same, and the grid spacing should not be too large (no larger than 0.25 Bohr), otherwise the analysis result will be inaccurate.
+    - **density.cub** — Load cube file of electron density first
+    - **12** — Quantitative molecular surface analysis
+    - **1** — Select the way to define surface
+    - **11** — Isosurface of the grid data in memory
+
+!!! terminal "Multiwfn session"
+
+    - **0.001** — Use ρ = 0.001 a.u. to define the isosurface
+    - **2** — Select mapped function
+    - **1** — ESP 5
+
+The mapped function will be interpolated from an external cube file 0 // Start calculation ESP.cub // The cube file recording ESP Note that the grid setting used for yielding density.cub and ESP.cub must be exactly the same, and the grid spacing should not be too large (no larger than 0.25 Bohr), otherwise the analysis result will be inaccurate.
 
 
 ### 4.12.2 Average local ionization energy analysis (ALIE) on phenol molecular surface
 
 
 
-Below we will analyze average local ionization energy 𝐼̅ on phenol vdW surface. Boot up Multiwfn and input
+Below we will analyze average local ionization energy $\bar{I}$ on phenol vdW surface. Boot up Multiwfn and input
 
-examples\phenol_631Gxx.wfn // Produced at B3PW91/6-31G** level 12 // Quantitative molecular surface analysis 2 // Reselect mapped function 2 // Choose 𝐼̅ as mapped function 0 // Start the surface analysis. Since calculation of 𝐼̅ is much simpler than ESP, the calculation is finished rapidly. Unlike surface analysis for ESP, at this time only vdW volume, surface area, average and variance of 𝐼̅ on vdW surface are outputted alongside extrema information.
+!!! terminal "Multiwfn session"
+
+    - **examples\phenol_631Gxx.wfn** — Produced at B3PW91/6-31G** level
+    - **12** — Quantitative molecular surface analysis
+    - **2** — Reselect mapped function
+    - **2** — Choose $\bar{I}$ as mapped function
+    - **0** — Start the surface analysis. Since calculation of 𝐼̅ is much simpler than ESP, the calculation is finished rapidly. Unlike surface analysis for ESP, at this time only vdW volume, surface area, average and variance of $\bar{I}$ vdW surface are outputted alongside extrema information.
 
 Choose 0 to visualize extrema. In order to make the correspondence between extrema and atoms clearer, we drag the "Ratio of atomic size" scale bar to 4.0, which corresponds to vdW surface, and we disable showing of surface maxima, then we will see:
 
@@ -216,11 +237,11 @@ Choose 0 to visualize extrema. In order to make the correspondence between extre
 
 In side view
 
-Low value of 𝐼̅ suggests that the electron at this position is not tightly bounded, the site with lowest 𝐼̅ on vdW surface is usually recognized as the most vulnerable site to electrophilic attack or to free radical attack. All sites that highly polarizable such as π electron and lone pair regions commonly have corresponding surface minima of𝐼̅. In present instance, minima 8 and 9 correspond to lone pair of O12, from the output on screen we can find both their 𝐼̅ values are 10.59 eV. Minima 4,5,11, and 3,7,10 correspond to π electrons, 𝐼̅ values of all of them are about 8.9 eV and can be viewed as degenerate global minima. It is noteworthy that the minima above and below the conjugated ring only present at ortho- and para-carbon. These observations perfectly explained the effect of hydroxyl as an ortho-para- directing group. Since 𝐼̅ at minima 8 and 9 are obviously larger than the 𝐼̅ at the minima around the carbon ring, oxygen should not be vulnerable site of electrophilic reaction.
+Low value of $\bar{I}$ suggests that the electron at this position is not tightly bounded, the site with lowest 𝐼̅ on vdW surface is usually recognized as the most vulnerable site to electrophilic attack or to free radical attack. All sites that highly polarizable such as π electron and lone pair regions commonly have corresponding surface minima of𝐼̅. In present instance, minima 8 and 9 correspond to lone pair of O12, from the output on screen we can find both their 𝐼̅ values are 10.59 eV. Minima 4,5,11, and 3,7,10 correspond to π electrons, 𝐼̅ values of all of them are about 8.9 eV and can be viewed as degenerate global minima. It is noteworthy that the minima above and below the conjugated ring only present at ortho- and para-carbon. These observations perfectly explained the effect of hydroxyl as an ortho-para- directing group. Since 𝐼̅ at minima 8 and 9 are obviously larger than the 𝐼̅ at the minima around the carbon ring, oxygen should not be vulnerable site of electrophilic reaction.
 
 Plotting average local ionization energy colored molecular surface map Note 1: There is a video illustration corresponding to this part, please have a look! https://youtu.be/-1sBa0lKhp8. Note 2: Chinese version of this part is my blog article “Using Multiwfn and VMD to plot map of molecular surface colored by averaged local ionization energy (ALIE)” (http://sobereva.com/514).
 
-To provide a more complete viewpoint about distribution of 𝐼̅ on molecular surface, it is best to plot molecular surface map colored according to 𝐼̅. This can be extremely easily done via script and VMD program (http://www.ks.uiuc.edu/Research/vmd/). Below I show how to realize this under Windows environment, the phenol is still taken as example. Please do below steps in turn:
+To provide a more complete viewpoint about distribution of $\bar{I}$ on molecular surface, it is best to plot molecular surface map colored according to 𝐼̅. This can be extremely easily done via script and VMD program (http://www.ks.uiuc.edu/Research/vmd/). Below I show how to realize this under Windows environment, the phenol is still taken as example. Please do below steps in turn:
 
 
 ![](../imgs/p702_250.png)
@@ -238,9 +259,9 @@ To provide a more complete viewpoint about distribution of 𝐼̅ on molecular s
 
 - Boot up VMD, input source ALIE.vmd in console window, you will immediately see the graph below (In order to gain better effect, I used Tachyon render to generate the image)
 
-In the map above, the displayed surface is ρ = 0.0005 a.u. isosurface. The reason why the commonly used ρ = 0.001 a.u. isosurface is not adopted as the definition of the surface is because if it is employed, then the 𝐼̅ distribution on the surface can hardly be distinguished. The cyan spheres correspond to surface minimum of 𝐼̅. The color transition is Blue-White-Red, therefore the blue color highlights the regions having relatively low 𝐼̅ value, where are favorable sites for electrophilic attack.
+In the map above, the displayed surface is ρ = 0.0005 a.u. isosurface. The reason why the commonly used ρ = 0.001 a.u. isosurface is not adopted as the definition of the surface is because if it is employed, then the $\bar{I}$ distribution on the surface can hardly be distinguished. The cyan spheres correspond to surface minimum of 𝐼̅. The color transition is Blue-White-Red, therefore the blue color highlights the regions having relatively low 𝐼̅ value, where are favorable sites for electrophilic attack.
 
-By default, the color scale of 𝐼̅ is 0.32~0.36 a.u., if you find the color scale is not appropriate for present system, you can input for example mol scaleminmax 0 1 0.31 0.38 in the VMD console window to change the lower and upper limits to 0.31 and 0.38, respectively.
+By default, the color scale of $\bar{I}$ is 0.32~0.36 a.u., if you find the color scale is not appropriate for present system, you can input for example mol scaleminmax 0 1 0.31 0.38 in the VMD console window to change the lower and upper limits to 0.31 and 0.38, respectively.
 
 
 ### 4.12.3 Atomic local molecular surface analysis for acrolein
@@ -315,17 +336,31 @@ illustrate how to perform quantitative analysis of Fukui function f − on molec
 
 Note: If you are unable to successfully reproduce the steps in parts 1 and 2 described below, please look at the video illustration: http://sobereva.com/multiwfn/extrafiles/Molecular_surface_Fukui.mp4.
 
-Part 1: Obtain positions and values of minima and maxima of f − Boot up Multiwfn (referred to as Multiwfn A) and input following commands examples\phenol.wfn 12 // Quantitative molecular surface analysis 2 // Select the mapped real space function on the molecular surface 0 // The function value will be loaded from an external file 1 // Set the way to define the surface 1 // Use electron density isosurface as molecular surface
+Part 1: Obtain positions and values of minima and maxima of f − Boot up Multiwfn (referred to as Multiwfn A) and input following commands examples\phenol.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative molecular surface analysis
+    - **2** — Select the mapped real space function on the molecular surface
+    - **0** — The function value will be loaded from an external file
+    - **1** — Set the way to define the surface
+    - **1** — Use electron density isosurface as molecular surface
 
 0.01 // Because magnitude of Fukui function on default isosurface ρ = 0.001 is often too small, enlarging the isovalue to 0.01 a.u. makes following analyses more significant
 
 0 // Start the surface analysis Multiwfn will generate grid data of electron density and then generate the surface vertices. After the coordinates of these vertices are automatically outputted to surfptpos.txt in current folder, Multiwfn A pauses. Do not terminate Multiwfn A, we boot up another Multiwfn now (referred to as Multiwfn B), and then input below commands in Multiwfn B
 
-examples\phenol.wfn 5 // We use this module to generate Fukui function on the points recorded in surfptpos.txt 0 // Set custom operation 1 -,examples\phenol_N-1.wfn // Subtract a property of phenol_N-1.wfn from that of phenol.wfn,
+!!! terminal "Multiwfn session"
+
+    - **examples\phenol.wfn 5** — We use this module to generate Fukui function on the points recorded in surfptpos.txt
+    - **0** — Set custom operation 1 -,examples\phenol_N-1.wfn
 
 namely Fukui function f − will be calculated
 
-1 // Electron density 100 // Load the coordinate of the points to be calculated from an external file surfptpos.txt t.txt // Output the coordinate and calculated function values (Fukui function) of the points (surface vertices) to this file
+!!! terminal "Multiwfn session"
+
+    - **1** — Electron density
+    - **100** — Load the coordinate of the points to be calculated from an external file surfptpos.txt t.txt
 
 Next, we terminate Multiwfn B, and return to Multiwfn A, then input t.txt // Load the Fukui function values at the surface vertices from this file
 
@@ -389,9 +424,20 @@ containing electron density and f − respectively. To do so, we reboot Multiwfn
 
 <!-- p.708 -->
 
-examples\phenol.wfn 5 // Calculate grid data 0 // Set custom operation 1 -,examples\phenol_N-1.wfn 1 // Electron density 3 // High-quality grid 2 // Export grid data Now rename the just exported density.cub to mapped.cub. Then input 0 // Return to main menu 5 // Calculate grid data 1 // Electron density 3 // High-quality grid 2 // Export grid data Now you have density.cub in current folder. Move density.cub, mapped.cub, surfanalysis.pdb to VMD folder. Also copy the VMD plotting script molsurfmap.vmd in “examples\scripts\” folder to VMD folder. After that, boot up VMD and run source molsurfmap.vmd in VMD console window to execute the script, then you will see the
+!!! terminal "Multiwfn session"
 
-following map, in which cyan and red spheres correspond to maxima and minima on ρ = 0.01 a.u. isosurface, respectively. The current coloring method is red-white-blue, corresponding to mapped function varying from 0.0 to 0.002.
+    - **examples\phenol.wfn 5** — Calculate grid data
+    - **0** — Set custom operation 1 -,examples\phenol_N-1.wfn
+    - **1** — Electron density
+    - **3** — High-quality grid
+    - **2** — Export grid data Now rename the just exported density.cub to mapped.cub. Then input
+    - **0** — Return to main menu
+    - **5** — Calculate grid data
+    - **1** — Electron density
+    - **3** — High-quality grid
+    - **2** — Export grid data Now you have density.cub in current folder. Move density.cub, mapped.cub, surfanalysis.pdb to VMD folder. Also copy the VMD plotting script molsurfmap.vmd in “examples\scripts\” folder to VMD folder. After that, boot up VMD and run source molsurfmap.vmd in VMD console window to execute the script, then you will see the
+
+following map, in which cyan and red spheres correspond to maxima and minima on $\rho = 0.01$ isosurface, respectively. The current coloring method is red-white-blue, corresponding to mapped function varying from 0.0 to 0.002.
 
 You can edit molsurfmap.vmd yourself to change various default plotting settings, including color scale range, isovalue, and so on. They can also be changed in “Graphics” - “Representation” interface of VMD.
 
@@ -450,7 +496,12 @@ Preparation of structure for analysis You can directly use .cif file of urea cry
 
 urea.cif //.cif file of urea, please find it from Internet. PS: DO NOT manually extend it to supercell, otherwise computational cost will significantly increase
 
-300 // Main function 300 7 // Geometry operation 25 // Extract a molecular cluster (central molecule + surrounding ones) 1 // The whole molecule containing atom 1 is taken as the central molecule, this molecule and all surrounding ureas close to it will be extracted
+!!! terminal "Multiwfn session"
+
+    - **300** — Main function 300
+    - **7** — Geometry operation
+    - **25** — Extract a molecular cluster (central molecule + surrounding ones)
+    - **1** — The whole molecule containing atom 1 is taken as the central molecule, this molecule and all surrounding ureas close to it will be extracted
 
 [Press ENTER button] // Use recommended criterion of 1.2 to detect contact
 
@@ -463,9 +514,23 @@ Now the cluster has been extracted out, the atom indices of the central urea is 
 
 Hirshfeld surface analysis on urea cluster In this example we use the cluster model of urea shown below, which can be constructed in the above way. The corresponding geometry file examples\Urea_crystal.pdb contains 11 ureas, the central one will be defined as the fragment in our Hirshfeld surface analysis.
 
-Boot up Multiwfn and input examples\Urea_crystal.pdb 12 // Quantitative molecular surface analysis 1 // Change surface type 5 // Use Hirshfeld surface 16,36,58,2,77,55,34,13 // The index of the atoms in the central urea 0 // Start calculation. Note that the default mapped function dnorm is used here After the calculation is finished, you can select option 8 to export the surface vertices with the mapped electron density to vtx.pqr, and then plot them in VMD via the way described in the last section.
+Boot up Multiwfn and input examples\Urea_crystal.pdb
 
-Next, we draw fingerprint plot. Input below commands 20 // Fingerprint plot analysis 0 // Start fingerprint analysis 1 // Save fingerprint plot to an image file You will find a .pdf file has generated in current folder, after opening it you will see the graph below
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative molecular surface analysis
+    - **1** — Change surface type
+    - **5** — Use Hirshfeld surface 16,36,58,2,77,55,34,13
+
+Start calculation. Note that the default mapped function dnorm is used here After the calculation is finished, you can select option 8 to export the surface vertices with the mapped electron density to vtx.pqr, and then plot them in VMD via the way described in the last section.
+
+Next, we draw fingerprint plot. Input below commands
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Fingerprint plot analysis
+    - **0** — Start fingerprint analysis
+    - **1** — Save fingerprint plot to an image file You will find a .pdf file has generated in current folder, after opening it you will see the graph below
 
 
 ![](../imgs/p711_261.png)
@@ -515,7 +580,16 @@ Next, we check the fingerprint plot between the hydrogens in the central urea an
 
 atom marked by the yellow arrow in above figure. Input the following commands
 
--1 // Return to upper level of menu 1 // Set the inside atoms to consider [Press ENTER button] // Do not set constraint for atomic indices H // The inside atoms must be hydrogen 2 // Set the outside atoms to consider 76 // The index of the oxygen in one of surrounding urea [Press ENTER button] // Do not set element filter condition 0 // Start fingerprint analysis From the outputted information on screen, you can find the local contact surface produced this time is 6.8 Å2, which corresponds to 7.2% of total contact surface area. Then we draw fingerprint plot and the corresponding surface vertices, as shown below
+!!! terminal "Multiwfn session"
+
+    - **-1** — Return to upper level of menu
+    - **1** — Set the inside atoms to consider [Press ENTER button]
+
+!!! terminal "Multiwfn session"
+
+    - **The inside atoms must be hydrogen 2** — Set the outside atoms to consider
+    - **76** — The index of the oxygen in one of surrounding urea [Press ENTER button]
+    - **Do not set element filter condition 0** — Start fingerprint analysis From the outputted information on screen, you can find the local contact surface produced this time is 6.8 Å2, which corresponds to 7.2% of total contact surface area. Then we draw fingerprint plot and the corresponding surface vertices, as shown below
 
 In the fingerprint plot you can see that the distribution scope of surface points is narrow, and the spike is quite evident, suggesting the strong H-bond character due to the contact of the H and O.
 
@@ -562,7 +636,15 @@ Clearly, H-N/N-H and H-O/O-H types of contact correspond to typical intermolecul
 
 Using VMD to plot color-mapped isosurface of Hirshfeld/Becke surface Here I describe how to easily plot very pretty Hirshfeld surface mapped by electron density with promolecular approximation, this map looks much better than those shown above. The urea cluster is still taken as example.
 
-Boot up Multiwfn and input examples\Urea_crystal.pdb 12 // Quantitative molecular surface analysis 1 // Change surface definition 5 // Use Hirshfeld surface 16,36,58,2,77,55,34,13 // The index of the atoms in the central urea 0 // Start calculation -2 // Export the grid data used to define Hirshfeld surface as surf.cub in current folder 13 // Calculate grid data of mapped function and export it to mapfunc.cub in current folder Now you have surf.cub and mapfunc.cub in current folder, move them to the VMD folder. Then copy the examples\scripts\hirsh_rho.vmd file into the VMD folder. Boot up VMD, input source hirsh_rho.vmd in VMD console window to run this script. For the present case it is better to also input material change diffuse Translucent 0.8 in the console window to make the surface brighter.
+Boot up Multiwfn and input examples\Urea_crystal.pdb
+
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative molecular surface analysis
+    - **1** — Change surface definition
+    - **5** — Use Hirshfeld surface 16,36,58,2,77,55,34,13
+
+Start calculation -2 // Export the grid data used to define Hirshfeld surface as surf.cub in current folder 13 // Calculate grid data of mapped function and export it to mapfunc.cub in current folder Now you have surf.cub and mapfunc.cub in current folder, move them to the VMD folder. Then copy the examples\scripts\hirsh_rho.vmd file into the VMD folder. Boot up VMD, input source hirsh_rho.vmd in VMD console window to run this script. For the present case it is better to also input material change diffuse Translucent 0.8 in the console window to make the surface brighter.
 
 
 ![](../imgs/p715_267.png)
@@ -575,7 +657,7 @@ By the way, sometimes you need to fine tune the color scale. The default value c
 
 Based on the GC.wfn used in Section 4.12.5, you can use the same method as above to plot electron density mapped Hirshfeld surface, see below.
 
-Via very similar procedure, you can also plot dnorm mapped Hirshfeld or Becke surface, there are only two difference compared to the above case: (1) In main function 12, after choosing option to 1 to switch to Hirshfeld or Becke surface, you need to choose option 2 and select dnorm as mapped function (2) examples\scripts\hirsh_dnorm.vmd script should be used instead of the hirsh_rho.vmd used above.
+Via very similar procedure, you can also plot $d_{\mathrm{norm}}$ mapped Hirshfeld or Becke surface, there are only two difference compared to the above case: (1) In main function 12, after choosing option to 1 to switch to Hirshfeld or Becke surface, you need to choose option 2 and select dnorm as mapped function (2) examples\scripts\hirsh_dnorm.vmd script should be used instead of the hirsh_rho.vmd used above.
 
 Much more examples of Hirshfeld/Becke analysis and relevant skills can be found in my blog article http://sobereva.com/701 (in Chinese).
 
@@ -615,7 +697,7 @@ After a while, you will find below output on screen
  Internal charge separation (Pi):   0.03740373 a.u. (     23.47121 kcal/mol)
 ```
 
-From the output, we find that M/Vm=1.7606 g/cm3 and 2totνσ=79.40119 (kcal/mol)2, therefore
+From the output, we find that $M/V_m=1.7606\ g/cm^3$ 2totνσ=79.40119 (kcal/mol)2, therefore
 
 the density could be predicted as 0.9183*1.7606+0.0028*79.40119+0.0443=1.883 g/cm3. The experimental density of FOX-7 crystal is 1.885 g/cm3, which can be found at corresponding wiki page (https://en.wikipedia.org/wiki/FOX-7). Clearly, our prediction is extremely successful, the error is merely -0.002 g/cm3! However, the surprisingly good result is fortuitous to a large extent, since according to the test in the Mol. Phys. paper, the RMS error using above prediction formula is 0.047 g/cm3.
 
@@ -633,7 +715,13 @@ Boot up Multiwfn and input following commands:
 
 <!-- p.718 -->
 
-examples\ThioformicAcid.wfn // Thioformic acid optimized at B3LYP/6-311++G(2d,2p) 12 // Quantitative analysis of molecular surface 2 // Select mapped function 6 // Orbital overlap distance function D(r), which maximizes EDR(r;d) with respect to d 2 // Use default value of total number, start and increment of EDR exponents. Please consult Section 4.5.7 for more information.
+!!! terminal "Multiwfn session"
+
+    - **examples\ThioformicAcid.wfn** — Thioformic acid optimized at B3LYP/6-311++G(2d,2p)
+    - **12** — Quantitative analysis of molecular surface
+    - **2** — Select mapped function
+    - **6** — Orbital overlap distance function D(r), which maximizes EDR(r;d) with respect to d
+    - **2** — Use default value of total number, start and increment of EDR exponents. Please consult Section 4.5.7 for more information.
 
 0 // Start analysis now! Now the analysis starts. This step will take some time. Once calculation is finished, following results will be printed on screen along with other information:
 
@@ -689,7 +777,13 @@ According to the Bader's paper J. Am. Chem. Soc., 109, 7968 (1987), ρ = 0.001 a
 
 examples\dopamine.wfn // Generated using B3LYP/6-31G* level. Commonly the quality of density at this level is absolutely adequate
 
-12 // Quantitative analysis of molecular surface 1 // Select the way to define surface 1 // Isosurface of electron density 0.002 // Isovalue (a.u.) 6 // Start analysis without consideration of mapped function You only need to pay attention to below line in the output:
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative analysis of molecular surface
+    - **1** — Select the way to define surface
+    - **1** — Isosurface of electron density
+    - **0.002** — Isovalue (a.u.)
+    - **6** — Start analysis without consideration of mapped function You only need to pay attention to below line in the output:
 
 
 ```text
@@ -722,16 +816,23 @@ Evaluating vdW surface area without wavefunction information Sometimes we are di
 
 For example, we only have examples\dopamine.xyz in hand, you can boot up Multiwfn and load this file, then input
 
-12 // Quantitative analysis of molecular surface 1 // Select the way to define surface 2 // Isosurface of a specific real space function 1 // Promolecular electron density 0.002 // Isovalue (a.u.) 6 // Start analysis without consideration of mapped function The calculated result is
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative analysis of molecular surface
+    - **1** — Select the way to define surface
+    - **2** — Isosurface of a specific real space function
+    - **1** — Promolecular electron density
+    - **0.002** — Isovalue (a.u.)
+    - **6** — Start analysis without consideration of mapped function The calculated result is
 
 
 ```text
 Overall surface area:         697.18104 Bohr^2  ( 195.23060 Angstrom^2)
 ```
 
-Obviously the result is reasonable, the value 195.2 Å2 is in qualitative agreement with the 181.6 Å2 we previously calculated based on the B3LYP/6-31G* wavefunction.
+Obviously the result is reasonable, the value 195.2 $^{2}$ is in qualitative agreement with the 181.6 Å2 we previously calculated based on the B3LYP/6-31G* wavefunction.
 
-If then we calculate area of the amino group moiety, the result will be 31.5 Å2, which is also close to the 27.9 Å2 calculated based on the DFT density. In particular, the occupancy of this group 31.5/195.2*100%=16.1% is even nearly quantitatively consistent with the 15.4% we calculated before.
+If then we calculate area of the amino group moiety, the result will be 31.5 $^{2}$, which is also close to the 27.9 Å2 calculated based on the DFT density. In particular, the occupancy of this group 31.5/195.2*100%=16.1% is even nearly quantitatively consistent with the 15.4% we calculated before.
 
 
 ![](../imgs/p720_272.png)
@@ -755,7 +856,11 @@ here, which contains σ-hole at the end of chlorine atom as well as π-hole abov
 
 Quantitative analysis of ESP on vdW surface First, we carry out regular quantitative analysis of ESP on vdW surface. Boot up Multiwfn and input
 
-examples\ClPO2.fch // Geometry and wavefunction were produced at PBE0/def2-TZVP 12 // Quantitative molecular surface analysis 0 // Start analysis, the mapped function is default to ESP As can be seen from the output, three ESP maxima on the vdW surface are found, their ESP values and coordinates are shown below:
+!!! terminal "Multiwfn session"
+
+    - **examples\ClPO2.fch** — Geometry and wavefunction were produced at PBE0/def2-TZVP
+    - **12** — Quantitative molecular surface analysis
+    - **0** — Start analysis, the mapped function is default to ESP As can be seen from the output, three ESP maxima on the vdW surface are found, their ESP values and coordinates are shown below:
 
 
 ```text
@@ -788,7 +893,7 @@ Average value of selected surface region:     0.02650 a.u.
 Product of above two values:         1.48230 a.u.*Angstrom^2
 ```
 
-The output indicates that there are 4307 surface vertices directly or indirectly connected to maximum 3 with ESP values larger than 0 (i.e. positive ESP), the area of this local surface is 55.94 Å2 and average ESP is 0.0265 a.u. According to chemical intuition, the calculated area is obviously
+The output indicates that there are 4307 surface vertices directly or indirectly connected to maximum 3 with ESP values larger than 0 (i.e. positive ESP), the area of this local surface is 55.94 $^{2}$ and average ESP is 0.0265 a.u. According to chemical intuition, the calculated area is obviously
 
 too large compared to expected π-hole area, what is the reason?
 
@@ -923,7 +1028,14 @@ Before doing the calculation, we should use main function 0 to check the orienta
 
 Clearly, the molecular axis is exactly parallel to the Z-axis, therefore the kinetic diameter can be calculated as difference between surface vertex with most positive X value and that with most negative X value (the surface is defined as 0.0015 a.u. isosurface of electron density).
 
-Now we conduct the calculation. Boot up Multiwfn and input examples\CO.fch 12 // Quantitative analysis of molecular surface 1 // Select the way to define surface 1 // Isosurface of electron density 0.0015 // Isovalue 6 // Start analysis without consideration of mapped function After properly scrolling up, you can find below output:
+Now we conduct the calculation. Boot up Multiwfn and input examples\CO.fch
+
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative analysis of molecular surface
+    - **1** — Select the way to define surface
+    - **1** — Isosurface of electron density
+    - **0.0015** — Isovalue 6
 
 
 ```text
@@ -957,9 +1069,9 @@ Choosing proper surface vertices is not quite easy, please be very patient. If t
 
 Note: See my blog article “Using Multiwfn to investigate preferential site and difficulty of nucleophilic reactions as well as weak interactions through local electron attachment energy (LEAE)” (http://sobereva.com/676, in Chinese) for more discussion and examples about this topic.
 
-We have studied average local ionization energy (IEL) in Section 4.12.2, please read it first if you have not, since the present section can be viewed as an extension of that section. There are two functions closely related to IEL, namely local electron affinity (EAL) and local electron attachment energy (Eatt), which will be described and illustrated in this section.
+We have studied average local ionization energy ($IE_{L}$) in Section 4.12.2, please read it first if you have not, since the present section can be viewed as an extension of that section. There are two functions closely related to IEL, namely local electron affinity (EAL) and local electron attachment energy (Eatt), which will be described and illustrated in this section.
 
-Local electron affinity IEL was proposed in J. Mol. Model., 9, 342 (2003) and defined as
+Local electron affinity $IE_{L}$ was proposed in J. Mol. Model., 9, 342 (2003) and defined as
 
 
 ![](../imgs/p728_283.png)
@@ -971,39 +1083,39 @@ $$E A_{\mathrm{L}}(\mathbf{r})=\frac{-\sum_{i\in\mathrm{v i r}}\left|\varphi_{i}
 
 <!-- formula-ocr: formula_p729_340.png 已替换为LaTeX, 原图保留备查 -->
 
-i  vir
+i ∈ vir
 
-where ε denotes orbital energy, φ is orbital wavefunction. EAL corresponds to user-defined function 27 in Multiwfn.
+where ε denotes orbital energy, φ is orbital wavefunction. $EA_L$ corresponds to user-defined function 27 in Multiwfn.
 
-EAL approximately reveals electron affinity at a given point based on Koopmans' approximation. It is expected that the more positive the EAL at a point, the stronger the electrophilicity in this region. Clearly, this nature makes EAL have certain ability in revealing favorable site of nucleophilic attack.
+$EA_L$ approximately reveals electron affinity at a given point based on Koopmans' approximation. It is expected that the more positive the EAL at a point, the stronger the electrophilicity in this region. Clearly, this nature makes EAL have certain ability in revealing favorable site of nucleophilic attack.
 
-The best way of exhibiting distribution of EAL should be mapping it to molecular surface via different colors. In Section 4.12.2 I have illustrated how to plot IEL mapped molecular surface via script of VMD program based on Multiwfn output files, below I will illustrate how to plot this kind of map for EAL via almost the same way.
+The best way of exhibiting distribution of $EA_L$ should be mapping it to molecular surface via different colors. In Section 4.12.2 I have illustrated how to plot $IE_L$ mapped molecular surface via script of VMD program based on Multiwfn output files, below I will illustrate how to plot this kind of map for EAL via almost the same way.
 
-examples\CH3Cl.fchk will be taken as example, it was generated at B3LYP/6-31G* level. Note that EAL is meaningful only when diffuse functions are not employed. In addition, you must use a file containing virtual orbitals as input file, such as .mwfn, .fch and .molden, because virtual orbitals are involved in EAL calculation.
+examples\CH3Cl.fchk will be taken as example, it was generated at B3LYP/6-31G* level. Note that $EA_L$ is meaningful only when diffuse functions are not employed. In addition, you must use a file containing virtual orbitals as input file, such as .mwfn, .fch and .molden, because virtual orbitals are involved in EAL calculation.
 
 To plot the map, you should do following things (below procedure only works for Windows platform, for Linux platform you should write similar scripts yourself)
 
 - Copy LEA_isoext.bat and LEA_isoext.txt from "examples\scripts\local_EA" folder to current folder. Edit the .bat file by text editor, set the VMD paths to actual VMD folder on your machine, and set the path of input file for Multiwfn as its actual path, namely examples\CH3Cl.fchk.
 
 - Copy LEA_isoext.vmd from "examples\scripts\local_EA" folder to VMD folder
-- Double click LEA_isoext.bat to run it. Then Multiwfn will be invoked to generate density.cub (cube file of ρ), userfunc.cub (cube file of EAL) and surfanalysis.pdb (containing surface extrema of EAL on ρ = 0.01 a.u. isosurface), then they will be automatically moved to VMD folder
+- Double click LEA_isoext.bat to run it. Then Multiwfn will be invoked to generate density.cub (cube file of ρ), userfunc.cub (cube file of $EA_L$) and surfanalysis.pdb (containing surface extrema of EAL on ρ = 0.01 a.u. isosurface), then they will be automatically moved to VMD folder
 
 Boot up VMD and input source LEA_isoext.vmd in VMD console window to run this script, then you will see the graph below
 
-This map shows EAL mapped ρ = 0.01 a.u. isosurface, the color scale is from -0.80 (blue) to -0.30 (red) a.u., cyan spheres correspond to maxima of EAL on this surface. As can be seen, the regions around the hydrogens have most positive EAL, indicating that they are the most electrophilic
+This map shows $EA_L$ mapped ρ = 0.01 a.u. isosurface, the color scale is from -0.80 (blue) to -0.30 (red) a.u., cyan spheres correspond to maxima of EAL on this surface. As can be seen, the regions around the hydrogens have most positive EAL, indicating that they are the most electrophilic
 
 
 ![](../imgs/p729_284.png)
 
 <!-- p.730 -->
 
-part of the molecule. Presence of these regions comes from the fact that the hydrogens have positive charge. At the end of the Cl atom there is also a region with relatively more positive EAL, which
+part of the molecule. Presence of these regions comes from the fact that the hydrogens have positive charge. At the end of the Cl atom there is also a region with relatively more positive $EA_{L}$, which
 
 indicates the existence of σ-hole of the Cl atom.
 
 To inquire exact value of the surface extrema, you should activate OpenGL window of VMD, then click button 0 on your keyboard to enter inquire mode, then click center of a surface extreme, for example, the extreme at the top of the map above, you will find its index on VMD console window (index 9). Then enter [atomselect top "index 9"] get beta in VMD console window, you will find the value is -12.49, which is given in eV, and corresponds to -12.49/27.2114 = -0.46 a.u.
 
-It is worth to note that the most appropriate color scale of EAL is usually very different from system to system. If you find the entire isosurface is monocolor, or the color in different regions cannot be clearly distinguished, you should properly adjust lower and upper limits of color scale. If you input for example mol scaleminmax 0 1 -1.0 -0.4 in VMD console window, then the color scale will be changed to -1.0 ~ -0.4 a.u.
+It is worth to note that the most appropriate color scale of $EA_{L}$ is usually very different from system to system. If you find the entire isosurface is monocolor, or the color in different regions cannot be clearly distinguished, you should properly adjust lower and upper limits of color scale. If you input for example mol scaleminmax 0 1 -1.0 -0.4 in VMD console window, then the color scale will be changed to -1.0 ~ -0.4 a.u.
 
 By the way, in order to fully understand how the script works, you are encouraged to manually input the commands recorded in the LEA_isoext.txt one by one into Multiwfn window.
 
@@ -1014,13 +1126,13 @@ $$E_{\mathrm{att}}(\mathbf{r})=\frac{n\sum\limits_{i=LUMO}^{\varepsilon_{i}<0}\l
 
 <!-- formula-ocr: formula_p730_341.png 已替换为LaTeX, 原图保留备查 -->
 
-where i loops over all unoccupied orbitals with negative energy. For restricted and unrestricted wavefunctions, n equals 2 and 1, respectively. Eatt corresponds to user-defined function -27 in Multiwfn, you can study it via various ways in Multiwfn.
+where i loops over all unoccupied orbitals with negative energy. For restricted and unrestricted wavefunctions, n equals 2 and 1, respectively. $E_{\text{att}}$ corresponds to user-defined function -27 in Multiwfn, you can study it via various ways in Multiwfn.
 
-The character of this function is highly analogous to LEA, but mostly because high-lying unoccupied MOs (fully lack of chemical meaning) are not involved in the calculation, this function is more robust than LEA, and presence of diffuse functions are allowed. However, to use this function, one must guarantee that at least LUMO has a negative energy, otherwise the function will be exactly zero everywhere. In the original paper it is found that Eatt works reasonable with B3LYP/6-31+G(d,p) wavefunction. So, we will use the wavefunction generated at this level to illustrate the analysis of Eatt. It is noteworthy that at B3LYP/6-31G* level, even LUMO has a positive energy, thus adding diffuse functions is compulsory at least for this case!
+The character of this function is highly analogous to LEA, but mostly because high-lying unoccupied MOs (fully lack of chemical meaning) are not involved in the calculation, this function is more robust than LEA, and presence of diffuse functions are allowed. However, to use this function, one must guarantee that at least LUMO has a negative energy, otherwise the function will be exactly zero everywhere. In the original paper it is found that $E_{\text{att}}$ works reasonable with B3LYP/6-31+G(d,p) wavefunction. So, we will use the wavefunction generated at this level to illustrate the analysis of Eatt. It is noteworthy that at B3LYP/6-31G* level, even LUMO has a positive energy, thus adding diffuse functions is compulsory at least for this case!
 
-We will plot Eatt colored molecular surface for CH3Cl like the above EAL example. The molecular surface will be defined as 0.004 a.u., this is because the original paper of Eatt suggests studying Eatt on this surface. You should do following things (under Windows)
+We will plot $E_{\text{att}}$ colored molecular surface for CH3Cl like the above $EA_{L}$ example. The molecular surface will be defined as 0.004 a.u., this is because the original paper of Eatt suggests studying Eatt on this surface. You should do following things (under Windows)
 
 - Copy LEAE_isoext.bat and LEAE_isoext.txt from "examples\scripts\local_EA" folder to current folder. Open the .bat file by text editor, set the VMD paths to actual VMD folder on your machine, and set the path of input file for Multiwfn as its actual path, namely examples\CH3Cl_631+Gxx.fch, which was generated using B3LYP/6-31+G(d,p)//B3LYP/6-31G(d) calculation by Gaussian 16.
 
 - Copy LEAE_isoext.vmd from "examples\scripts\local_EA" folder to VMD folder.
-- Double click LEAE_isoext.bat to run it. Then Multiwfn will be invoked to generate density.cub (cube file of ρ), userfunc.cub (cube file of Eatt) and surfanalysis.pdb (containing surface
+- Double click LEAE_isoext.bat to run it. Then Multiwfn will be invoked to generate density.cub (cube file of ρ), userfunc.cub (cube file of $E_{\text{att}}$) and surfanalysis.pdb (containing surface

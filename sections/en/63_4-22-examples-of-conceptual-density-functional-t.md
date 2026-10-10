@@ -143,7 +143,12 @@ the CDFT.txt outputted by option 2 will contain $\omega_{cubic}$, its condensed 
 
 More specifically, for the present example, after entering the present module you should input
 
--1 // Toggle calculating $\omega_{cubic}$ and ε 1 // Generate .wfn files for N, N+1, N-1, N-2 electronic states [Press ENTER button directly] // Use B3LYP/6-31G* level [Press ENTER button directly] // Use default charge and spin multiplicity, namely 0 1 for N state, -1 2 for N+1 state, 1 2 for N-1 state, 2 1 for N-2 state
+!!! terminal "Multiwfn session"
+
+    - **-1** — Toggle calculating $\omega_{cubic}$ and ε
+    - **1** — Generate .wfn files for N, N+1, N-1, N-2 electronic states [Press ENTER button directly]
+
+Use default charge and spin multiplicity, namely 0 1 for N state, -1 2 for N+1 state, 1 2 for N-1 state, 2 1 for N-2 state
 
 Now run the newly generated four .gjf files to obtain N.wfn, N+1.wfn, N-1.wfn and N-2.wfn, then choose option 2. From the outputted CDFT.txt, you can find:
 
@@ -226,9 +231,18 @@ It is worth to note in passing that extrema of 𝑓𝑤+, 𝑓𝑤−, 𝑓𝑤0
 
 Section 4.12. Below we will examine extrema of $\Delta f_w$ on ρ = 0.01 a.u. isosurface. First, we set "iuserfunc" parameter in `settings.ini` to 98, since as mentioned in Section 2.7, ∆𝑓𝑤 corresponds to the 98th user-defined function. Then boot up Multiwfn and input
 
-C60.fch 12 // Quantitative analysis of molecular surface 1 // Select the way to define surface 1 // Isosurface of electron density
+!!! terminal "Multiwfn session"
 
-0.01 // Use ρ = 0.01 a.u. isosurface to define the surface 2 // Select mapped function -1 // User-defined real space function, which now corresponds to $\Delta f_w$ 3 // Spacing of grid points for generating molecular surface
+    - **C60.fch 12** — Quantitative analysis of molecular surface
+    - **1** — Select the way to define surface
+    - **1** — Isosurface of electron density
+
+!!! terminal "Multiwfn session"
+
+    - **0.01** — Use ρ = 0.01 a.u. isosurface to define the surface
+    - **2** — Select mapped function
+    - **-1** — User-defined real space function, which now corresponds to $\Delta f_w$
+    - **3** — Spacing of grid points for generating molecular surface
 
 
 <!-- p.938 -->
@@ -252,7 +266,12 @@ The cyclo[18]carbon contains two kinds of C-C bond, a short one and a long one, 
 
 In Multiwfn, it is also possible to plot $\Delta f_{w}$ as plane map. As an example, we will plot ∆𝑓𝑤 as color-filled map on the molecular plane of the cyclo[18]carbon. We first set "iuserfunc" parameter in `settings.ini` to 98, then boot up Multiwfn and input
 
-C18.fchk 4 // Plot plane map 100 // User-defined real space function, which now corresponds to $\Delta f_{w}$ 1 // Color-filled map [Press ENTER button to use default grid setting] 1 // XY plane 0 // Z=0 We close the map that pops up, then adjust some settings in the post-processing menu and replot, after that you will see the map below. The blue contour line corresponds to vdW surface.
+!!! terminal "Multiwfn session"
+
+    - **C18.fchk 4** — Plot plane map
+    - **100** — User-defined real space function, which now corresponds to $\Delta f_{w}$
+    - **1** — Color-filled map [Press ENTER button to use default grid setting]
+    - **1** — XY plane 0
 
 
 ![](../imgs/p939_469.png)
@@ -388,15 +407,27 @@ Then choose option 2 to calculate various CDFT quantities and print them to CDFT
 
 Next, input following commands to obtain local hyper-softness, which is product of square of softness and dual descriptor
 
-3 // Calculate grid data of Fukui function, dual descriptor and related functions -10 // Set extension distance 6 // 6 Bohr, which is slightly larger than the default one to avoid isosurface truncation at box boundary when isovalue is set to a small value
+!!! terminal "Multiwfn session"
+
+    - **3** — Calculate grid data of Fukui function, dual descriptor and related functions
+    - **-10** — Set extension distance
+    - **6** — 6 Bohr, which is slightly larger than the default one to avoid isosurface truncation at box boundary when isovalue is set to a small value
 
 3 // Since C60 is not small, we use high-quality grid to guarantee that grid spacing will not be too large and thus leading to poor isosurface map
 
--1 // Set the scale factor to various grid data 21.514996 // Square of softness in Hartree-2 8 // Export grid data of scaled dual descriptor as DD.cub in current folder Now the newly generated DD.cub in current folder corresponds to local hyper-softness with unit of 1/(Bohr3Hartree2). Plotting it as isosurface map with isovalue of 0.001 via VMD, you will see the following map, which is basically exactly the same as Fig. 4 of J. Math. Chem., 62, 461 (2024), though the current basis set 6-311G* is different to the much more expensive 6-311+G* employed in that work. Also, it is noteworthy that the main characteristic of this map is comparable with the ∆𝑓𝑤 of C60 obtained in Section 4.22.2.
+!!! terminal "Multiwfn session"
+
+    - **-1** — Set the scale factor to various grid data
+    - **21.514996** — Square of softness in Hartree-2
+    - **8** — Export grid data of scaled dual descriptor as DD.cub in current folder Now the newly generated DD.cub in current folder corresponds to local hyper-softness with unit of 1/(Bohr3Hartree2). Plotting it as isosurface map with isovalue of 0.001 via VMD, you will see the following map, which is basically exactly the same as Fig. 4 of J. Math. Chem., 62, 461 (2024), though the current basis set 6-311G* is different to the much more expensive 6-311+G* employed in that work. Also, it is noteworthy that the main characteristic of this map is comparable with the ∆𝑓𝑤 of C60 obtained in Section
 
 Via similar way, we can obtain local softness, which is defined as product of softness and Fukui function. Input following commands
 
--1 // Set the scale factor to various grid data 4.638426 // Softness in Hartree-1 6 // Export grid data of scaled f- as f-.cub in current folder
+!!! terminal "Multiwfn session"
+
+    - **-1** — Set the scale factor to various grid data
+    - **4.638426** — Softness in Hartree-1
+    - **6** — Export grid data of scaled f- as f-.cub in current folder
 
 Now the newly generated f-.cub in current folder corresponds to local softness s−, with unit of 1/(Bohr3Hartree). The following maps are the 0.005 and 0.003 isosurface of s− plotted by VMD, the former is identical to Fig. 2 of J. Math. Chem., 62, 461 (2024), while the latter is clearer to distinguish the bonds easiest to undergo electrophilic attack (i.e. the bonds shared by two six-membered rings), and it looks very analogous to the 𝑓𝑤− map of C60 in Section 4.22.2.
 
@@ -447,7 +478,14 @@ material as transparent, you will see the following map, which is exactly the sa
 
 This example illustrates plotting Fukui potential and dual descriptor potential for maleic anhydride, the latter is also given in J. Math. Chem., 62, 1094 (2024) and it was calculated at M06-2X/6-311++G(d,p) level, so we will use the same level to reproduce that result. If you are not familiar with these two potentials, please check Section 3.25.1 first.
 
-Boot up Multiwfn and input examples\maleic_anhydride.xyz //Geometry was optimized at M06-2X/6-311++G(d,p) level 22 // Conceptual DFT (CDFT) analysis 1 // Generate .wfn files for N, N+1, N-1 electrons states M062X/6-311++G(d,p) // Keywords of Gaussian to perform single point calculations [Press ENTER button] // Use (0 1), (-1 2) and (1 2) for N, N+1 and N-1 states y // Invoke Gaussian to calculate the three states (assume that you have properly set “gaupath” in `settings.ini`)
+Boot up Multiwfn and input examples\maleic_anhydride.xyz //Geometry was optimized at M06-2X/6-311++G(d,p) level
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Conceptual DFT (CDFT) analysis
+    - **1** — Generate .wfn files for N, N+1, N-1 electrons states M062X/6-311++G(d,p)
+
+Use (0 1), (-1 2) and (1 2) for N, N+1 and N-1 states y // Invoke Gaussian to calculate the three states (assume that you have properly set “gaupath” in `settings.ini`)
 
 9 // Calculate grid data of Fukui potential and dual descriptor potential 1 // Because calculating ESP grid data is relatively expensive, so here we choose to use low-quality grid
 
@@ -467,7 +505,12 @@ Note: Using Multiwfn to calculate bond dual descriptor to study reactivity of di
 
 Please read the brief introduction to bond dual descriptor (BDD) in Section 3.25.1 first, and read Section 4.22.1 to understand the basic use of the conceptual DFT analysis module. In this section I will illustrate the calculation of BDD for acrylonitrile, the structure optimized at B3LYP/6-31G* level is shown below, and the structure file is examples\acrylonitrile.xyz.
 
-Boot up Multiwfn, load examples\acrylonitrile.xyz, then input 22 // Conceptual DFT (CDFT) analysis 1 // Generate .wfn files for N, N+1, N-1 electrons states [Press ENTER button directly] // The generated .gjf files will correspond to single point task at B3LYP/6-31G* level
+Boot up Multiwfn, load examples\acrylonitrile.xyz, then input
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Conceptual DFT (CDFT) analysis
+    - **1** — Generate .wfn files for N, N+1, N-1 electrons states [Press ENTER button directly]
 
 [Press ENTER button directly] // Use default charge and spin multiplicity, namely 0 1 for N state, -1 2 for N+1 state, and 1 2 for N-1 state
 

@@ -28,7 +28,11 @@ examples\spectra\NH3BF3_freq.out // The output file of optimization and vibratio
 
 <!-- p.656 -->
 
-11 // Plot spectrum 1 // The type of the spectrum is IR 0 // Show the spectrum right now You will get the graph below
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **1** — The type of the spectrum is IR
+    - **0** — Show the spectrum right now You will get the graph below
 
 6013.86 377.95
 
@@ -79,7 +83,12 @@ The spectrum plotting module of Multiwfn is quite flexible, not only the total s
 
 Boot up Multiwfn and input examples\spectra\acetic_acid_TDDFT.out // Calculated at TD-B3LYP/cc-pVDZ level by Gaussian
 
-11 // Plot spectrum 3 // The type of the spectrum is UV-Vis 15 // Output the spectrum including the contributions from certain individual transitions 0.01 // The criterion of selecting transitions is oscillator strength > 0.01 The curve of the UV-Vis spectrum together with the contributions from the transitions whose absolute value of strength are larger than 0.01 have been outputted to spectrum_curve.txt in current folder. The first two columns correspond to energies and molar absorption coefficients, the correspondence between the other columns and transition modes are clearly indicated on screen:
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **3** — The type of the spectrum is UV-Vis
+    - **15** — Output the spectrum including the contributions from certain individual transitions
+    - **0.01** — The criterion of selecting transitions is oscillator strength > 0.01 The curve of the UV-Vis spectrum together with the contributions from the transitions whose absolute value of strength are larger than 0.01 have been outputted to spectrum_curve.txt in current folder. The first two columns correspond to energies and molar absorption coefficients, the correspondence between the other columns and transition modes are clearly indicated on screen:
 
 
 ```text
@@ -141,7 +150,11 @@ In Multiwfn one can very easily obtain major contributions from various transiti
 
 maximum 3 (138.0728 nm), so we input
 
-15 // Output contributions of individual transitions to the spectrum 0 // Calculate maximal 10 contributions to a given position 138.0728 // The position of interest You will see
+!!! terminal "Multiwfn session"
+
+    - **15** — Output contributions of individual transitions to the spectrum
+    - **0** — Calculate maximal 10 contributions to a given position
+    - **138.0728** — The position of interest You will see
 
 
 ```text
@@ -171,9 +184,19 @@ In this example we plot electronic circular dichroism (ECD) spectrum for asparag
 
 examples\spectra\Asn_TDDFT.out // Gaussian TDDFT task at PBE0/6-311G* level, 30 lowest excited states were calculated
 
-11 // Plot spectrum 4 // ECD 2 // Read the rotatory strengths in velocity representation 0 // Show the spectrum From the resulting spectrum, you will find the labels of X-axis and Y-axis are decimal. In order to make the graph more beautiful, it is suggested to modify the scale so that label of each tick is integer. Therefore, we close current graph and input below commands:
+!!! terminal "Multiwfn session"
 
-3 // Set X-axis 120,280,20 // Lower and upper limits, as well as spacing between ticks of X-axis 4 // Set left Y-axis -90,100,20 // Lower and upper limits, as well as spacing between ticks of left Y-axis y // Let program properly adjust right Y-axis to guarantee that zero points of left and right axes are in the same horizontal line
+    - **11** — Plot spectrum
+    - **4** — ECD 2
+
+Show the spectrum From the resulting spectrum, you will find the labels of X-axis and Y-axis are decimal. In order to make the graph more beautiful, it is suggested to modify the scale so that label of each tick is integer. Therefore, we close current graph and input below commands:
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Set X-axis
+    - **120,280,20** — Lower and upper limits, as well as spacing between ticks of X-axis
+    - **4** — Set left Y-axis
+    - **-90,100,20** — Lower and upper limits, as well as spacing between ticks of left Y-axis y
 
 0 // Show the spectrum Then you will see the graph below
 
@@ -186,7 +209,14 @@ As can be seen from the above spectrum, the unit of Δε at left axis is labelle
 
 Labelling minima and maxima labels on spectrum One of the strengths of Multiwfn in plotting spectrum is that maxima, minima or both can be directly labelled on the spectrum. To label wavelength of both maxima and minima, we input
 
-16 // Enter the interface of setting status of showing labels of spectrum minima and maxima 1 // Change displaying status of labels 3 // Label both maxima and minima on the spectrum 0 // Return 4 // Set left Y-axis -100,110,20 // Making range of left Y-axis slightly wider, because the labels will be shown y // Correspondingly scale right Y-axis 0 // Plot spectrum again Now you can see the map below
+!!! terminal "Multiwfn session"
+
+    - **16** — Enter the interface of setting status of showing labels of spectrum minima and maxima
+    - **1** — Change displaying status of labels
+    - **3** — Label both maxima and minima on the spectrum
+    - **0** — Return 4
+    - **Set left Y-axis -100,110,20** — Making range of left Y-axis slightly wider, because the labels will be shown y
+    - **Correspondingly scale right Y-axis 0** — Plot spectrum again Now you can see the map below
 
 
 ![](../imgs/p660_219.png)
@@ -211,7 +241,16 @@ Labelling minima and maxima labels on spectrum One of the strengths of Multiwfn 
 
 You can also make Multiwfn label Y-axis value at the extrema on the map, now we do this, and meantime we customize some plotting parameters. Input below commands 120.0140.0160.0180.0200.0220.0240.0260.0280.0Wavelength (nm)
 
-16 // Enter the interface of setting status of showing labels of spectrum minima and maxima 6 // Switch the content of the labels to Y-axis value 4 // Do not rotate the labels (this step is optional) 3 // Set decimal digits (this step is optional) 0 // No decimal digits, namely show data as integer 2 // Set label size 50 // Larger text size than default (30) 0 // Return 0 // Plot spectrum again Now you can see the map below
+!!! terminal "Multiwfn session"
+
+    - **16** — Enter the interface of setting status of showing labels of spectrum minima and maxima
+    - **6** — Switch the content of the labels to Y-axis value
+    - **4** — Do not rotate the labels (this step is optional)
+    - **3** — Set decimal digits (this step is optional)
+    - **0** — No decimal digits, namely show data as integer
+    - **2** — Set label size
+    - **50** — Larger text size than default (30)
+    - **0** — Return 0
 
 
 |  | .3 |  |  |  |  |  |  |  |  |  |  |  |
@@ -249,7 +288,13 @@ You can also make Multiwfn label Y-axis value at the extrema on the map, now we 
 
 Hint: Save and load plotting settings In order to replot the map above quickly in the future, I suggest saving plotting settings to a file, namely input below commands:
 
-s // Save plotting settings Asn_ECD.dat // Save settings to Asn_ECD.dat in current folder Next time, if you want to recover the map above, you simply need to input examples\spectra\Asn_TDDFT.out 11 // Plot spectrum 4 // ECD 2 // Read the rotatory strengths in velocity representation l // Load plotting settings Asn_ECD.dat // Save settings to Asn_ECD.dat in current folder 0 // Plot the spectrum Note that the Asn_ECD.dat corresponding to the map above has already been provided in examples\spectra folder.
+!!! terminal "Multiwfn session"
+
+    - **s** — Save plotting settings Asn_ECD.dat
+    - **Save settings to Asn_ECD.dat in current folder Next time, if you want to recover the map above, you simply need to input examples\spectra\Asn_TDDFT.out 11** — Plot spectrum
+    - **4** — ECD 2
+
+Load plotting settings Asn_ECD.dat // Save settings to Asn_ECD.dat in current folder 0 // Plot the spectrum Note that the Asn_ECD.dat corresponding to the map above has already been provided in examples\spectra folder.
 
 
 ### 4.11.4 Plot conformational weighted UV-Vis and ECD spectra for plumericin
@@ -296,7 +341,12 @@ PS: If you are using Linux system, and there are / symbols or space in the path,
 
 "examples/spectra/weighted/a.out" 0.6046 "examples/spectra/weighted/b.out" 0.1950 "examples/spectra/weighted/c.out" 0.1686 "examples/spectra/weighted/d.out" 0.0317
 
-Plot conformational weighted UV-Vis spectrum Boot up Multiwfn and input examples\spectra\weighted\multiple.txt // The aforementioned file 11 // Plot spectrum 3 // UV-Vis 0 // Show the spectrum The resulting graph is shown below
+Plot conformational weighted UV-Vis spectrum Boot up Multiwfn and input examples\spectra\weighted\multiple.txt
+
+!!! terminal "Multiwfn session"
+
+    - **The aforementioned file 11** — Plot spectrum
+    - **3** — UV-Vis 0
 
 
 <!-- p.664 -->
@@ -358,7 +408,14 @@ The discrete lines in the graph above now have different colors, the color corre
 
 Plot conformational weighted ECD spectrum Using the same procedure illustrated in the last section, we plot conformational weighted ECD spectrum and ECD spectrum for all the four conformations.
 
-Boot up Multiwfn and input examples\spectra\weighted\multiple.txt 11 // Plot spectrum 4 // Plot ECD 2 // Read rotatory strengths in velocity representation 0 // Show the spectrum You will see
+Boot up Multiwfn and input examples\spectra\weighted\multiple.txt
+
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **4** — Plot ECD 2
+
+Show the spectrum You will see
 
 153.883 33.49
 
@@ -404,7 +461,13 @@ The procedure of plotting Raman spectrum is very similar to plotting IR spectrum
 
 Boot up Multiwfn and input examples\spectra\2-methyloxirane_Raman.out // Output file of Raman task calculated at B3LYP/6-31G* level by Gaussian09
 
-11 // Plot spectrum 2 // Raman spectrum 14 // Apply frequency scale factor [Press ENTER button] // Select all frequencies [Press ENTER button] // Employ the fundamental scale factor 0.9614, which is suitable for B3LYP/6-31G* level
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **2** — Raman spectrum
+    - **14** — Apply frequency scale factor [Press ENTER button]
+
+Employ the fundamental scale factor 0.9614, which is suitable for B3LYP/6-31G* level
 
 19 // Convert Raman activities to intensities 15000 // Wavenumber (cm-1) of incident light. This value should be consistent with the actual experimental condition, the value we inputted here is arbitrarily chosen
 
@@ -509,7 +572,12 @@ Boot up Multiwfn and input multiple.txt
 
 <!-- p.669 -->
 
-11 // Plot spectrum 3 // Plot UV-Vis y // For the first spectrum, let Multiwfn use the data with SOC consideration n // For the second spectrum, let Multiwfn use the data without SOC consideration Then you will enter the interface for setting up the spectrum. After slight adjustment of settings, you will obtain the graph below. Clearly, SOC effect has non-negligible influence on the spectrum for present systems.
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **3** — Plot UV-Vis y
+
+For the second spectrum, let Multiwfn use the data without SOC consideration Then you will enter the interface for setting up the spectrum. After slight adjustment of settings, you will obtain the graph below. Clearly, SOC effect has non-negligible influence on the spectrum for present systems.
 
 50000.0 0.347
 
@@ -537,7 +605,14 @@ Boot up Multiwfn and input
 
 <!-- p.670 -->
 
-examples\spectra\methyloxirane_VCD.out 11 // Plot spectrum 5 // VCD 14 // Scale frequencies by a scale factor [Press ENTER button] // Select all frequencies 0.9614 // Employ fundamental scale factor prefitted for B3LYP/6-31G* level 0 // Show the spectrum You will see
+examples\spectra\methyloxirane_VCD.out
+
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **5** — VCD 14
+
+Select all frequencies 0.9614 // Employ fundamental scale factor prefitted for B3LYP/6-31G* level 0 // Show the spectrum You will see
 
 2.46 31.7
 
@@ -561,7 +636,14 @@ The right axis corresponds to the heights of the spikes, which represent rotator
 
 Plotting ROA spectrum This plotting is based on output file of Gaussian freq=ROA task. The Gaussian input and output files are S-methyloxirane_ROA.gjf and S-methyloxirane_ROA.out in examples\spectra folder, respectively. As can be seen from the input file, this calculation takes three incident light frequencies (500, 532 and 600 nm) into account. It is well-known that diffuse functions are important for obtaining accurate ROA data, so aug-cc-pVDZ is used here.
 
-Boot up Multiwfn and input examples\spectra\S-methyloxirane_ROA.out 11 // Plot spectrum 6 // ROA 2 // Three incident light frequencies are detected, here we select the 532nm case 2 // There are totally six kinds of data can be selected, here we select the commonly studied "ROA SCP(180)", namely backscattered circular polarization ROA spectrum
+Boot up Multiwfn and input examples\spectra\S-methyloxirane_ROA.out
+
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **6** — ROA 2
+
+There are totally six kinds of data can be selected, here we select the commonly studied "ROA SCP(180)", namely backscattered circular polarization ROA spectrum
 
 14 // Scale frequencies by a scale factor [Press ENTER button] // Select all frequencies
 
@@ -625,7 +707,23 @@ In Linux environment, you can also use shell script to realizing the batch plott
 
 In Multiwfn, it is possible to plot a set of spikes at the bottom of the simulated spectrum to highlight position of specific transition levels. In Section 4.11.1 we have plotted IR spectrum for NH3BF3, which has some featured vibration modes. This time we will use spikes with different colors to highlight position of two kinds of modes on the map: (1) stretching vibration of B-N bond (2) stretching vibration of N-H bonds. The index of these modes can be identified by inspecting vibration animations in GaussView.
 
-Boot up Multiwfn and input below commands examples\spectra\NH3BF3_freq.out 11 // Plot spectrum 1 // The type of the spectrum is IR 23 // Set status of showing spikes to indicate transition levels 1 // Set the first set of spikes. We want to use black spikes to reveal all vibrations a // Select all modes 5 // Black 2 // Set the second set of spikes 16-18 // Indices of stretching vibration mode of the three N-H bonds 1 // Red 3 // Set the third set of spikes 4 // Index of vibration mode of B-N bond stretching 2 // Green 0 // Return 4 // Modify Y-axis at left side 0,6000,600 // Set lower and upper limits as well as label spacing y // Correspondingly scale Y-axis at right side 0 // Plot the graph
+Boot up Multiwfn and input below commands examples\spectra\NH3BF3_freq.out
+
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **1** — The type of the spectrum is IR
+    - **23** — Set status of showing spikes to indicate transition levels
+    - **1** — Set the first set of spikes. We want to use black spikes to reveal all vibrations a
+    - **Select all modes 5** — Black 2
+    - **Set the second set of spikes 16-18** — Indices of stretching vibration mode of the three N-H bonds
+    - **1** — Red 3
+    - **Set the third set of spikes 4** — Index of vibration mode of B-N bond stretching
+    - **2** — Green 0
+    - **Return 4** — Modify Y-axis at left side
+    - **0,6000,600** — Set lower and upper limits as well as label spacing y
+
+Plot the graph
 
 
 <!-- p.673 -->
@@ -677,7 +775,11 @@ We first plot 13C NMR spectrum. Boot up Multiwfn and input
 
 examples\spectra\NMR\Acetaldehyde.out 11 // Plot various spectrum 7 // NMR From option 6 in the interface, you can find the element currently considered is carbon. Now if you directly select option 0, you will see 13C spectrum, however, the X-axis corresponds to absolute shielding value. In order to make X-axis correspond to chemical shift, we should input
 
-7 // Set how to determine chemical shifts 1 // Using reference shielding value to derive chemical shifts 186.8707 // Reference value of carbon in TMS (see above). Since this value is a built-in data, in this step you can also directly input a to employ it
+!!! terminal "Multiwfn session"
+
+    - **7** — Set how to determine chemical shifts
+    - **1** — Using reference shielding value to derive chemical shifts
+    - **186.8707** — Reference value of carbon in TMS (see above). Since this value is a built-in data, in this step you can also directly input a to employ it
 
 0 // Plot NMR spectrum Now you can see
 
@@ -693,7 +795,13 @@ You can also see following information on Multiwfn console window
 
 In the NMR plotting interface, there are many options used to adjust various plotting settings, such as range of X and Y axes, style of atom labels, color and thickness of spikes and curves, FWHM parameter of broadening and so on, please play with them to improve the spectrum according to your actual requirement.
 
-Next, we plot 1H NMR spectrum. Input below commands 6 // Choose the element considered in plotting H // Hydrogen 7 // Set how to determine chemical shifts 1 // Using reference shielding value to derive chemical shifts a // As mentioned above, this input corresponds to using built-in reference data of TMS
+Next, we plot 1H NMR spectrum. Input below commands
+
+!!! terminal "Multiwfn session"
+
+    - **6** — Choose the element considered in plotting H
+    - **Hydrogen 7** — Set how to determine chemical shifts
+    - **1** — Using reference shielding value to derive chemical shifts a
 
 
 ![](../imgs/p675_222.png)
@@ -704,7 +812,11 @@ evaluated at B97-2/def2-TZVP level under chloroform
 
 It is important to notice that the shielding values of the three hydrogens in the methyl group must be averaged, since methyl group rotates easily in actual environment and thus there is only one NMR peak of hydrogens in this group. Thus we input
 
-10 // Average shielding values of specific atoms 2-4 // H2, H3 and H4 are the hydrogens in the methyl group 0 // Plot the spectrum Now you can see
+!!! terminal "Multiwfn session"
+
+    - **10** — Average shielding values of specific atoms
+    - **2-4** — H2, H3 and H4 are the hydrogens in the methyl group
+    - **0** — Plot the spectrum Now you can see
 
 As you can see, the plotting effect is fairly satisfactory. The information currently shown in console window is:
 
@@ -720,7 +832,13 @@ As introduced in Section 3.13.5, there is another way of determining chemical sh
 
 13C, namely scaling method. Via this method we do not need to calculate reference values, and good chemical shifts could be obtained even using inexpensive calculation levels since the prefitted scaling parameters eliminated most systematical errors. In this section we plot NMR spectrum for pyridine based on the scaling method. examples\spectra\NMR\pyridine_scale.out is output file of NMR task of Gaussian calculated at B3LYP/6-31G* level with chloroform environment represented by SMD solvation model, while the geometry was optimized at B3LYP/6-31G* level in vacuum. The error statistics of various levels given in http://cheshirenmr.info indicate that this level is one of best levels of applying scaling method.
 
-Boot up Multiwfn and input examples\spectra\NMR\pyridine_scale.out 11 // Plot various spectrum 7 // NMR 7 // Set how to determine chemical shifts 2 // Set slope and intercept to determine chemical shifts by scaling method
+Boot up Multiwfn and input examples\spectra\NMR\pyridine_scale.out
+
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot various spectrum
+    - **7** — NMR 7
+    - **Set how to determine chemical shifts 2** — Set slope and intercept to determine chemical shifts by scaling method
 
 
 ![](../imgs/p676_223.png)
@@ -733,7 +851,14 @@ a // Use built-in slope and intercept parameters prefitted for B3LYP/6-31G* with
 
 Due to symmetry of pyridine, there are two peaks showing double degenerate character.
 
-Similarly, you can plot 1H NMR spectrum via scaling method, namely input 6 // Choose the element considered in plotting H 7 // Set how to determine chemical shifts 2 // Set slope and intercept to determine chemical shift by scaling method a 0 // Plot the spectrum
+Similarly, you can plot 1H NMR spectrum via scaling method, namely input
+
+!!! terminal "Multiwfn session"
+
+    - **6** — Choose the element considered in plotting H
+    - **7** — Set how to determine chemical shifts
+    - **2** — Set slope and intercept to determine chemical shift by scaling method a
+    - **0** — Plot the spectrum
 
 4.11.10.3 Plotting conformation weighted NMR spectrum for valine
 
@@ -766,14 +891,38 @@ As can be seen, we have specified two input files with corresponding conformatio
 "examples/spectra/NMR/valine/conf2.out" 0.175
 ```
 
-Now boot up Multiwfn and input multiple.txt 11 // Plot various spectrum 7 // NMR 6 // Choose the element considered in plotting H 7 // Set how to determine chemical shifts 1 // Set reference shielding value to determine chemical shift 31.8294 // The TMS reference value that comes from examples\spectra\NMR\valine\TMS.out, which was calculated via exactly the same way as current system
+Now boot up Multiwfn and input multiple.txt
 
-10 // Average shielding values of specific atoms 11-13 // Three methyl group hydrogens 10 // Average shielding values of specific atoms 14-16 // Three methyl group hydrogens 11 // Set strength of specific atoms 2,17,18 // The three hydrogens in the amino group 0 // Making them fully invisible in the spectrum 0 // Plot the NMR spectrum Now you see the following spectrum
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot various spectrum
+    - **7** — NMR 6
+
+Set how to determine chemical shifts 1 // Set reference shielding value to determine chemical shift 31.8294 // The TMS reference value that comes from examples\spectra\NMR\valine\TMS.out, which was calculated via exactly the same way as current system
+
+!!! terminal "Multiwfn session"
+
+    - **10** — Average shielding values of specific atoms
+    - **11-13** — Three methyl group hydrogens
+    - **10** — Average shielding values of specific atoms
+    - **14-16** — Three methyl group hydrogens
+    - **11** — Set strength of specific atoms
+    - **2,17,18** — The three hydrogens in the amino group
+    - **0** — Making them fully invisible in the spectrum
+    - **0** — Plot the NMR spectrum Now you see the following spectrum
 
 
 <!-- p.679 -->
 
-In order to improve the effect of the map, we close the graph and then input 3 // Set lower and upper limits of X-axis 4,0,0.5 // From 4.0 to 0.0 ppm with label spacing of 0.5 ppm 12 // Do not show spikes to make the spectrum clearer 18 // Other plotting settings 5 // Set X position of legends 1300 // Moving the position of the legends more left than default position 0 // Return Now we select option 0 to replot, the current spectrum is already quite satisfactory
+In order to improve the effect of the map, we close the graph and then input 3 // Set lower and upper limits of X-axis 4,0,0.5 // From 4.0 to 0.0 ppm with label spacing of 0.5 ppm
+
+!!! terminal "Multiwfn session"
+
+    - **12** — Do not show spikes to make the spectrum clearer
+    - **18** — Other plotting settings
+    - **5** — Set X position of legends
+    - **1300** — Moving the position of the legends more left than default position
+    - **0** — Return Now we select option 0 to replot, the current spectrum is already quite satisfactory
 
 Experimental 1H NMR spectrum of valine in water is https://hmdb.ca/spectra/nmr_one_d/1582, by comparing the map above with it you can find our simulated NMR spectrum is reasonable and captured all major features of the experimental spectrum.
 
@@ -824,9 +973,18 @@ Kasha’s rule is assumed to be valid for this system, therefore we should optim
 
 Boot up Multiwfn and input examples\excit\BODIPY_S1_opt.out 11 // Plot spectrum 3 // UV-Vis After that, excitation energies and oscillator strengths of all excited states at the final geometry (S1 geometry) are loaded into Multiwfn. Then we clean oscillator strengths of S2 and S3 states by inputting following commands:
 
-20 // Modify oscillator strengths 2,3 // Select S2 and S3 0 // New oscillator strength Now you can input option 0 to plot the spectrum, however the default axis settings are not ideal. So we input following commands
+!!! terminal "Multiwfn session"
 
-3 // Set lower and upper limit of X-axis, 300,750,50 // Lower limit, upper limit and step size in nm 4 // Set left Y-axis 0,1100,100 // Lower limit, upper limit and step size y // Correspondingly scale the right Y-axis After choose option 0, you will see the fluorescence spectrum
+    - **20** — Modify oscillator strengths
+    - **2,3** — Select S2 and S3
+    - **0** — New oscillator strength Now you can input option 0 to plot the spectrum, however the default axis settings are not ideal. So we input following commands
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Set lower and upper limit of X-axis,
+    - **300,750,50** — Lower limit, upper limit and step size in nm
+    - **4** — Set left Y-axis
+    - **0,1100,100** — Lower limit, upper limit and step size y
 
 
 ![](../imgs/p681_229.png)
@@ -871,7 +1029,12 @@ The output file of frequency analysis task of Gaussian 16 program at ωB97XD/6-3
 
 Plotting common IR spectrum
 
-We first plot a common IR spectrum of the C18···B9N9 complex. Boot up Multiwfn and input examples\spectra\C18-B9N9.out 11 // Plot various kinds of spectrum 1 // IR 0 // Plot spectrum on screen
+We first plot a common IR spectrum of the C18···B9N9 complex. Boot up Multiwfn and input examples\spectra\C18-B9N9.out
+
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot various kinds of spectrum
+    - **1** — IR 0
 
 From the map above you can see many peaks, what are natures of them? Via PVS-NC curves, you can easily understand which molecular fragment has a notable participation in the vibrational motions (represented by corresponding normal coordinates) of the vibration modes that observable in the map above. While via PVS-I, you can visually understand if a molecular fragment has evident contributions to IR absorption intensities of various peaks in the map above. So, PVS-NC and PVS-I respectively focus on revealing different aspects of spectral active vibrational modes. In the rest of this section, I will illustrate plotting PVS-NC curves, while in the next section, plotting PVS-I will be exemplified. More specifically, the PVS-NC plotted in this section is PVS-NC(atom), because we will define each fragment as a set of atoms.
 
@@ -884,7 +1047,14 @@ Plotting PVS-NC(atom) map Assume that we want to study how the motions of C18 at
 
 <!-- p.684 -->
 
-1 // Define PVS fragment 1 1-$C_{18}$ // Atoms in C18 2 // Define PVS fragment 2 19-36 // Atoms in B9N9 l // Set legends of PVS curves 1 // Set legend for PVS cyclo[18]carbon // Full name C18 2 // Set legend for PVS B9N9 q // Save and return q // Generate PVS data and return to spectrum plotting interface From screen you can find composition of the two fragments we just defined in each vibrational mode:
+!!! terminal "Multiwfn session"
+
+    - **1** — Define PVS fragment 1 1-$C_{18}$
+    - **Atoms in C18 2** — Define PVS fragment 2
+    - **19-36** — Atoms in B9N9 l
+    - **Set legends of PVS curves 1** — Set legend for PVS cyclo[18]carbon
+    - **Full name C18 2** — Set legend for PVS B9N9 q
+    - **Save and return q** — Generate PVS data and return to spectrum plotting interface From screen you can find composition of the two fragments we just defined in each vibrational mode:
 
 
 ```text
@@ -908,7 +1078,16 @@ In fact, there are three curves in the map, total IR spectrum (black), PVS of fr
 
 From the map above we can see there are many modest IR absorptions in the low frequency range. To look into their details, we input following commands
 
-3 // Set lower and upper limit of X-axis 750,350,50 // Lower limit, upper limit and interval of X-axis 4 // Set left Y-axis 0,3000,300 // Lower limit, upper limit and interval of left Y-axis y // Correspondingly scale right Y-axis 16 // Set status of showing labels of spectrum minima and maxima 1 // Change displaying status of labels 1 // Show maxima on the spectrum 0 // Return 0 // Plot spectrum Now you can see the following map
+!!! terminal "Multiwfn session"
+
+    - **3** — Set lower and upper limit of X-axis
+    - **750,350,50** — Lower limit, upper limit and interval of X-axis
+    - **4** — Set left Y-axis
+    - **0,3000,300** — Lower limit, upper limit and interval of left Y-axis y
+    - **Correspondingly scale right Y-axis 16** — Set status of showing labels of spectrum minima and maxima
+    - **1** — Change displaying status of labels
+    - **1** — Show maxima on the spectrum
+    - **0** — Return 0
 
 This map is very informative. For example, it is clear that the peak at 428.8 cm-1 almost solely comes from vibration of C18, the peak at 531.4 cm-1 almost only corresponds to vibration of B9N9, the peak at 484.0 cm-1 shows evident coupling vibration character. The normal coordinates of the modes maximally corresponding to the aforementioned peaks are illustrated as follows, which are in line with our expectation from inspecting the PVS map.
 
@@ -923,7 +1102,17 @@ It is noteworthy to emphasize that PVS curves only exhibit contribution of vario
 
 Plotting OPVS map between fragments defined by atoms We can also plot OPVS curve between two fragments to very conveniently examine contribution of their collective vibration in different wavenumber ranges. To plot OPVS between the C18 and B9N9, we input
 
-24 // Set partial and overlap vibrational spectra 0 // Set OPVS 1,2 // OPVS will be drawn between fragments 1 and 2 d // Set display status of PVS/OPVS curves 1 // Disable showing PVS of fragment 1 for clarity 2 // Disable showing PVS of fragment 2 for clarity q // Return q // Return to spectrum plotting interface 0 // Plot spectrum again Now you can see total IR spectrum along with OPVS curve
+!!! terminal "Multiwfn session"
+
+    - **24** — Set partial and overlap vibrational spectra
+    - **0** — Set OPVS 1,2
+
+!!! terminal "Multiwfn session"
+
+    - **Set display status of PVS/OPVS curves 1** — Disable showing PVS of fragment 1 for clarity
+    - **2** — Disable showing PVS of fragment 2 for clarity q
+    - **Return q** — Return to spectrum plotting interface
+    - **0** — Plot spectrum again Now you can see total IR spectrum along with OPVS curve
 
 
 ![](../imgs/p686_235.png)
@@ -951,9 +1140,31 @@ Boot up Multiwfn and input
 
 <!-- p.688 -->
 
-examples\spectra\C18-B9N9.out 11 // Plot various kinds of spectrum 1 // IR 24 // Set partial and overlap vibrational spectra 1 // Define PVS fragment 1 1-18 // Atoms in C18 2 // Define PVS fragment 2 19-36 // Atoms in B9N9 l // Set legends of PVS curves 1 // Set legend for PVS cyclo[18]carbon // Full name C18 2 // Set legend for PVS B9N9 q // Return 0 // Set OPVS 1,2 // Plot between fragments 1 and 2 v // Toggle plotting vibrational DOS instead of spectrum. Then PVS will correspond to PVDOS, and OPVS will correspond to OPVDOS
+!!! terminal "Multiwfn session"
 
-q // Generate PVS data and return to spectrum plotting interface 3 // Set lower and upper limit of X-axis 2400,0,300 // Lower limit, upper limit and interval between ticks 17 // Other plotting settings 11 // Set position of legends 8 // Upper left corner 0 // Return to spectrum plotting interface 0 // Plot spectrum Now you can see the following map
+    - **examples\spectra\C18-B9N9.out 11** — Plot various kinds of spectrum
+    - **1** — IR 24
+
+!!! terminal "Multiwfn session"
+
+    - **Define PVS fragment 1 1-18** — Atoms in C18
+    - **2** — Define PVS fragment 2
+    - **19-36** — Atoms in B9N9 l
+    - **Set legends of PVS curves 1** — Set legend for PVS cyclo[18]carbon
+    - **Full name C18 2** — Set legend for PVS B9N9 q
+    - **Return 0** — Set OPVS 1,2
+    - **Plot between fragments 1 and 2 v** — Toggle plotting vibrational DOS instead of spectrum. Then PVS will correspond to PVDOS, and OPVS will correspond to OPVDOS
+
+!!! terminal "Multiwfn session"
+
+    - **q** — Generate PVS data and return to spectrum plotting interface
+    - **3** — Set lower and upper limit of X-axis
+    - **2400,0,300** — Lower limit, upper limit and interval between ticks
+    - **17** — Other plotting settings
+    - **11** — Set position of legends
+    - **8** — Upper left corner
+    - **0** — Return to spectrum plotting interface
+    - **0** — Plot spectrum Now you can see the following map
 
 
 <!-- p.689 -->
@@ -992,14 +1203,24 @@ First, we plot UV-Vis spectrum of this system corresponding to interaction with 
 
 examples\spectra\CNT66_TDDFT.out // TDDFT output file of Gaussian at PBE0/6-31G* level, 100 excited states were calculated
 
-11 // Plotting spectra -3 // Plotting directional UV-Vis spectrum 4 // XY direction
+!!! terminal "Multiwfn session"
+
+    - **11** — Plotting spectra
+    - **-3** — Plotting directional UV-Vis spectrum
+    - **4** — XY direction
 
 
 ![](../imgs/p690_239.png)
 
 <!-- p.691 -->
 
-0 // Plot spectrum Close the graph shown on screen and input the following commands to adjust plotting settings 3 // Adjust X-axis 200,800,50 // Lower and upper limits, as well as label interval 3 // Adjust left Y-axis 200,800,50 // Lower and upper limits, as well as label interval y // Correspondingly scale right Y-axis Replot the map by choosing option 0, then you will see
+!!! terminal "Multiwfn session"
+
+    - **0** — Plot spectrum Close the graph shown on screen and input the following commands to adjust plotting settings
+    - **3** — Adjust X-axis
+    - **200,800,50** — Lower and upper limits, as well as label interval
+    - **3** — Adjust left Y-axis
+    - **200,800,50** — Lower and upper limits, as well as label interval y
 
 Similarly, you can plot UV-Vis spectrum corresponding to interaction with electric field oscillating along Z direction.
 
@@ -1025,7 +1246,10 @@ Please read section 3.13.7 to understand basic feature of the function of predic
 
 examples\spectra\indigo_TD-B3LYP_water.out is output file of Gaussian of calculating electronic excited states at TD-B3LYP/def2-TZVP level in water environment represented by IEFPCM solvation model. The geometry was optimized for ground state at B3LYP/6-311G* level. Boot up Multiwfn and load this file, then input
 
-11 // Plotting spectrum 3 // UV-Vis 25 // Evaluate color based on the spectrum in visible range Multiwfn first shows UV-Vis spectrum within 360-830 nm, see the following map (PS: visible light range is 380-760 nm, or 400-700 nm. The range of 360-830 nm corresponds to the range for
+!!! terminal "Multiwfn session"
+
+    - **11** — Plotting spectrum
+    - **3** — UV-Vis 25
 
 
 ![](../imgs/p692_241.png)

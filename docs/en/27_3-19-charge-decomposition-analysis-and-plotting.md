@@ -10,7 +10,7 @@ of the first five rows except for Zr-Cd are available, other elements have zero 
 
 If you only need aforementioned data for certain atoms in the system, you can use option -5 to define an atom list first, then other atoms will not be involved in the calculation of option 13.
 
-It is worth noting that if you choose to construct atomic weighting functions by Hirshfeld or Hirshfeld-I method in the way that manually providing atomic wavefunction files, these atomic wavefunction files are completely irrelevant to those used to evaluate Vfree. The former must correspond to sphericalized density, while this requirement is dispensable for the latter.
+It is worth noting that if you choose to construct atomic weighting functions by Hirshfeld or Hirshfeld-I method in the way that manually providing atomic wavefunction files, these atomic wavefunction files are completely irrelevant to those used to evaluate $V^{free}$. The former must correspond to sphericalized density, while this requirement is dispensable for the latter.
 
 An example of using this function is given in Section 4.15.4.
 
@@ -47,19 +47,19 @@ $$r_{i}=\sum_{m\in A}^{occ}\sum_{n\in B}^{occ}\eta_{i}C_{m,i}C_{n,i}S_{m,n}$$
 
 where i and η are index and occupation number of MO of complex, respectively.
 
-,( )( )dm nmnSφφ= ∫rrr is overlap integral between FO m and FO n. Note that though the NA and
+,( )( )dm nmnSφφ= ∫rr$r_i$s overlap integral between FO m and FO n. Note that though the NA and
 
-NB FOs are respectively orthonormal sets, the NA set are in common not normal to the NB set, so S is not an identity matrix. Cm,i denotes the coefficient of FO m in MO i of complex. The superscript "vir" and "occ" mean virtual (viz. unoccupied) and occupied, respectively.
+NB FOs are respectively orthonormal sets, the NA set are in common not normal to the NB set, so S is not an identity mat$r_i$x. $C_{m,i}$ denotes the coefficient of FO m in MO i of complex. The superscript "vir" and "occ" mean virtual (viz. unoccupied) and occupied, respectively.
 
 The term di denotes the amount of electron donated from fragment A to B via MO i of complex;
 
-similarly, the term bi denotes the electron back donated from B to A. In fact, ηiCm,iCn,iSm,n can be regarded as the half of overlap population between FO m and n in MO i. Hence, the difference between term d and b is that which fragment provides its electrons from its occupied FOs to virtual FOs of another fragment. The term r reveals closed-shell interaction between two occupied FOs in different fragments; positive value of ri means that owing to MO i, the electrons of the two fragments are accumulated in their overlap region and shows bonding character, while negative value indicates that the electrons are depleted from the overlap region and thus reflecting electron repulsive effect. The sum of all ri terms is in general negative, because overall interaction between filled orbitals are generally repulsive. r is also known as "repulsion polarization" term
+similarly, the term bi denotes the electron back donated from B to A. In fact, ηi$C_{m,i}$Cn,iSm,n can be regarded as the half of overlap population between FO m and n in MO i. Hence, the difference between term d and b is that which fragment provides its electrons from its occupied FOs to virtual FOs of another fragment. The term r reveals closed-shell interaction between two occupied FOs in different fragments; positive value of $r_i$ means that owing to MO i, the electrons of the two fragments are accumulated in their overlap region and shows bonding character, while negative value indicates that the electrons are depleted from the overlap region and thus reflecting electron repulsive effect. The sum of all ri terms is in general negative, because overall interaction between filled orbitals are generally repulsive. r is also known as "repulsion polarization" term
 
-Beware that although the CDA formulae given in original paper are correct, by carefully inspecting the data, I found the d, b and r terms in the examples presented in the original paper are erroneous (the data should be divided by two).
+Beware that although the CDA formulae given in o$r_i$ginal paper are correct, by carefully inspecting the data, I found the d, b and r terms in the examples presented in the original paper are erroneous (the data should be divided by two).
 
-Generalization of CDA The original definition of CDA has two drawbacks. First, it is only applicable to closed-shell cases (namely, complex and each fragment must be closed-shell) and hence unable to be used when the two fragments are bound by covalent bonding. Second, in post-HF calculations, though the MOs of complex can be replaced by natural orbitals (NOs), the FOs can only be produced by HF or DFT calculation, because occupation numbers of FOs are not explicitly considered in the original CDA formulae.
+Generalization of CDA The o$r_i$ginal definition of CDA has two drawbacks. First, it is only applicable to closed-shell cases (namely, complex and each fragment must be closed-shell) and hence unable to be used when the two fragments are bound by covalent bonding. Second, in post-HF calculations, though the MOs of complex can be replaced by natural orbitals (NOs), the FOs can only be produced by HF or DFT calculation, because occupation numbers of FOs are not explicitly considered in the original CDA formulae.
 
-To address the limitations of the original definition, in my paper J. Adv. Phys. Chem., 4, 111-124 (2015) (http://dx.doi.org/10.12677/JAPC.2015.44013) I proposed a generalized form of CDA, which is the form used in CDA module of Multiwfn:
+To address the limitations of the o$r_i$ginal definition, in my paper J. Adv. Phys. Chem., 4, 111-124 (2015) (http://dx.doi.org/10.12677/JAPC.2015.44013) I proposed a generalized form of CDA, which is the form used in CDA module of Multiwfn:
 
 $$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{\mathrm{FO}}-\eta_{n}^{\mathrm{FO}}\right|}{\eta_{\mathrm{ref}}}C_{m,i}C_{n,i}S_{m,n}\r_{i}&=\sum_{m\in A}\sum_{n\in B}2\frac{\min(\eta_{m}^{\mathrm{FO}},\eta_{n}^{\mathrm{FO}})}{\eta_{\mathrm{ref}}}\eta_{i}C_{m,i}C_{n,i}S_{m,n}\end{aligned}$$
 
@@ -67,7 +67,7 @@ $$\begin{aligned}t_{i}&=\sum_{m\in A}\sum_{n\in B}\eta_{i}\frac{\left|\eta_{m}^{
 
 In the generalized CDA, orbitals of complex and fragments can be produced either by HF/DFT or by post-HF method, corresponding to MOs and NOs, respectively. η𝑚 FO stands for occupation
 
-number of FO m. For open-shell cases, ηref is 1.0, CDA will be performed for alpha spin and beta
+number of FO m. For open-shell cases, $\eta_{ref}$ is 1.0, CDA will be performed for alpha spin and beta
 
 
 <!-- p.242 -->

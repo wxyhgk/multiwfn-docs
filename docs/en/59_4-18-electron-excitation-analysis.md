@@ -50,9 +50,18 @@ Preparation Here I assume that you are a Gaussian user (other quantum chemistry 
 
 <!-- p.806 -->
 
-Examining quantitative indices defined in the hole-electron analysis framework Boot up Multiwfn and input the following commands examples\excit\D-pi-A.fchk 18 // Electron excitation analysis 1 // Hole-electron analysis examples\excit\D-pi-A.out // In fact you can also press ENTER button directly, because the name of the .out file is identical to the .fchk file and they are in the same folder
+Examining quantitative indices defined in the hole-electron analysis framework Boot up Multiwfn and input the following commands examples\excit\D-pi-A.fchk
 
-1 // Study excitation between ground state (S0) and the first excited state (S1) 1 // Calculate distribution of hole, electron and so on as well as various indices 2 // Medium-quality grid (this is suited for small and medium sized systems. For large systems, you should use at least "high-quality grid", or manually input a proper grid spacing)
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **1** — Hole-electron analysis examples\excit\D-pi-A.out
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Study excitation between ground state (S0) and the first excited state (S1)
+    - **1** — Calculate distribution of hole, electron and so on as well as various indices
+    - **2** — Medium-quality grid (this is suited for small and medium sized systems. For large systems, you should use at least "high-quality grid", or manually input a proper grid spacing)
 
 Once calculation is finished, you will find the following information on screen. The data (except for the excitation energy) are calculated by grid-based integration. Clearly, for the same system, the higher number of grids, the better accuracy of the data.
 
@@ -90,7 +99,7 @@ The rest terms in the above output in turn are: The integral of transition densi
 
 <!-- p.807 -->
 
-space (ideal value is 0), transition electric dipole moment, Sm and Sr indices, centroid coordinate of
+space (ideal value is 0), transition electric dipole moment, Sm and $S_r$ indices, centroid coordinate of
 
 hole and electron, Dλ and D indices, X/Y/Z components and norm of variation of excited state dipole moment with respect to the ground state one, RMSD (σ) of hole and electron, Δσλ and Δσ indices, Hλ/HCT/H indices, t index, hole and electron delocalization index, Ghost-hunter index, excitation energy (which is loaded from Gaussian output file directly).
 
@@ -98,13 +107,13 @@ Note that the "Ghost-hunter index" in above output is slightly different to the 
 
 The transition dipole moment outputted above is obtained by integrating evenly distributed grids of transition dipole moment density. It can also be directly read from the Gaussian output file, the X/Y/Z components are 0.4427, -0.0005, -0.0012 a.u., which are very close to those outputted by Multiwfn, namely 0.444063, -0.000186, -0.001753. This observation further reflects that the grid setting we employed is appropriate.
 
-For the S0→S1 excitation under current study, from the above output, it can be seen that the D index is merely 0.522 Å, which is obviously a very small value since it is even less than half length of a typical C-C bond. The Sr index reaches 0.519 (the theoretical upper limit is 1.0), which is a large value, implying that about half part of hole and electron have perfectly matched. So, by simply examining Sr and D indices, we are already able to conclude that this excitation should be a typical local excitation (LE). Then let us look at the t index, its total value is -0.998, which is much less than 0, meaning that there is no significant separation of hole and electron distributions, further implying that this excitation should be attributed to LE type.
+For the S0→S1 excitation under current study, from the above output, it can be seen that the D index is merely 0.522 Å, which is obviously a very small value since it is even less than half length of a typical C-C bond. The $S_r$ index reaches 0.519 (the theoretical upper limit is 1.0), which is a large value, implying that about half part of hole and electron have perfectly matched. So, by simply examining Sr and D indices, we are already able to conclude that this excitation should be a typical local excitation (LE). Then let us look at the t index, its total value is -0.998, which is much less than 0, meaning that there is no significant separation of hole and electron distributions, further implying that this excitation should be attributed to LE type.
 
 Visual study of various real space functions in the hole-electron framework Now you should see the post-processing menu on the screen. The meaning of each option is self-explanatory. Please read through each option carefully. Here we choose option 3, we will see distribution of hole and electron at the same time:
 
 In above figures, green represents the electron distribution, and blue represents the hole distribution, isovalue has been set to 0.005. Both the hole and electron appear almost exclusively in the nitro
 
-group, so there is no doubt that S0→S1 is a LE excitation, well verifying our conclusion based on the D, Sr, and t indices. In addition, according to the above hole distribution map, the hole appears to be composed of lone pair orbitals of oxygens since there is one lobe on each side of each oxygen. Electron distribution has a nodal plane along the nitro group, therefore we can infer that the electron
+group, so there is no doubt that S0→S1 is a LE excitation, well verifying our conclusion based on the D, $S_r$, and t indices. In addition, according to the above hole distribution map, the hole appears to be composed of lone pair orbitals of oxygens since there is one lobe on each side of each oxygen. Electron distribution has a nodal plane along the nitro group, therefore we can infer that the electron
 
 distribution should be composed of π* orbital. Now we can draw the conclusion that that S0→S1 is a LE excitation with n→π* feature.
 
@@ -115,11 +124,11 @@ Then close the graphical window and select option 8 to visualize Chole and Cele,
 
 <!-- p.808 -->
 
-As can be seen, the graph of Chole and Cele look obviously more intuitive, they are very sleek and do not have any nodal character like hole and electron. Therefore, using Chole/Cele map to replace the hole/electron map is a good choice in many cases. (BTW: If isosurfaces of Chole and Cele are not visible in the GUI window, that means the current isovalue is too large, you should gradually and carefully decrease it until the isosurfaces are visible)
+As can be seen, the graph of Chole and Cele look obviously more intuitive, they are very sleek and do not have any nodal character like hole and electron. Therefore, using $C_{\text{hole}}/C_{\text{ele}}$ map to replace the hole/electron map is a good choice in many cases. (BTW: If isosurfaces of Chole and Cele are not visible in the GUI window, that means the current isovalue is too large, you should gradually and carefully decrease it until the isosurfaces are visible)
 
-Next, let us take a look at the overlap function of hole and electron, namely the Sr function. Close current graphical window, select option 4 in the post-processing menu, and then select option 2 to display the Sr function, you will see the map below (isovalue is set to 0.005)
+Next, let us take a look at the overlap function of hole and electron, namely the $S_{r}$ function. Close current graphical window, select option 4 in the post-processing menu, and then select option 2 to display the Sr function, you will see the map below (isovalue is set to 0.005)
 
-From the graph one can clearly find where the hole and electron overlap significantly. As can be seen, around each oxygen there are four regions where the hole and electron are highly overlapped. It is easy to understand why the Sr graph looks like this by comparing the hole and electron isosurfaces shown earlier.
+From the graph one can clearly find where the hole and electron overlap significantly. As can be seen, around each oxygen there are four regions where the hole and electron are highly overlapped. It is easy to understand why the $S_{r}$ graph looks like this by comparing the hole and electron isosurfaces shown earlier.
 
 Then close the window and select option 7, charge density difference (CDD) between the excited state and the ground state will be shown, see below. In this map, the isovalue is set to 0.005, green and blue correspond to increase and decrease of the excited state density with respect to the ground state density, respectively.
 
@@ -213,7 +222,15 @@ There are many options in the hole/electron composition analysis interface, they
 
 Investigating fragment contributions to hole and electron The option "-1 Load fragment definition" in the above hole/electron composition analysis interface is important, it is used to load fragment definition, then fragment contribution to hole and electron will be shown, and fragment-based heat map could be drawn, which makes the discussion significantly more convenient. Here we divide the system into four fragments in the following way.
 
-Select option "-1 Load fragment definition", and then input 4 // Define four fragments 21-23 // The atomic indices of fragment 1 (the nitro group) 11-20 // The atomic indices of fragment 2 (the benzene neighbouring to nitro group) 1-10 // The atomic indices of fragment 3 (the benzene neighbouring to amino group) 24-26 // The atomic indices of fragment 4 (the amino group) You will see below output immediately
+Select option "-1 Load fragment definition", and then input
+
+!!! terminal "Multiwfn session"
+
+    - **4** — Define four fragments
+    - **21-23** — The atomic indices of fragment 1 (the nitro group)
+    - **11-20** — The atomic indices of fragment 2 (the benzene neighbouring to nitro group)
+    - **1-10** — The atomic indices of fragment 3 (the benzene neighbouring to amino group)
+    - **24-26** — The atomic indices of fragment 4 (the amino group) You will see below output immediately
 
 
 ![](../imgs/p811_355.png)
@@ -237,7 +254,7 @@ It can be seen from the figure that the spatial distribution range of electron i
 
 Collective comparison of all electron excitations
 
-At this point, various analyses in the hole-electron framework for the S0→S1 excitation of the NH2-biphenyl-NO2 system have been completely completed. If you also want to analyze other excited states, you should return to the menu of main function 18 by option 0, enter the hole-electron analysis function again, and then select the corresponding excited state. Here we put together the D, Sr, H, t index and hole-electron Coulomb attraction energy of all the five excited states calculated in this system. The hole delocalization index (HDI) and electron delocalization index (EDI), which have not been discussed earlier, are also given:
+At this point, various analyses in the hole-electron framework for the S0→S1 excitation of the NH2-biphenyl-NO2 system have been completely completed. If you also want to analyze other excited states, you should return to the menu of main function 18 by option 0, enter the hole-electron analysis function again, and then select the corresponding excited state. Here we put together the D, $S_{r}$ index and hole-electron Coulomb attraction energy of all the five excited states calculated in this system. The hole delocalization index (HDI) and electron delocalization index (EDI), which have not been discussed earlier, are also given:
 
 D(Å) Sr H(Å) t(Å) Ecoul(eV) HDI EDI
 
@@ -362,7 +379,7 @@ The corresponding Gaussian input file has been provided as examples\excit\Ru(bpy
 
 We arbitrarily select three excited states to perform hole-electron analysis, the results are
 
-D (Å) Sr H (Å) t (Å) hole (Ru%) ele (Ru%) MLCT(%)
+D (Å) $S_r$ H (Å) t (Å) hole (Ru%) ele (Ru%) MLCT(%)
 
 S0→S24 0.30 0.71 2.73 -1.35 77.3 19.6 57.7
 
@@ -370,7 +387,7 @@ S0→S37 0.11 0.84 3.52 -2.10 16.9 8.8 8.1
 
 S0→S40 0.13 0.71 2.00 -1.05 80.3 42.4 38.0
 
-All D indices in this table are very small, while all Sr indices are fairly large. The main reason is that the current molecule is a symmetric system, thus the CT transitions are multiple directional. The MLCT(%) in the table denotes percent of metal-to-ligand charge transfer character, which can be easily evaluated in terms of subtracting the percentage of metal in hole (namely hole(Ru%)) by that in electron (namely ele(Ru%)). Notice that, properly speaking, what we obtained is net MLCT percentage, it has been somewhat cancelled with LMCT (ligand-to-metal charge transfer).
+All D indices in this table are very small, while all $S_r$ indices are fairly large. The main reason is that the current molecule is a symmetric system, thus the CT transitions are multiple directional. The MLCT(%) in the table denotes percent of metal-to-ligand charge transfer character, which can be easily evaluated in terms of subtracting the percentage of metal in hole (namely hole(Ru%)) by that in electron (namely ele(Ru%)). Notice that, properly speaking, what we obtained is net MLCT percentage, it has been somewhat cancelled with LMCT (ligand-to-metal charge transfer).
 
 Below is hole&electron map of S0→S24 excitation with isovalue of 0.002. Since the hole and electron distributions have a large overlap, for the sake of clarity, the isosurfaces of hole and electron are given separately.
 
@@ -440,11 +457,20 @@ More discussions about these topics can be found from my blog article: "Using Mu
 
 in real space
 
-Theory of real space function form of transition density, namely T(r), has been introduced as "Theory 4" in Section 3.21.1.1, isosurface map of T(r) is capable of revealing apparent coherence region between hole and electron. While the real space function form of transition electric dipole moment density, namely Tx(r), Ty(r) and Tz(r), are able to exhibit contribution of various regions to transition electric dipole moment (Dx, Dy, Dz), this point has been introduced as "Theory 5" of Section 3.21.1.1. In this section, N-phenylpyrrole will be taken as instance to illustrate this kind of analysis, involved files are completely identical to those utilized in the example in Section 4.18.1.
+Theory of real space function form of transition density, namely T(r), has been introduced as "Theory 4" in Section 3.21.1.1, isosurface map of T(r) is capable of revealing apparent coherence region between hole and electron. While the real space function form of transition electric dipole moment density, namely Tx(r), Ty(r) and Tz(r), are able to exhibit contribution of various regions to transition electric dipole moment ($D_{x}$), this point has been introduced as "Theory 5" of Section 3.21.1.1. In this section, N-phenylpyrrole will be taken as instance to illustrate this kind of analysis, involved files are completely identical to those utilized in the example in Section 4.18.1.
 
-Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch // The .fch file yielded by Gaussian TDDFT task 18 // Electron excitation analysis 1 // hole-electron analysis module examples\excit\N-phenylpyrrole.out // The output file of Gaussian TDDFT task with IOp(9/40=4) keyword
+Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch
 
-1 // Analyze electron transition from ground state to the 1st excited state (S0→S1) 1 // Visualize and analyze hole, electron, transition density and so on 2 // Medium-quality grid Now you can find the following information in the output, they are Dx, Dy and Dz evaluated based on integrating the grid data
+!!! terminal "Multiwfn session"
+
+    - **The .fch file yielded by Gaussian TDDFT task 18** — Electron excitation analysis
+    - **1** — hole-electron analysis module examples\excit\N-phenylpyrrole.out
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Analyze electron transition from ground state to the 1st excited state (S0→S1)
+    - **1** — Visualize and analyze hole, electron, transition density and so on
+    - **2** — Medium-quality grid Now you can find the following information in the output, they are Dx, Dy and Dz evaluated based on integrating the grid data
 
 
 ```text
@@ -531,7 +557,13 @@ Note that in "atom TDM", hydrogens are commonly ignored because they rarely cont
 
 Here we first study S0→S1 transition of this system. The fchk and .out files used below are yielded using CAM-B3LYP/6-31G* IOp(9/40=4) TD(nstates=10) keywords. Boot up Multiwfn and input
 
-examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk 18 // Electron excitation analysis 2 // Plot heat map of transition matrix examples\excit\NH2_C8_NO2\NH2_C8_NO2.out 1 // Study transition between ground state to the 1st excited state. Then Multiwfn will calculate corresponding TDM
+examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **2** — Plot heat map of transition matrix examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
+    - **1** — Study transition between ground state to the 1st excited state. Then Multiwfn will calculate corresponding TDM
 
 n // Do not diagonalize the newly generated TDM, because TDM in original form carries more useful information
 
@@ -593,7 +625,12 @@ Note that you can also use such as 2,5-8,12-15,20 to define a batch of atoms wit
 
 Then input below commands -1 // Define fragments 0 // Load fragment definition from an external file (as prompted, you can also directly input atom indices)
 
-tdmfrag.txt // The file containing fragment definition 5 // Modify range of color scale 0,0.4 // Lower and upper limit 1 // Plot heat map Now you can see the graph below, whose index corresponds to fragment index, the hole&electron isosurface map is also given together for comparison. The region marked with a blue frame is the 4th fragment (hexatriene).
+!!! terminal "Multiwfn session"
+
+    - **tdmfrag.txt** — The file containing fragment definition
+    - **5** — Modify range of color scale
+    - **0,0.4** — Lower and upper limit
+    - **1** — Plot heat map Now you can see the graph below, whose index corresponds to fragment index, the hole&electron isosurface map is also given together for comparison. The region marked with a blue frame is the 4th fragment (hexatriene).
 
 
 ![](../imgs/p826_372.png)
@@ -637,14 +674,21 @@ Below, we still use the donor-π-acceptor employed in Section 4.18.2.2 as exampl
 
 Initially we need to generate a file containing atom TDMM. Boot up Multiwfn and input examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk 18 // Electron excitation analysis 11 // Decompose transition dipole moment as basis function and atom contributions examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
 
-1 // Study S0→S1 excitation 1 // The transition dipole moment to be studied is "electric" y // Export atom TDMM As shown in screen, matrices have been exported to .txt files in current folder with "AAtrdip"
+!!! terminal "Multiwfn session"
+
+    - **1** — Study S0→S1 excitation
+    - **1** — The transition dipole moment to be studied is "electric" y
 
 
 <!-- p.829 -->
 
 prefix, in which the AAtrdipX.txt contains the X component of atom TDMM. Next, we will plot heat map based on this matrix.
 
-Reboot Multiwfn and input o // Load the file last time loaded 18 // Electron excitation analysis 2 // Plot heat map of transition matrix AAtrdipX.txt Now you can find the information below on screen
+!!! terminal "Multiwfn session"
+
+    - **Reboot Multiwfn and input o** — Load the file last time loaded
+    - **18** — Electron excitation analysis
+    - **2** — Plot heat map of transition matrix AAtrdipX.txt Now you can find the information below on screen
 
 
 ```text
@@ -658,7 +702,13 @@ where -4.38875223 is just the X component of transition electric dipole moment o
 
 As also shown in above prompt, the minimum value of this matrix is a negative value -0.825, however by default the lower limit of color scale of present function is 0, therefore we must change the color scale, and it is better to make absolute value of lower and upper limits identical. You can repeatedly try to find the value that makes the image best reflect the characteristics of the matrix. If the range is too narrow, the parts that exceed the upper and lower limits of the color scale will be displayed as white and black, respectively, which is not beautiful. If the range is too broad, the difference of the matrix elements can hardly be distinguished by colors.
 
-Now we input below commands in Multiwfn 5 // Modify range of color scale -0.7,0.7 // Lower and upper limits 1 // Plot heat map Immediately you can see the graph below. In order to better understand the heat map, the isosurface of transition dipole moment density of X component is also shown together (see Section 4.18.2.1 on how to plot it)
+Now we input below commands in Multiwfn
+
+!!! terminal "Multiwfn session"
+
+    - **5** — Modify range of color scale
+    - **-0.7,0.7** — Lower and upper limits
+    - **1** — Plot heat map Immediately you can see the graph below. In order to better understand the heat map, the isosurface of transition dipole moment density of X component is also shown together (see Section 4.18.2.1 on how to plot it)
 
 
 <!-- p.830 -->
@@ -686,17 +736,30 @@ Analysis of transition density in real space function between excited states As 
 
 Here S2→S3 transition of N-phenylpyrrole is taken as an example, below procedure will generate cube file of corresponding transition density. Boot up Multiwfn and input
 
-examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis 9 // Generate and export transition density matrix 2 // Generate transition density matrix between (TDM) two excited states examples\excit\N-phenylpyrrole.out
+!!! terminal "Multiwfn session"
+
+    - **examples\excit\N-phenylpyrrole.fch 18** — Electron excitation analysis
+    - **9** — Generate and export transition density matrix
+    - **2** — Generate transition density matrix between (TDM) two excited states examples\excit\N-phenylpyrrole.out
 
 2,3 // Assume that you want to analyze S2→S3 transition [Press ENTER button directly to use default threshold] y // Symmetrize the resulting TDM in usual way y // Export present wavefunction information including the newly generated TDM to TDM.fch in current folder
 
-Reboot Multiwfn and input TDM.fch 200 // Other function, part 2 16 // Generate natural orbitals based on the density matrix in .fch/.fchk file SCF // We input this because the "Total SCF Density" field in the TDM.fch currently
+!!! terminal "Multiwfn session"
+
+    - **Reboot Multiwfn and input TDM.fch 200** — Other function, part 2
+    - **16** — Generate natural orbitals based on the density matrix in .fch/.fchk file SCF
 
 correspond to S2→S3 TDM
 
 y // Export new.mwfn, which contains natural orbitals corresponding to S2→S3 TDM, and then let Multiwfn directly load it
 
-0 // Return to main menu 5 // Calculate grid data 1 // Electron density 2 // Medium-quality grid 2 // Export cube file Now the generated density.cub in current records transition density between S2 and S3, you can also choose option -1 to directly visualize the isosurface.
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to main menu
+    - **5** — Calculate grid data
+    - **1** — Electron density
+    - **2** — Medium-quality grid
+    - **2** — Export cube file Now the generated density.cub in current records transition density between S2 and S3, you can also choose option -1 to directly visualize the isosurface.
 
 It is also possible to generate grid data of transition dipole moment density between excited states. For example, if you set “iuserfunc” parameter in `settings.ini` to 22, which sets user-defined function to −𝑥𝜌(𝐫), then when you use the new.mwfn generated previously as input file, the user-
 
@@ -709,11 +772,25 @@ transition. Clearly, what you should do next is calculating grid data of user-de
 
 Heat map of transition density matrix between excited states Here we use the NH2-C8-NO2.fchk and NH2-C8-NO2.out employed in Section 4.18.2.2 as example to illustrate how to plot heat map of transition density matrix between two arbitrarily selected excited states, S1 and S2.
 
-Boot up Multiwfn and input examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk 18 // Electron excitation analysis 9 // Generate transition density matrix 2 // For two excited states examples\excit\NH2_C8_NO2\NH2_C8_NO2.out 1,2 // The states are chosen as S1 and S2 [Press ENTER button to use default threshold] 0 // Do not symmetrize the resulting TDM n // Do not yield TDM.fch
+Boot up Multiwfn and input examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **9** — Generate transition density matrix
+    - **2** — For two excited states examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
+    - **1,2** — The states are chosen as S1 and S2 [Press ENTER button to use default threshold]
+    - **0** — Do not symmetrize the resulting TDM n
 
 Now we have tdmat.txt in current folder, which records TDM of S1→S2.
 
-Reboot Multiwfn and then input o // Load the file last time loaded 18 // Electron excitation analysis 2 // Plot heat map for transition matrix tdmat.txt // Matrix data will be loaded from this file 1 // Construct atom transition matrix in terms of way 1 1 // Plot heat map The obtained graph is shown below, the isosurface map of density difference yielded by subtracting S1 density from S2 density is also given (see Section 4.18.13 on how to plot it).
+!!! terminal "Multiwfn session"
+
+    - **Reboot Multiwfn and then input o** — Load the file last time loaded
+    - **18** — Electron excitation analysis
+    - **2** — Plot heat map for transition matrix tdmat.txt
+
+Construct atom transition matrix in terms of way 1 1 // Plot heat map The obtained graph is shown below, the isosurface map of density difference yielded by subtracting S1 density from S2 density is also given (see Section 4.18.13 on how to plot it).
 
 
 ![](../imgs/p832_376.png)
@@ -737,7 +814,12 @@ Since the .wfn files corresponding to the excited state and ground state are lar
 
 First, we calculate grid data of electron density variation Δρ during the excitation. Boot up Multiwfn and input:
 
-CT\extP2.wfn // Excited state wavefunction file 5 // Generate grid data 0 // Set custom operation 1 // Only one file will be dealt with -,CT\basP2.wfn // Ground state wavefunction file. Corresponding density will be subtracted
+!!! terminal "Multiwfn session"
+
+    - **CT\extP2.wfn** — Excited state wavefunction file
+    - **5** — Generate grid data
+    - **0** — Set custom operation
+    - **1** — Only one file will be dealt with -,CT\basP2.wfn
 
 from the excited one to generate Δρ
 
@@ -752,7 +834,11 @@ difference, 0.005 is recommended for present case). Green and blue regions corre
 
 However this density difference graph is not quite intuitive, since positive and negative parts intertwined together and there are many nodes. We will see that C+ and C- functions make the image much clearer.
 
-0 // Return to main menu 18 // Electron excitation analysis 3 // Analyzing CT based on electron density difference grid data The following information is displayed immediately. Note that if positive and negative parts of
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to main menu
+    - **18** — Electron excitation analysis
+    - **3** — Analyzing CT based on electron density difference grid data The following information is displayed immediately. Note that if positive and negative parts of
 
 qCT are obviously unequal, that means the grid setting used in generating Δρ is too coarse, and you need to calculate again with finer grid setting.
 
@@ -806,23 +892,23 @@ Hint: If you would like to get better display effect of the C+ and C- isosurface
 
 
 
-In this section I will illustrate how to calculate the Δr index proposed in J. Chem. Theory Comput., 9, 3118 (2013) and the Λ index proposed in J. Chem. Phys., 128, 044118 (2008) to characterize electron excitations for N-phenylpyrrole. If you are not familiar with these two indices, please check Section 3.21.4 and Section 3.21.14, respectively.
+In this section I will illustrate how to calculate the $\Delta r$ index proposed in J. Chem. Theory Comput., 9, 3118 (2013) and the Λ index proposed in J. Chem. Phys., 128, 044118 (2008) to characterize electron excitations for N-phenylpyrrole. If you are not familiar with these two indices, please check Section 3.21.4 and Section 3.21.14, respectively.
 
 In my personal view, using quantities such as D and Sr indices defined in hole-electron framework to characterize electron excitation is already absolutely sufficient, as illustrated in
 
-Section 4.18.1. Theoretically, the Δr and Λ indices may be regarded as approximations of D and Sr, respectively. The only advantage of Δr and Λ is that in Multiwfn, they can be outputted for all selected excited states at the same time and can be decomposed into orbital pair contributions. In
+Section 4.18.1. Theoretically, the $\Delta r$ and Λ indices may be regarded as approximations of D and Sr, respectively. The only advantage of Δr and Λ is that in Multiwfn, they can be outputted for all selected excited states at the same time and can be decomposed into orbital pair contributions. In
 
-addition, calculation cost of Δr index is almost negligible.
+addition, calculation cost of $\Delta r$ index is almost negligible.
 
 The files used in this section are N-phenylpyrrole.fch and N-phenylpyrrole.out in "examples\excit" folder, they were yielded by Gaussian, the keywords are CAM-B3LYP/6-31+G(d) TD(nstates=5) IOp(9/40=4). Since the optimized ground state geometry was used in the calculation, therefore the analysis results can be regarded as corresponding to vertical absorption process.
 
-Calculating Δr index The Δr index is a quantitative indicator for measuring charge transfer (CT) length of electron excitation, larger Δr index implies longer CT distance.
+Calculating $\Delta r$ index $\Delta r$ index is a quantitative indicator for measuring charge transfer (CT) length of electron excitation, larger Δr index implies longer CT distance.
 
 Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis
 
-4 // Calculate Δr index examples\excit\N-phenylpyrrole.out
+4 // Calculate $\Delta r$ index examples\excit\N-phenylpyrrole.out
 
-1-5 // Assume that we want to calculate Δr index for all the five calculated singlet excited states
+1-5 // Assume that we want to calculate $\Delta r$ index for all the five calculated singlet excited states
 
 Immediately, the results are printed on screen:
 
@@ -835,11 +921,11 @@ Immediately, the results are printed on screen:
  Excited state    5:   Delta_r =    7.091127 Bohr,    3.752463 Angstrom
 ```
 
-The Δr indices imply that the excitations from ground state (S0) to the 3th, 4th and 5th excited states possess strong CT character since they have large Δr, while the excitations of S0→S1 and S0→S2 should be basically regarded as LE excitations because their Δr indices are not quite large (the original paper of Δr suggests using 2.0 Å as criterion for distinguishing LE and CT excitations). Bear in mind, definitive conclusion about the excitation character can only be finally drawn after visualizing the hole and electron distributions using the hole-electron analysis module of Multiwfn.
+$\Delta r$ indices imply that the excitations from ground state (S0) to the 3th, 4th and 5th excited states possess strong CT character since they have large Δr, while the excitations of S0→S1 and S0→S2 should be basically regarded as LE excitations because their Δr indices are not quite large (the original paper of Δr suggests using 2.0 Å as criterion for distinguishing LE and CT excitations). Bear in mind, definitive conclusion about the excitation character can only be finally drawn after visualizing the hole and electron distributions using the hole-electron analysis module of Multiwfn.
 
-In Multiwfn it is possible to decompose the Δr index as contributions of orbital pair transitions. For example, we want to do this for the S0→S4 excitation, we should first enter the Δr index calculation interface and then input
+In Multiwfn it is possible to decompose the $\Delta r$ index as contributions of orbital pair transitions. For example, we want to do this for the S0→S4 excitation, we should first enter the Δr index calculation interface and then input
 
-4 // Only calculate Δr index for a single excitation (S0→S4), in this case the result can be
+4 // Only calculate $\Delta r$ index for a single excitation (S0→S4), in this case the result can be
 
 
 <!-- p.837 -->
@@ -862,7 +948,7 @@ and de-excitation parts
      389     37     72       0.0436900          0.0215865       0.0114231
 ```
 
-As you can see, MO37→MO41 transition has predominating contribution (1.97 Å) to the Δr index of S0→S4 (3.11 Å), while the MO37→MO43 transition also has nonnegligible contribution (0.97 Å).
+As you can see, MO37→MO41 transition has predominating contribution (1.97 Å) to the $\Delta r$ index of S0→S4 (3.11 Å), while the MO37→MO43 transition also has nonnegligible contribution (0.97 Å).
 
 Calculating Λ (lambda) index The Λ index essentially measures overlapping degree of hole and electron of electron excitations. Here we calculate it for all the five excitations for N-phenylpyrrole.
 
@@ -879,7 +965,7 @@ Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron exc
  Excited state    5:   lambda =    0.235255
 ```
 
-From above output, it can be found that the Λ indices are nearly inversely proportional to the Δr indices, because the larger the hole-electron overlapping extent, usually the shorter the hole-electron separation distance (but bear in mind, this relationship is not always true).
+From above output, it can be found that the Λ indices are nearly inversely proportional to the $\Delta r$ indices, because the larger the hole-electron overlapping extent, usually the shorter the hole-electron separation distance (but bear in mind, this relationship is not always true).
 
 Then we decompose the Λ index for the fourth excitation. Input below commands y // Do the Λ index analysis again 4 // The fourth excitation
 
@@ -911,7 +997,13 @@ The data indicates that only occupied MO 37 has a non-negligible overlap with un
 
 This example will utilize the function described in Section 3.21.5, please read it first to gain relevant knowledge. In this example I use 4-nitroaniline to illustrate how to calculate electric dipole moment of each state, and then illustrate how to calculate transition magnetic dipole moment between all states. The state in this context refers to ground state and excited states obtained by TDDFT calculation. The corresponding Gaussian TDDFT input file for generating the .fch and .out files used in this example is examples\excit\4-nitroaniline.gjf.
 
-Boot up Multiwfn and input examples\excit\4-nitroaniline.fch 18 // Electron excitation analysis 5 // Calculate transition electric/magnetic dipole moments between all states and for each state examples\excit\4-nitroaniline.out 4 // Obtain electric dipole moment of each state Now you have dipmom.txt in current folder, you can see electric dipole moments of ground state and various excited states.
+Boot up Multiwfn and input examples\excit\4-nitroaniline.fch
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **5** — Calculate transition electric/magnetic dipole moments between all states and for each state examples\excit\4-nitroaniline.out
+    - **4** — Obtain electric dipole moment of each state Now you have dipmom.txt in current folder, you can see electric dipole moments of ground state and various excited states.
 
 
 ```text
@@ -928,7 +1020,12 @@ contributions
 
 Next, we calculate transition magnetic dipole moment between all states. Boot up Multiwfn and input
 
-examples\excit\4-nitroaniline.fch 18 // Electron excitation analysis 5 // Calculate transition electric/magnetic dipole moments between all states and for each state examples\excit\4-nitroaniline.out 0 // Choose type of (transition) dipole moment to be calculated 2 // Magnetic 1 // Output (transition) dipole moments on screen Now you can see
+!!! terminal "Multiwfn session"
+
+    - **examples\excit\4-nitroaniline.fch 18** — Electron excitation analysis
+    - **5** — Calculate transition electric/magnetic dipole moments between all states and for each state examples\excit\4-nitroaniline.out
+    - **0** — Choose type of (transition) dipole moment to be calculated
+    - **2** — Magnetic 1
 
 
 ```text
@@ -989,7 +1086,12 @@ The files needed by NTO analysis have been mentioned at the beginning of Section
 
 Briefly, assume that you are a Gaussian user and you want to study electron excitation from ground state to the lowest three singlet excited states for uracil at TD-PBE0/6-31G* level, what you need to do is carrying out a normal TDDFT calculation with these keywords: # PBE1PBE/6-31G* TD IOp(9/40=4), also you need to make Gaussian generate corresponding .fch file. The input file, output file and .fch file have already been provided in "examples\excit\NTO" folder. The keyword IOp(9/40=4) is very important, without it the NTO result will be evidently inaccurate, the meaning of this IOp has been mentioned in Section 4.18.1.
 
-Now we start to carry out NTO analysis. Boot up Multiwfn and input examples\excit\NTO\uracil.fch 18 // Electron excitation analysis 6 // Generate NTOs examples\excit\NTO\uracil.out // Gaussian calculated three lowest excited states, you can analyze any one of them
+Now we start to carry out NTO analysis. Boot up Multiwfn and input examples\excit\NTO\uracil.fch
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **6** — Generate NTOs examples\excit\NTO\uracil.out
 
 3 // Study transition from ground state (S0) to the 3rd excited state (S3)
 
@@ -1092,7 +1194,16 @@ Boot up Multiwfn and input below commands examples\excit\4-nitroaniline.fch
 
 <!-- p.843 -->
 
-18 // Electron excitation analysis 8 // Calculate interfragment charge transfer in electron excitation via IFCT method 1 // Mulliken partition [Press ENTER button] // Load examples\excit\4-nitroaniline.out 2 // We first analyze transition from ground state (S0) to the second excited state (S2) 3 // Define three fragments 11-13 // Atomic indices of amino group (fragment 1) 1-10 // Atomic indices of benzene group (fragment 2) 14-16 // Atomic indices of nitro group (fragment 3) Then you will see
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **8** — Calculate interfragment charge transfer in electron excitation via IFCT method
+    - **1** — Mulliken partition [Press ENTER button]
+    - **Load examples\excit\4-nitroaniline.out 2** — We first analyze transition from ground state (S0) to the second excited state (S2)
+    - **3** — Define three fragments
+    - **11-13** — Atomic indices of amino group (fragment 1)
+    - **1-10** — Atomic indices of benzene group (fragment 2)
+    - **14-16** — Atomic indices of nitro group (fragment 3) Then you will see
 
 
 ```text
@@ -1179,9 +1290,20 @@ The charge transfer matrix (CTM) is closely related to transition density matrix
 
 Here I still use the molecule studied in Section 4.18.2.2 as instance. Before plotting the heat map of CTM, we should first generate CTM. Boot up Multiwfn and input
 
-examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk 18 // Electron excitation analysis 8 // IFCT analysis 1 // Mulliken-like partition to derive atomic contribution to hole and electron examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
+examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk
 
-1 // Study S0→S1 excitation -1 // Export atom-atom CTM to atmCTmat.txt in current folder 2 // Enter the function used for plotting heat map atmCTmat.txt // Load matrix data from this file 1 // Show heat map Now you can see the map below, the purple line and texts are manually added.
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **8** — IFCT analysis
+    - **1** — Mulliken-like partition to derive atomic contribution to hole and electron examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Study S0→S1 excitation
+    - **-1** — Export atom-atom CTM to atmCTmat.txt in current folder
+    - **2** — Enter the function used for plotting heat map atmCTmat.txt
+    - **Load matrix data from this file 1** — Show heat map Now you can see the map below, the purple line and texts are manually added.
 
 
 <!-- p.846 -->
@@ -1223,17 +1345,35 @@ lot of conveniences; for example, when you analyze "electron density" based on t
 
 Here will take the N-phenylpyrrole as example, whose transition density of S0→S1 has been plotted as isosurface in Section 4.18.2. Our purpose in this section is to transform this transition density into orbitals and export them as .wfx file so that then we can very easily study properties of the transition density based on this file.
 
-First, we generate a .fch file containing TDM. Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch // The .fch file yielded by Gaussian TDDFT task 18 // Electron excitation analysis 9 // Generate and export TDM 1 // Generate TDM between ground state and excited state examples\excit\N-phenylpyrrole.out // The output file of Gaussian TDDFT task with IOp(9/40=4) keyword
+First, we generate a .fch file containing TDM. Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn session"
+
+    - **The .fch file yielded by Gaussian TDDFT task 18** — Electron excitation analysis
+    - **9** — Generate and export TDM
+    - **1** — Generate TDM between ground state and excited state examples\excit\N-phenylpyrrole.out
 
 1 // Analyze electron transition from ground state to the 1st excited state (S0→S1) 1 // Symmetrize the raw TDM. This is important, the natural orbitals cannot be properly yielded later without symmetrization of the TDM
 
 y // Export current wavefunction to TDM.fch in current folder, whose "Total SCF Density" field records the just generated symmetrized TDM
 
-Next, we transform the TDM into natural orbitals. Reboot Multiwfn and input TDM.fch 200 // Other functions (Part 2) 16 // Generate natural orbitals based on the density matrix in .fch/.fchk file SCF // The matrix to be transformed comes from the "Total SCF Density" field y // Export the generated orbitals to new.mwfn and load it Now we have new.mwfn in current folder, which contains natural orbitals transformed from the
+Next, we transform the TDM into natural orbitals. Reboot Multiwfn and input TDM.fch
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **16** — Generate natural orbitals based on the density matrix in .fch/.fchk file SCF
+
+Export the generated orbitals to new.mwfn and load it Now we have new.mwfn in current folder, which contains natural orbitals transformed from the
 
 S0→S1 TDM. The orbitals in memory now also correspond to these natural orbitals. Assume that we also want to export them as .wfx file, we should input the commands below.
 
-0 // Return to main menu 100 // Other functions (Part 1) 2 // Export various kinds of files 4 // Output current wavefunction as .wfx file TDM.wfx // The path of the file to be generated In the future, if you use the TDM.wfx as input file and calculate grid data of "electron density" via main function 5, you will find the resulting isosurface map (after properly adjusting isovalue) is exactly identical to the transition density T(r) graph shown in Section 4.18.2.1.
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to main menu
+    - **100** — Other functions (Part 1)
+    - **2** — Export various kinds of files
+    - **4** — Output current wavefunction as .wfx file TDM.wfx
 
 
 <!-- p.849 -->
@@ -1245,7 +1385,14 @@ S0→S1 TDM. The orbitals in memory now also correspond to these natural orbital
 
 In order to gain a deeper insight into transition electric or magnetic dipole moment, Multiwfn provides a function used to decompose it to contributions from various MO pair transitions, see Section 3.21.10 for introduction. Here I present an example. The .fch and .out files involved in this example were produced by TDDFT calculation of Gaussian.
 
-Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis 10 // Decompose transition dipole moment as molecular orbital pair contributions 1 // The type of transition dipole moment is electric examples\excit\N-phenylpyrrole.out 1 // Select the excitation from ground state (S0) to the first singlet excited state (S1) Now the information below about this excitation is shown on screen
+Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **10** — Decompose transition dipole moment as molecular orbital pair contributions
+    - **1** — The type of transition dipole moment is electric examples\excit\N-phenylpyrrole.out
+    - **1** — Select the excitation from ground state (S0) to the first singlet excited state (S1) Now the information below about this excitation is shown on screen
 
 
 ```text
@@ -1298,7 +1445,13 @@ By the way, oscillator strength (f) directly relates to square of norm of transi
 
 MO38→MO39 is set to zero, namely ignoring its contribution, then f will be lowered evidently. As shown earlier, the original f of S0→S1 is 0.39353. Let us quantitatively check how MO38→MO39 affects the f. To do this, we can manually set configuration coefficient of this transition to zero and then re-examine the f value. To this aim, we input following commands
 
-0 // Return to menu of electron excitation analysis -1 // Check, modify and export configuration coefficients of an excitation 1 // Choose the first excited state 1 // Set coefficient of a MO pair 38,39 // The MO indices of the MO pair
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to menu of electron excitation analysis
+    - **-1** — Check, modify and export configuration coefficients of an excitation
+    - **1** — Choose the first excited state
+    - **1** — Set coefficient of a MO pair
+    - **38,39** — The MO indices of the MO pair
 
 1 // The transition type is chosen as "Excitation", hence MO38→MO39 is selected (if inputting 2, then what we selected will be MO38←MO39)
 
@@ -1308,7 +1461,12 @@ S1.txt // The path of the file to store excitation information of S0→S1 Now S1
 
 the coefficient corresponding to MO38→MO39 is indeed zero.
 
-Then reboot Multiwfn and input o // Load the file used at the last time, namely examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis 10 // Decompose transition dipole moment as molecular orbital pair contributions 1 // The type of transition dipole moment is electric S1.txt Now the printed f is only 0.1278, which is less than 1/3 of its original value (0.39353), showing
+!!! terminal "Multiwfn session"
+
+    - **Then reboot Multiwfn and input o** — Load the file used at the last time, namely examples\excit\N-phenylpyrrole.fch
+    - **18** — Electron excitation analysis
+    - **10** — Decompose transition dipole moment as molecular orbital pair contributions
+    - **1** — The type of transition dipole moment is electric S1.txt Now the printed f is only 0.1278, which is less than 1/3 of its original value (0.39353), showing
 
 that MO38→MO39 has crucial influence on strength of S0→S1 excitation.
 
@@ -1332,7 +1490,14 @@ In Section 4.18.2.1, I have shown how to plot transition dipole moment density i
 
 Here, azobenzene is taken as example. The input file of TDDFT task of Gaussian for azobenzene is provided as examples\excit\Azobenzene.gjf. Note that IOp(9/40=4) is used and .chk file is saved after calculation. Run it by Gaussian, and then convert azobenzene.chk to azobenzene.fch. (If you do not have Gaussian in hand, you can also directly download the .out and .fch files from http://sobereva.com/multiwfn/extrafiles/Azobenzene_exc.zip)
 
-Boot up Multiwfn, load the azobenzene.fch, then input 18 // Electron excitation analysis 11 // Decompose transition dipole moment as basis function and atom contributions Azobenzene.out // The Gaussian output file obtained by running Azobenzene.gjf 2 // Assume that we want to study is electron excitation from ground state to excited state 2 (you can also input two indices to study transition between the two excited states)
+Boot up Multiwfn, load the azobenzene.fch, then input
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **11** — Decompose transition dipole moment as basis function and atom contributions Azobenzene.out
+
+Assume that we want to study is electron excitation from ground state to excited state 2 (you can also input two indices to study transition between the two excited states)
 
 1 // The type of transition dipole moment to be decomposed is electric n // Do not generate AAtrdip.txt, which is not involved in the present example Now trdipcontri.txt is outputted to current folder, which contains transition dipole moment contributed by each basis function and each atom. Move this file to VMD folder.
 
@@ -1401,7 +1566,13 @@ NOTE: There are two types of CIS/TDHF/TDA-DFT/TDDFT excited state wavefunction (
 
 Example of wavefunction analysis of an excited state (based on unrelaxed density) Here I take N-phenylpyrrole as example, assume that we want to examine Mayer bond orders for the second singlet excited state. To do so, we first carry out a regular TDDFT calculation with IOp(9/40=4) keyword, the examples\excit\N-phenylpyrrole.out is output file and examples\excit\N-phenylpyrrole.fch is corresponding .fch file. The geometry was previously optimized for ground state.
 
-Boot up Multiwfn and input below commands examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis 13 // Generate natural orbitals of specific excited states examples\excit\N-phenylpyrrole.out 2 // Choose the 2nd excited state
+Boot up Multiwfn and input below commands examples\excit\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **13** — Generate natural orbitals of specific excited states examples\excit\N-phenylpyrrole.out
+    - **2** — Choose the 2nd excited state
 
 
 <!-- p.854 -->
@@ -1416,7 +1587,14 @@ I still take N-phenylpyrrole as example. We repeat aforementioned steps using th
 
 Assume that currently we want to visualize isosurface map of electron density difference between the third and the first excited state, we reboot Multiwfn and input
 
-NO_0003.mwfn 5 // Calculate grid data 0 // Custom operation 1 // One file will be dealt with the first loaded file -,NO_0001.mwfn 1 // Electron density 2 // Medium-quality grid -1 // Visualize isosurface After setting isovalue to 0.005, we will obtain the graph below
+!!! terminal "Multiwfn session"
+
+    - **NO_0003.mwfn 5** — Calculate grid data
+    - **0** — Custom operation
+    - **1** — One file will be dealt with the first loaded file -,NO_0001.mwfn
+    - **1** — Electron density
+    - **2** — Medium-quality grid
+    - **-1** — Visualize isosurface After setting isovalue to 0.005, we will obtain the graph below
 
 
 <!-- p.855 -->
@@ -1425,7 +1603,15 @@ The density difference map between other excited states can be obtained similarl
 
 Calculate difference in fragment charge between excited states Next, as an example, we will study difference of electron distribution at quantitative level by comparing fragment charge of the pyrrole ring between excited states 3 and 1.
 
-Boot up Multiwfn and input NO_0003.mwfn 7 // Population analysis -1 // Define fragment 1-9 // The pyrrole fragment, which is composed of atoms 1~9 11 // ADCH charge 1 // Use built-in atomic densities You will find
+Boot up Multiwfn and input NO_0003.mwfn
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis
+    - **-1** — Define fragment
+    - **1-9** — The pyrrole fragment, which is composed of atoms 1~9
+    - **11** — ADCH charge
+    - **1** — Use built-in atomic densities You will find
 
 
 ```text
@@ -1457,11 +1643,22 @@ We prepare a Gaussian input file with the content below. The full file has been 
 
 Run this file by Gaussian, then the density matrix corresponding to relaxed density of the 2nd excited state will be written into the N-phenylpyrrole_relaxS2.chk. Then use formchk utility to convert it to N-phenylpyrrole_relaxS2.fch (which can also be directly downloaded from http://sobereva.com/multiwfn/extrafiles/N-phenylpyrrole_relaxS2.zip).
 
-We first need to transform the density matrix to NOs. Boot up Multiwfn and input N-phenylpyrrole_relaxS2.fch 200 // Other functions, part 2 16 // Generate NOs based on the density matrix in .fch/.fchk CI // The label of TDDFT density matrix in the file is “CI” y // Export new.mwfn in current folder and then automatically load it, which contains the newly generated NOs
+We first need to transform the density matrix to NOs. Boot up Multiwfn and input N-phenylpyrrole_relaxS2.fch
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions, part 2
+    - **16** — Generate NOs based on the density matrix in .fch/.fchk CI
+
+Export new.mwfn in current folder and then automatically load it, which contains the newly generated NOs
 
 Now the orbitals in memory have corresponded to the NOs generated based on the relaxed density of the 2nd excited state, then we can do arbitrary wavefunction analysis, for example
 
-0 // Return to main menu 9 // Bond order analysis 1 // Mayer bond order From the output you can find the bond order of the N5-C10 is 0.756, while as shown earlier, this value corresponding to unrelaxed density is 0.794. The small difference implies that the analysis result based on unrelaxed density is at least qualitatively correct and as useful as those derived based on the accurate but expensive relaxed density.
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to main menu
+    - **9** — Bond order analysis
+    - **1** — Mayer bond order From the output you can find the bond order of the N5-C10 is 0.756, while as shown earlier, this value corresponding to unrelaxed density is 0.794. The small difference implies that the analysis result based on unrelaxed density is at least qualitatively correct and as useful as those derived based on the accurate but expensive relaxed density.
 
 It is also possible to calculate density difference based on relaxed density between two excited states. You need to repeat above steps twice to respectively generate .mwfn file for two different excited states, and then get density difference as usual based on the two .mwfn files.
 
@@ -1485,7 +1682,15 @@ can easily identify their major characters, then I will also illustrate how to p
 
 The N-phenylpyrrole will be employed as an instance, five excited states were calculated by Gaussian using TDDFT at CAM-B3LYP/6-31+G(d) level. Note that IOp(9/40=4) keyword has been employed in the calculation. In this study, the phenyl group and the pyrrole group will be defined as two respective fragments, so that we can identify nature of the excited states from perspective of intrafragment electron redistribution and interfragment electron transfer.
 
-Calculate IFCT data for all excited states Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch // Produced by TDDFT task of Gaussian 18 // Electron excitation analysis 16 // Calculate charge-transfer spectrum and characters of all excited states 2 // Define two fragments 1-9 // Fragment 1, namely the pyrrole moiety 10-20 // Fragment 2, namely the phenyl moiety [Press ENTER button directly] // Load examples\excit\N-phenylpyrrole.out, which is output file of Gaussian TDDFT task
+Calculate IFCT data for all excited states Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn session"
+
+    - **Produced by TDDFT task of Gaussian 18** — Electron excitation analysis
+    - **16** — Calculate charge-transfer spectrum and characters of all excited states
+    - **2** — Define two fragments
+    - **1-9** — Fragment 1, namely the pyrrole moiety
+    - **10-20** — Fragment 2, namely the phenyl moiety [Press ENTER button directly]
 
 2 // Hirshfeld partition (because diffuse functions were employed in the TDDFT task, Mulliken-like partition should not be used here)
 
@@ -1528,9 +1733,22 @@ Plot charge-transfer spectrum (CTS) The charge-transfer spectrum (CTS) proposed 
 
 CT_multiple\CT_multiple.txt // The list file containing input files for plotting various types of CTS and corresponding legends
 
-11 // The main function for plotting spectrum 3 // UV-Vis 0 // Plot spectrum Now the spectrum is shown on screen. We slightly adjust plotting settings to make it look better. Close the spectrum and then input
+!!! terminal "Multiwfn session"
 
-22 // Set thickness of curves/lines/texts/axes/grid 1 // Set thickness of curves 5 0 // Return 17 // Other plotting settings 11 // Set position of legends 8 // Upper left corner 10 // Set text size of legend 45 0 // Return 3 // Set lower and upper limit of X-axis 170,300,20 // Lower limit, upper limit, and label interval 0 // Replot The current CTS is shown below
+    - **11** — The main function for plotting spectrum
+    - **3** — UV-Vis 0
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Set thickness of curves/lines/texts/axes/grid
+    - **1** — Set thickness of curves 5
+    - **0** — Return 17
+    - **Other plotting settings 11** — Set position of legends
+    - **8** — Upper left corner
+    - **10** — Set text size of legend 45
+    - **0** — Return 3
+
+Lower limit, upper limit, and label interval 0 // Replot The current CTS is shown below
 
 
 <!-- p.859 -->
@@ -1557,7 +1775,13 @@ This section illustrates how to perform the electron density polarization analys
 
 In this example we use ωB97XD/def2-TZVP level to perform TDDFT task with 50 excited states for CH3Cl by Gaussian, the geometry was optimized at B3LYP/def-TZVP level. The Gaussian input and output files have been provided in “examples\excit\CH3Cl\” folder, the .fch file converted from the resulting .chk file is provided as CH3Cl.fch. Note that IOp(9/40=4) keyword was used in the task, the necessity has been emphasized in Section 3.21.A. Since the XYZ coordinate of the carbon atom is (0.0, 0.0, -1.13395200) Å, according to the map above, evidently the point charge should be placed at (0.0, 0.0, -4.13395200) Å.
 
-Boot up Multiwfn and input CH3Cl.fch 18 // Electron excitation analyses 17 // Electron density polarization analysis based on electron excitations 1 // Only one point charge will be set as the external potential 0.0,0.0,-4.13395200,-0.1 // XYZ coordinate (Å) and value (e) of the point charge 2 // Medium-quality grid (corresponding to grid spacing of 0.2 Bohr. If you want to reduce cost, low-quality grid can also be used)
+!!! terminal "Multiwfn session"
+
+    - **Boot up Multiwfn and input CH3Cl.fch 18** — Electron excitation analyses
+    - **17** — Electron density polarization analysis based on electron excitations
+    - **1** — Only one point charge will be set as the external potential 0.0,0.0,-4.13395200,-0.1
+
+Medium-quality grid (corresponding to grid spacing of 0.2 Bohr. If you want to reduce cost, low-quality grid can also be used)
 
 [Press ENTER button] // Load the Gaussian output file CH3Cl.out, which is in the same folder as the CH3Cl.fch
 
@@ -1595,19 +1819,19 @@ It can be seen that the 9th excited state has the largest ck and contributes mos
 
 to E(2) and δN, respectively, they have small magnitude because the point charge is small and not very close to any atom.
 
-We choose option “1 Visualize isosurface of density polarization” to visualize ρpol and then change isovalue to 0.0002, you will see the left map in the following figure, in which the green and blue colors correspond to positive (electron accumulation) and negative (electron depletion) zones, respectively. For ease of understanding, the position of the placed point charge is automatically
+We choose option “1 Visualize isosurface of density polarization” to visualize $\rho_{\mathrm{pol}}$ and then change isovalue to 0.0002, you will see the left map in the following figure, in which the green and blue colors correspond to positive (electron accumulation) and negative (electron depletion) zones, respectively. For ease of understanding, the position of the placed point charge is automatically
 
-plotted as Bq atom in the map. The ρpol obtained in this way is approximate. If you want to obtain rigorous ρpol (the right map in the following figure), you should use the common method, namely taking the difference between the electron density obtained with and without a background charge (please refer to Section 4.5.5 on how to plot electron density map), the wavefunction files generated with and without the background charge correspond to examples\excit\CH3Cl\bkchg\CH3Cl_Q.fch
+plotted as Bq atom in the map. The $\rho_{\mathrm{pol}}$ obtained in this way is approximate. If you want to obtain rigorous ρpol (the right map in the following figure), you should use the common method, namely taking the difference between the electron density obtained with and without a background charge (please refer to Section 4.5.5 on how to plot electron density map), the wavefunction files generated with and without the background charge correspond to examples\excit\CH3Cl\bkchg\CH3Cl_Q.fch
 
-and the aforementioned CH3Cl.fch, respectively. It can be seen that the approximate ρpol and rigorous ρpol are in qualitative agreement with each other, indicating that the approximate ρpol estimated by means of the perturbation theory is meaningful.
+and the aforementioned CH3Cl.fch, respectively. It can be seen that the approximate $\rho_{\mathrm{pol}}$ and rigorous ρpol are in qualitative agreement with each other, indicating that the approximate ρpol estimated by means of the perturbation theory is meaningful.
 
 As can be seen in the figure above, there is a region with reduced electron density at the end of the Cl-C bond axis, so it can be considered that when the nucleophile carrying a local negative charge that triggers the SN2 reaction approaches the carbon atom, the carbon atom becomes more electrophilic.
 
 Next, we choose option “2 Visualize isosurface of transition density of an excited state” and then input 9 to visualize transition density of the 9th electron excitation, which contributes most to
 
-ρpol. After setting isovalue to 0.004, you will see the following map, in which green and blue colors represent positive and negative parts, respectively. It can be seen that its distribution is fairly close
+$\rho_{\mathrm{pol}}$. After setting isovalue to 0.004, you will see the following map, in which green and blue colors represent positive and negative parts, respectively. It can be seen that its distribution is fairly close
 
-to the ρpol, further confirming that the excitation from ground state to the 9th excited state has the most crucial contribution to the electron density redistribution in response to the external potential. It is worth to mention that contribution of the kth electron excitation to the ρpol is simply 2𝑐𝑘𝜌0 𝑘, where 𝜌0 𝑘 is the transition density.
+to the $\rho_{\mathrm{pol}}$, further confirming that the excitation from ground state to the 9th excited state has the most crucial contribution to the electron density redistribution in response to the external potential. It is worth to mention that contribution of the kth electron excitation to the ρpol is simply 2𝑐𝑘𝜌0 𝑘, where 𝜌0 𝑘 is the transition density.
 
 
 ![](../imgs/p861_391.png)
@@ -1634,9 +1858,13 @@ From this example, we can see that the analysis of electron density polarization
 
 Please check Section 3.21.18 to understand relevant background information and the features of the function illustrated in this Section. In this section I will exemplify how to use Multiwfn to easily calculate ECD and CPL dissymmetry factor (g) for a typical chiral molecule (P)-[6]helicene, and I will also show that transition electric and magnetic dipole moments can be very conveniently visualized. TDDFT output file of Gaussian will be used for the illustration purpose, while output file of electronic excitation task of ORCA can also be used (examples\excit\g_factor\TDDFT_S0geom_ORCA.out is an example file).
 
-Dissymmetry factor of ECD spectrum (gCD) examples\excit\g_factor\TDDFT_S0geom.out is output file of TDDFT task of Gaussian 16 at CAM-B3LYP/def2-SV(P) level for the helicene at its ground state structure optimized using the same level, 30 excited states were calculated, CH2Cl2 solvent environment was represented by IEFPCM solvation model. Here we will obtain gCD and relevant information for these states. Boot up Multiwfn, load this file, and then input
+Dissymmetry factor of ECD spectrum ($g_{CD}$) examples\excit\g_factor\TDDFT_S0geom.out is output file of TDDFT task of Gaussian 16 at CAM-B3LYP/def2-SV(P) level for the helicene at its ground state structure optimized using the same level, 30 excited states were calculated, CH2Cl2 solvent environment was represented by IEFPCM solvation model. Here we will obtain gCD and relevant information for these states. Boot up Multiwfn, load this file, and then input
 
-18 // Electron excitation analyses 18 // Calculate ECD/CPL dissymmetry factor (g) of chiral systems 1 // This study is for ECD Then Multiwfn loads transition electric and magnetic dipole moments from the Gaussian output file and print them on screen, and outputs gCD along with various quantities closely related to it for all excited states:
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analyses
+    - **18** — Calculate ECD/CPL dissymmetry factor (g) of chiral systems
+    - **1** — This study is for ECD Then Multiwfn loads transition electric and magnetic dipole moments from the Gaussian output file and print them on screen, and outputs $g_{CD}$ along with various quantities closely related to it for all excited states:
 
 
 ```text
@@ -1667,11 +1895,11 @@ It is noted that in the study work about helicene derivatives, Chem. Sci., 12, 5
 
 S3 is 0.0091, which is in good agreement with the 0.85×10-2 reported in Fig. 3(f) of Chem. Sci., 12, 5522 (2021).
 
-Now we visually check transition electric dipole moment (𝛍tran) and transition magnetic dipole moment (𝐦tran) of S3 in VMD visualization program (http://www.ks.uiuc.edu/Research/vmd/). In the post-processing menu of the present function, choose option “2 Export current structure to .pdb file” and then input S0.pdb to generate a pdb file named “S0.pdb” in current folder, which contains the current structure. Also choose option “1 Generate VMD script file for visualizing transition electric/magnetic moments” and then input ECD.vmd to generate a script of VMD with name “ECD.vmd” in current folder.
+Now we visually check transition electric dipole moment ($\mu^{\text{tran}}$) and transition magnetic dipole moment (𝐦tran) of S3 in VMD visualization program (http://www.ks.uiuc.edu/Research/vmd/). In the post-processing menu of the present function, choose option “2 Export current structure to .pdb file” and then input S0.pdb to generate a pdb file named “S0.pdb” in current folder, which contains the current structure. Also choose option “1 Generate VMD script file for visualizing transition electric/magnetic moments” and then input ECD.vmd to generate a script of VMD with name “ECD.vmd” in current folder.
 
-Boot up VMD (version 1.9.3 is recommended), load the S0.pdb into it can draw the molecular structure with licorice style. Move the ECD.vmd to VMD folder and run source ECD.vmd in VMD console window to execute the script. After that, you can run emtran 3 in VMD console window to plot 𝛍tran and 𝐦tran of S3 as red and cyan arrows, respectively, as shown below. By default, the arrow lengths are 5 Å, the arrow radius is 0.15 Å. See comments at the top of ECD.vmd on how to fine-tune the plotting settings.
+Boot up VMD (version 1.9.3 is recommended), load the S0.pdb into it can draw the molecular structure with licorice style. Move the ECD.vmd to VMD folder and run source ECD.vmd in VMD console window to execute the script. After that, you can run emtran 3 in VMD console window to plot $\mu^{\text{tran}}$ and 𝐦tran of S3 as red and cyan arrows, respectively, as shown below. By default, the arrow lengths are 5 Å, the arrow radius is 0.15 Å. See comments at the top of ECD.vmd on how to fine-tune the plotting settings.
 
-Next, we look at S2. Both 𝛍tran and 𝐦tran of S2 state are exactly parallel to Z axis. When plotting them together in a single map, slight shifts of arrow centers must be adopted to make them visually distinguishable. In VMD console window we run this command: emtran 2 5 5 0.15 0 0.3 0 0 -0.3 0, in which “5 5 0.15” means the lengths of the two arrows are all 5 Å, and radius is 0.15 Å. “0 0.3 0” and “0 -0.3 0” mean the centers of red and blue arrows are shifted by (0.0 0.3 0.0) and (0.0 -0.3 0.0) Å, respectively. Now you can view the following map, due to the center shifts, the two arrows are not overlapping with each other.
+Next, we look at S2. Both $\mu^{\text{tran}}$ and 𝐦tran of S2 state are exactly parallel to Z axis. When plotting them together in a single map, slight shifts of arrow centers must be adopted to make them visually distinguishable. In VMD console window we run this command: emtran 2 5 5 0.15 0 0.3 0 0 -0.3 0, in which “5 5 0.15” means the lengths of the two arrows are all 5 Å, and radius is 0.15 Å. “0 0.3 0” and “0 -0.3 0” mean the centers of red and blue arrows are shifted by (0.0 0.3 0.0) and (0.0 -0.3 0.0) Å, respectively. Now you can view the following map, due to the center shifts, the two arrows are not overlapping with each other.
 
 
 ![](../imgs/p864_394.png)

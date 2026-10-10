@@ -56,7 +56,12 @@ Multiwfn能够绘制任意实空间函数的径向分布函数（RDF），见第
 
 第一部分：富勒烯电子密度的RDF 由于B3LYP/6-31G*水平的富勒烯.wfn文件很大，我只为你提供相应的Gaussian输入文件（"example"文件夹中的C60.gjf），请适当修改并用Gaussian运行它以产生C60.wfn。
 
-启动Multiwfn并输入：C60.wfn 200 // 其它功能（第二部分）(Other functions (Part 2)) 5 // 对实空间函数绘制RDF(Plot RDF for a real space function) 3 1,6 // 把RDF的下限和上限分别设为1.0和6.0 Å 0 // 计算RDF及其积分曲线 计算完成后，选择选项0，下面的RDF图将显示在屏幕上，X轴对应径向距离
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入：C60.wfn 200** — 其它功能（第二部分）(Other functions (Part 2))
+    - **5** — 对实空间函数绘制RDF(Plot RDF for a real space function) 3
+    - **1,6** — 把RDF的下限和上限分别设为1.0和6.0 Å
+    - **0** — 计算RDF及其积分曲线 计算完成后，选择选项0，下面的RDF图将显示在屏幕上，X轴对应径向距离
 
 如你所见，RDF的峰约在3.5 Å，这是因为碳原子核与球心的距离为3.545 Å。众所周知，除氢外，任何原子的电子密度在核位置处最大。
 
@@ -101,7 +106,13 @@ Rydberg轨道指空间上非常弥散的MOs，它们的轨道形状类似于原�
 
 如何定量证明这些Rydberg轨道的主要分布区远离分子中心？最好的方法之一是绘制这些轨道对应电子密度的RDF图。这里我们为MO11绘制这种RDF图。我们关闭主功能0的GUI，然后输入以下命令：
 
-6 // 修改波函数(Modify wavefunction) 26 // 修改轨道占据数(Modify orbital occupation number) 0 // 选择全部轨道 0 // 把全部轨道的占据数选为零 11 // 选择轨道11 2 // 把轨道11的占据数设为2.0（假设它被双占据） q // 返回 -1 // 返回主菜单 200 5 // 绘制RDF(Plot RDF) 3 // 设置径向作图的下限和上限 0,10 // 从0到10 Å 4 // 设置积分的角向点数。默认值对当前目的来说不必要地高，因此我们设为较小值以减少计算时间
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 修改波函数(Modify wavefunction)
+    - **26** — 修改轨道占据数(Modify orbital occupation number)
+    - **0** — 选择全部轨道 0
+
+选择轨道11 2 // 把轨道11的占据数设为2.0（假设它被双占据） q // 返回 -1 // 返回主菜单 200 5 // 绘制RDF(Plot RDF) 3 // 设置径向作图的下限和上限 0,10 // 从0到10 Å 4 // 设置积分的角向点数。默认值对当前目的来说不必要地高，因此我们设为较小值以减少计算时间
 
 302 // 302个角向点 0 // 计算电子密度的RDF（默认实空间函数） 1 // 绘制RDF图
 
@@ -128,7 +139,11 @@ Rydberg轨道指空间上非常弥散的MOs，它们的轨道形状类似于原�
 
 在本节中，我们研究CH3NH2的HF/6-31+G* MOs与MP2/6-31+G*自然轨道（NO）之间的对应关系。
 
-启动Multiwfn后我们输入C:\CH3NH2_MP2.wfn // MP2/6-31+G*波函数文件，共有48个NOs 200 // 其它功能，第二部分(Other function, part 2) 6 // 分析两个波函数中轨道之间的对应关系(Analyze correspondence between orbitals in two wavefunctions) [直接按ENTER键选择全部轨道] C:\CH3NH2_HF.wfn // HF/6-31+G*波函数文件，共有9个MOs [直接按ENTER键选择全部轨道] 然后你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn后我们输入C:\CH3NH2_MP2.wfn** — MP2/6-31+G*波函数文件，共有48个NOs
+    - **200** — 其它功能，第二部分(Other function, part 2)
+    - **6** — 分析两个波函数中轨道之间的对应关系(Analyze correspondence between orbitals in two wavefunctions) [直接按ENTER键选择全部轨道] C:\CH3NH2_HF.wfn
 
 
 ```text
@@ -208,7 +223,15 @@ Total:    99.980 %
 
 为了确认哪一个对应N24的孤对，我们进入主功能0并逐个检查高亮LMOs的等值面，我们发现LMO 44可视为N24的孤对轨道，等值=0.1的等值面图如下所示
 
-现在我们可以检查此LMO对各个MOs的贡献。重新启动Multiwfn并输入examples\excit\D-pi-A.fchk 200 // 其它功能（第二部分）(Other functions (Part 2)) 6 // 分析两个波函数中轨道之间的对应关系(Analyze correspondence between orbitals in two wavefunctions) 1,56 // 我们要检查全部占据MOs（序号范围为1~56） new.fch // 包含LMOs的文件 44,44 // 只考虑new.fch中的第44个轨道 从输出中，我们可以发现一些MOs有LMO 44的较大组成，相关行如下所示（由于只考虑了LMO 44，其它LMOs的贡献恰为零）
+现在我们可以检查此LMO对各个MOs的贡献。重新启动Multiwfn并输入examples\excit\D-pi-A.fchk
+
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其它功能（第二部分）(Other functions (Part 2))
+    - **6** — 分析两个波函数中轨道之间的对应关系(Analyze correspondence between orbitals in two wavefunctions)
+    - **1,56** — 我们要检查全部占据MOs（序号范围为1~56） new.fch
+
+只考虑new.fch中的第44个轨道 从输出中，我们可以发现一些MOs有LMO 44的较大组成，相关行如下所示（由于只考虑了LMO 44，其它LMOs的贡献恰为零）
 
 
 ```text
@@ -243,11 +266,28 @@ Total:    99.980 %
 
 我们将计算CH3NH2中C-N键的BPI，在此之前我们首先需要计算C和N原子的参考EI值，它们分别对应乙烷中C的EI和H2N-NH2中N的EI。启动Multiwfn并输入
 
-examples\EI_BPI\ethane.fch 200 // 其他功能，其他部分2(Other function, part 2) 12 // 计算能量指数(EI)或键极性指数(BPI)(Calculate energy index (EI) or bond polarity index (BPI)) 1 // C1原子 你将看到参考分子乙烷中C的EI值为-0.667639 a.u.。
+!!! terminal "Multiwfn 交互"
 
-重新启动Multiwfn并输入 examples\EI_BPI\N2H4.fch 200 // 其他功能，其他部分2(Other function, part 2) 12 // 计算EI或BPI(Calculate EI or BPI) 1 // N1原子 你可以看到参考分子H2N-NH2中N的EI值为-0.718126 a.u.。
+    - **examples\EI_BPI\ethane.fch 200** — 其他功能，其他部分2(Other function, part 2)
+    - **12** — 计算能量指数(EI)或键极性指数(BPI)(Calculate energy index (EI) or bond polarity index (BPI))
+    - **1** — C1原子 你将看到参考分子乙烷中C的EI值为-0.667639 a.u.。
 
-接下来我们计算CH3NH2中C和N的EI。重新启动Multiwfn并输入 examples\EI_BPI\CH3NH2.fch 200 // 其他功能，其他部分2(Other function, part 2) 12 // 计算EI或BPI(Calculate EI or BPI) 1 // C1，结果为-0.693374 a.u. 5 // N5，结果为-0.698092 a.u.。CH3NH2中的BPICN计算为
+重新启动Multiwfn并输入 examples\EI_BPI\N2H4.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能，其他部分2(Other function, part 2)
+    - **12** — 计算EI或BPI(Calculate EI or BPI)
+    - **1** — N1原子 你可以看到参考分子H2N-NH2中N的EI值为-0.718126 a.u.。
+
+接下来我们计算CH3NH2中C和N的EI。重新启动Multiwfn并输入 examples\EI_BPI\CH3NH2.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能，其他部分2(Other function, part 2)
+    - **12** — 计算EI或BPI(Calculate EI or BPI)
+    - **1** — C1，结果为-0.693374 a.u.
+    - **5** — N5，结果为-0.698092 a.u.。CH3NH2中的BPICN计算为
 
 
 ![](../imgs/p1038_554.png)
@@ -265,7 +305,12 @@ $$\begin{aligned}\mathrm{BPI}_{\mathrm{CN}}&=(\mathrm{EI}_{\mathrm{C}}-\mathrm{E
 
 通过EI指数我们还可以评估所谓基团电负性(group electronegativity)，它往往比原子电负性更有用。这里我们计算-CH3基团的电负性，它就是CH3自由基的EIC的负值。启动Multiwfn并输入
 
-examples\EI_BPI\CH3.fch // 在UHF/6-31G*下优化并产生 200 // 其他功能，其他部分2(Other function, part 2) 12 // 计算EI或BPI(Calculate EI or BPI) 1 // 碳原子 结果为-0.630656 a.u.，对应CH3基团的电负性为0.631。然后我们用examples\EI_BPI\F.fch计算-F的基团电负性，结果为0.957。显然-F基团的电负性要高得多，因此由于其平均每个价电子能量更低，它比-CH3基团具有更强的吸引电子的能力。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\EI_BPI\CH3.fch** — 在UHF/6-31G*下优化并产生
+    - **200** — 其他功能，其他部分2(Other function, part 2)
+    - **12** — 计算EI或BPI(Calculate EI or BPI)
+    - **1** — 碳原子 结果为-0.630656 a.u.，对应CH3基团的电负性为0.631。然后我们用examples\EI_BPI\F.fch计算-F的基团电负性，结果为0.957。显然-F基团的电负性要高得多，因此由于其平均每个价电子能量更低，它比-CH3基团具有更强的吸引电子的能力。
 
 
 ### 4.200.13 研究轨道对密度差的贡献
@@ -301,9 +346,16 @@ examples\phenol.wfn // N态的波函数文件 5 // 计算格点数据(Calculate 
 
 现在，我们可以直接进入用于求轨道对Δρ贡献的功能。输入以下命令
 
-0 // 返回主菜单(Return to main menu) 200 // 其他功能(Other functions, Part 2) 13 // 评估轨道对密度差或其他格点数据的贡献(Evaluate orbital contributions to density difference or other grid data)
+!!! terminal "Multiwfn 交互"
 
-density.cub // 包含f −格点数据的文件 0 // 选择轨道范围并开始分析(Choose orbital range and start analysis) o // 在拟合中只考虑占据数非零的轨道(Only consider orbitals with non-zero occupation in the fitting)。对于本例选择所有占据MO（注意我们载入的波函数文件是.wfn格式，实际上它只包含占据轨道，因此即使你想选也无法选择非占据轨道）
+    - **0** — 返回主菜单(Return to main menu)
+    - **200** — 其他功能(Other functions, Part 2)
+    - **13** — 评估轨道对密度差或其他格点数据的贡献(Evaluate orbital contributions to density difference or other grid data)
+
+!!! terminal "Multiwfn 交互"
+
+    - **density.cub** — 包含f −格点数据的文件
+    - **0** — 选择轨道范围并开始分析(Choose orbital range and start analysis) o
 
 很快贡献值按升序列出：
 
@@ -361,11 +413,25 @@ f −非常相似，这就是为什么MO25有主导性贡献，也是为什么f 
 
 
 
-首先，我们生成f −型福井函数的cube文件。启动Multiwfn并输入 examples\orb_densdiff\butadiene\butadiene.fch 5 // 计算格点数据(Calculate grid data) 0 // 设置自定义操作(Set custom operation) 1 // 只对已载入的文件操作一个文件(Only one file will be operated with the file that has been loaded) -,examples\orb_densdiff\butadiene\butadiene_N-1.fch 1 // 电子密度(Electron density) 1 // 低质量格点(Low-quality grid)（由于当前体系很小，低质量格点已足够） 2 // 将格点数据作为density.cub导出到当前文件夹(Export the grid data as density.cub in current folder) 现在重新启动Multiwfn并输入 examples\orb_densdiff\butadiene\BUTADIENE.31 37 // 载入同一文件夹中的BUTADIENE.37，它记录了NBO轨道 现在如果你进入主功能(main function) 6并选择选项3查看轨道信息，你会发现由于高占据数，前15个轨道对应于Lewis型NBO。接下来，我们在主菜单(main menu)中输入以下命令
+首先，我们生成f −型福井函数的cube文件。启动Multiwfn并输入 examples\orb_densdiff\butadiene\butadiene.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 计算格点数据(Calculate grid data)
+    - **0** — 设置自定义操作(Set custom operation)
+    - **1** — 只对已载入的文件操作一个文件(Only one file will be operated with the file that has been loaded) -,examples\orb_densdiff\butadiene\butadiene_N-1.fch
+    - **1** — 电子密度(Electron density)
+    - **1** — 低质量格点(Low-quality grid)（由于当前体系很小，低质量格点已足够）
+    - **2** — 将格点数据作为density.cub导出到当前文件夹(Export the grid data as density.cub in current folder) 现在重新启动Multiwfn并输入 examples\orb_densdiff\butadiene\BUTADIENE.31
+    - **37** — 载入同一文件夹中的BUTADIENE.37，它记录了NBO轨道 现在如果你进入主功能(main function) 6并选择选项3查看轨道信息，你会发现由于高占据数，前15个轨道对应于Lewis型NBO。接下来，我们在主菜单(main menu)中输入以下命令
 
 200 // 其他功能(Other functions, Part 2) 13 // 评估轨道对密度差或其他格点数据的贡献(Evaluate orbital contributions to density difference or other grid data)
 
-density.cub // 包含f −格点数据的文件 0 // 选择轨道范围并开始分析(Choose orbital range and start analysis) 1-15 // Lewis NBO的范围 结果如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **density.cub** — 包含f −格点数据的文件
+    - **0** — 选择轨道范围并开始分析(Choose orbital range and start analysis)
+    - **1-15** — Lewis NBO的范围 结果如下所示
 
 
 ```text
@@ -397,7 +463,17 @@ density.cub // 包含f −格点数据的文件 0 // 选择轨道范围并开始
 
 最后，我们研究NBO对H2CO的S1与S0态之间Δρ的贡献。本节所用的所有相关文件已提供在"examples\orb_densdiff\H2CO"文件夹中，包括为基态生成的NBO绘图文件、基态波函数文件（S0.fch）和第一激发态波函数（S1.wfn）。用于生成这些文件的Gaussian输入文件也一并提供。
 
-我们首先生成S1与S0态之间的Δρ。启动Multiwfn并输入 examples\orb_densdiff\H2CO\S1.wfn 5 // 计算格点数据(Calculate grid data) 0 // 设置自定义操作(Set custom operation) 1 // 只对已载入的文件操作一个文件(Only one file will be operated with the file that has been loaded) -,examples\orb_densdiff\H2CO\S0.fch 1 // 电子密度(Electron density) 1 // 低质量格点(Low-quality grid) 2 // 将格点数据作为density.cub导出到当前文件夹(Export the grid data as density.cub in current folder) -1 // 可视化等值面(Visualize the isosurface) 等值面(isovalue)=0.03时的等值面如下所示。
+我们首先生成S1与S0态之间的Δρ。启动Multiwfn并输入 examples\orb_densdiff\H2CO\S1.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 计算格点数据(Calculate grid data)
+    - **0** — 设置自定义操作(Set custom operation)
+    - **1** — 只对已载入的文件操作一个文件(Only one file will be operated with the file that has been loaded) -,examples\orb_densdiff\H2CO\S0.fch
+    - **1** — 电子密度(Electron density)
+    - **1** — 低质量格点(Low-quality grid)
+    - **2** — 将格点数据作为density.cub导出到当前文件夹(Export the grid data as density.cub in current folder)
+    - **-1** — 可视化等值面(Visualize the isosurface) 等值面(isovalue)=0.03时的等值面如下所示。
 
 现在我们计算NBO轨道对ΔρS0→S1的贡献，以表征S0→S1跃迁的性质。重新启动Multiwfn并输入以下命令
 
@@ -410,9 +486,18 @@ density.cub // 包含f −格点数据的文件 0 // 选择轨道范围并开始
 
 
 
-examples\orb_densdiff\H2CO\H2CO.31 37 // 载入同一文件夹中的H2CO.37，它记录了NBO轨道 200 // 其他功能(Other functions, Part 2) 13 // 评估轨道对密度差或其他格点数据的贡献(Evaluate orbital contributions to density difference or other grid data)
+!!! terminal "Multiwfn 交互"
 
-density.cub // 包含ΔρS0→S1格点数据的文件 1 // 设置对贡献之和的约束(Set constraint on the sum of contributions) 2 // 将约束设为特定值(Set the constraint to a specific value) 0 // 由于电子激发不改变电子数，将贡献之和约束为零
+    - **examples\orb_densdiff\H2CO\H2CO.31 37** — 载入同一文件夹中的H2CO.37，它记录了NBO轨道
+    - **200** — 其他功能(Other functions, Part 2)
+    - **13** — 评估轨道对密度差或其他格点数据的贡献(Evaluate orbital contributions to density difference or other grid data)
+
+!!! terminal "Multiwfn 交互"
+
+    - **density.cub** — 包含ΔρS0→S1格点数据的文件
+    - **1** — 设置对贡献之和的约束(Set constraint on the sum of contributions)
+    - **2** — 将约束设为特定值(Set the constraint to a specific value)
+    - **0** — 由于电子激发不改变电子数，将贡献之和约束为零
 
 0 // 选择轨道范围并开始分析(Choose orbital range and start analysis) [直接按回车键(Press ENTER button)以考虑所有轨道] // 注意在电子激发过程中，一部分电子被激发到空轨道，因此只考虑Lewis NBO显然不够，所以在当前情况下应考虑所有轨道
 
@@ -467,7 +552,11 @@ density.cub // 包含ΔρS0→S1格点数据的文件 1 // 设置对贡献之和
 
 体系1：苯酚二聚体 首先，我们以苯酚二聚体为例。启动Multiwfn并输入 examples\phenoldimer.wfn 200 // 其他功能(Other functions, Part 2) 14 // 在实空间函数的等值面内积分实空间函数(Integrate real space functions within isosurfaces of a real space function) 这里我们要研究由RDG = 0.5等值面定义的RDG域；换句话说，这些域由RDG < 0.5的格点组成。因此，我们选择选项2并选择"13 Reduced density gradient"，然后选择选项3并输入判据，即<0.5（实际上，RDG < 0.5是默认设置，你不需要手动做这些步骤）。接下来，输入以下命令：
 
-1 // 开始计算格点数据并生成域(Start calculation grid data and generate domains) -10 // 调整扩展距离(Adjust extension distance) 0 // 将扩展距离设为零以避免在边界区域浪费格点，在边界区域通常不会出现RDG等值面(Set extension distance to zero to avoid wasting of grid points at boundary area, where RDG isosurfaces commonly do not occur)
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 开始计算格点数据并生成域(Start calculation grid data and generate domains)
+    - **-10** — 调整扩展距离(Adjust extension distance)
+    - **0** — 将扩展距离设为零以避免在边界区域浪费格点，在边界区域通常不会出现RDG等值面(Set extension distance to zero to avoid wasting of grid points at boundary area, where RDG isosurfaces commonly do not occur)
 
 2 // 中等质量格点(Medium-quality grid)（格点间距(grid spacing)=0.1 Bohr），一般这已足够精确 现在Multiwfn开始为所选实空间函数（即RDG）计算格点数据，然后根据RDG<0.5的判据识别各个RDG域。最后，找到四个域，构成域的格点数如下最后一列所示：
 
@@ -490,7 +579,12 @@ Domain:     4    Grids:    2597    Volume:     0.385 Angstrom^3
 
 如果你已读过第3.23.1节，你必定知道这些域分别对应两个苯酚之间的氢键(H-bond)和范德华(van der Waals, vdW)相互作用。我们可以通过在相应区域内积分特定实空间函数来研究这些域的性质。我们输入
 
-1 // 积分一个域(Integrate a domain) 2 // 所感兴趣域的编号(Index of the domain of interest) 2 // 选择一个实空间函数(Choose a real space function) 1 // 以电子密度作为被积函数(Using electron density as integrand) 结果为：
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 积分一个域(Integrate a domain)
+    - **2** — 所感兴趣域的编号(Index of the domain of interest)
+    - **2** — 选择一个实空间函数(Choose a real space function)
+    - **1** — 以电子密度作为被积函数(Using electron density as integrand) 结果为：
 
 
 ```text
@@ -527,7 +621,17 @@ qint指数基于在RDG = 0.6等值面所包围的域内积分定义，因此我�
 
 因此，在计算本例的RDG格点数据时，扩展距离应设为比零稍大的值，3 Bohr足以避免意外截断。扩展距离也不应设为过大，否则要计算的格点数会非常高，从而非常耗时。
 
-启动Multiwfn并输入以下命令： examples\2-pyridoxine_2-aminopyridine.wfn 200 // 其他功能(Other functions, Part 2) 14 // 在实空间函数的等值面内积分实空间函数(Integrate real space functions within isosurfaces of a real space function) 3 // 改变定义域的默认判据(Change the default criterion of defining domain) <0.6 1 // 开始计算格点数据(Start calculation of grid data) -10 // 改变扩展距离(Change extension distance) 3 // 3.0 Bohr扩展距离 2 // 中等质量格点(Medium-quality grid) 现在可视化所得域。如下所示为域2和域4，显然它们分别对应
+启动Multiwfn并输入以下命令： examples\2-pyridoxine_2-aminopyridine.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能(Other functions, Part 2)
+    - **14** — 在实空间函数的等值面内积分实空间函数(Integrate real space functions within isosurfaces of a real space function)
+    - **3** — 改变定义域的默认判据(Change the default criterion of defining domain) <0.6
+    - **1** — 开始计算格点数据(Start calculation of grid data)
+    - **-10** — 改变扩展距离(Change extension distance)
+    - **3** — 3.0 Bohr扩展距离
+    - **2** — 中等质量格点(Medium-quality grid) 现在可视化所得域。如下所示为域2和域4，显然它们分别对应
 
 N23-H25······O1和N2-H12······N13的氢键。
 
@@ -607,7 +711,14 @@ $$\delta g^{\mathrm{inter}}$$
 
 本节以α-环糊精(α-cyclodextrin)为例。在用域分析模块研究空腔之前，建议先在不同等值面(isovalue)下可视化前分子密度。启动Multiwfn并输入：
 
-examples\alpha-cyclodextrin.pdb 5 // 计算格点数据(Calculate grid data) 1 // 前分子密度(Promolecular density) -10 // 设置扩展距离(Set extension distance) 0 // 零扩展距离，即让盒子恰好包住分子(Zero extension distance, namely let the box just enclose the molecule) 1 // 低质量格点(Low-quality grid) -1 // 显示等值面图(Show isosurface map) 在图形界面(GUI)窗口中点击"Show data range"以显示格点数据盒子（蓝色框），并分别将等值面(isovalue)设为0.01和0.001，你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **examples\alpha-cyclodextrin.pdb 5** — 计算格点数据(Calculate grid data)
+    - **1** — 前分子密度(Promolecular density)
+    - **-10** — 设置扩展距离(Set extension distance)
+    - **0** — 零扩展距离，即让盒子恰好包住分子(Zero extension distance, namely let the box just enclose the molecule)
+    - **1** — 低质量格点(Low-quality grid)
+    - **-1** — 显示等值面图(Show isosurface map) 在图形界面(GUI)窗口中点击"Show data range"以显示格点数据盒子（蓝色框），并分别将等值面(isovalue)设为0.01和0.001，你将看到
 
 很容易理解，如果我们用0.001 a.u.的阈值，则无法定义对应分子中心空腔的域，因为内部区域和外部区域通过红色箭头所指的三个通道连通。而在0.0001 a.u.的情况下，分子空腔可清晰辨认，因此我们可以用该阈值配合域分析模块研究空腔。
 
@@ -620,7 +731,12 @@ examples\alpha-cyclodextrin.pdb 5 // 计算格点数据(Calculate grid data) 1 /
 
 
 
-1 // 计算格点数据并划分域(Calculate grid data and assign domains) -10 // 改变扩展距离(Change extension distance) 0 // 无扩展距离(No extension distance) 1 // 低质量格点(Low-quality grid) 计算完成后，你将在屏幕上看到以下信息。共找到六个域，所有域的格点数和体积如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 计算格点数据并划分域(Calculate grid data and assign domains)
+    - **-10** — 改变扩展距离(Change extension distance)
+    - **0** — 无扩展距离(No extension distance)
+    - **1** — 低质量格点(Low-quality grid) 计算完成后，你将在屏幕上看到以下信息。共找到六个域，所有域的格点数和体积如下所示
 
 
 ```text
@@ -838,7 +954,11 @@ Multiwfn还会询问你是否输出键角和二面角沿原子顺序的变化，
 
 
 
-启动Multiwfn并输入 examples\C18_MD_1.xyz // 从分子动力学轨迹中抽取的一帧 200 // 其他功能(Other functions)(第二部分，Part 2) 18 1-18 // 环中的原子序号 1,1 // 所研究的路径是闭合路径，即环，此时输入的两个原子序号必须相同。环中任意原子的序号都可输入，它将被视为起始原子
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入 examples\C18_MD_1.xyz** — 从分子动力学轨迹中抽取的一帧
+    - **200** — 其他功能(Other functions)(第二部分，Part 2) 18
+    - **1-18** — 环中的原子序号 1,1
 
 输出的键长变化如下所示
 
@@ -898,7 +1018,12 @@ Note The unit of printed values is degree
 
 基于波函数文件计算SDI 作为例子，我们计算examples\excit\D-pi-A.fchk中所有占据轨道密度的SDI。启动Multiwfn，载入该文件，然后输入
 
-200 // 其他功能(Other function)(第二部分，Part 2) 19 // 计算SDI(Calculating SDI) 2 // 计算轨道波函数密度的SDI(Calculate SDI for density of orbital wavefunctions) 1-56 // 占据MO的序号 你将立即在屏幕上看到以下结果，单位为a.u.。
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能(Other function)(第二部分，Part 2)
+    - **19** — 计算SDI(Calculating SDI)
+    - **2** — 计算轨道波函数密度的SDI(Calculate SDI for density of orbital wavefunctions)
+    - **1-56** — 占据MO的序号 你将立即在屏幕上看到以下结果，单位为a.u.。
 
 
 ```text
@@ -974,14 +1099,24 @@ Spatial delocalization index is    6.030145
 
 启动Multiwfn并输入以下命令 examples\N2.fch // 在B3LYP/def-TZVP水平下优化并生成。只要文件含有基函数信息，你也可以使用其他文件(如.molden和.mwfn)
 
-15 // 模糊原子空间分析(Fuzzy atomic space analysis) 3 // 计算原子重叠矩阵并输出到当前文件夹下的AOM.txt(Calculate and output atomic overlap matrix to AOM.txt in current folder) 0 // 返回主菜单(Return to main menu)
+!!! terminal "Multiwfn 交互"
+
+    - **15** — 模糊原子空间分析(Fuzzy atomic space analysis)
+    - **3** — 计算原子重叠矩阵并输出到当前文件夹下的AOM.txt(Calculate and output atomic overlap matrix to AOM.txt in current folder)
+    - **0** — 返回主菜单(Return to main menu)
 
 
 <!-- p.1061 -->
 
 
 
-200 // 其他功能(Other functions)(第二部分，Part 2) 20 // 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses) 1 // 使用原子重叠矩阵(AOM)进行分析(Use atomic overlap matrix (AOM) for the analysis) [按ENTER键(Press ENTER button)] // 载入当前文件夹下的AOM.txt(Load the AOM.txt in current folder) 1,2 // 待分析的两个原子的序号 然后生成NAdO，你可以找到以下信息
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能(Other functions)(第二部分，Part 2)
+    - **20** — 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses)
+    - **1** — 使用原子重叠矩阵(AOM)进行分析(Use atomic overlap matrix (AOM) for the analysis) [按ENTER键(Press ENTER button)]
+
+待分析的两个原子的序号 然后生成NAdO，你可以找到以下信息
 
 
 ```text
@@ -994,7 +1129,14 @@ Eigenvalues of NAdOs: (sum=   3.11681 )
 
 接下来，我们输入y让Multiwfn载入新生成的NAdOs.mwfn。从现在起，电子密度函数直接对应于BOD函数。现在我们将BOD绘制为色彩填充图。输入以下命令
 
-0 // 返回主菜单(Return to main menu) 4 // 绘制平面图(Plot plane map) 1 // 电子密度(在当前语境下对应于BOD)(Electron density (which corresponds to BOD in the present context)) 1 // 色彩填充图(Color-filled map) [按ENTER键(Press ENTER button)] // 使用推荐的网格设置(Use recommended grid setting) 0 // 设置扩展距离(Set extension distance) 2 // 2 Bohr 3 // YZ平面(YZ plane) 0 // Z=0 此时BOD图弹出。对绘图设置做一些调整后，你可以看到下图
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回主菜单(Return to main menu)
+    - **4** — 绘制平面图(Plot plane map)
+    - **1** — 电子密度(在当前语境下对应于BOD)(Electron density (which corresponds to BOD in the present context))
+    - **1** — 色彩填充图(Color-filled map) [按ENTER键(Press ENTER button)]
+
+设置扩展距离(Set extension distance) 2 // 2 Bohr 3 // YZ平面(YZ plane) 0 // Z=0 此时BOD图弹出。对绘图设置做一些调整后，你可以看到下图
 
 
 <!-- p.1062 -->
@@ -1007,7 +1149,18 @@ Eigenvalues of NAdOs: (sum=   3.11681 )
 
 本节我们将研究1,3-丁二烯中两种C-C键的BOD和NAdO轨道，其几何结构如下所示。这次分析将基于由AIM划分产生的AOM进行(像上例那样使用模糊划分也是合理的)。
 
-启动Multiwfn并输入 examples\butadiene.fch // 在B3LYP/6-31G**水平下生成 17 // 盆分析模块(Basin analysis module) 1 // 产生盆并定位吸引子(Generate basins and locate attractors) 1 // 用电子密度定义盆(即AIM盆)(Use electron density to define basins (i.e. AIM basins)) 2 // 中等质量网格(Medium-quality grid) 6 // 将原子中的轨道重叠矩阵输出到当前文件夹下的AOM.txt(Output orbital overlap matrix in atoms to AOM.txt in current folder) -10 // 返回主菜单(Return to main menu) 200 // 其他功能(Other functions)(第二部分，Part 2) 20 // 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses) 1 // 使用原子重叠矩阵(AOM)进行分析(Use atomic overlap matrix (AOM) for the analysis)
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入 examples\butadiene.fch** — 在B3LYP/6-31G**水平下生成
+    - **17** — 盆分析模块(Basin analysis module)
+    - **1** — 产生盆并定位吸引子(Generate basins and locate attractors)
+    - **1** — 用电子密度定义盆(即AIM盆)(Use electron density to define basins (i.e. AIM basins))
+    - **2** — 中等质量网格(Medium-quality grid)
+    - **6** — 将原子中的轨道重叠矩阵输出到当前文件夹下的AOM.txt(Output orbital overlap matrix in atoms to AOM.txt in current folder)
+    - **-10** — 返回主菜单(Return to main menu)
+    - **200** — 其他功能(Other functions)(第二部分，Part 2)
+    - **20** — 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses)
+    - **1** — 使用原子重叠矩阵(AOM)进行分析(Use atomic overlap matrix (AOM) for the analysis)
 
 
 ![](../imgs/p1062_576.png)
@@ -1065,7 +1218,13 @@ Eigenvalues of NAdOs: (sum=   1.11455 )
 
 现在我们把注意力转向边界C-C键，即C1-C4(或C6-C8)。重新启动Multiwfn并输入以下命令(你可以先手动备份之前的NAdOs.mwfn以避免被覆盖)
 
-examples\butadiene.fch 200 // 其他功能(Other functions)(第二部分，Part 2) 20 // 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses) 1 // 使用原子重叠矩阵(AOM)进行分析(Use atomic overlap matrix (AOM) for the analysis) [按ENTER键(Press ENTER button)] // 载入当前文件夹下的AOM.txt(Load the AOM.txt in current folder) 1,4 // 体系边界两个碳的序号 y // 载入新生成的NAdOs.mwfn 此后，用主功能0可视化仅有的两个对DI有显著贡献的轨道，如下所示(等值面值=0.05)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\butadiene.fch 200** — 其他功能(Other functions)(第二部分，Part 2)
+    - **20** — 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses)
+    - **1** — 使用原子重叠矩阵(AOM)进行分析(Use atomic overlap matrix (AOM) for the analysis) [按ENTER键(Press ENTER button)]
+
+体系边界两个碳的序号 y // 载入新生成的NAdOs.mwfn 此后，用主功能0可视化仅有的两个对DI有显著贡献的轨道，如下所示(等值面值=0.05)
 
 C1-C4的σ型NAdO轨道的本征值与C4-C6的相当，表明这两种C-C键具有相近强度的σ作用。相比之下，C1-C4的π型NAdO轨道对DI的贡献远高于C4-C6，很好地反映了
 
@@ -1090,7 +1249,17 @@ C1-C4的σ型NAdO轨道的本征值与C4-C6的相当，表明这两种C-C键具�
 
 我还将BOD和NAdO分析扩展到片段间相互作用的情形。为说明如何实现，本节以环氧乙烷为例，氧原子和两个碳原子将分别定义为两个片段。此外，本例还将说明NAdO能量的计算。
 
-我们像前面的例子一样产生含有AOM的文件。启动Multiwfn并输入 examples\oxirane.fchk 15 // 模糊原子空间分析(Fuzzy atomic space analysis) 3 // 计算原子重叠矩阵并输出到当前文件夹下的AOM.txt(Calculate and output atomic overlap matrix to AOM.txt in current folder) 0 // 返回主菜单(Return to main menu) 200 // 其他功能(Other functions)(第二部分，Part 2) 20 // 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses) -1 // 切换是否计算NAdO能量(Toggle if calculating energies for NAdOs) 1 // 基于由MO能量和系数产生的Fock矩阵计算NAdO能量(Evaluate NAdOs energies based on the Fock matrix generated by MO energies and coefficients)
+我们像前面的例子一样产生含有AOM的文件。启动Multiwfn并输入 examples\oxirane.fchk
+
+!!! terminal "Multiwfn 交互"
+
+    - **15** — 模糊原子空间分析(Fuzzy atomic space analysis)
+    - **3** — 计算原子重叠矩阵并输出到当前文件夹下的AOM.txt(Calculate and output atomic overlap matrix to AOM.txt in current folder)
+    - **0** — 返回主菜单(Return to main menu)
+    - **200** — 其他功能(Other functions)(第二部分，Part 2)
+    - **20** — 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses)
+    - **-1** — 切换是否计算NAdO能量(Toggle if calculating energies for NAdOs)
+    - **1** — 基于由MO能量和系数产生的Fock矩阵计算NAdO能量(Evaluate NAdOs energies based on the Fock matrix generated by MO energies and coefficients)
 
 
 ![](../imgs/p1065_581.png)

@@ -197,7 +197,11 @@ examples\N-phenylpyrrole.fch 12 // 定量分子表面分析(Quantitative molecul
 
 假设我们要再次进行分析。这次我们可以直接使用记录在纯文本文件中的ESP数据。输入以下命令
 
-5 // 在分析过程中从外部文件载入映射函数值(Loading mapped function values from external file during analysis) 1 // 从纯文本文件载入所有表面顶点处的映射函数(Loading mapped function at all surface vertices from a plain text file) 0 // 开始分析(Start the analysis) 在分子表面构建完成后，Multiwfn会提示您输入记录所有表面顶点处映射函数值的纯文本文件的路径，此时您只需输入vtx.txt即可。
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 在分析过程中从外部文件载入映射函数值(Loading mapped function values from external file during analysis)
+    - **1** — 从纯文本文件载入所有表面顶点处的映射函数(Loading mapped function at all surface vertices from a plain text file)
+    - **0** — 开始分析(Start the analysis) 在分子表面构建完成后，Multiwfn会提示您输入记录所有表面顶点处映射函数值的纯文本文件的路径，此时您只需输入vtx.txt即可。
 
 由于这次映射函数值即ESP值不是计算得到的，而是直接从vtx.txt载入的，分析结果会立即显示在屏幕上。
 
@@ -212,9 +216,20 @@ examples\N-phenylpyrrole.fch 12 // 定量分子表面分析(Quantitative molecul
 
 Dmol3和FHI-aims，无法产生Multiwfn支持的波函数文件，但在这种情况下，只要您能用这些程序为您的体系生成电子密度和ESP的cube文件，仍然可以在分子表面上做ESP分析。一旦生成了cube文件，启动Multiwfn后输入以下命令即可：
 
-density.cub // 首先载入电子密度的cube文件(Load cube file of electron density first) 12 // 定量分子表面分析(Quantitative molecular surface analysis) 1 // 选择定义表面的方式(Select the way to define surface) 11 // 内存中格点数据的等值面(Isosurface of the grid data in memory)
+!!! terminal "Multiwfn 交互"
 
-0.001 // 用ρ = 0.001 a.u.定义等值面(Use ρ = 0.001 a.u. to define the isosurface) 2 // 选择映射函数(Select mapped function) 1 // ESP 5 // 设置是否从外部文件载入映射函数值(Set if loading mapped function values from external file) 3 // 映射函数将从外部cube文件插值得到(The mapped function will be interpolated from an external cube file) 0 // 开始计算(Start calculation) ESP.cub // 记录ESP的cube文件(The cube file recording ESP) 注意，用于生成density.cub和ESP.cub的格点设置必须完全相同，且格点间距不宜太大（不大于0.25 Bohr），否则分析结果将不准确。
+    - **density.cub** — 首先载入电子密度的cube文件(Load cube file of electron density first)
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **1** — 选择定义表面的方式(Select the way to define surface)
+    - **11** — 内存中格点数据的等值面(Isosurface of the grid data in memory)
+
+!!! terminal "Multiwfn 交互"
+
+    - **0.001** — 用ρ = 0.001 a.u.定义等值面(Use ρ = 0.001 a.u. to define the isosurface)
+    - **2** — 选择映射函数(Select mapped function)
+    - **1** — ESP 5
+
+映射函数将从外部cube文件插值得到(The mapped function will be interpolated from an external cube file) 0 // 开始计算(Start calculation) ESP.cub // 记录ESP的cube文件(The cube file recording ESP) 注意，用于生成density.cub和ESP.cub的格点设置必须完全相同，且格点间距不宜太大（不大于0.25 Bohr），否则分析结果将不准确。
 
 
 ### 4.12.2 苯酚分子表面上的平均局域电离能(ALIE)分析(Average local ionization energy analysis (ALIE) on phenol molecular surface)
@@ -222,7 +237,13 @@ density.cub // 首先载入电子密度的cube文件(Load cube file of electron 
 
 下面我们将分析苯酚范德华表面上的平均局域电离能𝐼̅。启动Multiwfn并输入
 
-examples\phenol_631Gxx.wfn // 在B3PW91/6-31G**水平下产生(Produced at B3PW91/6-31G** level) 12 // 定量分子表面分析(Quantitative molecular surface analysis) 2 // 重新选择映射函数(Reselect mapped function) 2 // 选择𝐼̅作为映射函数(Choose 𝐼̅ as mapped function) 0 // 开始表面分析(Start the surface analysis)。由于𝐼̅的计算比ESP简单得多，计算很快就完成了。与ESP的表面分析不同，此时除极值点信息外，只输出范德华体积、表面积以及范德华表面上𝐼̅的平均值和方差。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenol_631Gxx.wfn** — 在B3PW91/6-31G**水平下产生(Produced at B3PW91/6-31G** level)
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **2** — 重新选择映射函数(Reselect mapped function)
+    - **2** — 选择𝐼̅作为映射函数(Choose 𝐼̅ as mapped function)
+    - **0** — 开始表面分析(Start the surface analysis)。由于𝐼̅的计算比ESP简单得多，计算很快就完成了。与ESP的表面分析不同，此时除极值点信息外，只输出范德华体积、表面积以及范德华表面上𝐼̅的平均值和方差。
 
 选择0以可视化极值点(visualize extrema)。为了使极值点与原子的对应关系更清楚，我们将“原子尺寸比例(Ratio of atomic size)”滑块拖到4.0，这对应范德华表面，并关闭表面极大点的显示，然后我们将看到：
 
@@ -279,7 +300,11 @@ examples\phenol_631Gxx.wfn // 在B3PW91/6-31G**水平下产生(Produced at B3PW9
 
 在本例中，我们将尝试通过分析其范德华表面上的ESP来解释丙烯醛的位点选择性。注意，平均局域电离能只对研究亲电进攻有用，而对分析亲核进攻完全无用。
 
-启动Multiwfn并输入：examples\acrolein.wfn // 在B3LYP/6-31G**水平下优化并产生(Optimized and produced at B3LYP/6-31G** level) 12 // 分子表面的定量分析(Quantitative analysis of molecular surface) 0 // 对ESP开始分析(Start the analysis for ESP) 计算完成后，选择0以可视化表面极值点(visualize surface extrema)：
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入：examples\acrolein.wfn** — 在B3LYP/6-31G**水平下优化并产生(Optimized and produced at B3LYP/6-31G** level)
+    - **12** — 分子表面的定量分析(Quantitative analysis of molecular surface)
+    - **0** — 对ESP开始分析(Start the analysis for ESP) 计算完成后，选择0以可视化表面极值点(visualize surface extrema)：
 
 如您所见，在α碳的边界处有一个ESP表面极小点，且它非常靠近β碳。这一观察间接揭示了α碳的核电荷被电子云屏蔽得更重，因而作为亲核进攻位点的可能性较小。然而，对整个丙烯醛表面的ESP定量分析并未对反应位点的偏好给出直接而明确的解释，因为在羰基
 
@@ -338,17 +363,31 @@ Note: Average and variance below are in kcal/mol and (kcal/mol)^2 respectively
 
 注：若您无法顺利复现下面第1和第2部分所述的步骤，请看视频说明：http://sobereva.com/multiwfn/extrafiles/Molecular_surface_Fukui.mp4。
 
-第1部分：获得f −的极小点和极大点的位置和数值 启动Multiwfn（称为Multiwfn A）并输入以下命令 examples\phenol.wfn 12 // 定量分子表面分析(Quantitative molecular surface analysis) 2 // 选择分子表面上的映射实空间函数(Select the mapped real space function on the molecular surface) 0 // 函数值将从外部文件载入(The function value will be loaded from an external file) 1 // 设置定义表面的方式(Set the way to define the surface) 1 // 用电子密度等值面作为分子表面(Use electron density isosurface as molecular surface)
+第1部分：获得f −的极小点和极大点的位置和数值 启动Multiwfn（称为Multiwfn A）并输入以下命令 examples\phenol.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **2** — 选择分子表面上的映射实空间函数(Select the mapped real space function on the molecular surface)
+    - **0** — 函数值将从外部文件载入(The function value will be loaded from an external file)
+    - **1** — 设置定义表面的方式(Set the way to define the surface)
+    - **1** — 用电子密度等值面作为分子表面(Use electron density isosurface as molecular surface)
 
 0.01 // 由于在默认等值面ρ = 0.001上的Fukui函数的量级常常太小，将等值面值增大到0.01 a.u.使接下来的分析更有意义
 
 0 // 开始表面分析(Start the surface analysis) Multiwfn将生成电子密度的格点数据，然后生成表面顶点。在这些顶点的坐标被自动输出到当前文件夹中的surfptpos.txt后，Multiwfn A暂停。不要终止Multiwfn A，我们现在启动另一个Multiwfn（称为Multiwfn B），然后在Multiwfn B中输入以下命令
 
-examples\phenol.wfn 5 // 我们用此模块在surfptpos.txt中记录的点上生成Fukui函数(We use this module to generate Fukui function on the points recorded in surfptpos.txt) 0 // 设置自定义操作(Set custom operation) 1 -,examples\phenol_N-1.wfn // 减去phenol_N-1.wfn的性质，即将计算Fukui函数f −(Subtract a property of phenol_N-1.wfn from that of phenol.wfn,
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenol.wfn 5** — 我们用此模块在surfptpos.txt中记录的点上生成Fukui函数(We use this module to generate Fukui function on the points recorded in surfptpos.txt)
+    - **0** — 设置自定义操作(Set custom operation) 1 -,examples\phenol_N-1.wfn
 
 namely Fukui function f − will be calculated)
 
-1 // 电子密度(Electron density) 100 // 从外部文件载入待计算点的坐标(Load the coordinate of the points to be calculated from an external file) surfptpos.txt t.txt // 将点的坐标和计算的函数值（Fukui函数）输出到此文件(Output the coordinate and calculated function values (Fukui function) of the points (surface vertices) to this file)
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 电子密度(Electron density)
+    - **100** — 从外部文件载入待计算点的坐标(Load the coordinate of the points to be calculated from an external file) surfptpos.txt t.txt
 
 接下来，我们终止Multiwfn B，回到Multiwfn A，然后输入t.txt // 从此文件载入表面顶点处的Fukui函数值(Load the Fukui function values at the surface vertices from this file)
 
@@ -414,7 +453,15 @@ NaN意味着局域分子表面上没有f −的负值。从结果中可以清楚
 
 
 
-examples\phenol.wfn 5 // 计算格点数据(Calculate grid data) 0 // 设置自定义操作(Set custom operation) 1 -,examples\phenol_N-1.wfn 1 // 电子密度(Electron density) 3 // 高质量格点(High-quality grid) 2 // 导出格点数据(Export grid data) 现在将刚导出的density.cub重命名为mapped.cub。然后输入0 // 返回主菜单(Return to main menu) 5 // 计算格点数据(Calculate grid data) 1 // 电子密度(Electron density) 3 // 高质量格点(High-quality grid) 2 // 导出格点数据(Export grid data) 现在您在当前文件夹中有了density.cub。将density.cub、mapped.cub、surfanalysis.pdb移动到VMD文件夹。并将“examples\scripts\”文件夹中的VMD绘图脚本molsurfmap.vmd复制到VMD文件夹。之后，启动VMD并在VMD控制台窗口中运行source molsurfmap.vmd执行该脚本，然后您将看到
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenol.wfn 5** — 计算格点数据(Calculate grid data)
+    - **0** — 设置自定义操作(Set custom operation) 1 -,examples\phenol_N-1.wfn
+    - **1** — 电子密度(Electron density)
+    - **3** — 高质量格点(High-quality grid)
+    - **2** — 导出格点数据(Export grid data) 现在将刚导出的density.cub重命名为mapped.cub。然后输入0
+
+计算格点数据(Calculate grid data) 1 // 电子密度(Electron density) 3 // 高质量格点(High-quality grid) 2 // 导出格点数据(Export grid data) 现在您在当前文件夹中有了density.cub。将density.cub、mapped.cub、surfanalysis.pdb移动到VMD文件夹。并将“examples\scripts\”文件夹中的VMD绘图脚本molsurfmap.vmd复制到VMD文件夹。之后，启动VMD并在VMD控制台窗口中运行source molsurfmap.vmd执行该脚本，然后您将看到
 
 下图，其中青色和红色小球分别对应ρ = 0.01 a.u.等值面上的极大点和极小点。当前的着色方式为红-白-蓝，对应映射函数从0.0到0.002的变化。
 
@@ -434,7 +481,14 @@ Hirshfeld和Becke表面分析的概念已在3.15.5节介绍，请先阅读它们
 
 Hirshfeld表面分析更为常用，见下一节。
 
-启动Multiwfn并输入 examples\GC.wfn // 在M06-2X/6-31+G**水平下产生，在PM7水平下优化(Generated at M06-2X/6-31+G** level, optimized at PM7 level) 12 // 定量分子表面分析(Quantitative molecular surface analysis) 1 // 改变表面的定义(Change the definition of surface) 6 // 使用Becke表面(Use Becke surface)。您也可以选择5以使用Hirshfeld表面(You can also select 5 to use Hirshfeld surface) 1-13 // 您感兴趣的原子的序号范围（当前为胞嘧啶）(The index range of the atoms you are interested in (cytosine in present case)) 0 // 开始计算(Start calculation) Multiwfn找到了许多表面极小点，在这种情况下它们没有意义，同时找到了三个表面极大点
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入 examples\GC.wfn** — 在M06-2X/6-31+G**水平下产生，在PM7水平下优化(Generated at M06-2X/6-31+G** level, optimized at PM7 level)
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **1** — 改变表面的定义(Change the definition of surface)
+    - **6** — 使用Becke表面(Use Becke surface)。您也可以选择5以使用Hirshfeld表面(You can also select 5 to use Hirshfeld surface)
+    - **1-13** — 您感兴趣的原子的序号范围（当前为胞嘧啶）(The index range of the atoms you are interested in (cytosine in present case))
+    - **0** — 开始计算(Start calculation) Multiwfn找到了许多表面极小点，在这种情况下它们没有意义，同时找到了三个表面极大点
 
 
 ```text
@@ -478,7 +532,12 @@ The number of surface maxima:     3
 
 urea.cif //尿素的.cif文件，请从互联网上寻找(.cif file of urea, please find it from Internet)。附言：不要手动将其扩展为超胞，否则计算开销会显著增加(PS: DO NOT manually extend it to supercell, otherwise computational cost will significantly increase)
 
-300 // 主功能300(Main function 300) 7 // 几何操作(Geometry operation) 25 // 提取分子团簇（中心分子+周围分子）(Extract a molecular cluster (central molecule + surrounding ones)) 1 // 将含原子1的整个分子作为中心分子，该分子及与其靠近的所有周围尿素都将被提取出来(The whole molecule containing atom 1 is taken as the central molecule, this molecule and all surrounding ureas close to it will be extracted)
+!!! terminal "Multiwfn 交互"
+
+    - **300** — 主功能300(Main function 300)
+    - **7** — 几何操作(Geometry operation)
+    - **25** — 提取分子团簇（中心分子+周围分子）(Extract a molecular cluster (central molecule + surrounding ones))
+    - **1** — 将含原子1的整个分子作为中心分子，该分子及与其靠近的所有周围尿素都将被提取出来(The whole molecule containing atom 1 is taken as the central molecule, this molecule and all surrounding ureas close to it will be extracted)
 
 [按回车键] // 使用推荐的1.2接触判据([Press ENTER button] // Use recommended criterion of 1.2 to detect contact)
 
@@ -493,7 +552,15 @@ urea.cif //尿素的.cif文件，请从互联网上寻找(.cif file of urea, ple
 
 尿素团簇的Hirshfeld表面分析 在本例中我们使用下图所示的尿素团簇模型，可按上述方式构建。相应的几何文件examples\Urea_crystal.pdb含有11个尿素，中心分子将在我们的Hirshfeld表面分析中被定义为片段。
 
-启动Multiwfn并输入 examples\Urea_crystal.pdb 12 // 定量分子表面分析(Quantitative molecular surface analysis) 1 // 改变表面类型(Change surface type) 5 // 使用Hirshfeld表面(Use Hirshfeld surface) 16,36,58,2,77,55,34,13 // 中心尿素中原子的序号(The index of the atoms in the central urea) 0 // 开始计算(Start calculation)。注意这里使用默认的映射函数dnorm(After the calculation is finished, you can select option 8 to export the surface vertices with the mapped electron density to vtx.pqr, and then plot them in VMD via the way described in the last section.) 计算完成后，您可以选择选项8(option 8)将带映射电子密度的表面顶点导出为vtx.pqr，然后按上一节所述方式在VMD中绘制它们。
+启动Multiwfn并输入 examples\Urea_crystal.pdb
+
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **1** — 改变表面类型(Change surface type)
+    - **5** — 使用Hirshfeld表面(Use Hirshfeld surface) 16,36,58,2,77,55,34,13
+
+开始计算(Start calculation)。注意这里使用默认的映射函数dnorm(After the calculation is finished, you can select option 8 to export the surface vertices with the mapped electron density to vtx.pqr, and then plot them in VMD via the way described in the last section.) 计算完成后，您可以选择选项8(option 8)将带映射电子密度的表面顶点导出为vtx.pqr，然后按上一节所述方式在VMD中绘制它们。
 
 接下来，我们绘制指纹图。输入以下命令 20 // 指纹图分析(Fingerprint plot analysis) 0 // 开始指纹分析(Start fingerprint analysis) 1 // 将指纹图保存为图像文件(Save fingerprint plot to an image file) 您会发现在当前文件夹中已生成一个.pdf文件，打开后您将看到下图
 
@@ -548,7 +615,12 @@ The local surface occupies   69.45% of the total surface
 
 原子之间的指纹图。输入以下命令
 
--1 // 返回上一级菜单(Return to upper level of menu) 1 // 设置要考虑的内侧原子(Set the inside atoms to consider) [按 ENTER 键(Press ENTER button)] // 不设置原子序号约束(Do not set constraint for atomic indices) H // 内侧原子必须是氢(The inside atoms must be hydrogen) 2 // 设置要考虑的外侧原子(Set the outside atoms to consider) 76 // 周围某个尿素中氧的序号(The index of the oxygen in one of surrounding urea) [按 ENTER 键(Press ENTER button)] // 不设置元素过滤条件(Do not set element filter condition) 0 // 开始指纹分析(Start fingerprint analysis) 从屏幕上输出的信息中，你可以发现这次产生的局域接触表面为 6.8 Å²，占总接触表面积的 7.2%。然后我们绘制指纹图及相应的表面顶点，如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 返回上一级菜单(Return to upper level of menu)
+    - **1** — 设置要考虑的内侧原子(Set the inside atoms to consider) [按 ENTER 键(Press ENTER button)]
+
+内侧原子必须是氢(The inside atoms must be hydrogen) 2 // 设置要考虑的外侧原子(Set the outside atoms to consider) 76 // 周围某个尿素中氧的序号(The index of the oxygen in one of surrounding urea) [按 ENTER 键(Press ENTER button)] // 不设置元素过滤条件(Do not set element filter condition) 0 // 开始指纹分析(Start fingerprint analysis) 从屏幕上输出的信息中，你可以发现这次产生的局域接触表面为 6.8 Å²，占总接触表面积的 7.2%。然后我们绘制指纹图及相应的表面顶点，如下所示
 
 在指纹图中可以看到表面点的分布范围较窄，且尖峰非常明显，表明由于 H 与 O 的接触而具有很强的氢键特征。
 
@@ -596,7 +668,15 @@ Area of total contact surface is    94.511 Angstrom^2
 
 使用 VMD 绘制 Hirshfeld/Becke 表面的颜色映射等值面 这里我介绍如何轻松绘制由电子密度以 promolecular 近似映射的非常漂亮的 Hirshfeld 表面，这种图比上面所示的那些要好看得多。仍以尿素簇为例。
 
-启动 Multiwfn 并输入 examples\Urea_crystal.pdb 12 // 定量分子表面分析(Quantitative molecular surface analysis) 1 // 改变表面定义(Change surface definition) 5 // 使用 Hirshfeld 表面(Use Hirshfeld surface) 16,36,58,2,77,55,34,13 // 中央尿素中原子的序号(The index of the atoms in the central urea) 0 // 开始计算(Start calculation) -2 // 将用于定义 Hirshfeld 表面的格点数据导出为当前文件夹下的 surf.cub(Export the grid data used to define Hirshfeld surface as surf.cub in current folder) 13 // 计算映射函数的格点数据并导出为当前文件夹下的 mapfunc.cub(Calculate grid data of mapped function and export it to mapfunc.cub in current folder) 现在你在当前文件夹下得到了 surf.cub 和 mapfunc.cub，将它们移动到 VMD 文件夹。然后将 examples\scripts\hirsh_rho.vmd 文件复制到 VMD 文件夹。启动 VMD，在 VMD 命令窗口中输入 source hirsh_rho.vmd 以运行该脚本。对于当前情形，最好还在命令窗口中输入 material change diffuse Translucent 0.8 以使表面更亮。
+启动 Multiwfn 并输入 examples\Urea_crystal.pdb
+
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **1** — 改变表面定义(Change surface definition)
+    - **5** — 使用 Hirshfeld 表面(Use Hirshfeld surface) 16,36,58,2,77,55,34,13
+
+开始计算(Start calculation) -2 // 将用于定义 Hirshfeld 表面的格点数据导出为当前文件夹下的 surf.cub(Export the grid data used to define Hirshfeld surface as surf.cub in current folder) 13 // 计算映射函数的格点数据并导出为当前文件夹下的 mapfunc.cub(Calculate grid data of mapped function and export it to mapfunc.cub in current folder) 现在你在当前文件夹下得到了 surf.cub 和 mapfunc.cub，将它们移动到 VMD 文件夹。然后将 examples\scripts\hirsh_rho.vmd 文件复制到 VMD 文件夹。启动 VMD，在 VMD 命令窗口中输入 source hirsh_rho.vmd 以运行该脚本。对于当前情形，最好还在命令窗口中输入 material change diffuse Translucent 0.8 以使表面更亮。
 
 
 ![](../imgs/p715_267.png)
@@ -671,7 +751,13 @@ $$\rho=\alpha\frac{M}{V_{\mathrm{m}}}+\beta(v\sigma_{\mathrm{tot}}^{2})+\gamma$$
 
 
 
-examples\ThioformicAcid.wfn // 在 B3LYP/6-311++G(2d,2p) 下优化的硫代甲酸(Thioformic acid optimized at B3LYP/6-311++G(2d,2p)) 12 // 分子表面的定量分析(Quantitative analysis of molecular surface) 2 // 选择映射函数(Select mapped function) 6 // 轨道重叠距离函数 D(r)，其使 EDR(r;d) 关于 d 最大(Orbital overlap distance function D(r), which maximizes EDR(r;d) with respect to d) 2 // 使用 EDR 指数的总数、起始值和增量的默认值(Use default value of total number, start and increment of EDR exponents)。更多信息请参阅 4.5.7 节(Please consult Section 4.5.7 for more information)。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ThioformicAcid.wfn** — 在 B3LYP/6-311++G(2d,2p) 下优化的硫代甲酸(Thioformic acid optimized at B3LYP/6-311++G(2d,2p))
+    - **12** — 分子表面的定量分析(Quantitative analysis of molecular surface)
+    - **2** — 选择映射函数(Select mapped function)
+    - **6** — 轨道重叠距离函数 D(r)，其使 EDR(r;d) 关于 d 最大(Orbital overlap distance function D(r), which maximizes EDR(r;d) with respect to d)
+    - **2** — 使用 EDR 指数的总数、起始值和增量的默认值(Use default value of total number, start and increment of EDR exponents)。更多信息请参阅 4.5.7 节(Please consult Section 4.5.7 for more information)。
 
 0 // 现在开始分析(Start analysis now!) 现在分析开始。这一步需要一些时间。计算完成后，屏幕上将连同其它信息打印以下结果：
 
@@ -725,7 +811,13 @@ Global surface maximum:  3.541349 a.u. at  -2.861073  -1.074395  -0.095237 Ang
 
 examples\dopamine.wfn // 使用 B3LYP/6-31G* 水平生成。通常该水平下的密度质量绝对足够(Generated using B3LYP/6-31G* level. Commonly the quality of density at this level is absolutely adequate)
 
-12 // 分子表面的定量分析(Quantitative analysis of molecular surface) 1 // 选择定义表面的方式(Select the way to define surface) 1 // 电子密度的等值面(Isosurface of electron density) 0.002 // 等值面数值（a.u.）(Isovalue (a.u.)) 6 // 不考虑映射函数，开始分析(Start analysis without consideration of mapped function) 你只需注意输出中的下面一行：
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 分子表面的定量分析(Quantitative analysis of molecular surface)
+    - **1** — 选择定义表面的方式(Select the way to define surface)
+    - **1** — 电子密度的等值面(Isosurface of electron density)
+    - **0.002** — 等值面数值（a.u.）(Isovalue (a.u.))
+    - **6** — 不考虑映射函数，开始分析(Start analysis without consideration of mapped function) 你只需注意输出中的下面一行：
 
 
 ```text
@@ -759,7 +851,14 @@ Overall surface area:          99.67659 Bohr^2  (  27.91229 Angstrom^2)
 
 例如，我们手头只有 examples\dopamine.xyz，你可以启动 Multiwfn 并载入该文件，然后输入
 
-12 // 分子表面的定量分析(Quantitative analysis of molecular surface) 1 // 选择定义表面的方式(Select the way to define surface) 2 // 特定实空间函数的等值面(Isosurface of a specific real space function) 1 // Promolecular 电子密度(Promolecular electron density) 0.002 // 等值面数值（a.u.）(Isovalue (a.u.)) 6 // 不考虑映射函数，开始分析(Start analysis without consideration of mapped function) 计算结果为
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 分子表面的定量分析(Quantitative analysis of molecular surface)
+    - **1** — 选择定义表面的方式(Select the way to define surface)
+    - **2** — 特定实空间函数的等值面(Isosurface of a specific real space function)
+    - **1** — Promolecular 电子密度(Promolecular electron density)
+    - **0.002** — 等值面数值（a.u.）(Isovalue (a.u.))
+    - **6** — 不考虑映射函数，开始分析(Start analysis without consideration of mapped function) 计算结果为
 
 
 ```text
@@ -792,7 +891,11 @@ Overall surface area:         697.18104 Bohr^2  ( 195.23060 Angstrom^2)
 
 vdW 表面上 ESP 的定量分析 首先，我们对 vdW 表面上的 ESP 进行常规定量分析。启动 Multiwfn 并输入
 
-examples\ClPO2.fch // 几何与波函数在 PBE0/def2-TZVP 下产生(Geometry and wavefunction were produced at PBE0/def2-TZVP) 12 // 定量分子表面分析(Quantitative molecular surface analysis) 0 // 开始分析，映射函数默认为 ESP(Start analysis, the mapped function is default to ESP) 从输出中可以看到，在 vdW 表面上找到了三个 ESP 极大值，它们的 ESP 值和坐标如下所示：
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ClPO2.fch** — 几何与波函数在 PBE0/def2-TZVP 下产生(Geometry and wavefunction were produced at PBE0/def2-TZVP)
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **0** — 开始分析，映射函数默认为 ESP(Start analysis, the mapped function is default to ESP) 从输出中可以看到，在 vdW 表面上找到了三个 ESP 极大值，它们的 ESP 值和坐标如下所示：
 
 
 ```text
@@ -905,7 +1008,12 @@ Product of above two values:         1.48230 a.u.*Angstrom^2
 
 
 
-启动 Multiwfn 并输入 examples\ClPO2.fch // 几何与波函数在 PBE0/def2-TZVP 下产生(Geometry and wavefunction were produced at PBE0/def2-TZVP) 12 // 定量分子表面分析(Quantitative molecular surface analysis) 0 // 开始分析，映射函数默认为 ESP(Start analysis, the mapped function is default to ESP) 15 // 表面的盆状划分并计算面积(Basin-like partition of surface and calculate areas) 然后你可以在屏幕上发现以下输出
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\ClPO2.fch** — 几何与波函数在 PBE0/def2-TZVP 下产生(Geometry and wavefunction were produced at PBE0/def2-TZVP)
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **0** — 开始分析，映射函数默认为 ESP(Start analysis, the mapped function is default to ESP)
+    - **15** — 表面的盆状划分并计算面积(Basin-like partition of surface and calculate areas) 然后你可以在屏幕上发现以下输出
 
 
 ```text
@@ -962,7 +1070,15 @@ Maximum   3  N_vert:  1244,  16.040 Angstrom^2  Avg. value:    0.029336 a.u.
 
 显然，分子轴恰好平行于 Z 轴，因此动力学直径可计算为具有最大正 X 值的表面顶点与具有最大负 X 值的表面顶点之差（表面定义为电子密度 0.0015 a.u. 等值面）。
 
-现在我们进行计算。启动 Multiwfn 并输入 examples\CO.fch 12 // 分子表面的定量分析(Quantitative analysis of molecular surface) 1 // 选择定义表面的方式(Select the way to define surface) 1 // 电子密度的等值面(Isosurface of electron density) 0.0015 // 等值面数值(Isovalue) 6 // 不考虑映射函数，开始分析(Start analysis without consideration of mapped function) 适当上翻后，你可以发现以下输出：
+现在我们进行计算。启动 Multiwfn 并输入 examples\CO.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 分子表面的定量分析(Quantitative analysis of molecular surface)
+    - **1** — 选择定义表面的方式(Select the way to define surface)
+    - **1** — 电子密度的等值面(Isosurface of electron density)
+    - **0.0015** — 等值面数值(Isovalue)
+    - **6** — 不考虑映射函数，开始分析(Start analysis without consideration of mapped function) 适当上翻后，你可以发现以下输出：
 
 
 ```text
@@ -1009,7 +1125,7 @@ $$E A_{\mathrm{L}}(\mathbf{r})=\frac{-\sum_{i\in\mathrm{v i r}}\left|\varphi_{i}
 
 <!-- formula-ocr: formula_p729_340.png 已替换为LaTeX, 原图保留备查 -->
 
-i  vir
+i ∈ vir
 
 其中 ε 表示轨道能量，φ 为轨道波函数。EAL 对应于 Multiwfn 中的自定义函数 27。
 

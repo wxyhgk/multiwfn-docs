@@ -16,7 +16,14 @@ It can be seen that notable interaction regions between adjacent atoms are clear
 
 
 
-Boot up Multiwfn and input following commands examples\formamide-m3.wfn 3 // Main function 3, plot real space function along a line 5 // Spin density 1 // Defining the line by nuclear coordinate of two atoms 1,6 // Indices of the two atoms, carbon and oxygen atoms correspond to 1 and 6 in present example, respectively
+Boot up Multiwfn and input following commands examples\formamide-m3.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Main function 3, plot real space function along a line
+    - **5** — Spin density
+    - **1** — Defining the line by nuclear coordinate of two atoms
+    - **1,6** — Indices of the two atoms, carbon and oxygen atoms correspond to 1 and 6 in present example, respectively
 
 The graph shows up immediately:
 
@@ -64,7 +71,14 @@ The correlation hole we first analyzed is Fermi hole (also known as exchange hol
 
 change paircorrtype in `settings.ini` to 1. Since this is closed-shell system, the results for α or β electron are exactly the same, while for open-shell system, you should use "pairfunctype" in `settings.ini` to select which type of spin electrons will be studied, you can also choose to study exchange-correlation density or correlation factor by adjusting this parameter.
 
-Now boot up Multiwfn, input following commands examples\H2_CCSD.wfn 3 // Draw curve map 17 // Correlation hole 1 // Defining the line by nuclear coordinate of two atoms 2,1 // Draw curve graph along H2 and H1 Then you will see
+Now boot up Multiwfn, input following commands examples\H2_CCSD.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Draw curve map
+    - **17** — Correlation hole
+    - **1** — Defining the line by nuclear coordinate of two atoms
+    - **2,1** — Draw curve graph along H2 and H1 Then you will see
 
 This graph suggests that if we place an α electron at (0.0,0.0,-0.3), then the probability of finding another α electron around the two nuclei will be significantly decreased by almost identical extent due to Pauli repulsion between like-spin electrons. In the H-H bonding region, the probability also obviously decreases. According to Bader's statement "An electron can go where its hole goes and, if the Fermi hole is localized, then so is the electron" (p251 in Atoms in molecules - A quantum
 
@@ -138,7 +152,19 @@ Below I present two very simple examples of using PAEM-MO method to judge the ty
 
 H-H interaction in hydrogen molecule First set "iuserfunc" in `settings.ini` to 33, then user-defined function will be equivalent to the VXC evaluated based on Γ. Boot up Multiwfn and input below commands
 
-examples\H2.fch // Produced at HF/def2-TZVP level 3 // Plot real space function along a line 100 // User-defined function 0 // Adjust extension size at both sides 3 // 3 Bohr, which is larger than the default value 1 // Use two nuclei to define the line 1,2 Close the graph, then adjust some plotting parameters to make the graph better 11 // Change length unit of the graph to Å 3 // Change range of Y axis -3,0.1 // From -3.0 a.u. to 0.1 a.u. 10 // Set label intervals of X and Y axes 0.5,0.5 -1 // Replot You will see the graph below, which exhibits the PAEM curve along the H2 axis
+!!! terminal "Multiwfn session"
+
+    - **examples\H2.fch** — Produced at HF/def2-TZVP level
+    - **3** — Plot real space function along a line
+    - **100** — User-defined function
+    - **0** — Adjust extension size at both sides
+    - **3** — 3 Bohr, which is larger than the default value
+    - **1** — Use two nuclei to define the line 1,2 Close the graph, then adjust some plotting parameters to make the graph better
+    - **11** — Change length unit of the graph to Å
+    - **3** — Change range of Y axis
+    - **-3,0.1** — From -3.0 a.u. to 0.1 a.u.
+    - **10** — Set label intervals of X and Y axes 0.5,0.5
+    - **-1** — Replot You will see the graph below, which exhibits the PAEM curve along the H2 axis
 
 
 <!-- p.511 -->

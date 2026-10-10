@@ -16,7 +16,14 @@ It can be seen that notable interaction regions between adjacent atoms are clear
 
 
 
-Boot up Multiwfn and input following commands examples\formamide-m3.wfn 3 // Main function 3, plot real space function along a line 5 // Spin density 1 // Defining the line by nuclear coordinate of two atoms 1,6 // Indices of the two atoms, carbon and oxygen atoms correspond to 1 and 6 in present example, respectively
+Boot up Multiwfn and input following commands examples\formamide-m3.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Main function 3, plot real space function along a line
+    - **5** — Spin density
+    - **1** — Defining the line by nuclear coordinate of two atoms
+    - **1,6** — Indices of the two atoms, carbon and oxygen atoms correspond to 1 and 6 in present example, respectively
 
 The graph shows up immediately:
 
@@ -41,11 +48,11 @@ Totally found    3 local minimum,    4 local maximum
 
 Using the same procedure illustrated above, you can plot curve map for any real space function supported by Multiwfn, please have a try.
 
-4.3.2 Study Fermi hole and Coulomb hole of H2
+4.3.2 Study Fermi hole and Coulomb hole of $H_{2}$
 
 This is a relatively advanced example, you can skip this section if you are a newbie of quantum chemistry.
 
-In this example we will plot correlation hole (Fermi hole and Coulomb hole) along the axis of H2. This is an advanced topic, if you are not familiar with the concept of correlation hole, please consult the discussion in part 17 of Section 2.6.
+In this example we will plot correlation hole (Fermi hole and Coulomb hole) along the axis of $H_{2}$. This is an advanced topic, if you are not familiar with the concept of correlation hole, please consult the discussion in part 17 of Section 2.6.
 
 Hartree-Fock wavefunction is capable to exhibit Fermi correlation, but Coulomb correlation is completely omitted. In this case exact Fermi hole can be calculated and plotted by Multiwfn. If Coulomb hole is needed to be analyzed, then post-HF wavefunction must be employed. In current version, Multiwfn is able to evaluate and plot approximate Fermi hole and Coulomb hole for post-
 
@@ -64,7 +71,14 @@ The correlation hole we first analyzed is Fermi hole (also known as exchange hol
 
 change paircorrtype in `settings.ini` to 1. Since this is closed-shell system, the results for α or β electron are exactly the same, while for open-shell system, you should use "pairfunctype" in `settings.ini` to select which type of spin electrons will be studied, you can also choose to study exchange-correlation density or correlation factor by adjusting this parameter.
 
-Now boot up Multiwfn, input following commands examples\H2_CCSD.wfn 3 // Draw curve map 17 // Correlation hole 1 // Defining the line by nuclear coordinate of two atoms 2,1 // Draw curve graph along H2 and H1 Then you will see
+Now boot up Multiwfn, input following commands examples\H2_CCSD.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Draw curve map
+    - **17** — Correlation hole
+    - **1** — Defining the line by nuclear coordinate of two atoms
+    - **2,1** — Draw curve graph along H2 and H1 Then you will see
 
 This graph suggests that if we place an α electron at (0.0,0.0,-0.3), then the probability of finding another α electron around the two nuclei will be significantly decreased by almost identical extent due to Pauli repulsion between like-spin electrons. In the H-H bonding region, the probability also obviously decreases. According to Bader's statement "An electron can go where its hole goes and, if the Fermi hole is localized, then so is the electron" (p251 in Atoms in molecules - A quantum
 
@@ -103,7 +117,7 @@ PAEM (potential acting on one electron in a molecule) refers to the total potent
 
 electron at point r, and can be written as )()()(XCESPPAEMrrrVVV+−= ; where ESPV is
 
-molecular electrostatic potential and has been introduced in part 12 of Section 2.6. -VESP can be regarded as the classical potential acting on an electron in the system, while the exchange-correlation (XC) potential VXC represents the important correction to the classical potential due to quantum effect. VXC has two components, namely correlation potential (VC) and exchange potential (VXC); in fact, only the latter is important, that means even the potential obtained at Hartree-Fock level is in general a good approximation to exact VXC.
+molecular electrostatic potential and has been introduced in part 12 of Section 2.6. -VESP can be regarded as the classical potential acting on an electron in the system, while the exchange-correlation (XC) potential $V_{\mathrm{PAEM}}(\mathbf{r}) = -V_{\mathrm{ESP}}(\mathbf{r}) + V_{\mathrm{XC}}(\mathbf{r})$ represents the important correction to the classical potential due to quantum effect. VXC has two components, namely correlation potential (VC) and exchange potential (VXC); in fact, only the latter is important, that means even the potential obtained at Hartree-Fock level is in general a good approximation to exact $V_{\mathrm{XC}}$
 
 In wavefunction theory, the exchange-correlation potential can be explicitly written as
 
@@ -113,7 +127,7 @@ of Section 2.6 for detail. In DFT theory, the XC potential directly comes from t
 
 $$V_{\mathrm{PAEM}}(\mathbf{r}) = -V_{\mathrm{ESP}}(\mathbf{r}) + V_{\mathrm{XC}}(\mathbf{r})$$
 
-The VXC can be used in Multiwfn in terms of user-defined function. If parameter "iuserfunc" is set
+The $V_{\mathrm{PAEM}}(\mathbf{r}) = -V_{\mathrm{ESP}}(\mathbf{r}) + V_{\mathrm{XC}}(\mathbf{r})$ can be used in Multiwfn in terms of user-defined function. If parameter "iuserfunc" is set
 
 
 ![](../imgs/p509_122.png)
@@ -138,7 +152,19 @@ Below I present two very simple examples of using PAEM-MO method to judge the ty
 
 H-H interaction in hydrogen molecule First set "iuserfunc" in `settings.ini` to 33, then user-defined function will be equivalent to the VXC evaluated based on Γ. Boot up Multiwfn and input below commands
 
-examples\H2.fch // Produced at HF/def2-TZVP level 3 // Plot real space function along a line 100 // User-defined function 0 // Adjust extension size at both sides 3 // 3 Bohr, which is larger than the default value 1 // Use two nuclei to define the line 1,2 Close the graph, then adjust some plotting parameters to make the graph better 11 // Change length unit of the graph to Å 3 // Change range of Y axis -3,0.1 // From -3.0 a.u. to 0.1 a.u. 10 // Set label intervals of X and Y axes 0.5,0.5 -1 // Replot You will see the graph below, which exhibits the PAEM curve along the H2 axis
+!!! terminal "Multiwfn session"
+
+    - **examples\H2.fch** — Produced at HF/def2-TZVP level
+    - **3** — Plot real space function along a line
+    - **100** — User-defined function
+    - **0** — Adjust extension size at both sides
+    - **3** — 3 Bohr, which is larger than the default value
+    - **1** — Use two nuclei to define the line 1,2 Close the graph, then adjust some plotting parameters to make the graph better
+    - **11** — Change length unit of the graph to Å
+    - **3** — Change range of Y axis
+    - **-3,0.1** — From -3.0 a.u. to 0.1 a.u.
+    - **10** — Set label intervals of X and Y axes 0.5,0.5
+    - **-1** — Replot You will see the graph below, which exhibits the PAEM curve along the H2 axis
 
 
 <!-- p.511 -->

@@ -32,7 +32,13 @@ CRYST1   31.064   31.100   31.093  90.00  90.00  90.00 P 1         1
 
 含义是盒子为长方形，X、Y、Z方向长度分别为31.064、31.100、31.093 Å。
 
-启动Multiwfn并输入 examples\coal.pdb 300 // 其他功能(Other functions)(第三部分，Part 3) 1 // 查看自由区域并计算晶胞中的自由体积(Viewing free regions and calculating free volume in a cell) 4 // 设置平滑方法(Set method of smoothing) 1 // 高斯函数(Gaussian function) 1.8 // 高斯函数的半高宽(FWHM)为vdW半径的1.8倍，经发现该值能对当前体系产生令人满意的平滑网格数据等值面图
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入 examples\coal.pdb 300** — 其他功能(Other functions)(第三部分，Part 3)
+    - **1** — 查看自由区域并计算晶胞中的自由体积(Viewing free regions and calculating free volume in a cell)
+    - **4** — 设置平滑方法(Set method of smoothing)
+    - **1** — 高斯函数(Gaussian function)
+    - **1.8** — 高斯函数的半高宽(FWHM)为vdW半径的1.8倍，经发现该值能对当前体系产生令人满意的平滑网格数据等值面图
 
 1 // 设置网格并开始计算(Set grid and start calculation) [按ENTER键(Press ENTER button)] // 使用默认原点(0,0,0)，它适合当前体系(Use default origin (0,0,0), which is suitable for present system) [按ENTER键(Press ENTER button)] // 使用默认盒子长度，它们对应于当前晶胞三条
 
@@ -74,7 +80,15 @@ Free volume:   14783.074 Angstrom^3, corresponding to   49.21 % of whole space
 
 第二部分：共价有机框架晶体 Multiwfn也能查看实验测定的分子晶体的自由区域并计算其体积。本例以共价有机框架(COF)体系为例说明这一点。注意尽管该晶体的晶胞是非正交的，Multiwfn也能正确工作。
 
-启动Multiwfn并输入 examples\COF_12000N2.cif 300 // 其他功能(Other functions)(第三部分，Part 3) 1 // 查看自由区域并计算晶胞中的自由体积(Viewing free regions and calculating free volume in a cell) 1 // 设置网格并开始计算(Set grid and start calculation) [按ENTER键(Press ENTER button)] // 使用默认原点(0,0,0)(Use default origin (0,0,0)) [按ENTER键(Press ENTER button)] // 使用默认盒子长度(Use default box lengths) [按ENTER键(Press ENTER button)] // 使用默认网格间距0.25 Å(Use default grid space 0.25 Å) 屏幕上显示的定量数据为
+启动Multiwfn并输入 examples\COF_12000N2.cif
+
+!!! terminal "Multiwfn 交互"
+
+    - **300** — 其他功能(Other functions)(第三部分，Part 3)
+    - **1** — 查看自由区域并计算晶胞中的自由体积(Viewing free regions and calculating free volume in a cell)
+    - **1** — 设置网格并开始计算(Set grid and start calculation) [按ENTER键(Press ENTER button)]
+
+使用默认盒子长度(Use default box lengths) [按ENTER键(Press ENTER button)] // 使用默认网格间距0.25 Å(Use default grid space 0.25 Å) 屏幕上显示的定量数据为
 
 
 ```text
@@ -110,7 +124,13 @@ Multiwfn能够将孤立原子的球平均电子密度拟合为多个Slater型轨
 
 在本节中，我们将把硅原子的径向密度拟合为少数几个STOs的线性组合。由于拟合函数数量较少，拟合过程很快，对拟合密度的评估也相当耗时，然而，拟合质量预计不会非常高。
 
-启动Multiwfn并输入examples\atomwfn\Si.wfn // 在ROHF/6-31G*水平下产生(Generated at ROHF/6-31G* level) 300 // 其他功能（第3部分）(Other functions (Part 3)) 2 // 将原子径向密度拟合为多个STOs或GTFs(Fitting atomic radial density as multiple STOs or GTFs) 3 // 检查或设置拟合函数的系数和指数初猜(Check or set initial guess of coefficients and exponents of fitting functions) 2 // 将初猜设为“用少数几个变指数STOs进行粗略拟合”(Set initial guess as "crude fitting by a few STOs with variable exponents")。然后从屏幕上可以看到拟合中只会使用四个STOs，它们的初始状态为
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入examples\atomwfn\Si.wfn** — 在ROHF/6-31G*水平下产生(Generated at ROHF/6-31G* level)
+    - **300** — 其他功能（第3部分）(Other functions (Part 3))
+    - **2** — 将原子径向密度拟合为多个STOs或GTFs(Fitting atomic radial density as multiple STOs or GTFs)
+    - **3** — 检查或设置拟合函数的系数和指数初猜(Check or set initial guess of coefficients and exponents of fitting functions)
+    - **2** — 将初猜设为“用少数几个变指数STOs进行粗略拟合”(Set initial guess as "crude fitting by a few STOs with variable exponents")。然后从屏幕上可以看到拟合中只会使用四个STOs，它们的初始状态为
 
 
 ![](../imgs/p1070_587.png)
@@ -217,7 +237,13 @@ Number of integration points:  300    Integral:     14.00000000
 
 为了可靠而精确地拟合径向密度，通常需要不少于10个（变指数）GTFs。在本例中我们将以这种方式拟合溴原子的径向密度。这种拟合几乎适用于周期表中的任何元素。
 
-启动Multiwfn并输入examples\atomwfn\Br.wfn // 在ROHF/6-31G*水平下产生(Generated at ROHF/6-31G* level) 300 // 其他功能（第3部分）(Other functions (Part 3)) 2 // 将原子径向密度拟合为STOs或GTFs(Fitting atomic radial density as STOs or GTFs) 3 // 检查或设置拟合函数的系数和指数初猜(Check or set initial guess of coefficients and exponents of fitting functions) 5 // 用10个变指数GTFs进行精细拟合(Fine fitting by 10 GTFs with variable exponents)（当然，使用更多GTFs会得到更好的拟合）
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入examples\atomwfn\Br.wfn** — 在ROHF/6-31G*水平下产生(Generated at ROHF/6-31G* level)
+    - **300** — 其他功能（第3部分）(Other functions (Part 3))
+    - **2** — 将原子径向密度拟合为STOs或GTFs(Fitting atomic radial density as STOs or GTFs)
+    - **3** — 检查或设置拟合函数的系数和指数初猜(Check or set initial guess of coefficients and exponents of fitting functions)
+    - **5** — 用10个变指数GTFs进行精细拟合(Fine fitting by 10 GTFs with variable exponents)（当然，使用更多GTFs会得到更好的拟合）
 
 从屏幕上可以看到，拟合中将使用10个GTFs，所有系数初始都设为1.0，而它们的指数跨越很大范围，最小为0.1，最大为381，相邻两个GTFs之间的比值为2.5。小、中、大指数的GTFs分别主要用于表示尾部区域、价层区域和非常靠近原子核的区域。
 
@@ -268,7 +294,11 @@ Pearson correlation coefficient r:    0.999706  r^2:    0.999413
 
 0 // 返回(Return) 3 // 检查或设置拟合函数的系数和指数初猜(Check or set initial guess of coefficients and exponents)。然后从屏幕上你可以看到我们之前拟合的参数
 
-10 // 将两个拟合函数合并在一起(Combine two fitting functions together) 3,4 //要合并的两个拟合函数的序号(Indices of the two fitting functions to combine) 0 // 返回(Return) 1 // 开始拟合(Start fitting) 然后你可以用选项3再次可视化径向密度，你会发现用当前的8个GTFs拟合的质量没有变化，因此8个GTFs完全足以对当前原子达到精确拟合。
+!!! terminal "Multiwfn 交互"
+
+    - **10** — 将两个拟合函数合并在一起(Combine two fitting functions together) 3,4 //要合并的两个拟合函数的序号(Indices of the two fitting functions to combine)
+    - **0** — 返回(Return)
+    - **1** — 开始拟合(Start fitting) 然后你可以用选项3再次可视化径向密度，你会发现用当前的8个GTFs拟合的质量没有变化，因此8个GTFs完全足以对当前原子达到精确拟合。
 
 Multiwfn中的拟合模块非常灵活，有许多选项可用于控制拟合策略，更多信息见第3.300.2节。
 
@@ -295,7 +325,12 @@ examples\phenanthrene.fch中的波函数，该文件在B3LYP/6-31G*水平下产�
 
 examples\phenanthrene.fch 6 // 检查并修改波函数(Check & modify wavefunction)
 
-33 // 旋转波函数，即X→Y，Y→Z，Z→X(Rotate wavefunction, namely X→Y, Y→Z, Z→X) 0 // 旋转所有轨道(Rotate all orbitals) y // 同时旋转分子结构(Also rotate molecule structure)。然后分子将位于XZ平面上 33 // 再次旋转波函数(Rotate wavefunction again) 0 // 旋转所有轨道(Rotate all orbitals) y // 同时旋转分子结构(Also rotate molecule structure) 现在菲正好位于Z=0 Å的XY平面上（你可以通过主功能0检查这一点）。然后我们进入主功能100，选择子功能2，再选择相应选项将当前波函数导出为新的.mwfn文件。在接下来几节中，该新文件将被称为mol.mwfn。
+!!! terminal "Multiwfn 交互"
+
+    - **33** — 旋转波函数，即X→Y，Y→Z，Z→X(Rotate wavefunction, namely X→Y, Y→Z, Z→X)
+    - **0** — 旋转所有轨道(Rotate all orbitals) y
+
+再次旋转波函数(Rotate wavefunction again) 0 // 旋转所有轨道(Rotate all orbitals) y // 同时旋转分子结构(Also rotate molecule structure) 现在菲正好位于Z=0 Å的XY平面上（你可以通过主功能0检查这一点）。然后我们进入主功能100，选择子功能2，再选择相应选项将当前波函数导出为新的.mwfn文件。在接下来几节中，该新文件将被称为mol.mwfn。
 
 ### 4.300.4.1 为菲模拟恒高STM图像(Simulating constant height STM image for phenanthrene)
 
@@ -342,7 +377,11 @@ Maximal value (LDOS) is    0.010218 a.u.
 
 在本节中我们再次为菲绘制STM图像，但使用恒流模式。启动Multiwfn并输入
 
-mol.mwfn 300 // 其他功能（第3部分）(Other function (Part 3)) 4 // 模拟STM图像(Simulating STM image) 1 // 将STM图像模式切换为恒流(Switch the mode of STM image to constant current)
+!!! terminal "Multiwfn 交互"
+
+    - **mol.mwfn 300** — 其他功能（第3部分）(Other function (Part 3))
+    - **4** — 模拟STM图像(Simulating STM image)
+    - **1** — 将STM图像模式切换为恒流(Switch the mode of STM image to constant current)
 
 
 ![](../imgs/p1076_591.png)
@@ -369,7 +408,18 @@ Maximal Z is    1.206432 Angstrom
 
 现在你已进入恒流模式STM图像的绘图界面，我们输入以下命令
 
-2 // 选择图的类型(Choose map type) 2 // 带等值线线的颜色填充图(Color-filled map with contour lines) 7 // 设置X、Y和颜色标尺轴的标签间隔(Set label interval in X, Y and color scale axes) 1.5,1.5,0.05 -3 // 改变其他绘图设置(Change other plotting settings) 2 // 设置刻度标签小数位数(Set number of decimal places of tick labels) 1 // 设置X轴(Set X axis) 1 // 设置Y轴(Set Y axis) 2 // 设置Z轴(Set Z axis) 0 // 返回(Return) 0 // 绘制STM图像(Plot the STM image)
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 选择图的类型(Choose map type)
+    - **2** — 带等值线线的颜色填充图(Color-filled map with contour lines)
+    - **7** — 设置X、Y和颜色标尺轴的标签间隔(Set label interval in X, Y and color scale axes) 1.5,1.5,0.05
+    - **-3** — 改变其他绘图设置(Change other plotting settings)
+    - **2** — 设置刻度标签小数位数(Set number of decimal places of tick labels)
+    - **1** — 设置X轴(Set X axis)
+    - **1** — 设置Y轴(Set Y axis)
+    - **2** — 设置Z轴(Set Z axis)
+    - **0** — 返回(Return)
+    - **0** — 绘制STM图像(Plot the STM image)
 
 
 ![](../imgs/p1077_592.png)
@@ -466,7 +516,11 @@ Components of <r^2>:  X=     501.328431  Y=     286.859071  Z=      34.463450
 
 首先，我们产生NTO轨道，TDDFT任务的Gaussian输入文件为examples\excit\D-pi-A.gjf，相应的输出文件和.fchk文件也已在同一文件夹中提供。启动Multiwfn并输入以下命令
 
-examples\excit\D-pi-A.fchk 18 // 电子激发分析(Electron excitation analysis) 6 // 产生自然跃迁轨道（NTOs）(Generate natural transition orbitals (NTOs)) examples\excit\D-pi-A.out 1 // 第一激发态（S1态）(The first excited state (S1 state)) 然后你可以看到
+!!! terminal "Multiwfn 交互"
+
+    - **examples\excit\D-pi-A.fchk 18** — 电子激发分析(Electron excitation analysis)
+    - **6** — 产生自然跃迁轨道（NTOs）(Generate natural transition orbitals (NTOs)) examples\excit\D-pi-A.out
+    - **1** — 第一激发态（S1态）(The first excited state (S1 state)) 然后你可以看到
 
 
 ```text
@@ -561,7 +615,14 @@ $NBO archive file=C:\D-PI-A $END
 
 接下来，我们再次绘制该图，但使用另一种分子表面定义，即原子范德华球的叠加。现在输入以下命令
 
--1 // 返回(Return) 1 // 设置分子表面的定义(Set definition of molecular surface) 3 // 按比例缩放的原子范德华球的叠加(Superposition of atomic van der Waals spheres scaled by a factor) 1 // 本例中我们不缩放范德华半径，所以将缩放因子设为1(We do not scale van der Waals radii in this example, so we set scale factor to 1) 0 // 开始计算(Start calculation) 0 // 在屏幕上显示该图(Show the map on screen) 然后你将看到下图，从中明显看出Ru原子被周围配体深深包埋，由于很强的空间位阻，外来分子不易接近Ru原子。
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 返回(Return)
+    - **1** — 设置分子表面的定义(Set definition of molecular surface)
+    - **3** — 按比例缩放的原子范德华球的叠加(Superposition of atomic van der Waals spheres scaled by a factor)
+    - **1** — 本例中我们不缩放范德华半径，所以将缩放因子设为1(We do not scale van der Waals radii in this example, so we set scale factor to 1)
+    - **0** — 开始计算(Start calculation)
+    - **0** — 在屏幕上显示该图(Show the map on screen) 然后你将看到下图，从中明显看出Ru原子被周围配体深深包埋，由于很强的空间位阻，外来分子不易接近Ru原子。
 
 
 ![](../imgs/p1083_595.png)

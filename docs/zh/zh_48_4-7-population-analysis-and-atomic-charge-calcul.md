@@ -15,7 +15,11 @@
 
 启动Multiwfn并输入 examples\ethanol_triplet.fch // 基于优化的单重态结构在UB3LYP/6-31G**水平下计算
 
-7 // 布居分析和原子电荷 5 // Mulliken布居分析 1 // 输出Mulliken分析结果。默认结果输出到屏幕，你也可以选择“-1 选择选项1的输出目标（Choose output destination for option 1）”将输出目标改为指定的纯文本文件
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 布居分析和原子电荷
+    - **5** — Mulliken布居分析
+    - **1** — 输出Mulliken分析结果。默认结果输出到屏幕，你也可以选择“-1 选择选项1的输出目标（Choose output destination for option 1）”将输出目标改为指定的纯文本文件
 
 从输出中，首先可以看到每个基函数的布居：
 
@@ -152,7 +156,10 @@ Fragment charge:   -0.499331
 
 我提出的ADCH（原子偶极矩校正的Hirshfeld布居）电荷是Hirshfeld电荷的改进版，解决了Hirshfeld电荷的许多固有缺点，如偶极矩重现性差，简介见第3.9.9节，讨论和比较见我的论文J. Theor. Comput. Chem., 11, 163 (2012)。我强烈推荐使用ADCH电荷表征电荷分布。ADCH电荷的计算过程与上一节所述完全相同，唯一区别是在布居分析界面应选择选项11而非选项1。例如，这里我们计算CH3CONH2的ADCH电荷。启动Multiwfn并输入
 
-examples\CH3CONH2.fch 7 // 布居分析和原子电荷 11 // 计算ADCH电荷 1 // 使用自由态内建原子密度 Multiwfn将先计算Hirshfeld电荷，然后对其做原子偶极矩校正以得到ADCH电荷。结果如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **examples\CH3CONH2.fch 7** — 布居分析和原子电荷
+    - **11** — 计算ADCH电荷 1
 
 <!-- p.567 -->
 
@@ -256,7 +263,12 @@ Hirshfeld-I（HI）是比其前身（Hirshfeld）更先进的定义原子空间�
 
 这里我们计算CH3COCl的HI电荷。为方便起见，本例将直接使用内建.rad文件。为此，我们将"examples"目录下的"atmrad"文件夹复制到当前目录，然后Multiwfn在HI电荷计算中将采用该文件夹中的.rad文件。
 
-启动Multiwfn并输入 examples\CH3COCl.wfn // 在B3LYP/6-31G*水平下生成 7 // 布居分析和原子电荷 15 // Hirshfeld-I方法 1 // 以默认设置开始计算 然后你将看到迭代过程
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入 examples\CH3COCl.wfn** — 在B3LYP/6-31G*水平下生成
+    - **7** — 布居分析和原子电荷
+    - **15** — Hirshfeld-I方法
+    - **1** — 以默认设置开始计算 然后你将看到迭代过程
 
 ```text
 Performing Hirshfeld-I iteration to refine atomic spaces...
@@ -296,7 +308,12 @@ Cycle    6   Maximum change:  0.063412
 
 在计算之前，你应该在 `settings.ini` 文件中将“gaupath”正确设置为实际的 Gaussian 可执行文件。此外，如果当前目录下已存在“atmrad”文件夹，且其中含有 C、H、O 和 Cl 元素的 .rad 文件，你应该将它们删除。
 
-启动 Multiwfn 并输入 examples\CH3COCl.wfn // 在 B3LYP/6-31G* 水平下生成的 7 // 布居分析与原子电荷 (Population analysis and atomic charges) 15 // Hirshfeld-I 方法 (Hirshfeld-I method) 1 // 以默认设置开始计算 (Start calculation with default settings) B3LYP/6-31G* // 用于计算原子 .wfn 文件的 Gaussian 关键词 从屏幕上显示的提示信息中，你可以发现 Multiwfn 会调用 Gaussian，在多种带电状态下为当前分子所涉及的所有元素计算原子 .wfn 文件。然后 Multiwfn 将原子 .wfn 文件转换为 .rad 文件，其中记录了球平均后的原子径向密度。自动生成的 Gaussian 输入文件（.gjf）、生成的 Gaussian 输出文件（.out 或 .log）以及 .rad 文件都产生在当前文件夹下的“atmrad”文件夹中，如果你感兴趣可以手动查看它们。
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\CH3COCl.wfn** — 在 B3LYP/6-31G* 水平下生成的
+    - **7** — 布居分析与原子电荷 (Population analysis and atomic charges)
+    - **15** — Hirshfeld-I 方法 (Hirshfeld-I method)
+    - **1** — 以默认设置开始计算 (Start calculation with default settings) B3LYP/6-31G*
 
 在当前情况下，得到电荷为
 
@@ -428,7 +445,11 @@ GaussView 总是将 .mol 中的共轭键记录为四重键。要解决该问题�
 
 examples\sulfur_cc-pVTZ.fch 是用 Gaussian16 在 B3LYP/cc-pVTZ 水平下为单个三重态硫原子计算的 .fch 文件。将该文件载入 Multiwfn，然后输入
 
-7 // 布居分析与原子电荷 (Population analysis and atomic charges) 5 // Mulliken 分析 (Mulliken analysis) 1 // 输出 Mulliken 分析结果 (Output Mulliken analysis result) 你将立即看到
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 布居分析与原子电荷 (Population analysis and atomic charges)
+    - **5** — Mulliken 分析 (Mulliken analysis)
+    - **1** — 输出 Mulliken 分析结果 (Output Mulliken analysis result) 你将立即看到
 
 
 ```text
@@ -515,7 +536,12 @@ environment
 
 现在，用 Gaussian 运行 examples\RESP\dopamine-single\dopamine.gjf，为该几何结构生成相应的 .fch 文件。正如在 .gjf 文件中看到的，关键词为 b3lyp/6-311g(d,p) SCRF=solvent=ethanol，该组合并不昂贵，而得到的波函数完全足以产生可靠的 RESP 电荷。
 
-启动 Multiwfn 并输入 dopmaine.fch // 刚刚生成的 .fch 文件 7 // 布居分析 (Population analysis) 18 // RESP 模块 (RESP module) 1 // 用两步拟合流程计算标准 RESP 电荷 (Calculate standard RESP charges using two-stage fitting procedure) 在计算过程中，Multiwfn 首先设置原子半径并确定拟合点的位置，然后计算拟合点处的 ESP 值。之后，标准 RESP 计算的第一阶段开始，该阶段采用的参数和条件可从输出信息中找到：
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 dopmaine.fch** — 刚刚生成的 .fch 文件
+    - **7** — 布居分析 (Population analysis)
+    - **18** — RESP 模块 (RESP module)
+    - **1** — 用两步拟合流程计算标准 RESP 电荷 (Calculate standard RESP charges using two-stage fitting procedure) 在计算过程中，Multiwfn 首先设置原子半径并确定拟合点的位置，然后计算拟合点处的 ESP 值。之后，标准 RESP 计算的第一阶段开始，该阶段采用的参数和条件可从输出信息中找到：
 
 
 ```text
@@ -591,7 +617,11 @@ environment
 
 dopmaine.fch // 在当前情况下，该文件实际上仅用于提供几何信息，以便 Multiwfn 确定原子连接关系，因此你也可以用其他格式如 .xyz、.pdb 和 .wfn 代替
 
-7 // 布居分析 (Population analysis) 18 // RESP 模块 (RESP module) 8 // 让 Multiwfn 直接从 Gaussian 输出文件载入拟合点信息 (Let Multiwfn directly load fitting points information from Gaussian output file)
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 布居分析 (Population analysis)
+    - **18** — RESP 模块 (RESP module)
+    - **8** — 让 Multiwfn 直接从 Gaussian 输出文件载入拟合点信息 (Let Multiwfn directly load fitting points information from Gaussian output file)
 
 
 <!-- p.578 -->
@@ -622,7 +652,13 @@ dopamine4.fch 0.4041
 
 启动 Multiwfn 并输入 dopamine1.fch // 在当前情况下，在此阶段载入的文件仅用于提供几何信息以确定原子连接关系，因此你也可以用其他构象异构体的 .fch，结果不会受影响
 
-7 // 布居分析 (Population analysis) 18 // RESP 模块 (RESP module) -1 // 载入构象列表文件 (Load conformation list file) conf.txt // 输入该文件的实际路径 1 // 用两步流程计算标准 RESP 电荷 (Calculate standard RESP charges using the two-stage procedure) 结果为
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 布居分析 (Population analysis)
+    - **18** — RESP 模块 (RESP module)
+    - **-1** — 载入构象列表文件 (Load conformation list file) conf.txt
+
+用两步流程计算标准 RESP 电荷 (Calculate standard RESP charges using the two-stage procedure) 结果为
 
 
 ```text
@@ -702,7 +738,11 @@ Dimethyl phosphate
 
 运行当前分子在 B3LYP-D3(BJ)/6-311G** 水平下优化任务的 Gaussian 输入文件（examples\RESP\C2H7O4P\C2H7O4P.gjf），然后将生成的 .chk 文件转换为 .fch。接下来，启动 Multiwfn 并输入
 
-C2H7O4P.fch 7 // 布居分析 (Population analysis) 18 // RESP 模块 (RESP module) 5 // 修改等价约束 (Modify equivalence constraint)（注意，对于一步 ESP 拟合，默认每个 CH2 和 CH3 基团中的氢被约束为等价）
+!!! terminal "Multiwfn 交互"
+
+    - **C2H7O4P.fch 7** — 布居分析 (Population analysis)
+    - **18** — RESP 模块 (RESP module)
+    - **5** — 修改等价约束 (Modify equivalence constraint)（注意，对于一步 ESP 拟合，默认每个 CH2 和 CH3 基团中的氢被约束为等价）
 
 1 // 从外部纯文本文件载入等价约束设置 (Load equivalence constraint setting from external plain text file) eqvcons.txt // 我们刚刚创建的文件 2 // 开始带约束的一步 ESP 拟合计算 (Start one-stage ESP fitting calculation with constraints) 结果为
 
@@ -801,7 +841,12 @@ D:\beta.fch 0.5
 
 最后，启动 Multiwfn，载入 alpha.fch 或 beta.fch，然后进入 RESP 模块并输入以下命令
 
-5 // 修改等价约束 (Modify the equivalence constraint) 1 // 从外部纯文本文件载入等价约束设置 (Load equivalence constraint setting from external plain text file) eqvcons.txt // 我们创建的等价约束文件 6 // 设置电荷约束 (Set charge constraint) 1 // 从外部纯文本文件载入电荷约束设置 (Load charge constraint setting from external plain text file) chgcons.txt // 我们创建的电荷约束文件 -1 // 从外部文件载入构象异构体列表和权重 (Load list of conformers and weights from external file) conflist.txt // 我们创建的构象列表文件 2 // 开始带约束的一步 ESP 拟合计算 (Start one-stage ESP fitting calculation with constraint) 输出为
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 修改等价约束 (Modify the equivalence constraint)
+    - **1** — 从外部纯文本文件载入等价约束设置 (Load equivalence constraint setting from external plain text file) eqvcons.txt
+
+设置电荷约束 (Set charge constraint) 1 // 从外部纯文本文件载入电荷约束设置 (Load charge constraint setting from external plain text file) chgcons.txt // 我们创建的电荷约束文件 -1 // 从外部文件载入构象异构体列表和权重 (Load list of conformers and weights from external file) conflist.txt // 我们创建的构象列表文件 2 // 开始带约束的一步 ESP 拟合计算 (Start one-stage ESP fitting calculation with constraint) 输出为
 
 
 ```text
@@ -843,7 +888,12 @@ local or global point group symmetry
 
 虽然你可以手动创建包含上述等价约束的文件，但更方便的是让 Multiwfn 根据 CF3 基团和苯环部分局域区域的点群对称性自动创建文件，如下所示。
 
-启动 Multiwfn 并输入 CF3benCOCH3.fch 7 // 布居分析与原子电荷计算 (Population analysis and atomic charge calculation) 18 // RESP 模块 (RESP module) 5 // 设置等价约束 (Set equivalence constraint) 11 // 根据所选区域的点群对称性生成包含等价约束的文件 (Generate a file containing equivalence constraints according to point group symmetry of selected regions)
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 CF3benCOCH3.fch 7** — 布居分析与原子电荷计算 (Population analysis and atomic charge calculation)
+    - **18** — RESP 模块 (RESP module)
+    - **5** — 设置等价约束 (Set equivalence constraint)
+    - **11** — 根据所选区域的点群对称性生成包含等价约束的文件 (Generate a file containing equivalence constraints according to point group symmetry of selected regions)
 
 然后我们需要输入每个具有局域对称性的片段中的原子序号。为了方便查找序号，建议用 GaussView 打开上述 .fch 文件，然后将片段选中为黄色，再进入“工具 (Tools)”-“原子选择 (Atom Selection)”并从文本框中将原子序号复制到 Multiwfn 窗口，如下图所示
 
@@ -949,7 +999,12 @@ local or global point group symmetry
 <!-- p.587 -->
 
 
-7 // 布居分析与原子电荷计算（Population analysis and atomic charge calculation） 18 // RESP 模块（RESP module） 5 // 设置等价约束（Set equivalence constraint） 11 // 根据所选区域的点群对称性生成含有等价约束的文件(Generate file containing equivalence constraints according to point group symmetry of selected region)
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 布居分析与原子电荷计算（Population analysis and atomic charge calculation）
+    - **18** — RESP 模块（RESP module）
+    - **5** — 设置等价约束（Set equivalence constraint）
+    - **11** — 根据所选区域的点群对称性生成含有等价约束的文件(Generate file containing equivalence constraints according to point group symmetry of selected region)
 
 a // 选择整个体系（Select the entire system） 你将看到等价原子已被正确识别：
 
@@ -1018,7 +1073,19 @@ C18 的最低点结构具有 D9h 点群，因此，如果我们按常规计算 R
 
 还需注意，没有理由施加 RESP 方法中定义的惩罚函数，它在本例中会损害 ESP 的可复现性，因此我们将禁用默认启用的这一处理。
 
-现在我们启动 Multiwfn 并输入以下命令 C18.fchk 7 // 原子电荷计算与布居分析（Atomic charge calculation and population analysis） 18 // RESP 18 // RESP 4 // 设置双曲惩罚参数（Set hyperbolic penalty parameters） 2 // 设置单阶段拟合的约束强度(a)(Set restraint strength (a) for one-stage fitting) 0 // 去除惩罚函数的影响（Remove effect of penalty function） 0 // 返回（Return） 9 // 载入额外拟合中心（Load additional fitting centers） examples\RESP\C18\fitcen.txt // 含有额外拟合中心的文件（The file containing additional fitting centers） 5 // 设置拟合中的等价约束（Set equivalence constraint in fitting） 1 // 从外部纯文本文件载入等价约束设置（Load equivalence constraint setting from external plain text file） examples\RESP\C18\eqvcons.txt 2 // 在约束下开始单阶段 ESP 拟合计算（Start one-stage ESP fitting calculation with constraints） 结果如下所示
+现在我们启动 Multiwfn 并输入以下命令 C18.fchk
+
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 原子电荷计算与布居分析（Atomic charge calculation and population analysis）
+    - **18** — RESP 18
+    - **RESP 4** — 设置双曲惩罚参数（Set hyperbolic penalty parameters）
+    - **2** — 设置单阶段拟合的约束强度(a)(Set restraint strength (a) for one-stage fitting)
+    - **0** — 去除惩罚函数的影响（Remove effect of penalty function）
+    - **0** — 返回（Return）
+    - **9** — 载入额外拟合中心（Load additional fitting centers） examples\RESP\C18\fitcen.txt
+
+设置拟合中的等价约束（Set equivalence constraint in fitting） 1 // 从外部纯文本文件载入等价约束设置（Load equivalence constraint setting from external plain text file） examples\RESP\C18\eqvcons.txt 2 // 在约束下开始单阶段 ESP 拟合计算（Start one-stage ESP fitting calculation with constraints） 结果如下所示
 
 
 ```text
@@ -1069,7 +1136,13 @@ RMSE:    0.001911   RRMSE:    1.000000
 
 在本节的例 1 中，我已说明如何使用标准 RESP 两阶段拟合程序推导 RESP 电荷。得益于 Multiwfn 的 RESP 模块的灵活性，这一“组合程序”也可以通过两次独立的单阶段拟合手动实现，如本节所示。读完本节后，我相信你将更好地理解如何自定义 RESP 计算流程。下面我们将以非常简单的甲醇分子为例，其 .fch 文件可在 http://sobereva.com/multiwfn/extrafiles/RESP.zip 中找到。
 
-启动 Multiwfn 并输入 methanol.fch 7 // 布居分析（Population analysis） 18 // RESP 电荷计算（RESP charge calculation） 5 // 设置等价约束（Set equivalence constraint） 0 // 去除默认等价约束（Remove default equivalence constraint） 2 // 使用单阶段拟合推导电荷（Using one-stage fitting to derive charges） 结果为
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 methanol.fch 7** — 布居分析（Population analysis）
+    - **18** — RESP 电荷计算（RESP charge calculation）
+    - **5** — 设置等价约束（Set equivalence constraint）
+    - **0** — 去除默认等价约束（Remove default equivalence constraint）
+    - **2** — 使用单阶段拟合推导电荷（Using one-stage fitting to derive charges） 结果为
 
 
 ```text
@@ -1098,7 +1171,11 @@ RMSE:    0.001911   RRMSE:    1.000000
 
 然后在 Multiwfn 界面中输入以下命令 n // 不导出 .chg 文件（Do not export .chg file） 4 // 设置双曲惩罚参数（Set hyperbolic penalty parameters） 2 // 设置约束强度(a)(Set restraint strength (a)) 0.001 // 该值是标准 RESP 拟合程序第二阶段所用的值（This value is the one used in the second stage of standard RESP fitting procedure） 0 // 返回上一级菜单（Return to the upper menu） 5 // 设置等价约束（Set equivalence constraint） 2 // 将 CH2 和 CH3 基团中的氢约束为等价，如标准 RESP 拟合第二阶段所要求(Constraint hydrogens in CH2 and CH3 groups to be equivalent, as required by the second stage of standard RESP fitting)
 
-6 // 设置电荷约束（Set charge constraint） 1 // 载入电荷约束设置文件（Load charge constraint setting file） chgcons.txt 2 // 通过单阶段拟合计算电荷（Calculate charges by one-stage fitting） 最终结果为
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 设置电荷约束（Set charge constraint）
+    - **1** — 载入电荷约束设置文件（Load charge constraint setting file） chgcons.txt
+    - **2** — 通过单阶段拟合计算电荷（Calculate charges by one-stage fitting） 最终结果为
 
 
 ```text
@@ -1197,8 +1274,8 @@ niconiconi
 %oldchk=C:\opt.chk
 %chk=C:\SP_solv.chk
 ## B3LYP/def2TZVP em=GD3BJ scrf=solvent=ethanol geom=allcheck
-     Blank line
-     Blank line
+    ← Blank line
+    ← Blank line
 ```
 
 计算后，你将在 C:\ 文件夹中得到 SP_gas.chk 和 SP_solv.chk。将它们转换为 .fch 文件，然后如常规用 Multiwfn 计算 RESP 电荷，你会发现气相中的电荷为
@@ -1407,7 +1484,11 @@ examples\oxirane.fchk
 
 
 
-7 // 布居分析与原子电荷（Population analysis and atomic charges） 16 // CM5 16 // CM5 1 // 使用自由态的内置球平均原子密度（Use built-in sphericalized atomic densities in free-states） 然后你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 布居分析与原子电荷（Population analysis and atomic charges）
+    - **16** — CM5 16
+    - **CM5 1** — 使用自由态的内置球平均原子密度（Use built-in sphericalized atomic densities in free-states） 然后你将看到
 
 
 ```text

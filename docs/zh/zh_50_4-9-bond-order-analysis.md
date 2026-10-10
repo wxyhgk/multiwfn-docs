@@ -122,7 +122,12 @@ Bond orders with absolute value >=  0.050000
 
 如果你有 GaussView（版本 ≥ 6.0），可以用它把 Multiwfn 计算的键级显示在分子结构图上，以方便查看其数值。这里我以乙酰胺的 Mayer 键级为例说明这一点。
 
-启动 Multiwfn 并输入 examples\CH3CONH2.fch 9 // 键级分析(Bond order analysis) 1 // 计算 Mayer 键级(Calculate Mayer bond order) y // 把键级矩阵导出为当前文件夹下的 bndmat.txt(Export the bond order matrix as bndmat.txt in current folder) 0 // 返回主菜单(Return to main menu) 1000 // 隐藏的主功能(Hidden main function) 13 // 把当前文件夹下的 bndmat.txt 转换为带键级信息的 Gaussian .gjf 文件(Convert the bndmat.txt in current folder to Gaussian .gjf file with bond order information) 现在我们在当前文件夹下得到了 gau.gjf，它不仅包含当前的分子坐标，还包含相连原子之间的键级（连接关系基于当前几何结构自动猜测，除非你使用包含连接信息的文件作为输入文件，如 .mol 和 .mol2，详见 2.5 节）。
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\CH3CONH2.fch 9** — 键级分析(Bond order analysis)
+    - **1** — 计算 Mayer 键级(Calculate Mayer bond order) y
+
+返回主菜单(Return to main menu) 1000 // 隐藏的主功能(Hidden main function) 13 // 把当前文件夹下的 bndmat.txt 转换为带键级信息的 Gaussian .gjf 文件(Convert the bndmat.txt in current folder to Gaussian .gjf file with bond order information) 现在我们在当前文件夹下得到了 gau.gjf，它不仅包含当前的分子坐标，还包含相连原子之间的键级（连接关系基于当前几何结构自动猜测，除非你使用包含连接信息的文件作为输入文件，如 .mol 和 .mol2，详见 2.5 节）。
 
 把 gau.gjf 载入 GaussView，选择 "Results" - "Bond Properties"，再经过适当调整，即可得到如下效果。
 
@@ -139,7 +144,11 @@ Bond orders with absolute value >=  0.050000
 
 第 1 部分：研究 Li6 团簇中的三中心键 在平面 Li6 团簇中，如下图所示，有两种三元环，即边界上的三个和中央的一个。我们将用多中心键级研究哪种三元环更稳定。
 
-启动 Multiwfn 并输入以下命令 examples\Li6.fch 9 // 键级分析(Bond order analysis) 2 // 多中心键级分析(Multi-center bond order analysis) 1,3,4 // 边界三元环中原子的序号 输出为
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入以下命令 examples\Li6.fch 9** — 键级分析(Bond order analysis)
+    - **2** — 多中心键级分析(Multi-center bond order analysis)
+    - **1,3,4** — 边界三元环中原子的序号 输出为
 
 
 ```text
@@ -183,7 +192,13 @@ Bond orders with absolute value >=  0.050000
 
 第 2 部分：研究菲中的六中心共轭 examples\phenanthrene.fch 包含在 B3LYP/6-31G* 水平下产生的菲的波函数。原子编号如下所示。在本例中，我们将用多中心键级研究哪个六元环具有更强的多中心共轭效应。
 
-启动 Multiwfn 并输入以下命令 examples\phenanthrene.fch 9 // 键级分析(Bond order analysis) 2 // 多中心键级分析(Multi-center bond order analysis) 1,2,3,4,5,6 // 边界环中原子的序号。注意输入顺序必须与原子连接关系一致，即诸如 1,3,5,6,4,2 这样的输入将毫无意义
+启动 Multiwfn 并输入以下命令 examples\phenanthrene.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 键级分析(Bond order analysis)
+    - **2** — 多中心键级分析(Multi-center bond order analysis)
+    - **1,2,3,4,5,6** — 边界环中原子的序号。注意输入顺序必须与原子连接关系一致，即诸如 1,3,5,6,4,2 这样的输入将毫无意义
 
 输出为
 
@@ -220,7 +235,13 @@ Bond orders with absolute value >=  0.050000
 
 这里我们对菲计算 NAO 基组下的多中心键级，此时需要带有 DMNAO 关键词的 NBO 输出信息作为输入。本例涉及的 Gaussian 输入文件为 exampes\phenanthrene_DMNAO.gjf，相应的输出文件为 examples\phenanthrene_DMNAO.out。从 .gjf 文件可以看出，调用了 Gaussian 内嵌的 NBO 模块，并向 NBO 模块传入了 DMNAO 关键词。
 
-启动 Multiwfn 并输入 examples\phenanthrene_DMNAO.out 9 // 键级分析(Bond order analysis) -2 // NAO 基组下的多中心键级分析(Multi-center bond order analysis in NAO basis) 1,2,3,4,5,6 // 计算边界环的六中心键级 输出为
+启动 Multiwfn 并输入 examples\phenanthrene_DMNAO.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 键级分析(Bond order analysis)
+    - **-2** — NAO 基组下的多中心键级分析(Multi-center bond order analysis in NAO basis)
+    - **1,2,3,4,5,6** — 计算边界环的六中心键级 输出为
 
 
 ```text
@@ -235,7 +256,11 @@ Bond orders with absolute value >=  0.050000
 
 Laplacian 键级（LBO）由我在 J. Phys. Chem. A, 117, 3100 (2013) 中提出，详见 3.11.7 节。LBO 非常适合有机体系，且与成键强度有密切关联。让我们计算乙烷、乙烯和乙炔中 C-C 键的 LBO。
 
-启动 Multiwfn 并输入以下命令 examples\ethane.wfn // 在 B3LYP/6-31G** 下优化并产生 9 // 键级分析(Bond order analysis) 8 // Laplacian 键级(Laplacian bond order) 你将看到结果：
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入以下命令 examples\ethane.wfn** — 在 B3LYP/6-31G** 下优化并产生
+    - **9** — 键级分析(Bond order analysis)
+    - **8** — Laplacian 键级(Laplacian bond order) 你将看到结果：
 
 
 ```text
@@ -332,7 +357,11 @@ Total Wiberg bond order:  1.9161
 
 在此功能中你还可以输入 -1 以定义两个片段，然后给出两个片段之间壳层相互作用的贡献。例如，我们想研究 CO 片段与两个 H 原子之间相互作用的本质，在当前功能中你应输入
 
--1 // 分解片段间 Wiberg 键级(Decompose interfragment Wiberg bond order) 1,4 // 片段 1 中的原子(Atoms in fragment 1) 2,3 // 片段 2 中的原子(Atoms in fragment 2)
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 分解片段间 Wiberg 键级(Decompose interfragment Wiberg bond order)
+    - **1,4** — 片段 1 中的原子(Atoms in fragment 1)
+    - **2,3** — 片段 2 中的原子(Atoms in fragment 2)
 
 
 <!-- p.626 -->
@@ -360,7 +389,11 @@ Interfragment Wiberg bond order:  1.9575
 
 Mulliken 键级已在 3.11.4 节中介绍，它也被称为 Mulliken 重叠布居。这种键级不是特别有用，因为它既与成键强度相关不好，也与键多重度关系不密切。然而，一个独特的优点是它可以精确分解为轨道贡献，正值和负值分别对应成键和反键效应，该特征有助于揭示轨道特性。在本节中我将以 CH3CONH2 为例说明这一点。
 
-启动 Multiwfn 并输入 examples\CH3CONH2.fch 9 // 键级分析(Bond order analysis) 5 // 把两个原子间的 Mulliken 键级分解为轨道贡献(Decompose Mulliken bond order between two atoms to orbital contributions) 1,5 // 分解 C1-C5 键(Decompose C1-C5 bond) 结果为
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\CH3CONH2.fch 9** — 键级分析(Bond order analysis)
+    - **5** — 把两个原子间的 Mulliken 键级分解为轨道贡献(Decompose Mulliken bond order between two atoms to orbital contributions)
+    - **1,5** — 分解 C1-C5 键(Decompose C1-C5 bond) 结果为
 
 
 ```text
@@ -414,7 +447,11 @@ Mulliken 键级已在 3.11.4 节中介绍，它也被称为 Mulliken 重叠布�
 
 乙炔的 IBSIIGM 和 IBSIIGMH 指数，.wfn 文件在 B3LYP/6-31G** 水平下产生，其几何结构在同一水平下优化。
 
-启动 Multiwfn 并输入 examples\C2H2.wfn 9 // 键级分析(Bond order analysis) 10 // 本征键强度指数(Intrinsic bond strength index (IBSI)) 1 // 开始计算(Start calculation)。由于当前输入文件包含波函数信息，默认要计算的 IBSI 为 IBSIIGMH
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\C2H2.wfn 9** — 键级分析(Bond order analysis)
+    - **10** — 本征键强度指数(Intrinsic bond strength index (IBSI))
+    - **1** — 开始计算(Start calculation)。由于当前输入文件包含波函数信息，默认要计算的 IBSI 为 IBSIIGMH
 
 2 // 使用高质量积分格点(Use high-quality integration grid)（使用 "ultrafine grid" 只会带来略好的数值精度，而代价会相应增加）
 
@@ -482,7 +519,13 @@ Mulliken 键级已在 3.11.4 节中介绍，它也被称为 Mulliken 重叠布�
 
 
 
-启动 Multiwfn 并输入 examples\phenanthrene.fch 9 // 键级分析(Bond order analysis) 11 // 计算 AV1245(Calculate AV1245) 1,2,3,4,5,6 // 计算边界六元环的 AV1245(Calculate AV1245 for the boundary six-membered ring)。注意输入顺序应与连接关系一致
+启动 Multiwfn 并输入 examples\phenanthrene.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 键级分析(Bond order analysis)
+    - **11** — 计算 AV1245(Calculate AV1245)
+    - **1,2,3,4,5,6** — 计算边界六元环的 AV1245(Calculate AV1245 for the boundary six-membered ring)。注意输入顺序应与连接关系一致
 
 结果为
 
@@ -543,7 +586,10 @@ AVmin times 1000 for the selected atoms is     8.283826 (    3    4    6    1)
 
 
 
-现在启动 Multiwfn 并输入 porphyrin.fch 9 // 键级分析(Bond order analysis) 11 // 计算 AV1245(Calculate AV1245) d // 进入该模式后，你可以按任意顺序输入原子序号，因为在这种情况下实际原子顺序将基于识别到的连接关系自动推测(After entering this mode, you can input the atom indices in arbitrary order, because in this case the actual atom sequence will be automatically guessed based on recognized connectivity)
+!!! terminal "Multiwfn 交互"
+
+    - **现在启动 Multiwfn 并输入 porphyrin.fch 9** — 键级分析(Bond order analysis)
+    - **11** — 计算 AV1245(Calculate AV1245) d
 
 1,3-4,6-8,10-14,16-19,21-22,24 // 所选环中原子的序号(Indices of the atoms in the selected ring) 现在你可以看到以下信息：
 

@@ -23,7 +23,13 @@ In COBH3, CO makes use of its lone pair to form coordinate bond with BH3, which 
 
 First, we generate Gaussian output file for CO (fragment 1), BH3 (fragment 2) and COBH3 (complex). The .fch files and corresponding input files have been provided in "examples\CDA\COBH3" folder. The calculations were performed at HF/6-31G* level. On how to prepare the input files for CDA, see Section 3.19.2 for detail
 
-Now boot up Multiwfn, and input following contents: examples\CDA\COBH3\COBH3.fch // Gaussian .fch file of the complex 16 // Enter CDA module 2 // We define two fragments examples\CDA\COBH3\CO.fch // Gaussian .fch file of fragment 1 examples\CDA\COBH3\BH3.fch // Gaussian .fch file of fragment 2 Immediately, below CDA result are outputted on screen
+Now boot up Multiwfn, and input following contents: examples\CDA\COBH3\COBH3.fch
+
+!!! terminal "Multiwfn session"
+
+    - **Gaussian .fch file of the complex 16** — Enter CDA module
+    - **2** — We define two fragments examples\CDA\COBH3\CO.fch
+    - **Gaussian .fch file of fragment 1 examples\CDA\COBH3\BH3.fch** — Gaussian .fch file of fragment 2 Immediately, below CDA result are outputted on screen
 
 
 ```text
@@ -103,7 +109,7 @@ Orbital     2 of fragment  2, Occ: 2.00000    Contribution:   57.2921%
 Orbital     5 of fragment  2, Occ: 0.00000    Contribution:   14.5640%
 ```
 
-Only the FOs with contribution ≥ 1% to the complex orbital are shown (the threshold can be altered by "compthresCDA" in `settings.ini`). As already mentioned, the electron transfer from CO to BH3 is mainly due to the complex orbital 9, therefore from above data we can infer that the nature of the CO→BH3 electron transfer can be largely interpreted as the mix between FO 7 of CO (an occupied orbital) and FO 5 of BH3 (a virtual orbital). This viewpoint can also be manifested by comparing the shape of the two FOs (see below) with the shape of complex orbital 9 given above.
+Only the FOs with contribution ≥ 1% to the complex orbital are shown (the threshold can be altered by "compthresCDA" in `settings.ini`). As already mentioned, the electron transfer from CO to $BH_3$ is mainly due to the complex orbital 9, therefore from above data we can infer that the nature of the CO→BH3 electron transfer can be largely interpreted as the mix between FO 7 of CO (an occupied orbital) and FO 5 of BH3 (a virtual orbital). This viewpoint can also be manifested by comparing the shape of the two FOs (see below) with the shape of complex orbital 9 given above.
 
 Note: Sometimes a few contributions of FOs may be negative, this is a well-known drawback of Mulliken analysis, which is the method employed in CDA module to calculate the complex orbital composition. Since the magnitudes of the negative values are often small, you can simply ignore them.
 
@@ -122,7 +128,7 @@ FragA Orb(Occ.)  FragB Orb(Occ.)      d           b        d - b          r
   13( 0.0000)       2( 2.0000)    0.000000    0.021958   -0.021958    0.000000
 ```
 
-From the output it is clear that the mix between FO 7 of CO and FO 5 of BH3 contributes most of the d term of complex orbital 9.
+From the output it is clear that the mix between FO 7 of CO and FO 5 of $BH_3$ contributes most of the d term of complex orbital 9.
 
 Finally, we plot orbital interaction diagram. Input 0 to return to the last menu, and then select 5 to enter the menu for plotting orbital interaction diagram. Choose option 3 and input -30,10 to set lower and upper energy limits of the plot to -30eV and 10eV, respectively. Then select option 1 to plot the diagram under default settings, a graph will pop up on screen:
 
@@ -131,15 +137,15 @@ Finally, we plot orbital interaction diagram. Input 0 to return to the last menu
 
 <!-- p.769 -->
 
-In the graph above, occupied and virtual orbitals are represented as solid and dashed bars, respectively. Orbital indices are labelled by blue texts. If two or more labels occur in the same bar, e.g. 7 and 8, that means these orbitals are degenerated in energy. If composition of a FO in a complex orbital is larger than 10%, then the corresponding two bars will be linked by red line, and the composition will be labelled on the lines. By simply viewing the diagram we can directly understand how the MOs of COBH3 are constructed by FOs of CO and BH3. For example, complex orbital 7 and 8 only link to FO 5 and 6 of CO in this diagram, hence we immediately know that these two orbitals basically remain unperturbed during formation of the complex. In fact, they are π orbitals of CO, certainly they cannot participate to the σ type donor-acceptor interaction between CO and BH3.
+In the graph above, occupied and virtual orbitals are represented as solid and dashed bars, respectively. Orbital indices are labelled by blue texts. If two or more labels occur in the same bar, e.g. 7 and 8, that means these orbitals are degenerated in energy. If composition of a FO in a complex orbital is larger than 10%, then the corresponding two bars will be linked by red line, and the composition will be labelled on the lines. By simply viewing the diagram we can directly understand how the MOs of COBH3 are constructed by FOs of CO and $BH_{3}$ For example, complex orbital 7 and 8 only link to FO 5 and 6 of CO in this diagram, hence we immediately know that these two orbitals basically remain unperturbed during formation of the complex. In fact, they are π orbitals of CO, certainly they cannot participate to the σ type donor-acceptor interaction between CO and BH3.
 
 There are many options used to adjust plotting parameters (such as label size, the rule for drawing and linking bars, position of composition labels, energy range), please play with them, and replot the graph to check their effects.
 
-4.16.2 Open-shell interaction case: CH3NH2
+4.16.2 Open-shell interaction case: $CH_{3}NH_{2}$
 
-In this example, I use CH3NH2 to illustrate how to perform CDA for the complex in which the two fragments interact with each other covalently (open-shell interaction).
+In this example, I use $CH_{3}NH_{2}$ to illustrate how to perform CDA for the complex in which the two fragments interact with each other covalently (open-shell interaction).
 
-First, we need to generate Gaussian output file for CH3 (fragment 1), NH2 (fragment 2) and CH3NH2 (complex). For fragments 1 and 2, in present example we use unrestricted B3LYP method; while for the complex, since this is a closed-shell system, we use restricted B3LYP method (unrestricted B3LYP can also be used, the CDA result will be the same). The .fch files and corresponding input files can be found in "examples\CDA\CH3NH2" folder, the geometry was pre-
+First, we need to generate Gaussian output file for CH3 (fragment 1), NH2 (fragment 2) and $CH_{3}NH_{2}$ (complex). For fragments 1 and 2, in present example we use unrestricted B3LYP method; while for the complex, since this is a closed-shell system, we use restricted B3LYP method (unrestricted B3LYP can also be used, the CDA result will be the same). The .fch files and corresponding input files can be found in "examples\CDA\CH3NH2" folder, the geometry was pre-
 
 
 ![](../imgs/p769_313.png)
@@ -150,7 +156,15 @@ optimized under B3LYP/6-31G** level.
 
 Note that both CH3 and NH2 have 5 alpha and 4 beta electrons, while CH3NH2 has 9 alpha and 9 beta electrons. Evidently, the total numbers of alpha and beta electrons in the two fragments, namely 5+5 and 4+4, do not match the ones of the complex. So, we must flip electron spin of one fragment (either CH3 or NH2). In this example, we will flip electron spin of NH2, i.e. exchanging all information about its alpha and beta electrons.
 
-Boot up Multiwfn and input following contents: examples\CDA\CH3NH2\CH3NH2.fch // Gaussian output file of the complex 16 // Enter CDA module 2 // We define two fragments examples\CDA\CH3NH2\CH3.fch // Gaussian output file of fragment 1 examples\CDA\CH3NH2\NH2.fch // Gaussian output file of fragment 2 n // Do not flip electron spin of fragment 1 y // Flip electron spin of fragment 2, then NH2 will have 4 alpha and 5 beta electrons. CDA and ECDA results will be calculated and printed on screen for alpha electrons and beta electrons separately. As you can see, for alpha (beta) part, both d - b and CT(1->2) - CT(2->1) terms are positive (negative), showing that alpha (beta) electrons are transferred from CH3 to NH2 (from NH2 to CH3). This is mainly because CH3 has more alpha electrons (5) than beta electrons (4), while after flipping electron spin, NH2 has more beta electrons (5) than alpha electrons (4), hence when they combine together to form CH3NH2, CH3 prefers to donate alpha electrons to NH2 and accept beta electrons from NH2.
+Boot up Multiwfn and input following contents: examples\CDA\CH3NH2\CH3NH2.fch
+
+!!! terminal "Multiwfn session"
+
+    - **Gaussian output file of the complex 16** — Enter CDA module
+    - **2** — We define two fragments examples\CDA\CH3NH2\CH3.fch
+    - **Gaussian output file of fragment 1 examples\CDA\CH3NH2\NH2.fch** — Gaussian output file of fragment 2 n
+
+Flip electron spin of fragment 2, then NH2 will have 4 alpha and 5 beta electrons. CDA and ECDA results will be calculated and printed on screen for alpha electrons and beta electrons separately. As you can see, for alpha (beta) part, both d - b and CT(1->2) - CT(2->1) terms are positive (negative), showing that alpha (beta) electrons are transferred from CH3 to NH2 (from NH2 to CH3). This is mainly because CH3 has more alpha electrons (5) than beta electrons (4), while after flipping electron spin, NH2 has more beta electrons (5) than alpha electrons (4), hence when they combine together to form CH3NH2, CH3 prefers to donate alpha electrons to NH2 and accept beta electrons from NH2.
 
 Result of total electrons, namely the sum of alpha and beta results is also outputted. Below is total result of CDA and ECDA, respectively
 
@@ -171,9 +185,9 @@ Select option 5 to enter the menu for plotting orbital interaction diagram. By o
 
 <!-- p.771 -->
 
-interaction diagram. From the graph it is very clear that beta orbital 3 and 4 of CH3NH2 are formed by mixing beta FO 2 in CH3 and beta FO 2 in NH2. To illustrate this point more intuitively, corresponding part is extracted from the whole diagram, and the orbital isosurfaces are attached on it, see below
+interaction diagram. From the graph it is very clear that beta orbital 3 and 4 of CH3$CH_{3}NH_{2}$ are formed by mixing beta FO 2 in CH3 and beta FO 2 in NH2. To illustrate this point more intuitively, corresponding part is extracted from the whole diagram, and the orbital isosurfaces are attached on it, see below
 
-It can be seen that beta complex orbital 3 shows bonding character (this is why r(3) is a positive value, namely 0.103), which is constructed by slightly mixing beta FO 2 of CH3 into beta FO 2 of NH2 with the same wavefunction phase. Beta complex orbital 4 is an anti-bonding orbital (this explained why r(4) is a negative value, namely -0.056), formation of which is due to the mixture of beta FO 2 of NH2 into beta FO 2 of CH3 in terms of different phases.
+It can be seen that beta complex orbital 3 shows bonding character (this is why r(3) is a positive value, namely 0.103), which is constructed by slightly mixing beta FO 2 of CH3 into beta FO 2 of $CH_{3}NH_{2}$ with the same wavefunction phase. Beta complex orbital 4 is an anti-bonding orbital (this explained why r(4) is a negative value, namely -0.056), formation of which is due to the mixture of beta FO 2 of NH2 into beta FO 2 of CH3 in terms of different phases.
 
 4.16.3 More than two fragments case: Pt(NH3)2Cl2
 
@@ -196,7 +210,13 @@ Note 2: The sequence of the fragments is crucial. Because in the input file of c
 
 Pt--Cl2--(NH3)2, we should not for example define Pt2+, (NH3)2 and (Cl2)2- as fragment 1, 2 and 3, respectively.
 
-Now boot up Multiwfn and input: examples\CDA\Pt(NH3)2Cl2\Pt(NH3)2Cl2.fch // Complex 16 // CDA module 3 // Define three fragments examples\CDA\Pt(NH3)2Cl2\Pt.fch // Fragment 1 examples\CDA\Pt(NH3)2Cl2\Cl2.fch // Fragment 2 examples\CDA\Pt(NH3)2Cl2\(NH3)2.fch // Fragment 3 Then choose option 0 and input 1,2 to output CDA analysis result for fragment pair 1-2. Similarly, we get the CDA result for fragment pair 1-3 and 2-3. We cannot obtain ECDA result for present system because ECDA is only applicable to two-fragment cases. The total CDA results are summarized below.
+Now boot up Multiwfn and input: examples\CDA\Pt(NH3)2Cl2\Pt(NH3)2Cl2.fch
+
+!!! terminal "Multiwfn session"
+
+    - **Complex 16** — CDA module
+    - **3** — Define three fragments examples\CDA\Pt(NH3)2Cl2\Pt.fch
+    - **Fragment 1 examples\CDA\Pt(NH3)2Cl2\Cl2.fch** — Fragment 2 examples\CDA\Pt(NH3)2Cl2\(NH3)2.fch
 
 1-2 1-3 2-3
 
@@ -224,9 +244,20 @@ Although you can directly use the ethane.fch, CH3_1.fch and CH3_2.fch to carry o
 
 To correctly perform CDA analysis based on RO wavefunction, you should manually transform the RO wavefunction to U wavefunction; in other words, splitting RO orbitals to alpha and beta orbitals. As an example, we do this transformation for CH3_1.fch. Boot up Multiwfn and input
 
-examples\CDA\CH3CH3\CH3_1.fch 6 // Modify wavefunction 37 // Split spatial orbitals (RO orbitals in the current context) as alpha and beta spin orbitals -1 // Return 100 // Other functions (Part 1) 2 // Export current wavefunction to a file 7 // Export to .fch file CH3_1_UKS.fch // Name of new file The CH3_1_UKS.fch records UKS wavefunction, which includes alpha and beta orbitals with the same shapes and energies but different occupancies. Similarly, please transform CH3_2.fch to CH3_2_UKS.fch in the same way.
+!!! terminal "Multiwfn session"
 
-Now we can conduct CDA analysis. Boot up Multiwfn and input examples\CDA\CH3CH3\ethane.fch 16 // CDA 2 // Two fragments examples\CDA\CH3CH3\CH3_1_UKS.fch examples\CDA\CH3CH3\CH3_2_UKS.fch n // Do not flip spin of fragment 1 y // Flip spin of fragment 2 The result is:
+    - **examples\CDA\CH3CH3\CH3_1.fch 6** — Modify wavefunction
+    - **37** — Split spatial orbitals (RO orbitals in the current context) as alpha and beta spin orbitals
+    - **-1** — Return 100
+    - **Other functions (Part 1) 2** — Export current wavefunction to a file
+    - **7** — Export to .fch file CH3_1_UKS.fch
+
+Now we can conduct CDA analysis. Boot up Multiwfn and input examples\CDA\CH3CH3\ethane.fch
+
+!!! terminal "Multiwfn session"
+
+    - **16** — CDA 2
+    - **Two fragments examples\CDA\CH3CH3\CH3_1_UKS.fch examples\CDA\CH3CH3\CH3_2_UKS.fch n** — Do not flip spin of fragment 1 y
 
 
 ```text
@@ -262,7 +293,14 @@ Now we can conduct CDA analysis. Boot up Multiwfn and input examples\CDA\CH3CH3\
 
 According to common knowledge about chemical bonds, the first CH3 uses its alpha unpaired electron to form C-C bond with beta unpaired electron of another CH3. From CDA point of view, as shown above, during formation of the C-C bond, the first CH3 transfers 0.155 alpha electron to unoccupied alpha orbital of the second CH3, while the second CH3 transfers 0.155 beta electron to unoccupied beta orbital of the first CH3. This result looks reasonable and in line with chemical intuition.
 
-Then we plot orbital interaction diagram. Input following commands 5 // Plot orbital interaction diagram 3 // Set the energy range to be plotted -25,10 // From -25 to 10 eV, which was found to be suitable for present case 1 // Plot the diagram now Now you can see (some MO maps are also attached)
+Then we plot orbital interaction diagram. Input following commands
+
+!!! terminal "Multiwfn session"
+
+    - **5** — Plot orbital interaction diagram
+    - **3** — Set the energy range to be plotted
+    - **-25,10** — From -25 to 10 eV, which was found to be suitable for present case
+    - **1** — Plot the diagram now Now you can see (some MO maps are also attached)
 
 From the map above you can clearly identify how the bonding orbital is generated by mixing MO of the two fragments. This map is currently plotted for alpha spin, while since alpha and beta MOs in the current case are essentially identical (the two sets of spin orbitals of the fragments were equally split from ROKS orbitals as we did before, while the two sets of spin orbitals of the complex are automatically generated by equally splitting RKS orbitals during CDA analysis), the map plotted for beta spin is identical to the map above; the only marginal difference is that in the map for beta
 

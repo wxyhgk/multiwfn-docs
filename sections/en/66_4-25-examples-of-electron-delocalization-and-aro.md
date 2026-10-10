@@ -8,7 +8,12 @@
 
 Notice that the γ tensor parsed by subfunction 1 of main function 24 corresponds to input orientation (in contrast, the parsed α and β correspond to standard orientation), therefore, the molecular structure file loaded into VMD must also correspond to input orientation, otherwise the unit sphere representation map may be misleading. In order to yield the .pdb file corresponding to input orientation, we change "iloadGaugeom" in `settings.ini` to 1, then reboot Multiwfn and input
 
-examples\polar\C18\gamma.out // Geometry in input orientation will be loaded from this file 100 // Other function (Part 1) 2 // Generate new file 1 // Export current geometry as .pdb file C18.pdb Load the C18.pdb into VMD and show it in CPK style, you will see below figure
+!!! terminal "Multiwfn session"
+
+    - **examples\polar\C18\gamma.out** — Geometry in input orientation will be loaded from this file
+    - **100** — Other function (Part 1)
+    - **2** — Generate new file
+    - **1** — Export current geometry as .pdb file C18.pdb Load the C18.pdb into VMD and show it in CPK style, you will see below figure
 
 The character of this map is similar to that of α map. From the colored small arrows, it can be seen that combination effect of three electric fields applied parallelly to the ring can induce a relatively strong dipole moment variation in the same direction, while in the direction perpendicular to the ring this phenomenon is much weaker.
 
@@ -70,7 +75,11 @@ If you want to export current grid data as .cub file so that you can visualize i
 
 Directly study ICSS based on existing Gaussian output files Assume that you have already obtained the Gaussian output files for the ICSS purpose, and you want to directly study ICSS, you should input following commands after booting up Multiwfn:
 
-examples\ICSS\benzene.gjf 25 // Electron delocalization and aromaticity analyses 3 // Generate grid data of ICSS or related quantities 1 // Low-quality grid y // Skip generating Gaussian input files and thus directly load Gaussian output files C:\benzene\NICS
+!!! terminal "Multiwfn session"
+
+    - **examples\ICSS\benzene.gjf 25** — Electron delocalization and aromaticity analyses
+    - **3** — Generate grid data of ICSS or related quantities
+    - **1** — Low-quality grid y
 
 
 ![](../imgs/p992_506.png)
@@ -89,7 +98,21 @@ We first plot color-filled map for ICSSZZ in the YZ plane with X=0. This plane i
 
 ICSSZZ.cub 4 // Plot plane map 100 //User-defined function, which now corresponds to the function interpolated by the grid data of ICSSZZ.cub via B-spline algorithm
 
-1 // Color-filled map [Press Enter button] 0 // Set extension distance of the plot 8 // 8 Bohr 3 // YZ plane 0 // X=0 Now the graph pops up, close it and then input 4 // Show atom labels 3 // Blue 1 // Change lower and upper limit of color scale -60,60 2 // Enable showing contour lines -2 // Set label interval in X, Y and color scale axes 3,3,10 19 // Set color transition 8 // Blue-White-Red -1 // Replot the map Now you can see the map below
+!!! terminal "Multiwfn session"
+
+    - **1** — Color-filled map [Press Enter button]
+    - **0** — Set extension distance of the plot
+    - **8** — 8 Bohr 3
+    - **YZ plane 0** — X=0 Now the graph pops up, close it and then input
+    - **4** — Show atom labels
+    - **3** — Blue 1
+
+!!! terminal "Multiwfn session"
+
+    - **Enable showing contour lines -2** — Set label interval in X, Y and color scale axes 3,3,10
+    - **19** — Set color transition
+    - **8** — Blue-White-Red
+    - **-1** — Replot the map Now you can see the map below
 
 
 <!-- p.994 -->
@@ -100,7 +123,12 @@ Curve map of magnetic shielding value NOTICE: If you are only interested in the 
 
 Next, we plot curve map to study the variation of magnetic shielding in the line perpendicular to ring plane and starting from ring center. Choose -5 to return to main menu and input
 
-3 // Plot curve map 100 // User-defined function 2 // Input coordinate of two points to define a line 0,0,-8,0,0,8 // The line starts from 8 Bohr below and above the ring center You will immediately see
+!!! terminal "Multiwfn session"
+
+    - **3** — Plot curve map
+    - **100** — User-defined function
+    - **2** — Input coordinate of two points to define a line
+    - **0,0,-8,0,0,8** — The line starts from 8 Bohr below and above the ring center You will immediately see
 
 
 ![](../imgs/p994_508.png)

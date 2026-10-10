@@ -62,7 +62,12 @@ Density-of-states 6.00 5.00 4.00
 
 在图形上点击鼠标右键关闭图形，并选择选项0返回上一级菜单。我们还可以改变能量单位和能量范围，并可用线高表示轨道简并度。为此，输入以下命令：
 
-8 // 将单位由默认的a.u.切换为eV(Switch the unit from the default a.u. to eV) 2 // 设置能量范围(Set energy range) -30,5,5 // 将下限和上限设为-30 eV到5 eV，标签间隔为5 eV(Set lower and upper limits to -30 eV to 5 eV, the spacing between labels is 5 eV) 9 // 用线高表示轨道简并度(Using line height to show orbital degeneracy)
+!!! terminal "Multiwfn 交互"
+
+    - **8** — 将单位由默认的a.u.切换为eV(Switch the unit from the default a.u. to eV)
+    - **2** — 设置能量范围(Set energy range)
+    - **-30,5,5** — 将下限和上限设为-30 eV到5 eV，标签间隔为5 eV(Set lower and upper limits to -30 eV to 5 eV, the spacing between labels is 5 eV)
+    - **9** — 用线高表示轨道简并度(Using line height to show orbital degeneracy)
 
 
 <!-- p.636 -->
@@ -122,7 +127,12 @@ Density-of-states 0.24 0.20 0.16 0.12
 
 启动Multiwfn并输入 examples\N-phenylpyrrole.fch 10 // 绘制各种DOS图(Plot various kinds of DOS maps) -1 // 进入定义片段的界面(Enter the interface for defining fragments)。你最多可定义10个片段。PDOS将对所有片段绘制，但OPDOS只在片段1和2之间绘制
 
-1 // 定义片段1(Define fragment 1) a 1-5 // 把吡咯部分的碳和氮(原子1~5)加入该片段(Add carbons and nitrogen of pyrrole moiety to the fragment) q // 保存片段1(Save fragment 1) 2 // 定义片段2(Define fragment 2) a 10-13,15,17 // 把苯基部分(原子10~13、15和17)加入该片段(Add phenyl moiety to the fragment) q // 保存片段2(Save fragment 2) 3 // 定义片段3(Define fragment 3) a 6-9,14,16,18-20 // 把所有氢加入该片段(Add all hydrogens to the fragment) q // 保存片段3(Save fragment 3) 0 // 返回上一级菜单(Return to last menu) 2 // 设置X轴(Set X-axis) -1.1,-0.1,0.1 // 把X轴范围设为-1.2 ~ -0.1 a.u.，以便在图中显示所有价轨道。标签步长设为0.1 a.u.(Set the range of X-axis to -1.2 ~ -0.1 a.u., so that all valence MOs can be shown in the graph. The step between labels is set to 0.1 a.u.)
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 定义片段1(Define fragment 1) a
+    - **1-5** — 把吡咯部分的碳和氮(原子1~5)加入该片段(Add carbons and nitrogen of pyrrole moiety to the fragment) q
+
+定义片段2(Define fragment 2) a 10-13,15,17 // 把苯基部分(原子10~13、15和17)加入该片段(Add phenyl moiety to the fragment) q // 保存片段2(Save fragment 2) 3 // 定义片段3(Define fragment 3) a 6-9,14,16,18-20 // 把所有氢加入该片段(Add all hydrogens to the fragment) q // 保存片段3(Save fragment 3) 0 // 返回上一级菜单(Return to last menu) 2 // 设置X轴(Set X-axis) -1.1,-0.1,0.1 // 把X轴范围设为-1.2 ~ -0.1 a.u.，以便在图中显示所有价轨道。标签步长设为0.1 a.u.(Set the range of X-axis to -1.2 ~ -0.1 a.u., so that all valence MOs can be shown in the graph. The step between labels is set to 0.1 a.u.)
 
 0 // 绘制TDOS+PDOS+OPDOS(Draw TDOS+PDOS+OPDOS) 当前的图形还不是很理想。关闭图形，你可以看到许多用于自定义图形的选项，例如设置曲线颜色、设置图例文字。试着逐个尝试，若有困惑可查阅3.12.3节。这里我们选择选项4并输入-2,9,1，把左侧Y轴(对应TDOS和PDOS)的下限、上限和标签间隔分别设为-2.0、9.0和1.0。选择14并输入比例因子0.2，则右侧Y轴(对应OPDOS)的范围将被设为-0.4、1.8(因为-2.0*0.2=-0.4且9.0*0.2=1.8)。缩小右侧Y轴的范围相当于放大OPDOS曲线的幅度，这使图中OPDOS的变化更清晰。然后选择选项1重新绘制DOS图，你将看到
 
@@ -155,7 +165,14 @@ Density-of-states 5.00 4.00 3.00 2.00 0.92 0.70 0.48 OPDOS
 
 氮原子的px原子轨道的PDOS，它代表该位点上的π电子。选择0返回上一级菜单然后输入
 
--1 // 定义片段(Define fragments) -2 // 不需要片段2，因此输入相应负值以取消设置(Unset fragment 2) -3 // 同样取消设置片段3(Unset fragment 3) 1 // 重新定义片段1(Redefine fragment 1) clean // 清空该片段现有内容(Clean existing content of the fragment) all // 打印所有基函数的信息(Print out information of all basis functions) 与氮原子对应的信息摘录如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 定义片段(Define fragments)
+    - **-2** — 不需要片段2，因此输入相应负值以取消设置(Unset fragment 2)
+    - **-3** — 同样取消设置片段3(Unset fragment 3)
+    - **1** — 重新定义片段1(Redefine fragment 1) clean
+
+打印所有基函数的信息(Print out information of all basis functions) 与氮原子对应的信息摘录如下所示
 
 
 ```text
@@ -189,7 +206,11 @@ Basis:    75    Shell:   30    Center:    5(N )    Type: YZ
 
 b 63,67 // 然后你可以再次输入命令all，加到当前片段的基函数会被星号标记(Then you can input command all again, the basis functions added to present fragment are marked by asterisks)
 
-q // 保存片段(Save fragment) 0 // 返回(Return) 0 // 绘制TDOS和PDOS(Plot TDOS and PDOS) 请自行分析所得图形。
+!!! terminal "Multiwfn 交互"
+
+    - **q** — 保存片段(Save fragment)
+    - **0** — 返回(Return)
+    - **0** — 绘制TDOS和PDOS(Plot TDOS and PDOS) 请自行分析所得图形。
 
 9.00
 
@@ -250,14 +271,23 @@ Density-of-states 5.00 4.00 3.00 2.00 0.92 0.70 0.48 OPDOS
 
 第5部分：分别绘制s、p、d原子轨道的PDOS 接下来，我说明如何分别绘制s、p、d原子轨道的PDOS。重启Multiwfn然后输入
 
-examples\N-phenylpyrrole.fch 10 // 绘制各种DOS图(Plot various kinds of DOS maps) -1 // 定义片段(Define fragments) 1 // 定义片段1(Define fragment 1) l s // 把角动量为s的基函数加入该片段(Add basis functions with angular moment of s to the fragment)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\N-phenylpyrrole.fch 10** — 绘制各种DOS图(Plot various kinds of DOS maps)
+    - **-1** — 定义片段(Define fragments)
+    - **1** — 定义片段1(Define fragment 1) l s
 
 
 <!-- p.641 -->
 
 
 
-q // 保存片段(Save fragment) 2 // 定义片段2(Define fragment 2) l p // 把角动量为p的基函数加入该片段(Add basis functions with angular moment of p to the fragment) q // 保存片段(Save fragment) 3 // 定义片段3(Define fragment 3) l d // 把角动量为d的基函数加入该片段(Add basis functions with angular moment of d to the fragment) q // 保存片段(Save fragment) 0 // 返回上一级菜单(Return to last menu) 0 // 绘制TDOS+PDOS+OPDOS(Draw TDOS+PDOS+OPDOS) 然后关闭图形并输入以下命令以改善作图效果 9 // 不显示OPDOS曲线(Disable showing OPDOS curves) 10 // 不显示OPDOS竖线(Disable showing OPDOS lines) 4 // 设置Y轴范围(Set range of Y axis) 0,10,1 // 下限和上限设为0和10，标签间隔为1.0(Lower and upper limits are set to 0 and 10 with label interval of 1.0) 16 // 设置图例(Set legends) 1 // 设置片段1对应的PDOS图例(Set legend of PDOS corresponding to fragment 1) s 2 // 设置片段2对应的PDOS图例(Set legend of PDOS corresponding to fragment 2) p 3 // 设置片段3对应的PDOS图例(Set legend of PDOS corresponding to fragment 3) d 0 // 退出设置图例界面(Exit the interface for setting legends) 22 // 在曲线底部绘制竖线的开关(Toggle drawing lines at bottom of curves)， 1 // 重新作图(Replot the map) 现在你可以看到下图
+!!! terminal "Multiwfn 交互"
+
+    - **q** — 保存片段(Save fragment)
+    - **2** — 定义片段2(Define fragment 2) l p
+
+保存片段(Save fragment) 3 // 定义片段3(Define fragment 3) l d // 把角动量为d的基函数加入该片段(Add basis functions with angular moment of d to the fragment) q // 保存片段(Save fragment) 0 // 返回上一级菜单(Return to last menu) 0 // 绘制TDOS+PDOS+OPDOS(Draw TDOS+PDOS+OPDOS) 然后关闭图形并输入以下命令以改善作图效果 9 // 不显示OPDOS曲线(Disable showing OPDOS curves) 10 // 不显示OPDOS竖线(Disable showing OPDOS lines) 4 // 设置Y轴范围(Set range of Y axis) 0,10,1 // 下限和上限设为0和10，标签间隔为1.0(Lower and upper limits are set to 0 and 10 with label interval of 1.0) 16 // 设置图例(Set legends) 1 // 设置片段1对应的PDOS图例(Set legend of PDOS corresponding to fragment 1) s 2 // 设置片段2对应的PDOS图例(Set legend of PDOS corresponding to fragment 2) p 3 // 设置片段3对应的PDOS图例(Set legend of PDOS corresponding to fragment 3) d 0 // 退出设置图例界面(Exit the interface for setting legends) 22 // 在曲线底部绘制竖线的开关(Toggle drawing lines at bottom of curves)， 1 // 重新作图(Replot the map) 现在你可以看到下图
 
 10.00
 
@@ -282,15 +312,33 @@ Density-of-states 7.00 6.00 5.00 4.00 3.00
 
 如果你想为特定原子的特定角动量轨道绘制PDOS，也很容易。例如，通过在片段定义界面输入以下命令，就可以定义一个对应于吡咯部分四个碳的所有p轨道的片段。
 
-cond // 用条件选择基函数(Use conditions to select basis functions) 1-4 // 原子1~4(Atoms 1~4) [Press ENTER button] // 对基函数序号无要求(No requirement on basis function index) P // P角动量的基函数(Basis function of P angular moment)
+!!! terminal "Multiwfn 交互"
+
+    - **cond** — 用条件选择基函数(Use conditions to select basis functions)
+    - **1-4** — 原子1~4(Atoms 1~4) [Press ENTER button]
+
+P角动量的基函数(Basis function of P angular moment)
 
 第6部分：基于由Hirshfeld方法得到的轨道成分绘制PDOS 绘制PDOS需要轨道成分。在上面的例子中，成分是用默认的Mulliken方法评估的。该方法速度很快，然而，它不够稳健(尤其对非占据轨道)，而且当使用弥散函数时结果完全无用。这里我还说明如何基于由Hirshfeld方法得到的轨道成分绘制PDOS，该方法更稳健且与弥散函数完全兼容。缺点是Hirshfeld方法更耗时，且它只能评估来自原子的贡献，即片段只能定义为一组原子。
 
 这里我们重复“第2部分”中的例子，但使用由Hirshfeld方法得到的成分。启动Multiwfn并输入以下命令：
 
-examples\N-phenylpyrrole.fch 10 // 绘制DOS(Plotting DOS) 7 // 改变计算轨道成分的方法(Change the method for calculating orbital compositions) 3 // Hirshfeld方法(Hirshfeld method)。然后Multiwfn计算所有轨道中所有原子的轨道成分，对于大体系你需要等待一会儿(Then Multiwfn calculates orbital compositions for all atoms in all orbitals, for large system you need to wait for a while)
+!!! terminal "Multiwfn 交互"
 
--1 // 定义片段(Define fragments) 1 // 定义片段1(Define fragment 1) 1-5 // 把吡咯部分的碳和氮(原子1~5)设为该片段(Set carbons and nitrogen of pyrrole moiety as the fragment) 2 // 定义片段2(Define fragment 2) 10-13,15,17 // 把苯基部分(原子10~13、15和17)设为该片段(Set phenyl moiety as the fragment) 3 // 定义片段3(Define fragment 3) 6-9,14,16,18-20 // 把所有氢设为该片段(Set all hydrogens as the fragment) 0 // 返回上一级菜单(Return to last menu) 2 // 设置X轴(Set X-axis) -1.1,-0.1,0.1 0 // 绘制TDOS+PDOS(Draw TDOS+PDOS) 所得图形与基于默认Mulliken方法得到的成分绘制的图形几乎相同(不过，对于由非占据轨道组成的能量范围，差异往往很明显，显然基于Hirshfeld的PDOS更可靠)。注意，当采用Hirshfeld方法计算轨道成分时，不能绘制OPDOS。
+    - **examples\N-phenylpyrrole.fch 10** — 绘制DOS(Plotting DOS)
+    - **7** — 改变计算轨道成分的方法(Change the method for calculating orbital compositions)
+    - **3** — Hirshfeld方法(Hirshfeld method)。然后Multiwfn计算所有轨道中所有原子的轨道成分，对于大体系你需要等待一会儿(Then Multiwfn calculates orbital compositions for all atoms in all orbitals, for large system you need to wait for a while)
+
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 定义片段(Define fragments)
+    - **1** — 定义片段1(Define fragment 1)
+    - **1-5** — 把吡咯部分的碳和氮(原子1~5)设为该片段(Set carbons and nitrogen of pyrrole moiety as the fragment)
+    - **2** — 定义片段2(Define fragment 2)
+    - **10-13,15,17** — 把苯基部分(原子10~13、15和17)设为该片段(Set phenyl moiety as the fragment)
+    - **3** — 定义片段3(Define fragment 3) 6-9,14,16,18-20
+
+返回上一级菜单(Return to last menu) 2 // 设置X轴(Set X-axis) -1.1,-0.1,0.1 0 // 绘制TDOS+PDOS(Draw TDOS+PDOS) 所得图形与基于默认Mulliken方法得到的成分绘制的图形几乎相同(不过，对于由非占据轨道组成的能量范围，差异往往很明显，显然基于Hirshfeld的PDOS更可靠)。注意，当采用Hirshfeld方法计算轨道成分时，不能绘制OPDOS。
 
 
 ### 4.10.2 为1,3-丁二烯绘制局域态密度
@@ -332,7 +380,13 @@ Density-of-states 0.023 0.019 0.015
 
 关闭图形并选择0返回上一级菜单。接下来，我们沿连接两个端碳(C1和C8)上方1.5 Bohr处两点的直线绘制填色图，输入以下命令
 
-11 // 沿一条线绘制局域态密度(Draw local DOS along a line) 1.137,3.308,1.5 -1.137,-3.308,1.5 200 // 沿线均匀取200个点(Evenly taking 200 points along line) 然后关闭弹出的图形并输入 4 // 修改Y轴与X轴的比例(Modify the ratio between Y and X axes) 0.5 // Y轴长度将为X轴的一半(The length of Y-axis will be half of X-axis) 1 // 重新作图(Replot)
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 沿一条线绘制局域态密度(Draw local DOS along a line) 1.137,3.308,1.5 -1.137,-3.308,1.5
+    - **200** — 沿线均匀取200个点(Evenly taking 200 points along line) 然后关闭弹出的图形并输入
+    - **4** — 修改Y轴与X轴的比例(Modify the ratio between Y and X axes)
+    - **0.5** — Y轴长度将为X轴的一半(The length of Y-axis will be half of X-axis)
+    - **1** — 重新作图(Replot)
 
 
 <!-- p.644 -->
@@ -362,7 +416,14 @@ Density-of-states 0.023 0.019 0.015
 
 首先，我们为alpha自旋绘制TDOS+PDOS图，PDOS将对应于Na3O。启动Multiwfn并输入
 
-Na3O-Si12C12.fchk 10 // DOS作图模块(DOS plotting module) -1 // 定义片段(Define fragments) 1 // 定义片段1(Define fragment 1) a 1,4,27,28 // 这四个原子对应Na3O部分(These four atoms correspond to the Na3O moiety) q // 保存片段(Save fragment) 0 // 返回(Return) 0 // 绘制TDOS+PDOS(Plot TDOS+PDOS) 关闭弹出的图形 22 // 开启在曲线底部绘制竖线(Enable drawing lines at bottom of curves) 1 // 重新作图(Replot) 你将看到下图。默认情况下，对于非限制波函数，只考虑alpha轨道，因此下图是alpha自旋的DOS图。
+!!! terminal "Multiwfn 交互"
+
+    - **Na3O-Si12C12.fchk 10** — DOS作图模块(DOS plotting module)
+    - **-1** — 定义片段(Define fragments)
+    - **1** — 定义片段1(Define fragment 1) a
+    - **1,4,27,28** — 这四个原子对应Na3O部分(These four atoms correspond to the Na3O moiety) q
+
+返回(Return) 0 // 绘制TDOS+PDOS(Plot TDOS+PDOS) 关闭弹出的图形 22 // 开启在曲线底部绘制竖线(Enable drawing lines at bottom of curves) 1 // 重新作图(Replot) 你将看到下图。默认情况下，对于非限制波函数，只考虑alpha轨道，因此下图是alpha自旋的DOS图。
 
 27.81 TDOSPDOS frag.1
 
@@ -441,7 +502,15 @@ Note: The vertical dash line corresponds to HOMO level at    -0.221 a.u.
 
 启动Multiwfn并输入 Cr3Si12-.fchk 10 // DOS模块(DOS module) 12 // 绘制PES的界面(Interface for plotting PES)。你会发现HOMO能级已显示在屏幕上，即-0.77 eV，它是alpha HOMO和beta HOMO中最高的一个
 
-3 // 设置位移值以满足广义Koopmans定理(Set shift value to meet generalized Koopmans' theorem) 1.79 // 应为第一电离能+E(HOMO)。当前情况下该值为-0.77+2.56=1.79 eV(Should be 1st VIP + E(HOMO). For present case the value is -0.77+2.56=1.79 eV) 4 // 设置X轴(Set X-axis) 1,4.5,0.5 // 能量跨度为1.0~4.5 eV，标签步长为0.5 eV(The energy span is 1.0~4.5 eV, with label step of 0.5 eV) 9 // 设置曲线宽度(Set width of curve) 10 // 使曲线比默认更粗(Make the curve thicker than default) 1 // 绘制光谱(Plot the spectrum) 所得光谱如下所示。注意Y轴的绝对值事实上没有意义，你可以选择选项“13 Y轴标签和刻度的显示开关(Toggle showing labels and ticks on Y-axis)”一次将其状态切换为“No”以去掉Y轴上的标签和刻度。
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 设置位移值以满足广义Koopmans定理(Set shift value to meet generalized Koopmans' theorem)
+    - **1.79** — 应为第一电离能+E(HOMO)。当前情况下该值为-0.77+2.56=1.79 eV(Should be 1st VIP + E(HOMO). For present case the value is -0.77+2.56=1.79 eV)
+    - **4** — 设置X轴(Set X-axis)
+    - **1,4.5,0.5** — 能量跨度为1.0~4.5 eV，标签步长为0.5 eV(The energy span is 1.0~4.5 eV, with label step of 0.5 eV)
+    - **9** — 设置曲线宽度(Set width of curve)
+    - **10** — 使曲线比默认更粗(Make the curve thicker than default)
+    - **1** — 绘制光谱(Plot the spectrum) 所得光谱如下所示。注意Y轴的绝对值事实上没有意义，你可以选择选项“13 Y轴标签和刻度的显示开关(Toggle showing labels and ticks on Y-axis)”一次将其状态切换为“No”以去掉Y轴上的标签和刻度。
 
 下图为J. Phys. Chem. A论文中提供的实验光谱
 

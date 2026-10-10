@@ -119,7 +119,7 @@ ECD：The significance of rotatory strengths in ECD spectrum is analogous to osc
 
 VCD: VCD measures difference in molecular absorption coefficient of left- and right-
 
-circularly polarized lights at different wavenumber λ, namely VCD curve can be expressed as ∆𝜀(λ) = 𝜀L(λ) −𝜀R(λ). Each vibrational mode has a rotatory strength, after broadening rotatory strengths of all vibrational modes, the shape of the resulting curve can be compared with experimental VCD spectrum. The integral area under the curve ∆𝜀(λ) contributed by a vibrational mode is proportional to its rotatory strength.
+circularly polarized lights at different wavenumber λ, namely VCD curve can be expressed as $\Delta\varepsilon(\lambda)=\varepsilon_{\mathrm{L}}(\lambda)-\varepsilon_{\mathrm{R}}(\lambda)$. Each vibrational mode has a rotatory strength, after broadening rotatory strengths of all vibrational modes, the shape of the resulting curve can be compared with experimental VCD spectrum. The integral area under the curve ∆𝜀(λ) contributed by a vibrational mode is proportional to its rotatory strength.
 
 
 <!-- p.167 -->
@@ -128,9 +128,9 @@ ROA: The ROA spectrum measures the difference between scattering intensity of ri
 
 $$\mathrm{ROA~intensity}\equiv I_{i}^{\mathrm{R}}-I_{i}^{\mathrm{L}}\propto\frac{\left(\nu_{0}-\nu_{i}\right)^{4}A_{i}}{\nu_{i}B_{i}}\quad B_{i}=1-\exp\left(-\frac{h c\nu_{i}}{k T}\right)$$
 
-The ROA strength data outputted by Gaussian ROA task in fact is the Ai term, which should be converted to actual ROA intensity according to above equation. The Ai term is dependent on frequency of incident light. The integral of the peak broadened by one unit of ROA intensity/strength is equal to 1. There are several different forms of ROA, including ROA SCP(180), ROA SCP(90), ROA DCP(180). The 90 and 180 denote the angle between incident light and scattered light. The SCP (scattered circular polarization) means the incident light is linearly polarized light while the scattered light is circularly polarized light; DCP (dual circular polarization) corresponds to the case that both incident and scattered lights are circularly polarized light. The ROA SCP(180) is commonly employed, and it is also known as SCP backscattered ROA.
+The ROA strength data outputted by Gaussian ROA task in fact is the $A_i$ term, which should be converted to actual ROA intensity according to above equation. The Ai term is dependent on frequency of incident light. The integral of the peak broadened by one unit of ROA intensity/strength is equal to 1. There are several different forms of ROA, including ROA SCP(180), ROA SCP(90), ROA DCP(180). The 90 and 180 denote the angle between incident light and scattered light. The SCP (scattered circular polarization) means the incident light is linearly polarized light while the scattered light is circularly polarized light; DCP (dual circular polarization) corresponds to the case that both incident and scattered lights are circularly polarized light. The ROA SCP(180) is commonly employed, and it is also known as SCP backscattered ROA.
 
-The ROA task of Gaussian also simultaneously outputs frequency-dependent Raman strength, which corresponds to the Ri term of below equation
+The ROA task of Gaussian also simultaneously outputs frequency-dependent Raman strength, which corresponds to the $R_{i}$ term of below equation
 
 $$\mathrm{Raman~intensity}\equiv I_{i}^{\mathrm{R}}+I_{i}^{\mathrm{L}}\propto\frac{\left(\nu_{0}-\nu_{i}\right)^{4}R_{i}}{\nu_{i}B_{i}}\quad B_{i}=1-\exp\left(-\frac{h c\nu_{i}}{k T}\right)$$
 
@@ -143,7 +143,7 @@ Only the input files mentioned in this section are supported by Multiwfn for plo
 
 1 Gaussian output file
 
-- IR spectrum: Use output file of freq task as input. If you use Gaussian 09 D.01 or later revisions and meantime freq=anharm keyword was specified to carry out anharmonic analysis, Multiwfn will prompt you to choose if loading anharmonic frequencies and IR intensities instead of the harmonic ones.
+- IR spectrum: Use output file of freq task as input. If you use Gaussian 09 D.01 or later revisions and meantime freq=anharm keyword was specified to carry out anharmonic analysis, Multiwfn will prompt you to choose if loading anharmonic frequencies and I$R_{i}$ntensities instead of the harmonic ones.
 
 - Raman spectrum: Use output file of freq=raman task as input. If you would like to plot pre-resonance Raman spectrum, you should at the same time use CPHF=rdfreq keyword and write the frequencies of the incident lights after a blank line under the geometry specification, e.g. 300nm 400nm 500nm. If you hope to plot anharmonic Raman spectrum, use freq(raman,anharm) keywords, then Multiwfn will prompt you to choose if loading anharmonic frequencies and Raman activities instead of the harmonic ones.
 
@@ -185,7 +185,7 @@ Although the Grimme's sTDA code has already been implanted into ORCA program, th
 
 When ECD is to be plotted, you can choose which representation of rotatory strength will be used. The length and velocity representations have been mentioned above, while the mixed-form of
 
-representation, which is recommended in the sTDA original paper, is defined as RM= RV × fL / fV, where fL and fV are length and velocity representations of oscillator, respectively, and RV is the velocity representation of rotatory strength.
+representation, which is recommended in the sTDA original paper, is defined as $R_{\mathrm{M}} = R_{\mathrm{V}} \times f_{\mathrm{L}} / f_{\mathrm{V}}$ where fL and fV are length and velocity representations of oscillator, respectively, and RV is the velocity representation of rotatory strength.
 
 4 Grimme's xtb output file The xtb program written by Grimme is mainly used to carry out GFN-xTB calculation (J. Chem. Theory Comput., 13, 1989 (2017) and J. Chem. Theory Comput., 15, 1652 (2019)), which may be viewed as a semiempirical variant of DFT method. It is not only robust but also rather fast, it can be conveniently applied to systems consisting of hundreds of atoms. Note that although the accuracy of xtb frequency has been verified to be basically reasonable, the quality of IR intensities outputted by xtb is not quite satisfactory (according to my experiences). xtb program can be freely obtained via https://github.com/grimme-lab/xtb/.
 
@@ -428,11 +428,11 @@ $$\overline{\delta^{A}}=\sum_{i}p_{i}\delta_{i}^{A}$$
 
 <!-- formula-ocr: formula_p175_098.png 已替换为LaTeX, 原图保留备查 -->
 
-where i is conformer index and A is atom index. pi stands for weight of conformer i, which can be calculated according to Boltzmann distribution based on relative free energies between the conformers.
+where i is conformer index and A is atom index. $p_{i}$ stands for weight of conformer i, which can be calculated according to Boltzmann distribution based on relative free energies between the conformers.
 
-With δ of all atoms in hand, one can plot discrete line map of NMR, the X-axis of the spikes in the map corresponds to δ while Y-axis corresponds to degeneracy, which is N if maximal spacing between N chemical shifts is less than specific threshold (e.g. 0.05 ppm), for other cases the degeneracy is 1.0.
+With δ of all atoms in hand, one can plot discrete line map of NMR, the X-axis of the s$p_{i}$kes in the map corresponds to δ while Y-axis corresponds to degeneracy, which is N if maximal spacing between N chemical shifts is less than specific threshold (e.g. 0.05 ppm), for other cases the degeneracy is 1.0.
 
-Actual NMR spectrum with finite peak width can be generated by broadening the spikes by Lorentzian function, the full width at half maximum (FWHM) is a key parameter of controlling peak shape. In this curve map, the peak height corresponds to strength of NMR signal.
+Actual NMR spectrum with finite peak width can be generated by broadening the s$p_{i}$kes by Lorentzian function, the full width at half maximum (FWHM) is a key parameter of controlling peak shape. In this curve map, the peak height corresponds to strength of NMR signal.
 
 Input file Output file of NMR task of Gaussian, ORCA and BDF programs are directly supported as input file for plotting NMR spectrum. .data file generated by NMR task of CP2K can also be used.
 
@@ -670,18 +670,18 @@ Overlap PVS (OPVS) and overlap PVDOS (OPVDOS) In order to visually study couplin
 
 $$\mathcal{E}_{A B}(E)=c\sum_{i}\Theta_{A B}^{i}f_{i}G(E-E_{i}^{\mathrm{v i b}})$$
 
-𝑖 is their percentage coupling contribution to vibrational mode i. where A and B are the two fragments for which you want to study their coupling effect, Θ𝐴𝐵
+𝑖 is their percentage coupling contribution to vibrational mode i. where A and B are the two fragments for which you want to study their coupling effect, $\varepsilon_{AB}$
 
-For overlap PVS-NC (OPVS-NC) and overlap PVDOS-NC (OPVDOS-NC), Θ𝐴𝐵 𝑖 is defined as
+For overlap PVS-NC (OPVS-NC) and overlap PVDOS-NC (OPVDOS-NC), $\varepsilon_{AB}$ 𝑖 is defined as
 
 
 $$\mathcal{E}_{A B}(E)=c\sum_{i}\Theta_{A B}^{i}f_{i}G(E-E_{i}^{\mathrm{v i b}})$$
 
 <!-- formula-ocr: formula_p180_107.png 已替换为LaTeX, 原图保留备查 -->
 
-𝑖= 100%. At a wavenumber, the closer the OPVS-NC (𝜀𝐴𝐵) curve to ε curve, or the close the OPVDOS-NC (𝜌𝐴𝐵) curve to ρ curve, the more the spectrum at this wavenumber exhibits the collective motion of fragments A and B. If mode i is equally contributed by fragments A and B, namely Θ𝐴 𝑖= Θ𝐵 𝑖= 50%, then Θ𝐴𝐵
+𝑖= 100%. At a wavenumber, the closer the OPVS-NC (𝜀𝐴𝐵) curve to ε curve, or the close the OPVDOS-NC (𝜌𝐴𝐵) curve to ρ curve, the more the spectrum at this wavenumber exhibits the collective motion of fragments A and B. If mode i is equally contributed by fragments A and B, namely Θ𝐴 𝑖= Θ𝐵 𝑖= 50%, then $\varepsilon_{AB}$
 
-𝑖 is coupling contribution of fragments A and B to vibration mode i: For overlap PVS-I (OPVS-I) spectrum, Θ𝐴𝐵 iiABABx y zIsI σ==  𝑖 is defined as 100% × 𝐼𝐴𝐵 , , , σ 𝑖/𝐼𝑖 , where 𝐼𝐴𝐵
+𝑖 is coupling contribution of fragments A and B to vibration mode i: For overlap PVS-I (OPVS-I) spectrum, $\varepsilon_{AB}$ iiABABx y zIsI σ==  𝑖 is defined as 100% × 𝐼𝐴𝐵 , , , σ 𝑖/𝐼𝑖 , where 𝐼𝐴𝐵
 
 The more positive (negative) the OPVS-I curve, the more the IR absorption is enhanced (suppressed) by the interfragment coupling effect.
 

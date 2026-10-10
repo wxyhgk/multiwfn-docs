@@ -39,9 +39,9 @@ How to visualize weak interaction? The first thing is to find a way to distingui
 
 Around nuclei Around chemical bond Weak interaction region Boundary of molecule
 
-|∇ρ(r)| Large 0~Minor 0 ~ Small Very small ~ Small
+$\vert\nabla\rho(\mathbf{r})\vert$ Large 0~Minor 0 ~ Small Very small ~ Small
 
-ρ(r) Large Medium Small 0~Small
+$\rho(\mathbf{r})$ Large Medium Small 0~Small
 
 RDG(r) Medium 0~Minor 0 ~ Medium Medium ~Very large
 
@@ -54,17 +54,25 @@ $$\mathrm{RDG}(\mathbf{r})=\frac{1}{2(3\pi^{2})^{1/3}}\frac{\left|\nabla\rho(\ma
 
 For remaining regions ("Around chemical bond" and " Weak interaction region"), if we only
 
-keep the region where ρ(r) is small, then only weak interaction region will be revealed.
+keep the region where $\rho(\mathbf{r})$ is small, then only weak interaction region will be revealed.
 
 Now I use phenol dimer to exemplify this idea, we will calculate grid data of RDG function and visualize it as isosurface. Boot up Multiwfn and input following commands
 
 examples\PhenolDimer.wfn // Any format containing GTF information can be used as input file, see Section 2.5 for detail
 
-5 // Generate grid data 13 // RDG function 7 // Use middle point of two atoms as center of grid data, this way of defining spatial scope is very suitable for weak interaction analysis
+!!! terminal "Multiwfn session"
+
+    - **5** — Generate grid data
+    - **13** — RDG function
+    - **7** — Use middle point of two atoms as center of grid data, this way of defining spatial scope is very suitable for weak interaction analysis
 
 1,14 // The indices of the two atoms are set to 1 and 14, because from molecular structure (see the graph below) we can estimate that the weak interaction region occurs between C1 and C14
 
-40,40,40 // The weak interaction region is small, so 40*40*40=64000 grid is fine enough 3,3,3 // Set extension distance (buffer distance) in all X/Y/Z directions to 3 Bohr -1 // Show the isosurface of RDG Please make sure that the isovalue in the GUI window is set to 0.5, which is suitable for visualizing weak interaction regions (if the isovalue is too small, then RDG isosurface will be too thin and thus ugly; if too large, then unwanted “Around nuclei” and “Around chemical bond” regions will appear). Now you can see the graph below in the GUI window:
+!!! terminal "Multiwfn session"
+
+    - **40,40,40** — The weak interaction region is small, so 40*40*40=64000 grid is fine enough
+    - **3,3,3** — Set extension distance (buffer distance) in all X/Y/Z directions to 3 Bohr
+    - **-1** — Show the isosurface of RDG Please make sure that the isovalue in the GUI window is set to 0.5, which is suitable for visualizing weak interaction regions (if the isovalue is too small, then RDG isosurface will be too thin and thus ugly; if too large, then unwanted “Around nuclei” and “Around chemical bond” regions will appear). Now you can see the graph below in the GUI window:
 
 
 <!-- p.312 -->
@@ -92,7 +100,14 @@ Current Multiwfn does not support plotting color-filled isosurface graph, howeve
 
 Multiwfn to generate cube file for sign(λ2)ρ and RDG, and then use plotting script of VMD to draw such map. VMD is one of the best visualization tools and can be freely downloaded at http://www.ks.uiuc.edu/Research/vmd. Here I illustrate how to do this for phenol dimer by using subfunction 1 of main function 20. This time we do not only want to study the weak interaction region between the two monomers, but also want to examine the steric effect within in aromatic ring of phenol, therefore the spatial scope of grid data should cover the entire dimer.
 
-Boot up Multiwfn and input following commands examples\PhenolDimer.wfn 20 // Visual study of weak interaction 1 // NCI analysis -10 // Set extension distance in all directions with respect to molecular boundary 0 // Because weak interaction regions only appear in internal region of present system, we do not need to leave a buffer region at system boundary, so we set the extension distance to 0 Bohr
+Boot up Multiwfn and input following commands examples\PhenolDimer.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **1** — NCI analysis
+    - **-10** — Set extension distance in all directions with respect to molecular boundary
+    - **0** — Because weak interaction regions only appear in internal region of present system, we do not need to leave a buffer region at system boundary, so we set the extension distance to 0 Bohr
 
 2 // Medium-quality grid (about 512000 points). Because the spatial scope of grid data is evidently larger than last example, we need more grid points than last example, otherwise the RDG isosurfaces will look discrete
 
@@ -117,7 +132,13 @@ Part 3: Summary of general steps for generating color-filled RDG map Above I hav
 
 understand how to plot the sign(λ2)ρ mapped RDG isosurface graph using Multiwfn, below I present the minimum steps to do this, which are suitable for most cases.
 
-Boot up Multiwfn and input xxx.wfn (or wfx/mwfn/fch/molden... file) // Load input file 20 // Visual study of weak interaction 1 // NCI analysis 3 // Please properly define the grid points at this step. “High-quality grid” is usually adequate
+Boot up Multiwfn and input xxx.wfn (or wfx/mwfn/fch/molden... file)
+
+!!! terminal "Multiwfn session"
+
+    - **Load input file 20** — Visual study of weak interaction
+    - **1** — NCI analysis
+    - **3** — Please properly define the grid points at this step. “High-quality grid” is usually adequate
 
 
 ![](../imgs/p314_047.png)
@@ -179,7 +200,11 @@ Special skill 2: Interactively set RDG value where sign(λ2)ρ is in specific ra
 
 the graph. From the original scatter map, we find that the H-bond region corresponds to sign(λ2)ρ range of -0.035 ~ -0.015, therefore we can input below command in post-processing menu
 
--2 // Set RDG value where sign(λ2)ρ in within given data range -0.035,-0.015 // The lower and upper limit of sign(λ2)ρ 100 // Set RDG value in these regions to an arbitrarily large value to screen RDG isosurface Then, if you select option -1 to plot the scatter map again, you will see
+!!! terminal "Multiwfn session"
+
+    - **-2** — Set RDG value where sign(λ2)ρ in within given data range
+    - **-0.035,-0.015** — The lower and upper limit of sign(λ2)ρ
+    - **100** — Set RDG value in these regions to an arbitrarily large value to screen RDG isosurface Then, if you select option -1 to plot the scatter map again, you will see
 
 
 ![](../imgs/p318_050.png)
@@ -250,7 +275,7 @@ $$s t d[\rho(\mathbf{r})]=\sqrt{\frac{\sum_{i}[\rho_{i}(\mathbf{r})-\overline{\r
 
 <!-- formula-ocr: formula_p321_220.png 已替换为LaTeX, 原图保留备查 -->
 
-where n is the number of frames in consideration, ρi is the density calculated based on the geometry of frame i. After mapping TFI on the isosurface of aNCI, the stability of each weak interaction region can be clearly identified by visually examining the colors.
+where n is the number of frames in consideration, $\rho_{i}$ is the density calculated based on the geometry of frame i. After mapping TFI on the isosurface of aNCI, the stability of each weak interaction region can be clearly identified by visually examining the colors.
 
 The quality of aNCI graph directly depends on the number of frames that are taken into account. Small number of frames, for example 50 frames, can only leads to inaccurate and very unsmooth isosurface graph. In general, at least 500 frames should be used to generate aNCI graph.
 
@@ -315,13 +340,13 @@ needed in the analysis.
 
 (2) IGM based on gradient-based partitioning (GBP). This version was proposed in ChemPhysChem, 19, 724 (2018) and requires actual molecular electron density. This is not supported by Multiwfn.
 
-(3) IGM based on Hirshfeld partition (IGMH). This version was proposed by me, see Section 3.23.6 for details. The IGMH is more expensive than IGM and meantime wavefunction must be provided in input file, the advantage of IGMH is that the result is more meaningful and the graphical effect is significantly better than IGM. Whenever computational cost is affordable, I always suggest using IGMH instead of IGM.
+(3) IGM based on Hirshfeld partition (IGMH). This version was proposed by me, see Section 3.23.6 for details. The IGMH is more expensive than IGM and meantime wavefunction must be provided in input file, the advantage of IGMH is that the result is more meaningful and the graphical effect is significantly better than IGM. Whenever computational cost is affordable, I always suggest usin$g^{IGM}$H instead of IGM.
 
 Idea of IGM A complete and easy-to-understand overview of IGM method can be found in J. Comput. Chem., 43, 539 (2022) DOI: 10.1002/jcc.26812 and book chapter DOI: 10.1016/B978-0-12-821978-2.00076-3. Below I only outline the key idea of IGM method. Let us first look at a very simple system, the H2 molecule. The atomic density in free-state of each atom along the molecular axis is shown below
 
 From the graph above one notices that the gradient of atomic density of the two atoms in the interatomic region have opposite signs. For example, at the position of X=1.2, the density gradient of H1 is negative, while that of H2 is positive. Therefore, in the gradient of promolecular density (the curve g in the following map), the contributions from the two atoms are largely cancelled with each other in the region between the two atoms. Note that at the midpoint of the two hydrogens, g is exactly zero, such point corresponds to bond critical point (BCP) in AIM theory under promolecular density.
 
-In the map above, the gIGM is IGM type of density gradient, it is calculated as sum of absolute value of density gradient of each atom in their free-states; in other words, phase is ignored and thus
+In the map above, the $g^{IGM}$ is IGM type of density gradient, it is calculated as sum of absolute value of density gradient of each atom in their free-states; in other words, phase is ignored and thus
 
 
 ![](../imgs/p323_053.png)
@@ -332,17 +357,17 @@ In the map above, the gIGM is IGM type of density gradient, it is calculated as 
 
 the density gradients originating from various atoms do not cancel with each other. Due to this feature, gIGM is upper limit of g.
 
-δg function is defined as the difference between gIGM and g, it is plotted as deep blue curve in the map above. It can be seen that δg is non-zero in the interatomic interaction region, and has maximum value at the midpoint of the bond. Clearly, δg could be used to reveal interaction regions like IRI function (see Section 3.23.8). In addition, as will be illustrated in the examples in Section
+$\delta g$ function is defined as the difference between gIGM and g, it is plotted as deep blue curve in the map above. It can be seen that δg is non-zero in the interatomic interaction region, and has maximum value at the midpoint of the bond. Clearly, δg could be used to reveal interaction regions like IRI function (see Section 3.23.8). In addition, as will be illustrated in the examples in Section
 
-4.20.10, magnitude of δg in interaction region has close relationship with interaction strength.
+4.20.10, magnitude of $\delta g$ in interaction region has close relationship with interaction strength.
 
-For three-dimensional cases, gIGM and δg can be defined as follows
+For three-dimensional cases, gIGM and $\delta g$ can be defined as follows
 
 $$g(\mathbf{r})=\left|\sum_{i}\nabla\rho_{i}^{\mathrm{f r e e}}(\mathbf{r})\right|\qquad g^{\mathrm{I G M}}(\mathbf{r})=\sum_{i}\left|\nabla\rho_{i}^{\mathrm{f r e e}}(\mathbf{r})\right|$$
 
 free stands for spherically averaged density of atom i in its free state. Such atomic density for almost all elements is directly available in Multiwfn, see Appendix 3 for detail. The 𝜌𝑖
 
-Based on the idea of gIGM and δg, the IGM method also defines δginter and δgintra aiming to study interfragment and intrafragment interactions, respectively
+Based on the idea of gIGM and $\delta g$, the IGM method also defines δginter and δgintra aiming to study interfragment and intrafragment interactions, respectively
 
 $$g^{\mathrm{IGM,inter}}(\mathbf{r})=\sum_{A}\left|\sum_{i\in A}\nabla\rho_{i}^{\mathrm{free}}(\mathbf{r})\right|$$
 
@@ -357,19 +382,19 @@ $$g^{\mathrm{IGM,inter}}(\mathbf{r})=\sum_{A}\left|\sum_{i\in A}\nabla\rho_{i}^{
 
 where A and i are index of fragments and atoms, respectively. The fragments can be arbitrarily defined according to character of actual system and research purpose. Note that the above
 
-expressions of δginter and δgintra are general forms proposed by me and implemented in Multiwfn, they were not explicitly given in the IGM original paper.
+expressions of $\delta g$inter and δgintra are general forms proposed by me and implemented in Multiwfn, they were not explicitly given in the IGM original paper.
 
-The idea of δginter is easy to understand from above formula. One first calculates density gradient in usual way as ginter, and then calculates the gIGM,inter, which ignores cancellation effect of density gradient of various fragments due to possible different phases; then the difference between
+The idea of $\delta g$inter is easy to understand from above formula. One first calculates density gradient in usual way as ginter, and then calculates the gIGM,inter, which ignores cancellation effect of density gradient of various fragments due to possible different phases; then the difference between
 
-gIGM,inter and ginter, namely δginter, must be able to reveal the interaction between the fragments. The δg reveals all kinds of interactions in present system, irrespective of the type is interfragment or intrafragment. Therefore, if δginter is subtracted from δg, the remaining part, namely δgintra, must be capable of revealing intrafragment interactions.
+gIGM,inter and ginter, namely $\delta g$inter, must be able to reveal the interaction between the fragments. The δg reveals all kinds of interactions in present system, irrespective of the type is interfragment or intrafragment. Therefore, if δginter is subtracted from δg, the remaining part, namely δgintra, must be capable of revealing intrafragment interactions.
 
 In Section 3.23.1, it is shown that interaction region and interaction type can be simultaneously
 
-exhibited by plotting RDG isosurface map colored by sign(λ2)ρ function. Similarly, if sign(λ2)ρ function is mapped on δginter and δgintra isosurfaces using various colors, the type and position of inter- and intra-fragment interactions could also be vividly revealed.
+exhibited by plotting RDG isosurface map colored by sign(λ2)ρ function. Similarly, if sign(λ2)ρ function is mapped on $\delta g$inter and δgintra isosurfaces using various colors, the type and position of inter- and intra-fragment interactions could also be vividly revealed.
 
 Quantitative indices of atoms and atomic pairs
 
-I define atomic pair δg index (δGpair) to quantify the contribution of atomic pair to interaction between two fragments (A and B)
+I define atomic pair $\delta g$ index (δGpair) to quantify the contribution of atomic pair to interaction between two fragments (A and B)
 
 
 <!-- p.325 -->
@@ -386,9 +411,9 @@ It is also useful to define percentage atomic pair contribution to interfragment
 
 $$\delta G_{i,j}^{\mathrm{pair}}(\%)=\frac{\delta G_{i,j}^{\mathrm{pair}}}{\sum\limits_{k\in A}\sum\limits_{l\in B}\delta G_{k,l}^{\mathrm{pair}}}\times100\%$$
 
-Since definition of δGpair(%) is so simple, it is certainly not expected that it is able to accurately represent contribution of atomic pairs to interaction energy between two fragments, however
+Since definition of $\delta G^{pair}$(%) is so simple, it is certainly not expected that it is able to accurately represent contribution of atomic pairs to interaction energy between two fragments, however
 
-δGpair(%) should be able to identify “hot” atomic pairs, which may indeed have large actual contribution to interfragment binding.
+$\delta G^{pair}$(%) should be able to identify “hot” atomic pairs, which may indeed have large actual contribution to interfragment binding.
 
 I also defined atomic δg index (δGatom) to quantify importance of atom to interfragment interaction
 
@@ -409,7 +434,7 @@ GIBSIW i jdδ=× 2,( , )100() i j i j pair ,
 
 where di,j is distance between atoms i and j in Å. My preliminary test showed that IBSIW has somewhat better ability to distinguish interaction strengths. Clearly, the larger the IBSIW, the
 
-stronger the interaction. Since in Multiwfn the δGpair is given in a.u., the formal unit of IBSIW should be a.u./Å2.
+stronger the interaction. Since in Multiwfn the $\delta G^{pair}$ is given in a.u., the formal unit of IBSIW should be a.u./Å2.
 
 Advantage of IGM over NCI According to my viewpoint and experiences, the advantage of IGM method over the popular NCI method can be summarized as follows:
 
@@ -426,9 +451,9 @@ method is smoother than the NCI map, and thus the IGM map has low requirement on
 
 ·Contribution of atoms and atomic pairs to interfragment interaction can be quantified, and the former can be vividly rendered on molecular structure, these features make identification of "hot" atoms easy.
 
-·The value of δg function in interaction region directly reflects interaction strength. In
+·The value of $\delta g$ function in interaction region directly reflects interaction strength. In
 
-particular, I found δg at bond critical point of AIM theory is a good quantitative indicator of strength of corresponding interaction.
+particular, I found $\delta g$ at bond critical point of AIM theory is a good quantitative indicator of strength of corresponding interaction.
 
 Usage of IGM analysis in Multiwfn Using Multiwfn to carry out IGM analysis is extremely easy and flexible. First, you should load a file containing atomic coordinates. The most commonly used formats such as .xyz, .pdb and .mol are all supported by Multiwfn (of course, any wavefunction file such as .wfn and .fch can also be used). Notice that the geometry must have been optimized using proper theoretical level, otherwise the IGM result may be misleading.
 
@@ -438,21 +463,21 @@ Next, you need to set up grid, it is better to make the box just enclose the reg
 
 `IGM_inter.vmd`
 
-Once the calculation of grid data is complete, Multiwfn will show integrals of δg, δginter and δgintra over the whole space, and then post-processing menu appears.
+Once the calculation of grid data is complete, Multiwfn will show integrals of $\delta g$, $\delta g^{inter}$ and $\delta g^{intra}$ over the whole space, and then post-processing menu appears.
 
 The options in post-processing menu are self-explanatory, I will briefly describe them here:
 
--1: Suboptions 1, 2 and 3 of this option are used to draw scatter map of δg, δginter, δgintra vs. sign(λ2)ρ, respectively. While suboption 4 is used to draw δginter and δgintra vs. sign(λ2)ρ simultaneously with different colors. As shown in the original paper of IGM, this kind of map is
+-1: Suboptions 1, 2 and 3 of this option are used to draw scatter map of $\delta g$, $\delta g^{inter}$, $\delta g^{intra}$ vs. sign(λ2)ρ, respectively. While suboption 4 is used to draw δginter and δgintra vs. sign(λ2)ρ simultaneously with different colors. As shown in the original paper of IGM, this kind of map is
 
 useful for discussing details about interactions (recall that RDG vs. sign(λ2)ρ scatter map is frequently involved in NCI analysis). If you want to directly save the scatter map in current folder as graphic file, use option 1. If the default axis range is not appropriate, use option -2 or -3 to adjust.
 
 2: If you want to draw scatter map using third-part softwares such as Origin and gnuplot, use
 
-this option to export data of δg, δginter, δgintra and sign(λ2)ρ to plain text in current folder. Meaning of each column of this file is shown on screen.
+this option to export data of $\delta g$, $\delta g^{inter}$, $\delta g^{intra}$ and sign(λ2)ρ to plain text in current folder. Meaning of each column of this file is shown on screen.
 
-3: Output grid data of sign(λ2)ρ, δg, δginter and δgintra to cube file in current folder. After exporting the cube files, you can use IGM_inter.vmd and IGM_intra.vmd scripts in "examples"
+3: Output grid data of sign(λ2)ρ, $\delta g$, $\delta g^{inter}$ and $\delta g^{intra}$ to cube file in current folder. After exporting the cube files, you can use IGM_inter.vmd and IGM_intra.vmd scripts in "examples"
 
-folder to draw color-filled δginter and δgintra isosurfaces map in VMD, respectively. See examples of Section 4.20.10.
+folder to draw color-filled $\delta g$inter and $\delta g^{intra}$ isosurfaces map in VMD, respectively. See examples of Section 4.20.10.
 
 `IGM_inter.vmd`
 
@@ -461,15 +486,15 @@ folder to draw color-filled δginter and δgintra isosurfaces map in VMD, respec
 
 Multiwfn.
 
-5: This option is used to set δgintra to zero where sign(λ2)ρ is not within specified value range. By this option uninterested regions could be screened from δgintra scatter and isosurface maps. For example, we merely want to study weak intrafragment interactions, then we can input the range
+5: This option is used to set $\delta g_{\text{intra}}$ to zero where sign(λ2)ρ is not within specified value range. By this option uninterested regions could be screened from δgintra scatter and isosurface maps. For example, we merely want to study weak intrafragment interactions, then we can input the range
 
 corresponding to relatively small value of sign(λ2)ρ. (The aim of this option resembles the “RDG_maxrho” parameter used in NCI analysis)
 
 6: This option is used to evaluate quantitative indices. If you have defined more than two fragments, here you need to choose two fragments for which the indices will be calculated. Multiwfn
 
-will compute δg grid data of every atomic pair between the two fragments and calculate integral of the δg function to derive the indices. The integrals are calculated using Becke's multi-center integration method, there are several choices of integration grids, the better the grid, the more accurate the result, but the higher the cost. Once the calculation is complete, atmdg.txt will be
+will compute δg grid data of every atomic pair between the two fragments and calculate integral of $\delta g$ function to derive the indices. The integrals are calculated using Becke's multi-center integration method, there are several choices of integration grids, the better the grid, the more accurate the result, but the higher the cost. Once the calculation is complete, atmdg.txt will be
 
-outputted to current folder, which records all δGatom, δGatom(%), δGpair and δGpair(%), the values are sorted from high to low. The sum of all δGpair is also outputted at the end. Then the program asks you if also outputting atmdg.pdb in current folder, which contain coordinate of all atoms in present system. The "beta" and “occupancy” fields (the data in the second and third columns from last) of
+outputted to current folder, which records all δGatom, δGatom(%), $\delta G^{pair}$ and δGpair(%), the values are sorted from high to low. The sum of all δGpair is also outputted at the end. Then the program asks you if also outputting atmdg.pdb in current folder, which contain coordinate of all atoms in present system. The "beta" and “occupancy” fields (the data in the second and third columns from last) of
 
 this file correspond to atom δg index multiplied by 10 and percentage atom δg index, respectively. Clearly, if you load one of them into VMD visualization program and color the atoms according to “beta” or “occupancy” property, then relative importance of various atoms to interfragment interactions can be intuitively identified.
 
@@ -499,7 +524,7 @@ As shown in Section 3.23.5, the original version of IGM is calculated purely bas
 
 Theory The key difference compared to IGM is that, in IGMH the atomic densities involved in
 
-definition of δg, δginter and δgintra are derived based on Hirshfeld partition, namely 𝜌𝑖 Hirsh(𝐫) =𝜌(𝐫)𝑤𝑖(𝐫), where ρ is the electron density of the whole system calculated based on wavefunction, and the Hirshfeld weighting function of atom i is expressed as
+definition of $\delta g$, δginter and δgintra are derived based on Hirshfeld partition, namely 𝜌𝑖 $\rho_{i}^{\mathrm{Hirsh}}(\mathbf{r}) = \rho(\mathbf{r}) w_{i}(\mathbf{r})$$\rho_{i}^{\mathrm{free}}$ is the electron density of the whole system calculated based on wavefunction, and the Hirshfeld weighting function of atom i is expressed as
 
 $$w_{i}(\mathbf{r})=\frac{\rho_{i}^{\mathrm{f r e e}}(\mathbf{r})}{\rho^{\mathrm{p r o}}(\mathbf{r})}=\frac{\rho_{i}^{\mathrm{f r e e}}(\mathbf{r})}{\sum_{j}\rho_{j}^{\mathrm{f r e e}}(\mathbf{r})}$$
 
@@ -520,11 +545,11 @@ In the IGMH analysis, the sign(λ2)ρ function is always calculated based on act
 
 Advantages of IGMH The significant advantages of IGMH over IGM are three:
 
-(1) The graphical effect of isosurface map is much better. The isosurfaces of δg or δginter function defined in IGM are often too bulgy, and sometimes the color according to mapped function
+(1) The graphical effect of isosurface map is much better. The isosurfaces of $\delta g$ or δginter function defined in IGM are often too bulgy, and sometimes the color according to mapped function
 
-sign(λ2)ρ on them are unreasonable; in contrast, the shape of the δg function calculated in terms of IGMH is thinner and thus easier to examine and compare, at the meantime the misleading coloring issue is always avoided.
+sign(λ2)ρ on them are unreasonable; in contrast, the shape of the $\delta g$ function calculated in terms of IGMH is thinner and thus easier to examine and compare, at the meantime the misleading coloring issue is always avoided.
 
-It is worth to note that the isosurface of δg in IGMH is close to the isosurface of reduced density gradient (RDG), which is employed in the NCI method (see Section 3.23.1). The advantage of the former is that the isosurface looks
+It is worth to note that the isosurface of $\delta g$ in IGMH is close to the isosurface of reduced density gradient (RDG), which is employed in the NCI method (see Section 3.23.1). The advantage of the former is that the isosurface looks
 
 
 <!-- p.329 -->
@@ -565,11 +590,11 @@ where B can be regarded as probe atom. The Vrepul and Vdisp denote repulsion and
 
 In the implementation in Multiwfn, the vdW parameters from UFF forcefield are employed, this is because the elements supported by UFF almost cover the whole periodic table (H~Lr), and the parameters are only dependent of elements, thus the problem in assigning atom types is fully avoided. The element index of the probe atom can be set by "ivdwprobe" in `settings.ini`, the default is carbon (i.e. ivdwprobe=6). If the "ivdwprobe" is set to 0, then program will ask you to input element name of probe atom when entering this function.
 
-The vdW potential can be easily calculated by subfunction 6 of main function 20, the unit of result is kcal/mol. In this function, you need to first select grid setting, then grid data of VvdW, Vrepul and Vdisp will be calculated, then you can visualize their isosurfaces or export them as cube files by corresponding options.
+The vdW potential can be easily calculated by subfunction 6 of main function 20, the unit of result is kcal/mol. In this function, you need to first select grid setting, then grid data of $V^{\mathrm{vdW}}$, Vrepul and Vdisp will be calculated, then you can visualize their isosurfaces or export them as cube files by corresponding options.
 
-Note that the VvdW, Vrepul and Vdisp also directly correspond to user-defined functions, 92, 93 and 94, respectively.
+Note that the $V^{\mathrm{vdW}}$, Vrepul and Vdisp also directly correspond to user-defined functions, 92, 93 and 94, respectively.
 
-Example of visualization and analysis of VvdW is given in Section 4.20.6. Information needed: Atom coordinates
+Example of visualization and analysis of $V^{\mathrm{vdW}}$ is given in Section 4.20.6. Information needed: Atom coordinates
 
 
 ### 3.23.8 Interaction region indicator (IRI) and IRI-pi analysis (4)

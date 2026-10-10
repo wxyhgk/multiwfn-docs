@@ -9,7 +9,13 @@
 
 ### 4.7.11 Calculate AIM charges
 
-We calculate AIM charges for CH3NH2 in this example. Boot up Multiwfn and input examples\CH3NH2.wfn 7 // Population analysis and atomic charge calculations 14 // AIM charge 2 // Medium-quality grid. This is a good compromise between cost and accuracy. The higher the grid quality, the higher the cost, while better the integration accuracy
+We calculate AIM charges for CH3NH2 in this example. Boot up Multiwfn and input examples\CH3NH2.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis and atomic charge calculations
+    - **14** — AIM charge
+    - **2** — Medium-quality grid. This is a good compromise between cost and accuracy. The higher the grid quality, the higher the cost, while better the integration accuracy
 
 Then you get the following output
 
@@ -44,7 +50,11 @@ In this example we employ Mulliken method to first analyze the composition of th
 
 Boot up Multiwfn and input following commands examples\CH3CONH2.fch // You have to use .mwfn/.fch/.molden/.gms file as input for this type of analysis
 
-8 // Orbital composition analysis 1 // Use Mulliken partition 6 // The orbital index is 6 (Note that as shown in the prompt on the screen, you can also input orbital label here, for example h-3 corresponds to HOMO-3, l+1 corresponds to LUMO+1, etc.)
+!!! terminal "Multiwfn session"
+
+    - **8** — Orbital composition analysis
+    - **1** — Use Mulliken partition
+    - **6** — The orbital index is 6 (Note that as shown in the prompt on the screen, you can also input orbital label here, for example h-3 corresponds to HOMO-3, l+1 corresponds to LUMO+1, etc.)
 
 The composition of basis functions, shells and atoms are printed immediately, see below.
 
@@ -120,7 +130,13 @@ Now let us find which molecular orbitals have main contribution to the bonding b
 
 formamide part and methyl group. Boot up Multiwfn and input
 
-examples\CH3CONH2.fch 8 // Orbital composition analysis -1 // Define fragment 1 a 1-4 // Add all basis functions in atom 1, 2, 3, 4 (methyl group) into fragment1 q // Save fragment and return to upper menu -2 // Define fragment 2 a 5-9 // Add all basis functions in atom 5, 6, 7, 8, 9 (formamide moiety) into fragment 2 q 4 // Print composition of fragment 1 and the cross term between fragment 1 and 2 in all orbitals by Mulliken analysis. If you only defined fragment 1, then only composition of fragment 1 will be printed
+!!! terminal "Multiwfn session"
+
+    - **examples\CH3CONH2.fch 8** — Orbital composition analysis
+    - **-1** — Define fragment 1 a
+    - **1-4** — Add all basis functions in atom 1, 2, 3, 4 (methyl group) into fragment1 q
+
+Define fragment 2 a 5-9 // Add all basis functions in atom 5, 6, 7, 8, 9 (formamide moiety) into fragment 2 q 4 // Print composition of fragment 1 and the cross term between fragment 1 and 2 in all orbitals by Mulliken analysis. If you only defined fragment 1, then only composition of fragment 1 will be printed
 
 Since amount of the printed information is huge, I only extract cross term composition in all occupied orbitals:
 
@@ -189,7 +205,11 @@ Assume that the Gaussian output file is named as H2O_NAOMO.out (can be found in
 
 "example" folder), we start Multiwfn and input:
 
-examples/H2O_NAOMO.out // Note that DO NOT use .fch as input file in current case 8 // Enter orbital composition analysis module 7 // Enter NAO analysis function You will find the default output mode is "Only show core and valence NAOs". Core and valence NAOs have one-to-one correspondence with actual atomic orbitals, if the MO to be analyzed is occupied, in general we only need to concern these NAOs, while Rydberg NAOs can be ignored. Assume that we want to analyze MO 4, we input
+!!! terminal "Multiwfn session"
+
+    - **examples/H2O_NAOMO.out** — Note that DO NOT use .fch as input file in current case
+    - **8** — Enter orbital composition analysis module
+    - **7** — Enter NAO analysis function You will find the default output mode is "Only show core and valence NAOs". Core and valence NAOs have one-to-one correspondence with actual atomic orbitals, if the MO to be analyzed is occupied, in general we only need to concern these NAOs, while Rydberg NAOs can be ignored. Assume that we want to analyze MO 4, we input
 
 0 // Show orbital composition of specific MO 4 // Analyze MO 4 The following information will appear on screen
 
@@ -303,7 +323,13 @@ Then Multiwfn initializes the data, for large system you may need to wait for a 
 
 The composition of C5, O6 and N7 are 14.92%, 12.11% and 56.34%, respectively. This result is close to the one obtained by Mulliken method (Section 4.8.1), namely 11.81%, 11.63% and 65.50%, respectively. In fact, for occupied MOs, if diffuse basis functions are not employed, in general Mulliken, NAO and Hirshfeld methods give similar results.
 
-Now let us check the composition of 7N in MO from 14 to 19. We input -2 // Print atom contribution to a range of orbitals 7 // Atom index 14-19 // Orbital range
+Now let us check the composition of 7N in MO from 14 to 19. We input
+
+!!! terminal "Multiwfn session"
+
+    - **-2** — Print atom contribution to a range of orbitals
+    - **7** — Atom index
+    - **14-19** — Orbital range
 
 
 <!-- p.608 -->
@@ -328,7 +354,10 @@ PS: If the orbital range you specified is 1~16, namely all occupied MO, then the
 
 Next, we examine contribution of the amino group to a specific orbital, HOMO. Input below commands:
 
--9 // Define fragment 7-9 // The atoms in the amino group h // This stands for HOMO. You can also directly input its index (16) As shown below, you can not only see contribution from all atoms to the orbital, but you can also find the fragment contribution to the orbital, the 8.703% is simply 6.791%+0.974%+0.938%.
+!!! terminal "Multiwfn session"
+
+    - **-9** — Define fragment
+    - **7-9** — The atoms in the amino group h
 
 
 ```text
@@ -343,7 +372,11 @@ Next, we examine contribution of the amino group to a specific orbital, HOMO. In
 
 The steps of analyzing orbital composition by Becke method are completely identical to that of Hirshfeld method. Here we calculate the composition of MO 6. Boot up Multiwfn and input
 
-examples\CH3CONH2.fch 8 // Orbital composition analysis 9 // Use Becke partition 6 // The 6th orbital The result is
+!!! terminal "Multiwfn session"
+
+    - **examples\CH3CONH2.fch 8** — Orbital composition analysis
+    - **9** — Use Becke partition
+    - **6** — The 6th orbital The result is
 
 
 ```text
@@ -372,7 +405,13 @@ Please read Section 3.10.100 first to understand basic idea of the LOBA and mLOB
 
 (1) Fe(CN)63- First, we use Gaussian to perform regular calculation of this system, the input file is examples\Fe(CN)6_3-.gjf, please run it yourself to get Fe(CN)6_3-.fch file. LOBA or mLOBA analysis needs localized molecular orbitals (LMOs), thus we use Multiwfn to carry out orbital localization. Boot up Multiwfn and input following commands:
 
-Fe(CN)6_3-.fch 19 // Orbital localization 1 // Only localize occupied orbitals, this is enough for LOBA/mLOBA analysis Now the molecular orbitals in memory have been replaced with LMOs. Then input 8 // Orbital composition analysis 100 // LOBA/mLOBA analysis 50 // Percentage threshold for performing LOBA
+!!! terminal "Multiwfn session"
+
+    - **Fe(CN)6_3-.fch 19** — Orbital localization
+    - **1** — Only localize occupied orbitals, this is enough for LOBA/mLOBA analysis Now the molecular orbitals in memory have been replaced with LMOs. Then input
+    - **8** — Orbital composition analysis
+    - **100** — LOBA/mLOBA analysis
+    - **50** — Percentage threshold for performing LOBA
 
 
 ```text
@@ -403,7 +442,11 @@ I strongly suggest using mLOBA instead of LOBA. If you input m here, you will ob
 
 (2) Ferrocene For this system, we will not only check OS of iron, but also check OS of C5H5 fragment. The corresponding regular Gaussian input file is examples\Ferrocene.gjf, run it yourself to obtain corresponding .fch file, then load it into Multiwfn and perform orbital localization first as shown above, after that enter LOBA/mLOBA analysis interface and input below commands:
 
--1 // Define fragment 1-5,7-11 // Index of the atoms constituting the C5H5 fragment 50 // Percentage threshold for performing LOBA The result is
+!!! terminal "Multiwfn session"
+
+    - **-1** — Define fragment
+    - **1-5,7-11** — Index of the atoms constituting the C5H5 fragment
+    - **50** — Percentage threshold for performing LOBA The result is
 
 
 ```text
@@ -443,7 +486,7 @@ $$ODI_{i}=0.01\times\sum_{A}(\Theta_{A,i})^{2}$$
 
 <!-- formula-ocr: formula_p611_338.png 已替换为LaTeX, 原图保留备查 -->
 
-where ΘA,i is composition of atom A in orbital i.
+$\Theta_{A,i}$ is composition of atom A in orbital i.
 
 The ODI a useful indicator of quantifying extent of orbital spatial delocalization, the lower (higher) the ODI, the stronger the orbital delocalization (localization).
 
@@ -453,7 +496,13 @@ In addition, Multiwfn is able to calculate spatial delocalization index (SDI) to
 
 4.8.5.1 Example of calculating ODI based on orbital composition
 
-In this section, I will take a practical molecule to demonstrate its usefulness and reliability. Boot up Multiwfn and input examples\excit\D-pi-A.fchk 8 // Orbital composition analysis 1 // Mulliken method 52 // Analyze MO 52 You will find below output, namely the ODI of MO 52 calculated by Mulliken method is 44.28
+In this section, I will take a practical molecule to demonstrate its usefulness and reliability. Boot up Multiwfn and input examples\excit\D-pi-A.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **8** — Orbital composition analysis
+    - **1** — Mulliken method
+    - **52** — Analyze MO 52 You will find below output, namely the ODI of MO 52 calculated by Mulliken method is
 
 
 ```text
@@ -464,7 +513,11 @@ Similarly, we compute and record ODI for MO 16, MO 53, MO 55, MO 56, MO 62. Note
 
 For comparison purpose, we also calculate the ODI based on Hirshfeld orbital composition analysis method. Input below commands
 
-0 // Return 8 // Hirshfeld method 1 // Use built-in atomic density 52 // Analyze MO52 The output is
+!!! terminal "Multiwfn session"
+
+    - **0** — Return 8
+    - **Hirshfeld method 1** — Use built-in atomic density
+    - **52** — Analyze MO52 The output is
 
 
 ```text
@@ -501,7 +554,15 @@ calculate ODI for a batch of orbitals. For instance, here we calculate ODI for a
 
 the D-π-A system we studied above.
 
-Boot up Multiwfn and input examples\excit\D-pi-A.fchk 8 // Orbital composition analysis 8 // Hirshfeld method 1 // Use built-in atomic density -5 // Print ODI for a batch of orbitals 1-56 // The range of occupied MOs We immediately obtain below result
+Boot up Multiwfn and input examples\excit\D-pi-A.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **8** — Orbital composition analysis
+    - **8** — Hirshfeld method
+    - **1** — Use built-in atomic density
+    - **-5** — Print ODI for a batch of orbitals
+    - **1-56** — The range of occupied MOs We immediately obtain below result
 
 
 ```text
@@ -550,18 +611,23 @@ In order to measure orbital delocalization extent on a specific fragment, I defi
 
 $$\mathrm{ODI}_{i}^{\mathrm{frag}}=0.01\times\sum_{A\in\mathrm{frag}}\left(\frac{\Theta_{A,i}}{p_{i}}\right)^{2}$$
 
-where p is normalization factor to account for the difference of total amount of orbital distribution on different fragments. If the fragment contains all atoms, then the ODIfrag will be identical to the aforementioned ODI.
+where p is normalization factor to account for the difference of total amount of orbital distribution on different $^{frag}$ments. If the fragment contains all atoms, then the ODIfrag will be identical to the aforementioned ODI.
 
-Clearly, fragment ODI is very useful if you want to quantitatively compare orbital delocalization for a fragment shared by analogues. Currently, only Hirshfeld, Hirshfeld-I and Becke orbital composition analysis modules can calculate fragment ODI. Now, let see an example.
+Clearly, $^{frag}$ment ODI is very useful if you want to quantitatively compare orbital delocalization for a fragment shared by analogues. Currently, only Hirshfeld, Hirshfeld-I and Becke orbital composition analysis modules can calculate fragment ODI. Now, let see an example.
 
-As vividly shown in the orbital isosurface maps of the D-pi-A.fchk given above, for the amino group, the MO 53 fully localizes on the nitrogen atom, while the MO 56 delocalizes over the entire group. Now we use fragment ODI to quantify this point. Boot up Multiwfn and input
+As vividly shown in the orbital isosurface maps of the D-pi-A.fchk given above, for the amino group, the MO 53 fully localizes on the nitrogen atom, while the MO 56 delocalizes over the entire group. Now we use $^{frag}$ment ODI to quantify this point. Boot up Multiwfn and input
 
-examples\excit\D-pi-A.fchk 8 // Orbital composition analysis 8 // Hirshfeld method -9 // Define fragment 24-26 // Index of the atoms in the amino group Next, if you input 53, you will see
+!!! terminal "Multiwfn session"
+
+    - **examples\excit\D-pi-A.fchk 8** — Orbital composition analysis
+    - **8** — Hirshfeld method
+    - **-9** — Define $^{frag}$ment
+    - **24-26** — Index of the atoms in the amino group Next, if you input 53, you will see
 
 
 ```text
 Fragment contribution:     13.564%
-Orbital delocalization index of the fragment:   77.26
+Orbital delocalization index of the $^{frag}$ment:   77.26
 ```
 
 if inputting 62, you will see
@@ -569,12 +635,12 @@ if inputting 62, you will see
 
 ```text
 Fragment contribution:     71.819%
-Orbital delocalization index of the fragment:   33.41
+Orbital delocalization index of the $^{frag}$ment:   33.41
 ```
 
-Since fragment ODI of MO 62 is significantly smaller than that of MO 53, it is clear that delocalization of MO 62 over amino group is much stronger than MO 53.
+Since $^{frag}$ment ODI of MO 62 is significantly smaller than that of MO 53, it is clear that delocalization of MO 62 over amino group is much stronger than MO 53.
 
-Note that you can also use the option "Print orbital delocalization index (ODI) for a batch of orbitals" to calculate ODI and ODIfrag for a batch of orbitals. The ODI values will be printed followed by ODIfrag values.
+Note that you can also use the option "Print orbital delocalization index (ODI) for a batch of orbitals" to calculate ODI and ODI$^{frag}$ for a batch of orbitals. The ODI values will be printed followed by ODIfrag values.
 
 
 ### 4.8.6 Calculate orbital composition contributed by AIM basins and other type of basins
@@ -590,7 +656,13 @@ If you are not familiar with basin analysis and find difficulty in understanding
 
 Calculate contributions of AIM basins to molecular orbitals Boot up Multiwfn and input examples\CH3COCl.wfn // You can also use other formats, e.g. wfx/fch/molden/mwfn... Note that .wfn and .wfx only contain occupied orbitals
 
-17 // Basin analysis 1 // Generate basins and locate attractors 1 // Use electron density to partition basins, namely yielding AIM basins 2 // Medium-quality grid 11 // Calculate orbital compositions contributed by various basins Now you can directly input index of an orbital to calculate its composition. For example, we input 5, you will see
+!!! terminal "Multiwfn session"
+
+    - **17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **1** — Use electron density to partition basins, namely yielding AIM basins
+    - **2** — Medium-quality grid
+    - **11** — Calculate orbital compositions contributed by various basins Now you can directly input index of an orbital to calculate its composition. For example, we input 5, you will see
 
 
 ```text
@@ -624,7 +696,16 @@ Calculate contributions of ELF basins to molecular orbitals This time we will pa
 
 <!-- p.616 -->
 
-Boot up Multiwfn and input examples\CH3COCl.wfn 17 // Basin analysis 1 // Generate basins and locate attractors 9 // Use ELF to partition basins 2 // Medium-quality grid 11 // Calculate orbital compositions contributed by various basins 10 // Study the 10th MO Then you will see
+Boot up Multiwfn and input examples\CH3COCl.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **9** — Use ELF to partition basins
+    - **2** — Medium-quality grid
+    - **11** — Calculate orbital compositions contributed by various basins
+    - **10** — Study the 10th MO Then you will see
 
 
 ```text

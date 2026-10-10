@@ -11,7 +11,13 @@
 
 ### 4.7.11 计算 AIM 电荷（Calculate AIM charges）
 
-我们在本例中计算 CH3NH2 的 AIM 电荷。启动 Multiwfn 并输入 examples\CH3NH2.wfn 7 // 布居分析与原子电荷计算（Population analysis and atomic charge calculations） 14 // AIM 电荷（AIM charge） 2 // 中等质量格点。这是在开销与精度之间的良好折中。格点质量越高，开销越高，而积分精度越好(Medium-quality grid. This is a good compromise between cost and accuracy. The higher the grid quality, the higher the cost, while better the integration accuracy)
+我们在本例中计算 CH3NH2 的 AIM 电荷。启动 Multiwfn 并输入 examples\CH3NH2.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 布居分析与原子电荷计算（Population analysis and atomic charge calculations）
+    - **14** — AIM 电荷（AIM charge）
+    - **2** — 中等质量格点。这是在开销与精度之间的良好折中。格点质量越高，开销越高，而积分精度越好(Medium-quality grid. This is a good compromise between cost and accuracy. The higher the grid quality, the higher the cost, while better the integration accuracy)
 
 然后你得到以下输出
 
@@ -48,7 +54,11 @@ Final atomic charges:
 
 启动 Multiwfn 并输入以下命令 examples\CH3CONH2.fch // 对于此类分析，你必须使用 .mwfn/.fch/.molden/.gms 文件作为输入（You have to use .mwfn/.fch/.molden/.gms file as input for this type of analysis）
 
-8 // 轨道组成分析（Orbital composition analysis） 1 // 使用 Mulliken 分区（Use Mulliken partition） 6 // 轨道序号为 6（注意如屏幕提示所示，你也可在处输入轨道标记，例如 h-3 对应 HOMO-3，l+1 对应 LUMO+1 等）(The orbital index is 6 (Note that as shown in the prompt on the screen, you can also input orbital label here, for example h-3 corresponds to HOMO-3, l+1 corresponds to LUMO+1, etc.))
+!!! terminal "Multiwfn 交互"
+
+    - **8** — 轨道组成分析（Orbital composition analysis）
+    - **1** — 使用 Mulliken 分区（Use Mulliken partition）
+    - **6** — 轨道序号为 6（注意如屏幕提示所示，你也可在处输入轨道标记，例如 h-3 对应 HOMO-3，l+1 对应 LUMO+1 等）(The orbital index is 6 (Note that as shown in the prompt on the screen, you can also input orbital label here, for example h-3 corresponds to HOMO-3, l+1 corresponds to LUMO+1, etc.))
 
 基函数、壳层和原子的组成随即打印，见下。
 

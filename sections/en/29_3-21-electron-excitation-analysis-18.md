@@ -1470,7 +1470,13 @@ transition charges must be zero because the total number of electrons keeps unch
 
 The input files needed by present function have been detailedly described at the beginning of Section 3.21, namely you should load a file containing basis function information when Multiwfn boots up, and then load a file containing configuration coefficient information of excited states when you enter this function. After that, you should choose the excited state for which the Mulliken transition charges will be calculated. Then the result will be outputted to atmtrchg.chg file in current folder, the format of this kind of file has been introduced in Section 2.5, the last column of this file corresponds to the transition charges.
 
-Below is an example of the calculation. Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis 12 // Calculate Mulliken transition charges N-phenylpyrrole.out 3 // Study the transition from ground state to the third excited state Then you will find atmtrchg.chg in current folder. Note that in Multiwfn it is also possible to calculate the TrEsp (transition charge from electrostatic potential) introduced in J. Phys. Chem. B, 110, 17268 (2006), which is derived by ESP fitting method based on transition density. See Section 4.A.9 on how to do this. For studying exciton coupling purpose, TrEsp should work better than Mulliken atomic transition charge, but for large systems, cost of evaluating the former is is significantly higher than the latter.
+Below is an example of the calculation. Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **12** — Calculate Mulliken transition charges N-phenylpyrrole.out
+    - **3** — Study the transition from ground state to the third excited state Then you will find atmtrchg.chg in current folder. Note that in Multiwfn it is also possible to calculate the TrEsp (transition charge from electrostatic potential) introduced in J. Phys. Chem. B, 110, 17268 (2006), which is derived by ESP fitting method based on transition density. See Section 4.A.9 on how to do this. For studying exciton coupling purpose, TrEsp should work better than Mulliken atomic transition charge, but for large systems, cost of evaluating the former is is significantly higher than the latter.
 
 Information needed: See beginning of Section 3.21
 
@@ -1577,7 +1583,12 @@ This is a useful function used to show major MO transitions for all excited stat
 
 can quickly recognize basic characteristics of various excited states in terms of MOs.
 
-Below is an example. Boot up Multiwfn and input examples\excit\D-pi-A.out // Output file of TDDFT task of Gaussian 18 // Electron excitation analysis 15 // The present function You can see the following information immediately, including excitation energy, spin multiplicity, notable MO transitions and their contributions of each excited state.
+Below is an example. Boot up Multiwfn and input examples\excit\D-pi-A.out
+
+!!! terminal "Multiwfn session"
+
+    - **Output file of TDDFT task of Gaussian 18** — Electron excitation analysis
+    - **15** — The present function You can see the following information immediately, including excitation energy, spin multiplicity, notable MO transitions and their contributions of each excited state.
 
 
 ```text

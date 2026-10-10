@@ -45,7 +45,12 @@
 
 在本节中我们绘制三氟化氯的电子定域函数(electron localization function，ELF)的等值面图。启动Multiwfn并输入以下命令
 
-examples\ClF3.wfn // 在B3LYP/6-31G*水平下生成(Generated at B3LYP/6-31G* level) 5 // 生成格点数据并查看等值面（Generate grid data and view isosurface） 9 // 电子定域函数（ELF）(Electron localization function (ELF)) 2 // 中等质量格点，将计算约512000个点，对于小体系此设置已足够精细，但对中等体系尤其是大体系则不够。关于格点设置的更多知识请查阅3.6节（Medium-quality grid）
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ClF3.wfn** — 在B3LYP/6-31G*水平下生成(Generated at B3LYP/6-31G* level)
+    - **5** — 生成格点数据并查看等值面（Generate grid data and view isosurface）
+    - **9** — 电子定域函数（ELF）(Electron localization function (ELF))
+    - **2** — 中等质量格点，将计算约512000个点，对于小体系此设置已足够精细，但对中等体系尤其是大体系则不够。关于格点设置的更多知识请查阅3.6节（Medium-quality grid）
 
 现在Multiwfn开始计算格点数据。计算完成后，Multiwfn会输出一些统计信息。在新出现的菜单中有许多选项，你可以通过选择选项-1绘制等值面图，之后会弹出一个GUI窗口。在文本框中输入等值0.85并按回车键，你将看到如下等值面图
 
@@ -69,7 +74,12 @@ ELF等值面清晰地揭示了氟和氯原子的孤对电子区域。
 
 电子密度拉普拉斯是另一个像ELF和LOL一样揭示电子结构的有用实空间函数。由于分辨能力较差，拉普拉斯在突出定域区域方面不如ELF和LOL。例如，比氪重的原子的壳层结构不能完全由拉普拉斯展示，如果你尝试用拉普拉斯分析三氟化氯，你会发现氟原子的孤对电子区域难以辨认。而且，拉普拉斯的取值范围太大，给可视化分析带来困难。然而，对于许多体系，电子密度的拉普拉斯仍然有用。在本例中我们将为1,3-丁二烯绘制该函数的等值面图。
 
-启动Multiwfn并输入以下命令 examples\butadiene.fch // 在B3LYP/6-31G**水平下得到(Yielded at B3LYP/6-31G** level) 5 // 生成格点数据并查看等值面（Generate grid data and view isosurface） 3 // 电子密度拉普拉斯（Electron density Laplacian） 2 // 中等质量格点(如果你想获得更好的图形效果，请改选“高质量格点”)(Medium-quality grid)
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入以下命令 examples\butadiene.fch** — 在B3LYP/6-31G**水平下得到(Yielded at B3LYP/6-31G** level)
+    - **5** — 生成格点数据并查看等值面（Generate grid data and view isosurface）
+    - **3** — 电子密度拉普拉斯（Electron density Laplacian）
+    - **2** — 中等质量格点(如果你想获得更好的图形效果，请改选“高质量格点”)(Medium-quality grid)
 
 -1 // 查看等值面（View isosurface） 在新出现的窗口中，把等值面值从默认值改为0.3，则绿色和蓝色等值面将分别对应于0.3和-0.3的等值。当前图形如下所示
 
@@ -111,7 +121,14 @@ examples\benzene.wfn // 在B3LYP/6-311G*水平下优化(Optimized at B3LYP/6-311
 
 我们先计算ELF-π。应略去σ轨道对ELF的贡献；这可以通过把所有σ轨道的占据数设为零来实现。
 
-6 // 进入“修改并检查波函数”界面(Enter "Modify & Check wavefunction" interface) 26 // 为某些轨道设置占据数（Set occupation number for some orbitals） 0 // 选择所有轨道（Selecting all orbitals） 0 // 把所有轨道的占据数设为零（Set occupation number of all orbitals to zero） 17,20,21 // 选择MO 17、20和21，即所有π轨道(Select MO 17, 20 and 21) 2 // 把MO 17、20和21的占据数设为2.0(双占据)。如果你想检查占据数是否已正确设置，选择选项3。你会发现所有σ轨道的占据数(Set occupation numbers of MO 17, 20 and 21 to 2.0)
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 进入“修改并检查波函数”界面(Enter "Modify & Check wavefunction" interface)
+    - **26** — 为某些轨道设置占据数（Set occupation number for some orbitals）
+    - **0** — 选择所有轨道（Selecting all orbitals）
+    - **0** — 把所有轨道的占据数设为零（Set occupation number of all orbitals to zero）
+    - **17,20,21** — 选择MO 17、20和21，即所有π轨道(Select MO 17, 20 and 21)
+    - **2** — 把MO 17、20和21的占据数设为2.0(双占据)。如果你想检查占据数是否已正确设置，选择选项3。你会发现所有σ轨道的占据数(Set occupation numbers of MO 17, 20 and 21 to 2.0)
 
 已变为零，即它们在后续计算的所有结果中将没有贡献（All other orbitals...）
 
@@ -130,9 +147,17 @@ q // 返回上一级菜单（Return to last menu） -1 // 返回主菜单（Retu
 
 接下来，让我们用方式2重新评估ELF-π指数，这种方式比方式1更严格。选择0返回主菜单。
 
-2 // 拓扑分析（Topology analysis） -11 // 选择实空间函数（Select real space function） 9 // ELF 6 // 起始点将依次分布在每个原子周围。这种搜索模式最适合定位ELF临界点（The starting points will be distributed around each atom in turn）
+!!! terminal "Multiwfn 交互"
 
--1 // 开始临界点搜索（Start the CP search） -9 // 返回上一级菜单（Return to upper menu） 0 // 可视化结果（Visualize results）。结果图如下所示，两个(3,+1)临界点未显示
+    - **2** — 拓扑分析（Topology analysis）
+    - **-11** — 选择实空间函数（Select real space function）
+    - **9** — ELF 6
+
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 开始临界点搜索（Start the CP search）
+    - **-9** — 返回上一级菜单（Return to upper menu）
+    - **0** — 可视化结果（Visualize results）。结果图如下所示，两个(3,+1)临界点未显示
 
 通过将此图与ELF等值面图比较，可以清楚看到(3,-1)临界点(橙色)是ELF域的分叉位置，而(3,-3)临界点(紫色)对应于十二个ELF域的极大值点。现在我们查看一个(3,-1)临界点处的ELF值，任选其一即可，因为它们都是等价的。
 
@@ -217,7 +242,12 @@ $$Radical~attack:f^{0}(\mathbf{r})=\frac{f^{+}(\mathbf{r})+f^{-}(\mathbf{r})}{2}
 
 计算Fukui函数f − 为了研究f −的等值面，我们需要恰当使用Multiwfn的“自定义操作”功能(详见3.7.1节)。启动Multiwfn并输入以下命令：
 
-examples\phenol.wfn // 中性状态的苯酚（Phenol of neutral state） 5 // 计算格点数据（Calculate grid data） 0 // 设置自定义操作（Set custom operation） 1 // 只有一个文件将与已载入的文件(即phenol.wfn)进行操作（Only one file will be operated with the file that has been loaded） -,examples\phenol_N-1.wfn // “-”为减号。首先载入的文件(即phenol.wfn)的性质将减去phenol_N-1.wfn的相应性质（Property of the firstly loaded file will be subtracted by corresponding property）
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenol.wfn** — 中性状态的苯酚（Phenol of neutral state）
+    - **5** — 计算格点数据（Calculate grid data）
+    - **0** — 设置自定义操作（Set custom operation）
+    - **1** — 只有一个文件将与已载入的文件(即phenol.wfn)进行操作（Only one file will be operated with the file that has been loaded） -,examples\phenol_N-1.wfn
 
 1 // 电子密度（Electron density） 2 // 中等质量格点（Medium-quality grid） 现在Multiwfn开始计算phenol.wfn的电子密度格点数据，然后计算phenol_N-1.wfn的格点数据，最后求其差值以产生f −的格点数据。我们选择选项-1查看等值面，把等值调到合适的值(0.007)后，图形将为
 
@@ -236,7 +266,12 @@ examples\phenol.wfn // 中性状态的苯酚（Phenol of neutral state） 5 // �
 
 
 
-2 // 中等质量格点（Medium-quality grid） 6 // 把所有格点数据除以一个因子（Divide all grid data by a factor） 2 // 除以2(Divided by 2) -1 // 可视化等值面图（Visualize isosurface map） f 0 = 0.01的等值面图如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 中等质量格点（Medium-quality grid）
+    - **6** — 把所有格点数据除以一个因子（Divide all grid data by a factor）
+    - **2** — 除以2(Divided by 2)
+    - **-1** — 可视化等值面图（Visualize isosurface map） f 0 = 0.01的等值面图如下所示
 
 ### 4.5.4.2 对偶描述符
 
@@ -256,7 +291,12 @@ $$=[\rho_{N+1}(\mathbf{r})-\rho_{N}(\mathbf{r})]-[\rho_{N}(\mathbf{r})-\rho_{N-1
 
 基于自旋密度近似求值对偶描述符 这里我们基于N-1和N+1状态的自旋密度计算苯酚的对偶描述符。由于我们早已算得phenol_N-1.wfn，现在只需计算phenol_N+1.wfn(此文件及相应的输入文件phenol_N+1.gjf已在“example”文件夹中提供)。之后，启动Multiwfn并输入：
 
-examples\phenol_N+1.wfn // N+1电子体系，即阴离子状态（N+1 electron system） 5 // 计算格点数据（Calculate grid data） 0 // 设置自定义操作（Set custom operation） 1 // 只有一个文件将与已载入的文件进行操作（Only one file will be operated with the file that has been loaded） -,examples\phenol_N-1.wfn // N-1电子体系，即阳离子状态（N-1 electron system）
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenol_N+1.wfn** — N+1电子体系，即阴离子状态（N+1 electron system）
+    - **5** — 计算格点数据（Calculate grid data）
+    - **0** — 设置自定义操作（Set custom operation）
+    - **1** — 只有一个文件将与已载入的文件进行操作（Only one file will be operated with the file that has been loaded） -,examples\phenol_N-1.wfn
 
 
 ![](../imgs/p550_164.png)
@@ -265,7 +305,11 @@ examples\phenol_N+1.wfn // N+1电子体系，即阴离子状态（N+1 electron s
 
 
 
-5 // 电子自旋密度（Electron spin density） 2 // 中等质量格点（Medium-quality grid） -1 // 可视化对偶描述符的等值面（Visualize isosurface of dual descriptor） 我们逐渐改变等值，以便能清晰区分不同位点处的对偶描述符，我们发现0.02是合适的值，相应的等值面如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 电子自旋密度（Electron spin density）
+    - **2** — 中等质量格点（Medium-quality grid）
+    - **-1** — 可视化对偶描述符的等值面（Visualize isosurface of dual descriptor） 我们逐渐改变等值，以便能清晰区分不同位点处的对偶描述符，我们发现0.02是合适的值，相应的等值面如下所示
 
 可以看到，在环上(除不能参与反应的C4外)，对位
 
@@ -275,7 +319,15 @@ examples\phenol_N+1.wfn // N+1电子体系，即阴离子状态（N+1 electron s
 
 如果你想以其精确形式(基于三种状态的ρ)求值Δf，可按以下步骤：
 
-examples\phenol_N+1.wfn // N+1电子体系（N+1 electron system） 5 // 计算格点数据（Calculate grid data） 0 // 设置自定义操作（Set custom operation） 3 // 有三个文件将与已载入的文件进行操作（Three files will be operated with the file that has been loaded） -,examples\phenol.wfn // N电子体系（N electron system） -,examples\phenol.wfn // N电子体系（N electron system） +,examples\phenol_N-1.wfn // N-1电子体系（N-1 electron system） 1 // 电子密度（Electron density） 2 // 中等质量格点（Medium-quality grid） -1 // 可视化对偶描述符的等值面（Visualize isosurface of dual descriptor） 对应于等值0.01的图如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenol_N+1.wfn** — N+1电子体系（N+1 electron system）
+    - **5** — 计算格点数据（Calculate grid data）
+    - **0** — 设置自定义操作（Set custom operation）
+    - **3** — 有三个文件将与已载入的文件进行操作（Three files will be operated with the file that has been loaded） -,examples\phenol.wfn
+    - **N电子体系（N electron system） -,examples\phenol.wfn** — N电子体系（N electron system） +,examples\phenol_N-1.wfn
+
+电子密度（Electron density） 2 // 中等质量格点（Medium-quality grid） -1 // 可视化对偶描述符的等值面（Visualize isosurface of dual descriptor） 对应于等值0.01的图如下所示
 
 
 ![](../imgs/p551_165.png)
@@ -309,7 +361,14 @@ examples\MN-NN.gjf是MN-NN体系的Gaussian输入文件(几何已优化)，修�
 
 现在我们用Multiwfn生成电子密度差值的格点数据。启动Multiwfn并输入以下命令
 
-MN-NN.wfn 5 // 计算格点数据（Calculate grid data） 0 // 设置自定义操作（Set custom operation） 2 // 有两个文件将与MN-NN.wfn进行操作（Two files will be operated with MN-NN.wfn） -,MN.wfn // 将从MN-NN.wfn的性质中减去MN.wfn的性质（Will subtract property of MN.wfn from that of MN-NN.wfn） -,NN.wfn // 将从MN-NN.wfn的性质中减去NN.wfn的性质（Will subtract property of NN.wfn from that of MN-NN.wfn） 1 // 性质选为电子密度（The property is selected as electron density） 3 // 由于当前体系相对较大，我们需要比通常情形更多的格点，因此选择高质量格点(Since present system is relatively huge, we need more grid points than normal cases, so we choose high-quality grid)
+!!! terminal "Multiwfn 交互"
+
+    - **MN-NN.wfn 5** — 计算格点数据（Calculate grid data）
+    - **0** — 设置自定义操作（Set custom operation）
+    - **2** — 有两个文件将与MN-NN.wfn进行操作（Two files will be operated with MN-NN.wfn） -,MN.wfn
+    - **将从MN-NN.wfn的性质中减去MN.wfn的性质（Will subtract property of MN.wfn from that of MN-NN.wfn） -,NN.wfn** — 将从MN-NN.wfn的性质中减去NN.wfn的性质（Will subtract property of NN.wfn from that of MN-NN.wfn）
+    - **1** — 性质选为电子密度（The property is selected as electron density）
+    - **3** — 由于当前体系相对较大，我们需要比通常情形更多的格点，因此选择高质量格点(Since present system is relatively huge, we need more grid points than normal cases, so we choose high-quality grid)
 
 计算完成后，你可选择选项-1，然后把等值设为约0.001以可视化格点数据的等值面，如下所示。
 
@@ -338,7 +397,11 @@ MN-NN.wfn 5 // 计算格点数据（Calculate grid data） 0 // 设置自定义�
 
 绘制等高线图 接下来，我们在由原子16、14、9定义的平面内绘制电子密度差的等高线图。输入以下命令：
 
-0 // 返回主菜单 4 // 绘制平面图 0 2 -,MN.wfn -,NN.wfn 1 2 // 等高线图 [按 ENTER 键使用默认格点设置] 4 // 由三个原子定义平面 16,14,9 等高线图会立即弹出。实线和虚线等高线分别表示电子密度增加和减少的位置。图中的等高线有点稀疏，因此我们调整等高线设置，使图形看起来更密，从而包含更多信息。关闭图形，然后输入
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回主菜单 4
+    - **绘制平面图 0 2 -,MN.wfn -,NN.wfn 1 2** — 等高线图 [按 ENTER 键使用默认格点设置]
+    - **4** — 由三个原子定义平面 16,14,9 等高线图会立即弹出。实线和虚线等高线分别表示电子密度增加和减少的位置。图中的等高线有点稀疏，因此我们调整等高线设置，使图形看起来更密，从而包含更多信息。关闭图形，然后输入
 
 3 // 更改等高线设置 9 // 用几何级数生成等高线值 0.0001,2,30 // 分别为起始值、步长和步数 y // 清除已有等高线 9 -0.0001,2,30 // 设置负值等高线 n // 将新生成的等高线追加到已有等高线中 1 // 保存设置并返回 -1 // 重新绘制图形 下面是最终的图形，看起来很漂亮！
 

@@ -16,7 +16,12 @@ Introduction of basic concepts of fuzzy atomic space has been given in Section 3
 
 The definition of delocalization index (DI) has been detailedly introduced in Section 3.18.5. DI was originally proposed for AIM atomic space, while it has been shown that if it is calculated in fuzzy atomic space, the computational cost would be significantly reduced, while the result is still meaningful. In the present instance we will calculate DI in Becke's fuzzy atomic space to study the extent of electron delocalization between different atomic pairs in benzene.
 
-Boot up Multiwfn, and input following commands examples\benzene.wfn // Generated under B3LYP/6-311G* 15 // Fuzzy atomic space analysis 4 // Calculate localization index (LI) and DI. Multiwfn first makes use of DFT numerical quadrature scheme to calculate atomic overlap matrix (AOM) in each fuzzy atomic space, and then convert AOM to DI and LI.
+Boot up Multiwfn, and input following commands examples\benzene.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **Generated under B3LYP/6-311G* 15** — Fuzzy atomic space analysis
+    - **4** — Calculate localization index (LI) and DI. Multiwfn first makes use of DFT numerical quadrature scheme to calculate atomic overlap matrix (AOM) in each fuzzy atomic space, and then convert AOM to DI and LI.
 
 n // Do not output LI and DI to plain text file Multiwfn automatically checks and outputs the error of AOM, for present calculation the error is less than 0.001, which is completely negligible. If the error is too larger to be accepted, you can set "iautointgrid" in `settings.ini` to 0, and set "radpot" and "sphpot" to a large value. When "iautointgrid" is equal to 1, Multiwfn uses (40,230) grid points to calculate AOM, accuracy of which directly affects the accuracy of LI, DI, as well as of PDI and FLU.
 
@@ -42,7 +47,12 @@ The DI-π between C1-C6, C1-C5 and C1-C4 are 0.438, 0.055 and 0.093 respectively
 
 PDI, FLU, FLU-π and PLR are useful aromaticity indices, their definitions have been introduced in Section 3.18.6, 3.18.7 and 3.18.9. In present instance, we will calculate them in Becke's fuzzy atomic space to study aromaticity of different rings of phenanthrene.
 
-Calculate PDI We first calculate PDI. Boot up Multiwfn, and input following commands: examples\phenanthrene.wfn // Optimized at B3LYP/6-31G* level 15 // Fuzzy atomic space analysis 5 // Calculate PDI Then Multiwfn starts to calculate atomic overlap matrix (AOM), this is a computationally intensive work. After that AOM will be converted to delocalization index (DI), then DI matrix will be outputted on screen. Finally, you will be prompted to input atom indices of the ring you are interested in, the input order should be in consistency with atomic connectivity. We first calculate PDI of the central ring, namely input 4,8,9,10,7,3, the result is
+Calculate PDI We first calculate PDI. Boot up Multiwfn, and input following commands: examples\phenanthrene.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **Optimized at B3LYP/6-31G* level 15** — Fuzzy atomic space analysis
+    - **5** — Calculate PDI Then Multiwfn starts to calculate atomic overlap matrix (AOM), this is a computationally intensive work. After that AOM will be converted to delocalization index (DI), then DI matrix will be outputted on screen. Finally, you will be prompted to input atom indices of the ring you are interested in, the input order should be in consistency with atomic connectivity. We first calculate PDI of the central ring, namely input 4,8,9,10,7,3, the result is
 
 
 ```text
@@ -69,7 +79,11 @@ Calculate FLU-π Next, input q to return to upper level of menu, and input 7 to 
 
 Calculate PLR Finally, let us calculate para linear response index (PLR). PLR is based on linear response kernel, which relies on virtual MOs information; however .wfn file only contains occupied MOs, therefore we must use .mwfn/.fch/.molden/.gms file as input. Reboot Multiwfn and input following commands
 
-examples\phenanthrene.fch // Obtained at the same level as phenanthrene.wfn 15 // Fuzzy space analysis 10 // Calculate PLR Multiwfn will calculate condensed linear response kernel (CLRK) matrix, after that input 4,8,9,10,7,3 and 8,9,11,13,14,15 in turn, the results are 0.248030 and 0.489560, respectively. Since the former is much smaller than the latter, PLR also validates the conclusion that boundary rings have larger aromaticity than central ring.
+!!! terminal "Multiwfn session"
+
+    - **examples\phenanthrene.fch** — Obtained at the same level as phenanthrene.wfn
+    - **15** — Fuzzy space analysis
+    - **10** — Calculate PLR Multiwfn will calculate condensed linear response kernel (CLRK) matrix, after that input 4,8,9,10,7,3 and 8,9,11,13,14,15 in turn, the results are 0.248030 and 0.489560, respectively. Since the former is much smaller than the latter, PLR also validates the conclusion that boundary rings have larger aromaticity than central ring.
 
 Note that both PDI and PLR can be separated as α and π parts to respectively investigate α and π aromaticity, see Section 3.18.6 and 3.18.9 for detail.
 
@@ -134,7 +148,11 @@ Next, we calculate dipole moment for the first phenol. We input -5 // Define the
 
 <!-- p.757 -->
 
-1-13 // Atom indices of the first phenol 2 // Calculate atomic and molecular multipole moments 1 // Output result on screen You will see
+!!! terminal "Multiwfn session"
+
+    - **1-13** — Atom indices of the first phenol
+    - **2** — Calculate atomic and molecular multipole moments
+    - **1** — Output result on screen You will see
 
 
 ```text
@@ -147,7 +165,12 @@ Magnitude of molecular dipole moment (a.u.&Debye):      0.729997      1.855468
 
 showing that the dipole moment of the first phenol is (0.570356,-0.356257,0.284025) a.u., and the phenol carries net charge of -0.096.
 
-Then we input -5 // Define the atoms to be calculated 14-26 // Atom indices of the second phenol 2 // Calculate atomic and molecular multipole moments 1 // Output result on screen You will find the second phenol has dipole moment of (0.656950 0.228171 0.366808) a.u.
+!!! terminal "Multiwfn session"
+
+    - **Then we input -5** — Define the atoms to be calculated
+    - **14-26** — Atom indices of the second phenol
+    - **2** — Calculate atomic and molecular multipole moments
+    - **1** — Output result on screen You will find the second phenol has dipole moment of (0.656950 0.228171 0.366808) a.u.
 
 In summary, now we have three dipole moments:
 
@@ -202,7 +225,13 @@ Prior to using Multiwfn to calculate aforementioned quantities, we need to manua
 
 in .wfn format, they can be in any format that supported by Multiwfn, such as .mwfn, .fch and .molden.
 
-Boot up Multiwfn and input examples\oxirane.fchk 15 // Fuzzy analysis 13 // Calculate atomic effective volume, free volume, polarizability and C6 coefficient H.wfn // Path of wavefunction file of hydrogen atom in isolated state C.wfn // Path of wavefunction file of carbon atom in isolated state O.wfn // Path of wavefunction file of oxygen atom in isolated state The output is
+Boot up Multiwfn and input examples\oxirane.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **15** — Fuzzy analysis
+    - **13** — Calculate atomic effective volume, free volume, polarizability and C6 coefficient H.wfn
+    - **Path of wavefunction file of hydrogen atom in isolated state C.wfn** — Path of wavefunction file of carbon atom in isolated state O.wfn
 
 
 ```text
@@ -240,17 +269,25 @@ partition, the sum of all αeff(0) will be as high as 37.9 a.u. In this case, th
 
 For example, according to percentage atomic contribution printed by Multiwfn, we can find carbon atoms have very large contribution (each of them contributes 29% to molecular polarizability).
 
-It is worth to mention that if interatomic interaction is extremely weak, the Veff should be very close to Vfree. For example, Veff of Ar atom in Ar2 dimer is almost identical to Vfree of Ar.
+It is worth to mention that if interatomic interaction is extremely weak, the $V^{\mathrm{eff}}$ should be very close to Vfree. For example, Veff of Ar atom in Ar2 dimer is almost identical to Vfree of Ar.
 
 There is another way of evaluating atomic volumes in practical chemical environment, namely performing basin analysis for electron density. This idea comes from atoms-in-molecules (AIM) theory. An example can be found in Section 4.17.1.
 
-Part 2: C6 coefficients of SiH4 In this example we focus on evaluating atomic C6 coefficients and homomolecular C6 coefficients in SiH4. According to the benchmark in Section 5 of MBIS original paper (J. Chem. Theory Comput., 12, 3894 (2016)), MBIS atomic space performs best in combination with B3LYP/6-311+G(2df,p) level to evaluate molecular C6 coefficients using the Tkatchenko-Scheffler method. So, in this example we also employ this scheme. The .fch file of SiH4 as well as .wfn file of Si and H atoms calculated at B3LYP/6-311+G(2df,p) level have been provided in “examples\SiH4_C6\” folder.
+Part 2: $C_6$ coefficients of SiH4 In this example we focus on evaluating atomic C6 coefficients and homomolecular C6 coefficients in SiH4. According to the benchmark in Section 5 of MBIS original paper (J. Chem. Theory Comput., 12, 3894 (2016)), MBIS atomic space performs best in combination with B3LYP/6-311+G(2df,p) level to evaluate molecular C6 coefficients using the Tkatchenko-Scheffler method. So, in this example we also employ this scheme. The .fch file of SiH4 as well as .wfn file of Si and H atoms calculated at B3LYP/6-311+G(2df,p) level have been provided in “examples\SiH4_C6\” folder.
 
-Boot up Multiwfn and input examples\SiH4_C6\SiH4.fch 15 // Fuzzy analysis -1 // Select the method for partitioning atomic spaces 5 // MBIS 1 // Start calculation. Then MBIS atomic spaces will be constructed 13 // Calculate atomic effective volume, free volume, polarizability and C6 coefficient examples\SiH4_C6\H.wfn // Wavefunction file of H atom in isolated state examples\SiH4_C6\Si.wfn // Wavefunction file of Si atom in isolated state You will see the following output along with
+Boot up Multiwfn and input examples\SiH4_$C_6$\SiH4.fch
+
+!!! terminal "Multiwfn session"
+
+    - **15** — Fuzzy analysis
+    - **-1** — Select the method for partitioning atomic spaces
+    - **5** — MBIS 1
+
+Calculate atomic effective volume, free volume, polarizability and C6 coefficient examples\SiH4_C6\H.wfn // Wavefunction file of H atom in isolated state examples\SiH4_C6\Si.wfn // Wavefunction file of Si atom in isolated state You will see the following output along with
 
 
 ```text
-Atomic C6 coefficients estimated using Tkatchenko-Scheffler method:
+Atomic $C_6$ coefficients estimated using Tkatchenko-Scheffler method:
    1(Si):  118.31 a.u. (Ref. data:   305.0 a.u.)
    2(H ):    3.83 a.u. (Ref. data:     6.5 a.u.)
    3(H ):    3.83 a.u. (Ref. data:     6.5 a.u.)
@@ -258,10 +295,10 @@ Atomic C6 coefficients estimated using Tkatchenko-Scheffler method:
    5(H ):    3.83 a.u. (Ref. data:     6.5 a.u.)
 
 Note: Reference data denotes the built-in value of free-state atom
-Homomolecular C6 coefficient:    347.07 a.u.
+Homomolecular $C_6$ coefficient:    347.07 a.u.
 ```
 
-You can see C6 coefficient of each atom in SiH4. According to their magnitude, clearly the Si atom contributes to dispersion effect significantly more than H atoms. The “Ref. data” denotes C6 coefficients of atoms in their isolated state and are taken from literature. It is seen that Multiwfn also calculated and printed homomolecular C6 coefficient for SiH4, which corresponds to the C6 coefficient used to calculate dispersion interaction between two SiH4 molecules. The present value 347.07 a.u. is in very good agreement with the 343.9 a.u. given in Table I of J. Chem. Phys., 123, 024101 (2005)! However, it should be noted that the molecular C6 coefficient calculated in this way is not always quite accurate, sometimes the relative error may be close to 10% or even more. In addition, it should be recognized that MBIS does not perform best in all cases; for some molecules,
+You can see $C_6$ coefficient of each atom in SiH4. According to their magnitude, clearly the Si atom contributes to dispersion effect significantly more than H atoms. The “Ref. data” denotes C6 coefficients of atoms in their isolated state and are taken from literature. It is seen that Multiwfn also calculated and printed homomolecular C6 coefficient for SiH4, which corresponds to the C6 coefficient used to calculate dispersion interaction between two SiH4 molecules. The present value 347.07 a.u. is in very good agreement with the 343.9 a.u. given in Table I of J. Chem. Phys., 123, 024101 (2005)! However, it should be noted that the molecular C6 coefficient calculated in this way is not always quite accurate, sometimes the relative error may be close to 10% or even more. In addition, it should be recognized that MBIS does not perform best in all cases; for some molecules,
 
 
 <!-- p.761 -->
@@ -271,17 +308,28 @@ using Hirshfeld partition may obtain better results.
 
 ### 4.15.5 Visualizing atomic electric dipole and quadrupole moments
 
-Please check Section 3.18.3 to understand definition of atomic electric dipole moment (μA) and atomic electric quadrupole moment (ΘA). These two quantities convey important information about electron density distribution around nuclei under a given atomic space partition scheme. In the examples in the next two sections, we will calculate and then visualize them in VMD program via a special script, you will find they are pretty intuitive and important in understanding status of atoms in actual chemical environment.
+Please check Section 3.18.3 to understand definition of atomic electric dipole moment (μA) and atomic electric quadrupole moment ($\mu^A$). These two quantities convey important information about electron density distribution around nuclei under a given atomic space partition scheme. In the examples in the next two sections, we will calculate and then visualize them in VMD program via a special script, you will find they are pretty intuitive and important in understanding status of atoms in actual chemical environment.
 
 4.15.5.1 Plotting atomic dipole moments
 
 Here I use H2O2 molecule as an instance to show how to calculate and plot atomic dipole moments in VMD program. VMD can be freely obtained at http://www.ks.uiuc.edu/Research/vmd/, the version I used in this example is 1.9.3.
 
-Boot up Multiwfn and input examples\H2O2.fch 15 // Fuzzy atomic space analysis module 2 // Calculate atomic and molecular multipole moments and <r^2> 2 // Output result to a plain text file Now you have multiple.txt and atom_moment.txt in current folder. The former contains detailed information about atomic multipole moments (from monopole moment to octopole moment), while the latter contains atomic dipole moments as well as eigenvalues and eigenvectors of atomic quadrupole moment tensors.
+Boot up Multiwfn and input examples\H2O2.fch
+
+!!! terminal "Multiwfn session"
+
+    - **15** — Fuzzy atomic space analysis module
+    - **2** — Calculate atomic and molecular multipole moments and <r^2>
+    - **2** — Output result to a plain text file Now you have multiple.txt and atom_moment.txt in current folder. The former contains detailed information about atomic multipole moments (from monopole moment to octopole moment), while the latter contains atomic dipole moments as well as eigenvalues and eigenvectors of atomic quadrupole moment tensors.
 
 In order to plot atomic dipole moment vectors along with molecular structure in VMD, we need to export the geometry loaded from the H2O2.fch to H2O2.xyz by inputting the following command
 
-0 // Return to main menu 100 // Other functions (Part 1) 2 // Export file 2 // Output current structure to .xyz file [Press ENTER button] // Use default file name Now you have H2O2.xyz in current folder. Boot up VMD, load the H2O2.xyz. Then move both atom_moment.txt and the VMD plotting script atomdip.tcl in “examples\scripts\” folder to VMD folder. Next, input the following commands in VMD console window, the first command executes the script, which defines a plotting function, while the second command runs the plotting function with default parameters.
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to main menu
+    - **100** — Other functions (Part 1)
+    - **2** — Export file
+    - **2** — Output current structure to .xyz file [Press ENTER button]
 
 source atomdip.tcl atomdip Now you can find atomic dipole moment information (in a.u.) in VMD console window:
 
@@ -304,9 +352,9 @@ Atomic dipole moment:   0.066   -0.045   -0.043  Norm:   0.090
 
 In VMD graphical window you can see
 
-The yellow arrows correspond to μA vectors of every atom, pointing from negative charge center to positive charge center in corresponding atomic space, and their lengths are proportional to
+The yellow arrows correspond to $\mu^A$ vectors of every atom, pointing from negative charge center to positive charge center in corresponding atomic space, and their lengths are proportional to
 
-magnitude of μA. The direction of the arrow on the oxygen atoms in the figure is easy to understand. It is well known that the oxygen in H2O2 has obvious lone pair electrons, and the lone pair region carries a dense negative charge, while the positive charge in the atomic space is only contributed by the nuclear charge, so the arrow must approximately point from the lone pair region to the nucleus.
+magnitude of $\mu^A$. The direction of the arrow on the oxygen atoms in the figure is easy to understand. It is well known that the oxygen in H2O2 has obvious lone pair electrons, and the lone pair region carries a dense negative charge, while the positive charge in the atomic space is only contributed by the nuclear charge, so the arrow must approximately point from the lone pair region to the nucleus.
 
 Adjusting graphical effects The graphical effects can be adjusted. For example, in “Graphics” - “Representation” panel you can set drawing method as CPK and properly define thickness of bonds and radius of atom spheres. Then inputting following command in VMD console window to change background color and material of plotted objects
 
@@ -337,7 +385,7 @@ source atomquad.tcl atomquad After some adjustments on graphical effects, you ca
 
 The yellow ellipsoid over each atom intuitively characterizes traceless Cartesian atomic
 
-electric quadrupole moment tensor ΘA. The shape of the ellipsoid is determined by directions of three principal axes (eigenvectors of ΘA) and semi-axis lengths, which are printed in VMD console window after running the “atomquad” command:
+electric quadrupole moment tensor $\Theta^A$. The shape of the ellipsoid is determined by directions of three principal axes (eigenvectors of ΘA) and semi-axis lengths, which are printed in VMD console window after running the “atomquad” command:
 
 
 ```text
@@ -350,7 +398,7 @@ Principal axis 3:   0.000    0.475    0.880  Semi-axis length:    0.432
 
 The ellipsoid semi-axis lengths {l} are determined via the following way proposed by me.
 
-Given that eigenvalues of ΘA, namely {v}, may be negative, in order to make visualization feasible, they are first transformed to values equal or larger than 1 via the following equation
+Given that eigenvalues of $\Theta^A$, namely {v}, may be negative, in order to make visualization feasible, they are first transformed to values equal or larger than 1 via the following equation
 
 
 $$t_{i}=1+v_{i}-v_{\min}\qquad i=1,2,3$$

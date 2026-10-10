@@ -390,7 +390,10 @@ Sum of pair energies:  Alpha=     -98.93  Beta=     -98.93  Total=    -197.86
 
 从上面的 NOCV 信息可以看出，对于每种自旋只有一个 NOCV 对起关键作用，现在我们考察它的特征。输入以下命令
 
-2 // 显示NOCV对密度等值面 (Show isosurface of NOCV pair density) 2 // 中等质量格点 1 // 查看 NOCV 对 1，它是 alpha 自旋的主导对 在查看等值面后，我们关闭 GUI 窗口并输入 22 以查看 NOCV 对 22，它是 beta 自旋的主导对。NOCV 对 1、NOCV 对 22 的密度等值面图以及它们之和（对应于在当前界面输入 1,22）在等值面取值为 0.01 a.u. 时集中显示如下，相应的电子转移特征已标出（q 为转移电子量，对应于上面打印的 NOCV 对本征值的绝对值）。
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 显示NOCV对密度等值面 (Show isosurface of NOCV pair density)
+    - **2** — 中等质量格点 1
 
 如可见，NOCV 对 1 主要表现为 alpha 电子从第一个 ·CH3 碎片（由 C1、H2、H3 和 H4 组成）转移到第二个 ·CH3 碎片（由 C5、H6、H7 和 H8 组成），这是由于第一个 ·CH3 的单占据 alpha 轨道与第二个 ·CH3 的未占据 alpha 轨道的混合所致。NOCV 对 22 显示出与 NOCV 对 1 类似的特征，但它对应于 beta 电子的转移且方向相反。NOCV 对 1 和 22 之和对应于两个碎片之间成键区域电子密度的集中，这是形成共价键非常典型的特征。从上图我们还可以发现，将两种自旋的 NOCV 密度加和时，每种自旋的轨道相互作用导致的乙烷两端电子密度的增加或减少基本被抵消
 
@@ -553,7 +556,13 @@ Sum of pair energies:     -18.33 kcal/mol
 
 在本研究中正确选择电子态很重要。整个配位物和 (CO)5Cr 碎片中的 Cr 原子应为低自旋（六个 3d 电子全部配对），因此计算时整个配位物和 (CO)5Cr 的自旋多重度应设为 1。尽管已知 CH2 基态为三重态，但为了对该体系做 ETS-NOCV 分析，在其单点计算中必须对 CH2 采用单重态，因为该状态比三重态更接近 (CO)5Cr=CH2 中 CH2 的实际电子结构（自然可以预期单重态 CH2 利用其孤对与低自旋 Cr 原子的未占据 3d 轨道形成配位键）。
 
-现在启动 Multiwfn 并输入 examples\ETS-NOCV\(CO)5CrCH2\(CO)5CrCH2.fch 23 // ETS-NOCV 分析 2 // 两个碎片 examples\ETS-NOCV\(CO)5CrCH2\(CO)5Cr.fch // 碎片 1 examples\ETS-NOCV\(CO)5CrCH2\CH2.fch // 碎片 2 -2 // 生成 Fock/KS 矩阵并计算 NOCV 轨道能量 当前屏幕上显示的 NOCV 信息为
+现在启动 Multiwfn 并输入 examples\ETS-NOCV\(CO)5CrCH2\(CO)5CrCH2.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **23** — ETS-NOCV 分析
+    - **2** — 两个碎片 examples\ETS-NOCV\(CO)5CrCH2\(CO)5Cr.fch
+    - **碎片 1 examples\ETS-NOCV\(CO)5CrCH2\CH2.fch** — 碎片 2 -2
 
 
 ```text
@@ -602,7 +611,15 @@ ETS-NOCV 也可用于多于两个碎片的情形，也可应用于势能面极�
 
 “examples\ETS-NOCV\C2H2_trimerization_TS”文件夹中的 TS.gjf 是预优化 TS 几何的单点任务的 Gaussian 输入文件。该文件夹中的 1.gjf、2.gjf 和 3.gjf 对应于 TS 几何下三个扭曲乙炔分子的单点任务。所有文件中的计算水平均为 B3LYP/6-31G*，这足以得到定性合理的 ETS-NOCV 结果。运行这些文件并用 formchk 工具转换所得的 .chk 文件，然后你将得到该文件夹中的 .fch 文件。
 
-启动 Multiwfn 并输入 examples\ETS-NOCV\C2H2_trimerization_TS\TS.fch 23 // ETS-NOCV 分析 3 // 三个碎片 examples\ETS-NOCV\C2H2_trimerization_TS\1.fch // 碎片 1 examples\ETS-NOCV\C2H2_trimerization_TS\2.fch // 碎片 2 examples\ETS-NOCV\C2H2_trimerization_TS\3.fch // 碎片 3 -2 // 生成 Fock/KS 矩阵并计算 NOCV 轨道能量 然后你将看到
+启动 Multiwfn 并输入 examples\ETS-NOCV\C2H2_trimerization_TS\TS.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **23** — ETS-NOCV 分析
+    - **3** — 三个碎片 examples\ETS-NOCV\C2H2_trimerization_TS\1.fch
+    - **碎片 1 examples\ETS-NOCV\C2H2_trimerization_TS\2.fch** — 碎片 2 examples\ETS-NOCV\C2H2_trimerization_TS\3.fch
+
+生成 Fock/KS 矩阵并计算 NOCV 轨道能量 然后你将看到
 
 
 ```text

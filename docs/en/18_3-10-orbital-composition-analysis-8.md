@@ -183,7 +183,7 @@ $$\sum_{a\in frag1} \sum_{b\notin frag1} w_{a,b} 2C_{a,i} C_{b,i} S_{a,b} \times
 
 It is clear that total composition of fragment 1 equals c^2 term + Int.cross + Ext.cross. If fragment 2 is also defined (you must have already defined fragment 1), in subfunction 5 (Mulliken) or subfunction 5 (Stout-Politzer) the cross term between fragment 1 and fragment 2 in
 
-each orbital, namely ,,,frag1frag2 2100%a ib ia bab  × will be outputted too. “Frag1 part” and C C S
+each orbital, namely $\sum_{a\in\mathrm{frag1}}\sum_{b\in\mathrm{frag2}}2C_{a,i}C_{b,i}S_{a,b}\times100\%$ will be outputted too. “Frag1 part” and C C S
 
 “Frag2 part” correspond to the components of cross term attributed to fragment 1 and fragment 2 respectively, for Mulliken analysis the two terms are of course exactly equal due to the “equal partition”.
 

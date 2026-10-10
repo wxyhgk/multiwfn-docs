@@ -237,9 +237,21 @@ d 0.0017 0.0077 0.0538 b 0.5156 0.0368 0.0071 d-b -0.5139 -0.0291 0.0467 r 0.058
 
 为了正确地基于RO波函数进行CDA分析，你应手动将RO波函数转换为U波函数；换句话说，将RO轨道拆分为alpha和beta自旋轨道。作为例子，我们对CH3_1.fch进行此转换。启动Multiwfn并输入
 
-examples\CDA\CH3CH3\CH3_1.fch 6 // 修改波函数(Modify wavefunction) 37 // 将空间轨道（当前语境中的RO轨道）拆分为alpha和beta自旋轨道(Split spatial orbitals as alpha and beta spin orbitals) -1 // 返回(Return) 100 // 其它功能（第一部分）(Other functions (Part 1)) 2 // 将当前波函数导出为文件(Export current wavefunction to a file) 7 // 导出为.fch文件(Export to .fch file) CH3_1_UKS.fch // 新文件的名称(Name of new file) CH3_1_UKS.fch记录了UKS波函数，其中包括形状和能量相同但占据数不同的alpha和beta轨道。类似地，请以同样方式将CH3_2.fch转换为CH3_2_UKS.fch。
+!!! terminal "Multiwfn 交互"
 
-现在我们可以进行CDA分析。启动Multiwfn并输入examples\CDA\CH3CH3\ethane.fch 16 // CDA 2 // 两个片段(Two fragments) examples\CDA\CH3CH3\CH3_1_UKS.fch examples\CDA\CH3CH3\CH3_2_UKS.fch n // 不翻转片段1的自旋(Do not flip spin) y // 翻转片段2的自旋(Flip spin) 结果是：
+    - **examples\CDA\CH3CH3\CH3_1.fch 6** — 修改波函数(Modify wavefunction)
+    - **37** — 将空间轨道（当前语境中的RO轨道）拆分为alpha和beta自旋轨道(Split spatial orbitals as alpha and beta spin orbitals)
+    - **-1** — 返回(Return)
+    - **100** — 其它功能（第一部分）(Other functions (Part 1))
+    - **2** — 将当前波函数导出为文件(Export current wavefunction to a file)
+    - **7** — 导出为.fch文件(Export to .fch file) CH3_1_UKS.fch
+
+现在我们可以进行CDA分析。启动Multiwfn并输入examples\CDA\CH3CH3\ethane.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **16** — CDA 2
+    - **两个片段(Two fragments) examples\CDA\CH3CH3\CH3_1_UKS.fch examples\CDA\CH3CH3\CH3_2_UKS.fch n** — 不翻转片段1的自旋(Do not flip spin) y
 
 
 ```text

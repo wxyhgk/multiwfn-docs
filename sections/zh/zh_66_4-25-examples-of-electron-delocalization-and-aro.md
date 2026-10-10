@@ -9,7 +9,12 @@
 
 请注意，主功能24的子功能1解析出的γ张量对应的是输入取向（与之相反，解析出的α和β对应的是标准取向），因此，载入到VMD中的分子结构文件也必须对应输入取向，否则单位球表示图可能会产生误导。为了得到对应输入取向的.pdb文件，我们将`settings.ini`中的“iloadGaugeom”改为1，然后重新启动Multiwfn并输入
 
-examples\polar\C18\gamma.out // 将从该文件载入输入取向下的几何结构 100 // 其他功能（第一部分）(Other function (Part 1)) 2 // 生成新文件(Generate new file) 1 // 将当前几何结构导出为.pdb文件(Export current geometry as .pdb file) C18.pdb 将C18.pdb载入VMD并以CPK风格显示，你将看到下图
+!!! terminal "Multiwfn 交互"
+
+    - **examples\polar\C18\gamma.out** — 将从该文件载入输入取向下的几何结构
+    - **100** — 其他功能（第一部分）(Other function (Part 1))
+    - **2** — 生成新文件(Generate new file)
+    - **1** — 将当前几何结构导出为.pdb文件(Export current geometry as .pdb file) C18.pdb 将C18.pdb载入VMD并以CPK风格显示，你将看到下图
 
 该图的特点与α图相似。从着色的小箭头可以看出，平行于环面同时施加的三个电场的组合效应可以在相同方向上诱导出相对较强的偶极矩变化，而在垂直于环面的方向上这种现象则弱得多。
 
@@ -65,7 +70,11 @@ n // 不要跳过生成Gaussian输入文件的步骤，因为这是我们第一�
 
 基于已有的Gaussian输出文件直接研究ICSS 假设你已经获得了用于ICSS目的的Gaussian输出文件，并且你想直接研究ICSS，你应在启动Multiwfn后输入以下命令：
 
-examples\ICSS\benzene.gjf 25 // 电子离域与芳香性分析(Electron delocalization and aromaticity analyses) 3 // 生成ICSS或相关量的格点数据(Generate grid data of ICSS or related quantities) 1 // 低质量格点(Low-quality grid) y // 跳过生成Gaussian输入文件的步骤，从而直接载入Gaussian输出文件(Skip generating Gaussian input files and thus directly load Gaussian output files) C:\benzene\NICS
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ICSS\benzene.gjf 25** — 电子离域与芳香性分析(Electron delocalization and aromaticity analyses)
+    - **3** — 生成ICSS或相关量的格点数据(Generate grid data of ICSS or related quantities)
+    - **1** — 低质量格点(Low-quality grid) y
 
 ![](../imgs/p992_506.png)
 
@@ -84,7 +93,13 @@ examples\ICSS\benzene.gjf 25 // 电子离域与芳香性分析(Electron delocali
 
 ICSSZZ.cub 4 // 绘制平面图(Plot plane map) 100 // 用户自定义函数(User-defined function)，此时对应通过B样条算法对ICSSZZ.cub格点数据插值得到的函数
 
-1 // 填充色图(Color-filled map) [按回车键] 0 // 设置图的扩展距离(Set extension distance of the plot) 8 // 8 Bohr 3 // YZ平面(YZ plane) 0 // X=0 现在图形弹出，关闭它然后输入 4 // 显示原子标签(Show atom labels) 3 // 蓝色(Blue) 1 // 改变色标上下限(Change lower and upper limit of color scale) -60,60 2 // 显示等值线(Enable showing contour lines) -2 // 设置X、Y和色标轴的标签间隔(Set label interval in X, Y and color scale axes) 3,3,10 19 // 设置颜色过渡(Set color transition) 8 // 蓝-白-红(Blue-White-Red) -1 // 重新绘制(Replot the map) 现在你可以看到下图
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 填充色图(Color-filled map) [按回车键]
+    - **0** — 设置图的扩展距离(Set extension distance of the plot)
+    - **8** — 8 Bohr 3
+
+X=0 现在图形弹出，关闭它然后输入 4 // 显示原子标签(Show atom labels) 3 // 蓝色(Blue) 1 // 改变色标上下限(Change lower and upper limit of color scale) -60,60 2 // 显示等值线(Enable showing contour lines) -2 // 设置X、Y和色标轴的标签间隔(Set label interval in X, Y and color scale axes) 3,3,10 19 // 设置颜色过渡(Set color transition) 8 // 蓝-白-红(Blue-White-Red) -1 // 重新绘制(Replot the map) 现在你可以看到下图
 
 <!-- p.994 -->
 
@@ -95,7 +110,12 @@ ICSSZZ.cub 4 // 绘制平面图(Plot plane map) 100 // 用户自定义函数(Use
 
 接下来，我们绘制曲线图来研究从环中心出发垂直于环平面直线上的磁屏蔽变化。选择-5返回主菜单并输入
 
-3 // 绘制曲线图(Plot curve map) 100 // 用户自定义函数(User-defined function) 2 // 输入两点坐标定义一条直线(Input coordinate of two points to define a line) 0,0,-8,0,0,8 // 直线从环中心下方和上方8 Bohr处起止 你将立即看到
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 绘制曲线图(Plot curve map)
+    - **100** — 用户自定义函数(User-defined function)
+    - **2** — 输入两点坐标定义一条直线(Input coordinate of two points to define a line)
+    - **0,0,-8,0,0,8** — 直线从环中心下方和上方8 Bohr处起止 你将立即看到
 
 ![](../imgs/p994_508.png)
 
@@ -118,7 +138,11 @@ Maximum X (Bohr):    9.882667  Value:    0.28937419E+02
 
 基于ICSSZZ数据计算NICS(0)ZZ和NICS(1)ZZ 值得注意的是，如果你已有ICSSZZ格点数据，你可以直接获得流行的NICS(0)ZZ和NICS(1)ZZ指标，而无需做任何额外计算，因为任意点处的NICS值可通过ICSSzz格点数据的插值直接得到。作为例子，我们计算NICS(1)ZZ。由于上述原因，确保`settings.ini`中的“iuserfunc”已设为-3，然后启动Multiwfn并输入
 
-ICSSZZ.cub 1 // 计算一点处的函数值(Calculate function values at a point) 0,0,1 // 环中心上方1 Å处的点(The point 1 Å above the ring center) 2 // 输入的位置单位为Å(The inputted position is in Å) 从屏幕上你可以发现“用户自定义实空间函数(User-defined real space function)”值为28.9，即NICS(1)ZZ为-28.9 ppm。
+!!! terminal "Multiwfn 交互"
+
+    - **ICSSZZ.cub 1** — 计算一点处的函数值(Calculate function values at a point)
+    - **0,0,1** — 环中心上方1 Å处的点(The point 1 Å above the ring center)
+    - **2** — 输入的位置单位为Å(The inputted position is in Å) 从屏幕上你可以发现“用户自定义实空间函数(User-defined real space function)”值为28.9，即NICS(1)ZZ为-28.9 ppm。
 
 结语 ICSS/ICSSZZ确实是讨论芳香性和反芳香性的非常有用的方法，许多实例可在ICSS原始论文（J. Chem. Soc. Perkin Trans. 2, 2001, 1893）以及一些应用论文中找到，如J. Phys. Chem. C, 123, 18593 (2019)以及我关于环[18]碳的研究，Carbon, 165, 468 (2020)。
 

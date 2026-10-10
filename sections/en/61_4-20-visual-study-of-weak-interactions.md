@@ -22,7 +22,13 @@ Please carefully read Section 3.23.1 first to understand theory and how to use M
 
 Weak interaction character in 2-pyridoxine 2-aminopyridine system has already been studied using AIM theory in Section 4.2.1, in this section we also perform NCI analysis for it, and meantime I will show how to plot color-filled RDG map and AIM topology graph as a single map.
 
-Boot up Multiwfn and input examples\2-pyridoxine_2-aminopyridine.wfn 20 // Visual study of weak interaction 1 // NCI analysis 2 // Medium-quality grid After a while, calculation of grid data is finished. You can then select -1 to visualize scatter map, from which interactions in the system can be examined preliminarily.
+Boot up Multiwfn and input examples\2-pyridoxine_2-aminopyridine.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **1** — NCI analysis
+    - **2** — Medium-quality grid After a while, calculation of grid data is finished. You can then select -1 to visualize scatter map, from which interactions in the system can be examined preliminarily.
 
 
 ![](../imgs/p873_406.png)
@@ -50,7 +56,16 @@ Return to main menu and input below commands to search CPs, generate paths and t
 
 them as CPs.pdb and paths.pdb in current folder, respectively.
 
-2 // Topology analysis 2 // Search nuclear CPs 3 // Search bond CPs 8 // Generate bond path -4 // Modify or export CPs 6 // Export CPs as CPs.pdb in current folder 0 // Return -5 // Modify or print detail or export paths 6 // Export paths as paths.pdb in current folder Then we close Multiwfn. Drag CPs.pdb and paths.pdb into VMD main window in turn to load them, select "Graphics"-"Representation", change "Selected molecules" to the second term (corresponding to CPs.pdb), change "Drawing Method" to "VDW" and set "Sphere Scale" from the default 1.0 to the minimal value 0.1. Note that in the CPs.pdb file, C, N, O, F atoms correspond to (3,-3), (3,-1), (3,+1), (3,+3), respectively. Here we only want to draw bond CPs (i.e. (3,-1) type of CPs) on the graph with yellow color, therefore we input "nitrogen" in "Selected Atoms" text box and press ENTER button, then change "Coloring Method" to "Color ID" and select "4 yellow" in the drop-down box. Currently, the graph looks like below
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis
+    - **2** — Search nuclear CPs
+    - **3** — Search bond CPs
+    - **8** — Generate bond path
+    - **-4** — Modify or export CPs
+    - **6** — Export CPs as CPs.pdb in current folder
+    - **0** — Return -5
+    - **Modify or print detail or export paths 6** — Export paths as paths.pdb in current folder Then we close Multiwfn. Drag CPs.pdb and paths.pdb into VMD main window in turn to load them, select "Graphics"-"Representation", change "Selected molecules" to the second term (corresponding to CPs.pdb), change "Drawing Method" to "VDW" and set "Sphere Scale" from the default 1.0 to the minimal value 0.1. Note that in the CPs.pdb file, C, N, O, F atoms correspond to (3,-3), (3,-1), (3,+1), (3,+3), respectively. Here we only want to draw bond CPs (i.e. (3,-1) type of CPs) on the graph with yellow color, therefore we input "nitrogen" in "Selected Atoms" text box and press ENTER button, then change "Coloring Method" to "Color ID" and select "4 yellow" in the drop-down box. Currently, the graph looks like below
 
 Probably you feel that the spheres corresponding to CPs are too large, however we cannot further decrease the "Sphere Scale" using graphical window due to limitation of VMD. To make the spheres smaller, you have to use corresponding command in VMD console window. To find proper command to do this, we select "File"-"Log Tcl Commands to Console", then change "Sphere Scale" to other value (e.g. 0.2), you will immediately see corresponding text-line command in the VMD console window, for present the command is mol modstyle 0 1 VDW 0.200000 12.000000, where the argument 0.2 corresponds to size of the spheres. Therefore, to decrease the sphere size to e.g. 0.09, we should input mol modstyle 0 1 VDW 0.09 12.000000 in the console window, then in the VMD graphical window you will see the spheres have already become smaller.
 
@@ -79,7 +94,14 @@ Here we only study weak interaction character of a local DNA region, which is en
 
 <!-- p.877 -->
 
-Boot up Multiwfn and input: examples\DNA.pdb 20 // Visual study of weak interaction 2 // NCI analysis based on promolecular density 7 // Use mode 7 for defining grid data 84,565 // Use midpoint of atom 84 and 565 as center of grid data. You can view molecule structure in your favourite visualization tool to find two proper atoms used to define center
+Boot up Multiwfn and input: examples\DNA.pdb
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **2** — NCI analysis based on promolecular density
+    - **7** — Use mode 7 for defining grid data
+    - **84,565** — Use midpoint of atom 84 and 565 as center of grid data. You can view molecule structure in your favourite visualization tool to find two proper atoms used to define center
 
 120,120,120 // Because the spatial scope of grid data is large, we need relatively large number of grid points, otherwise the grid spacing will be too large, which results in bad quality of RDG isosurfaces
 
@@ -141,7 +163,16 @@ grompp -f md.mdp -c water-pr.gro -p water.top -o water-md.tpr -n index.ndx mdrun
 
 IMPORTANT NOTICE: The wat.xyz currently records atom names rather than element names. For example, if you open this file via text editor, you will find each water contains OW, HW1 and HW2, which are atom names. However, in standard .xyz file, only atom elements should be recorded. Therefore, in general cases, you should manually replace all atom names in the .xyz file generated by VMD with element names. Fortunately, this step can be skipped in present example because there is no element in the periodic table named OW, HW1 and HW2, therefore, only the first letter of atom names will be employed by Multiwfn to try to identify their elements, and they can be properly recognized as oxygen and hydrogens, since after loading the .xyz file, you can find prompt “Formula: H1022 O511” on the screen, which is what we expected. If you find there are undesired elements in the “formula”, that means you have to replace the corresponding atom names in the .xyz file as their actual element names.
 
-Generating grid data by Multiwfn Boot up Multiwfn and input following commands wat.xyz 20 // Visual study of weak interaction 3 // aNCI analysis 1,1000 // The range of the frames to be analyzed 7 301,301 // Using atom 301 (the oxygen of the frozen water) as the box center of the grid data 80,80,80 // The number of grid points on each side 4.5,4.5,4.5 // Extend 4.5 Bohr in each side Now Multiwfn starts to calculate electron density, its gradient and Hessian of each frame, then their average quantities will be obtained, and finally Multiwfn calculates average RDG and average
+Generating grid data by Multiwfn Boot up Multiwfn and input following commands wat.xyz
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **3** — aNCI analysis
+    - **1,1000** — The range of the frames to be analyzed 7
+    - **301,301** — Using atom 301 (the oxygen of the frozen water) as the box center of the grid data
+    - **80,80,80** — The number of grid points on each side
+    - **4.5,4.5,4.5** — Extend 4.5 Bohr in each side Now Multiwfn starts to calculate electron density, its gradient and Hessian of each frame, then their average quantities will be obtained, and finally Multiwfn calculates average RDG and average
 
 sign(λ2)ρ. The whole process is time-consuming; at a common Intel 4-cores computer about half an hour will be consumed. (Note that the electron density I referred to here is produced by promolecular approximation, which is constructed by simply superposing the density of the atoms in their free-states)
 
@@ -171,9 +202,20 @@ isosurface will be shown with isovalue of 0.25, meantime the average sign(λ2)ρ
 
 Unfortunately, around the water of interest, there are large amounts of noisy isosurfaces, which somewhat messed up the graph, thus it is better to shield them. This aim can be achieved by main function 13 of Multiwfn, the steps are described below.
 
-Then boot up Multiwfn and input avgRDG.cub 13 // Process grid data 13 // Set the value of the grid points far away from specific atoms 1.5 // If the distance between a grid point and any selected atoms is longer than 1.5 times of vdW radius of corresponding atom, then the value of the grid point will be set as given value
+Then boot up Multiwfn and input avgRDG.cub
 
-100 // An arbitrarily large value (should be larger than the isovalue of the RDG isosurfaces) 2 // Inputting selected atoms by hand 301-303 // The indices of the atoms are 301, 302 and 303 0 // Export the updated grid data to a new cube file avgRDG.cub // The name of the new cube file Copy the newly generated avgRDG.cub to the folder of VMD program to overwrite the old one, then use the script avgRDG.vmd again to plot the graph, after some adjustments you will see (for clarity, the view of two sides is shown at the same time)
+!!! terminal "Multiwfn session"
+
+    - **13** — Process grid data
+    - **13** — Set the value of the grid points far away from specific atoms
+    - **1.5** — If the distance between a grid point and any selected atoms is longer than 1.5 times of vdW radius of corresponding atom, then the value of the grid point will be set as given value
+
+!!! terminal "Multiwfn session"
+
+    - **100** — An arbitrarily large value (should be larger than the isovalue of the RDG isosurfaces)
+    - **2** — Inputting selected atoms by hand
+    - **301-303** — The indices of the atoms are 301, 302 and 303
+    - **0** — Export the updated grid data to a new cube file avgRDG.cub
 
 The graph we obtained this time is very clear. The color scale is from -0.25 to 0.25, corresponding to the color variation of Blue-Green-Red. Bluer denotes electrostatic interaction or H-bond effect in corresponding region is stronger, and redder suggests more intensive steric effect. Green region implies low electron density, corresponding to vdW interaction. From the graph one can see that there are two blue ellipses near the two hydrogens, rendering that in the MD process, strong H-bonds are formed due to the O-H group. The slender green isosurface exhibits in which direction this water prefers to interact with other waters by vdW interaction. There is a big lump of isosurface above the oxygen, on which the red color appears in the middle part, while blue color occurs at the two ends; the latter reflects that the two lone pairs of the oxygen act as H-bond acceptors during the simulation, while the former reveals the repulsive interaction zone between waters.
 
@@ -216,7 +258,14 @@ It is highly suggested to read my this blog article: "Using IRI method to graphi
 
 Plotting sign(λ2)ρ mapped IRI isosurface Phenol dimer is taken as instance here. You will find almost all steps are identical to the NCI analysis described in Section 3.23.1.
 
-Boot up Multiwfn and input examples\PhenolDimer.wfn 20 // Visual study of weak interaction 4 // IRI analysis 3 // High-quality grid 3 // Export cube file Move func1.cub, func2.cub and plotting script examples\IRIfill.vmd to VMD folder. Then boot up VMD and input source IRIfill.vmd in VMD console window to execute the script, you will immediately see the graph below (the sphere scale of the atoms has been reduced to 0.6 in "Graphics" - "Representation").
+Boot up Multiwfn and input examples\PhenolDimer.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **4** — IRI analysis
+    - **3** — High-quality grid
+    - **3** — Export cube file Move func1.cub, func2.cub and plotting script examples\IRIfill.vmd to VMD folder. Then boot up VMD and input source IRIfill.vmd in VMD console window to execute the script, you will immediately see the graph below (the sphere scale of the atoms has been reduced to 0.6 in "Graphics" - "Representation").
 
 
 ![](../imgs/p884_419.png)
@@ -269,7 +318,27 @@ Plotting plane map for IRI Sometimes it is also useful to plot a plane map for I
 
 plane. Below I will illustrate how to realize this for examples\GC.wfn, which is a base pair dimer.
 
-Boot up Multiwfn and input examples\GC.wfn 4 // Plot plane map 24 // IRI 1 // Color-filled map [Press ENTER button] // Use default number of grids 0 // Modify extension distance 1 // 1 Bohr 1 // XY plane, which is the plane all atoms are 0 // Z=0 Close the graph and then input 19 // Set color transition 2 // Reversed rainbow 4 // Enable showing atom labels and reference point 1 // Red 8 // Enable showing bonds 14 // Brown -1 // Plot again Now you can see the map below
+Boot up Multiwfn and input examples\GC.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **4** — Plot plane map
+    - **24** — IRI 1
+
+!!! terminal "Multiwfn session"
+
+    - **Use default number of grids 0** — Modify extension distance
+    - **1** — 1 Bohr 1
+
+Z=0 Close the graph and then input
+
+!!! terminal "Multiwfn session"
+
+    - **19** — Set color transition
+    - **2** — Reversed rainbow
+    - **4** — Enable showing atom labels and reference point
+    - **1** — Red 8
+    - **Enable showing bonds 14** — Brown -1
 
 The orange and green areas (IRI < 1.0) in this map clearly reveal the regions where notable chemical bond interaction and weak interaction occur. The regions with IRI >1.0 have either large gradient of electron density or negligible electron density, they are not of chemical interest.
 
@@ -285,7 +354,14 @@ The orange and green areas (IRI < 1.0) in this map clearly reveal the regions wh
 
 Frankly speaking, DORI (Density Overlap Regions Indicator) analysis is no longer valuable since IRI analysis was proposed by me, because IRI has similar capacity of revealing all kinds of interaction regions as DORI while the graphical effect is evidently better than DORI. However, I still use phenol dimer system to illustrate how to perform DORI analysis in Multiwfn. Please read Section 3.23.4 first to understand basic knowledge about DORI.
 
-Boot up Multiwfn and input examples\PhenolDimer.wfn 20 // Visual study of weak interaction 4 // DORI analysis 3 // High-quality grid 3 // Export cube file Move func1.cub, func2.cub and plotting script examples\DORIfill.vmd to VMD folder. Then boot up VMD and input source DORIfill.vmd in console window, you will immediately see the graph below
+Boot up Multiwfn and input examples\PhenolDimer.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **4** — DORI analysis
+    - **3** — High-quality grid
+    - **3** — Export cube file Move func1.cub, func2.cub and plotting script examples\DORIfill.vmd to VMD folder. Then boot up VMD and input source DORIfill.vmd in console window, you will immediately see the graph below
 
 The graphical effect of DORI map is obviously not as good as IRI map, especially the edge region of the isosurfaces corresponding to weak interactions look quite ugly. Furthermore, calculation cost of DORI is higher than IRI due to its much more complicated definition, therefore IRI should always be used instead of DORI.
 
@@ -311,7 +387,13 @@ In this example I will illustrate visualizing the vdW potential for helicene, wh
 
 To study vdW potential, you need to select a probe atom. For example, in this instance we want to employ He atom as probe atom, therefore we change "ivdwprobe" parameter in `settings.ini` to 2.
 
-Now boot up Multiwfn and input examples\helicene.xyz 20 // Visual study of weak interaction 6 // Visualization of van der Waals potential 3 // High-quality grid (the computational cost of vdW potential is extremely low, therefore we use relatively good grid quality here)
+Now boot up Multiwfn and input examples\helicene.xyz
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **6** — Visualization of van der Waals potential
+    - **3** — High-quality grid (the computational cost of vdW potential is extremely low, therefore we use relatively good grid quality here)
 
 As can be seen from the menu, now you can directly visualize vdW potential or its two components, namely repulsion potential and dispersion potential. You can also export their grid data to cube files. The unit used in this module is kcal/mol.
 
@@ -349,7 +431,24 @@ optimized at ωB97XD/def2-TZVP level is given as examples\C18.xyz. As you can se
 
 We will plot color-filled map of vdW potential on the molecular plane. To do so, we need to change user-defined function to vdW potential, namely setting "iuserfunc" parameter in `settings.ini` to 92. We still use He element as probe atom like the last example, therefore "ivdwprobe" in `settings.ini` should be set to 2.
 
-Boot up Multiwfn and input examples\C18.xyz 4 // Plot plane map 100 // User-defined function 1 // Color-filled map [Press ENTER button directly to use recommended grid] 0 // Set extension distance 10 // 10 Bohr 1 // XY plane 0 // Z value Click right mouse button on the graph to close it, then input 1 // Set lower&upper limit of color scale -0.8,0.8 // Note that unit is kcal/mol for vdW potential 4 // Enable showing atom labels 12 // Dark green 8 // Enable showing bonds 14 // Brown 19 // Set color transition 8 // Blue-White-Red 2 // Enable showing contour lines Now select option -1 to replot the map, you will see
+Boot up Multiwfn and input examples\C18.xyz
+
+!!! terminal "Multiwfn session"
+
+    - **4** — Plot plane map
+    - **100** — User-defined function
+    - **1** — Color-filled map [Press ENTER button directly to use recommended grid]
+    - **0** — Set extension distance
+    - **10** — 10 Bohr 1
+    - **XY plane 0** — Z value Click right mouse button on the graph to close it, then input
+    - **1** — Set lower&upper limit of color scale
+    - **-0.8,0.8** — Note that unit is kcal/mol for vdW potential
+    - **4** — Enable showing atom labels
+    - **12** — Dark green
+    - **8** — Enable showing bonds
+    - **14** — Brown 19
+    - **Set color transition 8** — Blue-White-Red
+    - **2** — Enable showing contour lines Now select option -1 to replot the map, you will see
 
 
 <!-- p.892 -->
@@ -424,14 +523,28 @@ The IGM framework includes many useful ideas and defined many useful concepts, a
 
 examples\GC.pdb 4 // Plot plane map
 
-22 // $\delta g$ 1 // Color-filled map [Press ENTER button to use default grid setting] 1 // XY plane 0 // Z=0 The graph shown on screen currently looks obscure, this is because the default color scale is not suitable for present case, so we close the graph and input
+!!! terminal "Multiwfn session"
 
-1 // Set color scale 0,0.2 // Lower and upper limits 4 // Show atomic labels 1 // Red color -2 // Set label intervals of axes 3,3,0.02 // Intervals for X, Y and color bar
+    - **22** — $\delta g$
+    - **1** — Color-filled map [Press ENTER button to use default grid setting]
+    - **1** — XY plane 0
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Set color scale
+    - **0,0.2** — Lower and upper limits
+    - **4** — Show atomic labels
+    - **1** — Red color
+    - **-2** — Set label intervals of axes
+    - **3,3,0.02** — Intervals for X, Y and color bar
 
 
 <!-- p.895 -->
 
-8 // Enable showing bonds 14 // Brown -1 // Plot again You will see the graph below
+!!! terminal "Multiwfn session"
+
+    - **8** — Enable showing bonds
+    - **14** — Brown -1
 
 The graph above clearly reveals all interatomic interactions, and the magnitude of $\delta g$ is positively relevant to interaction strength. As can be seen from the graph, all chemical bond regions
 
@@ -439,7 +552,11 @@ have large $\delta g$ value (the region with value higher than 0.2 is shown as w
 
 $\delta g$ can also be plotted as isosurface map. Return to main menu and input 5 // Calculate grid data
 
-22 // $\delta g$ 2 // Medium-quality grid -1 // Show isosurface The isosurface with isovalue of 0.15 and 0.03 are shown below (you can use higher quality of grid or set the extension distance of grid data smaller to make the graph smoother)
+!!! terminal "Multiwfn session"
+
+    - **22** — $\delta g$
+    - **2** — Medium-quality grid
+    - **-1** — Show isosurface The isosurface with isovalue of 0.15 and 0.03 are shown below (you can use higher quality of grid or set the extension distance of grid data smaller to make the graph smoother)
 
 
 ![](../imgs/p895_432.png)
@@ -452,7 +569,15 @@ Since chemical bond regions have relatively large value of $\delta g$, only chem
 
 revealed by simply drawing $\delta g$, the isosurfaces corresponding to intrafragment interactions severely polluted the graph. Fortunately, the IGM analysis allows us to separate the δg as δginter and δgintra, which solely reflect the contribution to δg due to interfragment and intrafragment interactions, respectively.
 
-Return to main menu and input following commands 20 // Visual study of weak interactions 10 // IGM analysis 2 // Define two fragments 1-13 // Range of atoms in the first base 14-29 // Range of atoms in the second base (you can also input c here to define the rest of the present system as the second fragment)
+Return to main menu and input following commands
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interactions
+    - **10** — IGM analysis
+    - **2** — Define two fragments
+    - **1-13** — Range of atoms in the first base
+    - **14-29** — Range of atoms in the second base (you can also input c here to define the rest of the present system as the second fragment)
 
 2 // Medium-quality grid After calculation, you will see a post-processing menu. The meaning of each option has been
 
@@ -562,14 +687,23 @@ Skill: Plotting sign(λ2)ρ colored IGM scatter map In Part (2) of this example,
 
 `IGM_inter.vmd`
 
-Run below commands examples\GC.pdb 20 // Visual study of weak interactions 10 // IGM analysis 2 // Define two fragments
+!!! terminal "Multiwfn session"
+
+    - **Run below commands examples\GC.pdb 20** — Visual study of weak interactions
+    - **10** — IGM analysis
+    - **2** — Define two fragments
 
 
 ![](../imgs/p900_439.png)
 
 <!-- p.901 -->
 
-1-13 // Range of atoms in the first base 14-29 // Range of atoms in the second base 2 // Medium-quality grid 2 // Output scatter points to output.txt Then copy the exported output.txt and the plotting script examples\scripts\IGMscatter.gnu to the file containing gnuplot executable file, then in this folder run command: gnuplot IGMscatter.gnu, after that you will obtain IGMscatter.ps. If you open it by Acrobat or Photoshop or IrfanView (with ghostscript installed), or convert it to other image formats first via online tool https://cloudconvert.com/image-converter and then open it, you will see
+!!! terminal "Multiwfn session"
+
+    - **1-13** — Range of atoms in the first base
+    - **14-29** — Range of atoms in the second base
+    - **2** — Medium-quality grid
+    - **2** — Output scatter points to output.txt Then copy the exported output.txt and the plotting script examples\scripts\IGMscatter.gnu to the file containing gnuplot executable file, then in this folder run command: gnuplot IGMscatter.gnu, after that you will obtain IGMscatter.ps. If you open it by Acrobat or Photoshop or IrfanView (with ghostscript installed), or convert it to other image formats first via online tool https://cloudconvert.com/image-converter and then open it, you will see
 
 In the current graph, the Y-axis corresponds to δginter. In the IGMscatter.gnu, the default color scale is identical to the one adopted in IGMinter.vmd, namely -0.05~0.05.
 
@@ -590,9 +724,19 @@ In the map above, the major van der Waals interaction region (more specifically,
 
 The pdb file of the dimer optimized at PM6-D3 level using Gaussian is provided as examples\C60_coronene.pdb. Boot up Multiwfn and load it, then input below commands
 
-20 // Visual study of weak interactions 10 // IGM analysis 2 // Define two fragments 1-60 // C60 is fragment 1 c // Other part, namely coronene, is fragment 2 2 // Medium-quality grid 3 // Output cube files in current folder
+!!! terminal "Multiwfn session"
 
-6 // Evaluate atom and atomic pair δg indices 2 // High quality y // Export atmdg.pdb in current folder Boot up VMD, enter below commands into VMD console window: color scale method BWR color Display Background white axes location Off display depthcue off display rendermode GLSL Then drag the atmdg.pdb into VMD main window, enter "Graphics" - "Representation", set "Drawing Method" to "CPK", change bond radius from the default 0.3 to 0.8, set "Coloring Method" to "Occupancy", set "Material" to "EdgyShiny". Then go to "Trajectory" tab, set lower and upper limit of color scale to -15 and 15, respectively.
+    - **20** — Visual study of weak interactions
+    - **10** — IGM analysis
+    - **2** — Define two fragments
+    - **1-60** — C60 is fragment 1 c
+
+Medium-quality grid 3 // Output cube files in current folder
+
+!!! terminal "Multiwfn session"
+
+    - **6** — Evaluate atom and atomic pair δg indices
+    - **2** — High quality y
 
 Next, we need to draw the $\delta g^{inter}$ isosurface on the map. Drag dg_inter.cub into VMD main window to load it, then enter "Graphics" - "Representation", change the default style from "lines" to "Isosurface", set "Draw" to "Solid Surface", set "Show" to "Isosurface", then input 0.004 in the
 
@@ -613,7 +757,16 @@ The IGM module of Multiwfn is extremely flexible, it can be applied to any numbe
 
 We first use $\delta g^{\text{inter}}$ to reveal all interactions between the three monomers. Boot up Multiwfn and input
 
-examples\oxazolidinone_trimer.xyz 20 // Visual study of weak interactions 10 // IGM analysis 3 // Define three fragments 1-11 // Fragment 1: Monomer 1 12-22 // Fragment 2: Monomer 2 23-33 // Fragment 3: Monomer 3 2 // Medium-quality grid 3 // Output cube files in current folder
+!!! terminal "Multiwfn session"
+
+    - **examples\oxazolidinone_trimer.xyz 20** — Visual study of weak interactions
+    - **10** — IGM analysis
+    - **3** — Define three fragments
+    - **1-11** — Fragment 1: Monomer 1
+    - **12-22** — Fragment 2: Monomer 2
+    - **23-33** — Fragment 3: Monomer 3
+    - **2** — Medium-quality grid
+    - **3** — Output cube files in current folder
 
 Then we use aforementioned method to plot color-filled $\delta g^{\text{inter}}$ isosurface map via IGM_inter.vmd script, you will see the graph below
 
@@ -630,9 +783,20 @@ Assume that we only want to study interactions between 1-2 and 2-3, and meantime
 
 screen the δginter isosurface corresponding to 1-3 interaction, how to do that? The answer is: Only define two fragments, making fragment 1 correspond to monomer 2, while making fragment 2 correspond to monomers 1 and 3. Now we do this, input below commands
 
-0 // Return to last menu 10 // IGM analysis 2 // Define two fragments 12-22 // Fragment 1: Monomer 2 1-11,23-33 // Fragment 2: Monomers 1 and 3 2 // Medium-quality grid 3 // Output cube files in current folder
+!!! terminal "Multiwfn session"
 
-6 // Evaluate atom and atomic pair δg indices 2 // High quality y // Export atmdg.pdb in current folder
+    - **0** — Return to last menu
+    - **10** — IGM analysis
+    - **2** — Define two fragments
+    - **12-22** — Fragment 1: Monomer 2
+    - **1-11,23-33** — Fragment 2: Monomers 1 and 3
+    - **2** — Medium-quality grid
+    - **3** — Output cube files in current folder
+
+!!! terminal "Multiwfn session"
+
+    - **6** — Evaluate atom and atomic pair δg indices
+    - **2** — High quality y
 
 Then plot δginter isosurface again using the newly generated sl2r.cub and dg_inter.cub via IGM_inter.vmd, and mean time color the structure according to δGatom(%) based on the atmdg.pdb file, you will finally obtain the graph below
 
@@ -642,14 +806,23 @@ determined color range for mapping δGatom(%), therefore, in present graph, the 
 
 Finally, let us only highlight interaction between monomer 1 and 2 while completely ignore monomer 3. Input below command
 
-0 // Return to last menu 10 // IGM analysis 2 // Define two fragments 1-11 // Fragment 1: Monomer 1
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to last menu
+    - **10** — IGM analysis
+    - **2** — Define two fragments
+    - **1-11** — Fragment 1: Monomer
 
 
 ![](../imgs/p904_443.png)
 
 <!-- p.905 -->
 
-12-22 // Fragment 2: Monomers 2 2 // Medium-quality grid 3 // Output cube files in current folder Move the resulting dg_inter.cub and sl2r.cub to VMD folder and use the IGM_inter.vmd script to draw corresponding color-filled isosurface map. It is better to make monomer 3 transparent, since currently it is uninteresting. So, we enter "Graphics" - "Representation", click the existing representation with CPK style, input fragment 0 1 in the "Selected Atoms" box and press ENTER button, now the monomer 3 is invisible. Next, click "Create Rep" button, input fragment 2 in the "Selected Atoms" box and press ENTER button, then set the "Drawing method" as "Licorice" and change the "Bond Radius" to 0.2, then set "Material" to "Ghost". Now you should see the graph below, in which only the interaction between monomers 1 and 2 is visible, while all interactions related to monomer 3 are ignored.
+!!! terminal "Multiwfn session"
+
+    - **12-22** — Fragment 2: Monomers 2
+    - **2** — Medium-quality grid
+    - **3** — Output cube files in current folder Move the resulting dg_inter.cub and sl2r.cub to VMD folder and use the IGM_inter.vmd script to draw corresponding color-filled isosurface map. It is better to make monomer 3 transparent, since currently it is uninteresting. So, we enter "Graphics" - "Representation", click the existing representation with CPK style, input fragment 0 1 in the "Selected Atoms" box and press ENTER button, now the monomer 3 is invisible. Next, click "Create Rep" button, input fragment 2 in the "Selected Atoms" box and press ENTER button, then set the "Drawing method" as "Licorice" and change the "Bond Radius" to 0.2, then set "Material" to "Ghost". Now you should see the graph below, in which only the interaction between monomers 1 and 2 is visible, while all interactions related to monomer 3 are ignored.
 
 PS: The concept of "fragment" in VMD is different to the "fragment" in IGM analysis of Multiwfn. In VMD, when structure file is loaded into VMD, the bonding relationship is automatically determined, and then each unlinked fragment is assigned to a unique fragment index. The index starts from 0.
 
@@ -681,7 +854,15 @@ The use of the IGMH analysis function is exactly identical to IGM, thus if you h
 
 Boot up Multiwfn and input examples\2-pyridoxine_2-aminopyridine.wfn // Since IGMH relies on wavefunction information, therefore you should use such as .wfn, .fch, .mwfn, .molden, etc. as input file
 
-20 // Visual study of weak interaction 11 // IGMH analysis 2 // Define two fragments 1-12 // Atom indices in fragment 1 13-25 // Atom indices in fragment 2 2 // Medium-quality grid 3 // Output cube files to current folder
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **11** — IGMH analysis
+    - **2** — Define two fragments
+    - **1-12** — Atom indices in fragment 1
+    - **13-25** — Atom indices in fragment 2
+    - **2** — Medium-quality grid
+    - **3** — Output cube files to current folder
 
 Next, in order to plot sign(λ2)ρ colored δginter isosurface map, we move the exported sl2r.cub and dg_inter.cub from current folder to VMD folder, then copy the examples\IGM_inter.vmd script to VMD folder, then boot up VMD and run source IGM_inter.vmd command in VMD console window to execute the plotting script.
 
@@ -743,7 +924,18 @@ strongly suggested. The use of mIGM is essentially the same as IGM, here a simpl
 
 examples\phenylalanineresiduestrimer.xyz is optimized trimer of capped phenylalanine, we use mIGM to reveal the interactions within it. Boot up Multiwfn and load this file, then input
 
-20 // Visual study of weak interaction -10 // mIGM analysis 3 // Define three fragments 1-29 // Atom indices in fragment 1 (the first monomer) 30-40,52,53,56,57,63-65,77-87 // Atom indices in fragment 2 (the second monomer) c // All other atoms (the third monomer) 4 // Manually input grid spacing 0.2 // Grid spacing of 0.2 Bohr is sufficient to obtain a smooth enough image 3 // Output cube files to current folder Some .cub files have been generated in current folder. Move dg_inter.cub and sl2r.cub to VMD folder while delete the other .cub file. Copy the examples\IGM_inter.vmd script to VMD folder, then boot up VMD and run source IGM_inter.vmd command in VMD console window to execute the plotting script, then mIGM graph will be immediately shown in the graphical window. After that, in VMD choose “Graphics” - “Representation”, and input 0.07 in the “Isovalue” text box to change isovalue, you will see the following image, which nicely reveals all kinds of interactions (dispersion and H-bond) between the three molecules. The corresponding color scale is the same as the IGMH mentioned in Section 4.20.11.
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **-10** — mIGM analysis
+    - **3** — Define three fragments
+    - **1-29** — Atom indices in fragment 1 (the first monomer) 30-40,52,53,56,57,63-65,77-87
+
+!!! terminal "Multiwfn session"
+
+    - **All other atoms (the third monomer) 4** — Manually input grid spacing
+    - **0.2** — Grid spacing of 0.2 Bohr is sufficient to obtain a smooth enough image
+    - **3** — Output cube files to current folder Some .cub files have been generated in current folder. Move dg_inter.cub and sl2r.cub to VMD folder while delete the other .cub file. Copy the examples\IGM_inter.vmd script to VMD folder, then boot up VMD and run source IGM_inter.vmd command in VMD console window to execute the plotting script, then mIGM graph will be immediately shown in the graphical window. After that, in VMD choose “Graphics” - “Representation”, and input 0.07 in the “Isovalue” text box to change isovalue, you will see the following image, which nicely reveals all kinds of interactions (dispersion and H-bond) between the three molecules. The corresponding color scale is the same as the IGMH mentioned in Section
 
 In the post-processing menu, you can also calculate atomic or atomic pair δg indices via corresponding option like IGM and IGMH analyses.
 

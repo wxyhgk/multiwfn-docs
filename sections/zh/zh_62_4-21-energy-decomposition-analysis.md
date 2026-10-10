@@ -74,9 +74,18 @@ HW  0.368560
 
 dimer.mol // 含二聚体结构信息的文件（你也可用含几何信息的其它格式作输入文件，如二聚体优化任务产生的.fch文件）
 
-21 // 能量分解分析(Energy decomposition analysis) 1 // 基于力场的能量分解分析(Energy decomposition analysis based on forcefield) 3 // 载入原子类型与原子电荷(Load atom types and atomic charges) mollist.txt // 分子列表文件的实际路径。此时，程序从water.txt读取原子类型与电荷并赋给当前体系中的两个水分子
+!!! terminal "Multiwfn 交互"
 
-2 // 定义片段(Define fragments) 2 // 将定义两个片段(Two fragments will be defined) 1-3 // 片段1的原子序号(The atomic indices of the fragment 1) 4-6 // 片段2的原子序号(The atomic indices of the fragment 2) 若你想检查当前体系所有原子的原子类型与电荷是否已正确设置，可选选项4，输出为
+    - **21** — 能量分解分析(Energy decomposition analysis)
+    - **1** — 基于力场的能量分解分析(Energy decomposition analysis based on forcefield)
+    - **3** — 载入原子类型与原子电荷(Load atom types and atomic charges) mollist.txt
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 定义片段(Define fragments)
+    - **2** — 将定义两个片段(Two fragments will be defined)
+    - **1-3** — 片段1的原子序号(The atomic indices of the fragment 1)
+    - **4-6** — 片段2的原子序号(The atomic indices of the fragment 2) 若你想检查当前体系所有原子的原子类型与电荷是否已正确设置，可选选项4，输出为
 
 ```text
 *** Fragment   1:
@@ -186,7 +195,12 @@ C:\C3.txt 1
 
 开始分析 所有准备工作已完成，现在开始EDA-FF分析。启动Multiwfn并输入
 
-C3GC.pdb 21 // 能量分解分析(Energy decomposition analysis) 1 // EDA-FF 3 // 载入原子类型与电荷(Load atom types and charges) mollist.txt // 输入mollist.txt实际路径(Input actual path of mollist.txt) 2 // 定义片段(Define fragments) 3 // 将定义三个片段(Three fragments will be defined) 1-13 // 片段1中的原子序号，即胞嘧啶(C)(Atom indices in fragment 1, namely cytosine (C)) 14-29 // 片段2中的原子序号，即鸟嘌呤(G)(Atom indices in fragment 2, namely guanine (G)) 30-101 // 片段3中的原子序号，即C3(Atom indices in fragment 3, namely C3) 选选项1进行EDA-FF计算，结果如下（忽略原子贡献部分）
+!!! terminal "Multiwfn 交互"
+
+    - **C3GC.pdb 21** — 能量分解分析(Energy decomposition analysis)
+    - **1** — EDA-FF 3
+
+输入mollist.txt实际路径(Input actual path of mollist.txt) 2 // 定义片段(Define fragments) 3 // 将定义三个片段(Three fragments will be defined) 1-13 // 片段1中的原子序号，即胞嘧啶(C)(Atom indices in fragment 1, namely cytosine (C)) 14-29 // 片段2中的原子序号，即鸟嘌呤(G)(Atom indices in fragment 2, namely guanine (G)) 30-101 // 片段3中的原子序号，即C3(Atom indices in fragment 3, namely C3) 选选项1进行EDA-FF计算，结果如下（忽略原子贡献部分）
 
 ```text
                          Electrostatic   Repulsion   Dispersion     Total
@@ -232,7 +246,13 @@ C3-G (Frag 2 - Frag 3)：-76.27 kJ/mol
 
 假设我们想生动地展示 C3 与 GC 碱基对之间的色散相互作用，则在 EDA-FF 界面中输入以下命令
 
-2 // 重新定义片段(Redefine fragments) 2 // 将定义两个片段(Two fragments will be defined) 1-29 // 片段 1，即 GC 碱基对 30-101 // 片段 2，即 C3 部分 1 // 开始 EDA-FF 计算 然后屏幕上将显示以下信息，该数据等于 C3-C 与 C3-G 相互作用能之和
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 重新定义片段(Redefine fragments)
+    - **2** — 将定义两个片段(Two fragments will be defined)
+    - **1-29** — 片段 1，即 GC 碱基对
+    - **30-101** — 片段 2，即 C3 部分
+    - **1** — 开始 EDA-FF 计算 然后屏幕上将显示以下信息，该数据等于 C3-C 与 C3-G 相互作用能之和
 
 
 ```text
@@ -257,7 +277,13 @@ C3-G (Frag 2 - Frag 3)：-76.27 kJ/mol
 
 关于确定单个氢键的结合能 一些读者可能想到，如果能独立确定 G-C 之间三个氢键各自的结合能就好了。实现这一目标没有唯一的方法，因为这相当于把体系划分成几个部分，必然会引入人为误差。实现这一目的的一个看似简单的方法是直接把一个氢键的给体和受体部分定义为两个片段。例如，让我们考察 N10-H13...O14 氢键，我们输入
 
-2 // 重新定义片段(Redefine fragments) 2 // 将定义两个片段(Two fragments will be defined) 10,13 // N10-H13...O14 给体部分的原子序号 14 // N10-H13...O14 受体部分的原子序号 1 // 执行 EDA-FF 分析 结果为
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 重新定义片段(Redefine fragments)
+    - **2** — 将定义两个片段(Two fragments will be defined)
+    - **10,13** — N10-H13...O14 给体部分的原子序号
+    - **14** — N10-H13...O14 受体部分的原子序号
+    - **1** — 执行 EDA-FF 分析 结果为
 
 
 ```text
@@ -373,7 +399,12 @@ sobEDA.sh 脚本用于基于 Gaussian 和 Multiwfn 方便地进行 sobEDA 和 so
 
 在本例中，我们考察哪些原子对 6-螺旋烯的色散能有突出贡献。启动 Multiwfn 并输入
 
-examples\helicene.xyz // 6-螺旋烯的结构文件 21 // 能量分解分析(Energy decomposition analysis) 4 // 原子对色散能贡献分析(Analysis of atomic contribution to dispersion energy) 1 // 计算当前体系原子对色散能的贡献(Calculate atomic contributions to dispersion energy for current system) 立即，你将在屏幕上看到以下信息，其中包含当前体系的总色散，即带有为 B3LYP 拟合参数的 DFT-D3(BJ) 色散校正能。同时，清楚地给出了每个原子对色散能的贡献。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\helicene.xyz** — 6-螺旋烯的结构文件
+    - **21** — 能量分解分析(Energy decomposition analysis)
+    - **4** — 原子对色散能贡献分析(Analysis of atomic contribution to dispersion energy)
+    - **1** — 计算当前体系原子对色散能的贡献(Calculate atomic contributions to dispersion energy for current system) 立即，你将在屏幕上看到以下信息，其中包含当前体系的总色散，即带有为 B3LYP 拟合参数的 DFT-D3(BJ) 色散校正能。同时，清楚地给出了每个原子对色散能的贡献。
 
 
 ```text
@@ -426,7 +457,11 @@ Dispersion interaction energy between the fragments:      -2.809 kcal/mol
 
 Actos 是一种柔性药物分子，其卷曲构象和伸展构象的 xyz 文件已在“examples”文件夹中分别作为 Actos_curly.xyz 和 Actos_linear.xyz 提供。本节我们考察卷曲构象相对于伸展构象原子对色散能贡献的变化。启动 Multiwfn 并输入
 
-examples\Actos_curly.xyz 21 // 能量分解分析(Energy decomposition analysis) 4 // 原子对色散能贡献分析(Analysis of atomic contribution to dispersion energy) 3 // 计算当前体系与另一体系之间原子对色散能贡献的差值(Calculate difference of atomic contributions to dispersion energy between current and another systems)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\Actos_curly.xyz 21** — 能量分解分析(Energy decomposition analysis)
+    - **4** — 原子对色散能贡献分析(Analysis of atomic contribution to dispersion energy)
+    - **3** — 计算当前体系与另一体系之间原子对色散能贡献的差值(Calculate difference of atomic contributions to dispersion energy between current and another systems)
 
 [直接按 ENTER 键] //当前体系（Actos_curly.xyz）中的所有原子都是感兴趣的 examples\Actos_linear.xyz [直接按 ENTER 键] //Actos_curly.xyz 中的所有原子都是感兴趣的 从屏幕输出中，你可以发现 Actos_linear.xyz 和 Actos_curly.xyz 的总色散能分别为 -57.553 kcal/mol 和 -69.757 kcal/mol。显然卷曲构象的色散相互作用更显著。同时，还打印了每个原子对两种结构色散能贡献的差值。
 
@@ -460,7 +495,13 @@ Multiwfn 还可以生成色散密度的差值格点数据。在当前功能中�
 
 上图没有直接显示沸石中哪些原子与甲苯有最强的色散相互作用。为了清楚地研究这一点，我们需要求出 zeolite-mol.cif 体系中沸石原子（原子 1-216）对其色散能的贡献与 zeolite.cif 体系中原子对其色散能的贡献之差。下面将进行此操作。
 
-启动 Multiwfn 并输入 examples\zeolite-mol.cif 21 // 能量分解分析(Energy decomposition analysis) 4 // 原子对色散能贡献分析(Analysis of atomic contribution to dispersion energy) 3 // 计算当前体系与另一体系之间原子对色散能贡献的差值(Calculate difference of atomic contributions to dispersion energy between current and another systems)
+启动 Multiwfn 并输入 examples\zeolite-mol.cif
+
+!!! terminal "Multiwfn 交互"
+
+    - **21** — 能量分解分析(Energy decomposition analysis)
+    - **4** — 原子对色散能贡献分析(Analysis of atomic contribution to dispersion energy)
+    - **3** — 计算当前体系与另一体系之间原子对色散能贡献的差值(Calculate difference of atomic contributions to dispersion energy between current and another systems)
 
 1-216 // 感兴趣的原子是当前体系（zeolite-mol.cif）中沸石部分的原子（前 216 个原子）
 

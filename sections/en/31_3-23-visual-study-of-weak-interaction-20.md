@@ -60,11 +60,19 @@ Now I use phenol dimer to exemplify this idea, we will calculate grid data of RD
 
 examples\PhenolDimer.wfn // Any format containing GTF information can be used as input file, see Section 2.5 for detail
 
-5 // Generate grid data 13 // RDG function 7 // Use middle point of two atoms as center of grid data, this way of defining spatial scope is very suitable for weak interaction analysis
+!!! terminal "Multiwfn session"
+
+    - **5** — Generate grid data
+    - **13** — RDG function
+    - **7** — Use middle point of two atoms as center of grid data, this way of defining spatial scope is very suitable for weak interaction analysis
 
 1,14 // The indices of the two atoms are set to 1 and 14, because from molecular structure (see the graph below) we can estimate that the weak interaction region occurs between C1 and C14
 
-40,40,40 // The weak interaction region is small, so 40*40*40=64000 grid is fine enough 3,3,3 // Set extension distance (buffer distance) in all X/Y/Z directions to 3 Bohr -1 // Show the isosurface of RDG Please make sure that the isovalue in the GUI window is set to 0.5, which is suitable for visualizing weak interaction regions (if the isovalue is too small, then RDG isosurface will be too thin and thus ugly; if too large, then unwanted “Around nuclei” and “Around chemical bond” regions will appear). Now you can see the graph below in the GUI window:
+!!! terminal "Multiwfn session"
+
+    - **40,40,40** — The weak interaction region is small, so 40*40*40=64000 grid is fine enough
+    - **3,3,3** — Set extension distance (buffer distance) in all X/Y/Z directions to 3 Bohr
+    - **-1** — Show the isosurface of RDG Please make sure that the isovalue in the GUI window is set to 0.5, which is suitable for visualizing weak interaction regions (if the isovalue is too small, then RDG isosurface will be too thin and thus ugly; if too large, then unwanted “Around nuclei” and “Around chemical bond” regions will appear). Now you can see the graph below in the GUI window:
 
 
 <!-- p.312 -->
@@ -92,7 +100,14 @@ Current Multiwfn does not support plotting color-filled isosurface graph, howeve
 
 Multiwfn to generate cube file for sign(λ2)ρ and RDG, and then use plotting script of VMD to draw such map. VMD is one of the best visualization tools and can be freely downloaded at http://www.ks.uiuc.edu/Research/vmd. Here I illustrate how to do this for phenol dimer by using subfunction 1 of main function 20. This time we do not only want to study the weak interaction region between the two monomers, but also want to examine the steric effect within in aromatic ring of phenol, therefore the spatial scope of grid data should cover the entire dimer.
 
-Boot up Multiwfn and input following commands examples\PhenolDimer.wfn 20 // Visual study of weak interaction 1 // NCI analysis -10 // Set extension distance in all directions with respect to molecular boundary 0 // Because weak interaction regions only appear in internal region of present system, we do not need to leave a buffer region at system boundary, so we set the extension distance to 0 Bohr
+Boot up Multiwfn and input following commands examples\PhenolDimer.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Visual study of weak interaction
+    - **1** — NCI analysis
+    - **-10** — Set extension distance in all directions with respect to molecular boundary
+    - **0** — Because weak interaction regions only appear in internal region of present system, we do not need to leave a buffer region at system boundary, so we set the extension distance to 0 Bohr
 
 2 // Medium-quality grid (about 512000 points). Because the spatial scope of grid data is evidently larger than last example, we need more grid points than last example, otherwise the RDG isosurfaces will look discrete
 
@@ -117,7 +132,13 @@ Part 3: Summary of general steps for generating color-filled RDG map Above I hav
 
 understand how to plot the sign(λ2)ρ mapped RDG isosurface graph using Multiwfn, below I present the minimum steps to do this, which are suitable for most cases.
 
-Boot up Multiwfn and input xxx.wfn (or wfx/mwfn/fch/molden... file) // Load input file 20 // Visual study of weak interaction 1 // NCI analysis 3 // Please properly define the grid points at this step. “High-quality grid” is usually adequate
+Boot up Multiwfn and input xxx.wfn (or wfx/mwfn/fch/molden... file)
+
+!!! terminal "Multiwfn session"
+
+    - **Load input file 20** — Visual study of weak interaction
+    - **1** — NCI analysis
+    - **3** — Please properly define the grid points at this step. “High-quality grid” is usually adequate
 
 
 ![](../imgs/p314_047.png)
@@ -179,7 +200,11 @@ Special skill 2: Interactively set RDG value where sign(λ2)ρ is in specific ra
 
 the graph. From the original scatter map, we find that the H-bond region corresponds to sign(λ2)ρ range of -0.035 ~ -0.015, therefore we can input below command in post-processing menu
 
--2 // Set RDG value where sign(λ2)ρ in within given data range -0.035,-0.015 // The lower and upper limit of sign(λ2)ρ 100 // Set RDG value in these regions to an arbitrarily large value to screen RDG isosurface Then, if you select option -1 to plot the scatter map again, you will see
+!!! terminal "Multiwfn session"
+
+    - **-2** — Set RDG value where sign(λ2)ρ in within given data range
+    - **-0.035,-0.015** — The lower and upper limit of sign(λ2)ρ
+    - **100** — Set RDG value in these regions to an arbitrarily large value to screen RDG isosurface Then, if you select option -1 to plot the scatter map again, you will see
 
 
 ![](../imgs/p318_050.png)

@@ -16,7 +16,11 @@ In this section I will illustrate how to use Multiwfn to carry out Mulliken anal
 
 Boot up Multiwfn and input examples\ethanol_triplet.fch // Calculated at UB3LYP/6-31G** level based on optimized singlet structure
 
-7 // Population analysis and atomic charges 5 // Mulliken population analysis 1 // Output Mulliken analysis result. By default, the result is outputted on screen, you can also select "-1 Choose output destination for option 1" to change the output destination to a specified plain text file
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis and atomic charges
+    - **5** — Mulliken population analysis
+    - **1** — Output Mulliken analysis result. By default, the result is outputted on screen, you can also select "-1 Choose output destination for option 1" to change the output destination to a specified plain text file
 
 From the output, first you can find population of each basis function:
 
@@ -153,7 +157,13 @@ Calculating CHELPG charges Next, we calculate CHELPG charge. CHELPG charge has b
 
 Quickly evaluating fragment charge Fragment charge is defined as sum of charge of atoms constituting a fragment. You can manually sum up atomic charges to derive fragment charge; however, for large systems this process must be laborious. In Multiwfn it is possible to directly calculate charge for a fragment. For example, here we calculate CHELPG charge for the fragment composed of the two axial F atoms. Boot up Multiwfn and input
 
-examples\ClF3.wfn 7 // Population analysis -1 // Define fragment 2,4 // Index of the two axial F atoms 12 // CHELPG charge 1 // Start calculation Since the fragment has been defined, Multiwfn not only prints atomic charges, but also prints fragment charge at the end of all output:
+!!! terminal "Multiwfn session"
+
+    - **examples\ClF3.wfn 7** — Population analysis
+    - **-1** — Define fragment
+    - **2,4** — Index of the two axial F atoms
+    - **12** — CHELPG charge
+    - **1** — Start calculation Since the fragment has been defined, Multiwfn not only prints atomic charges, but also prints fragment charge at the end of all output:
 
 
 ```text
@@ -167,7 +177,11 @@ Fragment charge:   -0.499331
 
 The ADCH (atomic dipole moment corrected Hirshfeld population) charge proposed by me is an improved version of Hirshfeld charge, it resolved many inherent drawbacks of Hirshfeld charge, such as poor dipole moment reproducibility, see Section 3.9.9 for brief introduction and my paper J. Theor. Comput. Chem., 11, 163 (2012) for discussion and comparison. I highly recommend using ADCH charge to characterize charge distribution. The calculation process of ADCH charges is exactly identical to the one described in last section, the only difference is that you should select option 11 instead of option 1 in population analysis interface. For example, here we calculate ADCH charges for CH3CONH2. Boot up Multiwfn and input
 
-examples\CH3CONH2.fch 7 // Population analysis and atomic charges 11 // Calculate ADCH charges 1 // Use built-in atomic densities in free-state Multiwfn will calculate Hirshfeld charges first, and then perform atomic dipole moment correction for them to yield ADCH charges. The result is shown below
+!!! terminal "Multiwfn session"
+
+    - **examples\CH3CONH2.fch 7** — Population analysis and atomic charges
+    - **11** — Calculate ADCH charges
+    - **1** — Use built-in atomic densities in free-state Multiwfn will calculate Hirshfeld charges first, and then perform atomic dipole moment correction for them to yield ADCH charges. The result is shown below
 
 
 <!-- p.567 -->
@@ -279,7 +293,13 @@ Hirshfeld-I (HI) is a more advanced technique to define atomic spaces than its p
 
 Here we calculate HI charges for CH3COCl. For convenience, we will directly use built-in .rad files in this example. To do so, we copy "atmrad" folder from "examples" directory to current directory, then the .rad files in this folder will be employed by Multiwfn in the HI charge calculation.
 
-Boot up Multiwfn and input examples\CH3COCl.wfn // Generated at B3LYP/6-31G* level 7 // Population analysis and atomic charges 15 // Hirshfeld-I method 1 // Start calculation with default settings Then you will see iteration process
+Boot up Multiwfn and input examples\CH3COCl.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **Generated at B3LYP/6-31G* level 7** — Population analysis and atomic charges
+    - **15** — Hirshfeld-I method
+    - **1** — Start calculation with default settings Then you will see iteration process
 
 
 ```text
@@ -319,7 +339,13 @@ Letting Multiwfn automatically invoke Gaussian to generate .rad files In princip
 
 Before calculation, you should properly set "gaupath" in `settings.ini` file to actual Gaussian executable file. In addition, if "atmrad" folder has existed in current directory and it contains .rad files of C, H, O, and Cl elements, you should delete them.
 
-Boot up Multiwfn and input examples\CH3COCl.wfn // Generated at B3LYP/6-31G* level 7 // Population analysis and atomic charges 15 // Hirshfeld-I method 1 // Start calculation with default settings B3LYP/6-31G* // The keyword of Gaussian used to calculate atomic .wfn files From the prompts shown on screen, you can find that Multiwfn invokes Gaussian to calculate atomic .wfn files for all elements involved in the present molecule at various charged states. Then Multiwfn converts atomic .wfn files to .rad files, which record spherically averaged atomic radial densities. The automatically generated Gaussian input file (.gjf), the resulting Gaussian output file (.out or .log) and the .rad files are all produced in "atmrad" folder of current folder, you can manually examine them if you are interested.
+Boot up Multiwfn and input examples\CH3COCl.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **Generated at B3LYP/6-31G* level 7** — Population analysis and atomic charges
+    - **15** — Hirshfeld-I method
+    - **1** — Start calculation with default settings B3LYP/6-31G*
 
 In the current case, the resulting charges are
 
@@ -445,7 +471,11 @@ Example 1: cc-pVTZ for sulfur Sulfur atom has configuration of 1$1s^{2}2s^{2}2p^
 
 examples\sulfur_cc-pVTZ.fch is the .fch file calculated at B3LYP/cc-pVTZ level by Gaussian16 for a single sulfur atom at its triplet state. Load this file into Multiwfn, then input
 
-7 // Population analysis and atomic charges 5 // Mulliken analysis 1 // Output Mulliken analysis result You will immediately see
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis and atomic charges
+    - **5** — Mulliken analysis
+    - **1** — Output Mulliken analysis result You will immediately see
 
 
 ```text
@@ -528,7 +558,12 @@ Commonly, the geometry used for deriving RESP charges should be optimized at rea
 
 Now, use Gaussian to run examples\RESP\dopamine-single\dopamine.gjf to generate corresponding .fch file for this geometry. As can be seen in the .gjf file, the keywords are b3lyp/6-311g(d,p) SCRF=solvent=ethanol, this combination is not expensive while the resulting wavefunction is completely adequate to yield reliable RESP charges.
 
-Boot up Multiwfn and input dopmaine.fch // The .fch file just yielded 7 // Population analysis 18 // RESP module 1 // Calculate standard RESP charges using two-stage fitting procedure During the calculation, Multiwfn first sets up atomic radii and determines position of fitting points, and then calculates ESP values at the fitting points. After that, the first stage of standard RESP calculation starts, the parameters and conditions employed in this stage can be found from outputted information:
+!!! terminal "Multiwfn session"
+
+    - **Boot up Multiwfn and input dopmaine.fch** — The .fch file just yielded
+    - **7** — Population analysis
+    - **18** — RESP module
+    - **1** — Calculate standard RESP charges using two-stage fitting procedure During the calculation, Multiwfn first sets up atomic radii and determines position of fitting points, and then calculates ESP values at the fitting points. After that, the first stage of standard RESP calculation starts, the parameters and conditions employed in this stage can be found from outputted information:
 
 
 ```text
@@ -604,7 +639,11 @@ Directly loading fitting points and ESP values from Gaussian output file As ment
 
 dopmaine.fch // In present situation this file in fact is only used to provide geometry information so that Multiwfn can determine atomic connectivity, therefore you can also use other formats such as .xyz, .pdb and .wfn instead
 
-7 // Population analysis 18 // RESP module 8 // Let Multiwfn directly load fitting points information from Gaussian output file
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis
+    - **18** — RESP module
+    - **8** — Let Multiwfn directly load fitting points information from Gaussian output file
 
 
 <!-- p.578 -->
@@ -633,7 +672,12 @@ The first column is file path of each conformer, while the second column is corr
 
 Boot up Multiwfn and input dopamine1.fch // In present case, the file loaded at this stage is only used to provide geometry information that used to determine atomic connectivity, thus you can also use .fch of other conformers, the result will not be affected
 
-7 // Population analysis 18 // RESP module -1 // Load conformation list file conf.txt // Input actual path of this file 1 // Calculate standard RESP charges using the two-stage procedure The result is
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis
+    - **18** — RESP module
+    - **-1** — Load conformation list file conf.txt
+    - **Input actual path of this file 1** — Calculate standard RESP charges using the two-stage procedure The result is
 
 
 ```text
@@ -685,7 +729,11 @@ C:\dopamine4_ESP.out 0.4041
 
 After that, load .fch (or other kinds of files) of any conformer into Multiwfn and enter interface of RESP module, then select
 
--1 // Load conformation list file confESP.txt // Input actual path of this file 8 // Make Multiwfn directly load fitting point information from Gaussian output file 1 // Calculate standard RESP charges using the two-stage procedure Then standard RESP charges will be immediately shown.
+!!! terminal "Multiwfn session"
+
+    - **-1** — Load conformation list file confESP.txt
+    - **Input actual path of this file 8** — Make Multiwfn directly load fitting point information from Gaussian output file
+    - **1** — Calculate standard RESP charges using the two-stage procedure Then standard RESP charges will be immediately shown.
 
 
 <!-- p.580 -->
@@ -709,9 +757,16 @@ We first create a plain text file called e.g. eqvcons.txt, where each row contai
 
 Run the Gaussian input file of optimization task at B3LYP-D3(BJ)/6-311G** level for present molecule (examples\RESP\C2H7O4P\C2H7O4P.gjf), then convert the resulting .chk file to .fch. Next, Boot up Multiwfn and input
 
-C2H7O4P.fch 7 // Population analysis 18 // RESP module 5 // Modify equivalence constraint (Note that for one-stage ESP fitting, by default hydrogens in each CH2 and CH3 group are constrained to be equivalent)
+!!! terminal "Multiwfn session"
 
-1 // Load equivalence constraint setting from external plain text file eqvcons.txt // The file we just created 2 // Start one-stage ESP fitting calculation with constraints The result is
+    - **C2H7O4P.fch 7** — Population analysis
+    - **18** — RESP module
+    - **5** — Modify equivalence constraint (Note that for one-stage ESP fitting, by default hydrogens in each CH2 and CH3 group are constrained to be equivalent)
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Load equivalence constraint setting from external plain text file eqvcons.txt
+    - **The file we just created 2** — Start one-stage ESP fitting calculation with constraints The result is
 
 
 ```text
@@ -803,7 +858,16 @@ D:\beta.fch 0.5
 
 Finally, boot up Multiwfn, load either alpha.fch or beta.fch, then enter RESP module and input below commands
 
-5 // Modify the equivalence constraint 1 // Load equivalence constraint setting from external plain text file eqvcons.txt // The equivalence constraint file we created 6 // Set charge constraint 1 // Load charge constraint setting from external plain text file chgcons.txt // The charge constraint file we created -1 // Load list of conformers and weights from external file conflist.txt // The conformation list file we created 2 // Start one-stage ESP fitting calculation with constraint The output is
+!!! terminal "Multiwfn session"
+
+    - **5** — Modify the equivalence constraint
+    - **1** — Load equivalence constraint setting from external plain text file eqvcons.txt
+
+!!! terminal "Multiwfn session"
+
+    - **Set charge constraint 1** — Load charge constraint setting from external plain text file chgcons.txt
+    - **The charge constraint file we created -1** — Load list of conformers and weights from external file conflist.txt
+    - **The conformation list file we created 2** — Start one-stage ESP fitting calculation with constraint The output is
 
 
 ```text
@@ -843,7 +907,14 @@ local or global point group symmetry
 
 Although you can manually create a file containing above equivalent constraints, it is more convenient to make Multiwfn automatically create the file according to point group symmetry of local regions of the CF3 group and benzene moiety, as shown below.
 
-Boot up Multiwfn and input CF3benCOCH3.fch 7 // Population analysis and atomic charge calculation 18 // RESP module 5 // Set equivalence constraint 11 // Generate a file containing equivalence constraints according to point group symmetry of selected regions
+Boot up Multiwfn and input CF3benCOCH3.fch
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis and atomic charge calculation
+    - **18** — RESP module
+    - **5** — Set equivalence constraint
+    - **11** — Generate a file containing equivalence constraints according to point group symmetry of selected regions
 
 Then we need to input atomic indices in each fragment that has local symmetry. In order to make finding the indices convenient, I suggest using GaussView to open the above .fch file, then select the fragment as yellow, then enter "Tools" - "Atom Selection" and copy the atomic indices from the text box to Multiwfn window, as illustrated below
 
@@ -900,7 +971,12 @@ The printed information is obviously correct, therefore we input y. Then input q
 
 The content is fully in line with our expectations. In fact, we can also similarly set the three hydrogens in the methyl group as equivalent atoms by this interface, however we do not do this because in this example we will employ two-stage RESP fitting, at the second stage the equivalence constraint is automatically applied to the three hydrogens.
 
-Subsequently, in the Multiwfn window we input 1 // Load equivalence constraint from external file eqvcons_PG.txt // The file just generated 1 // Start standard two-stage RESP fitting The result is
+Subsequently, in the Multiwfn window we input
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Load equivalence constraint from external file eqvcons_PG.txt
+    - **The file just generated 1** — Start standard two-stage RESP fitting The result is
 
 
 ```text
@@ -947,7 +1023,12 @@ Boot up Multiwfn and input coronene.fch
 
 <!-- p.587 -->
 
-7 // Population analysis and atomic charge calculation 18 // RESP module 5 // Set equivalence constraint 11 // Generate file containing equivalence constraints according to point group symmetry of selected region
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis and atomic charge calculation
+    - **18** — RESP module
+    - **5** — Set equivalence constraint
+    - **11** — Generate file containing equivalence constraints according to point group symmetry of selected region
 
 a // Select the entire system You will see the equivalent atoms have been correctly identified:
 
@@ -965,7 +1046,11 @@ a // Select the entire system You will see the equivalent atoms have been correc
    25,   26,   27,   28,   29,   30,   31,   32,   33,   34,   35,   36
 ```
 
-Then we input below commands y // Write the four classes equivalent constraints to eqvcons_PG.txt in current folder q // Exit 1 // Load equivalence constraint file eqvcons_PG.txt 1 // Perform standard two-stage RESP fitting (note that the result is identical to one-stage fitting, because no atoms will be refitted in the second stage for this molecule)
+!!! terminal "Multiwfn session"
+
+    - **Then we input below commands y** — Write the four classes equivalent constraints to eqvcons_PG.txt in current folder q
+    - **Exit 1** — Load equivalence constraint file eqvcons_PG.txt
+    - **1** — Perform standard two-stage RESP fitting (note that the result is identical to one-stage fitting, because no atoms will be refitted in the second stage for this molecule)
 
 From the printed result, you can find the atoms in each of the four detected classes are indeed equivalent. The value of aforementioned charges of C17 and C18 are -0.220866 currently, which is quite reasonable.
 
@@ -1016,7 +1101,19 @@ Note that the index of additional fitting centers is after that of actual atoms,
 
 Also note that there is no reason to apply the penalty function defined in RESP method, which hurts the reproducibility of ESP in the present case, therefore we will disable this treatment, which is enabled by default.
 
-Now we boot up Multiwfn and input below command C18.fchk 7 // Atomic charge calculation and population analysis 18 // RESP 4 // Set hyperbolic penalty parameters 2 // Set restraint strength (a) for one-stage fitting 0 // Remove effect of penalty function 0 // Return 9 // Load additional fitting centers examples\RESP\C18\fitcen.txt // The file containing additional fitting centers 5 // Set equivalence constraint in fitting 1 // Load equivalence constraint setting from external plain text file examples\RESP\C18\eqvcons.txt 2 // Start one-stage ESP fitting calculation with constraints The result is shown below
+Now we boot up Multiwfn and input below command C18.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Atomic charge calculation and population analysis
+    - **18** — RESP 4
+    - **Set hyperbolic penalty parameters 2** — Set restraint strength (a) for one-stage fitting
+    - **0** — Remove effect of penalty function
+    - **0** — Return 9
+    - **Load additional fitting centers examples\RESP\C18\fitcen.txt** — The file containing additional fitting centers
+    - **5** — Set equivalence constraint in fitting
+    - **1** — Load equivalence constraint setting from external plain text file examples\RESP\C18\eqvcons.txt
+    - **2** — Start one-stage ESP fitting calculation with constraints The result is shown below
 
 
 ```text
@@ -1065,7 +1162,15 @@ standard RESP two-stage fitting
 
 In example 1 of this Section, I have illustrated how to derive RESP charges using standard RESP two-stage fitting procedure. Thanks to the flexibility of RESP module of Multiwfn, this “composite procedure” can also be manually realized via two separated one-stage fittings, as illustrated in this section. After reading this section, I believe you will better understand how to customize the RESP calculation procedure. Below we will use a very simple molecule methanol as example, whose .fch file can be found in http://sobereva.com/multiwfn/extrafiles/RESP.zip.
 
-Boot up Multiwfn and input methanol.fch 7 // Population analysis 18 // RESP charge calculation 5 // Set equivalence constraint 0 // Remove default equivalence constraint 2 // Using one-stage fitting to derive charges The result is
+Boot up Multiwfn and input methanol.fch
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis
+    - **18** — RESP charge calculation
+    - **5** — Set equivalence constraint
+    - **0** — Remove default equivalence constraint
+    - **2** — Using one-stage fitting to derive charges The result is
 
 
 ```text
@@ -1093,9 +1198,22 @@ in hydroxyl group of methanol should keep fixed during the second fitting stage,
 6 0.415880
 ```
 
-Then input below commands in Multiwfn interface n // Do not export .chg file 4 // Set hyperbolic penalty parameters 2 // Set restraint strength (a) 0.001 // This value is the one used in the second stage of standard RESP fitting procedure 0 // Return to the upper menu 5 // Set equivalence constraint 2 // Constraint hydrogens in CH2 and CH3 groups to be equivalent, as required by the second stage of standard RESP fitting
+Then input below commands in Multiwfn interface n
 
-6 // Set charge constraint 1 // Load charge constraint setting file chgcons.txt 2 // Calculate charges by one-stage fitting The final result is
+!!! terminal "Multiwfn session"
+
+    - **Do not export .chg file 4** — Set hyperbolic penalty parameters
+    - **2** — Set restraint strength (a)
+    - **0.001** — This value is the one used in the second stage of standard RESP fitting procedure
+    - **0** — Return to the upper menu
+    - **5** — Set equivalence constraint
+    - **2** — Constraint hydrogens in CH2 and CH3 groups to be equivalent, as required by the second stage of standard RESP fitting
+
+!!! terminal "Multiwfn session"
+
+    - **6** — Set charge constraint
+    - **1** — Load charge constraint setting file chgcons.txt
+    - **2** — Calculate charges by one-stage fitting The final result is
 
 
 ```text
@@ -1394,7 +1512,10 @@ examples\oxirane.fchk
 
 <!-- p.599 -->
 
-7 // Population analysis and atomic charges 16 // CM5 1 // Use built-in sphericalized atomic densities in free-states Then you will see
+!!! terminal "Multiwfn session"
+
+    - **7** — Population analysis and atomic charges
+    - **16** — CM5 1
 
 
 ```text

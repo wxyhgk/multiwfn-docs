@@ -188,7 +188,14 @@ IRC point
 
 这张图生动地显示，在 DA 加成过程中 C1-C2 平滑地从双键变为单键，而反应显著增强了 C4-C5 的双键特征。
 
-5 制作 ELF 等值面动画 接下来，我们制作动画来研究在 DA 加成过程中 ELF 等值面如何变化。在 Multiwfn 文件夹中创建一个纯文本文件 ELFbatch.txt，内容如下 5 // 生成格点数据 (Generate grid data) 9 // ELF 2 // 中等质量格点 (Medium-quality grid) 2 // 把格点数据导出为当前文件夹中的 ELF.cub (Export the grid data to ELF.cub in current folder) 创建一个名为 ELFbatchrun.bat 的脚本文件，其内容为
+5 制作 ELF 等值面动画 接下来，我们制作动画来研究在 DA 加成过程中 ELF 等值面如何变化。在 Multiwfn 文件夹中创建一个纯文本文件 ELFbatch.txt，内容如下
+
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 生成格点数据 (Generate grid data)
+    - **9** — ELF 2
+
+把格点数据导出为当前文件夹中的 ELF.cub (Export the grid data to ELF.cub in current folder) 创建一个名为 ELFbatchrun.bat 的脚本文件，其内容为
 
 
 ```text
@@ -565,7 +572,13 @@ $$\rho_{k}^{\mathrm{odd}}(\mathbf{r})=min(2-n_{k},n_{k})\rho_{k}(\mathbf{r})$$
 
 作为例子，我们在 CCSD/def2-SVP 水平计算典型闭壳层体系 OC-BH3 的 OED（而在 HF/DFT 水平，此量显然处处为零）。Gaussian 输入文件见 examples\COBH3_CCSD.gjf，注意使用了 density out=wfn 关键词。生成的文件 examples\COBH3_CCSD.wfn 包含所有 CCSD 自然轨道。
 
-我们先计算总 OED。启动 Multiwfn 并输入 examples\COBH3_CCSD.wfn 6 // 修改波函数 (Modify wavefunction) 26 // 修改占据数 (Modify occupation number) 0 // 选择所有轨道 (Select all orbitals) odd // 把所有轨道的占据数取为 min(2-nk, nk) (Taking min(2-nk, nk) as occupation number for all orbitals) 现在从屏幕上你可以看到
+我们先计算总 OED。启动 Multiwfn 并输入 examples\COBH3_CCSD.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 修改波函数 (Modify wavefunction)
+    - **26** — 修改占据数 (Modify occupation number)
+    - **0** — 选择所有轨道 (Select all orbitals) odd
 
 
 ```text
@@ -576,7 +589,12 @@ Sum of occupation numbers of selected orbitals:    0.628552
 
 q // 返回 (Return) -1 // 返回主菜单 (Return to main menu) 然后我们用通常的方式输入以下命令绘制电子密度的等值面图。由于当前轨道占据数已被转换为 min(2-nk, nk)，所得图即对应于 OED 图
 
-5 // 计算格点数据 (Calculate grid data) 1 // 电子密度 (Electron density) 2 // 中等质量格点 (Medium-quality grid) -1 // 可视化等值面 (Visualize isosurface) 然后把等值设为 0.005 a.u.，在图形界面窗口中显示的 OED 图即为
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 计算格点数据 (Calculate grid data)
+    - **1** — 电子密度 (Electron density)
+    - **2** — 中等质量格点 (Medium-quality grid)
+    - **-1** — 可视化等值面 (Visualize isosurface) 然后把等值设为 0.005 a.u.，在图形界面窗口中显示的 OED 图即为
 
 <!-- p.1102 -->
 
@@ -602,7 +620,11 @@ Orb:    14 Ene(au/eV):     0.000000       0.0000 Occ: 0.023915 Type:A+B
 
 也可以计算原子对OED的贡献。返回主菜单后，依次输入以下命令
 
-15 // 模糊原子空间分析(Fuzzy atomic space analysis) 1 // 对实空间函数在模糊原子空间中做积分(Perform integration in fuzzy atomic spaces for a real space function) 1 // 电子密度(目前对应OED)(Electron density (corresponds to OED currently)) 然后可以看到
+!!! terminal "Multiwfn 交互"
+
+    - **15** — 模糊原子空间分析(Fuzzy atomic space analysis)
+    - **1** — 对实空间函数在模糊原子空间中做积分(Perform integration in fuzzy atomic spaces for a real space function)
+    - **1** — 电子密度(目前对应OED)(Electron density (corresponds to OED currently)) 然后可以看到
 
 
 ```text
@@ -627,7 +649,12 @@ Summing up absolute value of above values:          0.62855211
 
 值得注意的是，还可以绘制特定轨道贡献的OED。例如，我们想只绘制由10至13号自然轨道贡献的OED。在主功能6(main function 6)的子功能26(subfunction 26)中输入odd之后，还需要将其它所有轨道的占据数清零，即在子功能26(subfunction 26)中还需要再输入
 
-1-9 // 选择轨道1至9(Select orbitals 1 to 9) 0 // 将占据数设为0(Set occupation number to 0) 14-57 // 选择轨道14至57(Select orbitals 14 to 57) 0 // 将占据数设为0(Set occupation number to 0) 之后即可返回主菜单并像往常一样绘制电子密度。
+!!! terminal "Multiwfn 交互"
+
+    - **1-9** — 选择轨道1至9(Select orbitals 1 to 9)
+    - **0** — 将占据数设为0(Set occupation number to 0)
+    - **14-57** — 选择轨道14至57(Select orbitals 14 to 57)
+    - **0** — 将占据数设为0(Set occupation number to 0) 之后即可返回主菜单并像往常一样绘制电子密度。
 
 开壳层体系OED的计算：C4H8双自由基 为了说明OED在表现双自由基未成对电子分布方面的价值，下面我们将以非限制M06-2X水平绘制典型的双自由基体系C4H8的OED。在这种情况下，需要做非限制开壳层计算，并使用guess=mix关键词以得到破对称态。此外，必须指定pop=no out=wfn，以便通过混合alpha和beta密度矩阵并随后对角化来产生空间自然轨道，再导出到.wfn文件。通过这种非限制DFT计算得到的自然轨道有时被称为非限制自然轨道(UNO)。用于产生.wfn文件的Gaussian输入文件为examples\C4H8-UNO.gjf，得到的.wfn文件为examples\C4H8-UNO.wfn。请用此文件像上面的例子一样绘制OED，等值面图(等值面数值为0.02 a.u.)应如下所示。可以看到其分布特征与自旋密度颇为相似，只是不能用正负号区分alpha和beta自旋。
 
@@ -674,7 +701,11 @@ $$\rho^{\mathrm{F O D}}(\mathbf{r})=\sum_{i}(\delta_{1}-\delta_{2}\eta_{i})\left
 
 首先，我们绘制FOD等值面图。将`settings.ini`中的“iuserfunc”设为90，然后启动Multiwfn并载入examples\HNO2_FOD.molden.input，再输入
 
-5 // 计算格点数据(Calculate grid data) 100 // 自定义函数(目前对应FOD)(User-defined function, which corresponds to FOD now) 2 // 中等质量格点(Medium-quality grid) 此时从屏幕上可以看到以下信息，表明用均匀格点在全空间对FOD积分的结果为0.139，这就是NFOD指标。HNO2的NFOD不大(丰富实例见Chem. Eur. J., 23, 6150 (2017))，表明HNO2没有明显的静态相关。
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 计算格点数据(Calculate grid data)
+    - **100** — 自定义函数(目前对应FOD)(User-defined function, which corresponds to FOD now)
+    - **2** — 中等质量格点(Medium-quality grid) 此时从屏幕上可以看到以下信息，表明用均匀格点在全空间对FOD积分的结果为0.139，这就是NFOD指标。HNO2的NFOD不大(丰富实例见Chem. Eur. J., 23, 6150 (2017))，表明HNO2没有明显的静态相关。
 
 
 ```text
@@ -735,7 +766,13 @@ Population of each type of angular moment orbitals:
 
 实例 作为例子，我们来绘制OC-BH3的IT。将`settings.ini`中的"iuserfunc"设为87，然后启动Multiwfn并输入
 
-examples\COBH3_CCSD.wfn // 含CCSD/def2-SVP自然轨道的波函数文件(Wavefunction file containing CCSD/def2-SVP natural orbitals) 5 // 格点数据计算(Grid data calculation) 100 // 自定义函数(目前对应IT)(User-defined function, currently corresponding to IT) 2 // 中等质量格点(Medium-quality grid) -1 // 可视化等值面(Visualize isosurface) 将等值面数值设为0.013，然后将看到
+!!! terminal "Multiwfn 交互"
+
+    - **examples\COBH3_CCSD.wfn** — 含CCSD/def2-SVP自然轨道的波函数文件(Wavefunction file containing CCSD/def2-SVP natural orbitals)
+    - **5** — 格点数据计算(Grid data calculation)
+    - **100** — 自定义函数(目前对应IT)(User-defined function, currently corresponding to IT)
+    - **2** — 中等质量格点(Medium-quality grid)
+    - **-1** — 可视化等值面(Visualize isosurface) 将等值面数值设为0.013，然后将看到
 
 
 <!-- p.1107 -->
@@ -750,7 +787,11 @@ examples\COBH3_CCSD.wfn // 含CCSD/def2-SVP自然轨道的波函数文件(Wavefu
 
 使用主功能100(main function 100)的子功能4(subfunction 4)，你可以在全空间对局域电子相关函数积分，结果表明整个体系电子相关的大小。例如，我们返回主菜单并输入
 
-100 // 其它功能(第一部分)(Other function (Part 1)) 4 // 对实空间函数在全空间积分(Integrate a real space function over the whole space) 100 // 自定义函数(目前对应IT)(User-defined function, currently corresponding to IT) 结果即所谓的总相关指标，为1.576。对动态和非动态电子相关函数重复此计算，会发现所得指标分别为1.267和0.309。显然，对OC-BH3体系动态相关主导了总的相关效应。
+!!! terminal "Multiwfn 交互"
+
+    - **100** — 其它功能(第一部分)(Other function (Part 1))
+    - **4** — 对实空间函数在全空间积分(Integrate a real space function over the whole space)
+    - **100** — 自定义函数(目前对应IT)(User-defined function, currently corresponding to IT) 结果即所谓的总相关指标，为1.576。对动态和非动态电子相关函数重复此计算，会发现所得指标分别为1.267和0.309。显然，对OC-BH3体系动态相关主导了总的相关效应。
 
 一次性方便地计算所有电子相关指标 总、动态和非动态相关指标也可以通过主功能200(main function 200)的子功能15(subfunction 15)计算，这要快得多，也方便得多。仍以COBH3_CCSD.wfn为例，我们进入主功能200(main function 200)再选择子功能15(subfunction 15)，会立即看到以下输出，结果与我们前面手动得到的一模一样
 
@@ -972,7 +1013,14 @@ ESP拟合电荷的计算方式几乎完全相同，唯一区别在于应忽略�
 
 首先，运行Gaussian输入文件examples\4-Nitroaniline_TrESP.gjf，关键词PBE1PBE/6-31g(d) TD density=transition=2 out=wfn意味着将在TD-PBE0/6-31G(d)水平产生基态(S0)到S2的跃迁密度，然后自动对角化得到相应自然轨道，最终保存到指定的.wfn文件。若你感到困惑或手头没有Gaussian，可直接从http://sobereva.com/multiwfn/extrafiles/TrEsp.zip下载相关文件
 
-启动Multiwfn并输入S0S2.wfn // 上述过程产生的.wfn文件。可在TrEsp.zip中找到(Can be found in the TrEsp.zip) 7 // 布居分析(Population analysis) 12 // CHELPG拟合方法(也可用MK或RESP方法代替)(CHELPG fitting method (you can also use MK or RESP method instead)) 5 // 选择ESP形式(Choose form of ESP) 3 // 跃迁电子(即专门用于计算TrEsp的ESP)(Transition electronic (i.e. the ESP specific for evaluating TrEsp)) 1 // 开始计算(Start calculation) 即使中等大小体系ESP的计算也很耗时，需要耐心等待。最后，TrEsp电荷显示在屏幕上：
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入S0S2.wfn** — 上述过程产生的.wfn文件。可在TrEsp.zip中找到(Can be found in the TrEsp.zip)
+    - **7** — 布居分析(Population analysis)
+    - **12** — CHELPG拟合方法(也可用MK或RESP方法代替)(CHELPG fitting method (you can also use MK or RESP method instead))
+    - **5** — 选择ESP形式(Choose form of ESP)
+    - **3** — 跃迁电子(即专门用于计算TrEsp的ESP)(Transition electronic (i.e. the ESP specific for evaluating TrEsp))
+    - **1** — 开始计算(Start calculation) 即使中等大小体系ESP的计算也很耗时，需要耐心等待。最后，TrEsp电荷显示在屏幕上：
 
 
 ```text
@@ -1005,9 +1053,23 @@ ESP拟合电荷的计算方式几乎完全相同，唯一区别在于应忽略�
 
 由于cubegen基于.fch/fchk文件中的密度矩阵信息计算ESP，我们必须先产生TDM并存入.fch文件，3.21.9节提到的功能可做到这一点。我们首先在Gaussian中用PBE1PBE/6-31g(d) TD IOp(9/40=4)关键词做电子激发计算并同时保留.fch文件，4-硝基苯胺的相应文件为前述TrEsp.zip包中的4-Nitroaniline_IOp.gjf、4-Nitroaniline_IOp.out和4-Nitroaniline.fchk。
 
-启动Multiwfn并输入4-Nitroaniline.fchk 18 // 电子激发分析(Electron excitation analysis) 9 // 产生并导出TDM(Generate and export TDM) 1 // 产生基态与激发态之间的TDM(Generate TDM between ground state and excited state) 4-Nitroaniline_IOp.out 2 // 产生S0与S2之间的TDM(Generate TDM between S0 and S2) y // 以通常方式对称化所得TDM，即TDMi,j=(TDMi,j+TDMj,i)/2(Symmetrize the resulting TDM in usual way, namely TDMi,j=(TDMi,j+TDMj,i)/2) y // 导出TDM.fch，其密度矩阵场对应于刚产生的TDM(Export TDM.fch, whose density matrix field corresponds to the just generated TDM) 请确认`settings.ini`中的"cubegenpath"参数已设为Gaussian文件夹中cubegen工具的实际路径，然后重启Multiwfn并输入
+启动Multiwfn并输入4-Nitroaniline.fchk 18 // 电子激发分析(Electron excitation analysis)
 
-TDM.fch 7 // 布居分析(Population analysis) 12 // CHELPG拟合方法(CHELPG fitting method) 5 // 选择ESP形式(Choose form of ESP) 3 // 专门用于计算TrEsp的ESP类型(The ESP type specific for evaluating TrEsp) 1 // 开始计算(Start calculation) TrESP电荷会立即显示在屏幕上。不需要再把所得电荷手动除以√2，因为Multiwfn产生的TDM已经以正确方式对称化。
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 产生并导出TDM(Generate and export TDM)
+    - **1** — 产生基态与激发态之间的TDM(Generate TDM between ground state and excited state) 4-Nitroaniline_IOp.out
+    - **2** — 产生S0与S2之间的TDM(Generate TDM between S0 and S2) y
+
+导出TDM.fch，其密度矩阵场对应于刚产生的TDM(Export TDM.fch, whose density matrix field corresponds to the just generated TDM) 请确认`settings.ini`中的"cubegenpath"参数已设为Gaussian文件夹中cubegen工具的实际路径，然后重启Multiwfn并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **TDM.fch 7** — 布居分析(Population analysis)
+    - **12** — CHELPG拟合方法(CHELPG fitting method)
+    - **5** — 选择ESP形式(Choose form of ESP)
+    - **3** — 专门用于计算TrEsp的ESP类型(The ESP type specific for evaluating TrEsp)
+    - **1** — 开始计算(Start calculation) TrESP电荷会立即显示在屏幕上。不需要再把所得电荷手动除以√2，因为Multiwfn产生的TDM已经以正确方式对称化。
 
 值得注意的是，若想验证拟合的TrEsp电荷是否合理，可比较由这些电荷算出的电偶极矩与Gaussian(或其它量子化学程序)打印的跃迁电偶极矩。众所周知ESP拟合电荷能很好地复现电偶极矩，通常TrEsp电荷也能很好地复现实际的电跃迁偶极矩。
 
@@ -1055,7 +1117,17 @@ Ground to excited state transition electric dipole moments (Au):
 
 此文件将用于RESP模块。7~10是氢原子的序号，0意味着拟合时其电荷将被约束为零。
 
-启动Multiwfn并输入S0S2.wfn // 我们之前用过的.wfn文件(The .wfn file we previously used) 7 // 布居分析(Population analysis) 18 // RESP模块(RESP module) 11 // 选择ESP形式(Choose form of ESP) 3 // 跃迁电子(Transition electronic) 6 // 在单阶段拟合中设置电荷约束(Set charge constraint in one-stage fitting) 1 // 从外部纯文本文件载入电荷约束设置(Load charge constraint setting from external plain text file) chgcons.txt // 含电荷约束的文件(The file containing charge constraint) 2 // 开始带自定义约束的单阶段ESP拟合计算。默认拟合格点为MK(也可用选项3换成CHELPG)(Start one-stage ESP fitting calculation with customized constraint. The default fitting grid is MK (you can also change to CHELPG by option 3))
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入S0S2.wfn** — 我们之前用过的.wfn文件(The .wfn file we previously used)
+    - **7** — 布居分析(Population analysis)
+    - **18** — RESP模块(RESP module)
+    - **11** — 选择ESP形式(Choose form of ESP)
+    - **3** — 跃迁电子(Transition electronic)
+    - **6** — 在单阶段拟合中设置电荷约束(Set charge constraint in one-stage fitting)
+    - **1** — 从外部纯文本文件载入电荷约束设置(Load charge constraint setting from external plain text file) chgcons.txt
+
+开始带自定义约束的单阶段ESP拟合计算。默认拟合格点为MK(也可用选项3换成CHELPG)(Start one-stage ESP fitting calculation with customized constraint. The default fitting grid is MK (you can also change to CHELPG by option 3))
 
 结果为
 
@@ -1119,7 +1191,14 @@ $$V_{aa^{\prime},bb^{\prime}}^{A,B}\approx\sum_{I\in A}\sum_{J\in B}\frac{q_{a,a
 
 (1) 按原子电荷给原子着色 首先，我说明如何用这种方式生动表现聚炔的原子电荷。此体系在4.13.6节也涉及过。
 
-第一步是计算原子电荷。启动Multiwfn并输入以下命令：examples\polyyne.wfn 7 // 布居分析(Population analysis) 11 // ADCH电荷(一般推荐此种电荷)(ADCH charge (this type of charge is generally recommended)) 1 y // 把原子坐标和原子电荷导出到当前文件夹的polyyne.chg(Export atomic coordinates and atomic charges to polyyne.chg in current folder) 现在重启Multiwfn，再输入polyyne.chg 100 // 其它功能(第一部分)(Other functions (Part 1)) 2 // 导出新文件(Export new file) 1 // 新文件格式为.pqr(The format of the new file is .pqr) polyyne.pqr 现在当前文件夹中有polyyne.pqr。.pqr格式与流行的.pdb格式很相似，主要区别在于.pqr格式中最后两列专门记录原子电荷和原子半径。在当前文件中，原子电荷对应于聚炔ADCH电荷，而原子半径对应于Bondi范德华半径。
+第一步是计算原子电荷。启动Multiwfn并输入以下命令：examples\polyyne.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 布居分析(Population analysis)
+    - **11** — ADCH电荷(一般推荐此种电荷)(ADCH charge (this type of charge is generally recommended)) 1 y
+
+其它功能(第一部分)(Other functions (Part 1)) 2 // 导出新文件(Export new file) 1 // 新文件格式为.pqr(The format of the new file is .pqr) polyyne.pqr 现在当前文件夹中有polyyne.pqr。.pqr格式与流行的.pdb格式很相似，主要区别在于.pqr格式中最后两列专门记录原子电荷和原子半径。在当前文件中，原子电荷对应于聚炔ADCH电荷，而原子半径对应于Bondi范德华半径。
 
 .pqr文件可被VMD识别。我们启动VMD，再把polyyne.pqr拖入VMD主窗口载入。之后，修改绘图设置：
 
@@ -1142,9 +1221,21 @@ $$V_{aa^{\prime},bb^{\prime}}^{A,B}\approx\sum_{I\in A}\sum_{J\in B}\frac{q_{a,a
 
 (2) 按原子对分子轨道的贡献给原子着色 原子着色法不仅能用于展示原子电荷，还可用于展示其它原子性质。作为例子，我说明如何用给原子着色表示原子对分子轨道的贡献，以examples\N-phenylpyrrole.fch为例分子。
 
-首先，我们计算一个轨道的轨道组成。启动Multiwfn并输入examples\N-phenylpyrrole.fch 8 // 轨道组成(Orbital composition) 3 // SCPA方法(SCPA method) 36 // 选择MO 36为例(Select MO 36 as example) 然后我们用5.4节所述方法把Multiwfn窗口中的所有原子贡献复制到文本文件。
+首先，我们计算一个轨道的轨道组成。启动Multiwfn并输入examples\N-phenylpyrrole.fch
 
-0 // 返回(Return) -10 // 返回主菜单(Return to main menu) 100 // 其它功能(第一部分)(Other functions (Part 1)) 2 // 导出新文件(Export new file) 2 // 新文件格式为xyz，因为.xyz与.chg很相似(The format of the new file is xyz, because .xyz is very similar to .chg) N-phenylpyrrole.chg // 新文件名(Name of the new file) 现在用你喜欢的文本编辑器(推荐Ultraedit)手动修改N-phenylpyrrole.chg，删除前两行，并用列模式把轨道组成复制到最后一列，再保存文件。最后，N-phenylpyrrole.chg的内容应为
+!!! terminal "Multiwfn 交互"
+
+    - **8** — 轨道组成(Orbital composition)
+    - **3** — SCPA方法(SCPA method)
+    - **36** — 选择MO 36为例(Select MO 36 as example) 然后我们用5.4节所述方法把Multiwfn窗口中的所有原子贡献复制到文本文件。
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回(Return)
+    - **-10** — 返回主菜单(Return to main menu)
+    - **100** — 其它功能(第一部分)(Other functions (Part 1))
+    - **2** — 导出新文件(Export new file)
+    - **2** — 新文件格式为xyz，因为.xyz与.chg很相似(The format of the new file is xyz, because .xyz is very similar to .chg) N-phenylpyrrole.chg
 
 
 ```text
@@ -1700,7 +1791,12 @@ cub2iso 0.02：将两个等值面的等值都改为 0.02。cub2 f+ f- 0.02：相
 
 图。为此，启动 Multiwfn 并输入
 
-examples\excit\D-pi-A.fchk 18 // 电子激发分析 1 // 空穴-电子分析 examples\excit\D-pi-A.out 2 // 研究基态（S0）与第二激发态（S2）之间的激发 1 // 计算空穴、电子等的分布以及各种指数 3 // 高质量格点 计算完成后，依次选择选项 10 和 11，将空穴和电子的格点数据分别导出为当前文件夹中的 hole.cub 和 electron.cub。然后将它们移动到 VMD 文件夹，启动 VMD 并输入 cub2 electron hole。你会发现没有显示等值面，这是因为默认等值（0.05）不适合该格点数据。我们用 cub2 命令测试不同的等值，最终发现输入 cub2 0.005 后图形效果令人满意，即等值面能充分表现空穴和电子的分布特征。当前 VMD 图形窗口中显示的图形如下所示，绿色和蓝色分别对应电子和空穴。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\excit\D-pi-A.fchk 18** — 电子激发分析 1
+    - **空穴-电子分析 examples\excit\D-pi-A.out 2** — 研究基态（S0）与第二激发态（S2）之间的激发
+    - **1** — 计算空穴、电子等的分布以及各种指数
+    - **3** — 高质量格点 计算完成后，依次选择选项 10 和 11，将空穴和电子的格点数据分别导出为当前文件夹中的 hole.cub 和 electron.cub。然后将它们移动到 VMD 文件夹，启动 VMD 并输入 cub2 electron hole。你会发现没有显示等值面，这是因为默认等值（0.05）不适合该格点数据。我们用 cub2 命令测试不同的等值，最终发现输入 cub2 0.005 后图形效果令人满意，即等值面能充分表现空穴和电子的分布特征。当前 VMD 图形窗口中显示的图形如下所示，绿色和蓝色分别对应电子和空穴。
 
 
 ![](../imgs/p1140_616.png)

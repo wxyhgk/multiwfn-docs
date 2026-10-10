@@ -79,9 +79,18 @@ Perform analysis Now, we start to perform the EDA-FF analysis. Copy the water.tx
 
 dimer.mol // The file containing dimer structure information (you can also use other formats containing the geometry information as input file, such as the .fch file produced during optimization task of the dimer)
 
-21 // Energy decomposition analysis 1 // Energy decomposition analysis based on forcefield 3 // Load atom types and atomic charges mollist.txt // The actual path of the molecular list file. At this point, the program read atom types and charges from the water.txt and assign them to the two water molecules in the current system
+!!! terminal "Multiwfn session"
 
-2 // Define fragments 2 // Two fragments will be defined 1-3 // The atomic indices of the fragment 1 4-6 // The atomic indices of the fragment 2 If you want to check if atom types and charges of all atoms in current system have been set up properly, you can choose option 4, the output is
+    - **21** — Energy decomposition analysis
+    - **1** — Energy decomposition analysis based on forcefield
+    - **3** — Load atom types and atomic charges mollist.txt
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Define fragments
+    - **2** — Two fragments will be defined
+    - **1-3** — The atomic indices of the fragment 1
+    - **4-6** — The atomic indices of the fragment 2 If you want to check if atom types and charges of all atoms in current system have been set up properly, you can choose option 4, the output is
 
 
 ```text
@@ -126,7 +135,7 @@ The units in the output are all kJ/mol. The above information shows that the tot
 
 In the original text of the S66 test set, the ratio of the dispersion interaction energy to the electrostatic interaction energy of water dimer given by the very ideal DFT-SAPT method is 0.29, which is qualitatively consistent with the value yielded by EDA-FF (4.43/21.15=0.21). Therefore, with the very simple water dimer as instance, it can be seen that as long as the choice of forcefield and atomic charges are suitable, the result of EDA-FF is generally reliable. For some systems, the total interaction energy calculated by forcefield is not quite close to that evaluated by reliable quantum chemistry method, but even so, in general the ratio between various physical components provided by the EDA-FF is still meaningful. In my view of point, it is not a bad idea to
 
-approximately estimate electrostatic interaction energy (ΔEele) via multiplying the total interaction energy (ΔEtot) obtained using quantum chemistry method by the ratio of the ΔEele and ΔEtot that evaluated by proper forcefield.
+approximately estimate electrostatic interaction energy ($\Delta E^{ele}$) via multiplying the total interaction energy (ΔEtot) obtained using quantum chemistry method by the ratio of the ΔEele and ΔEtot that evaluated by proper forcefield.
 
 The above output also shows contribution of each atom to the total interaction between all the defined fragments, so that you can easily recognize which atoms have a critical impact on the interfragment interaction. The sum of all atomic contributions is equal to the total interaction energy (if the system only has two atoms A and B, and each one is defined as a fragment, then the contribution of atom A will be half of the interaction energy between A-B). From the data given above, it can be seen that influence of each atom is not negligible. After all, the distance between the atoms in the system is not far. The most important contribution to the attraction is the electrostatic interaction of the O4 atom (-23.52 kJ/mol), this result is easy to understand since O4 is the acceptor atom of H-bond. The H3, which directly acts with O4 to form the H-bond, also contributes greatly to the binding (-16.87 kJ/mol) due to significant electrostatic effect. The data shows that only oxygen atoms have nonvanishing repulsion and dispersion terms, this is because the parameters of van der Waals potential of atom type HW is zero, hence HW atoms only behave as point charges to exhibit electrostatic effect.
 
@@ -197,7 +206,16 @@ C:\C3.txt 1
 
 Start analysis All preparation works have been completed, now we start the EDA-FF analysis. Boot up Multiwfn and input
 
-C3GC.pdb 21 // Energy decomposition analysis 1 // EDA-FF 3 // Load atom types and charges mollist.txt // Input actual path of mollist.txt 2 // Define fragments 3 // Three fragments will be defined 1-13 // Atom indices in fragment 1, namely cytosine (C) 14-29 // Atom indices in fragment 2, namely guanine (G) 30-101 // Atom indices in fragment 3, namely C3 Select option 1 to carry out the EDA-FF calculation, the results are as follows (atomic contribution part is ignored)
+!!! terminal "Multiwfn session"
+
+    - **C3GC.pdb 21** — Energy decomposition analysis
+    - **1** — EDA-FF 3
+    - **Load atom types and charges mollist.txt** — Input actual path of mollist.txt
+    - **2** — Define fragments
+    - **3** — Three fragments will be defined
+    - **1-13** — Atom indices in fragment 1, namely cytosine (C)
+    - **14-29** — Atom indices in fragment 2, namely guanine (G)
+    - **30-101** — Atom indices in fragment 3, namely C3 Select option 1 to carry out the EDA-FF calculation, the results are as follows (atomic contribution part is ignored)
 
 
 ```text
@@ -244,7 +262,13 @@ acts. Relatively white atoms only play trivial role on the trimer binding. As ca
 
 Assume that we want to vividly exhibit the dispersion interaction between C3 and GC base pair, then we input below commands in the EDA-FF interface
 
-2 // Redefine fragments 2 // Two fragments will be defined 1-29 // Fragment 1, the GC base pair 30-101 // Fragment 2, the C3 part 1 // Start the EDA-FF calculation Then the following information is shown on screen, the data equals the sum of C3-C and C3-G interaction energies
+!!! terminal "Multiwfn session"
+
+    - **2** — Redefine fragments
+    - **2** — Two fragments will be defined
+    - **1-29** — Fragment 1, the GC base pair
+    - **30-101** — Fragment 2, the C3 part
+    - **1** — Start the EDA-FF calculation Then the following information is shown on screen, the data equals the sum of C3-C and C3-G interaction energies
 
 
 ```text
@@ -261,13 +285,19 @@ In the above figure, the bluer the atomic color, the greater it contributes to t
 
 <!-- p.922 -->
 
-different. The hydrogen atoms in the GC pair contribute very little to the C3-GC dispersion interaction, this is because the hydrogen atoms only have very few numbers of electrons. On the C3 part, the color of the carbons that directly contact the GC pair is light blue, indicating their notable contributions to the dispersion interaction. The color of the C3 atoms that are far away from the GC pair is white, reflecting that their influences on dispersion interaction are negligible (recall the fact that dispersion attraction attenuates sharply with distance, it has 1/r6 asymptotic behavior).
+different. The hydrogen atoms in the GC pair contribute very little to the C3-GC dispersion interaction, this is because the hydrogen atoms only have very few numbers of electrons. On the C3 part, the color of the carbons that directly contact the GC pair is light blue, indicating their notable contributions to the dispersion interaction. The color of the C3 atoms that are far away from the GC pair is white, reflecting that their influences on dispersion interaction are negligible (recall the fact that dispersion attraction attenuates sharply with distance, it has 1/$1/r^6$ asymptotic behavior).
 
 Note: The heavy atoms in the GC pair in the graph above are very blue, while the atoms in the equivalent position of C3 are not so blue, the reason is that: Because there are many atoms in C3, each heavy atom in the GC pair can form dispersion interaction with a large range of C3 atoms, thus the sum of the terms is large. Since the number of atoms in the GC pair is small, each atom of C3 can only interact with relatively few numbers of atoms in the GC pair, so the sum of terms is not large. If you want to make atomic color of the C3 part more prominent, you can set the color scale range of the representation corresponding to the C3 part to a smaller value than the -10~10 we previously used; for example, changing to -6 to 6 will yield satisfactory graph.
 
 About determining binding energy of individual H-bond Some readers may have thought that it would be great if the binding energy of each of the three H-bonds between the G-C could be independently determined. There is no unique way to achieve this goal, since this is equivalent to dividing the system into parts and must not be free of artifacts. A seemingly easy way to realize this purpose is to directly define the donor and acceptor parts of a H-bond as two fragments. For example, let us examine the H-bond of N10-H13...O14, we input.
 
-2 // Redefine fragments 2 // Two fragments will be defined 10,13 // Atomic indices of donor part of N10-H13...O14 14 // Atomic index of acceptor part of N10-H13...O14 1 // Perform EDA-FF analysis The result is
+!!! terminal "Multiwfn session"
+
+    - **2** — Redefine fragments
+    - **2** — Two fragments will be defined
+    - **10,13** — Atomic indices of donor part of N10-H13...O14
+    - **14** — Atomic index of acceptor part of N10-H13...O14
+    - **1** — Perform EDA-FF analysis The result is
 
 
 ```text
@@ -342,15 +372,15 @@ The E_total is identical to the single point energy in the Gaussian output file.
 
 We repeat the analysis for eclipsed ethane, then summarize the data into the table below
 
-Etotal Esteric Eelectrostatic Equantum
+Etotal Esteric Eelectrostatic $E_{quantum}$
 
 Eclipsed (a.u.) -79.85972 64.21925 -146.10780 2.02883 Staggered (a.u.) -79.86398 64.21341 -146.11486 2.03747 Diff. (kJ/mol) 11.2 15.3 18.5 -22.7
 
 It can be seen that the eclipsed conformation has energy higher than the staggered one by 11.2 kJ/mol, which corresponds to the barrier of C-C single-bond rotation of the ethane. The data implies
 
-that steric effect should be one of the major contributors of the barrier since ΔEsteric is evidently positive. In addition, the fairly large ΔEelectrostatic=18.5 kJ/mol suggests that the electrostatic interaction is the dominating factor to determine the barrier height. In contrast, the variation of Equantum, which reflects the change in energy purely due to quantum effect, significantly cancels the steric and classical electrostatic terms and thus plays an important role of reducing the barrier.
+that steric effect should be one of the major contributors of the barrier since ΔEsteric is evidently positive. In addition, the fairly large $\Delta E_{\text{electrostatic}} = 18.5$=18.5 kJ/mol suggests that the electrostatic interaction is the dominating factor to determine the barrier height. In contrast, the variation of $E_{quantum}$, which reflects the change in energy purely due to quantum effect, significantly cancels the steric and classical electrostatic terms and thus plays an important role of reducing the barrier.
 
-As you can see on the screen, the EDA-SBL module also prints other intermediate quantities comprising the Esteric, Eelectrostatic and Equantum, such as Pauli kinetic energy, so you can use them to try to analyze the energy difference between the two conformations from more perspectives.
+As you can see on the screen, the EDA-SBL module also prints other intermediate quantities comprising the Esteric, Eelectrostatic and $E_{quantum}$, such as Pauli kinetic energy, so you can use them to try to analyze the energy difference between the two conformations from more perspectives.
 
 A thorough analysis using the EDA-SBL method for rotation barriers for a series of small organic molecules is presented in J. Phys. Chem. A, 117, 962 (2013), interested users are suggested to read it.
 
@@ -377,7 +407,12 @@ and dispersion density
 
 In this example, we examine which atoms have prominent contribution to dispersion energy of 6-helicene. Boot up Multiwfn and input
 
-examples\helicene.xyz // Structure file of 6-helicene 21 // Energy decomposition analysis 4 // Analysis of atomic contribution to dispersion energy 1 // Calculate atomic contributions to dispersion energy for current system Immediately, you will see the following information on screen, which contains total dispersion of present system, which corresponds to DFT-D3(BJ) dispersion correction energy with fitted parameters for B3LYP. Also, atomic contributions to dispersion energy are clearly given.
+!!! terminal "Multiwfn session"
+
+    - **examples\helicene.xyz** — Structure file of 6-helicene
+    - **21** — Energy decomposition analysis
+    - **4** — Analysis of atomic contribution to dispersion energy
+    - **1** — Calculate atomic contributions to dispersion energy for current system Immediately, you will see the following information on screen, which contains total dispersion of present system, which corresponds to DFT-D3(BJ) dispersion correction energy with fitted parameters for B3LYP. Also, atomic contributions to dispersion energy are clearly given.
 
 
 ```text
@@ -426,7 +461,11 @@ actos
 
 Actos is a flexible drug molecule, the xyz files of its curly and linear conformations have been provided in “examples” folder as Actos_curly.xyz and Actos_linear.xyz, respectively. In this section, we examine the change in the atomic contribution to the dispersion energy of the curly conformation relative to the linear conformation. Boot up Multiwfn and input
 
-examples\Actos_curly.xyz 21 // Energy decomposition analysis 4 // Analysis of atomic contribution to dispersion energy 3 // Calculate difference of atomic contributions to dispersion energy between current and another systems
+!!! terminal "Multiwfn session"
+
+    - **examples\Actos_curly.xyz 21** — Energy decomposition analysis
+    - **4** — Analysis of atomic contribution to dispersion energy
+    - **3** — Calculate difference of atomic contributions to dispersion energy between current and another systems
 
 [Press ENTER button] //All atoms in the present system (Actos_curly.xyz) are of interest examples\Actos_linear.xyz [Press ENTER button] //All atoms in Actos_curly.xyz are of interest From output on screen, you can find total dispersion energy of Actos_linear.xyz and Actos_curly.xyz is -57.553 kcal/mol and -69.757 kcal/mol, respectively. It is clear that dispersion interaction of the curly conformation is more significant. Also, the difference in the contribution of every atom to the dispersion energy of the two structures is printed on screen.
 
@@ -458,7 +497,13 @@ First, we perform analysis on zeolite-mol.cif and color atoms according to their
 
 The above figure does not directly show which atoms in the zeolite have the strongest dispersion interaction with the toluene. To clearly study this point, we need to find the difference between the contribution of the zeolite atoms (atoms 1-216) in the zeolite-mol.cif system to its dispersion energy and the contribution of the atoms in the zeolite.cif system to its dispersion energy. This will be done below.
 
-Boot up Multiwfn and input examples\zeolite-mol.cif 21 // Energy decomposition analysis 4 // Analysis of atomic contribution to dispersion energy 3 // Calculate difference of atomic contributions to dispersion energy between current and another systems
+Boot up Multiwfn and input examples\zeolite-mol.cif
+
+!!! terminal "Multiwfn session"
+
+    - **21** — Energy decomposition analysis
+    - **4** — Analysis of atomic contribution to dispersion energy
+    - **3** — Calculate difference of atomic contributions to dispersion energy between current and another systems
 
 1-216 // The atoms of interest are those of the zeolite moiety (first 216 atoms) in the current system (zeolite-mol.cif)
 
@@ -471,7 +516,7 @@ y // Export diffatomdisp.pqr in current folder Load the diffatomdisp.pqr into VM
 
 <!-- p.930 -->
 
-The adsorbed toluene is fully white in the picture above because it is not within the atomic range of interest in the zeolite-mol.cif we defined earlier, so its data is completely zero. The pink or red atoms in the figure suggest that the dispersion energy contributed by the zeolite atoms closer to the toluene changed greatly due to the adsorption. Since the structure of the zeolite moiety in zeolite-mol.cif is the same as zeolite.cif, therefore, the atom colors in the above figure completely reflect the dispersion interaction between the zeolite atoms and the toluene. It can be seen from the figure that the dispersion interaction decays very quickly with distance (known to be 1/r6 decay behavior). Basically, only the zeolite atoms in the closest layer to the toluene have a significant dispersion interaction with it.
+The adsorbed toluene is fully white in the picture above because it is not within the atomic range of interest in the zeolite-mol.cif we defined earlier, so its data is completely zero. The pink or red atoms in the figure suggest that the dispersion energy contributed by the zeolite atoms closer to the toluene changed greatly due to the adsorption. Since the structure of the zeolite moiety in zeolite-mol.cif is the same as zeolite.cif, therefore, the atom colors in the above figure completely reflect the dispersion interaction between the zeolite atoms and the toluene. It can be seen from the figure that the dispersion interaction decays very quickly with distance (known to be 1/$1/r^6$ decay behavior). Basically, only the zeolite atoms in the closest layer to the toluene have a significant dispersion interaction with it.
 
 The above figure can be changed to the following map, which shows the atoms of zeolite that interact prominently with toluene much more clearly. Specifically, in VMD, three Reps should be created in “Graphics” - “Representation” interface
 

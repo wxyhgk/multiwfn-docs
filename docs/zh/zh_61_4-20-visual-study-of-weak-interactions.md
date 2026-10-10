@@ -24,7 +24,13 @@
 
 2-pyridoxine 2-aminopyridine 体系中的弱相互作用特征已在 4.2.1 节中使用 AIM 理论进行了研究，在本节中我们也对其进行 NCI 分析，同时我将展示如何将填色 RDG 图和 AIM 拓扑图绘制在同一张图上。
 
-启动 Multiwfn 并输入 examples\2-pyridoxine_2-aminopyridine.wfn 20 // 弱相互作用可视化研究(Visual study of weak interaction) 1 // NCI 分析(NCI analysis) 2 // 中等质量格点(Medium-quality grid) 稍后，格点数据计算完成。然后您可以选择 -1 以可视化散点图，从中可以初步考察体系中的相互作用。
+启动 Multiwfn 并输入 examples\2-pyridoxine_2-aminopyridine.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用可视化研究(Visual study of weak interaction)
+    - **1** — NCI 分析(NCI analysis)
+    - **2** — 中等质量格点(Medium-quality grid) 稍后，格点数据计算完成。然后您可以选择 -1 以可视化散点图，从中可以初步考察体系中的相互作用。
 
 
 ![](../imgs/p873_406.png)
@@ -52,7 +58,17 @@ $$sign(\lambda_2)\rho$$
 <!-- p.875 -->
 
 
-2 // 拓扑分析(Topology analysis) 2 // 搜索核 CP(Search nuclear CPs) 3 // 搜索键 CP(Search bond CPs) 8 // 生成键径(Generate bond path) -4 // 修改或导出 CP(Modify or export CPs) 6 // 将 CP 导出为当前文件夹下的 CPs.pdb(Export CPs as CPs.pdb in current folder) 0 // 返回(Return) -5 // 修改或打印细节或导出路径(Modify or print detail or export paths) 6 // 将路径导出为当前文件夹下的 paths.pdb(Export paths as paths.pdb in current folder) 然后我们关闭 Multiwfn。依次将 CPs.pdb 和 paths.pdb 拖入 VMD 主窗口以加载它们，选择“Graphics”-“Representation”，将“Selected molecules”改为第二项（对应于 CPs.pdb），将“Drawing Method”改为“VDW”，并将“Sphere Scale”从默认值 1.0 设为最小值 0.1。注意在 CPs.pdb 文件中，C、N、O、F 原子分别对应于 (3,-3)、(3,-1)、(3,+1)、(3,+3)。这里我们只想在图上用黄色绘制键 CP（即 (3,-1) 类型的 CP），因此在“Selected Atoms”文本框中输入“nitrogen”并按 ENTER 键，然后将“Coloring Method”改为“Color ID”，并在下拉框中选择“4 yellow”。目前，图形如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 拓扑分析(Topology analysis)
+    - **2** — 搜索核 CP(Search nuclear CPs)
+    - **3** — 搜索键 CP(Search bond CPs)
+    - **8** — 生成键径(Generate bond path)
+    - **-4** — 修改或导出 CP(Modify or export CPs)
+    - **6** — 将 CP 导出为当前文件夹下的 CPs.pdb(Export CPs as CPs.pdb in current folder)
+    - **0** — 返回(Return)
+    - **-5** — 修改或打印细节或导出路径(Modify or print detail or export paths)
+    - **6** — 将路径导出为当前文件夹下的 paths.pdb(Export paths as paths.pdb in current folder) 然后我们关闭 Multiwfn。依次将 CPs.pdb 和 paths.pdb 拖入 VMD 主窗口以加载它们，选择“Graphics”-“Representation”，将“Selected molecules”改为第二项（对应于 CPs.pdb），将“Drawing Method”改为“VDW”，并将“Sphere Scale”从默认值 1.0 设为最小值 0.1。注意在 CPs.pdb 文件中，C、N、O、F 原子分别对应于 (3,-3)、(3,-1)、(3,+1)、(3,+3)。这里我们只想在图上用黄色绘制键 CP（即 (3,-1) 类型的 CP），因此在“Selected Atoms”文本框中输入“nitrogen”并按 ENTER 键，然后将“Coloring Method”改为“Color ID”，并在下拉框中选择“4 yellow”。目前，图形如下所示
 
 您可能觉得对应于 CP 的球太大，然而由于 VMD 的限制，我们无法通过图形窗口进一步减小“Sphere Scale”。为了使球更小，必须在 VMD 控制台窗口中使用相应的命令。为了找到执行此操作的合适命令，我们选择“File”-“Log Tcl Commands to Console”，然后将“Sphere Scale”改为其他值（例如 0.2），您将立即在 VMD 控制台窗口中看到相应的文本行命令，当前该命令为 mol modstyle 0 1 VDW 0.200000 12.000000，其中参数 0.2 对应于球的大小。因此，要将球尺寸减小到例如 0.09，我们应在控制台窗口中输入 mol modstyle 0 1 VDW 0.09 12.000000，然后在 VMD 图形窗口中您将看到球已经变小。
 
@@ -84,7 +100,12 @@ $$sign(\lambda_2)\rho$$
 <!-- p.877 -->
 
 
-启动 Multiwfn 并输入：examples\DNA.pdb 20 // 弱相互作用可视化研究(Visual study of weak interaction) 2 // 基于前分子密度的 NCI 分析(NCI analysis based on promolecular density) 7 // 使用模式 7 定义格点数据(Use mode 7 for defining grid data) 84,565 // 使用原子 84 和 565 的中点作为格点数据的中心(Use midpoint of atom 84 and 565 as center of grid data)。您可以在您喜欢的可视化工具中查看分子结构，以找到用于定义中心的两个合适原子
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入：examples\DNA.pdb 20** — 弱相互作用可视化研究(Visual study of weak interaction)
+    - **2** — 基于前分子密度的 NCI 分析(NCI analysis based on promolecular density)
+    - **7** — 使用模式 7 定义格点数据(Use mode 7 for defining grid data)
+    - **84,565** — 使用原子 84 和 565 的中点作为格点数据的中心(Use midpoint of atom 84 and 565 as center of grid data)。您可以在您喜欢的可视化工具中查看分子结构，以找到用于定义中心的两个合适原子
 
 120,120,120 // 由于格点数据的空间范围较大，我们需要相对较多的格点数目，否则格点间距会太大，导致 RDG 等值面质量很差(Because the spatial scope of grid data is large, we need relatively large number of grid points, otherwise the grid spacing will be too large, which results in bad quality of RDG isosurfaces)
 
@@ -182,7 +203,12 @@ sign(λ2)ρ。整个过程耗时；在常见的 Intel 4 核计算机上约需半
 
 然后启动 Multiwfn 并输入 avgRDG.cub 13 // 处理格点数据(Process grid data) 13 // 设置远离特定原子的格点的值(Set the value of the grid points far away from specific atoms) 1.5 // 如果一个格点与任何所选原子之间的距离大于相应原子 vdW 半径的 1.5 倍，则该格点的值将被设为给定值(If the distance between a grid point and any selected atoms is longer than 1.5 times of vdW radius of corresponding atom, then the value of the grid point will be set as given value)
 
-100 // 任意大的值（应大于 RDG 等值面的等值）(An arbitrarily large value (should be larger than the isovalue of the RDG isosurfaces)) 2 // 手动输入所选原子(Inputting selected atoms by hand) 301-303 // 原子的序号为 301、302 和 303(The indices of the atoms are 301, 302 and 303) 0 // 将更新后的格点数据导出为新的 cube 文件(Export the updated grid data to a new cube file) avgRDG.cub // 新 cube 文件的名称(The name of the new cube file) 将新生成的 avgRDG.cub 复制到 VMD 程序的文件夹以覆盖旧文件，然后再次使用脚本 avgRDG.vmd 绘制图形，经过一些调整后您将看到（为清楚起见，同时显示了两侧的视图）
+!!! terminal "Multiwfn 交互"
+
+    - **100** — 任意大的值（应大于 RDG 等值面的等值）(An arbitrarily large value (should be larger than the isovalue of the RDG isosurfaces))
+    - **2** — 手动输入所选原子(Inputting selected atoms by hand)
+    - **301-303** — 原子的序号为 301、302 和 303(The indices of the atoms are 301, 302 and 303)
+    - **0** — 将更新后的格点数据导出为新的 cube 文件(Export the updated grid data to a new cube file) avgRDG.cub
 
 这次我们获得的图形非常清晰。颜色标尺从 -0.25 到 0.25，对应于蓝-绿-红的颜色变化。越蓝表示相应区域中的静电相互作用或氢键效应越强，越红表示空间位阻效应越强。绿色区域意味着低电子密度，对应于 vdW 相互作用。从图中可看出，在两个氢附近有两个蓝色椭圆，表明在 MD 过程中，由于 O-H 基团形成了强氢键。细长的绿色等值面展示了该水倾向于通过 vdW 相互作用与其他水相互作用的方向。在氧的上方有一大块等值面，其中间部分出现红色，而两端出现蓝色；后者反映了在模拟过程中氧的两对孤对作为氢键受体，而前者揭示了水之间的排斥相互作用区。
 
@@ -229,7 +255,14 @@ IRI（相互作用区域指示符，Interaction Region Indicator）由我在 Che
 
 绘制 sign(λ2)ρ 着色的 IRI 等值面 这里以苯酚二聚体为例。您会发现几乎所有步骤都与 3.23.1 节中描述的 NCI 分析相同。
 
-启动 Multiwfn 并输入 examples\PhenolDimer.wfn 20 // 弱相互作用可视化研究(Visual study of weak interaction) 4 // IRI 分析(IRI analysis) 3 // 高质量格点(High-quality grid) 3 // 导出 cube 文件(Export cube file) 将 func1.cub、func2.cub 和绘图脚本 examples\IRIfill.vmd 移动到 VMD 文件夹。然后启动 VMD 并在 VMD 控制台窗口中输入 source IRIfill.vmd 以执行该脚本，您将立即看到下图（在“Graphics”－“Representation”中原子的球尺寸已减小到 0.6）。
+启动 Multiwfn 并输入 examples\PhenolDimer.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用可视化研究(Visual study of weak interaction)
+    - **4** — IRI 分析(IRI analysis)
+    - **3** — 高质量格点(High-quality grid)
+    - **3** — 导出 cube 文件(Export cube file) 将 func1.cub、func2.cub 和绘图脚本 examples\IRIfill.vmd 移动到 VMD 文件夹。然后启动 VMD 并在 VMD 控制台窗口中输入 source IRIfill.vmd 以执行该脚本，您将立即看到下图（在“Graphics”－“Representation”中原子的球尺寸已减小到 0.6）。
 
 
 ![](../imgs/p884_419.png)
@@ -285,7 +318,12 @@ set xtic  -0.5,0.1,0.3 nomirror rotate font "Helvetica"
 
 平面。下面我将说明如何对 examples\GC.wfn（一个碱基对二聚体）实现这一点。
 
-启动 Multiwfn 并输入 examples\GC.wfn 4 // 绘制平面图(Plot plane map) 24 // IRI 1 // 填色图(Color-filled map) [按 ENTER 键(Press ENTER button)] // 使用默认格点数(Use default number of grids) 0 // 修改延伸距离(Modify extension distance) 1 // 1 Bohr 1 // XY 平面，即所有原子所在的平面(XY plane, which is the plane all atoms are) 0 // Z=0 关闭图形然后输入 19 // 设置颜色过渡(Set color transition) 2 // 反转彩虹(Reversed rainbow) 4 // 显示原子标签和参考点(Enable showing atom labels and reference point) 1 // 红色(Red) 8 // 显示键(Enable showing bonds) 14 // 棕色(Brown) -1 // 重新绘制(Plot again) 现在您可以看到下图
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\GC.wfn 4** — 绘制平面图(Plot plane map)
+    - **24** — IRI 1
+
+使用默认格点数(Use default number of grids) 0 // 修改延伸距离(Modify extension distance) 1 // 1 Bohr 1 // XY 平面，即所有原子所在的平面(XY plane, which is the plane all atoms are) 0 // Z=0 关闭图形然后输入 19 // 设置颜色过渡(Set color transition) 2 // 反转彩虹(Reversed rainbow) 4 // 显示原子标签和参考点(Enable showing atom labels and reference point) 1 // 红色(Red) 8 // 显示键(Enable showing bonds) 14 // 棕色(Brown) -1 // 重新绘制(Plot again) 现在您可以看到下图
 
 该图中的橙色和绿色区域（IRI < 1.0）清楚地揭示了显著化学键相互作用和弱相互作用发生的区域。IRI >1.0 的区域具有大的电子密度梯度或可忽略的电子密度，它们不具有化学意义。
 
@@ -304,7 +342,14 @@ set xtic  -0.5,0.1,0.3 nomirror rotate font "Helvetica"
 
 坦率地说，自从我提出了 IRI 分析之后，DORI（密度重叠区域指示符，Density Overlap Regions Indicator）分析已不再有价值，因为 IRI 具有与 DORI 类似的揭示各类相互作用区域的能力，而图形效果明显好于 DORI。然而，我仍用苯酚二聚体体系来说明如何在 Multiwfn 中进行 DORI 分析。请先阅读 3.23.4 节以理解关于 DORI 的基本知识。
 
-启动 Multiwfn 并输入 examples\PhenolDimer.wfn 20 // 弱相互作用可视化研究(Visual study of weak interaction) 4 // DORI 分析(DORI analysis) 3 // 高质量格点(High-quality grid) 3 // 导出 cube 文件(Export cube file) 将 func1.cub、func2.cub 和绘图脚本 examples\DORIfill.vmd 移动到 VMD 文件夹。然后启动 VMD 并在控制台窗口中输入 source DORIfill.vmd，您将立即看到下图
+启动 Multiwfn 并输入 examples\PhenolDimer.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用可视化研究(Visual study of weak interaction)
+    - **4** — DORI 分析(DORI analysis)
+    - **3** — 高质量格点(High-quality grid)
+    - **3** — 导出 cube 文件(Export cube file) 将 func1.cub、func2.cub 和绘图脚本 examples\DORIfill.vmd 移动到 VMD 文件夹。然后启动 VMD 并在控制台窗口中输入 source DORIfill.vmd，您将立即看到下图
 
 DORI 图的图形效果显然不如 IRI 图，特别是对应于弱相互作用的等值面的边缘区域看起来相当难看。此外，由于其定义复杂得多，DORI 的计算成本高于 IRI，因此应始终使用 IRI 代替 DORI。
 
@@ -332,7 +377,11 @@ DORIfill.vmd 采用与 IRIvill.vmd 相同的颜色过渡方法和颜色标尺。
 
 要研究vdW势，需要选择一个探针原子。例如，在本例中我们想采用He原子作为探针原子，因此将 `settings.ini` 中的 “ivdwprobe”参数改为2。
 
-现在启动Multiwfn并输入 examples\helicene.xyz 20 // 弱相互作用可视化研究(Visual study of weak interaction) 6 // 范德华势可视化(Visualization of van der Waals potential) 3 // 高质量格点(High-quality grid)（vdW势的计算代价极低，因此这里使用相对较好的格点质量）
+!!! terminal "Multiwfn 交互"
+
+    - **现在启动Multiwfn并输入 examples\helicene.xyz 20** — 弱相互作用可视化研究(Visual study of weak interaction)
+    - **6** — 范德华势可视化(Visualization of van der Waals potential)
+    - **3** — 高质量格点(High-quality grid)（vdW势的计算代价极低，因此这里使用相对较好的格点质量）
 
 从菜单中可以看到，现在可以直接可视化vdW势或其两个组分，即排斥势和色散势，也可以将它们的格点数据导出为cube文件。本模块中使用的单位为kcal/mol。
 
@@ -374,7 +423,15 @@ vdW势图能否与实际观测相对应？答案是肯定的。我基于Grimme�
 
 我们将在分子平面上绘制vdW势的填色图。为此，需要将自定义函数改为vdW势，即将 `settings.ini` 中的“iuserfunc”参数设为92。与上例一样，我们仍用He元素作为探针原子，因此 `settings.ini` 中的“ivdwprobe”应设为2。
 
-启动Multiwfn并输入 examples\C18.xyz 4 // 绘制平面图(Plot plane map) 100 // 自定义函数(User-defined function) 1 // 填色图(Color-filled map) [直接按ENTER键使用推荐的格点] 0 // 设置延伸距离(Set extension distance) 10 // 10 Bohr 1 // XY平面(XY plane) 0 // Z值(Z value) 在图上点击鼠标右键关闭图形，然后输入 1 // 设置色阶上下限(Set lower&upper limit of color scale) -0.8,0.8 // 注意vdW势的单位为kcal/mol 4 // 显示原子标签(Enable showing atom labels) 12 // 深绿(Dark green) 8 // 显示化学键(Enable showing bonds) 14 // 棕色(Brown) 19 // 设置颜色过渡(Set color transition) 8 // 蓝-白-红(Blue-White-Red) 2 // 显示等高线(Enable showing contour lines) 现在选择选项-1重新绘制图形，你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入 examples\C18.xyz 4** — 绘制平面图(Plot plane map)
+    - **100** — 自定义函数(User-defined function)
+    - **1** — 填色图(Color-filled map) [直接按ENTER键使用推荐的格点]
+    - **0** — 设置延伸距离(Set extension distance)
+    - **10** — 10 Bohr 1
+
+Z值(Z value) 在图上点击鼠标右键关闭图形，然后输入 1 // 设置色阶上下限(Set lower&upper limit of color scale) -0.8,0.8 // 注意vdW势的单位为kcal/mol 4 // 显示原子标签(Enable showing atom labels) 12 // 深绿(Dark green) 8 // 显示化学键(Enable showing bonds) 14 // 棕色(Brown) 19 // 设置颜色过渡(Set color transition) 8 // 蓝-白-红(Blue-White-Red) 2 // 显示等高线(Enable showing contour lines) 现在选择选项-1重新绘制图形，你将看到
 
 
 <!-- p.892 -->
@@ -455,14 +512,25 @@ examples\GC.pdb 4 // 绘制平面图(Plot plane map)
 
 22 // δg 1 // 填色图(Color-filled map) [按ENTER键使用默认格点设置] 1 // XY平面(XY plane) 0 // Z=0 当前屏幕上显示的图形看起来比较模糊，这是因为默认色阶不适合当前情况，因此关闭图形并输入
 
-1 // 设置色阶(Set color scale) 0,0.2 // 下限和上限(Lower and upper limits) 4 // 显示原子标签(Show atomic labels) 1 // 红色(Red color) -2 // 设置坐标轴标签间隔(Set label intervals of axes) 3,3,0.02 // X、Y和色标的间隔(Intervals for X, Y and color bar)
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 设置色阶(Set color scale)
+    - **0,0.2** — 下限和上限(Lower and upper limits)
+    - **4** — 显示原子标签(Show atomic labels)
+    - **1** — 红色(Red color)
+    - **-2** — 设置坐标轴标签间隔(Set label intervals of axes)
+    - **3,3,0.02** — X、Y和色标的间隔(Intervals for X, Y and color bar)
 
 
 <!-- p.895 -->
 
 
 
-8 // 显示化学键(Enable showing bonds) 14 // 棕色(Brown) -1 // 重新绘制(Plot again) 你将看到下图
+!!! terminal "Multiwfn 交互"
+
+    - **8** — 显示化学键(Enable showing bonds)
+    - **14** — 棕色(Brown)
+    - **-1** — 重新绘制(Plot again) 你将看到下图
 
 从上图可以清楚地揭示所有原子间相互作用，且δg的大小与相互作用强度正相关。从图中可以看出，所有化学键区域
 
@@ -601,7 +669,11 @@ Atom pair delta-g indices and percentage contributions (zero terms are not shown
 
 `IGM_inter.vmd`
 
-运行以下命令 examples\GC.pdb 20 // 弱相互作用可视化研究(Visual study of weak interactions) 10 // IGM分析(IGM analysis) 2 // 定义两个片段(Define two fragments)
+!!! terminal "Multiwfn 交互"
+
+    - **运行以下命令 examples\GC.pdb 20** — 弱相互作用可视化研究(Visual study of weak interactions)
+    - **10** — IGM分析(IGM analysis)
+    - **2** — 定义两个片段(Define two fragments)
 
 
 ![](../imgs/p900_439.png)
@@ -610,7 +682,12 @@ Atom pair delta-g indices and percentage contributions (zero terms are not shown
 
 
 
-1-13 // 第一个碱基中的原子范围(Range of atoms in the first base) 14-29 // 第二个碱基中的原子范围(Range of atoms in the second base) 2 // 中等质量格点(Medium-quality grid) 2 // 输出散点到output.txt(Output scatter points to output.txt) 然后将导出的output.txt和作图脚本 examples\scripts\IGMscatter.gnu 复制到含有gnuplot可执行文件的文件夹中，再在该文件夹运行命令：gnuplot IGMscatter.gnu，之后将得到IGMscatter.ps。如果用Acrobat或Photoshop或IrfanView（需安装ghostscript）打开它，或先通过在线工具 https://cloudconvert.com/image-converter 转换为其它图像格式再打开，你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **1-13** — 第一个碱基中的原子范围(Range of atoms in the first base)
+    - **14-29** — 第二个碱基中的原子范围(Range of atoms in the second base)
+    - **2** — 中等质量格点(Medium-quality grid)
+    - **2** — 输出散点到output.txt(Output scatter points to output.txt) 然后将导出的output.txt和作图脚本 examples\scripts\IGMscatter.gnu 复制到含有gnuplot可执行文件的文件夹中，再在该文件夹运行命令：gnuplot IGMscatter.gnu，之后将得到IGMscatter.ps。如果用Acrobat或Photoshop或IrfanView（需安装ghostscript）打开它，或先通过在线工具 https://cloudconvert.com/image-converter 转换为其它图像格式再打开，你将看到
 
 在当前图中，Y轴对应于δginter。在IGMscatter.gnu中，默认色阶与IGMinter.vmd中采用的相同，即-0.05~0.05。
 
@@ -633,9 +710,19 @@ Atom pair delta-g indices and percentage contributions (zero terms are not shown
 
 用Gaussian在PM6-D3水平优化的二聚体pdb文件已作为 examples\C60_coronene.pdb 提供。启动Multiwfn并载入它，然后输入以下命令
 
-20 // 弱相互作用可视化研究(Visual study of weak interactions) 10 // IGM分析(IGM analysis) 2 // 定义两个片段(Define two fragments) 1-60 // C60为片段1(C60 is fragment 1) c // 其余部分，即晕苯，为片段2(Other part, namely coronene, is fragment 2) 2 // 中等质量格点(Medium-quality grid) 3 // 输出cube文件到当前文件夹(Output cube files in current folder)
+!!! terminal "Multiwfn 交互"
 
-6 // 计算原子和原子对δg指数(Evaluate atom and atomic pair δg indices) 2 // 高质量(High quality) y // 导出atmdg.pdb到当前文件夹(Export atmdg.pdb in current folder) 启动VMD，在VMD控制台窗口输入以下命令：color scale method BWR color Display Background white axes location Off display depthcue off display rendermode GLSL 然后将atmdg.pdb拖入VMD主窗口，进入“Graphics”-“Representation”，将“Drawing Method”设为“CPK”，将键半径从默认的0.3改为0.8，将“Coloring Method”设为“Occupancy”，将“Material”设为“EdgyShiny”。然后转到“Trajectory”标签页，将色阶下限和上限分别设为-15和15。
+    - **20** — 弱相互作用可视化研究(Visual study of weak interactions)
+    - **10** — IGM分析(IGM analysis)
+    - **2** — 定义两个片段(Define two fragments)
+    - **1-60** — C60为片段1(C60 is fragment 1) c
+
+中等质量格点(Medium-quality grid) 3 // 输出cube文件到当前文件夹(Output cube files in current folder)
+
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 计算原子和原子对δg指数(Evaluate atom and atomic pair δg indices)
+    - **2** — 高质量(High quality) y
 
 接下来，需要在图上绘制δginter等值面。将dg_inter.cub拖入VMD主窗口载入，然后进入“Graphics”-“Representation”，将默认风格从“lines”改为“Isosurface”，将“Draw”设为“Solid Surface”，将“Show”设为“Isosurface”，然后在
 
@@ -658,7 +745,16 @@ Multiwfn的IGM模块非常灵活，可应用于任意数目的片段。在本例
 
 我们首先用δginter揭示三个单体之间的所有相互作用。启动Multiwfn并输入
 
-examples\oxazolidinone_trimer.xyz 20 // 弱相互作用可视化研究(Visual study of weak interactions) 10 // IGM分析(IGM analysis) 3 // 定义三个片段(Define three fragments) 1-11 // 片段1：单体1(Fragment 1: Monomer 1) 12-22 // 片段2：单体2(Fragment 2: Monomer 2) 23-33 // 片段3：单体3(Fragment 3: Monomer 3) 2 // 中等质量格点(Medium-quality grid) 3 // 输出cube文件到当前文件夹(Output cube files in current folder)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\oxazolidinone_trimer.xyz 20** — 弱相互作用可视化研究(Visual study of weak interactions)
+    - **10** — IGM分析(IGM analysis)
+    - **3** — 定义三个片段(Define three fragments)
+    - **1-11** — 片段1：单体1(Fragment 1: Monomer 1)
+    - **12-22** — 片段2：单体2(Fragment 2: Monomer 2)
+    - **23-33** — 片段3：单体3(Fragment 3: Monomer 3)
+    - **2** — 中等质量格点(Medium-quality grid)
+    - **3** — 输出cube文件到当前文件夹(Output cube files in current folder)
 
 然后用前述方法通过IGM_inter.vmd脚本绘制填色的δginter等值面图，你将看到下图
 
@@ -677,9 +773,20 @@ examples\oxazolidinone_trimer.xyz 20 // 弱相互作用可视化研究(Visual st
 
 屏蔽对应于1-3相互作用的δginter等值面，该怎么做？答案是：只定义两个片段，使片段1对应于单体2，而使片段2对应于单体1和3。现在我们这样做，输入以下命令
 
-0 // 返回上一级菜单(Return to last menu) 10 // IGM分析(IGM analysis) 2 // 定义两个片段(Define two fragments) 12-22 // 片段1：单体2(Fragment 1: Monomer 2) 1-11,23-33 // 片段2：单体1和3(Fragment 2: Monomers 1 and 3) 2 // 中等质量格点(Medium-quality grid) 3 // 输出cube文件到当前文件夹(Output cube files in current folder)
+!!! terminal "Multiwfn 交互"
 
-6 // 计算原子和原子对δg指数(Evaluate atom and atomic pair δg indices) 2 // 高质量(High quality) y // 导出atmdg.pdb到当前文件夹(Export atmdg.pdb in current folder)
+    - **0** — 返回上一级菜单(Return to last menu)
+    - **10** — IGM分析(IGM analysis)
+    - **2** — 定义两个片段(Define two fragments)
+    - **12-22** — 片段1：单体2(Fragment 1: Monomer 2)
+    - **1-11,23-33** — 片段2：单体1和3(Fragment 2: Monomers 1 and 3)
+    - **2** — 中等质量格点(Medium-quality grid)
+    - **3** — 输出cube文件到当前文件夹(Output cube files in current folder)
+
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 计算原子和原子对δg指数(Evaluate atom and atomic pair δg indices)
+    - **2** — 高质量(High quality) y
 
 然后用新生成的sl2r.cub和dg_inter.cub通过IGM_inter.vmd再次绘制δginter等值面，同时基于atmdg.pdb文件按δGatom(%)给结构着色，最终将得到下图
 
@@ -687,7 +794,12 @@ examples\oxazolidinone_trimer.xyz 20 // 弱相互作用可视化研究(Visual st
 
 最后，让我们只突出单体1和2之间的相互作用而完全忽略单体3。输入以下命令
 
-0 // 返回上一级菜单(Return to last menu) 10 // IGM分析(IGM analysis) 2 // 定义两个片段(Define two fragments) 1-11 // 片段1：单体1(Fragment 1: Monomer 1)
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回上一级菜单(Return to last menu)
+    - **10** — IGM分析(IGM analysis)
+    - **2** — 定义两个片段(Define two fragments)
+    - **1-11** — 片段1：单体1(Fragment 1: Monomer 1)
 
 
 ![](../imgs/p904_443.png)
@@ -695,7 +807,10 @@ examples\oxazolidinone_trimer.xyz 20 // 弱相互作用可视化研究(Visual st
 <!-- p.905 -->
 
 
-12-22 // 片段(Fragment) 2：单体2 2 // 中等质量格点 3 // 在当前文件夹输出cube文件 将得到的dg_inter.cub和sl2r.cub移动到VMD文件夹，并使用IGM_inter.vmd脚本绘制相应的颜色填充等值面图。最好将单体3设为透明，因为目前它是不感兴趣的。因此，我们进入“图形(Graphics)”-“显示方式(Representation)”，点击已有的CPK风格的显示方式，在“选定原子(Selected Atoms)”框中输入fragment 0 1并按ENTER键，此时单体3即不可见。接着，点击“创建显示方式(Create Rep)”按钮，在“选定原子(Selected Atoms)”框中输入fragment 2并按ENTER键，然后将“绘制方法(Drawing method)”设为“甘草式(Licorice)”，并将“键半径(Bond Radius)”改为0.2，再将“材质(Material)”设为“幽灵(Ghost)”。此时你应看到如下图，其中只有单体1与2之间的相互作用可见，而所有与单体3相关的相互作用均被忽略。
+!!! terminal "Multiwfn 交互"
+
+    - **12-22** — 片段(Fragment) 2：单体2
+    - **2** — 中等质量格点 3
 
 注(PS)：VMD中的“fragment”概念与Multiwfn中IGM分析的“fragment”概念不同。在VMD中，当结构文件载入VMD后，会自动判断成键关系，然后每个互不连接的片段会被赋予唯一的fragment索引。索引从0开始。
 
@@ -724,7 +839,15 @@ IGMH分析功能的使用与IGM完全相同，因此如果你已仔细阅读4.20
 
 启动Multiwfn并输入examples\2-pyridoxine_2-aminopyridine.wfn // 由于IGMH依赖波函数信息，因此你应使用诸如.wfn、.fch、.mwfn、.molden等作为输入文件
 
-20 // 弱相互作用可视化研究(Visual study of weak interaction) 11 // IGMH分析(IGMH analysis) 2 // 定义两个片段(Define two fragments) 1-12 // 片段1中的原子序号(Atom indices in fragment 1) 13-25 // 片段2中的原子序号(Atom indices in fragment 2) 2 // 中等质量格点(Medium-quality grid) 3 // 输出cube文件到当前文件夹(Output cube files to current folder)
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用可视化研究(Visual study of weak interaction)
+    - **11** — IGMH分析(IGMH analysis)
+    - **2** — 定义两个片段(Define two fragments)
+    - **1-12** — 片段1中的原子序号(Atom indices in fragment 1)
+    - **13-25** — 片段2中的原子序号(Atom indices in fragment 2)
+    - **2** — 中等质量格点(Medium-quality grid)
+    - **3** — 输出cube文件到当前文件夹(Output cube files to current folder)
 
 接下来，为了绘制以sign(λ2)ρ着色的δginter等值面图，我们将导出的sl2r.cub和dg_inter.cub从当前文件夹移动到VMD文件夹，再将examples\IGM_inter.vmd脚本复制到VMD文件夹，然后启动VMD并在VMD控制台窗口运行source IGM_inter.vmd命令以执行作图脚本。
 
@@ -782,7 +905,19 @@ mIGM已在3.23.10节简要描述，并在Struct. Bond., 190, 297 (2026) DOI: 10.
 
 examples\phenylalanineresiduestrimer.xyz是优化过的加帽苯丙氨酸三聚体，我们用mIGM揭示其中的相互作用。启动Multiwfn并载入此文件，然后输入
 
-20 // 弱相互作用可视化研究(Visual study of weak interaction) -10 // mIGM分析(mIGM analysis) 3 // 定义三个片段(Define three fragments) 1-29 // 片段1中的原子序号（第一个单体）(Atom indices in fragment 1 (the first monomer)) 30-40,52,53,56,57,63-65,77-87 // 片段2中的原子序号（第二个单体）(Atom indices in fragment 2 (the second monomer)) c // 其余所有原子（第三个单体）(All other atoms (the third monomer)) 4 // 手动输入格点间距(Manually input grid spacing) 0.2 // 0.2 Bohr格点间距已足以获得足够光滑的图像(Grid spacing of 0.2 Bohr is sufficient to obtain a smooth enough image) 3 // 输出cube文件到当前文件夹(Output cube files to current folder) 当前文件夹已生成一些.cub文件。将dg_inter.cub和sl2r.cub移动到VMD文件夹，同时删除其它.cub文件。将examples\IGM_inter.vmd脚本复制到VMD文件夹，然后启动VMD并在VMD控制台窗口运行source IGM_inter.vmd命令以执行作图脚本，则mIGM图形将立即显示在图形窗口中。之后，在VMD中选择“图形(Graphics)”-“显示方式(Representation)”，在“等值面值(Isovalue)”文本框输入0.07以改变等值面值，你将看到如下图像，它很好地揭示了三个分子之间的各种相互作用（色散与氢键）。相应色标与4.20.11节所述IGMH相同。
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用可视化研究(Visual study of weak interaction)
+    - **-10** — mIGM分析(mIGM analysis)
+    - **3** — 定义三个片段(Define three fragments)
+    - **1-29** — 片段1中的原子序号（第一个单体）(Atom indices in fragment 1 (the first monomer)) 30-40,52,53,56,57,63-65,77-87
+
+其余所有原子（第三个单体）(All other atoms (the third monomer)) 4 // 手动输入格点间距(Manually input grid spacing)
+
+!!! terminal "Multiwfn 交互"
+
+    - **0.2** — 0.2 Bohr格点间距已足以获得足够光滑的图像(Grid spacing of 0.2 Bohr is sufficient to obtain a smooth enough image)
+    - **3** — 输出cube文件到当前文件夹(Output cube files to current folder) 当前文件夹已生成一些.cub文件。将dg_inter.cub和sl2r.cub移动到VMD文件夹，同时删除其它.cub文件。将examples\IGM_inter.vmd脚本复制到VMD文件夹，然后启动VMD并在VMD控制台窗口运行source IGM_inter.vmd命令以执行作图脚本，则mIGM图形将立即显示在图形窗口中。之后，在VMD中选择“图形(Graphics)”-“显示方式(Representation)”，在“等值面值(Isovalue)”文本框输入0.07以改变等值面值，你将看到如下图像，它很好地揭示了三个分子之间的各种相互作用（色散与氢键）。相应色标与4.20.11节所述IGMH相同。
 
 在后处理菜单中，你还可像IGM和IGMH分析那样通过相应选项计算原子或原子对δg指数。
 

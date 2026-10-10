@@ -86,3 +86,25 @@
 .md-main {
   flex: 1 0 auto;
 }
+
+/* Multiwfn 终端交互块 !!! terminal */
+.md-typeset .admonition.terminal {
+  border-color: #30363d;
+  background: #0d1117;
+}
+.md-typeset .admonition.terminal > .admonition-title {
+  background: #161b22;
+  color: #7ee787;
+  font-family: var(--md-code-font-family);
+}
+.md-typeset .admonition.terminal > .admonition-title::before {
+  background-color: #7ee787;
+}
+.md-typeset .admonition.terminal code,
+.md-typeset .admonition.terminal strong {
+  color: #7ee787;
+  font-family: var(--md-code-font-family);
+}
+.md-typeset .admonition.terminal {
+  color: #c9d1d9;
+}

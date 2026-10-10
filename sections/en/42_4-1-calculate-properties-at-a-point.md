@@ -14,7 +14,11 @@
 
 In this example I illustrate how to calculate a wide variety of real space functions at a given point for triplet water. Boot up Multiwfn and input below commands
 
-examples\H2O_m3ub3lyp.wfn 1 // Main function function 1, show properties at a point 0.2,2.1,2 // X, Y, Z coordinate of the point 1 // The unit of inputted coordinate is Bohr Now all real space functions supported by Multiwfn at this point are printed along with components of electron density gradient/Laplacian, Hessian matrix and its eigenvalues/eigenvectors. If you are unable to fully understand the output, please read Sections 2.6 and 2.7 carefully, all terms in the output are very detailed described.
+!!! terminal "Multiwfn session"
+
+    - **examples\H2O_m3ub3lyp.wfn 1** — Main function function 1, show properties at a point
+    - **0.2,2.1,2** — X, Y, Z coordinate of the point
+    - **1** — The unit of inputted coordinate is Bohr Now all real space functions supported by Multiwfn at this point are printed along with components of electron density gradient/Laplacian, Hessian matrix and its eigenvalues/eigenvectors. If you are unable to fully understand the output, please read Sections 2.6 and 2.7 carefully, all terms in the output are very detailed described.
 
 
 ```text

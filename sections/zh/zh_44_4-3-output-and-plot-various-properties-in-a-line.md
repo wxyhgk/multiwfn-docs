@@ -19,7 +19,14 @@
 
 ### 氧原子绘制三重态甲酰胺的自旋密度曲线
 
-启动Multiwfn并输入以下命令 examples\formamide-m3.wfn 3 // 主功能3，在一条线上绘制实空间函数(Main function 3, plot real space function along a line) 5 // 自旋密度（Spin density） 1 // 通过两个原子的核坐标定义直线（Defining the line by nuclear coordinate of two atoms） 1,6 // 两个原子的序号，在本例中碳和氧原子分别对应1和6(Indices of the two atoms, carbon and oxygen atoms correspond to 1 and 6 in present example, respectively)
+启动Multiwfn并输入以下命令 examples\formamide-m3.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 主功能3，在一条线上绘制实空间函数(Main function 3, plot real space function along a line)
+    - **5** — 自旋密度（Spin density）
+    - **1** — 通过两个原子的核坐标定义直线（Defining the line by nuclear coordinate of two atoms）
+    - **1,6** — 两个原子的序号，在本例中碳和氧原子分别对应1和6(Indices of the two atoms, carbon and oxygen atoms correspond to 1 and 6 in present example, respectively)
 
 图形会立即显示：
 
@@ -67,7 +74,14 @@ HF波函数计算并绘制近似的Fermi空穴和Coulomb空穴，该近似利用
 
 将`settings.ini`中的paircorrtype改为1。由于这是闭壳层体系，α或β电子的结果完全相同，而对于开壳层体系，你应使用`settings.ini`中的"pairfunctype"来选择将研究哪种自旋类型的电子，你也可以通过调整该参数来选择研究交换-相关密度或相关因子。
 
-现在启动Multiwfn，输入以下命令examples\H2_CCSD.wfn 3 // 绘制曲线图（Draw curve map） 17 // 相关空穴（Correlation hole） 1 // 通过两个原子的核坐标定义直线（Defining the line by nuclear coordinate of two atoms） 2,1 // 沿H2和H1绘制曲线图（Draw curve graph along H2 and H1） 然后你将看到
+现在启动Multiwfn，输入以下命令examples\H2_CCSD.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 绘制曲线图（Draw curve map）
+    - **17** — 相关空穴（Correlation hole）
+    - **1** — 通过两个原子的核坐标定义直线（Defining the line by nuclear coordinate of two atoms）
+    - **2,1** — 沿H2和H1绘制曲线图（Draw curve graph along H2 and H1） 然后你将看到
 
 该图表明，如果我们在(0.0,0.0,-0.3)处放置一个α电子，那么在两个核附近找到另一个α电子的概率将因同自旋电子之间的Pauli排斥而显著降低，且降低程度几乎相同。在H-H成键区域，概率也明显降低。根据Bader的论述“电子可以去它的空穴所去之处，如果Fermi空穴是定域的，那么电子也是定域的”(p251，见Atoms in molecules - A quantum
 
@@ -140,7 +154,19 @@ PAEM2rVh+∇−= )()2/1(ˆ
 
 氢分子中的H-H相互作用 首先将`settings.ini`中的"iuserfunc"设为33，则自定义函数将等价于基于Γ计算的VXC。启动Multiwfn并输入以下命令
 
-examples\H2.fch // 在HF/def2-TZVP水平下产生（Produced at HF/def2-TZVP level） 3 // 沿直线绘制实空间函数（Plot real space function along a line） 100 // 自定义函数（User-defined function） 0 // 调整两侧的外延尺寸（Adjust extension size at both sides） 3 // 3 Bohr，大于默认值(3 Bohr, which is larger than the default value) 1 // 用两个核定义直线（Use two nuclei to define the line） 1,2 关闭图形，然后调整一些绘图参数使图形更好看 11 // 将图形的长度单位改为Å(Change length unit of the graph to Å) 3 // 改变Y轴范围（Change range of Y axis） -3,0.1 // 从-3.0 a.u.到0.1 a.u.(From -3.0 a.u. to 0.1 a.u.) 10 // 设置X和Y轴的标签间隔（Set label intervals of X and Y axes） 0.5,0.5 -1 // 重新绘制（Replot） 你将看到下图，其中展示了沿H2轴线的PAEM曲线
+!!! terminal "Multiwfn 交互"
+
+    - **examples\H2.fch** — 在HF/def2-TZVP水平下产生（Produced at HF/def2-TZVP level）
+    - **3** — 沿直线绘制实空间函数（Plot real space function along a line）
+    - **100** — 自定义函数（User-defined function）
+    - **0** — 调整两侧的外延尺寸（Adjust extension size at both sides）
+    - **3** — 3 Bohr，大于默认值(3 Bohr, which is larger than the default value)
+    - **1** — 用两个核定义直线（Use two nuclei to define the line） 1,2 关闭图形，然后调整一些绘图参数使图形更好看
+    - **11** — 将图形的长度单位改为Å(Change length unit of the graph to Å)
+    - **3** — 改变Y轴范围（Change range of Y axis）
+    - **-3,0.1** — 从-3.0 a.u.到0.1 a.u.(From -3.0 a.u. to 0.1 a.u.)
+    - **10** — 设置X和Y轴的标签间隔（Set label intervals of X and Y axes） 0.5,0.5
+    - **-1** — 重新绘制（Replot） 你将看到下图，其中展示了沿H2轴线的PAEM曲线
 
 <!-- p.511 -->
 

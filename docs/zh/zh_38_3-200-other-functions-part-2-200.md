@@ -63,7 +63,11 @@ HF···HF (H4-F3···H1-F2)二聚体为例，在F2与H1之间绘制的ELF曲�
 
 HF···HF二聚体为例，启动Multiwfn并输入以下命令
 
-examples\HF_HF.wfn 200 // 其他功能，第二部分 (Other function, part 2) 1 // 计算CVB指数及相关量 (Calculate CVB index and related quantities) 2,1,3 // 氢键的给体原子、氢和受体原子的序号，结果为
+!!! terminal "Multiwfn 交互"
+
+    - **examples\HF_HF.wfn 200** — 其他功能，第二部分 (Other function, part 2)
+    - **1** — 计算CVB指数及相关量 (Calculate CVB index and related quantities)
+    - **2,1,3** — 氢键的给体原子、氢和受体原子的序号，结果为
 
 ```text
 Core-valence bifurcation value at donor, ELF(C-V,D):  0.0936
@@ -122,7 +126,13 @@ HF···乙烯的波函数文件已作为examples\C2H4_HF.wfn提供，其几何�
 
 该体系的ELF(DH-A)可通过ELF拓扑分析获得。为此，我们在Multiwfn中输入以下命令：
 
-2 // 拓扑分析 (Topology analysis) -11 // 选择要分析的实空间函数 (Select the real space function to be analyzed) 9 // ELF 6 // 通过在球内随机分布初始猜测点搜索临界点 (Search critical points by randomly distribute initial guesses within a sphere) 4 // 将球心设为三个原子的几何中心 (Set the sphere center as geometry center of three atoms) 1,4,8 // C1、C4和H8的中心将被设为球心
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 拓扑分析 (Topology analysis)
+    - **-11** — 选择要分析的实空间函数 (Select the real space function to be analyzed)
+    - **9** — ELF 6
+
+将球心设为三个原子的几何中心 (Set the sphere center as geometry center of three atoms) 1,4,8 // C1、C4和H8的中心将被设为球心
 
 ![](../imgs/p413_067.png)
 
@@ -432,7 +442,15 @@ $$\langle r^2 \rangle = \int(x^2 + y^2 + z^2)f(\mathbf{r})d\mathbf{r}$$
 
 这里给出一个简短例子。为评估自旋密度的一阶和二阶矩（相对于自旋密度中心），在载入波函数文件后，你应输入
 
-200 // 其他功能（第二部分）(Other function (Part 2)) 11 // 本功能 (The present function) 3 // 选择实空间函数 (Select a real space function) 5 // 自旋密度 (Spin density) 2 // 计算自旋密度中心 (Calculate center of spin density) y // 将算得的中心用于选项1中的各项数据评估 (Take the calculated center for evaluating various data in option 1) 1 // 评估自旋密度的各项数据 (Evaluate various data for spin density) 然后数据将显示在屏幕上。
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能（第二部分）(Other function (Part 2))
+    - **11** — 本功能 (The present function)
+    - **3** — 选择实空间函数 (Select a real space function)
+    - **5** — 自旋密度 (Spin density)
+    - **2** — 计算自旋密度中心 (Calculate center of spin density) y
+
+评估自旋密度的各项数据 (Evaluate various data for spin density) 然后数据将显示在屏幕上。
 
 关于使用本模块的更多说明见我的博客文章“使用Multiwfn展示多余电子并计算其回转半径”(http://sobereva.com/658，中文)。
 
@@ -795,7 +813,15 @@ $$\varphi_i^2(\mathbf{r}_k) < \zeta_J$$
 
 实例 这里以水分子为例说明这两类积分的计算。启动 Multiwfn 并输入
 
-examples\H2O_iijj.fch // 含有 HF/6-31G* 水平的分子轨道 200 // 其它功能(第2部分)(Other functions (Part 2)) 17 // 计算两个轨道间的库仑与交换积分(Calculate Coulomb and exchange integrals between two orbitals) 4,10 // 所选两个轨道为 MO4 与 MO10 1 // 低质量格点(对应格点间距 0.2 Bohr) 1 // 以默认截断水平计算库仑积分。结果为 0.615700 3 // 以默认截断水平计算交换积分。结果为 0.122246 (ii|jj) 与 (ij|ji) 由解析积分算得的精确值分别为 0.623256 与 0.129893，显然我们基于数值积分算得的值精度基本令人满意。若你采用更好的格点，如间距 0.1 Bohr (对应“中等质量格点”)，精度将进一步明显改善(分别为 0.62143 与 0.12793)，但代价将高八倍，注意代价与格点间距的立方成反比。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\H2O_iijj.fch** — 含有 HF/6-31G* 水平的分子轨道
+    - **200** — 其它功能(第2部分)(Other functions (Part 2))
+    - **17** — 计算两个轨道间的库仑与交换积分(Calculate Coulomb and exchange integrals between two orbitals)
+    - **4,10** — 所选两个轨道为 MO4 与 MO10
+    - **1** — 低质量格点(对应格点间距 0.2 Bohr)
+    - **1** — 以默认截断水平计算库仑积分。结果为 0.615700
+    - **3** — 以默认截断水平计算交换积分。结果为 0.122246 (ii|jj) 与 (ij|ji) 由解析积分算得的精确值分别为 0.623256 与 0.129893，显然我们基于数值积分算得的值精度基本令人满意。若你采用更好的格点，如间距 0.1 Bohr (对应“中等质量格点”)，精度将进一步明显改善(分别为 0.62143 与 0.12793)，但代价将高八倍，注意代价与格点间距的立方成反比。
 
 
 ### 3.200.18 计算键长/键级交替(BLA/BOA)与

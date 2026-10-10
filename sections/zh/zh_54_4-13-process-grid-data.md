@@ -30,7 +30,11 @@ EAL 相同，即 -CH3 基团的末端亲电性最强，而 Cl 原子的 σ-hole 
 
 dens.cub // 由 Multiwfn 或某些外部程序生成的 cube 文件，由于 cube 文件一般较大，“examples”文件夹中未提供。你也可以使用由 Multiwfn 内部生成的格点数据，即先用主功能5 (Main function 5) 计算格点数据，然后选择 0 返回主菜单（刚才生成的格点数据仍保存在内存中）
 
-13 // 处理格点数据 (Process grid data) 5 // 提取平均平面数据 (Extract average plane data) 28,32 // Z 的范围（单位为 Å）
+!!! terminal "Multiwfn 交互"
+
+    - **13** — 处理格点数据 (Process grid data)
+    - **5** — 提取平均平面数据 (Extract average plane data)
+    - **28,32** — Z 的范围（单位为 Å）
 
 
 ![](../imgs/p731_285.png)
@@ -78,7 +82,12 @@ MO2.cub // 载入另一个 cube 文件 计算完成后，内存中的格点数�
 
 ELF 函数的数值范围为 [0,1]，在本例中，我们将其数值范围缩放到 [0,65535]（即无符号 16 位整数的取值范围）。我们首先如 4.5.1 节所述在 Multiwfn 中计算 ELF 格点数据，然后输入
 
-0 // 从格点数据计算的后处理界面返回主菜单 13 // 处理格点数据 (Process grid data) 16 // 缩放数据范围 (Scale data range) 0,1 // 原始数据范围 0,65535 // 缩放后的范围。关于缩放算法的细节请阅读 3.16.12 节。
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 从格点数据计算的后处理界面返回主菜单
+    - **13** — 处理格点数据 (Process grid data)
+    - **16** — 缩放数据范围 (Scale data range)
+    - **0,1** — 原始数据范围 0,65535
 
 现在格点数据已被缩放。你可以选择功能 0 将更新后的格点数据导出为 Gaussian cube 文件，或用相应功能将平面数据提取为纯文本文件。
 
@@ -91,7 +100,12 @@ ELF 函数的数值范围为 [0,1]，在本例中，我们将其数值范围缩�
 
 本节我以苯酚二聚体的电子密度为例。首先，我们如下生成格点数据（你也可以直接载入 .cub/.grd 文件，然后进入主功能13 (Main function 13)）
 
-examples\phenoldimer.wfn 5 // 计算格点数据 (Calculate grid data) 1 // 电子密度 (Electron density) 2 // 中等质量格点 (Medium-quality grid) -1 // 显示等值面 (Visualize isosurface) 如你所见，两个苯酚分子上都出现了等值面。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenoldimer.wfn 5** — 计算格点数据 (Calculate grid data)
+    - **1** — 电子密度 (Electron density)
+    - **2** — 中等质量格点 (Medium-quality grid)
+    - **-1** — 显示等值面 (Visualize isosurface) 如你所见，两个苯酚分子上都出现了等值面。
 
 
 <!-- p.734 -->
@@ -147,7 +161,10 @@ examples\phenoldimer.wfn 5 // 计算格点数据 (Calculate grid data) 1 // 电�
 
 1.8 // 缩放范德华半径所用的值。在你的实际研究中，你可能需要多次尝试该值以找到合适的值
 
-1000 // 将那些格点的值设为 1000，该值已足够大 1 // 定义模式，1 表示用外部文件定义片段 (using external file to define the fragment) atmlist1.txt // 链 1 的原子列表文件名
+!!! terminal "Multiwfn 交互"
+
+    - **1000** — 将那些格点的值设为 1000，该值已足够大
+    - **1** — 定义模式，1 表示用外部文件定义片段 (using external file to define the fragment) atmlist1.txt
 
 
 ![](../imgs/p735_288.png)
@@ -178,9 +195,23 @@ atmlist2.txt // 链 2 的原子列表文件名 等待片刻，格点数据将被
 
 可以在 Multiwfn 中完成，即启动 Multiwfn 并输入以下命令：
 
-examples/phenol.wfn 5 // 计算格点数据 (Calculate grid data) 4 // 选择轨道波函数 (Choose orbital wavefunction) 10 // 第 10 个轨道 (The 10th orbital) 2 // 中等质量格点。格点越精细，给出的质心位置越准确 (Finer quality of grid will give more accurate barycenter positions) 0 // 返回主菜单 (Return back to main menu) 现在格点数据已存入内存，我们现在对其进行分析 13 // 处理格点数据 (Process grid data) 17 // 显示统计数据 (Show statistic data) 1 // 选择所有点 (Select all points) 从输出中，我们可以发现该分子轨道正值部分的质心的 X、Y、Z 分量（单位为 Bohr）分别为 2.629、-0.408、0.000，而负值部分的则为 -2.603、-0.702、0.000。该轨道的总质心目前没有意义，因为该轨道的总积分为零。然而，该分子轨道绝对值的总质心是有用的，尤其对于大分子，由此我们可以了解该轨道主要位于何处。为了做到这一点，我们输入：
+!!! terminal "Multiwfn 交互"
 
-11 // 格点数据计算 (Grid data calculation) 13 // 取绝对值 (Get absolute value) 17 // 显示统计数据 (Show statistic data) 1 // 选择所有点 (Select all points) 我们发现该分子轨道总质心的 X、Y、Z 分别为 -0.043、-0.558、0.000 Bohr。由于现在已没有负值区域，负值部分的质心显示为 NaN（Not a Number，非数字）。
+    - **examples/phenol.wfn 5** — 计算格点数据 (Calculate grid data)
+    - **4** — 选择轨道波函数 (Choose orbital wavefunction)
+    - **10** — 第 10 个轨道 (The 10th orbital)
+    - **2** — 中等质量格点。格点越精细，给出的质心位置越准确 (Finer quality of grid will give more accurate barycenter positions)
+    - **0** — 返回主菜单 (Return back to main menu) 现在格点数据已存入内存，我们现在对其进行分析
+    - **13** — 处理格点数据 (Process grid data)
+    - **17** — 显示统计数据 (Show statistic data)
+    - **1** — 选择所有点 (Select all points) 从输出中，我们可以发现该分子轨道正值部分的质心的 X、Y、Z 分量（单位为 Bohr）分别为 2.629、-0.408、0.000，而负值部分的则为 -2.603、-0.702、0.000。该轨道的总质心目前没有意义，因为该轨道的总积分为零。然而，该分子轨道绝对值的总质心是有用的，尤其对于大分子，由此我们可以了解该轨道主要位于何处。为了做到这一点，我们输入：
+
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 格点数据计算 (Grid data calculation)
+    - **13** — 取绝对值 (Get absolute value)
+    - **17** — 显示统计数据 (Show statistic data)
+    - **1** — 选择所有点 (Select all points) 我们发现该分子轨道总质心的 X、Y、Z 分别为 -0.043、-0.558、0.000 Bohr。由于现在已没有负值区域，负值部分的质心显示为 NaN（Not a Number，非数字）。
 
 
 ### 4.13.6 绘制电荷位移曲线 (Plot charge displacement curve)
@@ -191,7 +222,12 @@ Multiwfn 能够计算并绘制格点数据的积分曲线，介绍见 3.16.14 �
 
 在绘制 CDC 之前，我们必须先计算这两个文件之间的电子密度差格点数据。启动 Multiwfn 并输入以下命令：
 
-examples\polyyne_field.wfn 5 // 计算格点数据 (Calculate grid data) 0 // 自定义操作 (Custom operation) 1 -,examples\polyyne.wfn //用 polyyne_field.wfn 的性质减去 polyyne.wfn 的性质 (Subtract the property of polyyne.wfn from polyyne_field.wfn) 1 // 电子密度 (Electron density) 2 // 中等质量格点 (Medium-quality grid)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\polyyne_field.wfn 5** — 计算格点数据 (Calculate grid data)
+    - **0** — 自定义操作 (Custom operation) 1 -,examples\polyyne.wfn //用 polyyne_field.wfn 的性质减去 polyyne.wfn 的性质 (Subtract the property of polyyne.wfn from polyyne_field.wfn)
+    - **1** — 电子密度 (Electron density)
+    - **2** — 中等质量格点 (Medium-quality grid)
 
 
 <!-- p.738 -->
@@ -237,13 +273,28 @@ examples\rho_overlap\dimer.pdb 5 // 格点数据计算 (Grid data calculation) 1
 
 
 
--10 // 设置格点延伸距离 (Set grid extension distance) 2 // 将距离减小到 2 Bohr，以避免在体系边界浪费格点 (Decrease the distance to 2 Bohr) 2 // 中等质量格点 (Medium-quality grid) 2 // 将格点数据导出为 userfunc.cub (Export grid data) 现在我们用 Gaussian 为两个单体计算波函数文件，输入文件为 examples\rho_overlap 文件夹中的 monomer1.gjf 和 monomer2.gjf。最终，我们得到 monomer1.wfn 和 monomer2.wfn。注意在 Gaussian 计算中必须使用 nosymm 关键词，以避免自动重定向和平移。
+!!! terminal "Multiwfn 交互"
 
-现在我们在全空间计算单体 1 的电子密度格点 monomer1.wfn 5 // 格点数据计算 (Grid data calculation) 1 // 电子密度 (Electron density) 8 userfunc.cub // 用该 cube 文件定义格点，它对应于全空间 (Use this cube file to define the grid) 2 // 导出格点数据 (Export grid data) 然后将得到的 density.cub 重命名为 density1.cub。对 monomer2 重复上述步骤得到 density2.cub。
+    - **-10** — 设置格点延伸距离 (Set grid extension distance)
+    - **2** — 将距离减小到 2 Bohr，以避免在体系边界浪费格点 (Decrease the distance to 2 Bohr)
+    - **2** — 中等质量格点 (Medium-quality grid)
+    - **2** — 将格点数据导出为 userfunc.cub (Export grid data) 现在我们用 Gaussian 为两个单体计算波函数文件，输入文件为 examples\rho_overlap 文件夹中的 monomer1.gjf 和 monomer2.gjf。最终，我们得到 monomer1.wfn 和 monomer2.wfn。注意在 Gaussian 计算中必须使用 nosymm 关键词，以避免自动重定向和平移。
+
+!!! terminal "Multiwfn 交互"
+
+    - **现在我们在全空间计算单体 1 的电子密度格点 monomer1.wfn 5** — 格点数据计算 (Grid data calculation)
+    - **1** — 电子密度 (Electron density) 8 userfunc.cub
+
+导出格点数据 (Export grid data) 然后将得到的 density.cub 重命名为 density1.cub。对 monomer2 重复上述步骤得到 density2.cub。
 
 现在我们计算 min(rho(1),rho(2)) 的格点数据，即在各处取两份电子密度的最小值。启动 Multiwfn 并输入：
 
-density1.cub 13 // 处理格点数据 (Process grid data) 11 // 对格点数据的数学运算 (Mathematical operation on grid data) 21 // 取 min(rho(1),rho(2)) (Take min(rho(1),rho(2))) density2.cub 0 // 导出所得格点数据 (Export resulting grid data) overlap.cub 我们用文本编辑器打开 overlap.cub 和 density2.cub，从后者复制原子坐标到前者，同时修改原子数。然后 overlap.cub 的头部应如下所示（高亮文本为修改部分）
+!!! terminal "Multiwfn 交互"
+
+    - **density1.cub 13** — 处理格点数据 (Process grid data)
+    - **11** — 对格点数据的数学运算 (Mathematical operation on grid data)
+    - **21** — 取 min(rho(1),rho(2)) (Take min(rho(1),rho(2))) density2.cub
+    - **0** — 导出所得格点数据 (Export resulting grid data) overlap.cub 我们用文本编辑器打开 overlap.cub 和 density2.cub，从后者复制原子坐标到前者，同时修改原子数。然后 overlap.cub 的头部应如下所示（高亮文本为修改部分）
 
 
 ```text
@@ -285,7 +336,17 @@ Generated by Multiwfn
 
 Multiwfn 能够在特定的空间和数值范围内获得统计信息（积分、体积、最大最小值等）。为说明该功能的用法，在本例中我们首先计算乙炔的电子密度，然后在围绕 C-C 键的圆柱区域内积分电子密度。
 
-启动 Multiwfn 并输入 examples\C2H2.wfn 5 // 计算格点数据 (Calculate grid data) 1 // 电子密度 (Electron density) 3 // 高质量格点 (High-quality grid) 0 // 返回主菜单 (Return to main menu) 13 // 处理格点数据 (Process grid data) 17 // 显示格点统计数据 (Show statistic data of grid points) 2 // 获取特定空间和数值范围内格点的统计数据 (Obtain statistic data for grid points in specific spatial and value ranges) [直接按 ENTER 键] // 不设置数值范围的约束条件 (Do not set constraint condition of value range) 2 // 圆柱区域 (Cylindrical region) 0.000000 0.000000 0.602676 // 作为圆柱第 1 个端点的 C1 的坐标（单位为 Å）(Coordinate of C1 as the 1st terminal of the cylinder) 0.000000 0.000000 -0.602676 // 作为圆柱第 2 个端点的 C3 的坐标（单位为 Å）(Coordinate of C3 as the 2nd terminal of the cylinder) 2 // 圆柱半径设为 2 Å (Radius of the cylinder is set to be 2 Å) 现在你可以找到所定义区域内格点数据的统计信息：
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\C2H2.wfn 5** — 计算格点数据 (Calculate grid data)
+    - **1** — 电子密度 (Electron density)
+    - **3** — 高质量格点 (High-quality grid)
+    - **0** — 返回主菜单 (Return to main menu)
+    - **13** — 处理格点数据 (Process grid data)
+    - **17** — 显示格点统计数据 (Show statistic data of grid points)
+    - **2** — 获取特定空间和数值范围内格点的统计数据 (Obtain statistic data for grid points in specific spatial and value ranges) [直接按 ENTER 键]
+
+圆柱区域 (Cylindrical region) 0.000000 0.000000 0.602676 // 作为圆柱第 1 个端点的 C1 的坐标（单位为 Å）(Coordinate of C1 as the 1st terminal of the cylinder) 0.000000 0.000000 -0.602676 // 作为圆柱第 2 个端点的 C3 的坐标（单位为 Å）(Coordinate of C3 as the 2nd terminal of the cylinder) 2 // 圆柱半径设为 2 Å (Radius of the cylinder is set to be 2 Å) 现在你可以找到所定义区域内格点数据的统计信息：
 
 
 ```text

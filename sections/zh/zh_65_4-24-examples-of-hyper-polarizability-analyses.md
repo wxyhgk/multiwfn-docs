@@ -24,7 +24,11 @@
 
 研究静态极化率和第一超极化率 首先，我们用 Multiwfn 从 NH3_polar_static.out 中解析数据。启动 Multiwfn 并输入
 
-examples\polar\NH3_polar_static.out 24 // (超)极化率分析((Hyper)polarizability analysis) 1 // 解析 Gaussian 的(超)极化率任务(Parse (hyper)polarizability task of Gaussian) 1 // 开始解析(Start parsing)。我们选择选项 1，因为当前级别的三阶导数(常规 DFT 泛函)得到了 Gaussian 的支持
+!!! terminal "Multiwfn 交互"
+
+    - **examples\polar\NH3_polar_static.out 24** — (超)极化率分析((Hyper)polarizability analysis)
+    - **1** — 解析 Gaussian 的(超)极化率任务(Parse (hyper)polarizability task of Gaussian)
+    - **1** — 开始解析(Start parsing)。我们选择选项 1，因为当前级别的三阶导数(常规 DFT 泛函)得到了 Gaussian 的支持
 
 现在你可以在屏幕上看到以下信息：
 
@@ -83,7 +87,12 @@ hould be inverted, the outputs shown below have already been corrected
 
 研究频率相关极化率和超极化率 接下来，我们从 NH3_polar_dynamic.out 中提取频率相关(超)极化率。启动 Multiwfn 并输入
 
-examples\polar\NH3_polar_dynamic.out 24 // (超)极化率分析((Hyper)polarizability analysis) 1 // 解析 Gaussian 的(超)极化率任务(Parse (hyper)polarizability task of Gaussian) -1 // 让 Multiwfn 加载频率相关(超)极化率(Let Multiwfn load frequency-dependent (hyper)polarizability) 1 // 开始解析(Start parsing) Multiwfn 检测到有三组数据：
+!!! terminal "Multiwfn 交互"
+
+    - **examples\polar\NH3_polar_dynamic.out 24** — (超)极化率分析((Hyper)polarizability analysis)
+    - **1** — 解析 Gaussian 的(超)极化率任务(Parse (hyper)polarizability task of Gaussian)
+    - **-1** — 让 Multiwfn 加载频率相关(超)极化率(Let Multiwfn load frequency-dependent (hyper)polarizability)
+    - **1** — 开始解析(Start parsing) Multiwfn 检测到有三组数据：
 
 
 ```text
@@ -158,7 +167,12 @@ Gaussian 也能计算静态和动态第二超极化率(γ)。示例输入文件�
 
 
 
-1 // 解析 Gaussian 的(超)极化率任务(Parse (hyper)polarizability task of Gaussian) -1 // 让 Multiwfn 加载频率相关(超)极化率(Let Multiwfn load frequency-dependent (hyper)polarizability) 7 // 该选项专门用于解析极化率和第二超极化率(This option is specific for parsing polarizability and second hyperpolarizability) 3 // 532 nm 此时屏幕上显示 532 nm 处的动态极化率及相关量。然后选择 2 以进一步解析 gamma(-2w;w,w,0)，你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 解析 Gaussian 的(超)极化率任务(Parse (hyper)polarizability task of Gaussian)
+    - **-1** — 让 Multiwfn 加载频率相关(超)极化率(Let Multiwfn load frequency-dependent (hyper)polarizability)
+    - **7** — 该选项专门用于解析极化率和第二超极化率(This option is specific for parsing polarizability and second hyperpolarizability)
+    - **3** — 532 nm 此时屏幕上显示 532 nm 处的动态极化率及相关量。然后选择 2 以进一步解析 gamma(-2w;w,w,0)，你将看到
 
 
 ```text
@@ -206,7 +220,11 @@ Gaussian 也能计算静态和动态第二超极化率(γ)。示例输入文件�
 
 由于 SOS 结果常常随考虑的激发态数目收敛较慢，在本例中我们产生了高达 150 个激发态，以充分避免截断误差。当然，采用更多激发态在 CIS 计算和随后 Multiwfn 中的 SOS 计算中都需要更多计算时间。在大多数实际研究中，100 个态一般已足够大，甚至 70 个也常常足以提供可用的结果。超极化率、尤其是高阶超极化率的计算对基组质量有非常严格的要求，丰富的弥散函数是绝对不可或缺的。在本例中我们采用 def2-TZVPPD (J. Chem. Phys., 133, 134105)，这是一个为分子响应性质计算优化的高质量基组。由于它不是当前版本 Gaussian 的内置基组，它取自 BSE 网站(https://www.basissetexchange.org)。关键词 IOp(9/40=5) 很重要，因为在 ZINDO/CIS/TDHF/TDDFT 任务中，默认情况下 Gaussian 只输出绝对值大于 0.1 的跃迁系数，而 IOp(9/40=5) 将阈值降至 0.00001，从而可以输出多得多的系数，进而我们下一步可用 Multiwfn 获得准确的跃迁偶极矩。值得注意的是，你也可以用 TDHF 或 TDDFT 代替 CIS，例如你可以写 #P TD(nstates=150) CAM-B3LYP/gen IOp(9/40=5)。
 
-启动 Multiwfn 并输入以下命令 C:\NH3_SOS.fch 18 // 电子激发分析模块(Electron excitation analysis module) 5 // 计算所有激发态的跃迁偶极矩和偶极矩(Calculate transition dipole moments and dipole moment for all excited states) C:\NH3_SOS.out 3 // 生成 SOS.txt(Generate SOS.txt) 当前文件夹中生成的 SOS.txt 文件包含 SOS (超)极化率计算所需的全部信息。该文件可直接被 Multiwfn 的 SOS 模块使用。
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入以下命令 C:\NH3_SOS.fch 18** — 电子激发分析模块(Electron excitation analysis module)
+    - **5** — 计算所有激发态的跃迁偶极矩和偶极矩(Calculate transition dipole moments and dipole moment for all excited states) C:\NH3_SOS.out
+    - **3** — 生成 SOS.txt(Generate SOS.txt) 当前文件夹中生成的 SOS.txt 文件包含 SOS (超)极化率计算所需的全部信息。该文件可直接被 Multiwfn 的 SOS 模块使用。
 
 重启 Multiwfn 并输入 SOS.txt 24 // (超)极化率分析((Hyper)polarizability analysis) 2 // 用态求和(SOS)方法研究(超)极化率(Study (hyper)polarizability by sum-over-states (SOS) method) 注意 SOS 模块中使用的单位均为原子单位。
 
@@ -374,7 +392,13 @@ Multiwfn 也能计算第三超极化率 δ(-ω;ω1,ω2,ω3,ω4)，其中 ω=ω1+
 
 模型非常粗略地讨论影响 β 的因素，因此用这两个文件进行分析是可以接受的。
 
-准备输入文件 启动 Multiwfn 并输入以下命令 examples\excit\D-pi-A.fchk 18 // 电子激发分析模块(Electron excitation analysis module) 5 // 计算所有激发态的跃迁偶极矩和偶极矩(Calculate transition dipole moments and dipole moment for all excited states) examples\excit\D-pi-A.out 3 // 生成 SOS.txt(Generate SOS.txt)，其中包含二能级或三能级分析所需的全部信息 现在我们已准备好进行二/三能级分析。在此之前，我们需要
+准备输入文件 启动 Multiwfn 并输入以下命令 examples\excit\D-pi-A.fchk
+
+!!! terminal "Multiwfn 交互"
+
+    - **18** — 电子激发分析模块(Electron excitation analysis module)
+    - **5** — 计算所有激发态的跃迁偶极矩和偶极矩(Calculate transition dipole moments and dipole moment for all excited states) examples\excit\D-pi-A.out
+    - **3** — 生成 SOS.txt(Generate SOS.txt)，其中包含二能级或三能级分析所需的全部信息 现在我们已准备好进行二/三能级分析。在此之前，我们需要
 
 确认应研究 β 的哪个分量。D-pi-A.fchk 的分子几何如下所示(由主功能 0 显示)。可以看出，给体-π-受体路径方向与 X 轴完全平行，因此预计当前体系只有 βXXX 是显著的。
 
@@ -665,7 +689,12 @@ B3LYP/6-311++G** opted
 
 examples\polar\CH3NHCHO\polar.out 24 // （超）极化率分析 ((Hyper)polarizability analysis) 1 // 解析 Gaussian 的 “polar”任务 (Parse "polar" task of Gaussian。PS：如果你对该功能不熟悉，请参阅第 3.27.1 节的介绍和 4.24.1 节的例子）
 
--1 // 要求 Multiwfn 解析动态（超）极化率 (Request Multiwfn to parse dynamic (hyper)polarizability) -4 // 要求 Multiwfn 将解析得到的（超）极化率导出为 .txt 文件 (Request Multiwfn to export parsed (hyper)polarizability as .txt file) 1 // 开始解析（超）极化率 (Start parsing (hyper)polarizability) 2 // 如屏幕所示，第二个选项对应于 1030 nm 的情形 (As shown on screen, the second option corresponds to 1030 nm case)
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 要求 Multiwfn 解析动态（超）极化率 (Request Multiwfn to parse dynamic (hyper)polarizability)
+    - **-4** — 要求 Multiwfn 将解析得到的（超）极化率导出为 .txt 文件 (Request Multiwfn to export parsed (hyper)polarizability as .txt file)
+    - **1** — 开始解析（超）极化率 (Start parsing (hyper)polarizability)
+    - **2** — 如屏幕所示，第二个选项对应于 1030 nm 的情形 (As shown on screen, the second option corresponds to 1030 nm case)
 
 2 // 载入 SHG 形式的 β (Load SHG form of β) n // 不进行与超瑞利散射相关的分析 (Do not perform analysis related to hyper-Rayleigh scattering)
 
@@ -679,7 +708,13 @@ examples\polar\CH3NHCHO\polar.out 24 // （超）极化率分析 ((Hyper)polariz
 
 由于我们还想在 VMD 中显示分子结构，我们需要生成一个 VMD 可识别的包含原子信息的文件，因此我们输入
 
-0 // 退出当前功能 (Exit current function) 0 // 返回主菜单 (Return to main menu) 100 // 其他功能（第一部分） (Other function (Part 1)) 2 // 生成新文件 (Generate new file) 1 // 将当前几何结构导出为 .pdb 文件 (Export current geometry as .pdb file) CH3NHCHO.pdb 现在我们在当前文件夹中有了 CH3NHCHO.pdb，就可以关闭 Multiwfn 程序了。将当前文件夹中的 beta.tcl 和 beta_vec.tcl 移到 VMD 安装文件夹，然后启动 VMD 并在 VMD 命令行窗口中输入 source beta.tcl 和 source beta_vec.tcl 以依次运行这两个绘图脚本。接着，将 CH3NHCHO.pdb 拖到 “VMD Main”窗口中进行载入，然后进入 “Graphics（图形）” - “Representation（表示方式）”并将 “Drawing Method（绘图方式）”改为 “CPK”。现在你可以在
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 退出当前功能 (Exit current function)
+    - **0** — 返回主菜单 (Return to main menu)
+    - **100** — 其他功能（第一部分） (Other function (Part 1))
+    - **2** — 生成新文件 (Generate new file)
+    - **1** — 将当前几何结构导出为 .pdb 文件 (Export current geometry as .pdb file) CH3NHCHO.pdb 现在我们在当前文件夹中有了 CH3NHCHO.pdb，就可以关闭 Multiwfn 程序了。将当前文件夹中的 beta.tcl 和 beta_vec.tcl 移到 VMD 安装文件夹，然后启动 VMD 并在 VMD 命令行窗口中输入 source beta.tcl 和 source beta_vec.tcl 以依次运行这两个绘图脚本。接着，将 CH3NHCHO.pdb 拖到 “VMD Main”窗口中进行载入，然后进入 “Graphics（图形）” - “Representation（表示方式）”并将 “Drawing Method（绘图方式）”改为 “CPK”。现在你可以在
 
 <!-- p.987 -->
 
@@ -733,11 +768,20 @@ http://sobereva.com/345 获得。在本例中，我们只研究静态 α 和 γ�
 
 我们首先从 Gaussian 输出文件中提取 α 和 γ 并将其写为 .txt 文件。启动 Multiwfn 并输入以下命令
 
-examples\polar\C18\gamma.out // 上述输入文件的输出文件 (Output file of aforementioned input file) 24 // （超）极化率分析 ((Hyper)polarizability analysis) 1 // 解析 Gaussian 的 “polar”任务 (Parse "polar" task of Gaussian) -4 // 要求 Multiwfn 将解析得到的（超）极化率导出为 .txt 文件 (Request Multiwfn to export parsed (hyper)polarizability as .txt file)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\polar\C18\gamma.out** — 上述输入文件的输出文件 (Output file of aforementioned input file)
+    - **24** — （超）极化率分析 ((Hyper)polarizability analysis)
+    - **1** — 解析 Gaussian 的 “polar”任务 (Parse "polar" task of Gaussian)
+    - **-4** — 要求 Multiwfn 将解析得到的（超）极化率导出为 .txt 文件 (Request Multiwfn to export parsed (hyper)polarizability as .txt file)
 
 7 // 开始解析 α 和 γ (Start parsing α and γ) 现在我们在当前文件夹中有了 alpha.txt 和 gamma.txt。然后我们输入
 
-0 // 退出当前功能 (Exit current function) 5 // 通过单位球和矢量表示可视化（超）极化率 (Visualize (hyper)polarizability via unit sphere and vector representations) -3 // 改变球面上箭头长度的比例因子 (Change scale factor of length of the arrows on sphere surface)
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 退出当前功能 (Exit current function)
+    - **5** — 通过单位球和矢量表示可视化（超）极化率 (Visualize (hyper)polarizability via unit sphere and vector representations)
+    - **-3** — 改变球面上箭头长度的比例因子 (Change scale factor of length of the arrows on sphere surface)
 
 0.005 // 该值小于默认值，因为 cyclo[18]carbon 的 α 相当大。如果使用默认值，你会发现箭头太长 (This value is smaller than default, since α of cyclo[18]carbon is fairly large. If default value is used, you will find the arrows are too long)
 

@@ -179,7 +179,7 @@ $$\mathbf{X}=\mathbf{U}\mathbf{s}^{1/2}\mathbf{U}^{\mathrm{T}}$$
 
 <!-- formula-ocr: formula_p107_049.png 已替换为LaTeX, 原图保留备查 -->
 
-where U is eigenvector matrix of overlap matrix, matrix s is diag(λ1, λ2...), where {λ} is eigenvalue set of overlap matrix. After Löwdin orthogonalization, the overlap matrix becomes identity matrix, and new coefficient matrix is X-1C.
+where U is eigenvector matrix of overlap matrix, matrix s is diag(λ1, λ2...), where {λ} is eigenvalue set of overlap matrix. After Löwdin orthogonalization, the overlap matrix becomes identity matrix, and new coefficient matrix is $\mathbf{X}^{-1}\mathbf{C}$
 
 Ostensibly, Löwdin population avoids the partition for cross terms since they have become zero, actually, the partition step is no more than hidden in the orthogonalization. Since Löwdin orthogonalization still has no strong physical meaning, it cannot make conclusion that Löwdin population is better than Mulliken. In view of practical results, one also found Löwdin charges have no evident advantages relative to Mulliken charges, though some people argued that Löwdin charges have better basis set stability and reproducibility of molecular dipole moment. Besides, Mayer et. al. found Löwdin population has rotation dependence to some extent when Cartesian type Gaussian basis functions are used, however the dependency can be safely ignored in generally, for detail please see Chem. Phys. Lett., 393, 209 (1968) and Int. J. Quantum Chem., 106, 2065 (2006).
 
@@ -307,7 +307,7 @@ $$\mathbf{\mu}_{A}=\sum_{B}\Delta q_{A\rightarrow B}\mathbf{R}_{B}$$
 
 B
 
-where ΔqA→B is transferred charge from atom A to B, in other words, it is the correction charge on atom B due to A. The index B cycles all atoms in the system. RB is relative coordinate (column vector) of atom B with respect to atom A
+where ΔqA→B is transferred charge from atom A to B, in other words, it is the correction charge on atom B due to A. The index B cycles all atoms in the system. $\mathbf{R}_{B}$ is relative coordinate (column vector) of atom B with respect to atom A
 
 The correction charges are expected to be distributed only around atoms neighbouring to A, this could be realized by minimizing function F:
 
@@ -340,7 +340,7 @@ B B
 
 If atom A is in local planar region, the Λ matrix will be exactly or almost singular matrix, in this case inversed matrix of Λ obviously cannot be obtained. Notice that the solution to this problem in current implementation is slightly different to the one introduced in the ADCH original paper. In
 
-current Multiwfn, the Λ matrix is first diagonalized, the eigenvalues with absolute value less than 10-5 will be simply set to zero (the corresponding eigenvector typically perpendicular to the local plane of atom A), and remaining eigenvalues are inversed, now this matrix has corresponded to the
+current Multiwfn, the Λ matrix is first diagonalized, the eigenvalues with absolute value less than $10^{-5}$ will be simply set to zero (the corresponding eigenvector typically perpendicular to the local plane of atom A), and remaining eigenvalues are inversed, now this matrix has corresponded to the
 
 Λ-1 in the new local coordinate. Then 𝐑𝐵−〈𝐑𝐵〉 and μA are transformed to the new local coordinate by doing left multiplication of transpose of eigenvector matrix of Λ on them. Finally, the ΔqA→B is obtained using above formula.
 
@@ -364,7 +364,7 @@ Fitting points are evenly distributed in the box, the default spacing is 0.3 Å.
 
 the distances between the point and all nuclei are larger than 2.8 Å, then the fitting point will be discarded. The purple dots shown above are finally used fitting points.
 
-Like other ESP fitting methods, in CHELPG, the deviation function shown below is minimized to make the ESP calculated by atomic charges (Vq) close to the ESP calculated based on wavefunction (V) as good as possible.
+Like other ESP fitting methods, in CHELPG, the deviation function shown below is minimized to make the ESP calculated by atomic charges ($V_{q}$) close to the ESP calculated based on wavefunction (V) as good as possible.
 
 
 $$F(q_{1},q_{2}...q_{N})=\sum_{i}[V_{q}(\mathbf{r}_{i})-V(\mathbf{r}_{i})]^{2}$$
@@ -388,7 +388,7 @@ with
 
 $$\mathbf{A}_{A,B}=\sum_{i}\frac{1}{r_{i A}r_{i B}}\qquad\mathbf{B}_{A}=\sum_{i}\frac{V(\mathbf{r}_{i})}{r_{i A}}\quad q_{\mathrm{tot}}=\sum_{A}q_{A}$$
 
-where A and B are indices of fitting centers and N is total number of fitting centers. The column vector q is what we need, its first N elements correspond to charges of the fitting centers. The q could be easily evaluated as q=A-1B.
+where A and B are indices of fitting centers and N is total number of fitting centers. The column vector q is what we need, its first N elements correspond to charges of the fitting centers. The q could be easily evaluated as $\mathbf{q}=\mathbf{A}^{-1}\mathbf{B}$
 
 Usage In the interface there are many options which are introduced below.
 
@@ -559,11 +559,11 @@ Appendix: Two numerical algorithms of HI Multiwfn provides below two algorithms 
 
 (1) Fast & large memory requirement (default): This algorithm computes as much as possible data before starting iteration. Therefore, once initialization stage is done, the HI iteration can be finished rapidly. The drawback of this algorithm is that large amount of memory is needed, the
 
-memory consumed is at least 7×natm×natm×nrad×nang, where natm is the number of total atoms, nrad and nang corresponds to the number of radial and angular integration grid per atom. Evidently, this algorithm is unable to be applied for very large systems unless you have huge physical memory.
+memory consumed is at least 7×natm×natm×nrad×$7 \times n_{\text{atm}} \times n_{\text{atm}} \times n_{\text{rad}} \times n_{\text{ang}}$, where natm is the number of total atoms, nrad and nang corresponds to the number of radial and angular integration grid per atom. Evidently, this algorithm is unable to be applied for very large systems unless you have huge physical memory.
 
 (2) Slow & low memory requirement: This algorithm utilizes very low amount of memory, however, the data needed to be calculated in each iteration is much more than algorithm (1), thus the total computational cost is much higher.
 
-For both the two algorithms, the higher the integration grid number, the more accurate the result. By default, nrad and nang are properly set by Multiwfn. If the system only consists of first two rows
+For both the two algorithms, the higher the integration grid number, the more accurate the result. By default, nrad and $7 \times n_{\text{atm}} \times n_{\text{atm}} \times n_{\text{rad}} \times n_{\text{ang}}$ are properly set by Multiwfn. If the system only consists of first two rows
 
 elements, then nrad×nsph will be 30*170=5100. If you want to manually set nrad and nsph, you can set "iautointgrid" in `settings.ini` to 0 and change "radpot" and "sphpot" parameters.
 
@@ -583,13 +583,13 @@ calculation level, that means if the level used is very high (e.g. CCSD/aug-cc-p
 
 The expression of CM5 charge is
 
-BTqq ijijii Hirsh5CM +=
+$$q_{i}^{\mathrm{CM5}}=q_{i}^{\mathrm{Hirsh}}+\sum_{j\ne i}T_{ij}B_{ij}$$
 
-RRrB jiijij −−−= )](exp[ ≠α ij
+$$B_{ij}=\exp[-\alpha(r_{ij}-R_{i}-R_{j})]$$
 
-where rij is distance between atom i and j, Bij may be regarded as their Pauling bond order, Ri and Rj are their atomic covalent radii, which are defined as follows: For Z=1~96, the average between CSD radii and Pyykkö radii are used, while for Z=97-118, the Pyykkö radii are employed. The global
+where rij is distance between atom i and j, Bij may be regarded as their Pauling bond order, Ri and $R_j$ are their atomic covalent radii, which are defined as follows: For Z=1~96, the average between CSD radii and Pyykkö radii are used, while for Z=97-118, the Pyykkö radii are employed. The global
 
-parameter α equals 2.474 Å-1. The Tij is defined as Dij if both i and j are attributed to H, C, O, N, note that Dij=0 when i and j belong to the same element and Dij=-Dji. All the involved six Dij parameters (H-C, H-N, H-O, C-N, C-O, N-O) are tabulated in the original paper. For other cases, Tij is defined as Di - Dj, the optimized D parameters for all elements throughout the whole periodic table are provided in the supplemental material of CM5 original paper.
+parameter α equals 2.474 Å-1. The $T_{ij}$ is defined as Dij if both i and j are attributed to H, C, O, N, note that Dij=0 when i and j belong to the same element and Dij=-Dji. All the involved six Dij parameters (H-C, H-N, H-O, C-N, C-O, N-O) are tabulated in the original paper. For other cases, Tij is defined as Di - Dj, the optimized D parameters for all elements throughout the whole periodic table are provided in the supplemental material of CM5 original paper.
 
 Like usual Hirshfeld and ADCH calculations, after you enter this function, I suggest you select option 1 to use the built-in sphericalized atomic densities in free-states, since it is the most convenient. Then Multiwfn starts calculation of Hirshfeld charges, and then print CM5 charges. If you want to gain detailed information about the CM5 correction process during the calculation, you can set "ishowchgtrans" parameter in `settings.ini` to 1.
 
@@ -597,9 +597,9 @@ As demonstrated in J. Phys. Chem. B, 121, 3864 (2017), 1.2*CM5 is well-suited fo
 
 uESE and xESE are good solvation models based on CM5 charges in gas phase, there are
 
-corresponding codes for calculating free energy of solvation (ΔGsolv) based on them, see website http://iqcc.udg.edu/~vybo/ESE/. In J. Comput. Chem., 1, 11 (2021) it was shown that uESE is much
+corresponding codes for calculating free energy of solvation ($\Delta G_{\text{solv}}$) based on them, see website http://iqcc.udg.edu/~vybo/ESE/. In J. Comput. Chem., 1, 11 (2021) it was shown that uESE is much
 
-better on average than SMD solvation model for evaluating ΔGsolv of ions, while xESE performs somewhat better than SMD for evaluating ΔGsolv of neutral species. Multiwfn is able to generate input file of uESE code (the input file of xESE is the same as uESE). You simply need to set “uESEinp” in `settings.ini` to 1. Note that since uESE was parameterized at B3LYP/def2-TZVP level in gas phase, the CM5 charges should also be calculated at this level, and it is advised that geometry optimization is also performed at this level.
+better on average than SMD solvation model for evaluating $\Delta G_{\text{solv}}$ of ions, while xESE performs somewhat better than SMD for evaluating ΔGsolv of neutral species. Multiwfn is able to generate input file of uESE code (the input file of xESE is the same as uESE). You simply need to set “uESEinp” in `settings.ini` to 1. Note that since uESE was parameterized at B3LYP/def2-TZVP level in gas phase, the CM5 charges should also be calculated at this level, and it is advised that geometry optimization is also performed at this level.
 
 Information needed: GTFs, atom coordinates
 
@@ -631,7 +631,7 @@ $$\begin{aligned}&\chi_{1}=\chi_{2}=\ldots=\chi_{N}=\chi_{mol}\\ &\sum_{i}q_{i}=
 
 <!-- formula-ocr: formula_p120_062.png 已替换为LaTeX, 原图保留备查 -->
 
-where Q stands for net charge of the whole system, χmol is (unknown) molecular electronegativity, N is number of atoms.
+where Q stands for net charge of the whole system, $\chi_{\text{mol}}$ is (unknown) molecular electronegativity, N is number of atoms.
 
 It is easy to show that the working matrix equation for solving EEM charges can be written as follows
 
@@ -721,7 +721,7 @@ For the above problem (2), equivalence constraints can be imposed on chemically 
 
 For the above problem (3), the solution proposed in Kollman's RESP paper is to add a
 
-hyperbolic penalty function 222 1/2rstr[()]AAaqbbχ=+− to the function of measuring
+hyperbolic penalty function $$\chi^{2}_{\mathrm{rstr}}=a\sum_{A}\left[(q_{A}^{2}+b^{2})^{1/2}-b\right]$$ to the function of measuring
 
 reproducibility of the ESP calculated based on wavefunction, where index A corresponds to atomic index of non-hydrogen atoms. The penalty function involves a tightness parameter b and a restraint strength parameter a. The former is generally set to 0.1, while the latter can be adjusted in the actual calculation. The larger the a, the stronger the tendency of the atomic charge to be pulled down, and meantime the worse the ESP reproducibility becomes. Obviously, the parameter a should be properly selected, generally a value less than or equal to 0.001 is employed. It has been found that introduction of this form of penalty function significantly lowers charges of buried atoms, while other atoms, in particular polar atoms, are not evidently affected. Kollman believes that this treatment also significantly reduces the conformational dependence of the ESP fitting charge. After introducing the hyperbolic penalty function, the ESP fitting procedure can no longer be solved in one step, iteration is needed until changes of all atomic charges are small enough.
 
@@ -729,9 +729,9 @@ Below I give detailed derivation of the working equation used to calculate ESP f
 
 $$F=\left[\sum_{i}\left(V_{i}-\sum_{A}q_{A}\sum_{a\in A}\frac{1}{r_{ia}}\right)\right]^{2}+\lambda\left(\sum_{A}n_{A}q_{A}-q_{tot}\right)$$
 
-where i cycles fitting points, Vi is the ESP calculated based on wavefunction at point i, {q} is the set of uniquely derived atomic charges, ria denotes distance between point i and atom a, which belongs to equivalence constraints A. nA is the number of atoms constrained to be equivalent in batch A. If nA=1, that means A just corresponds to an atom without equivalence constraint.
+where i cycles fitting points, $V_i$ is the ESP calculated based on wavefunction at point i, {q} is the set of uniquely derived atomic charges, $r_{ia}$ denotes distance between point i and atom a, which belongs to equivalence constraints $n_A$ is the number of atoms constrained to be equivalent in batch A. If nA=1, that means A just corresponds to an atom without equivalence constraint.
 
-Minimization of F with respect to variables yields
+Minimization of F with respect to va$r_{ia}$bles yields
 
 
 <!-- p.124 -->
@@ -788,7 +788,7 @@ Theory Part 2: The standard RESP charge The Restrained ElectroStatic Potential (
 
 - Step 1: During the charge fitting, a hyperbolic penalty function with a=0.0005 is used to impose a weak charge restraint on non-hydrogen atoms. Charges of all atoms are fitted, and no equivalence constraint is employed. This step allows atomic charges to change with the greatest degree of freedom to make polar atoms fit the ESP as well as possible.
 
-- Step 2: Using the hyperbolic penalty function with a=0.001 to impose a strong restraint on non-hydrogen atoms. This step only allows charge of sp3 hybridized carbons, methylene carbons and hydrogens attached on them to be fitted, while charges of all the other atoms keep fixed at the
+- Step 2: Using the hyperbolic penalty function with a=0.001 to impose a strong restraint on non-hydrogen atoms. This step only allows charge of $sp^3$ hybridized carbons, methylene carbons and hydrogens attached on them to be fitted, while charges of all the other atoms keep fixed at the
 
 value obtained at step 1. Equivalence constraint is applied to hydrogens on each −CH3, =CH2, −CH2− group.
 
@@ -832,12 +832,12 @@ $$\left[\begin{array}{c c c c c c c}A_{11}&A_{12}&\cdots&A_{1N}&n_{1}&1&0\\ A_{2
 
 In practical programming implementation, when multiple conformations, equivalence constraint, charge constraint and penalty function are simultaneously taken into account, the ESP fitting calculation is carried out in following process: Because of introduction of the hyperbolic form of penalty function, the A and q should be updated alternately until convergence criterion is reached.
 
-In each iteration, only the first Natom×Natom block of A matrix and first Natom elements of B vector are constructed with consideration of conformation weights and penalty function, then remainder parts of A and B are filled according to charge constraint. Finally, according to equivalence constraint, the corresponding rows of A are combined together (e.g. if atoms 3, 6, 7 are constrained to be equivalent, then these three rows should be summed up) to form a temporary matrix, whose columns are further properly combined according to equivalence constraint to form Aeqv matrix. Similarly, the rows of B vector are transformed to Beqv according to equivalence constraint. After
+In each iteration, only the first Natom×Natom block of A matrix and first Natom elements of B vector are constructed with consideration of conformation weights and penalty function, then remainder parts of A and B are filled according to charge constraint. Finally, according to equivalence constraint, the corresponding rows of A are combined together (e.g. if atoms 3, 6, 7 are constrained to be equivalent, then these three rows should be summed up) to form a temporary matrix, whose columns are further properly combined according to equivalence constraint to form Aeqv matrix. Similarly, the rows of B vector are transformed to $\mathbf{B}_{\text{eqv}}$ according to equivalence constraint. After
 
 
 <!-- p.127 -->
 
-that, solving the equation qeqv=Aeqv-1Beqv and correspondingly updating atomic charges according to the given equivalency relationship. In the next cycle, the diagonal terms of A matrix are updated using the atomic charges obtained in last cycle, while non-diagonal terms of A and all elements of B vector do not need to be changed. Multiwfn simply uses zero as initial charges for the atoms to be fitted.
+that, solving the equation $\mathbf{q}_{\mathrm{eqv}} = \mathbf{A}_{\mathrm{eqv}}^{-1} \mathbf{B}_{\mathrm{eqv}}$ and correspondingly updating atomic charges according to the given equivalency relationship. In the next cycle, the diagonal terms of A matrix are updated using the atomic charges obtained in last cycle, while non-diagonal terms of A and all elements of B vector do not need to be changed. Multiwfn simply uses zero as initial charges for the atoms to be fitted.
 
 3.9.16.2 Usage and some details
 
@@ -984,7 +984,7 @@ PEOE charges are calculated via iterative process. In every iteration, certain a
 
 $$\Delta q_{A}^{(n)}=f^{n}\left(\sum_{K}\frac{\chi_{K}^{(n-1)}-\chi_{A}^{(n-1)}}{\chi_{A}^{q=1}}+\sum_{L}\frac{\chi_{L}^{(n-1)}-\chi_{A}^{(n-1)}}{\chi_{L}^{q=1}}\right)$$
 
-The f is damping factor, which is usually set to 0.5, χ𝐴 𝑞=1 is the electronegativity of atom A at q=1 state, clearly χ𝐴 𝑞=1 is always equal to 20.02 eV. Since the f n term decreases swiftly with increase of iteration number n, the flow of electrons between atoms is increasingly suppressed. In contrast to the EEM method described in Section 3.19.5, the PEOE does not finally meet the electronegativity equalization condition. The 𝑞=1 = 𝑎+ 𝑏+ 𝑐. However, note that, only for hydrogen, the χ𝐴
+The f is damping factor, which is usually set to 0.5, χ𝐴 𝑞=1 is the electronegativity of atom A at q=1 state, clearly χ𝐴 𝑞=1 is always equal to 20.02 eV. Since the $f^{n}$ term decreases swiftly with increase of iteration number n, the flow of electrons between atoms is increasingly suppressed. In contrast to the EEM method described in Section 3.19.5, the PEOE does not finally meet the electronegativity equalization condition. The 𝑞=1 = 𝑎+ 𝑏+ 𝑐. However, note that, only for hydrogen, the χ𝐴
 
 main reason that PEOE method violates this condition is that the formula for evaluating χ employed by PEOE method is not quite rigorous, therefore damping factor must be introduced to compensate this.
 
@@ -1003,9 +1003,9 @@ The atomic charges at iteration n are updated as
 
 then the atomic electronegativities {χ(n)} are recalculated based on {q(n)} via the aforementioned equation.
 
-The iteration stops when maximum of charge variation is smaller than the given threshold. In Multiwfn the threshold is set to 0.0001, in this case the iteration can usually converge after a dozen of cycles. In Multiwfn the f parameter is fixed to 0.5.
+The iteration stops when maximum of charge variation is smaller than the given threshold. In Multiw$f^{n}$ the threshold is set to 0.0001, in this case the iteration can usually converge after a dozen of cycles. In Multiwfn the f parameter is fixed to 0.5.
 
-The initial charges, namely {q(0)}, are default to zero except for very few kinds of atoms, whose q(0) is automatically set to a specific value. For example, the =O atom in sulfonyl group has default q(0) of -1. Sum of all final charges is equivalent to that of all initial charges, therefore you should guarantee that sum of all initial charges is equal to actual net charge of present system. If you want to manually set initial charges to override the default ones, you can prepare a file named PEOEinit.txt in current folder, each line contains atom index and initial charge, for example:
+The initial charges, namely {$\{q^{(0)}\}$}, are default to zero except for very few kinds of atoms, whose q(0) is automatically set to a specific value. For example, the =O atom in sulfonyl group has default q(0) of -1. Sum of all final charges is equivalent to that of all initial charges, therefore you should guarantee that sum of all initial charges is equal to actual net charge of present system. If you want to manually set initial charges to override the default ones, you can prepare a file named PEOEinit.txt in current folder, each line contains atom index and initial charge, for example:
 
 
 ```text
@@ -1059,23 +1059,23 @@ $$\rho_{A}^{0}(\mathbf{r})=\sum_{i=1}^{m_{A}}\rho_{A i}^{0}(\mathbf{r})$$
 
 where mA is number of shells that atom A possesses.
 
-𝑁𝐴𝑖 is determined as
+$N_{Ai}$ is determined as
 
 
 $$N_{A i}=\int\rho(\mathbf{r})\frac{\rho_{A i}^{0}(\mathbf{r})}{\rho_{0}(\mathbf{r})}\mathrm{d}\mathbf{r}$$
 
 <!-- formula-ocr: formula_p133_070.png 已替换为LaTeX, 原图保留备查 -->
 
-where total reference density 𝜌0(𝐫) = ∑𝜌𝐴 0(𝐫)𝐴. σ𝐴𝑖 is determined as
+where total reference density $\rho_0$ 0(𝐫)𝐴. σ𝐴𝑖 is determined as
 
 
 $$\sigma_{A i}=\frac{1}{3N_{A i}}\int\rho(\mathbf{r})\frac{\rho_{A i}^{0}(\mathbf{r})}{\rho_{0}(\mathbf{r})}|\mathbf{r}-\mathbf{R}_{A}|\mathrm{d}\mathbf{r}$$
 
 <!-- formula-ocr: formula_p133_071.png 已替换为LaTeX, 原图保留备查 -->
 
-Because NAi and {𝜌𝐴𝑖 0 } are dependent on each other, therefore they cannot be determined
+Because $N_{Ai}$ and {𝜌𝐴𝑖 0 } are dependent on each other, therefore they cannot be determined
 
-directly, and iteration update is necessary. In practice, initial guess of {NAi} and {σAi} are assigned, based on them the {𝜌𝐴𝑖 0 } and 𝜌0 are calculated, which are further used to evaluate {NAi} and {σAi} of next iteration. MBIS atomic charges are calculated every iteration as follows
+directly, and iteration update is necessary. In practice, initial guess of {$N_{Ai}$} and {σAi} are assigned, based on them the {𝜌𝐴𝑖 0 } and 𝜌0 are calculated, which are further used to evaluate {NAi} and {σAi} of next iteration. MBIS atomic charges are calculated every iteration as follows
 
 
 $$q_{A}=Z_{A}-\sum_{i=1}^{m_{A}}N_{Ai}$$
@@ -1084,7 +1084,7 @@ $$q_{A}=Z_{A}-\sum_{i=1}^{m_{A}}N_{Ai}$$
 
 If maximal change of MBIS charges is smaller than a threshold, the iteration will be ended.
 
-The initial values of {NAi} are set to the number of electrons in each shell of the corresponding
+The initial values of {$N_{Ai}$} are set to the number of electrons in each shell of the corresponding
 
 neutral isolated atom, for example, NA1=2, NA1=8, NA1=7 for Cl atom. Regarding the initial {σAi} (in Bohr unit), the innermost shell is 1/(2ZA), the outermost shell is 1/2. For intermediate shells, their values are set to geometric interpolated value among the two
 
@@ -1093,7 +1093,7 @@ $$\sigma_{Ai}=\frac{1}{2Z_{A}^{1-[(i-1)/(m_{A}-1)]}}$$
 
 <!-- formula-ocr: formula_p133_073.png 已替换为LaTeX, 原图保留备查 -->
 
-Once MBIS iteration is finished, atomic weighting functions will be available, which may be used in other analysis, such as calculating atomic multipole moments. The weighting function of atom A is expressed as follows, where 𝜌𝐴 0(𝐫)/𝜌0(𝐫) Evidently, the density of present system belonging to atom A is 𝜌(𝐫)𝑤𝐴(𝐫). 0 and 𝜌0 are computed using the converged {NAi} and {σAi} 𝑤𝐴(𝐫) = 𝜌𝐴
+Once MBIS iteration is finished, atomic weighting functions will be available, which may be used in other analysis, such as calculating atomic multipole moments. The weighting function of atom A is expressed as follows, where 𝜌𝐴 $\rho_{0}(\mathbf{r}) = \sum_{A} \rho_{A}^{0}(\mathbf{r})$/𝜌0(𝐫) Evidently, the density of present system belonging to atom $\rho(\mathbf{r})w_{A}(\mathbf{r})$ 0 and 𝜌0 are computed using the converged {$N_{Ai}$} and {σAi} 𝑤𝐴(𝐫) = 𝜌𝐴
 
 It is noteworthy that according to the definition of MBIS method, the following condition is exactly satisfied
 
@@ -1104,6 +1104,6 @@ $$\int\rho(\mathbf{r})w_{A}(\mathbf{r})\mathrm{d}\mathbf{r}=\int\rho_{A}^{0}(\ma
 
 Usage After entering the present function (subfunction 20 of main function 7), usually you can directly choose option 1 to start MBIS iteration, finally MBIS atomic charges are printed. Maximum number of iterations and convergence threshold can be customized by corresponding options.
 
-If you want to obtain values of converged {NAi} and {σAi}, you should choose option -2 to switch its status to “Yes”. Then after MBIS calculation is finished, they will be printed.
+If you want to obtain values of converged {$N_{Ai}$} and {σAi}, you should choose option -2 to switch its status to “Yes”. Then after MBIS calculation is finished, they will be printed.
 
 The current implementation of MBIS supports elements up to Rn. Information needed: GTFs, atom coordinates

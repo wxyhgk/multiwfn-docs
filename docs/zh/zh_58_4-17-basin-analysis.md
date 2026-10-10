@@ -27,7 +27,14 @@
 
 仔细阅读本节后，我相信你将理解Multiwfn中盆分析模块的大多数基本操作。
 
-生成盆并定位吸引子(Generate basins and locate attractors) 启动Multiwfn并输入以下命令 examples\HCN.wfn 17 // 盆分析(Basin analysis) 1 // 生成盆并定位吸引子(Generate basins and locate attractors) 1 // 要计算并从而分析的网格数据是电子密度(The grid data to be calculated) 2 // 中等质量网格(Medium-quality grid)。这对大多数情形已足够，如果你想获得更好结果，可以选择"高质量网格(High-quality grid)"，但将花费更多计算时间
+生成盆并定位吸引子(Generate basins and locate attractors) 启动Multiwfn并输入以下命令 examples\HCN.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **17** — 盆分析(Basin analysis)
+    - **1** — 生成盆并定位吸引子(Generate basins and locate attractors)
+    - **1** — 要计算并从而分析的网格数据是电子密度(The grid data to be calculated)
+    - **2** — 中等质量网格(Medium-quality grid)。这对大多数情形已足够，如果你想获得更好结果，可以选择"高质量网格(High-quality grid)"，但将花费更多计算时间
 
 
 <!-- p.776 -->
@@ -86,7 +93,11 @@ Sum of above values:         13.98879137
 
 因为我们研究的盆是AIM盆，获得盆积分的最佳选择是使用功能7而非功能2。在功能7中，使用混合原子中心和均匀网格，而功能2仅使用均匀网格进行积分。我们输入：
 
-7 // 在AIM盆中用混合型网格积分实空间函数(Integrate real space functions in AIM basins) 1 // 用原子中心+均匀网格积分特定函数(Integrate a specific function) 1 // 选择电子密度作为被积函数(Select electron density) 结果是
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 在AIM盆中用混合型网格积分实空间函数(Integrate real space functions in AIM basins)
+    - **1** — 用原子中心+均匀网格积分特定函数(Integrate a specific function)
+    - **1** — 选择电子密度作为被积函数(Select electron density) 结果是
 
 
 ```text
@@ -143,7 +154,14 @@ The atomic charges after normalization and atomic volumes:
 
 总之，在你进入盆分析模块后获得可靠AIM电荷的常见步骤是
 
-1 // 生成盆(Generate basin) 1 // 电子密度(Electron density) 2 // 中等质量网格(Medium-quality grid)。若希望得到更精确结果请选择高质量网格(High-quality grid) 7 // 在AIM盆中用混合型网格积分实空间函数(Integrate real space functions in AIM basins) 2 // 积分同时细化盆边界(Integrate and refine basin boundary) 1 // 电子密度(Electron density) 在Multiwfn中计算AIM电荷最方便的方式就是简单地选择
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 生成盆(Generate basin)
+    - **1** — 电子密度(Electron density)
+    - **2** — 中等质量网格(Medium-quality grid)。若希望得到更精确结果请选择高质量网格(High-quality grid)
+    - **7** — 在AIM盆中用混合型网格积分实空间函数(Integrate real space functions in AIM basins)
+    - **2** — 积分同时细化盆边界(Integrate and refine basin boundary)
+    - **1** — 电子密度(Electron density) 在Multiwfn中计算AIM电荷最方便的方式就是简单地选择
 
 <!-- p.779 -->
 
@@ -212,7 +230,13 @@ H3的LI仅为0.256，与盆电子布居数明显偏离。这一现象反映了�
 
 特殊情形：存在赝原子时的盆分析 赝原子也称为电子密度的非核吸引子（NNA），指不在核位置处的电子密度极大点。NNA可能由多种原因引起，例如，存在金属键或波函数质量太差。这里以Li6团簇为例说明如何处理存在NNA的情形。
 
-启动Multiwfn并输入 examples\Li6.fch 17 // Basin analysis 1 // Generate basins and locate attractors 1 // Electron density 1 // For illustration purposes, here we only use low-quality grid for saving time 0 // Visualize attractors and basins 下图左侧显示了该团簇的几何结构，三个绿色球表示三个NNA的位置；右侧显示了其中一个NNA对应的盆。正如你所见，吸引子2、4、8为NNA。
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入 examples\Li6.fch 17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **1** — Electron density
+    - **1** — For illustration purposes, here we only use low-quality grid for saving time
+    - **0** — Visualize attractors and basins 下图左侧显示了该团簇的几何结构，三个绿色球表示三个NNA的位置；右侧显示了其中一个NNA对应的盆。正如你所见，吸引子2、4、8为NNA。
 
 <!-- p.781 -->
 
@@ -272,7 +296,11 @@ The atomic charges after normalization and atomic volumes:
 
 Multiwfn在ELF盆分析方面非常强大。作为例子，本节分析一个典型小分子乙炔的ELF盆。启动Multiwfn并输入
 
-examples\C2H2.wfn 17 // Basin analysis 1 // Generate basins and locate attractors 9 // ELF 2 // Medium-quality grid 一旦盆的生成完成，我们就可以进行各种可视化和分析，见下文。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\C2H2.wfn 17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **9** — ELF 2
 
 第1部分：可视化吸引子与盆(Visualize attractors and basins) 我们进入选项0以可视化ELF吸引子和盆，你将看到下图。吸引子以绿色球表示，紫色文字为盆序号。你可以发现有许多紧密排列的吸引子环绕着C-C键，它们具有基本相同的ELF值，共同代表环状ELF吸引子。这些吸引子已被Multiwfn自动聚类在一起，因此它们都具有相同的吸引子序号，即2；换句话说，吸引子2是一个简并吸引子，包含许多成员吸引子（或原始吸引子）。相应地，盆2由所有成员盆组成。
 
@@ -464,7 +492,12 @@ pdb/pqr/txt/gjf file”并选择相应选项将所有吸引子导出为.pdb或.p
 
 聚类吸引子 假设我们想把吸引子4和5聚类在一起作为一个简并吸引子，使它们共同代表两个孤对电子，我们可以输入
 
--6 // Set parameter for attractor clustering or manually perform clustering 3 // Cluster specified attractors 4,5 // Attractors 4 and 5 will be clustered as a single one 0 // Return 选择选项0打开GUI，如下所示，你会发现所有吸引子的序号都已改变，对应于氧孤对电子的两个吸引子现在共享同一序号，即4。
+!!! terminal "Multiwfn 交互"
+
+    - **-6** — Set parameter for attractor clustering or manually perform clustering
+    - **3** — Cluster specified attractors
+    - **4,5** — Attractors 4 and 5 will be clustered as a single one
+    - **0** — Return 选择选项0打开GUI，如下所示，你会发现所有吸引子的序号都已改变，对应于氧孤对电子的两个吸引子现在共享同一序号，即4。
 
 积分盆 点击返回(RETURN)按钮关闭GUI，选择选项2然后选择1以在ESP盆中积分电子密度，结果为
 
@@ -503,7 +536,12 @@ Attractor       X,Y,Z coordinate (Angstrom)                Value
 
 显然，全局最小值为-0.09222*627.51 = -57.9 kcal/mol，等值面值则应设为-0.09222+10/627.51 = -0.07628 a.u.。
 
-进入选项0，在GUI窗口中取消勾选吸引子标记(Attractor labels)，然后输入-10 // Return to main menu 13 // Process grid data -2 // Visualize isosurface of the grid data in memory 在GUI中，在等值面值(Isosurface value)框中输入-0.07628，取消勾选显示双号(Show both sign)，选择等值面样式(Isosurface style)-使用网格(Use mesh)，确保已激活显示原子标记(Show atomic labels)，选择其他设置(Other settings)-设置原子标记类型(Set atomic label type)-元素符号(Element symbol)。最后，点击保存图片(Save picture)按钮将图像文件保存到当前文件夹，你将看到以下效果（数值为手动标注）
+进入选项0，在GUI窗口中取消勾选吸引子标记(Attractor labels)，然后输入-10
+
+!!! terminal "Multiwfn 交互"
+
+    - **Return to main menu 13** — Process grid data
+    - **-2** — Visualize isosurface of the grid data in memory 在GUI中，在等值面值(Isosurface value)框中输入-0.07628，取消勾选显示双号(Show both sign)，选择等值面样式(Isosurface style)-使用网格(Use mesh)，确保已激活显示原子标记(Show atomic labels)，选择其他设置(Other settings)-设置原子标记类型(Set atomic label type)-元素符号(Element symbol)。最后，点击保存图片(Save picture)按钮将图像文件保存到当前文件夹，你将看到以下效果（数值为手动标注）
 
 使用外部cube文件执行盆分析 Multiwfn能够仅基于网格数据执行盆分析，因此待分析的实空间函数可以不是Multiwfn形式上支持的任何函数，例如诱导电流密度的各向异性（Chem. Rev., 105, 3758 (2005)），它可由AICD或GIMIC程序计算。为了说明这一重要功能，现在我们直接使用Gaussian中的cubegen工具生成的网格数据重做上面所示的一些分析。
 
@@ -516,7 +554,11 @@ cubegen 0 potential H2O.fch ESP.cub 0 h
 
 然后启动Multiwfn并输入 ESP.cub // This file contains ESP grid data. After loading it, the grid data will be stored in memory
 
-17 // Basin analysis 1 // Select real space function used to partitioning basins 2 // Generate the basins by using the grid data stored in memory 现在在选项0中可视化定位的吸引子：
+!!! terminal "Multiwfn 交互"
+
+    - **17** — Basin analysis
+    - **1** — Select real space function used to partitioning basins
+    - **2** — Generate the basins by using the grid data stored in memory 现在在选项0中可视化定位的吸引子：
 
 ![](../imgs/p791_331.png)
 
@@ -533,9 +575,20 @@ cubegen 0 potential H2O.fch ESP.cub 0 h
 
 在做盆分析之前，我们需要先经由主功能5生成电子密度差的网格数据，所有相关元素的原子波函数文件必须可用。这里我们直接使用Multiwfn软件包中提供的一组原子波函数文件，即将“example”文件夹中的“atomwfn”子文件夹复制到当前文件夹，然后在生成电子密度差网格数据时Multiwfn会自动使用它们。准备原子波函数文件有几种不同方法，请回顾4.4.7节并查阅3.7.3节。
 
-之后，启动Multiwfn并输入：examples\H2O.fch // Generated at B3LYP/6-31G** level 5 // Calculate grid data -2 // Obtain deformation property 1 // Electron density 3 // High-quality grid。由于电子密度差的变化很复杂，使用相对高质量的网格是必需的。注意我们这里选择的“高质量网格”仅定义网格总数，因此与盆分析模块功能1中涉及的含义不同
+!!! terminal "Multiwfn 交互"
 
-0 // After the calculation is finished, return to main menu 17 // Basin analysis module 1 // Generate basins and locate attractors 2 // Generate the basins by using the grid data stored in memory (namely the grid data we just
+    - **之后，启动Multiwfn并输入：examples\H2O.fch** — Generated at B3LYP/6-31G** level
+    - **5** — Calculate grid data
+    - **-2** — Obtain deformation property
+    - **1** — Electron density
+    - **3** — High-quality grid。由于电子密度差的变化很复杂，使用相对高质量的网格是必需的。注意我们这里选择的“高质量网格”仅定义网格总数，因此与盆分析模块功能1中涉及的含义不同
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — After the calculation is finished, return to main menu
+    - **17** — Basin analysis module
+    - **1** — Generate basins and locate attractors
+    - **2** — Generate the basins by using the grid data stored in memory (namely the grid data we just
 
 ![](../imgs/p792_332.png)
 
@@ -575,7 +628,13 @@ calculated by main function 5)
 
 源函数已在2.6节第19部分中简介。通常，在讨论成键问题时取键临界点（BCP）作为源函数的参考点。在本例中我们计算乙烷在AIM盆中的源函数；特别是，基于源函数我们将得到甲基对与其C-H键的BCP处电子密度的贡献。在计算源函数之前，我们应先执行拓扑分析以找出BCP的位置。
 
-启动Multiwfn并输入：examples\ethane.wfn // Optimized and produced at B3LYP/6-31G* 2 // Topology analysis 2 // Search nuclear critical points 3 // Search BCPs 0 // Visualize result, see below
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入：examples\ethane.wfn** — Optimized and produced at B3LYP/6-31G*
+    - **2** — Topology analysis
+    - **2** — Search nuclear critical points
+    - **3** — Search BCPs
+    - **0** — Visualize result, see below
 
 ![](../imgs/p794_337.png)
 
@@ -654,7 +713,12 @@ H1−C2≡C3−C4≡C5−C6≡C7−C8≡C9−C10≡C11−C12≡C13−C14≡C15�
 
 首先，我们需要生成一个名为 basin.cub 的立方体文件，其格点值对应于 ELF 流域的编号。启动 Multiwfn 并输入
 
-examples\CH3NH2.wfn 17 // 流域分析(Basin analysis) 1 // 生成流域并定位吸引子(Generate basins and locate attractors) 9 // 电子定域函数(ELF) 2 // 中等质量网格(Medium-quality grid) 现在进入选项 0 查看流域编号
+!!! terminal "Multiwfn 交互"
+
+    - **examples\CH3NH2.wfn 17** — 流域分析(Basin analysis)
+    - **1** — 生成流域并定位吸引子(Generate basins and locate attractors)
+    - **9** — 电子定域函数(ELF)
+    - **2** — 中等质量网格(Medium-quality grid) 现在进入选项 0 查看流域编号
 
 
 ![](../imgs/p797_341.png)
@@ -671,7 +735,13 @@ basin.cub 0 // 查看吸引子(Check attractors)
 
 很清楚，对应于 N 和 C 的吸引子编号分别为 2 和 3。然后我们评估对 basin.cub 中定义的流域的原子贡献
 
-9 // 然后程序载入当前文件夹中的 basin.cub(Then program loads basin.cub in current folder) 2 // 对应于 N 的吸引子的编号(The index of the attractor corresponding to N) 5 // 第 5 个 ELF 流域，即 V(N,C) 流域(The 5th ELF basin, i.e. V(N,C) basin) 结果为 1.15866，即 N 对 V(N,C) 流域贡献了 1.159 个电子。然后输入 3 // 对应于 C 的吸引子的编号(The index of the attractor corresponding to C) 5 // 第 5 个 ELF 流域，即 V(N,C) 流域(The 5th ELF basin, i.e. V(N,C) basin) 从结果可知 C 对 V(N,C) 流域贡献了 0.463 个电子。由于 N 比 C 对它们 ELF 成键流域的电子贡献大得多，因此可以得出结论 C-N 是具有显著极性的键。
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 然后程序载入当前文件夹中的 basin.cub(Then program loads basin.cub in current folder)
+    - **2** — 对应于 N 的吸引子的编号(The index of the attractor corresponding to N)
+    - **5** — 第 5 个 ELF 流域，即 V(N,C) 流域(The 5th ELF basin, i.e. V(N,C) basin) 结果为 1.15866，即 N 对 V(N,C) 流域贡献了 1.159 个电子。然后输入
+    - **3** — 对应于 C 的吸引子的编号(The index of the attractor corresponding to C)
+    - **5** — 第 5 个 ELF 流域，即 V(N,C) 流域(The 5th ELF basin, i.e. V(N,C) basin) 从结果可知 C 对 V(N,C) 流域贡献了 0.463 个电子。由于 N 比 C 对它们 ELF 成键流域的电子贡献大得多，因此可以得出结论 C-N 是具有显著极性的键。
 
 
 ### 4.17.8 计算高 ELF 定域域布居和
@@ -753,7 +823,15 @@ $$E_{_\Omega}=\frac{E_{_{QC}}}{T}\times T_{_\Omega}$$
 
 结构(structure)
 
-17 // 流域分析(Basin analysis) 1 // 生成流域(Generate basins) 1 // 电子密度(Electron density) 2 // 中等质量网格(Medium-quality grid) 7 // 以混合型网格在 AIM 流域中对实空间函数积分(Integrate real space functions in AIM basins with mixed type of grids) 2 // 流域边界的精确精修(Exact refinement of basin boundary) 6 // Hamilton 动能 K(r)(Hamiltonian kinetic energy K(r)) 结果为
+!!! terminal "Multiwfn 交互"
+
+    - **17** — 流域分析(Basin analysis)
+    - **1** — 生成流域(Generate basins)
+    - **1** — 电子密度(Electron density)
+    - **2** — 中等质量网格(Medium-quality grid)
+    - **7** — 以混合型网格在 AIM 流域中对实空间函数积分(Integrate real space functions in AIM basins with mixed type of grids)
+    - **2** — 流域边界的精确精修(Exact refinement of basin boundary)
+    - **6** — Hamilton 动能 K(r)(Hamiltonian kinetic energy K(r)) 结果为
 
 
 ```text
@@ -772,7 +850,14 @@ Sum of basin volumes (rho>0.001):     293.942 Bohr^3
 
 一个明显更方便且更好的获得对能量的原子贡献的方法是选择用户自定义函数 -11 作为被积函数，它是包含维里比的标度电子能量密度，其在全空间的积分恰好等于量子化学程序给出的电子能量，见第 2.7 节相应部分对其定义。现在我们重做上面的例子。打开 `settings.ini` 并将 “iuserfunc” 设为 -11，然后启动 Multiwfn 并输入
 
-examples\H2CO.wfn 17 // 流域分析(Basin analysis) 1 // 生成流域(Generate basins) 1 // 电子密度(Electron density) 2 // 中等质量网格(Medium-quality grid) 7 // 以混合型网格在 AIM 流域中对实空间函数积分(Integrate real space functions in AIM basins with mixed type of grids) 2 // 流域边界的精确精修(Exact refinement of basin boundary) 100 //用户自定义函数，现在对应于标度电子能量密度(User-defined function, which now corresponds to the scaled electron energy density) 结果为
+!!! terminal "Multiwfn 交互"
+
+    - **examples\H2CO.wfn 17** — 流域分析(Basin analysis)
+    - **1** — 生成流域(Generate basins)
+    - **1** — 电子密度(Electron density)
+    - **2** — 中等质量网格(Medium-quality grid)
+    - **7** — 以混合型网格在 AIM 流域中对实空间函数积分(Integrate real space functions in AIM basins with mixed type of grids)
+    - **2** — 流域边界的精确精修(Exact refinement of basin boundary) 100 //用户自定义函数，现在对应于标度电子能量密度(User-defined function, which now corresponds to the scaled electron energy density) 结果为
 
 
 ```text
@@ -800,7 +885,12 @@ Sum of above integrals:          -114.50044630
 
 许多论文通过绘制 ELF 等值面图并根据流域类型（单齿、双齿及其他）对等值面着色来研究 ELF。在第 4.5.1 节我已经提到可以用 ChimeraX 软件基于 Multiwfn 导出的 .cub 文件轻松绘制这种图，但存在一些局限，即着色会随等值改变而变化，且一个完整等值面在对应于不同类型流域的子区域中不能着以不同颜色。本节中，我将展示如何结合使用 Multiwfn 的流域分析模块与 VMD（可从 http://www.ks.uiuc.edu/Research/vmd/ 免费获得）来绘制无上述局限的按流域类型着色的 ELF 等值面图。以简单分子环氧乙烷为例，其波函数文件为 examples\oxirane.fchk。我使用的 VMD 版本为 1.9.3。
 
-启动 Multiwfn 并输入 examples\oxirane.fchk 17 // 流域分析(Basin analysis) 1 // 生成流域(Generate basins) 9 // 电子定域函数(ELF) 2 // 中等质量网格(Medium-quality grid) 现在你可以选择选项 0 可视化定位到的吸引子：
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\oxirane.fchk 17** — 流域分析(Basin analysis)
+    - **1** — 生成流域(Generate basins)
+    - **9** — 电子定域函数(ELF)
+    - **2** — 中等质量网格(Medium-quality grid) 现在你可以选择选项 0 可视化定位到的吸引子：
 
 关闭图形界面窗口，并选择选项 “12 指认 ELF 流域标签(Assign ELF basin labels)”，你将看到
 

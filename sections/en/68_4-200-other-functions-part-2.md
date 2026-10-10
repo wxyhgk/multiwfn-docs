@@ -52,7 +52,12 @@ This section consists of two parts. In part 1, we will plot RDF for electron den
 
 Part 1: RDF of electron density for fullerene Since .wfn file of fullerene at B3LYP/6-31G* level is large, I only provide the corresponding Gaussian input file for you (C60.gjf in "example" folder), please properly modify and run it by Gaussian to produce C60.wfn.
 
-Boot up Multiwfn and input: C60.wfn 200 // Other functions (Part 2) 5 // Plot RDF for a real space function 3 1,6 // Set the lower and upper limit of RDF to 1.0 and 6.0 Å, respectively 0 // Calculate RDF and its integration curve After the calculation is finished, select option 0, below RDF map will be shown on the screen, the X-axis corresponds to radial distance
+!!! terminal "Multiwfn session"
+
+    - **Boot up Multiwfn and input: C60.wfn 200** — Other functions (Part 2)
+    - **5** — Plot RDF for a real space function 3
+    - **1,6** — Set the lower and upper limit of RDF to 1.0 and 6.0 Å, respectively
+    - **0** — Calculate RDF and its integration curve After the calculation is finished, select option 0, below RDF map will be shown on the screen, the X-axis corresponds to radial distance
 
 As you can see, the peak of RDF is about 3.5 Å, this is because the distance between nucleus of carbons and the sphere center is 3.545 Å. It is known that electron density has maximum at nuclear position for any atom except for hydrogen.
 
@@ -93,9 +98,24 @@ The main distribution region of both of them are far from the molecule. MO10 is 
 
 How to quantitatively demonstrate that the main distribution region of these Rydberg orbitals is far from the molecular center? One of the best ways is plotting RDF of electron density corresponding to these orbitals. Here we plot this kind of RDF map for MO11. We close the GUI of main function 0, and then input below commands:
 
-6 // Modify wavefunction 26 // Modify orbital occupation number 0 // Select all orbitals 0 // Select occupation number of all orbitals to zero 11 // Select orbital 11 2 // Set occupation number of orbital 11 to 2.0 (assume it is doubly occupied) q // Return -1 // Return to main menu 200 5 // Plot RDF 3 // Set lower and upper limit of radial plotting 0,10 // From 0 to 10 Å 4 // Set angular number of integration points. The default value is unnecessarily high for present purpose, therefore we set it to a smaller value to reduce computational time
+!!! terminal "Multiwfn session"
 
-302 // 302 angular points 0 // Calculate RDF for electron density (which is the default real space function) 1 // Plot the RDF map
+    - **6** — Modify wavefunction
+    - **26** — Modify orbital occupation number
+    - **0** — Select all orbitals
+    - **0** — Select occupation number of all orbitals to zero
+    - **11** — Select orbital 11
+    - **2** — Set occupation number of orbital 11 to 2.0 (assume it is doubly occupied) q
+    - **Return -1** — Return to main menu 200
+    - **5** — Plot RDF 3
+
+From 0 to 10 Å 4 // Set angular number of integration points. The default value is unnecessarily high for present purpose, therefore we set it to a smaller value to reduce computational time
+
+!!! terminal "Multiwfn session"
+
+    - **302** — 302 angular points
+    - **0** — Calculate RDF for electron density (which is the default real space function)
+    - **1** — Plot the RDF map
 
 
 ![](../imgs/p1034_550.png)
@@ -193,7 +213,14 @@ Boot up Multiwfn and input below commands examples\excit\D-pi-A.fchk 19 // Orbit
 
 To confirm which one corresponds to lone pair of N24, we enter main function 0 and check isosurface of the highlighted LMOs one by one, we find LMO 44 can be regarded as lone pair orbital of N24, the isosurface map with isovalue of 0.1 is shown below
 
-Now we can check contribution of this LMO to various MOs. Reboot Multiwfn and input examples\excit\D-pi-A.fchk 200 // Other functions (Part 2) 6 // Analyze correspondence between orbitals in two wavefunctions 1,56 // We want to check all occupied MOs (indices range is 1~56) new.fch // The file containing LMOs 44,44 // Only the 44th orbital in the new.fch will be taken into account From the output, we can find some MOs have large composition of the LMO 44, relevant lines are shown below (Since only LMO 44 is taken into account, other LMOs have exactly zero contribution)
+Now we can check contribution of this LMO to various MOs. Reboot Multiwfn and input examples\excit\D-pi-A.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **6** — Analyze correspondence between orbitals in two wavefunctions
+    - **1,56** — We want to check all occupied MOs (indices range is 1~56) new.fch
+    - **The file containing LMOs 44,44** — Only the 44th orbital in the new.fch will be taken into account From the output, we can find some MOs have large composition of the LMO 44, relevant lines are shown below (Since only LMO 44 is taken into account, other LMOs have exactly zero contribution)
 
 
 ```text
@@ -226,11 +253,28 @@ In this section I will illustrate how to calculate EI and BPI indices, which wer
 
 We will calculate BPI for C-N bond of CH3NH2, before this we first need to calculate reference EI value for C and N atoms, which correspond to EI of C in ethane and N in H2N-NH2, respectively. Boot up Multiwfn and input
 
-examples\EI_BPI\ethane.fch 200 // Other function, part 2 12 // Calculate energy index (EI) or bond polarity index (BPI) 1 // C1 atom You will see the EI value for C in reference molecule ethane is -0.667639 a.u.
+!!! terminal "Multiwfn session"
 
-Reboot Multiwfn and input examples\EI_BPI\N2H4.fch 200 // Other function, part 2 12 // Calculate EI or BPI 1 // N1 atom You can see the EI value for N in reference molecule H2N-NH2 is -0.718126 a.u.
+    - **examples\EI_BPI\ethane.fch 200** — Other function, part 2
+    - **12** — Calculate energy index (EI) or bond polarity index (BPI)
+    - **1** — C1 atom You will see the EI value for C in reference molecule ethane is -0.667639 a.u.
 
-Next we calculate EI for C and N in CH3NH2. Reboot Multiwfn and input examples\EI_BPI\CH3NH2.fch 200 // Other function, part 2 12 // Calculate EI or BPI 1 // C1, the result is -0.693374 a.u. 5 // N5, the result is -0.698092 a.u. The BPICN in CH3NH2.is computed as
+Reboot Multiwfn and input examples\EI_BPI\N2H4.fch
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other function, part 2
+    - **12** — Calculate EI or BPI
+    - **1** — N1 atom You can see the EI value for N in reference molecule H2N-NH2 is -0.718126 a.u.
+
+Next we calculate EI for C and N in CH3NH2. Reboot Multiwfn and input examples\EI_BPI\CH3NH2.fch
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other function, part 2
+    - **12** — Calculate EI or BPI
+    - **1** — C1, the result is -0.693374 a.u.
+    - **5** — N5, the result is -0.698092 a.u. The BPICN in CH3NH2.is computed as
 
 
 ![](../imgs/p1038_554.png)
@@ -246,7 +290,12 @@ As a comparison, use examples\EI_BPI\F2.fch to calculate reference value for F, 
 
 Via EI index we can also evaluate the so-called group electronegativity, which is often more useful than atomic electronegativity. Here we calculate electronegativity for -CH3 group, which is simply the negative of EIC for CH3 radical. Boot up Multiwfn and input
 
-examples\EI_BPI\CH3.fch // Optimized and produced at UHF/6-31G* 200 // Other function, part 2 12 // Calculate EI or BPI 1 // Carbon atom The result is -0.630656 a.u., corresponding to electronegativity of CH3 group of 0.631. Then we use examples\EI_BPI\F.fch to calculate group electronegativity for -F, the result is 0.957. It is clear that -F group has much higher electronegativity, and thus has stronger capacity to attract electrons than -CH3 group due to its lower average energy per valence electron.
+!!! terminal "Multiwfn session"
+
+    - **examples\EI_BPI\CH3.fch** — Optimized and produced at UHF/6-31G*
+    - **200** — Other function, part 2
+    - **12** — Calculate EI or BPI
+    - **1** — Carbon atom The result is -0.630656 a.u., corresponding to electronegativity of CH3 group of 0.631. Then we use examples\EI_BPI\F.fch to calculate group electronegativity for -F, the result is 0.957. It is clear that -F group has much higher electronegativity, and thus has stronger capacity to attract electrons than -CH3 group due to its lower average energy per valence electron.
 
 
 ### 4.200.13 Study orbital contributions to density difference
@@ -276,13 +325,28 @@ MOs to f −. The files carrying orbital wavefunctions of N and N-1 states have 
 
 contribution, we first need to generate cube file of f −. To do so, boot up Multiwfn and input
 
-examples\phenol.wfn // Wavefunction file of N-state 5 // Calculate grid data 0 // Set custom operation 1 // Only one file will be operated with the file that has been loaded -,examples\phenol_N-1.wfn 1 // Electron density 2 // Medium-quality grid 2 // Export the grid data as density.cub in current folder
+!!! terminal "Multiwfn session"
+
+    - **examples\phenol.wfn** — Wavefunction file of N-state
+    - **5** — Calculate grid data
+    - **0** — Set custom operation
+    - **1** — Only one file will be operated with the file that has been loaded -,examples\phenol_N-1.wfn
+    - **1** — Electron density
+    - **2** — Medium-quality grid
+    - **2** — Export the grid data as density.cub in current folder
 
 Now, we can directly enter the function used to derive orbital contributions to Δρ. Input below commands
 
-0 // Return to main menu 200 // Other functions (Part 2) 13 // Evaluate orbital contributions to density difference or other grid data
+!!! terminal "Multiwfn session"
 
-density.cub // The file containing grid data of f − 0 // Choose orbital range and start analysis o // Only consider orbitals with non-zero occupation in the fitting. For present case all occupied MOs are chosen (note that the wavefunction file we loaded is in .wfn format, in fact it only contains occupied orbitals, thus unoccupied orbitals cannot be chosen even if you want)
+    - **0** — Return to main menu
+    - **200** — Other functions (Part 2)
+    - **13** — Evaluate orbital contributions to density difference or other grid data
+
+!!! terminal "Multiwfn session"
+
+    - **density.cub** — The file containing grid data of f −
+    - **0** — Choose orbital range and start analysis o
 
 Soon the contribution values are listed in ascending order:
 
@@ -336,11 +400,25 @@ Note that the NBO orbitals recorded in the .37 file can be divided into two cate
 
 <!-- p.1042 -->
 
-First, we generate cube file of f − type of Fukui function. Boot up Multiwfn and input examples\orb_densdiff\butadiene\butadiene.fch 5 // Calculate grid data 0 // Set custom operation 1 // Only one file will be operated with the file that has been loaded -,examples\orb_densdiff\butadiene\butadiene_N-1.fch 1 // Electron density 1 // Low-quality grid (since the current system is very small, low-quality grid is adequate) 2 // Export the grid data as density.cub in current folder Now reboot Multiwfn and input examples\orb_densdiff\butadiene\BUTADIENE.31 37 // Load the BUTADIENE.37 in the same folder, which records NBO orbitals Now if you enter main function 6 and choose option 3 to examine orbital information, you will find the first 15 orbitals correspond to Lewis type of NBOs due to their high occupation numbers. Next, we input below commands in the main menu
+First, we generate cube file of f − type of Fukui function. Boot up Multiwfn and input examples\orb_densdiff\butadiene\butadiene.fch
+
+!!! terminal "Multiwfn session"
+
+    - **5** — Calculate grid data
+    - **0** — Set custom operation
+    - **1** — Only one file will be operated with the file that has been loaded -,examples\orb_densdiff\butadiene\butadiene_N-1.fch
+    - **1** — Electron density
+    - **1** — Low-quality grid (since the current system is very small, low-quality grid is adequate)
+    - **2** — Export the grid data as density.cub in current folder Now reboot Multiwfn and input examples\orb_densdiff\butadiene\BUTADIENE.31
+    - **37** — Load the BUTADIENE.37 in the same folder, which records NBO orbitals Now if you enter main function 6 and choose option 3 to examine orbital information, you will find the first 15 orbitals correspond to Lewis type of NBOs due to their high occupation numbers. Next, we input below commands in the main menu
 
 200 // Other functions (Part 2) 13 // Evaluate orbital contributions to density difference or other grid data
 
-density.cub // The file containing grid data of f − 0 // Choose orbital range and start analysis 1-15 // Range of Lewis NBOs The result is shown below
+!!! terminal "Multiwfn session"
+
+    - **density.cub** — The file containing grid data of f −
+    - **0** — Choose orbital range and start analysis
+    - **1-15** — Range of Lewis NBOs The result is shown below
 
 
 ```text
@@ -370,7 +448,17 @@ and S1 states of H2CO
 
 Finally, we study contribution of NBOs to Δρ between S1 and S0 states of H2CO. All relevant files used in this section have been provided in "examples\orb_densdiff\H2CO" folder, including the NBO plot files generated for ground state, wavefunction file of ground state (S0.fch) and wavefunction of the first excited state (S1.wfn). The Gaussian input files used for generating these files are also provided.
 
-We first generate the Δρ between S1 and S0 states. Boot up Multiwfn and input examples\orb_densdiff\H2CO\S1.wfn 5 // Calculate grid data 0 // Set custom operation 1 // Only one file will be operated with the file that has been loaded -,examples\orb_densdiff\H2CO\S0.fch 1 // Electron density 1 // Low-quality grid 2 // Export the grid data as density.cub in current folder -1 // Visualize the isosurface The isosurface at isovalue=0.03 is shown below.
+We first generate the Δρ between S1 and S0 states. Boot up Multiwfn and input examples\orb_densdiff\H2CO\S1.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **5** — Calculate grid data
+    - **0** — Set custom operation
+    - **1** — Only one file will be operated with the file that has been loaded -,examples\orb_densdiff\H2CO\S0.fch
+    - **1** — Electron density
+    - **1** — Low-quality grid
+    - **2** — Export the grid data as density.cub in current folder
+    - **-1** — Visualize the isosurface The isosurface at isovalue=0.03 is shown below.
 
 Now we calculate contribution of NBO orbitals to ΔρS0→S1 to characterize the nature of S0→S1 transition. Reboot Multiwfn and input below commands
 
@@ -381,9 +469,18 @@ Now we calculate contribution of NBO orbitals to ΔρS0→S1 to characterize the
 
 <!-- p.1044 -->
 
-examples\orb_densdiff\H2CO\H2CO.31 37 // Load the H2CO.37 in the same folder, which records NBO orbitals 200 // Other functions (Part 2) 13 // Evaluate orbital contributions to density difference or other grid data
+!!! terminal "Multiwfn session"
 
-density.cub // The file containing grid data of ΔρS0→S1 1 // Set constraint on the sum of contributions 2 // Set the constraint to a specific value 0 // Since electron excitation does not alter the number of electrons, the sum of contributions is set to be constrained to zero
+    - **examples\orb_densdiff\H2CO\H2CO.31 37** — Load the H2CO.37 in the same folder, which records NBO orbitals
+    - **200** — Other functions (Part 2)
+    - **13** — Evaluate orbital contributions to density difference or other grid data
+
+!!! terminal "Multiwfn session"
+
+    - **density.cub** — The file containing grid data of ΔρS0→S1
+    - **1** — Set constraint on the sum of contributions
+    - **2** — Set the constraint to a specific value
+    - **0** — Since electron excitation does not alter the number of electrons, the sum of contributions is set to be constrained to zero
 
 0 // Choose orbital range and start analysis [Press ENTER button to consider all orbitals] // Note that during electron excitation, a portion of electrons is excited to empty orbitals, therefore only taking Lewis NBOs into account is evidently inadequate, so all orbitals should be taken into account in the present context
 
@@ -436,7 +533,11 @@ Before reading this, please read Section 3.23.1 to understand how to use reduced
 
 System 1: Phenol dimer First, we use phenol dimer as example. Boot up Multiwfn and input examples\phenoldimer.wfn 200 // Other functions (Part 2) 14 // Integrate real space functions within isosurfaces of a real space function Here we want to study RDG domains defined as regions enclosed by isosurface of RDG = 0.5; in other words, these domains are composed of grid points where RDG < 0.5. Therefore, we select option 2 and choose "13 Reduced density gradient", and then select option 3 and input criterion, namely <0.5 (In fact, RDG < 0.5 is the default setting and you do not need to manually do these steps). Next, input below commands:
 
-1 // Start calculation grid data and generate domains -10 // Adjust extension distance 0 // Set extension distance to zero to avoid wasting of grid points at boundary area, where RDG isosurfaces commonly do not occur
+!!! terminal "Multiwfn session"
+
+    - **1** — Start calculation grid data and generate domains
+    - **-10** — Adjust extension distance
+    - **0** — Set extension distance to zero to avoid wasting of grid points at boundary area, where RDG isosurfaces commonly do not occur
 
 2 // Medium-quality grid (grid spacing=0.1 Bohr), generally this is accurate enough Now Multiwfn starts calculation of grid data for the selected real space function (i.e. RDG), and then identifies individual RDG domains according to the criterion of RDG<0.5. Finally, four domains are found, the number of grid points constituting the domains are shown as the last column:
 
@@ -457,7 +558,12 @@ right-bottom list. The 2nd and 4th domains are shown below:
 
 If you have read Section 3.23.1, you must know these domains correspond to H-bond and van der waals (vdW) interactions between the two phenols, respectively. We can study properties of these domains in terms of integrating specific real space functions within corresponding regions. We input
 
-1 // Integrate a domain 2 // Index of the domain of interest 2 // Choose a real space function 1 // Using electron density as integrand the result is:
+!!! terminal "Multiwfn session"
+
+    - **1** — Integrate a domain
+    - **2** — Index of the domain of interest
+    - **2** — Choose a real space function
+    - **1** — Using electron density as integrand the result is:
 
 
 ```text
@@ -492,7 +598,17 @@ $q_{int}$ index is defined based on integrating domains enclosed by RDG = 0.6 is
 
 Therefore, when we calculate RDG grid data for this case, extension distance should be set somewhat larger than zero, 3 Bohr is safe enough for avoiding unexpected truncation. Extension distance should also never be set to an over-large value, otherwise the number of grid points to be calculated will be very high and thus very time-consuming.
 
-Boot up Multiwfn and input below commands: examples\2-pyridoxine_2-aminopyridine.wfn 200 // Other functions (Part 2) 14 // Integrate real space functions within isosurfaces of a real space function 3 // Change the default criterion of defining domain <0.6 1 // Start calculation of grid data -10 // Change extension distance 3 // 3.0 Bohr of extension distance 2 // Medium-quality grid Now visualize resulting domains. Domains 2 and 4 are shown below, clearly they correspond
+Boot up Multiwfn and input below commands: examples\2-pyridoxine_2-aminopyridine.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **14** — Integrate real space functions within isosurfaces of a real space function
+    - **3** — Change the default criterion of defining domain <0.6
+    - **1** — Start calculation of grid data
+    - **-10** — Change extension distance
+    - **3** — 3.0 Bohr of extension distance
+    - **2** — Medium-quality grid Now visualize resulting domains. Domains 2 and 4 are shown below, clearly they correspond
 
 to H-bond of N23-H25······O1 and N2-H12······N13, respectively.
 
@@ -568,18 +684,38 @@ The idea of using domain analysis to study molecular cavity is very simple: We f
 
 α-cyclodextrin is used as an example in this section. Before studying the cavity using domain analysis module, it is suggested to first visualize promolecular density under various isovalues. Boot up Multiwfn and input:
 
-examples\alpha-cyclodextrin.pdb 5 // Calculate grid data 1 // Promolecular density -10 // Set extension distance 0 // Zero extension distance, namely let the box just enclose the molecule 1 // Low-quality grid -1 // Show isosurface map Click "Show data range" in the GUI window to show the box of grid data as blue frame, and set isovalue to 0.01 and 0.001 respectively, you will see
+!!! terminal "Multiwfn session"
+
+    - **examples\alpha-cyclodextrin.pdb 5** — Calculate grid data
+    - **1** — Promolecular density
+    - **-10** — Set extension distance
+    - **0** — Zero extension distance, namely let the box just enclose the molecule
+    - **1** — Low-quality grid
+    - **-1** — Show isosurface map Click "Show data range" in the GUI window to show the box of grid data as blue frame, and set isovalue to 0.01 and 0.001 respectively, you will see
 
 It is easy to understand, if we use threshold of 0.001 a.u., then the domain corresponding to the cavity in the center of the molecule cannot be defined, because the internal region and external region are connected via the three channels pointed by red arrows. While in the case of 0.0001 a.u., the molecular cavity is clearly identifiable and thus we could use domain analysis module with this threshold to study the cavity.
 
-Return to main menu, and then input below commands 200 // Other functions (Part 2) 14 // Domain analysis 2 // Choose the real space function to be calculated and used for partitioning domains 1 // Promolecular density 3 // Define the rule of determining domains <0.0001 // Regions with electron density less than 0.0001 will be defined as domains
+Return to main menu, and then input below commands
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **14** — Domain analysis
+    - **2** — Choose the real space function to be calculated and used for partitioning domains
+    - **1** — Promolecular density
+    - **3** — Define the rule of determining domains <0.0001
 
 
 ![](../imgs/p1049_564.png)
 
 <!-- p.1050 -->
 
-1 // Calculate grid data and assign domains -10 // Change extension distance 0 // No extension distance 1 // Low-quality grid After calculation is finished, you will see the following information on screen. There are totally six domains found, the number of grids and volume of all domains are shown
+!!! terminal "Multiwfn session"
+
+    - **1** — Calculate grid data and assign domains
+    - **-10** — Change extension distance
+    - **0** — No extension distance
+    - **1** — Low-quality grid After calculation is finished, you will see the following information on screen. There are totally six domains found, the number of grids and volume of all domains are shown
 
 
 ```text
@@ -637,7 +773,11 @@ the EDD in this section corresponds to deformation density ($\Delta\rho_{def}$),
 
 The .cub file of EDD for benzene (benzene_EDD.cub) has been provided at http://sobereva.com/multiwfn/extrafiles/benzene_EDD.zip. You can also easily generate it using main function 5. We first examine its isosurface map. Boot up Multiwfn and load benzene_EDD.cub, then enter main function 0, set isovalue to 0.015, you will see the following map. The green and blue isosurfaces correspond to positive and negative parts, respectively, which correspond to electron density increase and decrease regions due to formation of benzene from isolated atoms. In this example, we will use domain analysis module to respectively integrate the EDD within the two domains indicated by the red and blue circles.
 
-Return to main menu, and then input 200 // Other functions (Part 2) 14 // Domain analysis 3 // Set criterion for defining domain <-0.015 // The regions with function value more negative than -0.015 will be determined as domains, which is in line with the blue isosurfaces shown above
+!!! terminal "Multiwfn session"
+
+    - **Return to main menu, and then input 200** — Other functions (Part 2)
+    - **14** — Domain analysis
+    - **3** — Set criterion for defining domain <-0.015
 
 
 ![](../imgs/p1052_567.png)
@@ -661,14 +801,28 @@ Domain:      7    Grids:      427    Volume:     0.1899 Angstrom^3
 
 Enter option 3 to visualize the domains. By checking distribution of every domain, we find domain 3 corresponds to the blue isosurface mentioned above, as shown below. Each small green sphere corresponds to a grid within the domain.
 
-Then we integrate EDD in domain 3. Close the GUI window and input 1 // Perform integration for a domain 3 // Domain index is 3 1 // The integrand is just the grid data in memory, namely EDD The result is -0.032 a.u. Next, we integrate EDD in the green isosurface mentioned earlier. Input: 0 // Exit domain analysis module 14 // Domain analysis 3 // Set criterion for defining domain >0.015 -1 // Yield domains based on the grid data in memory After visually checking, we find domain 14 corresponds to the isosurface of interest, as shown below
+Then we integrate EDD in domain 3. Close the GUI window and input
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Perform integration for a domain
+    - **3** — Domain index is 3
+    - **1** — The integrand is just the grid data in memory, namely EDD The result is -0.032 a.u. Next, we integrate EDD in the green isosurface mentioned earlier. Input:
+    - **0** — Exit domain analysis module
+    - **14** — Domain analysis
+    - **3** — Set criterion for defining domain >0.015
+    - **-1** — Yield domains based on the grid data in memory After visually checking, we find domain 14 corresponds to the isosurface of interest, as shown below
 
 
 ![](../imgs/p1053_569.png)
 
 <!-- p.1054 -->
 
-Close the GUI window and input 1 // Perform integration for a domain 14 // Domain index is 14 1 // The integrand is just the grid data in memory, namely EDD The result is 0.156 a.u. Finally, it is worth to emphasize that because the integral is evaluated numerically based on uniform grids, the smaller the grid spacing, the better the integration accuracy.
+!!! terminal "Multiwfn session"
+
+    - **Close the GUI window and input 1** — Perform integration for a domain
+    - **14** — Domain index is 14
+    - **1** — The integrand is just the grid data in memory, namely EDD The result is 0.156 a.u. Finally, it is worth to emphasize that because the integral is evaluated numerically based on uniform grids, the smaller the grid spacing, the better the integration accuracy.
 
 You can similarly integrate other kinds of EDD, including Fukui function and dual descriptor.
 
@@ -845,7 +999,12 @@ Note that the ODI described in Section 4.8.5 is also able to compare orbital del
 
 Calculate SDI based on wavefunction file As an example, we calculate SDI for densities of all occupied orbitals of examples\excit\D-pi-A.fchk. Boot up Multiwfn, load this file, and then input
 
-200 // Other function (Part 2) 19 // Calculating SDI 2 // Calculate SDI for density of orbital wavefunctions 1-56 // Indices of occupied MOs You will immediately see following result on screen, the unit is a.u.
+!!! terminal "Multiwfn session"
+
+    - **200** — Other function (Part 2)
+    - **19** — Calculating SDI
+    - **2** — Calculate SDI for density of orbital wavefunctions
+    - **1-56** — Indices of occupied MOs You will immediately see following result on screen, the unit is a.u.
 
 
 ```text
@@ -916,12 +1075,21 @@ $_{2}$ molecule is taken as example in the present section, we will plot its BOD
 
 Boot up Multiwfn and input below commands examples\$_{2}$.fch // Optimized and generated at B3LYP/def-TZVP level. You can also use other files (e.g. .molden and .mwfn) as long as the file contains basis function information
 
-15 // Fuzzy atomic space analysis 3 // Calculate and output atomic overlap matrix to AOM.txt in current folder 0 // Return to main menu
+!!! terminal "Multiwfn session"
+
+    - **15** — Fuzzy atomic space analysis
+    - **3** — Calculate and output atomic overlap matrix to AOM.txt in current folder
+    - **0** — Return to main menu
 
 
 <!-- p.1061 -->
 
-200 // Other functions (Part 2) 20 // Bond order density (BOD) and natural adaptive orbital (NAdO) analyses 1 // Use atomic overlap matrix (AOM) for the analysis [Press ENTER button] // Load the AOM.txt in current folder 1,2 // Indices of the two atoms to be analyzed Then NAdOs are generated and you can find the following information
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **20** — Bond order density (BOD) and natural adaptive orbital (NAdO) analyses
+    - **1** — Use atomic overlap matrix (AOM) for the analysis [Press ENTER button]
+    - **Load the AOM.txt in current folder 1,2** — Indices of the two atoms to be analyzed Then NAdOs are generated and you can find the following information
 
 
 ```text
@@ -934,7 +1102,15 @@ The values are eigenvalues of the NAdO orbitals, the sum (3.11681) just correspo
 
 Next, we input y to let Multiwfn load the newly generated NAdOs.mwfn. From now on, electron density function directly corresponds to the BOD function. Now we plot the BOD as color-filled map. Input below commands
 
-0 // Return to main menu 4 // Plot plane map 1 // Electron density (which corresponds to BOD in the present context) 1 // Color-filled map [Press ENTER button] // Use recommended grid setting 0 // Set extension distance 2 // 2 Bohr 3 // YZ plane 0 // Z=0 Now the BOD map pops up. After some adjustments on plotting settings, you can see the map below
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to main menu
+    - **4** — Plot plane map
+    - **1** — Electron density (which corresponds to BOD in the present context)
+    - **1** — Color-filled map [Press ENTER button]
+    - **Use recommended grid setting 0** — Set extension distance
+    - **2** — 2 Bohr 3
+    - **YZ plane 0** — Z=0 Now the BOD map pops up. After some adjustments on plotting settings, you can see the map below
 
 
 <!-- p.1062 -->
@@ -945,7 +1121,19 @@ It can be seen that the distribution of BOD is reasonable, its main body is dist
 
 In this section, we will study BOD and NAdO orbitals for two kinds of C-C bonds in 1,3-butadiene, whose geometry is shown below. This time the analysis will be performed based on the AOM generated by AIM partition (using fuzzy partition like the last example is also reasonable).
 
-Boot up Multiwfn and input examples\butadiene.fch // Generated at B3LYP/6-31G** level 17 // Basin analysis module 1 // Generate basins and locate attractors 1 // Use electron density to define basins (i.e. AIM basins) 2 // Medium-quality grid 6 // Output orbital overlap matrix in atoms to AOM.txt in current folder -10 // Return to main menu 200 // Other functions (Part 2) 20 // Bond order density (BOD) and natural adaptive orbital (NAdO) analyses 1 // Use atomic overlap matrix (AOM) for the analysis
+Boot up Multiwfn and input examples\butadiene.fch
+
+!!! terminal "Multiwfn session"
+
+    - **Generated at B3LYP/6-31G** level 17** — Basin analysis module
+    - **1** — Generate basins and locate attractors
+    - **1** — Use electron density to define basins (i.e. AIM basins)
+    - **2** — Medium-quality grid
+    - **6** — Output orbital overlap matrix in atoms to AOM.txt in current folder
+    - **-10** — Return to main menu
+    - **200** — Other functions (Part 2)
+    - **20** — Bond order density (BOD) and natural adaptive orbital (NAdO) analyses
+    - **1** — Use atomic overlap matrix (AOM) for the analysis
 
 
 ![](../imgs/p1062_576.png)
@@ -999,7 +1187,12 @@ It can be seen that the first NAdO, which looks like a σ type of localized orbi
 
 Now we turn our attention to the boundary C-C bonds, namely C1-C4 (or C6-C8). Reboot Multiwfn and input below commands (you can first manually backup the previous NAdOs.mwfn to avoid overwriting)
 
-examples\butadiene.fch 200 // Other functions (Part 2) 20 // Bond order density (BOD) and natural adaptive orbital (NAdO) analyses 1 // Use atomic overlap matrix (AOM) for the analysis [Press ENTER button] // Load the AOM.txt in current folder 1,4 // Indices of the two carbons at the boundary of the system y // Load the newly generated NAdOs.mwfn After that, use main function 0 to visualize the only two orbitals having significant contributions to DI, as shown below (isovalue=0.05)
+!!! terminal "Multiwfn session"
+
+    - **examples\butadiene.fch 200** — Other functions (Part 2)
+    - **20** — Bond order density (BOD) and natural adaptive orbital (NAdO) analyses
+    - **1** — Use atomic overlap matrix (AOM) for the analysis [Press ENTER button]
+    - **Load the AOM.txt in current folder 1,4** — Indices of the two carbons at the boundary of the system y
 
 The σ type of NAdO orbital of C1-C4 has comparable eigenvalue to that of C4-C6, indicating that both two kinds of C-C bonds has similar strength of σ interaction. In contrast, the π type of NAdO orbital of C1-C4 has much higher contribution to DI than that of C4-C6, well reflecting the
 
@@ -1022,7 +1215,17 @@ Also, it is noteworthy that the BOD/NAdO analysis can also be performed to visua
 
 I also extended BOD and NAdO analyses to the scenario of interfragment interaction. To illustrate how to realize this, in this section I take oxirane as an example molecule, the oxygen atom and the two carbon atoms will be respectively defined as the two fragments. In addition, in this example I will illustrate evaluation of energies for NAdOs.
 
-We generate a file containing AOMs as previous examples. Boot up Multiwfn and input examples\oxirane.fchk 15 // Fuzzy atomic space analysis 3 // Calculate and output atomic overlap matrix to AOM.txt in current folder 0 // Return to main menu 200 // Other functions (Part 2) 20 // Bond order density (BOD) and natural adaptive orbital (NAdO) analyses -1 // Toggle if calculating energies for NAdOs 1 // Evaluate NAdOs energies based on the Fock matrix generated by MO energies and coefficients
+We generate a file containing AOMs as previous examples. Boot up Multiwfn and input examples\oxirane.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **15** — Fuzzy atomic space analysis
+    - **3** — Calculate and output atomic overlap matrix to AOM.txt in current folder
+    - **0** — Return to main menu
+    - **200** — Other functions (Part 2)
+    - **20** — Bond order density (BOD) and natural adaptive orbital (NAdO) analyses
+    - **-1** — Toggle if calculating energies for NAdOs
+    - **1** — Evaluate NAdOs energies based on the Fock matrix generated by MO energies and coefficients
 
 
 ![](../imgs/p1065_581.png)
@@ -1031,7 +1234,11 @@ We generate a file containing AOMs as previous examples. Boot up Multiwfn and in
 
 <!-- p.1066 -->
 
-3 // Interfragment interaction analysis based on fragment overlap matrix (FOM) [Press ENTER button] // Load AOM.txt in current folder 3 // Fragment 1: The oxygen atom 1,2 // Fragment 2: The two carbons The loaded AOMs are used to construct FOMs of the two fragments, the eigenvalues of generated NAdOs are
+!!! terminal "Multiwfn session"
+
+    - **3** — Interfragment interaction analysis based on fragment overlap matrix (FOM) [Press ENTER button]
+    - **Load AOM.txt in current folder 3** — Fragment 1: The oxygen atom
+    - **1,2** — Fragment 2: The two carbons The loaded AOMs are used to construct FOMs of the two fragments, the eigenvalues of generated NAdOs are
 
 
 ```text

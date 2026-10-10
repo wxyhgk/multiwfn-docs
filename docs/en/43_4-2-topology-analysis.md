@@ -6,7 +6,7 @@
 
 <!-- p.472 -->
 
-using MP2/aug-cc-pVDZ level to evaluate ΔΔVn is a very ideal choice.
+using MP2/aug-cc-pVDZ level to evaluate $\Delta\Delta V_n$ is a very ideal choice.
 
 
 ## 4.2 Topology analysis
@@ -24,7 +24,11 @@ Topology analysis of electron density is a main ingredient of Bader's atoms in m
 
 Boot up Multiwfn and input following commands examples\2-pyridoxine_2-aminopyridine.wfn // Assume that the input file is in a subdirectory of current directory, we can only input relative path rather than entire absolute path
 
-2 // Topology analysis Then we search all critical points (CPs) by inputting below commands 2 // Use nuclear positions as initial guesses, generally used to search (3,-3) CPs 3 // Use midpoint of each atomic pair in turn as initial guesses. Generally all (3,-1) CPs could be found, some (3,+1) or (3,+3) may also be found at the same time
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis Then we search all critical points (CPs) by inputting below commands
+    - **2** — Use nuclear positions as initial guesses, generally used to search (3,-3) CPs
+    - **3** — Use midpoint of each atomic pair in turn as initial guesses. Generally all (3,-1) CPs could be found, some (3,+1) or (3,+3) may also be found at the same time
 
 The search of CPs is very fast. After that input 0, the positions and types of all found CPs will be printed in the command-line window, at the end of the output the number of each type of CPs is shown:
 
@@ -100,7 +104,7 @@ It is also worth to note that in Chem. Phys. Lett., 285, 170 (1998), Espinosa an
 
 $$BE=V(\mathbf{r}_{BCP})/2$$
 
-BE=V(rBCP)/2
+$V(\mathbf{r}_{\mathrm{BCP}})/2$
 
 As shown in above output, V(r) at the BCP of N23-H25····O1 is -0.026148, thus the BE could be predicted to be -0.026148/2*2625.5 = -34.3 kJ/mol, which notably differs from the -26 kJ/mol using the prediction equation proposed in the J. Comput. Chem. (2019) paper. Which one is more accurate? As rigorously demonstrated in the J. Comput. Chem. article, the popular V(rBCP)/2 equation in fact has an evidently larger error and thus cannot be recommended; in other words, the BE of -26.1 kJ/mol should be more reliable.
 
@@ -176,7 +180,13 @@ For more discussions, please consult my blog article "Some explanation of perfor
 
 A brief of localized orbital locator (LOL) has been given in Section 2.6. In this example, we will locate its CPs and generate topology paths of LOL for acetic acid. With completely identical procedure, you can also study topology character for many other real space functions, such as electron localization function (ELF), electrostatic potential (ESP) and Laplacian of electron density.
 
-Boot up Multiwfn and input following commands examples\acetic_acid.wfn 2 // Enter topology analysis module -11 // Select a real space function 10 // Localized orbital locator (LOL) Notice that the distribution feature of LOL is much more complex than electron density, so it is very difficult to locate all LOL CPs. Fortunately, in general only a small subset of LOL CPs is what we are interested in, the search of CPs can be aborted once all CPs of interested have been found.
+Boot up Multiwfn and input following commands examples\acetic_acid.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Enter topology analysis module
+    - **-11** — Select a real space function
+    - **10** — Localized orbital locator (LOL) Notice that the distribution feature of LOL is much more complex than electron density, so it is very difficult to locate all LOL CPs. Fortunately, in general only a small subset of LOL CPs is what we are interested in, the search of CPs can be aborted once all CPs of interested have been found.
 
 We first use option "2 Search CPs from nuclear positions" to locate the CPs that very close to nuclei. However, the positions of CPs in other regions are somewhat unpredictable, hence a lot of starting points have to be randomly scattered around each atom to try to locate those CPs. Now, input below commands:
 
@@ -202,7 +212,16 @@ Now choose option 8 to generate the topology paths linking (3,-1) and (3,-3) CPs
 
 Hint: Example of using steepest ascent algorithm to search maxima For LOL and ELF, usually what we are really interested in are their (3,-3) CPs, namely maxima. The default CP searching method is Newton, which locate all kinds of CPs, as shown above. It is worth to note that Multiwfn also supports other searching algorithm, among which the steepest ascent is dedicated to searching maxima. As instance, here we adopt it to search ELF maxima for acetic acid. Boot up Multiwfn and input
 
-examples\acetic_acid.wfn 2 // Enter topology analysis module -11 // Select a real space function 9 // ELF -1 // Set CP searching parameters 12 // Choose searching algorithm 3 // Steepest ascent 0 // Return 6 // Search CPs from a batch of points within sphere(s) -1 // Start the search using each nucleus as sphere center in turn -9 // Return 0 // Visualize result After some adjustment of plotting settings, you can clearly see maxima of ELF:
+!!! terminal "Multiwfn session"
+
+    - **examples\acetic_acid.wfn 2** — Enter topology analysis module
+    - **-11** — Select a real space function
+    - **9** — ELF -1
+    - **Set CP searching parameters 12** — Choose searching algorithm
+    - **3** — Steepest ascent
+    - **0** — Return 6
+
+Start the search using each nucleus as sphere center in turn -9 // Return 0 // Visualize result After some adjustment of plotting settings, you can clearly see maxima of ELF:
 
 
 ![](../imgs/p480_087.png)
@@ -218,7 +237,15 @@ All real space functions that supported by Multiwfn could be easily plotted alon
 
 First open `settings.ini` file and change "iuserfunc" parameter to 30, because the 30th user-defined function corresponds to electron density ellipticity, see Section 2.7 for detail.
 
-Then boot up Multiwfn and input below commands: examples\butadiene.fch 2 // Topology analysis 2 // Search nuclear critical points from nuclear positions 3 // Search bond critical points from midpoint of atomic pairs 8 // Generate bond path 0 // Enter GUI window to visualize result Clicking "Atom labels" and "Path labels" buttons at right side of the GUI window, then we can find paths 5 and 6 collectively constitute the bond path of a boundary C-C bond:
+Then boot up Multiwfn and input below commands: examples\butadiene.fch
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis
+    - **2** — Search nuclear critical points from nuclear positions
+    - **3** — Search bond critical points from midpoint of atomic pairs
+    - **8** — Generate bond path
+    - **0** — Enter GUI window to visualize result Clicking "Atom labels" and "Path labels" buttons at right side of the GUI window, then we can find paths 5 and 6 collectively constitute the bond path of a boundary C-C bond:
 
 Clicking "RETURN" to close the window and then input -5 // Various operations on paths 7 // Calculate and plot a specific real space function along a path
 
@@ -246,7 +273,12 @@ Multiwfn is able to decompose any real space function as orbital contributions a
 
 We will first check which MOs have evident contribution to BCP corresponding to the boundary C-C bonds. Boot up Multiwfn and input
 
-examples\butadiene.fch 2 // Topology analysis 2 // Search nuclear critical points 3 // Search BCPs 0 // Visualize CPs
+!!! terminal "Multiwfn session"
+
+    - **examples\butadiene.fch 2** — Topology analysis
+    - **2** — Search nuclear critical points
+    - **3** — Search BCPs
+    - **0** — Visualize CPs
 
 
 ![](../imgs/p482_090.png)
@@ -255,7 +287,10 @@ examples\butadiene.fch 2 // Topology analysis 2 // Search nuclear critical point
 
 As can be seen, CP13 and CP17 are the BCPs of boundary C-C bonds. Close the GUI and then input
 
-7 // Show properties at a CP 13d // Decompose properties of CP13 1 // The real space function to be decomposed is electron density [Press ENTER button] // Take all occupied orbitals into account, but only print ten orbitals having largest contributions
+!!! terminal "Multiwfn session"
+
+    - **7** — Show properties at a CP 13d
+    - **Decompose properties of CP13 1** — The real space function to be decomposed is electron density [Press ENTER button]
 
 You will see below output
 
@@ -277,9 +312,16 @@ You will see below output
 
 Clearly, electron density at this BCP is simultaneously contributed by many MOs, the largest contribution is 31.3%. What will happen if we transform the MOs to localized MOs (LMO)? (see Section 3.21 for introduction about orbital localization and LMO). To examine this, return to main function menu, then input
 
-19 // Orbital localization 1 // Only localize occupied orbitals 2 // Enter topology analysis function again. We do not need to redo topology analysis, since all topology information is retained when you exit topology analysis module
+!!! terminal "Multiwfn session"
 
-7 // Show properties at a CP 13d // Decompose properties of CP13 1 // The real space function to be decomposed is electron density [Press ENTER button] You will see
+    - **19** — Orbital localization
+    - **1** — Only localize occupied orbitals
+    - **2** — Enter topology analysis function again. We do not need to redo topology analysis, since all topology information is retained when you exit topology analysis module
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Show properties at a CP 13d
+    - **Decompose properties of CP13 1** — The real space function to be decomposed is electron density [Press ENTER button] You will see
 
 
 ```text
@@ -318,7 +360,12 @@ Index               XYZ Coordinate (Bohr)                 Type
 
 Evidently, the point above 1 Bohr of CP13 should be (-1.131,-2.047,1.0). Input below command
 
--10 // Return to main menu 1 // Print various properties at a given point d // Decompose to orbital contributions -1.131,-2.047,1.0 1 // The unit of inputted coordinate is Bohr 1 // Decompose electron density [Press ENTER button] Then you will see the information below
+!!! terminal "Multiwfn session"
+
+    - **-10** — Return to main menu
+    - **1** — Print various properties at a given point d
+
+The unit of inputted coordinate is Bohr 1 // Decompose electron density [Press ENTER button] Then you will see the information below
 
 
 ```text
@@ -439,13 +486,25 @@ Owing to the extremely flexible design of Multiwfn, it is possible to perform to
 
 (1) Perform AIM analysis only in weakly interacting regions First, I show how to only locate CPs and generate bond paths in weakly interacting regions, where electron density must be relatively low. Boot up Multiwfn and input
 
-GCGC.wfn 2 // Topology analysis 2 // Search CPs from nuclear positions -1 // Set CP searching parameters 9 // Set value range for reserving CPs: 0,0.1 // Only CPs with density within 0~0.1 a.u. (i.e. relatively low density) will be reserved during searching
+!!! terminal "Multiwfn session"
+
+    - **GCGC.wfn 2** — Topology analysis
+    - **2** — Search CPs from nuclear positions
+    - **-1** — Set CP searching parameters
+    - **9** — Set value range for reserving CPs:
+    - **0,0.1** — Only CPs with density within 0~0.1 a.u. (i.e. relatively low density) will be reserved during searching
 
 0 // Return 3 // Search CPs from midpoint of atomic pairs 8 // Generating the paths connecting (3,-3) and (3,-1) CPs Now choose option 0 to visualize the result, see below. The left and right graphs are actually the same, but molecule structure is hidden in the right graph. It is clear that only BCPs as well as accompanying bond paths corresponding to weak interactions have been generated, while BCPs and bond paths corresponding to chemical bonds are not obtained.
 
 If you are not interested in RCPs (ring CPs, yellow spheres) and CCPs (cage CPs, green spheres), you can easily delete them. Input below commands:
 
--4 // Modify or export CPs 2 // Delete some CPs 5 // Delete all (3,+1) CPs 6 // Delete all (3,+3) CPs 0 // Return
+!!! terminal "Multiwfn session"
+
+    - **-4** — Modify or export CPs
+    - **2** — Delete some CPs
+    - **5** — Delete all (3,+1) CPs
+    - **6** — Delete all (3,+3) CPs
+    - **0** — Return
 
 
 ![](../imgs/p489_099.png)
@@ -458,9 +517,21 @@ If you are not interested in RCPs (ring CPs, yellow spheres) and CCPs (cage CPs,
 
 (2) Perform AIM analysis only in local spatial region Now I illustrate how to perform AIM topology analysis only for fragments 1 and 2. Boot up Multiwfn and input
 
-GCGC.wfn 2 // Topology analysis -1 // Set CP searching parameters 10 // Set the range of the atoms considered in searching modes 2, 3, 4, 5 1 // Confine the searching within a fragment 1-29 // The atomic index range of fragments 1 and 2 2 // Set scale factor of stepsize. We modify this because under default setting some BCPs corresponding to C-H and N-H of present system may be missing
+!!! terminal "Multiwfn session"
 
-0.5 // Stepsize will be scaled by 0.5 0 // Return 2 // Search CPs from nuclear positions 3 // Search CPs from midpoint of atomic pairs 8 // Generating the paths connecting (3,-3) and (3,-1) CPs Choose option 0 to visualize result, you will see the graph below. Clearly, only CPs and bond paths related to fragments 1 and 2 are generated, this is what we expected.
+    - **GCGC.wfn 2** — Topology analysis
+    - **-1** — Set CP searching parameters
+    - **10** — Set the range of the atoms considered in searching modes 2, 3, 4, 5
+    - **1** — Confine the searching within a fragment
+    - **1-29** — The atomic index range of fragments 1 and 2
+    - **2** — Set scale factor of stepsize. We modify this because under default setting some BCPs corresponding to C-H and N-H of present system may be missing
+
+!!! terminal "Multiwfn session"
+
+    - **0.5** — Stepsize will be scaled by 0.5
+    - **0** — Return 2
+    - **Search CPs from nuclear positions 3** — Search CPs from midpoint of atomic pairs
+    - **8** — Generating the paths connecting (3,-3) and (3,-1) CPs Choose option 0 to visualize result, you will see the graph below. Clearly, only CPs and bond paths related to fragments 1 and 2 are generated, this is what we expected.
 
 (3) Only retaining bond paths and corresponding BCPs connecting two specific fragments Sometimes we only want to study interfragment interaction between two specific fragments and hope that all irrelevant bond paths and BCPs could be fully removed to make the graph clearer. Although you can manually delete undesired BCPs and bond paths manually via corresponding suboptions in options -1 and -2, respectively, the process is usually tedious. Fortunately, in Multiwfn there is a special option aiming for realizing this purpose. Below I will illustrate how to only retain bond paths and corresponding BCPs connecting fragments 1 and 3 while removing all other BCPs and bond paths.
 
@@ -471,15 +542,33 @@ Boot up Multiwfn and input GCGC.wfn 2 // Topology analysis 2 // Search CPs from 
 
 <!-- p.491 -->
 
-3 // Search CPs from midpoint of atomic pairs 8 // Generating the paths connecting (3,-3) and (3,-1) CPs -5 // Manipulate paths 8 // Only retain bond paths (and corresponding BCPs) connecting two specific fragments while delete all other bond paths and BCPs
+!!! terminal "Multiwfn session"
 
-1-13 // Atomic indices in fragment 1 30-45 // Atomic indices in fragment 3 y // Also delete BCPs in other bond paths Then we manually delete all (3,+1) and (3,+3) CPs as described above, and then visualize result, you will see
+    - **3** — Search CPs from midpoint of atomic pairs
+    - **8** — Generating the paths connecting (3,-3) and (3,-1) CPs
+    - **-5** — Manipulate paths
+    - **8** — Only retain bond paths (and corresponding BCPs) connecting two specific fragments while delete all other bond paths and BCPs
+
+!!! terminal "Multiwfn session"
+
+    - **1-13** — Atomic indices in fragment 1
+    - **30-45** — Atomic indices in fragment 3 y
 
 Evidently, only the BCPs and bond paths characterizing the stacking interaction between fragments 1 and 3 are retained, the graph looks very clear, this is what we desired.
 
 (4) Only searching CPs between two specific fragments If you are only interested in intermolecular interactions between two very large molecules, and you have found the cost of searching all CPs is very high, you can ask Multiwfn to only search for CPs between the two molecules, as illustrated in this example. We will only try to search the CPs between fragments 1 and 3 of the GCGC complex. Boot up Multiwfn and input
 
-GCGC.wfn 2 // Topology analysis -1 // Set CP searching parameters 10 // Set the range of the atoms considered in searching modes 2, 3, 4, 5 2 // Searching CPs between two specific regions 1-13 // The atoms in region 1 30-45 // The atoms in region 2 0 // Return 3 // Search CPs from midpoint of atomic pairs 4 // Search CPs from center of three atom atoms Now select option 0 to visualize the result, you will see
+!!! terminal "Multiwfn session"
+
+    - **GCGC.wfn 2** — Topology analysis
+    - **-1** — Set CP searching parameters
+    - **10** — Set the range of the atoms considered in searching modes 2, 3, 4, 5
+    - **2** — Searching CPs between two specific regions
+    - **1-13** — The atoms in region 1
+    - **30-45** — The atoms in region 2
+    - **0** — Return 3
+
+Search CPs from center of three atom atoms Now select option 0 to visualize the result, you will see
 
 
 ![](../imgs/p491_102.png)
@@ -493,7 +582,7 @@ Since the atoms involved in the combination of each search is required to simult
 
 
 
-Topology analysis module is able to exactly locate various types of CPs, however, if distribution of a real space function is relatively complicated, such as ELF, orbital wavefunction and density difference, it is usually difficult to locate all CPs. In contrast, the basin analysis module guarantees that all minima of negative region and maxima of positive region can be successfully located, they are collectively known as "attractors", see examples of Section 4.17. However, since the basin analysis is carried out based on evenly distributed grid, the accuracy of the attractors is limited, because each attractor corresponds to a grid, while grid spacing is usually larger than 0.05 Bohr, which is several magnitudes larger than displacement convergence threshold of topology analysis. If you are only interested in minima and maxima of a real space function, obviously it is a good idea to use attractors determined by basin analysis as starting points for locating CPs in topology analysis module, in other words, one can use topology analysis module to refine the positions of the attractors. The joint use of the two modules ensures that all minima of negative region and maxima of positive region can be accurately located. In this example, I take spin density of C4H8 biradical as an example to illustrate how to realize this.
+Topology analysis module is able to exactly locate various types of CPs, however, if distribution of a real space function is relatively complicated, such as ELF, orbital wavefunction and density difference, it is usually difficult to locate all CPs. In contrast, the basin analysis module guarantees that all minima of negative region and maxima of positive region can be successfully located, they are collectively known as "attractors", see examples of Section 4.17. However, since the basin analysis is carried out based on evenly distributed grid, the accuracy of the attractors is limited, because each attractor corresponds to a grid, while grid spacing is usually larger than 0.05 Bohr, which is several magnitudes larger than displacement convergence threshold of topology analysis. If you are only interested in minima and maxima of a real space function, obviously it is a good idea to use attractors determined by basin analysis as starting points for locating CPs in topology analysis module, in other words, one can use topology analysis module to refine the positions of the attractors. The joint use of the two modules ensures that all minima of negative region and maxima of positive region can be accurately located. In this example, I take spin density $C_4H_8$ biradical as an example to illustrate how to realize this.
 
 The example file is examples\C4H8.wfn. Before conducting basin and topology analyses for spin density, we can use main function 5 to visualize its isosurface to examine its basic distribution feature. The isosurface corresponding to spin density = 0.01 a.u. is shown below
 
@@ -502,13 +591,27 @@ The example file is examples\C4H8.wfn. Before conducting basin and topology anal
 
 <!-- p.493 -->
 
-We perform basin analysis first. Boot up Multiwfn and input examples\C4H8.wfn 17 // Basin analysis 1 // Generate basins and locate attractors 5 // Spin density 2 // Medium-quality grid 0 // Check the located attractors After slightly modifying plotting settings, you will see
+We perform basin analysis first. Boot up Multiwfn and input examples\C4H8.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **5** — Spin density
+    - **2** — Medium-quality grid
+    - **0** — Check the located attractors After slightly modifying plotting settings, you will see
 
 In the map above, blue and green spheres correspond to minima of negative part and maxima of positive part, respectively. Clearly their positions are fully in line with our expectations, which can be inferred from the isosurface map.
 
 Then close the GUI and input -4 // Export attractors as pdb/pqr/txt/gjf file 3 // Export coordinates and function values of all attractors as attractors.txt Now we have attractors.txt in current folder, in which the first three columns correspond to X, Y, Z coordinate of the attractors in Bohr. Now we use them as starting points for topology analysis of spin density. Reboot Multiwfn and input
 
-examples\C4H8.wfn 2 // Topology analysis -11 // Reselect the real space function to be studied 5 // Spin density 1 // Search CPs from given starting points 4 // Using starting points from a .txt file [Press ENTER button] // Use attractors.txt in current folder Then from screen you can find all the 16 points in the attractors.txt were employed as starting
+!!! terminal "Multiwfn session"
+
+    - **examples\C4H8.wfn 2** — Topology analysis
+    - **-11** — Reselect the real space function to be studied
+    - **5** — Spin density
+    - **1** — Search CPs from given starting points
+    - **4** — Using starting points from a .txt file [Press ENTER button]
 
 
 ![](../imgs/p493_104.png)
@@ -528,11 +631,16 @@ H2O as an example
 
 In this example, I further illustrate the extreme flexibility of topology analysis in Multiwfn. I
 
-will show how to perform topology analysis for deformation density of H2O, that is ρdef = ρ(H2O) − ρ(H1) − ρ(H2) − ρ(O). See Section 3.7.2 for more information about deformation property. Similarly, you can use the same way to perform topology analysis for other kinds of density difference, such as Fukui function and dual descriptor.
+will show how to perform topology analysis for deformation density of H2O, that is ρdef = ρ(H2O) $\rho_{\text{def}} = \rho(\text{H}_2\text{O}) - \rho(\text{H}1) - \rho(\text{H}2) - \rho(\text{O})$(O). See Section 3.7.2 for more information about deformation property. Similarly, you can use the same way to perform topology analysis for other kinds of density difference, such as Fukui function and dual descriptor.
 
 - Generate grid data of deformation density Move “atomwfn” folder from “examples” folder to current folder so that Multiwfn can directly utilize atomic wavefunction files in it during generating deformation density. Then input
 
-examples\H2O.fch 5 // Grid data calculation -2 // Obtain deformation property 1 // Electron density 3 // High-quality grid (grid quality must be fine enough for present purpose. For a much larger system, I suggest choosing “5 Input original point, grid spacings, and the number of points” and input a relatively small grid spacing, e.g. 0.15)
+!!! terminal "Multiwfn session"
+
+    - **examples\H2O.fch 5** — Grid data calculation
+    - **-2** — Obtain deformation property
+    - **1** — Electron density
+    - **3** — High-quality grid (grid quality must be fine enough for present purpose. For a much larger system, I suggest choosing “5 Input original point, grid spacings, and the number of points” and input a relatively small grid spacing, e.g. 0.15)
 
 0 // Return to main menu
 
@@ -545,15 +653,30 @@ examples\H2O.fch 5 // Grid data calculation -2 // Obtain deformation property 1 
 
 - Topology analysis on deformation density iu // Change user-defined function -3 // User-defined function will correspond to interpolation function via B-spline algorithm based on the grid data in memory, as mentioned in Section 2.7
 
-2 // Topology analysis -11 // Change the function to be analyzed 100 // User-defined function 1 // Search CPs from given starting points 4 // Using starting points from a .txt file attractors.txt 0 // Return Now if you enter option 0, you can visualize maxima and minima, namely (3,-3) and (3,+3) CPs, as shown by purple and green spheres in the following figure
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis
+    - **-11** — Change the function to be analyzed
+    - **100** — User-defined function
+    - **1** — Search CPs from given starting points
+    - **4** — Using starting points from a .txt file attractors.txt
+    - **0** — Return Now if you enter option 0, you can visualize maxima and minima, namely (3,-3) and (3,+3) CPs, as shown by purple and green spheres in the following figure
 
 Then if you want to compare the CP positions with isosurfaces of the current grid data to confirm if the positions are indeed correct, you can then input
 
--10 // Return to main menu 13 // Process grid data -2 // Visualize isosurface of grid data in memory After properly adjusting isovalue to 0.09 a.u. and slightly adjusting radius of atoms and bonds, as shown below, you can clearly see that green (positive) and blue (negative) isosurfaces respectively enclosed some maxima and minima, so the minima and maxima of deformation density were indeed successfully located.
+!!! terminal "Multiwfn session"
+
+    - **-10** — Return to main menu
+    - **13** — Process grid data
+    - **-2** — Visualize isosurface of grid data in memory After properly adjusting isovalue to 0.09 a.u. and slightly adjusting radius of atoms and bonds, as shown below, you can clearly see that green (positive) and blue (negative) isosurfaces respectively enclosed some maxima and minima, so the minima and maxima of deformation density were indeed successfully located.
 
 If you also need (3,-1) and (3,+1) CPs of deformation density, now you can close GUI window and then input
 
--1 // Return to main menu 2 // Enter topology analysis module again 6 // Search CPs from a batch of points within sphere(s)
+!!! terminal "Multiwfn session"
+
+    - **-1** — Return to main menu
+    - **2** — Enter topology analysis module again
+    - **6** — Search CPs from a batch of points within sphere(s)
 
 
 ![](../imgs/p495_107.png)
@@ -594,7 +717,15 @@ process will not converge to other kinds of CPs, therefore lesser number of rand
 
 In the next three parts, I will illustrate how to use the three ways in turn.
 
-(1) Using Newton method to locate ESP CPs Using Newton method to locate CPs of ESP will be illustrated by taking acetic acid as example. Boot up Multiwfn and input examples\acetic_acid.wfn 2 // Topology analysis -11 // Select real space function 12 // ESP 6 // Search CPs from a batch of points within sphere(s) 11 // Set number of starting points in each sphere 100 // Because searching ESP CPs is quite expensive, we use a relatively small value than default, usually this is adequate
+(1) Using Newton method to locate ESP CPs Using Newton method to locate CPs of ESP will be illustrated by taking acetic acid as example. Boot up Multiwfn and input examples\acetic_acid.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis
+    - **-11** — Select real space function
+    - **12** — ESP 6
+
+Set number of starting points in each sphere 100 // Because searching ESP CPs is quite expensive, we use a relatively small value than default, usually this is adequate
 
 -1 // Start the search using each nucleus as sphere center in turn After a while, you can find a batch of CPs have been found (note that the number of CPs that can be obtained using this searching mode each time is somewhat random):
 
@@ -626,7 +757,12 @@ It is obvious that the (3,+3) CPs 2, 5, 6 correspond to minima of ESP, they occu
 
 You can then also visualize isosurface of ESP along with the CPs. To do so, input following commands
 
--10 // Return to main menu 5 // Calculate grid data 12 // ESP 2 // Medium-quality grid -1 // Show isosurface graph
+!!! terminal "Multiwfn session"
+
+    - **-10** — Return to main menu
+    - **5** — Calculate grid data
+    - **12** — ESP 2
+    - **Medium-quality grid -1** — Show isosurface graph
 
 After some adjustments of visualization setting, the isosurface of ESP = ±0.055 a.u. (±1.497 eV) will be
 
@@ -654,7 +790,18 @@ Index                       Coordinate               Type
 Totally find     3 new critical points
 ```
 
-The vmin inputted above is a shortcut, it corresponds to inputting following commands: 2 // Topology analysis -11 // Select real space function 12 // ESP -1 // Set CP searching parameters 12 // Choose searching algorithm 4 // Steepest descent 6 // Search CPs from a batch of points within sphere(s) 11 // Set the number of starting points in each sphere 10 // Although 10 starting points per center is small, it is adequate for most case. Unlike Newton method, all starting points of steepest descent method will converge towards to minima, therefore a smaller number of starting points is needed
+The vmin inputted above is a shortcut, it corresponds to inputting following commands:
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis
+    - **-11** — Select real space function
+    - **12** — ESP -1
+    - **Set CP searching parameters 12** — Choose searching algorithm
+    - **4** — Steepest descent
+    - **6** — Search CPs from a batch of points within sphere(s)
+    - **11** — Set the number of starting points in each sphere
+    - **10** — Although 10 starting points per center is small, it is adequate for most case. Unlike Newton method, all starting points of steepest descent method will converge towards to minima, therefore a smaller number of starting points is needed
 
 (3) Using combination method to locate ESP minima Ferrocene is a typical example that steep descent method is not suitable for locating its ESP minima, because as shown below, some minima occur in very narrow valley region of ESP, making convergence of this method quite difficult. Newton method works better in this situation, as its oscillator behavior is not so prominent; however, if you hope to locate all ESP minima, you need to set very large number of starting points, which makes computational cost very high. Here, I illustrate the joint use of basin analysis and topology analysis modules to locate all ESP minima, which is well-suited for this system. By the way, a detailed example of basin analysis of ESP is given in Section 4.17.3, you are suggested to look at it first.
 
@@ -669,7 +816,15 @@ The blue points correspond to ESP minima, while ESP maxima approximately occur a
 
 Close the GUI window and input following commands to use topology analysis module to refine the positions of the minima
 
--4 // Export attractors 3 // Export coordinates and function values of all attractors as attractors.txt in current folder -10 // Return to main menu 2 // Topology analysis -11 // Select real space function 12 // ESP 1 // Search CPs from given starting points 4 // Using starting points from a .txt file [Press ENTER button] // Use points recorded in the attractors.txt in current folder Then Multiwfn uses the default Newton method to search CPs based on the starting points in the attractors.txt. Once calculation is finished, input 0 to return, and then choose option 0 to visualize the located CPs:
+!!! terminal "Multiwfn session"
+
+    - **-4** — Export attractors
+    - **3** — Export coordinates and function values of all attractors as attractors.txt in current folder
+    - **-10** — Return to main menu
+    - **2** — Topology analysis
+    - **-11** — Select real space function
+    - **12** — ESP 1
+    - **Search CPs from given starting points 4** — Using starting points from a .txt file [Press ENTER button]
 
 As you can see, the ESP minima (green spheres) occur in expected positions, and their distribution is in line with molecular symmetry, implying all ESP minima have been found.
 
@@ -682,7 +837,11 @@ As you can see, the ESP minima (green spheres) occur in expected positions, and 
 
 Finally, if you want to visualize ESP isosurface along with the minima to better understand them, you can input
 
--10 // Return to main menu 13 // Process grid data -2 // Visualize isosurface for the grid data in memory, which currently corresponds to the ESP grid data generated during using basin analysis module before
+!!! terminal "Multiwfn session"
+
+    - **-10** — Return to main menu
+    - **13** — Process grid data
+    - **-2** — Visualize isosurface for the grid data in memory, which currently corresponds to the ESP grid data generated during using basin analysis module before
 
 After changing isovalue to 0.025 a.u. and set isosurface to mesh style, you can see
 
@@ -695,7 +854,13 @@ More information about topology analysis for van der Waals potential can be foun
 
 Van der Waals (vdW) potential is a quite important function to study intermolecular interaction dominated by vdW effect, see Section 3.23.7 for introduction and 4.20.6 for example of visual study and basins analysis. In this example, we perform topology analysis on vdW potential to exactly locate its minima, adamantane will be taken as example.
 
-Boot up Multiwfn and input examples\adamantane.xyz 2 // Topology analysis -11 // Select real space function 25 // vdW potential As shown by prompt on screen, the algorithm for locating CPs has been automatically changed to steepest descent method, because which is most suitable for locating minima of vdW potential.
+Boot up Multiwfn and input examples\adamantane.xyz
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis
+    - **-11** — Select real space function
+    - **25** — vdW potential As shown by prompt on screen, the algorithm for locating CPs has been automatically changed to steepest descent method, because which is most suitable for locating minima of vdW potential.
 
 Then input 6 // Search CPs from a batch of points within sphere(s)
 
@@ -732,7 +897,13 @@ Next, I will use Ni(NH3)2(OH)2 as example to show how to exactly locate IRI mini
 
 (2021), this system has two evident interligand N-H···O H-bonds. If you use the same way as described in Section 4.2.1 to perform AIM topology analysis, you will find no bond critical point corresponding to the two H-bonds can be found. However, the existence of the H-bonds can be clearly exhibited by IRI.
 
-Boot up Multiwfn and input examples\Ni(NH3)2(OH)2.mwfn 2 // Topology analysis -11 // Select real space function 24 // Interaction region indicator (IRI) Now that as shown in the prompt on screen, the CP searching method has been automatically changed to steepest descent method from the default Newton method, this is because Newton method can hardly converge to some IRI minima, not only because they often occur in very small and narrow concave regions, but also the local regions around these minima do not show quadratic behavior (you can plot curve map of IRI to visually understand this point). Steepest descent is much more suitable than Newton method in this case. From the prompt on screen, you can also find gradient convergence criterion has been automatically set to a very large value to deactivate its role in determining convergence, because due to the special function behavior of IRI (and RDG), it is almost impossible to use steepest descent method to converge very accurately to a position with small enough gradient.
+Boot up Multiwfn and input examples\Ni(NH3)2(OH)2.mwfn
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Topology analysis
+    - **-11** — Select real space function
+    - **24** — Interaction region indicator (IRI) Now that as shown in the prompt on screen, the CP searching method has been automatically changed to steepest descent method from the default Newton method, this is because Newton method can hardly converge to some IRI minima, not only because they often occur in very small and narrow concave regions, but also the local regions around these minima do not show quadratic behavior (you can plot curve map of IRI to visually understand this point). Steepest descent is much more suitable than Newton method in this case. From the prompt on screen, you can also find gradient convergence criterion has been automatically set to a very large value to deactivate its role in determining convergence, because due to the special function behavior of IRI (and RDG), it is almost impossible to use steepest descent method to converge very accurately to a position with small enough gradient.
 
 Then input the following commands to start CP searching 6 // Search CPs from a batch of points within sphere(s) -1 // Start the search using each nucleus as sphere center in turn After a while, you will find lots of (3,+3) CPs, namely minima, have been located. Note that unlike the default Newton method, which can locate all kinds of CP, the steepest descent method used herein only locate minima. Then input 0 to return to last menu, and choose option 0 to visualize result, you will see
 
@@ -745,7 +916,21 @@ between each pair of interacting atoms, and CP34 and CP41 correspond to interlig
 
 If you have interest, you can also plot color-filled map of IRI in XY plane, the non-hydrogen atoms in this system are all nearly lying in this plane. To do so, return to main menu, then input
 
-4 // Output and plot specific property in a plane 24 // Interaction region indicator (IRI) 1 // Color-filled map [Press ENTER button] // Use default number of grids 0 // Set extension distance 1 // 1 Bohr 1 // XY plane 0 // Z=0 Close the graph, and slightly modify plotting settings 4 // Enable showing atom labels and reference point 1 // Red 5 // Set details of plotting critical points and paths 15 // Set color for CPs 4 // (3,+3) 10 // Magenta 0 // Return -1 // Show the graph again Now you can see
+!!! terminal "Multiwfn session"
+
+    - **4** — Output and plot specific property in a plane
+    - **24** — Interaction region indicator (IRI)
+    - **1** — Color-filled map [Press ENTER button]
+    - **Use default number of grids 0** — Set extension distance
+    - **1** — 1 Bohr 1
+    - **XY plane 0** — Z=0 Close the graph, and slightly modify plotting settings
+    - **4** — Enable showing atom labels and reference point
+    - **1** — Red 5
+
+!!! terminal "Multiwfn session"
+
+    - **Set color for CPs 4** — (3,+3) 10
+    - **Magenta 0** — Return -1
 
 
 ![](../imgs/p504_117.png)

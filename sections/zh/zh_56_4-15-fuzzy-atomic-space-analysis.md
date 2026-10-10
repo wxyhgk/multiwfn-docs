@@ -18,7 +18,10 @@
 
 离域指数(DI)的定义已在 3.18.5 节详细介绍。DI 最初是为 AIM 原子空间提出的，而研究表明，如果在模糊原子空间中计算它，计算成本会显著降低，而结果仍然有意义。在本例中，我们将在 Becke 模糊原子空间中计算 DI，以研究苯中不同原子对之间电子离域的程度。
 
-启动 Multiwfn，并输入以下命令 examples\benzene.wfn // 在 B3LYP/6-311G* 下生成的 15 // 模糊原子空间分析 4 // 计算局域化指数(LI)和 DI。Multiwfn 首先利用 DFT 数值积分方案计算每个模糊原子空间中的原子重叠矩阵(AOM)，然后将 AOM 转换为 DI 和 LI。
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn，并输入以下命令 examples\benzene.wfn** — 在 B3LYP/6-311G* 下生成的
+    - **15** — 模糊原子空间分析 4
 
 n // 不将 LI 和 DI 输出到纯文本文件 Multiwfn 会自动检查并输出 AOM 的误差，对于当前计算，误差小于 0.001，完全可以忽略。如果误差大到无法接受，你可以将 `settings.ini` 中的“iautointgrid”设为 0，并将“radpot”和“sphpot”设为较大的值。当“iautointgrid”等于 1 时，Multiwfn 使用 (40,230) 格点计算 AOM，其精度直接影响 LI、DI 以及 PDI 和 FLU 的精度。
 
@@ -76,7 +79,10 @@ PDI 值正好是 C4-C10、C8-C7 和 C9-C3 之间的 DI 的平均值。现在我�
 
 计算 PLR 最后，让我们计算对位线性响应指数(PLR)。PLR 基于线性响应核，它依赖于虚 MO 的信息；然而 .wfn 文件只包含占据 MO，因此我们必须使用 .mwfn/.fch/.molden/.gms 文件作为输入。重新启动 Multiwfn 并输入以下命令
 
-examples\phenanthrene.fch // 与 phenanthrene.wfn 在相同水平下得到的 15 // 模糊空间分析 10 // 计算 PLR Multiwfn 将计算凝聚线性响应核(CLRK)矩阵，之后依次输入 4,8,9,10,7,3 和 8,9,11,13,14,15，结果分别为 0.248030 和 0.489560。由于前者远小于后者，PLR 也验证了边界环比中心环具有更大芳香性的结论。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenanthrene.fch** — 与 phenanthrene.wfn 在相同水平下得到的
+    - **15** — 模糊空间分析 10
 
 注意，PDI 和 PLR 都可以分离为 α 和 π 部分，以分别研究 α 和 π 芳香性，详见 3.18.6 和 3.18.9 节。
 
@@ -145,7 +151,11 @@ $$\mathbf{D}_{F}=\sum_{A\in F}\left[Z_{A}\mathbf{R}_{A}-\int w_{A}(\mathbf{r})\r
 
 
 
-1-13 // 第一个苯酚的原子序号 2 // 计算原子和分子多极矩 1 // 在屏幕上输出结果 你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **1-13** — 第一个苯酚的原子序号
+    - **2** — 计算原子和分子多极矩
+    - **1** — 在屏幕上输出结果 你将看到
 
 
 ```text
@@ -217,7 +227,11 @@ drawarrow "serial 14 to 26" 0.656950 0.228171 0.366808 2
 
 非得是 .wfn 格式，它们可以是 Multiwfn 支持的任何格式，例如 .mwfn、.fch 和 .molden。
 
-启动 Multiwfn 并输入 examples\oxirane.fchk 15 // 模糊分析 13 // 计算原子有效体积、自由体积、极化率和 C6 系数 H.wfn // 孤立态氢原子的波函数文件的路径 C.wfn // 孤立态碳原子的波函数文件的路径 O.wfn // 孤立态氧原子的波函数文件的路径 输出为
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\oxirane.fchk 15** — 模糊分析 13
+    - **计算原子有效体积、自由体积、极化率和 C6 系数 H.wfn** — 孤立态氢原子的波函数文件的路径 C.wfn
+    - **孤立态碳原子的波函数文件的路径 O.wfn** — 孤立态氧原子的波函数文件的路径 输出为
 
 
 ```text
@@ -296,7 +310,11 @@ Homomolecular C6 coefficient:    347.07 a.u.
 
 这里我以 H2O2 分子为例，展示如何在 VMD 程序中计算并绘制原子偶极矩。VMD 可从 http://www.ks.uiuc.edu/Research/vmd/ 免费获取，本例中我使用的版本是 1.9.3。
 
-启动 Multiwfn 并输入 examples\H2O2.fch 15 // 模糊原子空间分析模块 2 // 计算原子和分子多极矩和 <r^2> 2 // 将结果输出到纯文本文件 现在你在当前文件夹中有了 multiple.txt 和 atom_moment.txt。前者包含关于原子多极矩（从单极矩到八极矩）的详细信息，而后者包含原子偶极矩以及原子四极矩张量的本征值和本征矢量。
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入 examples\H2O2.fch 15** — 模糊原子空间分析模块
+    - **2** — 计算原子和分子多极矩和 <r^2>
+    - **2** — 将结果输出到纯文本文件 现在你在当前文件夹中有了 multiple.txt 和 atom_moment.txt。前者包含关于原子多极矩（从单极矩到八极矩）的详细信息，而后者包含原子偶极矩以及原子四极矩张量的本征值和本征矢量。
 
 为了将原子偶极矩矢量与分子结构一起在 VMD 中绘制，我们需要将从 H2O2.fch 加载的几何结构导出为 H2O2.xyz，输入以下命令
 

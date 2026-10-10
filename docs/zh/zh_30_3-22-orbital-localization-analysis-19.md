@@ -61,7 +61,7 @@ $$\begin{array}{r}{Q_{A}^{i j}=\frac{1}{2}\displaystyle\sum_{\mu\in A}\displayst
 
 其中 μ 与 ν 对应基函数序号，后者循环全部基函数。
 
-对 PM-Löwdin 方法，因基函数已用 Löwdin 对称正交化，项 Q 简化为 ijAijAQC Cμμμ= 
+对 PM-Löwdin 方法，因基函数已用 Löwdin 对称正交化，项 Q 简化为 ijAijAQC Cμμμ∈= 
 
 PM-Löwdin 似乎比 PM-Mulliken 便宜得多；但若编程得当，两方法的代价本质相同，因为 PM-Mulliken 情形的 Q 可重写为
 

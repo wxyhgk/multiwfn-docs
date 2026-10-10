@@ -10,7 +10,11 @@ In order to borrow EDF information from the atomic .wfx files in the analysis of
 
 examples\Pt(NH3)2Cl2.wfn Pt // Load EDF information for element Pt examples\Pt_lanl2.wfx // Take EDF information of Pt from this file Cl // Load EDF information for element Cl examples\Cl_lanl2.wfx // Take EDF information of Cl from this file q // We have finished, exit Now we can perform wavefunction analysis as usual. But it is better to first carry out some tests to check if inner-core electron density has been properly represented, for example, we integrate electron density over the whole space
 
-100 // 100 Other functions (Part1) 4 // Integrate a function over the whole space 1 // Electron density The result is 132.00, which is the expected total number of electrons of Pt(NH3)2Cl2. Assume that we did not load the EDF information, then the result will be 52.00, which is just the number of valence electrons of Pt(NH3)2Cl2.
+!!! terminal "Multiwfn session"
+
+    - **100** — 100 Other functions (Part1)
+    - **4** — Integrate a function over the whole space
+    - **1** — Electron density The result is 132.00, which is the expected total number of electrons of Pt(NH3)2Cl2. Assume that we did not load the EDF information, then the result will be 52.00, which is just the number of valence electrons of Pt(NH3)2Cl2.
 
 Note that you can also directly input atomic indices instead of element name, for example, inputting 4,8-10,11 means selecting atoms 4,8,9,10,11 in present system. Of course, the atoms you selected each time must correspond to the same element and the same pseudopotential.
 

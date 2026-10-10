@@ -340,7 +340,10 @@ set name "C:\\AdNDPorb$idx.cub"
 
 在本节我们对 Au20 团簇进行 AdNDP 分析，所需文件可从 http://sobereva.com/multiwfn/extrafiles/Au20.rar 下载。
 
-启动 Multiwfn 并输入： Au20.out // 基于优化好的几何结构在 B3PW91/Lanl2DZ 水平下生成的 14 // AdNDP 分析 2 // 搜索 1 中心 AdNDP 轨道。找到 100 个候选轨道，其占据数都非常接近 2.0，因此都可以选出
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入： Au20.out** — 基于优化好的几何结构在 B3PW91/Lanl2DZ 水平下生成的
+    - **14** — AdNDP 分析 2
 
 0 // 选出轨道 100 // 选出全部 100 个候选轨道 2 // 穷举搜索 2 中心轨道。什么也没找到 2 // 穷举搜索 3 中心轨道。同样什么也没找到 2 // 穷举搜索 4 中心轨道。现在你可以看到四个占据数为 1.84 e 的候选轨道和六个占据数为 1.7589 e 的候选轨道
 

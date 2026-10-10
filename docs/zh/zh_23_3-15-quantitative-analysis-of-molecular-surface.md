@@ -472,7 +472,7 @@ $$w_{A}^{\mathrm{H i r s h}}(\mathbf{r})=\frac{\rho_{A}^{0}(\mathbf{r})}{\displa
 
 B
 
-其中 𝜌𝐴 0 表示自由状态原子 A 的密度。对片段中全部原子的权重求和即得该片段的 Hirshfeld 权重 HirshHirsh( )( )PAA Pww = rr
+其中 𝜌𝐴 0 表示自由状态原子 A 的密度。对片段中全部原子的权重求和即得该片段的 Hirshfeld 权重 HirshHirsh( )( )PAA Pww ∈= rr
 
 Hirsh = 0.5。受 Hirshfeld 表面启发，笔者提出了 Becke 表面，即把 Hirshfeld 权重换为 Becke 权重（Becke 权重介绍见 3.18.0 节），构建 Becke 表面只需几何与原子共价半径。通常 Becke 表面与 Hirshfeld 表面的形状相当。对大体系 Hirshfeld 表面更快，多数情形下优于 Becke 表面，但 Becke 表面有个优点，即在电子密度消失的区域（离原子很远）仍能正常构建，该区域 Hirshfeld 权重无定义从而 Hirshfeld 表面无法构建。片段 P 的 Hirshfeld 表面就是 𝑤𝑃 的等值面
 

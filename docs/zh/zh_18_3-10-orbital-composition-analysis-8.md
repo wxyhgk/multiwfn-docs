@@ -175,7 +175,7 @@ Ext.cross：片段 1 与所有其他原子之间总交叉项的片段 1 部分�
 
 $$\sum_{a\in frag1} \sum_{b\notin frag1} w_{a,b} 2C_{a,i} C_{b,i} S_{a,b} \times 100\%$$
 
-显然，片段 1 的总组成等于 c^2 项 + Int.cross + Ext.cross。若还定义了片段 2(你必须已经定义过片段 1)，在子功能5(Mulliken)(subfunction 5 (Mulliken))或子功能5(Stout-Politzer)(subfunction 5 (Stout-Politzer))中每个轨道中片段 1 与片段 2 之间的交叉项，即 ,,,frag1frag2 2100%a ib ia bab  × 也将被输出。“Frag1 part”与 C C S
+显然，片段 1 的总组成等于 c^2 项 + Int.cross + Ext.cross。若还定义了片段 2(你必须已经定义过片段 1)，在子功能5(Mulliken)(subfunction 5 (Mulliken))或子功能5(Stout-Politzer)(subfunction 5 (Stout-Politzer))中每个轨道中片段 1 与片段 2 之间的交叉项，即 $\sum_{a\in\mathrm{frag1}}\sum_{b\in\mathrm{frag2}}2C_{a,i}C_{b,i}S_{a,b}\times100\%$ 也将被输出。“Frag1 part”与 C C S
 
 “Frag2 part”分别对应归属于片段 1 和片段 2 的交叉项分量，对 Mulliken 分析而言，由于“等分”，两项当然完全相等。
 

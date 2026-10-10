@@ -62,11 +62,19 @@ $$\mathrm{RDG}(\mathbf{r})=\frac{1}{2(3\pi^{2})^{1/3}}\frac{\left|\nabla\rho(\ma
 
 examples\PhenolDimer.wfn // 任何包含 GTF 信息的格式都可用作输入文件，详见第 2.5 节
 
-5 // 生成格点数据 (Generate grid data) 13 // RDG 函数 (RDG function) 7 // 以两个原子的中点作为格点数据的中心，这种定义空间范围的方式非常适合弱相互作用分析
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 生成格点数据 (Generate grid data)
+    - **13** — RDG 函数 (RDG function)
+    - **7** — 以两个原子的中点作为格点数据的中心，这种定义空间范围的方式非常适合弱相互作用分析
 
 1,14 // 两个原子的序号设为 1 和 14，因为从分子结构（见下图）可估计弱相互作用区域出现在 C1 和 C14 之间
 
-40,40,40 // 弱相互作用区域很小，所以 40*40*40=64000 个格点已足够精细 3,3,3 // 将所有 X/Y/Z 方向的扩展距离（缓冲距离）设为 3 Bohr -1 // 显示 RDG 等值面 (Show the isosurface of RDG) 请确保 GUI 窗口中等值 (isovalue) 设为 0.5，该值适合可视化弱相互作用区域（若等值太小，则 RDG 等值面会太薄而不好看；若太大，则会出现不需要的“原子核附近”和“化学键附近”区域）。现在你可以在 GUI 窗口中看到如下图形：
+!!! terminal "Multiwfn 交互"
+
+    - **40,40,40** — 弱相互作用区域很小，所以 40*40*40=64000 个格点已足够精细
+    - **3,3,3** — 将所有 X/Y/Z 方向的扩展距离（缓冲距离）设为 3 Bohr
+    - **-1** — 显示 RDG 等值面 (Show the isosurface of RDG) 请确保 GUI 窗口中等值 (isovalue) 设为 0.5，该值适合可视化弱相互作用区域（若等值太小，则 RDG 等值面会太薄而不好看；若太大，则会出现不需要的“原子核附近”和“化学键附近”区域）。现在你可以在 GUI 窗口中看到如下图形：
 
 
 <!-- p.312 -->
@@ -98,7 +106,14 @@ Hessian 矩阵的第二大本征值（以下记为 λ2）。若 λ2 大于零，
 
 Multiwfn 生成 sign(λ2)ρ 和 RDG 的 cube 文件，再用 VMD 的绘图脚本绘制此类图。VMD 是最好的可视化工具之一，可在 http://www.ks.uiuc.edu/Research/vmd 免费下载。这里我以主功能 20 (Main function 20) 的子功能 1 (subfunction 1) 为例说明如何对苯酚二聚体实现。这次我们不仅想研究两个单体之间的弱相互作用区域，还想考察苯酚芳香环内的位阻效应，因此格点数据的空间范围应覆盖整个二聚体。
 
-启动 Multiwfn 并输入以下命令 examples\PhenolDimer.wfn 20 // 弱相互作用的可视化研究 (Visual study of weak interaction) 1 // NCI 分析 (NCI analysis) -10 // 相对分子边界在所有方向设置扩展距离 (Set extension distance in all directions with respect to molecular boundary) 0 // 由于本体系的弱相互作用区域只出现在体系内部区域，我们无需在体系边界留缓冲区域，故将扩展距离设为 0 Bohr
+启动 Multiwfn 并输入以下命令 examples\PhenolDimer.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用的可视化研究 (Visual study of weak interaction)
+    - **1** — NCI 分析 (NCI analysis)
+    - **-10** — 相对分子边界在所有方向设置扩展距离 (Set extension distance in all directions with respect to molecular boundary)
+    - **0** — 由于本体系的弱相互作用区域只出现在体系内部区域，我们无需在体系边界留缓冲区域，故将扩展距离设为 0 Bohr
 
 2 // 中等质量格点（约 512000 个点）。由于格点数据的空间范围明显大于上例，我们需要比上例更多的格点，否则 RDG 等值面看起来会不连续
 
@@ -125,7 +140,13 @@ RDG 等值面的点。因此，NCI 分析方法可视为 AIM 理论在可视化�
 
 理解如何用 Multiwfn 绘制 sign(λ2)ρ 映射的 RDG 等值面图，下面给出实现此目的的最简步骤，适用于大多数情形。
 
-启动 Multiwfn 并输入 xxx.wfn（或 wfx/mwfn/fch/molden... 文件）// 载入输入文件 20 // 弱相互作用的可视化研究 (Visual study of weak interaction) 1 // NCI 分析 (NCI analysis) 3 // 请在此步合理定义格点。对小、中型体系“高质量格点 (High-quality grid)”通常足够
+启动 Multiwfn 并输入 xxx.wfn（或 wfx/mwfn/fch/molden... 文件）// 载入输入文件
+
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用的可视化研究 (Visual study of weak interaction)
+    - **1** — NCI 分析 (NCI analysis)
+    - **3** — 请在此步合理定义格点。对小、中型体系“高质量格点 (High-quality grid)”通常足够
 
 
 ![](../imgs/p314_047.png)
@@ -193,7 +214,11 @@ RDG 等值面的点。因此，NCI 分析方法可视为 AIM 理论在可视化�
 
 图中屏蔽对应 H 键的 RDG 等值面。从原始散点图发现，H 键区域对应 sign(λ2)ρ 范围 -0.035 ~ -0.015，因此可在后处理菜单输入以下命令
 
--2 // 设置 sign(λ2)ρ 在给定数据范围内处的 RDG 值 (Set RDG value where sign(λ2)ρ in within given data range) -0.035,-0.015 // sign(λ2)ρ 的下限和上限 100 // 将这些区域的 RDG 值设为任意大值以屏蔽 RDG 等值面 然后，若再选择选项 -1 (option -1) 绘制散点图，你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **-2** — 设置 sign(λ2)ρ 在给定数据范围内处的 RDG 值 (Set RDG value where sign(λ2)ρ in within given data range)
+    - **-0.035,-0.015** — sign(λ2)ρ 的下限和上限
+    - **100** — 将这些区域的 RDG 值设为任意大值以屏蔽 RDG 等值面 然后，若再选择选项 -1 (option -1) 绘制散点图，你将看到
 
 
 ![](../imgs/p318_050.png)

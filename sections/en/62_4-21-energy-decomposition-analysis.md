@@ -79,9 +79,18 @@ Perform analysis Now, we start to perform the EDA-FF analysis. Copy the water.tx
 
 dimer.mol // The file containing dimer structure information (you can also use other formats containing the geometry information as input file, such as the .fch file produced during optimization task of the dimer)
 
-21 // Energy decomposition analysis 1 // Energy decomposition analysis based on forcefield 3 // Load atom types and atomic charges mollist.txt // The actual path of the molecular list file. At this point, the program read atom types and charges from the water.txt and assign them to the two water molecules in the current system
+!!! terminal "Multiwfn session"
 
-2 // Define fragments 2 // Two fragments will be defined 1-3 // The atomic indices of the fragment 1 4-6 // The atomic indices of the fragment 2 If you want to check if atom types and charges of all atoms in current system have been set up properly, you can choose option 4, the output is
+    - **21** — Energy decomposition analysis
+    - **1** — Energy decomposition analysis based on forcefield
+    - **3** — Load atom types and atomic charges mollist.txt
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Define fragments
+    - **2** — Two fragments will be defined
+    - **1-3** — The atomic indices of the fragment 1
+    - **4-6** — The atomic indices of the fragment 2 If you want to check if atom types and charges of all atoms in current system have been set up properly, you can choose option 4, the output is
 
 
 ```text
@@ -197,7 +206,16 @@ C:\C3.txt 1
 
 Start analysis All preparation works have been completed, now we start the EDA-FF analysis. Boot up Multiwfn and input
 
-C3GC.pdb 21 // Energy decomposition analysis 1 // EDA-FF 3 // Load atom types and charges mollist.txt // Input actual path of mollist.txt 2 // Define fragments 3 // Three fragments will be defined 1-13 // Atom indices in fragment 1, namely cytosine (C) 14-29 // Atom indices in fragment 2, namely guanine (G) 30-101 // Atom indices in fragment 3, namely C3 Select option 1 to carry out the EDA-FF calculation, the results are as follows (atomic contribution part is ignored)
+!!! terminal "Multiwfn session"
+
+    - **C3GC.pdb 21** — Energy decomposition analysis
+    - **1** — EDA-FF 3
+    - **Load atom types and charges mollist.txt** — Input actual path of mollist.txt
+    - **2** — Define fragments
+    - **3** — Three fragments will be defined
+    - **1-13** — Atom indices in fragment 1, namely cytosine (C)
+    - **14-29** — Atom indices in fragment 2, namely guanine (G)
+    - **30-101** — Atom indices in fragment 3, namely C3 Select option 1 to carry out the EDA-FF calculation, the results are as follows (atomic contribution part is ignored)
 
 
 ```text
@@ -244,7 +262,13 @@ acts. Relatively white atoms only play trivial role on the trimer binding. As ca
 
 Assume that we want to vividly exhibit the dispersion interaction between C3 and GC base pair, then we input below commands in the EDA-FF interface
 
-2 // Redefine fragments 2 // Two fragments will be defined 1-29 // Fragment 1, the GC base pair 30-101 // Fragment 2, the C3 part 1 // Start the EDA-FF calculation Then the following information is shown on screen, the data equals the sum of C3-C and C3-G interaction energies
+!!! terminal "Multiwfn session"
+
+    - **2** — Redefine fragments
+    - **2** — Two fragments will be defined
+    - **1-29** — Fragment 1, the GC base pair
+    - **30-101** — Fragment 2, the C3 part
+    - **1** — Start the EDA-FF calculation Then the following information is shown on screen, the data equals the sum of C3-C and C3-G interaction energies
 
 
 ```text
@@ -267,7 +291,13 @@ Note: The heavy atoms in the GC pair in the graph above are very blue, while the
 
 About determining binding energy of individual H-bond Some readers may have thought that it would be great if the binding energy of each of the three H-bonds between the G-C could be independently determined. There is no unique way to achieve this goal, since this is equivalent to dividing the system into parts and must not be free of artifacts. A seemingly easy way to realize this purpose is to directly define the donor and acceptor parts of a H-bond as two fragments. For example, let us examine the H-bond of N10-H13...O14, we input.
 
-2 // Redefine fragments 2 // Two fragments will be defined 10,13 // Atomic indices of donor part of N10-H13...O14 14 // Atomic index of acceptor part of N10-H13...O14 1 // Perform EDA-FF analysis The result is
+!!! terminal "Multiwfn session"
+
+    - **2** — Redefine fragments
+    - **2** — Two fragments will be defined
+    - **10,13** — Atomic indices of donor part of N10-H13...O14
+    - **14** — Atomic index of acceptor part of N10-H13...O14
+    - **1** — Perform EDA-FF analysis The result is
 
 
 ```text
@@ -377,7 +407,12 @@ and dispersion density
 
 In this example, we examine which atoms have prominent contribution to dispersion energy of 6-helicene. Boot up Multiwfn and input
 
-examples\helicene.xyz // Structure file of 6-helicene 21 // Energy decomposition analysis 4 // Analysis of atomic contribution to dispersion energy 1 // Calculate atomic contributions to dispersion energy for current system Immediately, you will see the following information on screen, which contains total dispersion of present system, which corresponds to DFT-D3(BJ) dispersion correction energy with fitted parameters for B3LYP. Also, atomic contributions to dispersion energy are clearly given.
+!!! terminal "Multiwfn session"
+
+    - **examples\helicene.xyz** — Structure file of 6-helicene
+    - **21** — Energy decomposition analysis
+    - **4** — Analysis of atomic contribution to dispersion energy
+    - **1** — Calculate atomic contributions to dispersion energy for current system Immediately, you will see the following information on screen, which contains total dispersion of present system, which corresponds to DFT-D3(BJ) dispersion correction energy with fitted parameters for B3LYP. Also, atomic contributions to dispersion energy are clearly given.
 
 
 ```text
@@ -426,7 +461,11 @@ actos
 
 Actos is a flexible drug molecule, the xyz files of its curly and linear conformations have been provided in “examples” folder as Actos_curly.xyz and Actos_linear.xyz, respectively. In this section, we examine the change in the atomic contribution to the dispersion energy of the curly conformation relative to the linear conformation. Boot up Multiwfn and input
 
-examples\Actos_curly.xyz 21 // Energy decomposition analysis 4 // Analysis of atomic contribution to dispersion energy 3 // Calculate difference of atomic contributions to dispersion energy between current and another systems
+!!! terminal "Multiwfn session"
+
+    - **examples\Actos_curly.xyz 21** — Energy decomposition analysis
+    - **4** — Analysis of atomic contribution to dispersion energy
+    - **3** — Calculate difference of atomic contributions to dispersion energy between current and another systems
 
 [Press ENTER button] //All atoms in the present system (Actos_curly.xyz) are of interest examples\Actos_linear.xyz [Press ENTER button] //All atoms in Actos_curly.xyz are of interest From output on screen, you can find total dispersion energy of Actos_linear.xyz and Actos_curly.xyz is -57.553 kcal/mol and -69.757 kcal/mol, respectively. It is clear that dispersion interaction of the curly conformation is more significant. Also, the difference in the contribution of every atom to the dispersion energy of the two structures is printed on screen.
 
@@ -458,7 +497,13 @@ First, we perform analysis on zeolite-mol.cif and color atoms according to their
 
 The above figure does not directly show which atoms in the zeolite have the strongest dispersion interaction with the toluene. To clearly study this point, we need to find the difference between the contribution of the zeolite atoms (atoms 1-216) in the zeolite-mol.cif system to its dispersion energy and the contribution of the atoms in the zeolite.cif system to its dispersion energy. This will be done below.
 
-Boot up Multiwfn and input examples\zeolite-mol.cif 21 // Energy decomposition analysis 4 // Analysis of atomic contribution to dispersion energy 3 // Calculate difference of atomic contributions to dispersion energy between current and another systems
+Boot up Multiwfn and input examples\zeolite-mol.cif
+
+!!! terminal "Multiwfn session"
+
+    - **21** — Energy decomposition analysis
+    - **4** — Analysis of atomic contribution to dispersion energy
+    - **3** — Calculate difference of atomic contributions to dispersion energy between current and another systems
 
 1-216 // The atoms of interest are those of the zeolite moiety (first 216 atoms) in the current system (zeolite-mol.cif)
 

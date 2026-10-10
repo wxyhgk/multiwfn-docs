@@ -431,7 +431,14 @@ Molar absorption coefficient (L/mol/cm) 22852.69 20219.11 17585.53 14951.95 1231
 
 绘制构象加权ECD光谱 使用上一节所述的相同步骤，绘制构象加权ECD光谱以及全部四种构象各自的ECD光谱。
 
-启动Multiwfn并输入 examples\spectra\weighted\multiple.txt 11 // 绘制光谱(Plot spectrum) 4 // 绘制ECD(Plot ECD) 2 // 读取速度表示下的旋光强度(Read rotatory strengths in velocity representation) 0 // 显示光谱(Show the spectrum) 你将看到
+启动Multiwfn并输入 examples\spectra\weighted\multiple.txt
+
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱(Plot spectrum)
+    - **4** — 绘制ECD(Plot ECD)
+    - **2** — 读取速度表示下的旋光强度(Read rotatory strengths in velocity representation)
+    - **0** — 显示光谱(Show the spectrum) 你将看到
 
 153.883 33.49
 
@@ -481,7 +488,13 @@ Molar absorption coefficient (L/mol/cm) 22852.69 20219.11 17585.53 14951.95 1231
 
 启动Multiwfn并输入 examples\spectra\2-methyloxirane_Raman.out // 由Gaussian09在B3LYP/6-31G*水平下计算的Raman任务的输出文件(Output file of Raman task calculated at B3LYP/6-31G* level by Gaussian09)
 
-11 // 绘制光谱(Plot spectrum) 2 // Raman光谱(Raman spectrum) 14 // 对频率施加校正因子(Apply frequency scale factor) [按ENTER键(Press ENTER button)] // 选择所有频率(Select all frequencies) [按ENTER键(Press ENTER button)] // 采用基本校正因子(Employ the fundamental scale factor)0.9614，该因子适用于B3LYP/6-31G*水平
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱(Plot spectrum)
+    - **2** — Raman光谱(Raman spectrum)
+    - **14** — 对频率施加校正因子(Apply frequency scale factor) [按ENTER键(Press ENTER button)]
+
+采用基本校正因子(Employ the fundamental scale factor)0.9614，该因子适用于B3LYP/6-31G*水平
 
 19 // 把Raman活性转换为强度(Convert Raman activities to intensities) 15000 // 入射光的波数(Wavenumber) (cm-1)。该值应与实际实验条件一致，我们在此处输入的值是任意选择的
 
@@ -593,7 +606,12 @@ Ir_ppy3.out without SOC
 <!-- p.669 -->
 
 
-11 // 绘制光谱(Plot spectrum) 3 // 绘制UV-Vis(Plot UV-Vis) y // 对于第一条光谱，让Multiwfn使用考虑SOC的数据(For the first spectrum, let Multiwfn use the data with SOC consideration) n // 对于第二条光谱，让Multiwfn使用不考虑SOC的数据(For the second spectrum, let Multiwfn use the data without SOC consideration) 然后你将进入设置光谱的界面。在略微调整设置之后，你将得到下图。显然，SOC效应对当前体系的光谱有不可忽略的影响。
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱(Plot spectrum)
+    - **3** — 绘制UV-Vis(Plot UV-Vis) y
+
+对于第二条光谱，让Multiwfn使用不考虑SOC的数据(For the second spectrum, let Multiwfn use the data without SOC consideration) 然后你将进入设置光谱的界面。在略微调整设置之后，你将得到下图。显然，SOC效应对当前体系的光谱有不可忽略的影响。
 
 50000.0 0.347
 
@@ -622,7 +640,14 @@ with SOC without SOC
 <!-- p.670 -->
 
 
-examples\spectra\methyloxirane_VCD.out 11 // 绘制光谱(Plot spectrum) 5 // VCD 14 // 以校正因子校正频率(Scale frequencies by a scale factor) [按ENTER键(Press ENTER button)] // 选择所有频率(Select all frequencies) 0.9614 // 采用为B3LYP/6-31G*水平预先拟合的基本校正因子(Employ fundamental scale factor prefitted for B3LYP/6-31G* level) 0 // 显示光谱(Show the spectrum) 你将看到
+examples\spectra\methyloxirane_VCD.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱(Plot spectrum)
+    - **5** — VCD 14
+
+选择所有频率(Select all frequencies) 0.9614 // 采用为B3LYP/6-31G*水平预先拟合的基本校正因子(Employ fundamental scale factor prefitted for B3LYP/6-31G* level) 0 // 显示光谱(Show the spectrum) 你将看到
 
 2.46 31.7
 
@@ -646,7 +671,14 @@ examples\spectra\methyloxirane_VCD.out 11 // 绘制光谱(Plot spectrum) 5 // VC
 
 绘制ROA光谱 该绘制基于Gaussian freq=ROA任务的输出文件。Gaussian输入和输出文件分别为examples\spectra文件夹中的 S-methyloxirane_ROA.gjf 和 S-methyloxirane_ROA.out。从输入文件中可以看出，该计算考虑了三种入射光频率（500、532和600 nm）。众所周知，弥散函数对于获得准确的ROA数据很重要，因此这里使用aug-cc-pVDZ。
 
-启动Multiwfn并输入 examples\spectra\S-methyloxirane_ROA.out 11 // 绘制光谱(Plot spectrum) 6 // ROA 2 // 检测到三种入射光频率，这里我们选择532nm情形(Three incident light frequencies are detected, here we select the 532nm case) 2 // 总共有六种数据可供选择，这里我们选择通常研究的“ROA SCP(180)”，即背散射圆偏振ROA光谱(There are totally six kinds of data can be selected, here we select the commonly studied "ROA SCP(180)", namely backscattered circular polarization ROA spectrum)
+启动Multiwfn并输入 examples\spectra\S-methyloxirane_ROA.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱(Plot spectrum)
+    - **6** — ROA 2
+
+总共有六种数据可供选择，这里我们选择通常研究的“ROA SCP(180)”，即背散射圆偏振ROA光谱(There are totally six kinds of data can be selected, here we select the commonly studied "ROA SCP(180)", namely backscattered circular polarization ROA spectrum)
 
 14 // 以校正因子校正频率(Scale frequencies by a scale factor) [按ENTER键(Press ENTER button)] // 选择所有频率(Select all frequencies)
 
@@ -712,7 +744,16 @@ examples\spectra\methyloxirane_VCD.out 11 // 绘制光谱(Plot spectrum) 5 // VC
 
 在Multiwfn中，可以在模拟光谱底部绘制一组尖峰以突出特定跃迁能级的位置。在4.11.1节中我们已为NH3BF3绘制了IR光谱，它有一些特征振动模式。这一次我们将用不同颜色的尖峰在图上突出两类模式的位置：(1) B-N键的伸缩振动 (2) N-H键的伸缩振动。这些模式的序号可通过在GaussView中查看振动动画来确定。
 
-启动Multiwfn并输入以下命令 examples\spectra\NH3BF3_freq.out 11 // 绘制光谱(Plot spectrum) 1 // 光谱类型为IR(The type of the spectrum is IR) 23 // 设置显示指示跃迁能级的尖峰的状态(Set status of showing spikes to indicate transition levels) 1 // 设置第一组尖峰(Set the first set of spikes)。我们想用黑色尖峰显示所有振动(We want to use black spikes to reveal all vibrations) a // 选择所有模式(Select all modes) 5 // 黑色(Black) 2 // 设置第二组尖峰(Set the second set of spikes) 16-18 // 三个N-H键伸缩振动模式的序号(Indices of stretching vibration mode of the three N-H bonds) 1 // 红色(Red) 3 // 设置第三组尖峰(Set the third set of spikes) 4 // B-N键伸缩振动模式的序号(Index of vibration mode of B-N bond stretching) 2 // 绿色(Green) 0 // 返回(Return) 4 // 修改左侧Y轴(Modify Y-axis at left side) 0,6000,600 // 把下限和上限以及标签间隔设为(Set lower and upper limits as well as label spacing) y // 相应地缩放右侧Y轴(Correspondingly scale Y-axis at right side) 0 // 绘制图形(Plot the graph)
+启动Multiwfn并输入以下命令 examples\spectra\NH3BF3_freq.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱(Plot spectrum)
+    - **1** — 光谱类型为IR(The type of the spectrum is IR)
+    - **23** — 设置显示指示跃迁能级的尖峰的状态(Set status of showing spikes to indicate transition levels)
+    - **1** — 设置第一组尖峰(Set the first set of spikes)。我们想用黑色尖峰显示所有振动(We want to use black spikes to reveal all vibrations) a
+
+黑色(Black) 2 // 设置第二组尖峰(Set the second set of spikes) 16-18 // 三个N-H键伸缩振动模式的序号(Indices of stretching vibration mode of the three N-H bonds) 1 // 红色(Red) 3 // 设置第三组尖峰(Set the third set of spikes) 4 // B-N键伸缩振动模式的序号(Index of vibration mode of B-N bond stretching) 2 // 绿色(Green) 0 // 返回(Return) 4 // 修改左侧Y轴(Modify Y-axis at left side) 0,6000,600 // 把下限和上限以及标签间隔设为(Set lower and upper limits as well as label spacing) y // 相应地缩放右侧Y轴(Correspondingly scale Y-axis at right side) 0 // 绘制图形(Plot the graph)
 
 
 <!-- p.673 -->
@@ -767,7 +808,11 @@ examples\spectra\NMR\Acetaldehyde.out 是Gaussian 09的NMR任务的输出文件�
 
 examples\spectra\NMR\Acetaldehyde.out 11 // 绘制各种光谱(Plot various spectrum) 7 // NMR 从界面中的选项6可以发现，当前考虑的元素是碳。现在如果你直接选择选项0，你将看到13C谱，但X轴对应的是绝对屏蔽值。为了使X轴对应于化学位移，我们应该输入
 
-7 // 设置如何确定化学位移(Set how to determine chemical shifts) 1 // 使用参考屏蔽值推导化学位移(Using reference shielding value to derive chemical shifts) 186.8707 // 碳在TMS中的参考值(Reference value of carbon in TMS)（见上文）。由于该值是内置数据，在这一步你也可以直接输入a来采用它
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 设置如何确定化学位移(Set how to determine chemical shifts)
+    - **1** — 使用参考屏蔽值推导化学位移(Using reference shielding value to derive chemical shifts)
+    - **186.8707** — 碳在TMS中的参考值(Reference value of carbon in TMS)（见上文）。由于该值是内置数据，在这一步你也可以直接输入a来采用它
 
 0 // 绘制NMR光谱(Plot NMR spectrum) 现在你可以看到
 
@@ -795,7 +840,11 @@ examples\spectra\NMR\Acetaldehyde.out 11 // 绘制各种光谱(Plot various spec
 
 重要的是要注意，甲基中的三个氢的屏蔽值必须取平均，因为甲基在实际环境中容易旋转，因此该基团中的氢只有一个人NMR峰。于是我们输入
 
-10 // 对特定原子的屏蔽值取平均(Average shielding values of specific atoms) 2-4 // H2、H3和H4是甲基中的氢(H2, H3 and H4 are the hydrogens in the methyl group) 0 // 绘制光谱(Plot the spectrum) 现在你可以看到
+!!! terminal "Multiwfn 交互"
+
+    - **10** — 对特定原子的屏蔽值取平均(Average shielding values of specific atoms)
+    - **2-4** — H2、H3和H4是甲基中的氢(H2, H3 and H4 are the hydrogens in the methyl group)
+    - **0** — 绘制光谱(Plot the spectrum) 现在你可以看到
 
 如你所见，绘制效果相当令人满意。当前在控制台窗口中显示的信息是：
 
@@ -811,7 +860,14 @@ examples\spectra\NMR\Acetaldehyde.out 11 // 绘制各种光谱(Plot various spec
 
 13C化学位移的方法，即校正方法(Scaling method)。经由此方法我们不需要计算参考值，而且即使使用便宜的计算水平也能得到好的化学位移，因为预先拟合的校正参数消除了大多数系统误差。在本节中我们基于校正方法绘制吡啶的NMR光谱。examples\spectra\NMR\pyridine_scale.out 是Gaussian在氯仿环境（由SMD溶剂化模型表示）下用B3LYP/6-31G*水平计算的NMR任务的输出文件，而几何结构在真空中用B3LYP/6-31G*水平优化。http://cheshirenmr.info 中给出的各种水平的误差统计表明，该水平是应用校正方法的最佳水平之一。
 
-启动Multiwfn并输入 examples\spectra\NMR\pyridine_scale.out 11 // 绘制各种光谱(Plot various spectrum) 7 // NMR 7 // 设置如何确定化学位移(Set how to determine chemical shifts) 2 // 设置斜率和截距以经由校正方法确定化学位移(Set slope and intercept to determine chemical shifts by scaling method)
+启动Multiwfn并输入 examples\spectra\NMR\pyridine_scale.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制各种光谱(Plot various spectrum)
+    - **7** — NMR 7
+
+设置斜率和截距以经由校正方法确定化学位移(Set slope and intercept to determine chemical shifts by scaling method)
 
 
 ![](../imgs/p676_223.png)
@@ -859,9 +915,25 @@ examples\spectra\NMR\valine\conf2.out 0.175
 "examples/spectra/NMR/valine/conf2.out" 0.175
 ```
 
-现在启动Multiwfn并输入 multiple.txt 11 // 绘制各种光谱(Plot various spectrum) 7 // NMR 6 // 选择绘图中考虑的元素(Choose the element considered in plotting) H 7 // 设置如何确定化学位移(Set how to determine chemical shifts) 1 // 设置参考屏蔽值以确定化学位移(Set reference shielding value to determine chemical shift) 31.8294 // TMS参考值，来自 examples\spectra\NMR\valine\TMS.out，它是以与当前体系完全相同的方式计算的(The TMS reference value that comes from examples\spectra\NMR\valine\TMS.out, which was calculated via exactly the same way as current system)
+现在启动Multiwfn并输入 multiple.txt
 
-10 // 对特定原子的屏蔽值取平均(Average shielding values of specific atoms) 11-13 // 三个甲基氢(Three methyl group hydrogens) 10 // 对特定原子的屏蔽值取平均(Average shielding values of specific atoms) 14-16 // 三个甲基氢(Three methyl group hydrogens) 11 // 设置特定原子的强度(Set strength of specific atoms) 2,17,18 // 氨基中的三个氢(The three hydrogens in the amino group) 0 // 使它们在光谱中完全不可见(Making them fully invisible in the spectrum) 0 // 绘制NMR光谱(Plot the NMR spectrum) 现在你看到以下光谱
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制各种光谱(Plot various spectrum)
+    - **7** — NMR 6
+
+设置如何确定化学位移(Set how to determine chemical shifts) 1 // 设置参考屏蔽值以确定化学位移(Set reference shielding value to determine chemical shift) 31.8294 // TMS参考值，来自 examples\spectra\NMR\valine\TMS.out，它是以与当前体系完全相同的方式计算的(The TMS reference value that comes from examples\spectra\NMR\valine\TMS.out, which was calculated via exactly the same way as current system)
+
+!!! terminal "Multiwfn 交互"
+
+    - **10** — 对特定原子的屏蔽值取平均(Average shielding values of specific atoms)
+    - **11-13** — 三个甲基氢(Three methyl group hydrogens)
+    - **10** — 对特定原子的屏蔽值取平均(Average shielding values of specific atoms)
+    - **14-16** — 三个甲基氢(Three methyl group hydrogens)
+    - **11** — 设置特定原子的强度(Set strength of specific atoms)
+    - **2,17,18** — 氨基中的三个氢(The three hydrogens in the amino group)
+    - **0** — 使它们在光谱中完全不可见(Making them fully invisible in the spectrum)
+    - **0** — 绘制NMR光谱(Plot the NMR spectrum) 现在你看到以下光谱
 
 
 <!-- p.679 -->
@@ -920,7 +992,11 @@ S1→S0跃迁。因此，发射态通常是S1态。
 
 启动 Multiwfn 并输入 examples\excit\BODIPY_S1_opt.out 11 // 绘制光谱 (Plot spectrum) 3 // 紫外-可见光谱 (UV-Vis) 之后，在最终几何构型（S1 几何构型）下所有激发态的激发能和振子强度都被载入 Multiwfn。然后我们通过输入以下命令清除 S2 和 S3 态的振子强度：
 
-20 // 修改振子强度 (Modify oscillator strengths) 2,3 // 选择 S2 和 S3 (Select S2 and S3) 0 // 新的振子强度 (New oscillator strength) 此时可输入选项 0 以绘制光谱，但默认的坐标轴设置并不理想。因此我们输入以下命令
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 修改振子强度 (Modify oscillator strengths)
+    - **2,3** — 选择 S2 和 S3 (Select S2 and S3)
+    - **0** — 新的振子强度 (New oscillator strength) 此时可输入选项 0 以绘制光谱，但默认的坐标轴设置并不理想。因此我们输入以下命令
 
 3 // 设置 X 轴上下限 (Set lower and upper limit of X-axis)，300,750,50 // 下限、上限和步长，单位为 nm 4 // 设置左侧 Y 轴 (Set left Y-axis) 0,1100,100 // 下限、上限和步长 y // 相应缩放右侧 Y 轴 (Correspondingly scale the right Y-axis) 选择选项 0 之后，你将看到荧光光谱
 
@@ -968,7 +1044,13 @@ S1→S0跃迁。因此，发射态通常是S1态。
 
 绘制普通红外光谱
 
-我们先绘制 C18···B9N9 复合物的普通红外光谱。启动 Multiwfn 并输入 examples\spectra\C18-B9N9.out 11 // 绘制各类光谱 (Plot various kinds of spectrum) 1 // 红外光谱 (IR) 0 // 在屏幕上绘制光谱 (Plot spectrum on screen)
+我们先绘制 C18···B9N9 复合物的普通红外光谱。启动 Multiwfn 并输入 examples\spectra\C18-B9N9.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制各类光谱 (Plot various kinds of spectrum)
+    - **1** — 红外光谱 (IR)
+    - **0** — 在屏幕上绘制光谱 (Plot spectrum on screen)
 
 从上图中可以看到许多峰，它们的本质是什么？通过 PVS-NC 曲线，你可以很容易理解分子片段的运动对上图中可观测振动模式所对应简正坐标（由相应简正坐标表征）的参与程度。而通过 PVS-I，你可以直观理解分子片段对上图中各峰红外吸收强度的贡献是否显著。因此，PVS-NC 和 PVS-I 分别侧重于揭示光谱活性振动模式的不同方面。在本节余下部分，我将说明 PVS-NC 曲线的绘制，而在下一节，将举例说明 PVS-I 的绘制。更具体地说，本节绘制的 PVS-NC 是 PVS-NC(atom)，因为我们将把每个片段定义为原子集合。
 
@@ -983,7 +1065,14 @@ S1→S0跃迁。因此，发射态通常是S1态。
 
 
 
-1 // 定义 PVS 片段 1 (Define PVS fragment 1) 1-18 // C18 中的原子 (Atoms in C18) 2 // 定义 PVS 片段 2 (Define PVS fragment 2) 19-36 // B9N9 中的原子 (Atoms in B9N9) l // 设置 PVS 曲线的图例 (Set legends of PVS curves) 1 // 设置 PVS 的图例 (Set legend for PVS) cyclo[18]carbon // C18 的全名 (Full name of C18) 2 // 设置 PVS 的图例 (Set legend for PVS) B9N9 q // 保存并返回 (Save and return) q // 生成 PVS 数据并返回光谱绘制界面 (Generate PVS data and return to spectrum plotting interface) 从屏幕上可以找到我们刚才定义的两个片段在每个振动模式中的组成：
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 定义 PVS 片段 1 (Define PVS fragment 1)
+    - **1-18** — C18 中的原子 (Atoms in C18)
+    - **2** — 定义 PVS 片段 2 (Define PVS fragment 2)
+    - **19-36** — B9N9 中的原子 (Atoms in B9N9) l
+
+设置 PVS 的图例 (Set legend for PVS) cyclo[18]carbon // C18 的全名 (Full name of C18) 2 // 设置 PVS 的图例 (Set legend for PVS) B9N9 q // 保存并返回 (Save and return) q // 生成 PVS 数据并返回光谱绘制界面 (Generate PVS data and return to spectrum plotting interface) 从屏幕上可以找到我们刚才定义的两个片段在每个振动模式中的组成：
 
 
 ```text
@@ -1009,7 +1098,14 @@ Vibrational mode     1 (      7.20 cm^-1 )
 
 从上图可以看到在低频区有许多中等强度的红外吸收。为考察其细节，我们输入以下命令
 
-3 // 设置 X 轴上下限 (Set lower and upper limit of X-axis) 750,350,50 // X 轴下限、上限和间隔 (Lower limit, upper limit and interval of X-axis) 4 // 设置左侧 Y 轴 (Set left Y-axis) 0,3000,300 // 左侧 Y 轴下限、上限和间隔 (Lower limit, upper limit and interval of left Y-axis) y // 相应缩放右侧 Y 轴 (Correspondingly scale right Y-axis) 16 // 设置光谱极小值和极大值标签的显示状态 (Set status of showing labels of spectrum minima and maxima) 1 // 改变标签的显示状态 (Change displaying status of labels) 1 // 在光谱上显示极大值 (Show maxima on the spectrum) 0 // 返回 (Return) 0 // 绘制光谱 (Plot spectrum) 此时你可以看到如下图
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 设置 X 轴上下限 (Set lower and upper limit of X-axis)
+    - **750,350,50** — X 轴下限、上限和间隔 (Lower limit, upper limit and interval of X-axis)
+    - **4** — 设置左侧 Y 轴 (Set left Y-axis)
+    - **0,3000,300** — 左侧 Y 轴下限、上限和间隔 (Lower limit, upper limit and interval of left Y-axis) y
+
+设置光谱极小值和极大值标签的显示状态 (Set status of showing labels of spectrum minima and maxima) 1 // 改变标签的显示状态 (Change displaying status of labels) 1 // 在光谱上显示极大值 (Show maxima on the spectrum) 0 // 返回 (Return) 0 // 绘制光谱 (Plot spectrum) 此时你可以看到如下图
 
 该图信息量很大。例如，可以清楚地看到 428.8 cm-1 处的峰几乎完全来自 C18 的振动，531.4 cm-1 处的峰几乎只对应于 B9N9 的振动，而 484.0 cm-1 处的峰则表现出明显的耦合振动特征。与上述峰最对应的模式的简正坐标如下所示，与我们从 PVS 图中观察到的预期一致。
 
@@ -1026,7 +1122,13 @@ Vibrational mode     1 (      7.20 cm^-1 )
 
 绘制基于原子定义片段之间的 OPVS 图 我们还可以绘制两个片段之间的 OPVS 曲线，以非常方便地考察它们在不同波数范围内的集体振动贡献。要绘制 C18 与 B9N9 之间的 OPVS，我们输入
 
-24 // 设置部分和重叠振动光谱 (Set partial and overlap vibrational spectra) 0 // 设置 OPVS (Set OPVS) 1,2 // OPVS 将在片段 1 和 2 之间绘制 (OPVS will be drawn between fragments 1 and 2) d // 设置 PVS/OPVS 曲线的显示状态 (Set display status of PVS/OPVS curves) 1 // 为清晰起见关闭片段 1 的 PVS 显示 (Disable showing PVS of fragment 1 for clarity) 2 // 为清晰起见关闭片段 2 的 PVS 显示 (Disable showing PVS of fragment 2 for clarity) q // 返回 (Return) q // 返回光谱绘制界面 (Return to spectrum plotting interface) 0 // 再次绘制光谱 (Plot spectrum again) 此时你可以看到总红外光谱以及 OPVS 曲线
+!!! terminal "Multiwfn 交互"
+
+    - **24** — 设置部分和重叠振动光谱 (Set partial and overlap vibrational spectra)
+    - **0** — 设置 OPVS (Set OPVS)
+    - **1,2** — OPVS 将在片段 1 和 2 之间绘制 (OPVS will be drawn between fragments 1 and 2) d
+
+为清晰起见关闭片段 1 的 PVS 显示 (Disable showing PVS of fragment 1 for clarity) 2 // 为清晰起见关闭片段 2 的 PVS 显示 (Disable showing PVS of fragment 2 for clarity) q // 返回 (Return) q // 返回光谱绘制界面 (Return to spectrum plotting interface) 0 // 再次绘制光谱 (Plot spectrum again) 此时你可以看到总红外光谱以及 OPVS 曲线
 
 
 ![](../imgs/p686_235.png)
@@ -1056,9 +1158,28 @@ Vibrational mode     1 (      7.20 cm^-1 )
 
 
 
-examples\spectra\C18-B9N9.out 11 // 绘制各类光谱 (Plot various kinds of spectrum) 1 // 红外光谱 (IR) 24 // 设置部分和重叠振动光谱 (Set partial and overlap vibrational spectra) 1 // 定义 PVS 片段 1 (Define PVS fragment 1) 1-18 // C18 中的原子 (Atoms in C18) 2 // 定义 PVS 片段 2 (Define PVS fragment 2) 19-36 // B9N9 中的原子 (Atoms in B9N9) l // 设置 PVS 曲线的图例 (Set legends of PVS curves) 1 // 设置 PVS 的图例 (Set legend for PVS) cyclo[18]carbon // C18 的全名 (Full name of C18) 2 // 设置 PVS 的图例 (Set legend for PVS) B9N9 q // 返回 (Return) 0 // 设置 OPVS (Set OPVS) 1,2 // 在片段 1 和 2 之间绘制 (Plot between fragments 1 and 2) v // 切换为绘制振动电子态密度而非光谱。此时 PVS 对应于 PVDOS，OPVS 对应于 OPVDOS (Toggle plotting vibrational DOS instead of spectrum. Then PVS will correspond to PVDOS, and OPVS will correspond to OPVDOS)
+!!! terminal "Multiwfn 交互"
 
-q // 生成 PVS 数据并返回光谱绘制界面 (Generate PVS data and return to spectrum plotting interface) 3 // 设置 X 轴上下限 (Set lower and upper limit of X-axis) 2400,0,300 // 下限、上限和刻度间隔 (Lower limit, upper limit and interval between ticks) 17 // 其他绘图设置 (Other plotting settings) 11 // 设置图例位置 (Set position of legends) 8 // 左上角 (Upper left corner) 0 // 返回光谱绘制界面 (Return to spectrum plotting interface) 0 // 绘制光谱 (Plot spectrum) 此时你可以看到如下图
+    - **examples\spectra\C18-B9N9.out 11** — 绘制各类光谱 (Plot various kinds of spectrum)
+    - **1** — 红外光谱 (IR)
+    - **24** — 设置部分和重叠振动光谱 (Set partial and overlap vibrational spectra)
+    - **1** — 定义 PVS 片段 1 (Define PVS fragment 1)
+    - **1-18** — C18 中的原子 (Atoms in C18)
+    - **2** — 定义 PVS 片段 2 (Define PVS fragment 2)
+    - **19-36** — B9N9 中的原子 (Atoms in B9N9) l
+
+设置 PVS 的图例 (Set legend for PVS) cyclo[18]carbon // C18 的全名 (Full name of C18) 2 // 设置 PVS 的图例 (Set legend for PVS) B9N9 q // 返回 (Return) 0 // 设置 OPVS (Set OPVS) 1,2 // 在片段 1 和 2 之间绘制 (Plot between fragments 1 and 2) v // 切换为绘制振动电子态密度而非光谱。此时 PVS 对应于 PVDOS，OPVS 对应于 OPVDOS (Toggle plotting vibrational DOS instead of spectrum. Then PVS will correspond to PVDOS, and OPVS will correspond to OPVDOS)
+
+!!! terminal "Multiwfn 交互"
+
+    - **q** — 生成 PVS 数据并返回光谱绘制界面 (Generate PVS data and return to spectrum plotting interface)
+    - **3** — 设置 X 轴上下限 (Set lower and upper limit of X-axis)
+    - **2400,0,300** — 下限、上限和刻度间隔 (Lower limit, upper limit and interval between ticks)
+    - **17** — 其他绘图设置 (Other plotting settings)
+    - **11** — 设置图例位置 (Set position of legends)
+    - **8** — 左上角 (Upper left corner)
+    - **0** — 返回光谱绘制界面 (Return to spectrum plotting interface)
+    - **0** — 绘制光谱 (Plot spectrum) 此时你可以看到如下图
 
 
 <!-- p.689 -->
@@ -1099,7 +1220,11 @@ VDOS 与振动光谱的一个很大不同在于，前者中所有模式对曲线
 
 examples\spectra\CNT66_TDDFT.out // Gaussian 在 PBE0/6-31G* 水平下的 TDDFT 输出文件，计算了 100 个激发态 (TDDFT output file of Gaussian at PBE0/6-31G* level, 100 excited states were calculated)
 
-11 // 绘制光谱 (Plotting spectra) -3 // 绘制方向紫外-可见光谱 (Plotting directional UV-Vis spectrum) 4 // XY 方向 (XY direction)
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱 (Plotting spectra)
+    - **-3** — 绘制方向紫外-可见光谱 (Plotting directional UV-Vis spectrum)
+    - **4** — XY 方向 (XY direction)
 
 
 ![](../imgs/p690_239.png)
@@ -1108,7 +1233,13 @@ examples\spectra\CNT66_TDDFT.out // Gaussian 在 PBE0/6-31G* 水平下的 TDDFT 
 
 
 
-0 // 绘制光谱 (Plot spectrum) 关闭屏幕上显示的图形，并输入以下命令调整绘图设置 3 // 调整 X 轴 (Adjust X-axis) 200,800,50 // 下限和上限，以及标签间隔 (Lower and upper limits, as well as label interval) 3 // 调整左侧 Y 轴 (Adjust left Y-axis) 200,800,50 // 下限和上限，以及标签间隔 (Lower and upper limits, as well as label interval) y // 相应缩放右侧 Y 轴 (Correspondingly scale right Y-axis) 选择选项 0 重新绘制图形，然后你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 绘制光谱 (Plot spectrum) 关闭屏幕上显示的图形，并输入以下命令调整绘图设置
+    - **3** — 调整 X 轴 (Adjust X-axis)
+    - **200,800,50** — 下限和上限，以及标签间隔 (Lower and upper limits, as well as label interval)
+    - **3** — 调整左侧 Y 轴 (Adjust left Y-axis)
+    - **200,800,50** — 下限和上限，以及标签间隔 (Lower and upper limits, as well as label interval) y
 
 类似地，你可以绘制对应于与沿 Z 方向振荡的电场相互作用的紫外-可见光谱。
 
@@ -1136,7 +1267,11 @@ examples\spectra\CNT66_TDDFT.out // Gaussian 在 PBE0/6-31G* 水平下的 TDDFT 
 
 examples\spectra\indigo_TD-B3LYP_water.out 是在 IEFPCM 溶剂化模型表示的水环境中、在 TD-B3LYP/def2-TZVP 水平下计算电子激发态的 Gaussian 输出文件。几何构型已在 B3LYP/6-311G* 水平下对基态优化。启动 Multiwfn 并载入该文件，然后输入
 
-11 // 绘制光谱 (Plotting spectrum) 3 // 紫外-可见光谱 (UV-Vis) 25 // 基于可见光范围内的光谱评估颜色 (Evaluate color based on the spectrum in visible range) Multiwfn 首先显示 360-830 nm 内的紫外-可见光谱，见下图（注：可见光范围为 380-760 nm，或 400-700 nm。360-830 nm 的范围对应于三刺激值函数有定义的范围，其参与内部颜色预测过程）：
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱 (Plotting spectrum)
+    - **3** — 紫外-可见光谱 (UV-Vis)
+    - **25** — 基于可见光范围内的光谱评估颜色 (Evaluate color based on the spectrum in visible range) Multiwfn 首先显示 360-830 nm 内的紫外-可见光谱，见下图（注：可见光范围为 380-760 nm，或 400-700 nm。360-830 nm 的范围对应于三刺激值函数有定义的范围，其参与内部颜色预测过程）：
 
 
 ![](../imgs/p692_241.png)

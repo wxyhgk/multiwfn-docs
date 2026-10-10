@@ -322,9 +322,19 @@ Note that there is another way of evaluating AdNDP orbital composition, namely e
 
 In this section we perform AdNDP analysis for Au20 cluster, the needed files can be downloaded from http://sobereva.com/multiwfn/extrafiles/Au20.rar.
 
-Boot up Multiwfn and input: Au20.out // Generated at B3PW91/Lanl2DZ level based on optimized geometry 14 // AdNDP analysis 2 // Search 1-center AdNDP orbitals. 100 candidates are found, whose occupation numbers are very close to 2.0 and thus can be picked out
+!!! terminal "Multiwfn session"
 
-0 // Pick out orbitals 100 // Pick out all 100 candidate orbitals 2 // Perform exhaustive search of 2-centers orbitals. Nothing can be found 2 // Perform exhaustive search of 3-centers orbitals. Again nothing can be found 2 // Perform exhaustive search of 4-centers orbitals. Now you can see four candidates with 1.84 e and six candidates with 1.7589 e
+    - **Boot up Multiwfn and input: Au20.out** — Generated at B3PW91/Lanl2DZ level based on optimized geometry
+    - **14** — AdNDP analysis
+    - **2** — Search 1-center AdNDP orbitals. 100 candidates are found, whose occupation numbers are very close to 2.0 and thus can be picked out
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Pick out orbitals
+    - **100** — Pick out all 100 candidate orbitals
+    - **2** — Perform exhaustive search of 2-centers orbitals. Nothing can be found
+    - **2** — Perform exhaustive search of 3-centers orbitals. Again nothing can be found
+    - **2** — Perform exhaustive search of 4-centers orbitals. Now you can see four candidates with 1.84 e and six candidates with 1.7589 e
 
 0 // Pick out orbitals 4 // Pick out first four orbitals. The remaining orbitals now have occupancy of 1.6913, which, although is not quite high, it is still worth to be picked out in current circumstance
 

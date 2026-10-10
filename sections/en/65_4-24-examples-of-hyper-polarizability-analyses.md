@@ -22,7 +22,11 @@ In "examples\polar" folder, NH3_polar_static.out and NH3_polar_dynamic.out are o
 
 Studying static polarizability and first hyperpolarizability First, we use Multiwfn to parse data from the NH3_polar_static.out. Boot up Multiwfn and input
 
-examples\polar\NH3_polar_static.out 24 // (Hyper)polarizability analysis 1 // Parse (hyper)polarizability task of Gaussian 1 // Start parsing. We select option 1 because third-order derivative of current level (normal DFT functional) is supported by Gaussian
+!!! terminal "Multiwfn session"
+
+    - **examples\polar\NH3_polar_static.out 24** — (Hyper)polarizability analysis
+    - **1** — Parse (hyper)polarizability task of Gaussian
+    - **1** — Start parsing. We select option 1 because third-order derivative of current level (normal DFT functional) is supported by Gaussian
 
 Now you can see the following information on screen:
 
@@ -79,7 +83,12 @@ The output is easy to understand, all of the outputted quantities have been deta
 
 Studying frequency-dependent polarizability and hyperpolarizability Next, we extract frequency-dependent (hyper)polarizability from the NH3_polar_dynamic.out. Boot up Multiwfn and input
 
-examples\polar\NH3_polar_dynamic.out 24 // (Hyper)polarizability analysis 1 // Parse (hyper)polarizability task of Gaussian -1 // Let Multiwfn load frequency-dependent (hyper)polarizability 1 // Start parsing Multiwfn detected there are three set of data:
+!!! terminal "Multiwfn session"
+
+    - **examples\polar\NH3_polar_dynamic.out 24** — (Hyper)polarizability analysis
+    - **1** — Parse (hyper)polarizability task of Gaussian
+    - **-1** — Let Multiwfn load frequency-dependent (hyper)polarizability
+    - **1** — Start parsing Multiwfn detected there are three set of data:
 
 
 ```text
@@ -150,7 +159,12 @@ Boot up Multiwfn and input examples\polar\NH3_gamma.out 24 // (Hyper)polarizabil
 
 <!-- p.972 -->
 
-1 // Parse (hyper)polarizability task of Gaussian -1 // Let Multiwfn load frequency-dependent (hyper)polarizability 7 // This option is specific for parsing polarizability and second hyperpolarizability 3 // 532 nm Dynamic polarizability and relevant quantities at 532 nm now are shown on screen. Then choose 2 to further parse gamma(-2w;w,w,0), then you will see
+!!! terminal "Multiwfn session"
+
+    - **1** — Parse (hyper)polarizability task of Gaussian
+    - **-1** — Let Multiwfn load frequency-dependent (hyper)polarizability
+    - **7** — This option is specific for parsing polarizability and second hyperpolarizability
+    - **3** — 532 nm Dynamic polarizability and relevant quantities at 532 nm now are shown on screen. Then choose 2 to further parse gamma(-2w;w,w,0), then you will see
 
 
 ```text
@@ -196,7 +210,13 @@ First, run examples\NH3_SOS.gjf by Gaussian to produce output file NH3_SOS.out, 
 
 Since the SOS results converge often slow with respect to the number of excited states taken into account, we produce as high as 150 excited states in this example to substantially avoid truncation error. Of course, employing higher number of excited states needs more computational time in both of the CIS calculation and the subsequent SOS calculation in Multiwfn. In most practical studies, 100 states are generally large enough, and even 70 is often enough to provide usable results. Calculation of hyperpolarizability, especially the high-order ones, has very stringent requirements on the quality of basis set, abundant diffuse functions are absolutely indispensable. In this example we employ def2-TZVPPD (J. Chem. Phys., 133, 134105), which is a high-quality basis set optimized for calculation of molecular response properties. Since this is not a built-in basis set in current version of Gaussian, it was picked from BSE website (https://www.basissetexchange.org). The keyword IOp(9/40=5) is important, because in the ZINDO/CIS/TDHF/TDDFT task by default Gaussian only outputs the transition coefficients whose absolute values are larger than 0.1, while IOp(9/40=5) lowers the criterion to 0.00001, so that much more coefficients can be outputted, and thereby we can obtain accurate transition dipole moments by Multiwfn at next step. It is noteworthy that you can also use TDHF or TDDFT instead of CIS, for example you can write #P TD(nstates=150) CAM-B3LYP/gen IOp(9/40=5).
 
-Boot up Multiwfn and input below commands C:\NH3_SOS.fch 18 // Electron excitation analysis module 5 // Calculate transition dipole moments and dipole moment for all excited states C:\NH3_SOS.out 3 // Generate SOS.txt The file SOS.txt generated in current folder contains all information needed by SOS (hyper)polarizability calculation. This file can be directly used by SOS module of Multiwfn.
+Boot up Multiwfn and input below commands C:\NH3_SOS.fch
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis module
+    - **5** — Calculate transition dipole moments and dipole moment for all excited states C:\NH3_SOS.out
+    - **3** — Generate SOS.txt The file SOS.txt generated in current folder contains all information needed by SOS (hyper)polarizability calculation. This file can be directly used by SOS module of Multiwfn.
 
 Reboot Multiwfn and input SOS.txt 24 // (Hyper)polarizability analysis 2 // Study (hyper)polarizability by sum-over-states (SOS) method Note that all units used in the SOS module are atomic units.
 
@@ -356,7 +376,13 @@ Most systems of donor-π-acceptor type well satisfy the above two conditions. In
 
 models to very roughly discuss the factors influencing the β, so using these two files to conduct the analysis is acceptable.
 
-Prepare input file Boot up Multiwfn and input below commands examples\excit\D-pi-A.fchk 18 // Electron excitation analysis module 5 // Calculate transition dipole moments and dipole moment for all excited states examples\excit\D-pi-A.out 3 // Generate SOS.txt, which contains all information needed by the two- or three-level analysis Now we are ready to perform the two/three-level analysis. Before doing this, we need to
+Prepare input file Boot up Multiwfn and input below commands examples\excit\D-pi-A.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis module
+    - **5** — Calculate transition dipole moments and dipole moment for all excited states examples\excit\D-pi-A.out
+    - **3** — Generate SOS.txt, which contains all information needed by the two- or three-level analysis Now we are ready to perform the two/three-level analysis. Before doing this, we need to
 
 confirm which component of β should be studied. The molecular geometry of D-pi-A.fchk is shown below (displayed by main function 0). As can be see, the direction of donor-π-acceptor path is fully parallel to X-axis, hence it is expected that only $\beta_{XXX}$ of current system is prominent.
 
@@ -637,7 +663,12 @@ input below commands
 
 examples\polar\CH3NHCHO\polar.out 24 // (Hyper)polarizability analysis 1 // Parse "polar" task of Gaussian. PS: If you are not familiar with this function, please check Section 3.27.1 for introduction and 4.24.1 for example
 
--1 // Request Multiwfn to parse dynamic (hyper)polarizability -4 // Request Multiwfn to export parsed (hyper)polarizability as .txt file 1 // Start parsing (hyper)polarizability 2 // As shown on screen, the second option corresponds to 1030 nm case
+!!! terminal "Multiwfn session"
+
+    - **-1** — Request Multiwfn to parse dynamic (hyper)polarizability
+    - **-4** — Request Multiwfn to export parsed (hyper)polarizability as .txt file
+    - **1** — Start parsing (hyper)polarizability
+    - **2** — As shown on screen, the second option corresponds to 1030 nm case
 
 2 // Load SHG form of β n // Do not perform analysis related to hyper-Rayleigh scattering
 
@@ -651,7 +682,13 @@ option 2, from prompt on screen you can find Multiwfn automatically loads β ten
 
 Since we also want to display molecular structure in VMD, we need to generate a file containing atom information that can be recognized by VMD, therefore we input
 
-0 // Exit current function 0 // Return to main menu 100 // Other function (Part 1) 2 // Generate new file 1 // Export current geometry as .pdb file CH3NHCHO.pdb Now we have CH3NHCHO.pdb in current folder, and we can close Multiwfn program. Moving the beta.tcl and beta_vec.tcl from current folder to VMD installation folder, then boot up VMD and input source beta.tcl and source beta_vec.tcl in VMD console window to run these two plotting scripts in turn. Next, drag CH3NHCHO.pdb to "VMD Main" window to load it, then enter "Graphics" - "Representation" and change "Drawing Method" to "CPK". Now you can see
+!!! terminal "Multiwfn session"
+
+    - **0** — Exit current function
+    - **0** — Return to main menu
+    - **100** — Other function (Part 1)
+    - **2** — Generate new file
+    - **1** — Export current geometry as .pdb file CH3NHCHO.pdb Now we have CH3NHCHO.pdb in current folder, and we can close Multiwfn program. Moving the beta.tcl and beta_vec.tcl from current folder to VMD installation folder, then boot up VMD and input source beta.tcl and source beta_vec.tcl in VMD console window to run these two plotting scripts in turn. Next, drag CH3NHCHO.pdb to "VMD Main" window to load it, then enter "Graphics" - "Representation" and change "Drawing Method" to "CPK". Now you can see
 
 
 <!-- p.987 -->
@@ -705,11 +742,20 @@ optimized at ωB97XD/def2-TZVP level.
 
 We first extract α and γ from Gaussian output file and write it as .txt file. Boot up Multiwfn and input below commands
 
-examples\polar\C18\gamma.out // Output file of aforementioned input file 24 // (Hyper)polarizability analysis 1 // Parse "polar" task of Gaussian -4 // Request Multiwfn to export parsed (hyper)polarizability as .txt file
+!!! terminal "Multiwfn session"
+
+    - **examples\polar\C18\gamma.out** — Output file of aforementioned input file
+    - **24** — (Hyper)polarizability analysis
+    - **1** — Parse "polar" task of Gaussian
+    - **-4** — Request Multiwfn to export parsed (hyper)polarizability as .txt file
 
 7 // Start parsing α and γ Now we have alpha.txt and gamma.txt in current folder. Then we input
 
-0 // Exit current function 5 // Visualize (hyper)polarizability via unit sphere and vector representations -3 // Change scale factor of length of the arrows on sphere surface
+!!! terminal "Multiwfn session"
+
+    - **0** — Exit current function
+    - **5** — Visualize (hyper)polarizability via unit sphere and vector representations
+    - **-3** — Change scale factor of length of the arrows on sphere surface
 
 0.005 // This value is smaller than default, since α of cyclo[18]carbon is fairly large. If default value is used, you will find the arrows are too long
 

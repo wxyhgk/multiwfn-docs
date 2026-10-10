@@ -49,7 +49,12 @@ The choice of electronic state of fragments, namely definition of reference stat
 
 (OC→BH3 is a coordinate bond).
 
-Quantitative analysis of ETS-NOCV data Boot up Multiwfn and input examples\ETS-NOCV\COBH3\COBH3.fch // Complex wavefunction file 23 // ETS-NOCV analysis 2 // Two fragments examples\ETS-NOCV\COBH3\CO.fch // Wavefunction file of fragment 1. Note that loading order of the fragment wavefunction files must be in line with occurrence order of fragments in the complex
+Quantitative analysis of ETS-NOCV data Boot up Multiwfn and input examples\ETS-NOCV\COBH3\COBH3.fch
+
+!!! terminal "Multiwfn session"
+
+    - **Complex wavefunction file 23** — ETS-NOCV analysis
+    - **2** — Two fragments examples\ETS-NOCV\COBH3\CO.fch
 
 examples\ETS-NOCV\COBH3\BH3.fch // Wavefunction file of fragment 2 Now information of NOCV orbitals and NOCV pairs is immediately printed:
 
@@ -319,7 +324,12 @@ First, we optimize ethane and generate wavefunction files for it and the two ·C
 
 Evidently, the ·CH3 radicals should be set to doublet in the single point calculations.
 
-Boot up Multiwfn and input examples\ETS-NOCV\ethane\ethane.fch // Wavefunction file of the whole system 23 // ETS-NOCV analysis 2 // Two fragments
+Boot up Multiwfn and input examples\ETS-NOCV\ethane\ethane.fch
+
+!!! terminal "Multiwfn session"
+
+    - **Wavefunction file of the whole system 23** — ETS-NOCV analysis
+    - **2** — Two fragments
 
 examples\ETS-NOCV\ethane\CH3_1.fch // Wavefunction file of the first ·CH3 radical examples\ETS-NOCV\ethane\CH3_2.fch // Wavefunction file of the second ·CH3 radical n // Do not flip spin of the first ·CH3 radical y // Flip spin of the second ·CH3 radical Unlike the closed-shell case exemplified in the last section, in the present example you are asked to choose if flipping spin of the two open-shell fragments. Flipping spin means exchanging information of alpha and beta electrons. Properly flipping spin is important, because we need to guarantee that sum of number of alpha (beta) electrons of all fragments is identical to that of the
 
@@ -370,7 +380,11 @@ interfragment orbital interaction contributes to the binding energy between the 
 
 From above NOCV information one can see that for each spin only one NOCV pair plays a vital role, now we examine its character. Input the following commands
 
-2 // Show isosurface of NOCV pair density 2 // Medium-quality grid 1 // Check NOCV pair 1, which is the dominant pair of alpha spin After inspecting the isosurface, we then close GUI window and input 22 to check NOCV pair 22, which is the dominant pair of beta spin. The isosurface maps of density of NOCV pair 1, pair 22 as well as their sum (corresponding to inputting 1,22 in the current interface) at isovalue of 0.01 a.u. are collective shown below, and the corresponding electron transfer character is indicated (q is amount of transferred electrons and corresponds to the absolute value of eigenvalues of NOCV pairs printed above).
+!!! terminal "Multiwfn session"
+
+    - **2** — Show isosurface of NOCV pair density
+    - **2** — Medium-quality grid
+    - **1** — Check NOCV pair 1, which is the dominant pair of alpha spin After inspecting the isosurface, we then close GUI window and input 22 to check NOCV pair 22, which is the dominant pair of beta spin. The isosurface maps of density of NOCV pair 1, pair 22 as well as their sum (corresponding to inputting 1,22 in the current interface) at isovalue of 0.01 a.u. are collective shown below, and the corresponding electron transfer character is indicated (q is amount of transferred electrons and corresponds to the absolute value of eigenvalues of NOCV pairs printed above).
 
 As can be seen, NOCV pair 1 mainly exhibits transfer of alpha electrons from the first ·CH3 fragment (composed of C1, H2, H3 and H4) to the second ·CH3 fragment (composed of C5, H6, H7 and H8), it is due to the mix of singly occupied alpha orbital of the first ·CH3 and unoccupied alpha orbital(s) of the second ·CH3. NOCV pair 22 exhibits a similar feature as NOCV pair 1, but it corresponds to electron transfer of beta electrons and the direction is opposite. The sum of NOCV pairs 1 and 22 corresponds to the concentration of electron density in the bonding region between the two fragments, this is the very typical character of formation of a covalent bond. From the map above we can also find that the increase or decrease of electron density at the two ends of the ethane due to orbital interaction of each spin is basically cancelled when NOCV densities of the two spins
 
@@ -398,14 +412,23 @@ can form double bond only when they are in triplet with different spins (namely 
 
 Now generate wavefunction files for ethene and its two CH2 fragments as last example at B3LYP/6-31G* level, the corresponding Gaussian input files and .fch files have been provided in “examples\ETS-NOCV\ethene” folder.
 
-Boot up Multiwfn and input examples\ETS-NOCV\ethene\ethene.fch // Wavefunction file of the ethene 23 // ETS-NOCV analysis 2 // Two fragments examples\ETS-NOCV\ethene\CH2_1.fch // Wavefunction file of the first CH2 fragment examples\ETS-NOCV\ethene\CH2_2.fch // Wavefunction file of the second CH2 fragment
+Boot up Multiwfn and input examples\ETS-NOCV\ethene\ethene.fch
+
+!!! terminal "Multiwfn session"
+
+    - **Wavefunction file of the ethene 23** — ETS-NOCV analysis
+    - **2** — Two fragments examples\ETS-NOCV\ethene\CH2_1.fch
+    - **Wavefunction file of the first CH2 fragment examples\ETS-NOCV\ethene\CH2_2.fch** — Wavefunction file of the second CH2 fragment
 
 
 ![](../imgs/p960_486.png)
 
 <!-- p.961 -->
 
-n // Do not flip spin of the first CH2 fragment y // Flip spin of the second CH2 fragment -2 // Generate Fock/KS matrix and evaluate NOCV orbital energies Now we can see
+!!! terminal "Multiwfn session"
+
+    - **n** — Do not flip spin of the first CH2 fragment y
+    - **Flip spin of the second CH2 fragment -2** — Generate Fock/KS matrix and evaluate NOCV orbital energies Now we can see
 
 
 ```text
@@ -468,7 +491,13 @@ The geometry of A-T base pair was taken from JSCH-2005 test set (Phys. Chem. Che
 
 example we will use ORCA 5.0 program to conduct single point calculations at ωB97M-V/def2-TZVP level, of course you can also use other codes such as Gaussian to carry out the calculations. The ORCA input files for dimer and the two monomers are AT.inp, A.inp and T.inp in “examples\ETS-NOCV\AT” folder. After running them, use “orca_2mkl” utility in ORCA package to convert the resulting .gbw files to Molden input files; if you do not know how to do, please check beginning of Chapter 4. The generated AT.molden, A.molden and T.molden can be downloaded at http://sobereva.com/multiwfn/extrafiles/A-T_base_pair_molden.zip.
 
-Boot up Multiwfn and input AT.molden // Wavefunction file of A-T base pair 23 // ETS-NOCV analysis 2 // Two fragments A.molden // Wavefunction file of adenine (A) fragment T.molden // Wavefunction file of thymine (T) fragment -2 // Generate Fock/KS matrix and re-evaluate NOCV orbital energies Currently, there are as many as 40 NOCV pairs printed on screen under the default printing threshold (NOCV eigenvalue > 0.001), the number is too large to easily inspect. So, we properly raise printing threshold, input
+!!! terminal "Multiwfn session"
+
+    - **Boot up Multiwfn and input AT.molden** — Wavefunction file of A-T base pair
+    - **23** — ETS-NOCV analysis
+    - **2** — Two fragments A.molden
+
+Wavefunction file of thymine (T) fragment -2 // Generate Fock/KS matrix and re-evaluate NOCV orbital energies Currently, there are as many as 40 NOCV pairs printed on screen under the default printing threshold (NOCV eigenvalue > 0.001), the number is too large to easily inspect. So, we properly raise printing threshold, input
 
 -3 // Set printing threshold of NOCV eigenvalues 0.02 0 // Print NOCV information again Now the number of printed NOCV pairs is significantly reduced:
 
@@ -523,7 +552,14 @@ It is worth to note that if you use different basis sets in the calculation of f
 
 It is important to properly choose electronic states in the present investigation. The Cr atom in the whole coordinate and in the (CO)5Cr fragment should be in low-spin (all six 3d electrons are paired), so spin multiplicity of the whole coordinate and (CO)5Cr should be set to 1 during calculations. Even though ground state of CH2 is known to be triplet, in order to perform ETS-NOCV analysis for this system, we must adopt singlet for CH2 in its single point calculation, because this state is more close to actual electronic structure of CH$(CO)5CrCH2$ than triplet (it is naturally expected that singlet CH2 utilizes its lone pair to form coordinate bond with unoccupied 3d orbital of the low-spin Cr atom).
 
-Now boot up Multiwfn and input examples\ETS-NOCV\(CO)5CrCH2\(CO)5CrCH2.fch 23 // ETS-NOCV analysis 2 // Two fragments examples\ETS-NOCV\(CO)5CrCH2\(CO)5Cr.fch // Fragment 1 examples\ETS-NOCV\(CO)5CrCH2\CH2.fch // Fragment 2 -2 // Generate Fock/KS matrix and evaluate NOCV orbital energies The NOCV information currently shown on screen is
+Now boot up Multiwfn and input examples\ETS-NOCV\(CO)5CrCH2\(CO)5CrCH2.fch
+
+!!! terminal "Multiwfn session"
+
+    - **23** — ETS-NOCV analysis
+    - **2** — Two fragments examples\ETS-NOCV\(CO)5CrCH2\(CO)5Cr.fch
+    - **Fragment 1 examples\ETS-NOCV\(CO)5CrCH2\CH2.fch** — Fragment 2
+    - **-2** — Generate Fock/KS matrix and evaluate NOCV orbital energies The NOCV information currently shown on screen is
 
 
 ```text
@@ -571,7 +607,14 @@ ETS-NOCV can also be employed to more than two fragment cases, and can also be a
 
 The TS.gjf in “examples\ETS-NOCV\C2H2_trimerization_TS” folder is Gaussian input file of single point task for pre-optimized TS geometry. The 1.gjf, 2.gjf and 3.gjf in this folder correspond to single point task for the three distorted acetylene molecules at the TS geometry. Calculation level in all files is B3LYP/6-31G*, which is sufficient for obtaining qualitatively reasonable ETS-NOCV result. Run these files and convert the resulting .chk files using formchk utility, then you will obtain the .fch files in this folder.
 
-Boot up Multiwfn and input examples\ETS-NOCV\C2H2_trimerization_TS\TS.fch 23 // ETS-NOCV analysis 3 // Three fragments examples\ETS-NOCV\C2H2_trimerization_TS\1.fch // Fragment 1 examples\ETS-NOCV\C2H2_trimerization_TS\2.fch // Fragment 2 examples\ETS-NOCV\C2H2_trimerization_TS\3.fch // Fragment 3 -2 // Generate Fock/KS matrix and evaluate NOCV orbital energies Then you will see
+Boot up Multiwfn and input examples\ETS-NOCV\C2H2_trimerization_TS\TS.fch
+
+!!! terminal "Multiwfn session"
+
+    - **23** — ETS-NOCV analysis
+    - **3** — Three fragments examples\ETS-NOCV\C2H2_trimerization_TS\1.fch
+    - **Fragment 1 examples\ETS-NOCV\C2H2_trimerization_TS\2.fch** — Fragment 2 examples\ETS-NOCV\C2H2_trimerization_TS\3.fch
+    - **Fragment 3 -2** — Generate Fock/KS matrix and evaluate NOCV orbital energies Then you will see
 
 
 ```text

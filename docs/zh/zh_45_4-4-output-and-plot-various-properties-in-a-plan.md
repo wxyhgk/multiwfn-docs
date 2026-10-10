@@ -27,7 +27,11 @@ Multiwfn的主功能4用于绘制实空间函数的各种平面图。该模块�
 
 在本例中，我们将氰化氢的电子密度绘制为颜色填充图和等值线图。启动Multiwfn并输入以下命令
 
-examples\HCN.wfn 4 // 在平面内绘制图形（Plot graph in a plane） 1 // 电子密度（Electron density） 1 // 颜色填充图（Color-filled map） [直接按ENTER键（Press ENTER button directly）] // 使用推荐的格点设置，即200,200。如果你增加格点数，图形会变得更精细、更平滑，但计算数据和绘制图形需要等待更长时间
+!!! terminal "Multiwfn 交互"
+
+    - **examples\HCN.wfn 4** — 在平面内绘制图形（Plot graph in a plane）
+    - **1** — 电子密度（Electron density）
+    - **1** — 颜色填充图（Color-filled map） [直接按ENTER键（Press ENTER button directly）]
 
 2 // XZ平面（当前体系的分子轴为Z轴，你可通过主功能0确认）(XZ plane (Z-axis is the molecular axis of present system, you can confirm this via main function 0))
 
@@ -64,9 +68,23 @@ examples\HCN.wfn 4 // 在平面内绘制图形（Plot graph in a plane） 1 // �
 
 在本例中，我们为一种含能化合物FOX-7绘制定域轨道指示函数（LOL）。LOL是揭示电子定域特征的常用函数，见第2.6节介绍。它与另一个非常流行的函数——电子定域函数（ELF）具有类似特征。本节的输入文件是examples\FOX-7.wfn，如果你将其载入Multiwfn并进入主功能0，你将看到以下结构。我们将绘制由原子N9、C2、N12定义的平面。
 
-启动Multiwfn并输入examples\FOX-7.wfn 4 // 绘制平面图（Plot plane map） 10 // 定域轨道指示函数（LOL）(Localized orbital locator (LOL)) 1 // 颜色填充图（Color-filled map） [直接按ENTER键（Press ENTER button directly）] 4 // 通过三个原子定义平面（Define the plane by three atoms） 9,2,12 // 使用这三个原子的核位置定义平面（Use nuclear position of the three atoms to define the plane） 直接显示在屏幕上的图形不易研究。因此，我们关闭图形，然后输入以下命令
+!!! terminal "Multiwfn 交互"
 
-8 // 显示化学键（Enable showing bonds） 14 // 棕色（Brown color） 4 // 显示原子标签（Enable showing atom labels） 1 // 红色（Red color） 18 // 改变原子标签样式（Change style of atomic labels） 3 // 同时绘制元素符号和原子序号（Plot both element symbol and atomic index） -1 // 再次显示图形（Show the graph again） 我们将看到下图
+    - **启动Multiwfn并输入examples\FOX-7.wfn 4** — 绘制平面图（Plot plane map）
+    - **10** — 定域轨道指示函数（LOL）(Localized orbital locator (LOL))
+    - **1** — 颜色填充图（Color-filled map） [直接按ENTER键（Press ENTER button directly）]
+    - **4** — 通过三个原子定义平面（Define the plane by three atoms）
+    - **9,2,12** — 使用这三个原子的核位置定义平面（Use nuclear position of the three atoms to define the plane） 直接显示在屏幕上的图形不易研究。因此，我们关闭图形，然后输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **8** — 显示化学键（Enable showing bonds）
+    - **14** — 棕色（Brown color）
+    - **4** — 显示原子标签（Enable showing atom labels）
+    - **1** — 红色（Red color）
+    - **18** — 改变原子标签样式（Change style of atomic labels）
+    - **3** — 同时绘制元素符号和原子序号（Plot both element symbol and atomic index）
+    - **-1** — 再次显示图形（Show the graph again） 我们将看到下图
 
 ![](../imgs/p515_128.png)
 
@@ -75,7 +93,10 @@ examples\HCN.wfn 4 // 在平面内绘制图形（Plot graph in a plane） 1 // �
 
 你可以发现，许多原子的标签没有显示在图上，这是因为这些原子到绘图平面的垂直距离大于`settings.ini`中的"disshowlabel"参数。如果我们想在图上显示所有原子标签，应关闭图形并输入以下命令：
 
-17 // 设置显示原子标签的距离阈值（Set distance threshold for showing atom labels） 10 // 将阈值放大到10 Bohr(Enlarge the threshold to 10 Bohr) y // 如果有原子到平面的垂直距离超过阈值，其标签仍将显示，但使用细体文本
+!!! terminal "Multiwfn 交互"
+
+    - **17** — 设置显示原子标签的距离阈值（Set distance threshold for showing atom labels）
+    - **10** — 将阈值放大到10 Bohr(Enlarge the threshold to 10 Bohr) y
 
 -1 // 再次绘制图形以查看效果（Plot the map again to check effect） 你将看到下图，仅给出感兴趣的部分
 
@@ -92,13 +113,25 @@ examples\HCN.wfn 4 // 在平面内绘制图形（Plot graph in a plane） 1 // �
 
 默认的颜色过渡方式是"彩虹（Rainbow）"，在函数值低于和高于颜色标尺的区域分别为白色和黑色。着色方式可由用户改变。作为示例，在后处理菜单中我们输入
 
-19 // 设置颜色过渡（Set color transition） 17 // 黑-蓝-青（Black-Blue-Cyan） 1 // 设置颜色标尺的下限和上限(Set lower&upper limit of color scale) 0,0.7 // 将上限从默认值降至0.7，以便颜色能更好地分辨不同区域的ELF(Decrease the upper limit from default value to 0.7 to make color able to better distinguish ELF in different regions)
+!!! terminal "Multiwfn 交互"
+
+    - **19** — 设置颜色过渡（Set color transition）
+    - **17** — 黑-蓝-青（Black-Blue-Cyan）
+    - **1** — 设置颜色标尺的下限和上限(Set lower&upper limit of color scale)
+    - **0,0.7** — 将上限从默认值降至0.7，以便颜色能更好地分辨不同区域的ELF(Decrease the upper limit from default value to 0.7 to make color able to better distinguish ELF in different regions)
 
 -1 // 重新绘制（Replot） 下图看起来非常酷 ;-D
 
 等值线可以叠加到颜色填充图上。为了制作漂亮的带等值线的颜色填充图，我们输入以下命令
 
-19 // 设置颜色过渡（Set color transition） 8 // 蓝-白-红（Blue-White-Red） 2 // 显示等值线（Enable showing contour lines） 1 // 设置颜色标尺的下限和上限(Set lower&upper limit of color scale) 0,1 -2 // 设置X、Y和颜色标尺轴的标签间隔(Set label interval in X, Y and color scale axes) 2,2,0.1 -1 // 重新绘制（Replot） 当前图形如下所示，相当令人满意
+!!! terminal "Multiwfn 交互"
+
+    - **19** — 设置颜色过渡（Set color transition）
+    - **8** — 蓝-白-红（Blue-White-Red）
+    - **2** — 显示等值线（Enable showing contour lines）
+    - **1** — 设置颜色标尺的下限和上限(Set lower&upper limit of color scale) 0,1
+    - **-2** — 设置X、Y和颜色标尺轴的标签间隔(Set label interval in X, Y and color scale axes) 2,2,0.1
+    - **-1** — 重新绘制（Replot） 当前图形如下所示，相当令人满意
 
 ![](../imgs/p517_131.png)
 
@@ -115,9 +148,19 @@ examples\HCN.wfn 4 // 在平面内绘制图形（Plot graph in a plane） 1 // �
 
 examples\C2H5F.wfn 0 // 首先查看分子结构以找到我们感兴趣的平面（View the molecular structure first to find the plane we are interested in）。假设C-C-F平面是我们想要绘制的，记录原子序号(1, 5, 8)，然后点击RETURN键返回主菜单
 
-4 // 在平面内绘制图形（Plot graph in a plane） 9 // 电子定域函数（ELF）(Electron localization function (ELF)) 5 // 带投影效果的阴影浮雕图（Shaded relief map with projection effect） [按ENTER键（Press ENTER button）] // 使用推荐的格点设置，即100,100(Use recommended grid setting, namely 100,100) 0 // 手动设置外延距离（Manually set extension distance）。如果你不这样做，你会发现所得图形在边界处有些被截断，因为默认外延距离对当前情形太小
+!!! terminal "Multiwfn 交互"
 
-6 // 将外延距离设为6 Bohr，略大于默认值(Set extension distance to 6 Bohr, which is slightly larger than the default value) 4 // 通过三个原子定义绘图平面（Define the plotting plane by three atoms） 1,5,8 // 这三个原子的序号（Indices of the three atoms） 下图立即弹出：
+    - **4** — 在平面内绘制图形（Plot graph in a plane）
+    - **9** — 电子定域函数（ELF）(Electron localization function (ELF))
+    - **5** — 带投影效果的阴影浮雕图（Shaded relief map with projection effect） [按ENTER键（Press ENTER button）]
+
+手动设置外延距离（Manually set extension distance）。如果你不这样做，你会发现所得图形在边界处有些被截断，因为默认外延距离对当前情形太小
+
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 将外延距离设为6 Bohr，略大于默认值(Set extension distance to 6 Bohr, which is slightly larger than the default value)
+    - **4** — 通过三个原子定义绘图平面（Define the plotting plane by three atoms）
+    - **1,5,8** — 这三个原子的序号（Indices of the three atoms） 下图立即弹出：
 
 ![](../imgs/p518_132.png)
 
@@ -145,7 +188,14 @@ examples\C2H5F.wfn 0 // 首先查看分子结构以找到我们感兴趣的平�
 
 3,4 // 将舍弃以原子3和4为中心的所有GTF。换句话说，将从当前波函数中去除原子3和4的贡献(All GTFs centered on atoms 3 and 4 will be discarded. In other words, contribution of atoms 3 and 4 will be removed from current wavefunction)
 
--1 // 返回主菜单（Return to main menu） 4 // 在平面内绘制图形（Plot graph in a plane） 3 // Laplacian函数（Laplacian function） 2 // 等值线图（Contour line map） [按ENTER键使用默认格点设置（Press ENTER button to use default grid setting）] 1 // 将绘制XY平面（XY plane will be plotted） 0 // XY平面的Z位置为零，即分子平面(The Z-position of the XY plane is zero, that is molecular plane) 下面是所得图形，实线和虚线分别对应正值和负值区域。
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 返回主菜单（Return to main menu）
+    - **4** — 在平面内绘制图形（Plot graph in a plane）
+    - **3** — Laplacian函数（Laplacian function）
+    - **2** — 等值线图（Contour line map） [按ENTER键使用默认格点设置（Press ENTER button to use default grid setting）]
+    - **1** — 将绘制XY平面（XY plane will be plotted）
+    - **0** — XY平面的Z位置为零，即分子平面(The Z-position of the XY plane is zero, that is molecular plane) 下面是所得图形，实线和虚线分别对应正值和负值区域。
 
 从图中可以看到，正如我们预期的那样，两个碳的贡献已被舍弃。
 
@@ -160,7 +210,12 @@ examples\C2H5F.wfn 0 // 首先查看分子结构以找到我们感兴趣的平�
 <!-- p.521 -->
 
 
-examples\uracil.wfn 4 // 平面图（Plane map） 10 // LOL 1 // 颜色填充图（Color-filled map） [按ENTER键使用默认格点设置（Press ENTER button to use default grid setting）] 1 // 将绘制XY平面（XY plane will be plotted） 0 // Z=0 关闭图形，然后输入-9 // 仅绘制某些原子周围的数据（Only plot the data around certain atoms） 1-6 // 尿嘧啶环上六个原子的序号（The index of the six atoms in the uracil ring） 8 // 显示化学键（Enable showing bonds） 14 // 棕色（Brown） -1 // 重新绘制（Replot） 然后你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **examples\uracil.wfn 4** — 平面图（Plane map）
+    - **10** — LOL 1
+
+将绘制XY平面（XY plane will be plotted） 0 // Z=0 关闭图形，然后输入-9 // 仅绘制某些原子周围的数据（Only plot the data around certain atoms） 1-6 // 尿嘧啶环上六个原子的序号（The index of the six atoms in the uracil ring） 8 // 显示化学键（Enable showing bonds） 14 // 棕色（Brown） -1 // 重新绘制（Replot） 然后你将看到
 
 显然，远离环原子的格点处的LOL值已被显著屏蔽。然后如果你想恢复原始图，可以在后处理菜单中选择"-9 恢复原始平面数据（Recovery original plane data）"然后重新绘制。
 
@@ -168,7 +223,15 @@ examples\uracil.wfn 4 // 平面图（Plane map） 10 // LOL 1 // 颜色填充图
 
 在本例中，我们将三氟化氯的静电势（ESP）绘制为等值线图。启动Multiwfn并输入以下命令
 
-examples\ClF3.wfn // 在B3LYP/6-31G*水平下产生(Generated at B3LYP/6-31G* level) 4 // 在平面内绘制图形（Plot graph in a plane） 12 // 总静电势（Total electrostatic potential） 2 // 绘制等值线图（Draw contour line map） 120,120 // 每个方向的格点数（Number of grids in each direction） 3 // YZ平面（YZ plane） 0 // 将YZ平面的X坐标设为0(Set X coordinate of the YZ plane to 0)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ClF3.wfn** — 在B3LYP/6-31G*水平下产生(Generated at B3LYP/6-31G* level)
+    - **4** — 在平面内绘制图形（Plot graph in a plane）
+    - **12** — 总静电势（Total electrostatic potential）
+    - **2** — 绘制等值线图（Draw contour line map）
+    - **120,120** — 每个方向的格点数（Number of grids in each direction）
+    - **3** — YZ平面（YZ plane）
+    - **0** — 将YZ平面的X坐标设为0(Set X coordinate of the YZ plane to 0)
 
 ![](../imgs/p521_135.png)
 
@@ -205,11 +268,21 @@ examples\ClF3.wfn // 在B3LYP/6-31G*水平下产生(Generated at B3LYP/6-31G* le
 
 Multiwfn 能够同时绘制两个轨道的等值线图。在本节中，我们将同时绘制 NH2COH 的 NBO 12 和 NBO 56 的等值线图（回顾 4.0.2 节）。我们选择的平面是垂直于分子平面且同时经过碳原子和氮原子的平面。如你将看到的，我们需要用一种特殊方式来定义这样的绘图平面。分子几何结构和原子编号如下所示。
 
-启动 Multiwfn 并输入：examples\NH2COH.31 37 // 载入 NH2COH.37 4 // 绘制平面图 4 // 轨道波函数 12,56 // 两个轨道的编号。如果你只输入一个编号，则只绘制一个轨道
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入：examples\NH2COH.31 37** — 载入 NH2COH.37
+    - **4** — 绘制平面图 4
+
+两个轨道的编号。如果你只输入一个编号，则只绘制一个轨道
 
 [按回车键（ENTER）使用默认格点设置] 7 // 该模式用于定义平行于一条键且同时垂直于由三个原子所定义平面的绘图平面
 
-1,4 // 绘图平面平行于 C1-N4 3,1,4 // 绘图平面垂直于由 O3-C1-N4 定义的平面 10 // 所得图形 X 轴长度为 10 Bohr 10 // 所得图形 Y 轴长度为 10 Bohr 图形会立即弹出。我们点击鼠标右键关闭它，选择选项 2 并输入 25，以在等值线上显示数值，然后选择 -1 重新绘制图形，我们将看到：
+!!! terminal "Multiwfn 交互"
+
+    - **1,4** — 绘图平面平行于 C1-N4
+    - **3,1,4** — 绘图平面垂直于由 O3-C1-N4 定义的平面
+    - **10** — 所得图形 X 轴长度为 10 Bohr
+    - **10** — 所得图形 Y 轴长度为 10 Bohr 图形会立即弹出。我们点击鼠标右键关闭它，选择选项 2 并输入 25，以在等值线上显示数值，然后选择 -1 重新绘制图形，我们将看到：
 
 
 ![](../imgs/p523_137.png)
@@ -224,7 +297,15 @@ Multiwfn 能够同时绘制两个轨道的等值线图。在本节中，我们�
 
 15 // 设置适合发表的绘图风格，即正值和负值部分分别绘制为红色实线和蓝色虚线
 
-1 // 保存设置并返回上一级菜单 -8 // 将图形的长度单位改为 Å -2 // 设置 X 轴和 Y 轴的标签间隔 1,1 // X 轴和 Y 轴的间隔均为 1.0 Å -1 // 重新绘制等值线图 2 // 在等值线上显示数值 30 // 使用 30 号字体的标签 现在图形变得非常清晰且信息丰富，同相重叠区域非常明显。
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 保存设置并返回上一级菜单
+    - **-8** — 将图形的长度单位改为 Å
+    - **-2** — 设置 X 轴和 Y 轴的标签间隔
+    - **1,1** — X 轴和 Y 轴的间隔均为 1.0 Å
+    - **-1** — 重新绘制等值线图 2
+
+使用 30 号字体的标签 现在图形变得非常清晰且信息丰富，同相重叠区域非常明显。
 
 
 ![](../imgs/p524_138.png)
@@ -258,7 +339,13 @@ examples\H2O2.fch // 当然，你也可以使用其它类型的文件作为输�
 
 带键路径和电子密度临界点的电子密度梯度图 如果你希望图形上同时绘制临界点和路径，需要先按 4.2.1 节所述进行拓扑分析，然后再绘制平面图。现在我们输入以下命令
 
--5 // 返回主菜单（main menu） 2 // 拓扑分析（默认分析电子密度） 2 // 从核位置搜索临界点（CPs） 3 // 从原子对中点搜索临界点 8 // 生成连接 (3,-3) 和 (3,-1) 临界点的路径，即在当前语境下生成键路径
+!!! terminal "Multiwfn 交互"
+
+    - **-5** — 返回主菜单（main menu）
+    - **2** — 拓扑分析（默认分析电子密度）
+    - **2** — 从核位置搜索临界点（CPs）
+    - **3** — 从原子对中点搜索临界点
+    - **8** — 生成连接 (3,-3) 和 (3,-1) 临界点的路径，即在当前语境下生成键路径
 
 0 // 直观检查是否已生成所有预期的临界点和路径。此步可选 -10 // 返回主菜单（main menu） 然后按上述方式绘制电子密度的梯度线图。所得图形应如下所示。棕色、蓝色和橙色圆圈分别表示 (3,-3)、(3,-1) 和 (3,+1) 临界点，粗深棕色线表示键路径。
 
@@ -369,7 +456,12 @@ examples\water_tetramer\wfn\complex.wfn 4 // 绘制平面图 0 // 自定义操�
 
 在 Multiwfn 中，你也可以很容易地通过主功能（main function）5 以等值面图的形式绘制密度差值，所得图形如下所示，等值面值为 0.003。如果你不知道如何实现，请参阅 4.5.5 节。
 
-绘制 ELF 差值图 接下来，我们绘制 ELF 的颜色填充差值图。输入以下命令 -5 // 返回主菜单（main menu） 4 // 绘制平面图 0 // 自定义操作（Custom operation） 4 // 将对最初载入的体系操作四个文件 -,examples\water_tetramer\wfn\water1.wfn -,examples\water_tetramer\wfn\water2.wfn -,examples\water_tetramer\wfn\water3.wfn -,examples\water_tetramer\wfn\water4.wfn
+绘制 ELF 差值图 接下来，我们绘制 ELF 的颜色填充差值图。输入以下命令 -5 // 返回主菜单（main menu） 4 // 绘制平面图
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 自定义操作（Custom operation）
+    - **4** — 将对最初载入的体系操作四个文件 -,examples\water_tetramer\wfn\water1.wfn -,examples\water_tetramer\wfn\water2.wfn -,examples\water_tetramer\wfn\water3.wfn -,examples\water_tetramer\wfn\water4.wfn
 
 
 ![](../imgs/p532_145.png)
@@ -382,7 +474,12 @@ examples\water_tetramer\wfn\complex.wfn 4 // 绘制平面图 0 // 自定义操�
 
 9 // ELF 1 // 颜色填充图 [按回车键（ENTER）] 4 // 由三个原子定义平面 7,10,1 屏幕上显示的图形目前很难看，因为默认的颜色标尺不适合当前情形。关闭图形并输入
 
-1 // 设置颜色标尺的下限和上限 -1.5,0.1 4 // 关闭原子标签显示 4 // 重新开启原子标签显示，此时可选择标签颜色 3 // 蓝色标签 -1 // 再次显示图形 你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 设置颜色标尺的下限和上限 -1.5,0.1
+    - **4** — 关闭原子标签显示 4
+
+蓝色标签 -1 // 再次显示图形 你将看到
 
 蓝色尤其是深蓝色区域表明相应区域的 ELF 有所降低。该图显示，在复合物形成过程中，分子间相互作用区域的电子定域性降低，这可归因于 Pauli 排斥效应的结果。
 
@@ -411,7 +508,16 @@ ELF-π 高度相似，但通常 LOL-π 的图形效果更好。在本节中，�
 
 100 // 其它功能（Other functions）
 
-22 // 识别 π 轨道（Detect π orbitals） 0 // 对严格平面体系的离域轨道识别 π 轨道 2 // 将所有其它轨道的占据数设为零 0 // 返回主菜单（main menu） 4 // 绘制平面图 10 // LOL 1 // 颜色填充图 [按回车键（ENTER）] // 使用默认格点 3 // 绘制 YZ 平面 1.2 // X=1.2 Bohr 关闭图形，然后输入 1 // 设置颜色标尺的下限和上限 0,0.66 4 // 开启原子标签显示 7 // 青色 17 // 设置显示原子标签的距离阈值 2 // 由于绘图平面与分子的距离为 1.2 Bohr，为使所有原子标签都显示在图形上，该阈值必须设为大于 1.2 Bohr 的值。这里我们设为 2.0 Bohr
+!!! terminal "Multiwfn 交互"
+
+    - **22** — 识别 π 轨道（Detect π orbitals）
+    - **0** — 对严格平面体系的离域轨道识别 π 轨道
+    - **2** — 将所有其它轨道的占据数设为零
+    - **0** — 返回主菜单（main menu）
+    - **4** — 绘制平面图 10
+    - **LOL 1** — 颜色填充图 [按回车键（ENTER）]
+
+绘制 YZ 平面 1.2 // X=1.2 Bohr 关闭图形，然后输入 1 // 设置颜色标尺的下限和上限 0,0.66 4 // 开启原子标签显示 7 // 青色 17 // 设置显示原子标签的距离阈值 2 // 由于绘图平面与分子的距离为 1.2 Bohr，为使所有原子标签都显示在图形上，该阈值必须设为大于 1.2 Bohr 的值。这里我们设为 2.0 Bohr
 
 y 8 // 开启化学键显示 14 // 棕色 -1 // 重新绘制 现在你将看到下图
 
@@ -426,7 +532,14 @@ y 8 // 开启化学键显示 14 // 棕色 -1 // 重新绘制 现在你将看到�
 
 接下来，为了充分展示 Multiwfn 平面绘图功能的灵活性，我说明如何以上述明显不同的风格绘制该图，即用颜色填充的等值线间区域。
 
-我们返回主菜单（main menu），然后输入 4 // 绘制平面图 10 // LOL 2 // 颜色填充图 [按回车键（ENTER）] // 使用默认格点 0 // 设置扩展距离（extension distance） 1 // 1 Bohr（小于默认值，以减小分子周围的空白区域） 3 // 绘制 YZ 平面 1.2 // X=1.2 Bohr 关闭图形，然后输入 9 // 开启在当前等值线之间填充颜色 9 // 设置填充颜色的状态 2 // 设置填充的下限和上限 -0.2,0.52 4 // 切换颜色条显示 5 // 设置颜色条的标签间隔 0.1 3 // 设置颜色过渡（color transition）
+我们返回主菜单（main menu），然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **4** — 绘制平面图
+    - **10** — LOL 2
+
+使用默认格点 0 // 设置扩展距离（extension distance） 1 // 1 Bohr（小于默认值，以减小分子周围的空白区域） 3 // 绘制 YZ 平面 1.2 // X=1.2 Bohr 关闭图形，然后输入 9 // 开启在当前等值线之间填充颜色 9 // 设置填充颜色的状态 2 // 设置填充的下限和上限 -0.2,0.52 4 // 切换颜色条显示 5 // 设置颜色条的标签间隔 0.1 3 // 设置颜色过渡（color transition）
 
 
 ![](../imgs/p535_148.png)
@@ -454,7 +567,16 @@ y 8 // 开启化学键显示 14 // 棕色 -1 // 重新绘制 现在你将看到�
 
 电场（F）定义为静电势（ESP）对坐标的一阶导数矢量（即梯度矢量）的负值；因此，若我们绘制 ESP 的梯度线或矢量场图，就能生动地展示电场（F）。在本节中，我将以离子化合物 LiF 为例。
 
-梯度线图 启动 Multiwfn 并输入 examples\LiF.wfn // 在 B3LYP/6-31G* 水平下生成 4 // 绘制平面图 12 // ESP 6 // 梯度线图 [按回车键（ENTER）使用默认格点设置] 0 // 修改扩展距离（extension distance） 6 // 6 Bohr（大于默认值） 3 // YZ 平面 0 // X=0 关闭图形，然后输入 15 // 显示一条等值线以揭示范德华表面 10 // 在梯度线上显示箭头 现在你可以得到如下图所示的图形
+!!! terminal "Multiwfn 交互"
+
+    - **梯度线图 启动 Multiwfn 并输入 examples\LiF.wfn** — 在 B3LYP/6-31G* 水平下生成
+    - **4** — 绘制平面图 12
+    - **ESP 6** — 梯度线图 [按回车键（ENTER）使用默认格点设置]
+    - **0** — 修改扩展距离（extension distance）
+    - **6** — 6 Bohr（大于默认值）
+    - **3** — YZ 平面 0
+
+显示一条等值线以揭示范德华表面 10 // 在梯度线上显示箭头 现在你可以得到如下图所示的图形
 
 
 ![](../imgs/p537_150.png)
@@ -467,7 +589,13 @@ y 8 // 开启化学键显示 14 // 棕色 -1 // 重新绘制 现在你将看到�
 
 矢量场图（Vector field map） 接下来，我们绘制另一种风格的图来展示电场特征。输入以下命令：
 
--5 // 返回主菜单（Return to main menu） 4 // 绘制平面图（Plot plane map） 12 // 静电势（ESP） 7 // 矢量场图（Vector field map） 50,50 // 两个维度上的格点数（Number of grids in the two dimensions） 3 // YZ平面（YZ plane） 0 // X=0 关闭屏幕上显示的图形，然后输入 11 // 将颜色映射到箭头上（Map color to arrows） 10 // 设置用于缩放箭头的绝对值上限（Set upper limit of absolute value for scaling arrows） 0.05 15 // 显示一条等值线以揭示范德华表面（Show a contour line to reveal van der Waals surface） 13 // 反转梯度矢量，使箭头对应于电场方向(Invert gradient vectors, so that the arrows will correspond to direction of electric field) 1 // 关闭原子标签和参考点的显示（Disable showing atom labels and reference point） 1 // 开启原子标签和参考点的显示（Enable showing atom labels and reference point） 3 // 使用蓝色标签（Use blue label color） 现在重新绘制该图，你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **-5** — 返回主菜单（Return to main menu）
+    - **4** — 绘制平面图（Plot plane map）
+    - **12** — 静电势（ESP） 7
+
+两个维度上的格点数（Number of grids in the two dimensions） 3 // YZ平面（YZ plane） 0 // X=0 关闭屏幕上显示的图形，然后输入 11 // 将颜色映射到箭头上（Map color to arrows） 10 // 设置用于缩放箭头的绝对值上限（Set upper limit of absolute value for scaling arrows） 0.05 15 // 显示一条等值线以揭示范德华表面（Show a contour line to reveal van der Waals surface） 13 // 反转梯度矢量，使箭头对应于电场方向(Invert gradient vectors, so that the arrows will correspond to direction of electric field) 1 // 关闭原子标签和参考点的显示（Disable showing atom labels and reference point） 1 // 开启原子标签和参考点的显示（Enable showing atom labels and reference point） 3 // 使用蓝色标签（Use blue label color） 现在重新绘制该图，你将看到
 
 
 ![](../imgs/p538_151.png)
@@ -483,15 +611,33 @@ y 8 // 开启化学键显示 14 // 棕色 -1 // 重新绘制 现在你将看到�
 
 本例说明如何绘制非常清晰漂亮的填色等值线图来展示Kr原子的4p原子轨道。波函数文件Kr.wfn已在“examples\atomwfn”文件夹中提供，它是由Gaussian在B3LYP/6-31G*水平下做单点任务生成的。
 
-启动Multiwfn并输入以下命令 examples\atomwfn\Kr.wfn 4 // 在平面内输出并绘制特定性质（Output and plot specific property in a plane） 4 // 轨道波函数值（Value of orbital wavefunction） 17 // 对应于4pz的轨道(你可先用主功能0直观地找到你感兴趣的轨道)(The orbital corresponding to 4pz)
+启动Multiwfn并输入以下命令 examples\atomwfn\Kr.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **4** — 在平面内输出并绘制特定性质（Output and plot specific property in a plane）
+    - **4** — 轨道波函数值（Value of orbital wavefunction）
+    - **17** — 对应于4pz的轨道(你可先用主功能0直观地找到你感兴趣的轨道)(The orbital corresponding to 4pz)
 
 2 // 等值线图（Contour line map） [按回车键（Press ENTER button）] // 使用默认格点数（Use default number of grids） 0 // 修改扩展距离，使绘图区域略大于默认值（Modify extension distance to make plotting area slightly larger than default） 5 // 5 Bohr 2 // XZ平面（XZ plane） 0 // Y=0 现在点击鼠标右键关闭图形，然后输入以下命令以改善图形效果
 
-9 // 允许为等值线填充颜色（Enable filling colors for contour lines） 9 // 设置等值线之间填充颜色的状态（Set status of filling colors between the contour lines） 3 // 设置颜色过渡（Set color transition） 8 // 蓝-白-红（Blue-White-Red） 0 // 返回（Return） 3 // 更改等值线设置（Change setting of contour lines） 5 // 使用适用于特殊用途的内置等值线值（Use built-in contour values suitable for special purpose）
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 允许为等值线填充颜色（Enable filling colors for contour lines）
+    - **9** — 设置等值线之间填充颜色的状态（Set status of filling colors between the contour lines）
+    - **3** — 设置颜色过渡（Set color transition）
+    - **8** — 蓝-白-红（Blue-White-Red）
+    - **0** — 返回（Return）
+    - **3** — 更改等值线设置（Change setting of contour lines）
+    - **5** — 使用适用于特殊用途的内置等值线值（Use built-in contour values suitable for special purpose）
 
 3 // 适用于绘制轨道波函数(即±0.01*2(i-1)，i = 1-28)(Suitable for plotting orbital wavefunction) 1 // 保存设置并返回（Save setting and return） 现在你可以用选项-1来可视化当前图形。在本例中我们将把图形保存为.pdf文件。你可以通过settings.ini中的“graphformat”设置默认文件格式，不过这里我们临时把格式改为.pdf，因此输入
 
--3 // 更改其它绘图设置（Change other plotting settings） 10 // 设置导出图像文件的格式（Set format of exporting image file） 7 // pdf
+!!! terminal "Multiwfn 交互"
+
+    - **-3** — 更改其它绘图设置（Change other plotting settings）
+    - **10** — 设置导出图像文件的格式（Set format of exporting image file）
+    - **7** — pdf
 
 
 <!-- p.540 -->
@@ -507,7 +653,13 @@ y 8 // 开启化学键显示 14 // 棕色 -1 // 重新绘制 现在你将看到�
 
 本例说明如何在平面图中展示实空间函数在特定等值（isovalue）的等值线上的极值位置。这里以苯酚为例，我们将在分子平面内绘制静电势(electrostatic potential，ESP)在ρ = 0.001 a.u.等值线上的极值。
 
-启动Multiwfn并输入 examples\phenol.wfn 4 // 绘制平面图（Plot plane map） 1 // 电子密度（Electron density） 2 // 等值线图（Contour line map） [按回车键（Press ENTER button）] // 使用默认格点数（Use default number of grids） 1 // XY平面（XY plane） 0 // Z=0 现在关闭屏幕上显示的图，然后输入 19 // 允许在等值线上显示函数的极值（Enable showing extrema of a function on a contour line） 0.001 // 当前函数(即电子密度)的等值（Isovalue of present function） 12 // 静电势（ESP） -1 // 重新绘制平面图（Replot plane map） 现在你可以看到如下图所示，红色和蓝色小球分别对应等值线上的极大值和极小值
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入 examples\phenol.wfn 4** — 绘制平面图（Plot plane map）
+    - **1** — 电子密度（Electron density）
+    - **2** — 等值线图（Contour line map） [按回车键（Press ENTER button）]
+
+XY平面（XY plane） 0 // Z=0 现在关闭屏幕上显示的图，然后输入 19 // 允许在等值线上显示函数的极值（Enable showing extrema of a function on a contour line） 0.001 // 当前函数(即电子密度)的等值（Isovalue of present function） 12 // 静电势（ESP） -1 // 重新绘制平面图（Replot plane map） 现在你可以看到如下图所示，红色和蓝色小球分别对应等值线上的极大值和极小值
 
 
 ![](../imgs/p540_152.png)

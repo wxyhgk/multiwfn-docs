@@ -25,7 +25,14 @@ In this example we will analyze basins of electron density (also known as AIM ba
 
 After you carefully read this section, I believe you will understand most of basic operations of the basin analysis module in Multiwfn.
 
-Generate basins and locate attractors Boot up Multiwfn and input following commands examples\HCN.wfn 17 // Basin analysis 1 // Generate basins and locate attractors 1 // The grid data to be calculated and thus analyzed is for electron density 2 // Medium-quality grid. This is enough for most cases, if you want to obtain a better result, you can choose "High-quality grid", but much more computational time will be spent
+Generate basins and locate attractors Boot up Multiwfn and input following commands examples\HCN.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **1** — The grid data to be calculated and thus analyzed is for electron density
+    - **2** — Medium-quality grid. This is enough for most cases, if you want to obtain a better result, you can choose "High-quality grid", but much more computational time will be spent
 
 
 <!-- p.776 -->
@@ -80,7 +87,11 @@ There should be totally 1+6+7=14 electrons in present system; unfortunately, the
 
 Because the basin we are studying is AIM basin, the best choice to obtain the basin integral is using function 7 rather than function 2. In function 7, mixed atomic-center and uniform grids are used, while function 2 only employs uniform grid to integrate. We input:
 
-7 // Integrate real space functions in AIM basins with mixed type of grids 1 // Integrate a specific function with atomic-center + uniform grids 1 // Select electron density as the integrand The result is
+!!! terminal "Multiwfn session"
+
+    - **7** — Integrate real space functions in AIM basins with mixed type of grids
+    - **1** — Integrate a specific function with atomic-center + uniform grids
+    - **1** — Select electron density as the integrand The result is
 
 
 ```text
@@ -135,7 +146,14 @@ Note: If you used option 2 or 3 in function 7, during the boundary grid refineme
 
 In summary, the common steps for obtaining reliable AIM charges after you enter basin analysis module is
 
-1 // Generate basin 1 // Electron density 2 // Medium-quality grid. Select high-quality grid if you wish to get more accurate result 7 // Integrate real space functions in AIM basins with mixed type of grids 2 // Integrate and meantime refine basin boundary 1 // Electron density The most convenient way of calculating AIM charges in Multiwfn is simply choosing
+!!! terminal "Multiwfn session"
+
+    - **1** — Generate basin
+    - **1** — Electron density
+    - **2** — Medium-quality grid. Select high-quality grid if you wish to get more accurate result
+    - **7** — Integrate real space functions in AIM basins with mixed type of grids
+    - **2** — Integrate and meantime refine basin boundary
+    - **1** — Electron density The most convenient way of calculating AIM charges in Multiwfn is simply choosing
 
 
 <!-- p.779 -->
@@ -206,7 +224,15 @@ The LI of H3 is only 0.256, which conspicuously deviates from the basin electron
 
 Special case: Basin analysis when pseudoatoms are presented Pseudoatom is also known as non-nuclear attractor (NNA) of electron density, it refers to maximum of electron density that are not at nuclear position. There are various reasons that can cause the NNAs, for example, existence of metal bond or quality of wavefunction is too poor. Here I use Li6 cluster as example to illustrate how to deal with the case when NNAs are presented.
 
-Boot up Multiwfn and input examples\Li6.fch 17 // Basin analysis 1 // Generate basins and locate attractors 1 // Electron density 1 // For illustration purposes, here we only use low-quality grid for saving time 0 // Visualize attractors and basins Left part of the graph below shows geometry of the cluster, the three green spheres indicate position of the three NNAs; right part of the graph displays corresponding basin of one of NNAs. As you can see, attractors 2, 4, 8 are NNAs.
+Boot up Multiwfn and input examples\Li6.fch
+
+!!! terminal "Multiwfn session"
+
+    - **17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **1** — Electron density
+    - **1** — For illustration purposes, here we only use low-quality grid for saving time
+    - **0** — Visualize attractors and basins Left part of the graph below shows geometry of the cluster, the three green spheres indicate position of the three NNAs; right part of the graph displays corresponding basin of one of NNAs. As you can see, attractors 2, 4, 8 are NNAs.
 
 
 <!-- p.781 -->
@@ -270,7 +296,11 @@ As illustrated in the aforementioned video tutorial, you can even simultaneously
 
 Multiwfn is very powerful in ELF basin analysis. As an example, in this section we analyze ELF basin for a typical small molecule, acetylene. Boot up Multiwfn and input
 
-examples\C2H2.wfn 17 // Basin analysis 1 // Generate basins and locate attractors 9 // ELF 2 // Medium-quality grid Once generation of basins has been completed, we can perform various kinds of visualization and analyses, see below.
+!!! terminal "Multiwfn session"
+
+    - **examples\C2H2.wfn 17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **9** — ELF 2
 
 Part 1: Visualize attractors and basins We enter option 0 to visualize ELF attractors and basins, you will see the following map. The attractors are represented as green spheres, and the purple texts are basin indices. You can find there are lots of closely placed attractors encircling the C-C bond, they have basically identical ELF values and collectively represent the ring-like ELF attractor. These attractors have been clustered together by Multiwfn automatically, therefore all of them have the same attractor index, namely 2; in other words, attractor 2 is a degenerate attractor, which contains many member attractors (or pristine attractors). Correspondingly, basin 2 is composed of all member basins.
 
@@ -466,7 +496,12 @@ Input q to exit the geometry measurement interface.
 
 Clustering attractors Assume that we want to cluster attractors 4 and 5 together as a degenerate attractor to make they collectively represent the two lone pairs, we can input
 
--6 // Set parameter for attractor clustering or manually perform clustering 3 // Cluster specified attractors 4,5 // Attractors 4 and 5 will be clustered as a single one 0 // Return Select option 0 to open GUI, as shown below, you can find that the indices of all attractors have changed, and the two attractors corresponding to the oxygen lone pairs now sharing the same index, namely 4.
+!!! terminal "Multiwfn session"
+
+    - **-6** — Set parameter for attractor clustering or manually perform clustering
+    - **3** — Cluster specified attractors
+    - **4,5** — Attractors 4 and 5 will be clustered as a single one
+    - **0** — Return Select option 0 to open GUI, as shown below, you can find that the indices of all attractors have changed, and the two attractors corresponding to the oxygen lone pairs now sharing the same index, namely
 
 Integrating basins Close the GUI by clicking "RETURN" button, choose option 2 and then select 1 to integrate electron density in the ESP basins, the result is
 
@@ -508,7 +543,13 @@ Attractor       X,Y,Z coordinate (Angstrom)                Value
 
 Clearly, the global minimum value is -0.09222*627.51 = -57.9 kcal/mol, the isovalue should then be set to -0.09222+10/627.51 = -0.07628 a.u.
 
-Enter option 0, in the GUI window deselect "Attractor labels", then input -10 // Return to main menu 13 // Process grid data -2 // Visualize isosurface of the grid data in memory In the GUI, input -0.07628 in "Isosurface value" box, deselect "Show both sign", choose "Isosurface style" - "Use mesh", make sure that "Show atomic labels" has been activated, choose "Other settings" - "Set atomic label type" - "Element symbol". Finally, click "Save picture" button to save image file to current folder, you will see below effect (the value is manually labelled)
+Enter option 0, in the GUI window deselect "Attractor labels", then input
+
+!!! terminal "Multiwfn session"
+
+    - **-10** — Return to main menu
+    - **13** — Process grid data
+    - **-2** — Visualize isosurface of the grid data in memory In the GUI, input -0.07628 in "Isosurface value" box, deselect "Show both sign", choose "Isosurface style" - "Use mesh", make sure that "Show atomic labels" has been activated, choose "Other settings" - "Set atomic label type" - "Element symbol". Finally, click "Save picture" button to save image file to current folder, you will see below effect (the value is manually labelled)
 
 Perform basin analysis using external cube file Multiwfn is able to perform basin analysis solely based on grid data, thus the real space function to be analyzed could not be anyone that formally supported by Multiwfn, such as the Anisotropy of the Induced Current Density (Chem. Rev., 105, 3758 (2005)), which can be calculated by AICD or GIMIC codes. In order to illustrate this important feature, now we redo some analyses shown above but using the grid data directly generated by the cubegen utility in Gaussian.
 
@@ -522,7 +563,11 @@ cubegen 0 potential H2O.fch ESP.cub 0 h
 
 Then boot up Multiwfn and input ESP.cub // This file contains ESP grid data. After loading it, the grid data will be stored in memory
 
-17 // Basin analysis 1 // Select real space function used to partitioning basins 2 // Generate the basins by using the grid data stored in memory Now visualize located attractors in option 0:
+!!! terminal "Multiwfn session"
+
+    - **17** — Basin analysis
+    - **1** — Select real space function used to partitioning basins
+    - **2** — Generate the basins by using the grid data stored in memory Now visualize located attractors in option 0:
 
 
 ![](../imgs/p791_331.png)
@@ -539,9 +584,21 @@ In this example we analyze basins of electron density difference for H2O to quan
 
 Before doing the basin analysis, we need to generate grid data of electron density difference first by main function 5, wavefunction file of all related elements must be available. Here we directly use the set of atomic wavefunction files provided in Multiwfn package, namely copying "atomwfn" subfolder in "example" folder to current folder, then during generating grid data of electron density difference Multiwfn will automatically use them. There are several different ways to prepare atomic wavefunction files, please recall Section 4.4.7 and consult Section 3.7.3.
 
-After that, boot up Multiwfn and input: examples\H2O.fch // Generated at B3LYP/6-31G** level 5 // Calculate grid data -2 // Obtain deformation property 1 // Electron density 3 // High-quality grid. Because the variation of electron density difference is complicated, using relatively high quality of grid is compulsory. Note that the "high-quality grid" we selected here only defines the total number of grids, and hence has different meaning to the one involved in function 1 of basin analysis module
+After that, boot up Multiwfn and input: examples\H2O.fch
 
-0 // After the calculation is finished, return to main menu 17 // Basin analysis module 1 // Generate basins and locate attractors 2 // Generate the basins by using the grid data stored in memory (namely the grid data we just
+!!! terminal "Multiwfn session"
+
+    - **Generated at B3LYP/6-31G** level 5** — Calculate grid data
+    - **-2** — Obtain deformation property
+    - **1** — Electron density
+    - **3** — High-quality grid. Because the variation of electron density difference is complicated, using relatively high quality of grid is compulsory. Note that the "high-quality grid" we selected here only defines the total number of grids, and hence has different meaning to the one involved in function 1 of basin analysis module
+
+!!! terminal "Multiwfn session"
+
+    - **0** — After the calculation is finished, return to main menu
+    - **17** — Basin analysis module
+    - **1** — Generate basins and locate attractors
+    - **2** — Generate the basins by using the grid data stored in memory (namely the grid data we just
 
 
 ![](../imgs/p792_332.png)
@@ -582,7 +639,14 @@ If you would like to compare the attractors with the isosurface of electron dens
 
 Source function has been briefed in part 19 of Section 2.6. Commonly, bond critical point (BCP) is taken as the reference point of source function when bonding problem is discussed. In this example we calculate source function in AIM basins for ethane; in particular, based on source function we will get the contribution from methyl group to the electron density at the BCP of its C-H bond. Before calculating source function, we should perform topology analysis first to find out the position of the BCP.
 
-Boot up Multiwfn and input: examples\ethane.wfn // Optimized and produced at B3LYP/6-31G* 2 // Topology analysis 2 // Search nuclear critical points 3 // Search BCPs 0 // Visualize result, see below
+Boot up Multiwfn and input: examples\ethane.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **Optimized and produced at B3LYP/6-31G* 2** — Topology analysis
+    - **2** — Search nuclear critical points
+    - **3** — Search BCPs
+    - **0** — Visualize result, see below
 
 
 ![](../imgs/p794_337.png)
@@ -597,7 +661,15 @@ You'd better choose option 7 and then input 11 to check the electron density at 
 
 From the information shown in the command-line window you can find the coordinate of CP11 is (0.0,-1.199262548,-1.909104063), copy it from the window to clipboard (if you do not know how to do this please consult Section 5.4). Next, we will set CP11 as the reference point of the source function. Although you can define reference point by "refxyz" parameters in `settings.ini`, there is a trick that can do the same thing, by which you need not to close Multiwfn and then reboot it to make the parameters take effect!
 
-Input below commands -10 // Return to main menu from topology analysis module 1000 // A hidden interface 1 // Set reference point Paste the coordinate of CP11 to the window and then press ENTER button. 17 // Basin analysis 1 // Generate basins and locate attractors 1 // Electron density 2 // Medium-quality grid Enter GUI by choosing function 0, you will see
+!!! terminal "Multiwfn session"
+
+    - **Input below commands -10** — Return to main menu from topology analysis module
+    - **1000** — A hidden interface
+    - **1** — Set reference point Paste the coordinate of CP11 to the window and then press ENTER button.
+    - **17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **1** — Electron density
+    - **2** — Medium-quality grid Enter GUI by choosing function 0, you will see
 
 Now we integrate source function in the AIM basins. Input following commands 7 // Integrate real space functions in AIM basins with mixed type of grids 1 // Integrate a specific function with atomic-center + uniform grids 19 // Source function The result is
 
@@ -656,7 +728,11 @@ In this section, I will use CH3NH2 as example to show how to obtain contribution
 
 First, we need to generate a cube file named basin.cub, whose grid value corresponds to index of ELF basins. Boot up Multiwfn and input
 
-examples\CH3NH2.wfn 17 // Basin analysis 1 // Generate basins and locate attractors 9 // ELF 2 // Medium-quality grid Now enter option 0 to examine the basin index
+!!! terminal "Multiwfn session"
+
+    - **examples\CH3NH2.wfn 17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **9** — ELF 2
 
 
 ![](../imgs/p797_341.png)
@@ -671,7 +747,13 @@ basin.cub 0 // Check attractors
 
 It is clear that the attractor index corresponding to N and C are 2 and 3, respectively. Then we evaluate atomic contribution to population of the basins defined in basin.cub
 
-9 // Then program loads basin.cub in current folder 2 // The index of the attractor corresponding to N 5 // The 5th ELF basin, i.e. V(N,C) basin The result is 1.15866, namely N contributes 1.159 electrons to V(N,C) basin. Then input 3 // The index of the attractor corresponding to C 5 // The 5th ELF basin, i.e. V(N,C) basin From the result we know that C contributes 0.463 electrons to the V(N,C) basin. Since N contributes much more electrons than C to their ELF bond basin, it may thus be concluded that C-N is a bond with significant polarity.
+!!! terminal "Multiwfn session"
+
+    - **9** — Then program loads basin.cub in current folder
+    - **2** — The index of the attractor corresponding to N
+    - **5** — The 5th ELF basin, i.e. V(N,C) basin The result is 1.15866, namely N contributes 1.159 electrons to V(N,C) basin. Then input
+    - **3** — The index of the attractor corresponding to C
+    - **5** — The 5th ELF basin, i.e. V(N,C) basin From the result we know that C contributes 0.463 electrons to the V(N,C) basin. Since N contributes much more electrons than C to their ELF bond basin, it may thus be concluded that C-N is a bond with significant polarity.
 
 
 ### 4.17.8 Calculating high ELF localization domain population and volume (HELP, HELV)
@@ -706,7 +788,11 @@ From the map above, we can find attractor 5 corresponds to lone pair of the P at
 
 <!-- p.800 -->
 
-Next, we input 10 // Calculate HELP and HELV 0 // Select basins and calculate their HELP and HELV 5 // The basin index corresponding to the lone pair of the P atom After a while, you will see:
+!!! terminal "Multiwfn session"
+
+    - **Next, we input 10** — Calculate HELP and HELV
+    - **0** — Select basins and calculate their HELP and HELV
+    - **5** — The basin index corresponding to the lone pair of the P atom After a while, you will see:
 
 
 ```text
@@ -746,7 +832,15 @@ Example In this example, we calculate atomic energies of H2CO. Boot up Multiwfn 
 
 structure
 
-17 // Basin analysis 1 // Generate basins 1 // Electron density 2 // Medium-quality grid 7 // Integrate real space functions in AIM basins with mixed type of grids 2 // Exact refinement of basin boundary 6 // Hamiltonian kinetic energy K(r) The result is
+!!! terminal "Multiwfn session"
+
+    - **17** — Basin analysis
+    - **1** — Generate basins
+    - **1** — Electron density
+    - **2** — Medium-quality grid
+    - **7** — Integrate real space functions in AIM basins with mixed type of grids
+    - **2** — Exact refinement of basin boundary
+    - **6** — Hamiltonian kinetic energy K(r) The result is
 
 
 ```text
@@ -767,7 +861,14 @@ ratio 2.0 is insignificant, our scaling treatment of $E_{\Omega}$ is reasonable 
 
 An evidently more convenient and better way of deriving atomic contribution to energy is choosing user-defined function -11 as the integrand, it is scaled electron energy density involving virial ratio, whose integral over the whole space exactly equals the electronic energy given by quantum chemistry code, see corresponding part of Section 2.7 for its definition. Now we redo the example above. Open `settings.ini` and set “iuserfunc” to -11, then boot up Multiwfn and input
 
-examples\H2CO.wfn 17 // Basin analysis 1 // Generate basins 1 // Electron density 2 // Medium-quality grid 7 // Integrate real space functions in AIM basins with mixed type of grids 2 // Exact refinement of basin boundary 100 //User-defined function, which now corresponds to the scaled electron energy density The result is
+!!! terminal "Multiwfn session"
+
+    - **examples\H2CO.wfn 17** — Basin analysis
+    - **1** — Generate basins
+    - **1** — Electron density
+    - **2** — Medium-quality grid
+    - **7** — Integrate real space functions in AIM basins with mixed type of grids
+    - **2** — Exact refinement of basin boundary 100 //User-defined function, which now corresponds to the scaled electron energy density The result is
 
 
 ```text
@@ -793,7 +894,13 @@ It can be seen that the integral -114.50044630 a.u. is basically exactly equal t
 
 Many papers studied ELF by plotting its isosurface map and colored the isosurfaces according to basin type (monosynaptic, disynaptic, and others). In Section 4.5.1 I have already mentioned it is possible to use ChimeraX software to easily plot such a map based on .cub file exported by Multiwfn, however there are some limitations, namely the coloring will change when isovalue is changed, and a whole isosurface cannot be colored differently in the subregions corresponding to different types of basins. In this section, I will show how to use basin analysis module of Multiwfn in combination with VMD (freely available at http://www.ks.uiuc.edu/Research/vmd/) to plot the basin type colored ELF isosurface map without these limitations. A simple molecule oxirane will be taken as example, its wavefunction file is examples\oxirane.fchk. The version of VMD I am using is 1.9.3.
 
-Boot up Multiwfn and input examples\oxirane.fchk 17 // Basin analysis 1 // Generate basins 9 // ELF 2 // Medium-quality grid Now you can choose option 0 to visualize the located attractors:
+Boot up Multiwfn and input examples\oxirane.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **17** — Basin analysis
+    - **1** — Generate basins
+    - **9** — ELF 2
 
 Close GUI window, and select option “12 Assign ELF basin labels”, you will see
 

@@ -61,7 +61,7 @@ $$\sigma_{\mathrm{tot}}^{2}=\sigma_{+}^{2}+\sigma_{-}^{2}=(1/N_{+})\sum_{i}^{N_{
 
 <!-- formula-ocr: formula_p193_111.png 已替换为LaTeX, 原图保留备查 -->
 
-The variance reflects the variability of ESP. The larger the 𝜎+2 and 𝜎−2, the more tendency that the molecule interacts with other molecules by positive and negative ESP regions respectively.
+The variance reflects the variability of ESP. The larger the $\sigma_{+}^{2}$, the more tendency that the molecule interacts with other molecules by positive and negative ESP regions respectively.
 
 Degree of charge balance (also known as balance of charges) is defined as
 
@@ -132,7 +132,7 @@ $$\Delta H_{\mathrm{s u b}}=4.4307\times10^{-4}A^{2}+2.0599\sqrt{\nu\sigma_{\mat
 
 ·Predicting density of molecular crystal Another typical application of statistical data of ESP on vdW surface is predicting crystal density of organic molecules containing C, H, N and O elements. The crystal density is a crucial property of energetic compounds. In J. Phys. Chem. A, 111, 10874 (2007), it was shown that the
 
-density can be estimated by ρ = M / Vm, where M is molecular mass and Vm is molecular vdW volume defined by ρ = 0.001 a.u. isosurface; for ionic crystal (e.g. ammonium azide), M and Vm correspond the sum of mass and volume of the cation and anion comprising a formula unit of the compound. Although the relationship is quite simple, it indeed works well for most neutral species, but the error is evidently larger for ionic species. In order to improve the prediction accuracy for neutral ones, in Mol. Phys., 107, 2095 (2009), the authors introduced GIPF descriptors into the formula:
+density can be estimated by ρ $\rho = M / V_{m}$, where M is molecular mass and Vm is molecular vdW volume defined by ρ = 0.001 a.u. isosurface; for ionic crystal (e.g. ammonium azide), M and Vm correspond the sum of mass and volume of the cation and anion comprising a formula unit of the compound. Although the relationship is quite simple, it indeed works well for most neutral species, but the error is evidently larger for ionic species. In order to improve the prediction accuracy for neutral ones, in Mol. Phys., 107, 2095 (2009), the authors introduced GIPF descriptors into the formula:
 
 
 $$\rho=\alpha\frac{M}{V_{\mathrm{m}}}+\beta(v\sigma_{\mathrm{tot}}^{2})+\gamma$$
@@ -141,7 +141,7 @@ $$\rho=\alpha\frac{M}{V_{\mathrm{m}}}+\beta(v\sigma_{\mathrm{tot}}^{2})+\gamma$$
 
 At B3PW91/6-31G** level, the fitted coefficients are α = 0.9183, β = 0.0028 and γ = 0.0443. This formula has proven to have improved accuracy, because intermolecular electrostatic interaction is somewhat effectively taken into consideration. In a succeeding paper Mol. Phys., 108, 1391 (2010),
 
-the author showed that the crystal density of ionic compounds can be estimated much better than ρ = M / Vm if GIPF descriptors are introduced:
+the author showed that the crystal density of ionic compounds can be estimated much better than ρ $\rho = M / V_{m}$ if GIPF descriptors are introduced:
 
 $$\rho=\alpha\frac{M}{V_{\mathrm{m}}}+\beta\left(\frac{\overline{V}_{S(\mathrm{cation})}^{+}}{A_{(\mathrm{cation})}^{+}}\right)+\gamma\left(\frac{\overline{V}_{S(\mathrm{anion})}^{-}}{A_{(\mathrm{anion})}^{-}}\right)+\delta$$
 
@@ -165,7 +165,7 @@ where α = 2.736, β = 33.31, γ = -72.05 were fitted at HF/STO-5G*//HF/STO-3G* 
 
 <!-- p.196 -->
 
-In J. Phys. Chem. A, 103, 1853 (1999), the prediction equation for solvation free energy is presented as (Vmin denotes the ESP value at its global minimum in the whole space):
+In J. Phys. Chem. A, 103, 1853 (1999), the prediction equation for solvation free energy is presented as ($(V_{\mathrm{min}}$ denotes the ESP value at its global minimum in the whole space):
 
 −×−=Δ VVVG )(106412.217201.0(kJ/mol)3minS,maxS,5minsolv −
 
@@ -228,7 +228,7 @@ Multiwfn, the basic steps are given below.
 
 3. Since computing ESP is time consuming, in order to cut down overall computational time, Multiwfn eliminates redundant points automatically. Specifically, if the distance between two points is smaller than a specific value, one of the points will be eliminated, and the other point will be moved to their average position. In the graph above, the aggregated points such as those inside blue circles will be finally merged to one point.
 
-4. Calculate mapped function (ESP, 𝐼̅ and so on) at each vertex on the isosurface. For ESP, this is the most time-consuming step; however, for such as 𝐼̅ and EAL, this step can be finished immediately.
+4. Calculate mapped function (ESP, $\bar{I}$ and so on) at each vertex on the isosurface. For ESP, this is the most time-consuming step; however, for such as 𝐼̅ and EAL, this step can be finished immediately.
 
 5. Locate and then output minima and maxima of the mapped function on the surface by making use of connectivity. If the mapped function value at a vertex is lower (larger) than that at its first-shell neighbours and second-shell neighbours, then this vertex will be regarded as surface minimum (maximum).
 
@@ -321,17 +321,17 @@ Note that by default the ESP is evaluated based on wavefunction, this process ma
 
 value will bring additional cost in step 2. The generated isosurface under default value is exact enough in general. You can decrease it to 2 even to 1 to save computational time, however, decreasing it to 0 will frequently lead to false surface extrema.
 
-(4) Toggle using focal-point approximation to evaluate ESP I proposed a way to approximately estimate high-quality ESP with relatively lower computational cost, this idea will be referred to as focal-point approximation (FPA). Specifically, given the fact that electron density estimated by high-level method with large basis set can be
+(4) Toggle using focal-point approximation to evaluate ESP I proposed a way to approximately estimate $\rho_{\mathrm{large~BS}}^{\mathrm{high}} \approx \rho_{\mathrm{small~BS}}^{\mathrm{high}} + (\rho_{\mathrm{large~BS}}^{\mathrm{low}} - \rho_{\mathrm{small~BS}}^{\mathrm{low}})$-quality ESP with relatively lower computational cost, this idea will be referred to as focal-point approximation (FPA). Specifically, given the fact that electron density estimated by high-level method with large basis set can be
 
-approximately expressed as 𝜌large BS high≈𝜌small BS high+ (𝜌large BS low−𝜌small BS low) , since ESP is linear to
+approximately expressed as 𝜌large BS $\rho_{\mathrm{large~BS}}^{\mathrm{high}} \approx \rho_{\mathrm{small~BS}}^{\mathrm{high}} + (\rho_{\mathrm{large~BS}}^{\mathrm{low}} - \rho_{\mathrm{small~BS}}^{\mathrm{low}})$≈𝜌small BS high+ (𝜌large BS low−𝜌small BS low) , since ESP is linear to
 
-electron density, high-quality ESP (V) can thus be approximately estimated as 𝑉large BS high≈
+electron density, $\rho_{\mathrm{large~BS}}^{\mathrm{high}} \approx \rho_{\mathrm{small~BS}}^{\mathrm{high}} + (\rho_{\mathrm{large~BS}}^{\mathrm{low}} - \rho_{\mathrm{small~BS}}^{\mathrm{low}})$-quality ESP (V) can thus be approximately estimated as 𝑉large BS high≈
 
-𝑉small BS high+ (𝑉large BS low−𝑉small BS low) , the cost is evidently much lower than calculating ESP directly
+𝑉small BS $\rho_{\mathrm{large~BS}}^{\mathrm{high}} \approx \rho_{\mathrm{small~BS}}^{\mathrm{high}} + (\rho_{\mathrm{large~BS}}^{\mathrm{low}} - \rho_{\mathrm{small~BS}}^{\mathrm{low}})$+ (𝑉large BS low−𝑉small BS low) , the cost is evidently much lower than calculating ESP directly
 
-using the high-level method with large basis set.
+using the $\rho_{\mathrm{large~BS}}^{\mathrm{high}} \approx \rho_{\mathrm{small~BS}}^{\mathrm{high}} + (\rho_{\mathrm{large~BS}}^{\mathrm{low}} - \rho_{\mathrm{small~BS}}^{\mathrm{low}})$-level method with large basis set.
 
-If you want to use the FPA during ESP analysis, you should load the wavefunction file produced by “high method / small basis-set” calculation after booting up Multiwfn, then enter the present function and choose this option once to switch its status to “Yes”, then Multiwfn will ask you to input paths of wavefunction files produced by “low method / small basis-set” and “low method / large basis-set” calculations (obviously, their geometries must be exactly identical to the “high method / small basis-set” wavefunction). Then in the stage of calculation of ESP, they will be automatically adopted to evaluate high-quality ESP via the FPA equation shown above.
+If you want to use the FPA during ESP analysis, you should load the wavefunction file produced by “$\rho_{\mathrm{large~BS}}^{\mathrm{high}} \approx \rho_{\mathrm{small~BS}}^{\mathrm{high}} + (\rho_{\mathrm{large~BS}}^{\mathrm{low}} - \rho_{\mathrm{small~BS}}^{\mathrm{low}})$ method / small basis-set” calculation after booting up Multiwfn, then enter the present function and choose this option once to switch its status to “Yes”, then Multiwfn will ask you to input paths of wavefunction files produced by “low method / small basis-set” and “low method / large basis-set” calculations (obviously, their geometries must be exactly identical to the “high method / small basis-set” wavefunction). Then in the stage of calculation of ESP, they will be automatically adopted to evaluate high-quality ESP via the FPA equation shown above.
 
 5 Loading mapped function values from external file By choosing proper suboption in this option, during surface analysis, the value of mapped function at surface vertices can be loaded from external file rather than directly calculated by Multiwfn. This option has two uses: (1) Reduce overall analysis cost (2) Analyze a special function that cannot be calculated by Multiwfn, or the analyze a function requiring mathematical operations and thus not directly available in present module (e.g. dual descriptor).
 
@@ -459,7 +459,7 @@ $$w_{A}^{\mathrm{H i r s h}}(\mathbf{r})=\frac{\rho_{A}^{0}(\mathbf{r})}{\displa
 
 B
 
-where 𝜌𝐴 0 denotes the density of atom A in free-state. Summing up weight of all atoms in a fragment yields Hirshfeld weight of this fragment HirshHirsh( )( )PAA Pww = rr
+where 𝜌𝐴 0 denotes the density of atom A in free-state. Summing up weight of all atoms in a fragment yields Hirshfeld weight of this fragment HirshHirsh( )( )PAA Pww ∈= rr
 
 Hirsh = 0.5. Motivated by Hirshfeld surface, I proposed Becke surface, which replaces Hirshfeld weight with Becke weight (see Section 3.18.0 for introduction of Becke weight), only geometry and atomic covalent radii are required to construct Becke surface. Commonly the profile of Becke surface and that of Hirshfeld surface are comparable. Hirshfeld surface is faster for large system and thus preferred over than Becke surface in most cases, however Becke surface has an advantage that it can be constructed normally in the region where electron density is vanished (very far from atoms), in which region Hirshfeld weight is undefined and thus Hirshfeld surface cannot be constructed. Hirshfeld surface of fragment P is just the isosurface of 𝑤𝑃
 
@@ -476,13 +476,13 @@ If we map specific real space functions on Hirshfeld/Becke surface and study the
 
 (1) Normalized contact distance vdWe rdd−+−= , where di (de) is the vdWiinormr rdr vdWeevdWi
 
-vdWand 𝑟𝑒vdW denote vdW radius of the corresponding two atoms. Small value of dnorm indicates close intermolecular contact and implies evident interaction. distance from a point on the surface to the nearest nucleus inside (outside) the surface, 𝑟𝑖
+vdWand 𝑟𝑒vdW denote vdW radius of the corresponding two atoms. Small value of $d_{norm} = \frac{d_{i} - r_{i}^{vdW}}{r_{i}^{vdW}} + \frac{d_{e} - r_{e}^{vdW}}{r_{e}^{vdW}}$ indicates close intermolecular contact and implies evident interaction. distance from a point on the surface to the nearest nucleus inside (outside) the surface, 𝑟𝑖
 
-(2) Electron density. If electron density is large in some local regions of Hirshfeld/Becke surface, obviously the intermolecular interactions crossing these regions must be prominent. The usefulness of electron density is similar to dnorm, while the former is more physically meaningful and leads to smoother color variation on the surface.
+(2) Electron density. If electron density is large in some local regions of Hirshfeld/Becke surface, obviously the intermolecular interactions crossing these regions must be prominent. The usefulness of electron density is similar to $d_{norm} = \frac{d_{i} - r_{i}^{vdW}}{r_{i}^{vdW}} + \frac{d_{e} - r_{e}^{vdW}}{r_{e}^{vdW}}$, while the former is more physically meaningful and leads to smoother color variation on the surface.
 
 (3) sign(λ2)ρ, see corresponding part Section 2.6 for detailed explanation. This function can not only exhibit interaction strength but also reveal interaction type.
 
-Below is urea crystal, the isosurface represents Hirshfeld surface of the central urea, and dnorm is the mapped function. Red parts correspond to small dnorm and thus exhibit close contact, which mainly originates from H-bond interaction.
+Below is urea crystal, the isosurface represents Hirshfeld surface of the central urea, and $d_{norm} = \frac{d_{i} - r_{i}^{vdW}}{r_{i}^{vdW}} + \frac{d_{e} - r_{e}^{vdW}}{r_{e}^{vdW}}$ is the mapped function. Red parts correspond to small dnorm and thus exhibit close contact, which mainly originates from H-bond interaction.
 
 Fingerprint plot and local contact The so-called "fingerprint plot" defined in the framework of Hirshfeld/Becke surface analysis is useful in investigating the noncovalent interactions in molecular crystals. X and Y axes in this
 

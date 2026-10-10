@@ -20,7 +20,11 @@ This system will be further studied in Section 4.12.8 by means of quantitative m
 
 In subfunction 25 of main function 6, you can set orbital expansion coefficients of Gaussian type functions (GTFs) which satisfy certain conditions. If the coefficients are set to zero, that means the information of these GTFs are deleted. In this example, we delete all Z-type GTFs of atoms 2, 3 and 4 from orbital 23 of phenol and then plot isosurface for this molecular orbital. Boot up Multiwfn and input following commands
 
-examples\phenol.wfn 6 // Modify wavefunction 25 // Set the coefficients of some GTFs that satisfied certain conditions 0,0 // Set the index range of GTFs, only the GTFs satisfied this condition will be reserved to next step. 0,0 tell Multiwfn the range is “ALL”
+!!! terminal "Multiwfn session"
+
+    - **examples\phenol.wfn 6** — Modify wavefunction
+    - **25** — Set the coefficients of some GTFs that satisfied certain conditions
+    - **0,0** — Set the index range of GTFs, only the GTFs satisfied this condition will be reserved to next step. 0,0 tell Multiwfn the range is “ALL”
 
 2,4 // Only the GTFs attributed to atoms 2, 3, 4 will be reserved to next step Z // Only reserve Z-type GTFs to next step 23,23 // Set lower and upper limit of orbital, if they are identical, then only one orbital is selected
 
@@ -59,13 +63,28 @@ Now, boot up Multiwfn, and input following commands examples\HCN.wfn 6 // Modify
 
 <!-- p.560 -->
 
-26 // Set occupation numbers 1,2 // Select MOs 1 and 2 0 // Set their occupation numbers to zero q // Return to last menu -1 // Return to main menu Then, if we plot color-filled map of electron density as usual by main function 4 (see examples in Section 4.4), we will get the following graph
+!!! terminal "Multiwfn session"
+
+    - **26** — Set occupation numbers
+    - **1,2** — Select MOs 1 and 2
+    - **0** — Set their occupation numbers to zero q
+    - **Return to last menu -1** — Return to main menu Then, if we plot color-filled map of electron density as usual by main function 4 (see examples in Section 4.4), we will get the following graph
 
 From the above picture, the bonding region of C-N and C-H bonds and be easily identified, and the lone pair region of nitrogen can also be clearly observed. Note that the small white circles in carbon and nitrogen centers do not correspond to 1s electrons, but result from the fact that valence atomic orbitals have penetration effect into core region.
 
 Example 2: Plotting isosurface map of valence electron density for ethane For convenience consideration, Multiwfn provides option 34 in main function 6, one can directly choose it to set occupations of all MOs composed of inner-core atomic orbitals to zero. In this example we will use this feature, and plot isosurface map of valence electron density for ethane.
 
-Boot up Multiwfn and input examples\ethane.wfn 6 // Modify wavefunction 34 // Set occupation number of inner orbitals to zero -1 // Return to main menu 5 // Calculate grid data and visualize isosurface map 1 // Electron density 3 // High-quality grid -1 // Show isosurface map After changing isovalue to a proper value 0.25 and disable showing molecular structure, we will see
+Boot up Multiwfn and input examples\ethane.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **6** — Modify wavefunction
+    - **34** — Set occupation number of inner orbitals to zero
+    - **-1** — Return to main menu
+    - **5** — Calculate grid data and visualize isosurface map
+    - **1** — Electron density
+    - **3** — High-quality grid
+    - **-1** — Show isosurface map After changing isovalue to a proper value 0.25 and disable showing molecular structure, we will see
 
 
 ![](../imgs/p560_175.png)
@@ -106,9 +125,19 @@ TV                -1.219952    2.133447    0.000000
 
 In route section, write “#P PBEPBE/3-21g/Auto SCF=Tight”. Use Gaussian to run this input file and then use formchk to convert the binary checkpoint file to graphene.fch. Then boot up Multiwfn and input:
 
-examples\graphene.fch 6 // Modify wavefunction 32 // Translate and duplicate primitive cell wavefunction 2.475315,0.0,0.0 // Translation vector 1 2 // Unit is Å 3 // Translate and duplicate present system three times in this direction 32 // Notice that current system already has four primitive cells, this time we will translate and duplicate current system in another direction three times, so the final system will contain 16 primitive cells
+!!! terminal "Multiwfn session"
 
--1.219952,2.133447,0.0 // Translation vector 2 2 // Unit is Å 3 // Translate and duplicate present system three times in this direction The left part of the picture below is LOL function of primitive cell. After above manipulation, we recalculate LOL function and then the right graph is obtained (black arrows denote translation vectors). Apparently, the central region of the extended system shows correct periodic character, however the behavior of boundary region is still incorrect, you can extend the system further to enlarge “correct” region.
+    - **examples\graphene.fch 6** — Modify wavefunction
+    - **32** — Translate and duplicate primitive cell wavefunction 2.475315,0.0,0.0
+    - **Translation vector 1 2** — Unit is Å
+    - **3** — Translate and duplicate present system three times in this direction
+    - **32** — Notice that current system already has four primitive cells, this time we will translate and duplicate current system in another direction three times, so the final system will contain 16 primitive cells
+
+!!! terminal "Multiwfn session"
+
+    - **-1.219952,2.133447,0.0** — Translation vector 2
+    - **2** — Unit is Å
+    - **3** — Translate and duplicate present system three times in this direction The left part of the picture below is LOL function of primitive cell. After above manipulation, we recalculate LOL function and then the right graph is obtained (black arrows denote translation vectors). Apparently, the central region of the extended system shows correct periodic character, however the behavior of boundary region is still incorrect, you can extend the system further to enlarge “correct” region.
 
 Notice that if nosymm keyword is not specified in PBC calculation, Gaussian may automatically put the system into standard orientation, at this time you should not use the translation vectors in Gaussian input file as the translation vectors for translating and duplicating system in Multiwfn, but should use the content in “Translation vectors” field of .fch file or “PBC vector” segment in Gaussian output file.
 

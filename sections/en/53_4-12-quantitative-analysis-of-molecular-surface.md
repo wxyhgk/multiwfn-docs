@@ -183,7 +183,11 @@ examples\N-phenylpyrrole.fch 12 // Quantitative molecular surface analysis 0 // 
 
 Assume that we want to perform the analysis again. This time we can directly use the ESP data recorded in the plain text file. Input below commands
 
-5 // Loading mapped function values from external file during analysis 1 // Loading mapped function at all surface vertices from a plain text file 0 // Start the analysis Once construction of molecular surface is complete, Multiwfn will prompt you to input the path of the plain text file recording mapped function values at all surface vertices, at this point you should simply input vtx.txt.
+!!! terminal "Multiwfn session"
+
+    - **5** — Loading mapped function values from external file during analysis
+    - **1** — Loading mapped function at all surface vertices from a plain text file
+    - **0** — Start the analysis Once construction of molecular surface is complete, Multiwfn will prompt you to input the path of the plain text file recording mapped function values at all surface vertices, at this point you should simply input vtx.txt.
 
 Since this time the mapped function values, namely ESP values, are not calculated but loaded from vtx.txt directly, the analysis results immediately show up on the screen.
 
@@ -196,9 +200,20 @@ Trick: Perform ESP analysis on molecular surface solely based on cube files Some
 
 Dmol3 and FHI-aims, are unable to produce a wavefunction file that supported by Multiwfn, however in this case it is still possible to perform ESP analysis over molecular surface, as long as you can yield cube files of electron density and ESP for your system by these codes. Once the cube files are generated, you can input below commands after booting up Multiwfn:
 
-density.cub // Load cube file of electron density first 12 // Quantitative molecular surface analysis 1 // Select the way to define surface 11 // Isosurface of the grid data in memory
+!!! terminal "Multiwfn session"
 
-0.001 // Use ρ = 0.001 a.u. to define the isosurface 2 // Select mapped function 1 // ESP 5 // Set if loading mapped function values from external file 3 // The mapped function will be interpolated from an external cube file 0 // Start calculation ESP.cub // The cube file recording ESP Note that the grid setting used for yielding density.cub and ESP.cub must be exactly the same, and the grid spacing should not be too large (no larger than 0.25 Bohr), otherwise the analysis result will be inaccurate.
+    - **density.cub** — Load cube file of electron density first
+    - **12** — Quantitative molecular surface analysis
+    - **1** — Select the way to define surface
+    - **11** — Isosurface of the grid data in memory
+
+!!! terminal "Multiwfn session"
+
+    - **0.001** — Use ρ = 0.001 a.u. to define the isosurface
+    - **2** — Select mapped function
+    - **1** — ESP 5
+
+The mapped function will be interpolated from an external cube file 0 // Start calculation ESP.cub // The cube file recording ESP Note that the grid setting used for yielding density.cub and ESP.cub must be exactly the same, and the grid spacing should not be too large (no larger than 0.25 Bohr), otherwise the analysis result will be inaccurate.
 
 
 ### 4.12.2 Average local ionization energy analysis (ALIE) on phenol molecular surface
@@ -207,7 +222,13 @@ density.cub // Load cube file of electron density first 12 // Quantitative molec
 
 Below we will analyze average local ionization energy $\bar{I}$ on phenol vdW surface. Boot up Multiwfn and input
 
-examples\phenol_631Gxx.wfn // Produced at B3PW91/6-31G** level 12 // Quantitative molecular surface analysis 2 // Reselect mapped function 2 // Choose $\bar{I}$ as mapped function 0 // Start the surface analysis. Since calculation of 𝐼̅ is much simpler than ESP, the calculation is finished rapidly. Unlike surface analysis for ESP, at this time only vdW volume, surface area, average and variance of $\bar{I}$ vdW surface are outputted alongside extrema information.
+!!! terminal "Multiwfn session"
+
+    - **examples\phenol_631Gxx.wfn** — Produced at B3PW91/6-31G** level
+    - **12** — Quantitative molecular surface analysis
+    - **2** — Reselect mapped function
+    - **2** — Choose $\bar{I}$ as mapped function
+    - **0** — Start the surface analysis. Since calculation of 𝐼̅ is much simpler than ESP, the calculation is finished rapidly. Unlike surface analysis for ESP, at this time only vdW volume, surface area, average and variance of $\bar{I}$ vdW surface are outputted alongside extrema information.
 
 Choose 0 to visualize extrema. In order to make the correspondence between extrema and atoms clearer, we drag the "Ratio of atomic size" scale bar to 4.0, which corresponds to vdW surface, and we disable showing of surface maxima, then we will see:
 
@@ -315,17 +336,31 @@ illustrate how to perform quantitative analysis of Fukui function f − on molec
 
 Note: If you are unable to successfully reproduce the steps in parts 1 and 2 described below, please look at the video illustration: http://sobereva.com/multiwfn/extrafiles/Molecular_surface_Fukui.mp4.
 
-Part 1: Obtain positions and values of minima and maxima of f − Boot up Multiwfn (referred to as Multiwfn A) and input following commands examples\phenol.wfn 12 // Quantitative molecular surface analysis 2 // Select the mapped real space function on the molecular surface 0 // The function value will be loaded from an external file 1 // Set the way to define the surface 1 // Use electron density isosurface as molecular surface
+Part 1: Obtain positions and values of minima and maxima of f − Boot up Multiwfn (referred to as Multiwfn A) and input following commands examples\phenol.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative molecular surface analysis
+    - **2** — Select the mapped real space function on the molecular surface
+    - **0** — The function value will be loaded from an external file
+    - **1** — Set the way to define the surface
+    - **1** — Use electron density isosurface as molecular surface
 
 0.01 // Because magnitude of Fukui function on default isosurface ρ = 0.001 is often too small, enlarging the isovalue to 0.01 a.u. makes following analyses more significant
 
 0 // Start the surface analysis Multiwfn will generate grid data of electron density and then generate the surface vertices. After the coordinates of these vertices are automatically outputted to surfptpos.txt in current folder, Multiwfn A pauses. Do not terminate Multiwfn A, we boot up another Multiwfn now (referred to as Multiwfn B), and then input below commands in Multiwfn B
 
-examples\phenol.wfn 5 // We use this module to generate Fukui function on the points recorded in surfptpos.txt 0 // Set custom operation 1 -,examples\phenol_N-1.wfn // Subtract a property of phenol_N-1.wfn from that of phenol.wfn,
+!!! terminal "Multiwfn session"
+
+    - **examples\phenol.wfn 5** — We use this module to generate Fukui function on the points recorded in surfptpos.txt
+    - **0** — Set custom operation 1 -,examples\phenol_N-1.wfn
 
 namely Fukui function f − will be calculated
 
-1 // Electron density 100 // Load the coordinate of the points to be calculated from an external file surfptpos.txt t.txt // Output the coordinate and calculated function values (Fukui function) of the points (surface vertices) to this file
+!!! terminal "Multiwfn session"
+
+    - **1** — Electron density
+    - **100** — Load the coordinate of the points to be calculated from an external file surfptpos.txt t.txt
 
 Next, we terminate Multiwfn B, and return to Multiwfn A, then input t.txt // Load the Fukui function values at the surface vertices from this file
 
@@ -389,7 +424,18 @@ containing electron density and f − respectively. To do so, we reboot Multiwfn
 
 <!-- p.708 -->
 
-examples\phenol.wfn 5 // Calculate grid data 0 // Set custom operation 1 -,examples\phenol_N-1.wfn 1 // Electron density 3 // High-quality grid 2 // Export grid data Now rename the just exported density.cub to mapped.cub. Then input 0 // Return to main menu 5 // Calculate grid data 1 // Electron density 3 // High-quality grid 2 // Export grid data Now you have density.cub in current folder. Move density.cub, mapped.cub, surfanalysis.pdb to VMD folder. Also copy the VMD plotting script molsurfmap.vmd in “examples\scripts\” folder to VMD folder. After that, boot up VMD and run source molsurfmap.vmd in VMD console window to execute the script, then you will see the
+!!! terminal "Multiwfn session"
+
+    - **examples\phenol.wfn 5** — Calculate grid data
+    - **0** — Set custom operation 1 -,examples\phenol_N-1.wfn
+    - **1** — Electron density
+    - **3** — High-quality grid
+    - **2** — Export grid data Now rename the just exported density.cub to mapped.cub. Then input
+    - **0** — Return to main menu
+    - **5** — Calculate grid data
+    - **1** — Electron density
+    - **3** — High-quality grid
+    - **2** — Export grid data Now you have density.cub in current folder. Move density.cub, mapped.cub, surfanalysis.pdb to VMD folder. Also copy the VMD plotting script molsurfmap.vmd in “examples\scripts\” folder to VMD folder. After that, boot up VMD and run source molsurfmap.vmd in VMD console window to execute the script, then you will see the
 
 following map, in which cyan and red spheres correspond to maxima and minima on $\rho = 0.01$ isosurface, respectively. The current coloring method is red-white-blue, corresponding to mapped function varying from 0.0 to 0.002.
 
@@ -450,7 +496,12 @@ Preparation of structure for analysis You can directly use .cif file of urea cry
 
 urea.cif //.cif file of urea, please find it from Internet. PS: DO NOT manually extend it to supercell, otherwise computational cost will significantly increase
 
-300 // Main function 300 7 // Geometry operation 25 // Extract a molecular cluster (central molecule + surrounding ones) 1 // The whole molecule containing atom 1 is taken as the central molecule, this molecule and all surrounding ureas close to it will be extracted
+!!! terminal "Multiwfn session"
+
+    - **300** — Main function 300
+    - **7** — Geometry operation
+    - **25** — Extract a molecular cluster (central molecule + surrounding ones)
+    - **1** — The whole molecule containing atom 1 is taken as the central molecule, this molecule and all surrounding ureas close to it will be extracted
 
 [Press ENTER button] // Use recommended criterion of 1.2 to detect contact
 
@@ -463,9 +514,23 @@ Now the cluster has been extracted out, the atom indices of the central urea is 
 
 Hirshfeld surface analysis on urea cluster In this example we use the cluster model of urea shown below, which can be constructed in the above way. The corresponding geometry file examples\Urea_crystal.pdb contains 11 ureas, the central one will be defined as the fragment in our Hirshfeld surface analysis.
 
-Boot up Multiwfn and input examples\Urea_crystal.pdb 12 // Quantitative molecular surface analysis 1 // Change surface type 5 // Use Hirshfeld surface 16,36,58,2,77,55,34,13 // The index of the atoms in the central urea 0 // Start calculation. Note that the default mapped function dnorm is used here After the calculation is finished, you can select option 8 to export the surface vertices with the mapped electron density to vtx.pqr, and then plot them in VMD via the way described in the last section.
+Boot up Multiwfn and input examples\Urea_crystal.pdb
 
-Next, we draw fingerprint plot. Input below commands 20 // Fingerprint plot analysis 0 // Start fingerprint analysis 1 // Save fingerprint plot to an image file You will find a .pdf file has generated in current folder, after opening it you will see the graph below
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative molecular surface analysis
+    - **1** — Change surface type
+    - **5** — Use Hirshfeld surface 16,36,58,2,77,55,34,13
+
+Start calculation. Note that the default mapped function dnorm is used here After the calculation is finished, you can select option 8 to export the surface vertices with the mapped electron density to vtx.pqr, and then plot them in VMD via the way described in the last section.
+
+Next, we draw fingerprint plot. Input below commands
+
+!!! terminal "Multiwfn session"
+
+    - **20** — Fingerprint plot analysis
+    - **0** — Start fingerprint analysis
+    - **1** — Save fingerprint plot to an image file You will find a .pdf file has generated in current folder, after opening it you will see the graph below
 
 
 ![](../imgs/p711_261.png)
@@ -515,7 +580,16 @@ Next, we check the fingerprint plot between the hydrogens in the central urea an
 
 atom marked by the yellow arrow in above figure. Input the following commands
 
--1 // Return to upper level of menu 1 // Set the inside atoms to consider [Press ENTER button] // Do not set constraint for atomic indices H // The inside atoms must be hydrogen 2 // Set the outside atoms to consider 76 // The index of the oxygen in one of surrounding urea [Press ENTER button] // Do not set element filter condition 0 // Start fingerprint analysis From the outputted information on screen, you can find the local contact surface produced this time is 6.8 Å2, which corresponds to 7.2% of total contact surface area. Then we draw fingerprint plot and the corresponding surface vertices, as shown below
+!!! terminal "Multiwfn session"
+
+    - **-1** — Return to upper level of menu
+    - **1** — Set the inside atoms to consider [Press ENTER button]
+
+!!! terminal "Multiwfn session"
+
+    - **The inside atoms must be hydrogen 2** — Set the outside atoms to consider
+    - **76** — The index of the oxygen in one of surrounding urea [Press ENTER button]
+    - **Do not set element filter condition 0** — Start fingerprint analysis From the outputted information on screen, you can find the local contact surface produced this time is 6.8 Å2, which corresponds to 7.2% of total contact surface area. Then we draw fingerprint plot and the corresponding surface vertices, as shown below
 
 In the fingerprint plot you can see that the distribution scope of surface points is narrow, and the spike is quite evident, suggesting the strong H-bond character due to the contact of the H and O.
 
@@ -562,7 +636,15 @@ Clearly, H-N/N-H and H-O/O-H types of contact correspond to typical intermolecul
 
 Using VMD to plot color-mapped isosurface of Hirshfeld/Becke surface Here I describe how to easily plot very pretty Hirshfeld surface mapped by electron density with promolecular approximation, this map looks much better than those shown above. The urea cluster is still taken as example.
 
-Boot up Multiwfn and input examples\Urea_crystal.pdb 12 // Quantitative molecular surface analysis 1 // Change surface definition 5 // Use Hirshfeld surface 16,36,58,2,77,55,34,13 // The index of the atoms in the central urea 0 // Start calculation -2 // Export the grid data used to define Hirshfeld surface as surf.cub in current folder 13 // Calculate grid data of mapped function and export it to mapfunc.cub in current folder Now you have surf.cub and mapfunc.cub in current folder, move them to the VMD folder. Then copy the examples\scripts\hirsh_rho.vmd file into the VMD folder. Boot up VMD, input source hirsh_rho.vmd in VMD console window to run this script. For the present case it is better to also input material change diffuse Translucent 0.8 in the console window to make the surface brighter.
+Boot up Multiwfn and input examples\Urea_crystal.pdb
+
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative molecular surface analysis
+    - **1** — Change surface definition
+    - **5** — Use Hirshfeld surface 16,36,58,2,77,55,34,13
+
+Start calculation -2 // Export the grid data used to define Hirshfeld surface as surf.cub in current folder 13 // Calculate grid data of mapped function and export it to mapfunc.cub in current folder Now you have surf.cub and mapfunc.cub in current folder, move them to the VMD folder. Then copy the examples\scripts\hirsh_rho.vmd file into the VMD folder. Boot up VMD, input source hirsh_rho.vmd in VMD console window to run this script. For the present case it is better to also input material change diffuse Translucent 0.8 in the console window to make the surface brighter.
 
 
 ![](../imgs/p715_267.png)
@@ -633,7 +715,13 @@ Boot up Multiwfn and input following commands:
 
 <!-- p.718 -->
 
-examples\ThioformicAcid.wfn // Thioformic acid optimized at B3LYP/6-311++G(2d,2p) 12 // Quantitative analysis of molecular surface 2 // Select mapped function 6 // Orbital overlap distance function D(r), which maximizes EDR(r;d) with respect to d 2 // Use default value of total number, start and increment of EDR exponents. Please consult Section 4.5.7 for more information.
+!!! terminal "Multiwfn session"
+
+    - **examples\ThioformicAcid.wfn** — Thioformic acid optimized at B3LYP/6-311++G(2d,2p)
+    - **12** — Quantitative analysis of molecular surface
+    - **2** — Select mapped function
+    - **6** — Orbital overlap distance function D(r), which maximizes EDR(r;d) with respect to d
+    - **2** — Use default value of total number, start and increment of EDR exponents. Please consult Section 4.5.7 for more information.
 
 0 // Start analysis now! Now the analysis starts. This step will take some time. Once calculation is finished, following results will be printed on screen along with other information:
 
@@ -689,7 +777,13 @@ According to the Bader's paper J. Am. Chem. Soc., 109, 7968 (1987), ρ = 0.001 a
 
 examples\dopamine.wfn // Generated using B3LYP/6-31G* level. Commonly the quality of density at this level is absolutely adequate
 
-12 // Quantitative analysis of molecular surface 1 // Select the way to define surface 1 // Isosurface of electron density 0.002 // Isovalue (a.u.) 6 // Start analysis without consideration of mapped function You only need to pay attention to below line in the output:
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative analysis of molecular surface
+    - **1** — Select the way to define surface
+    - **1** — Isosurface of electron density
+    - **0.002** — Isovalue (a.u.)
+    - **6** — Start analysis without consideration of mapped function You only need to pay attention to below line in the output:
 
 
 ```text
@@ -722,7 +816,14 @@ Evaluating vdW surface area without wavefunction information Sometimes we are di
 
 For example, we only have examples\dopamine.xyz in hand, you can boot up Multiwfn and load this file, then input
 
-12 // Quantitative analysis of molecular surface 1 // Select the way to define surface 2 // Isosurface of a specific real space function 1 // Promolecular electron density 0.002 // Isovalue (a.u.) 6 // Start analysis without consideration of mapped function The calculated result is
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative analysis of molecular surface
+    - **1** — Select the way to define surface
+    - **2** — Isosurface of a specific real space function
+    - **1** — Promolecular electron density
+    - **0.002** — Isovalue (a.u.)
+    - **6** — Start analysis without consideration of mapped function The calculated result is
 
 
 ```text
@@ -755,7 +856,11 @@ here, which contains σ-hole at the end of chlorine atom as well as π-hole abov
 
 Quantitative analysis of ESP on vdW surface First, we carry out regular quantitative analysis of ESP on vdW surface. Boot up Multiwfn and input
 
-examples\ClPO2.fch // Geometry and wavefunction were produced at PBE0/def2-TZVP 12 // Quantitative molecular surface analysis 0 // Start analysis, the mapped function is default to ESP As can be seen from the output, three ESP maxima on the vdW surface are found, their ESP values and coordinates are shown below:
+!!! terminal "Multiwfn session"
+
+    - **examples\ClPO2.fch** — Geometry and wavefunction were produced at PBE0/def2-TZVP
+    - **12** — Quantitative molecular surface analysis
+    - **0** — Start analysis, the mapped function is default to ESP As can be seen from the output, three ESP maxima on the vdW surface are found, their ESP values and coordinates are shown below:
 
 
 ```text
@@ -923,7 +1028,14 @@ Before doing the calculation, we should use main function 0 to check the orienta
 
 Clearly, the molecular axis is exactly parallel to the Z-axis, therefore the kinetic diameter can be calculated as difference between surface vertex with most positive X value and that with most negative X value (the surface is defined as 0.0015 a.u. isosurface of electron density).
 
-Now we conduct the calculation. Boot up Multiwfn and input examples\CO.fch 12 // Quantitative analysis of molecular surface 1 // Select the way to define surface 1 // Isosurface of electron density 0.0015 // Isovalue 6 // Start analysis without consideration of mapped function After properly scrolling up, you can find below output:
+Now we conduct the calculation. Boot up Multiwfn and input examples\CO.fch
+
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative analysis of molecular surface
+    - **1** — Select the way to define surface
+    - **1** — Isosurface of electron density
+    - **0.0015** — Isovalue 6
 
 
 ```text

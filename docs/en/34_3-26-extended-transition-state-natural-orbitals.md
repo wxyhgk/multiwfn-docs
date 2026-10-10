@@ -30,7 +30,7 @@ Total energy variation due to interfragment interaction between fragments A and 
 
 - ∆𝐸els : Interfragment electrostatic interaction energy. It is evaluated as classical Coulomb interaction energy between original wavefunctions of A and B (Ψ𝐴 and Ψ𝐵).
 
-0 : Change in exchange-correlation (XC) energy during combination from Ψ𝐴 and Ψ𝐵 to Ψ𝐴Ψ𝐵. It also accounts for interfragment dispersion interaction since dispersion effect is essentially interfragment Coulomb correlation.
+0 : Change in exchange-correlation (XC) energy during combination from Ψ𝐴 and Ψ𝐵 to $\Psi_{A}$. It also accounts for interfragment dispersion interaction since dispersion effect is essentially interfragment Coulomb correlation.
 - ∆𝐸XC
 
 - ∆𝐸Pauli: Energy increase due to Pauli repulsion between electrons of the two fragments. It is also known as exchange-repulsion term.
@@ -40,44 +40,44 @@ Total energy variation due to interfragment interaction between fragments A and 
 
 <!-- p.355 -->
 
-Specifically, the ΔEPauli is expressed as
+Specifically, the $\Delta E_{Pauli}$ is expressed as
 
-0 ] −𝐸[Ψ𝐴Ψ𝐵] where E[ ] denotes the energy functional of the complex. Ψ𝐴 and Ψ𝐵 are original wavefunctions of A and B. Ψ𝐴Ψ𝐵 may be referred to as promolecular wavefunction, it is the Hartree product of Ψ𝐴 and Ψ𝐵, and it simply corresponds to the Slater determinant directly constructed by all occupied orbitals of A and B. Ψ𝐴𝐵 0 is denoted as frozen state wavefunction, it is defined as antisymmetric product of Ψ𝐴 and Ψ𝐵 ; specifically, it corresponds to the Slater determinant constructed by all occupied orbitals of A and B, and Löwdin orthonormalization has been employed among these orbitals to make them to be orthonormal with each other. The frozen state can be viewed as an artificial intermediate state comes from the fact that when two fragments are combined together to form an identical particle system, all electron orbitals must constitute an orthonormal set, or occupied orbitals of a fragment must be orthogonal to those of another fragment to comply Pauli exclusion principle. The interfragment Löwdin orthonormalization brings additional nodal plane(s) to original fragment orbitals, this phenomenon evidently makes kinetic energy of the orbitals ∆𝐸Pauli = 𝐸[Ψ𝐴𝐵
+0 ] −𝐸[Ψ𝐴Ψ𝐵] where E[ ] denotes the energy functional of the complex. Ψ𝐴 $\Psi_B$ are original wavefunctions of A and B. Ψ𝐴Ψ𝐵 may be referred to as promolecular wavefunction, it is the Hartree product of Ψ𝐴 and Ψ𝐵, and it simply corresponds to the Slater determinant directly constructed by all occupied orbitals of A and B. $\Psi_{AB}$ 0 is denoted as frozen state wavefunction, it is defined as antisymmetric product of Ψ𝐴 and Ψ𝐵 ; specifically, it corresponds to the Slater determinant constructed by all occupied orbitals of A and B, and Löwdin orthonormalization has been employed among these orbitals to make them to be orthonormal with each other. The frozen state can be viewed as an artificial intermediate state comes from the fact that when two fragments are combined together to form an identical particle system, all electron orbitals must constitute an orthonormal set, or occupied orbitals of a fragment must be orthogonal to those of another fragment to comply Pauli exclusion principle. The interfragment Löwdin orthonormalization brings additional nodal plane(s) to original fragment orbitals, this phenomenon evidently makes kinetic energy of the orbitals ∆𝐸Pauli = 𝐸[Ψ𝐴𝐵
 
-increase, this is mainly why ΔEPauli must be a positive value and plays a destabilization effect.
+increase, this is mainly why $\Delta E_{Pauli}$ must be a positive value and plays a destabilization effect.
 
-The ΔEorb is expressed as
+$\Delta E_{orb}$ is expressed as
 
-0 ] where Ψ𝐴𝐵 is the actual complex wavefunction yielded after self-consistent field (SCF) convergence. The change from Ψ𝐴𝐵 0 to Ψ𝐴𝐵 arises from intrafragment and interfragment orbital mixing (also known as orbital relaxation). ΔEorb is always a negative term and thus stabilizes the complex. The ETS-NOCV method focuses on gaining deep chemical insights into the ΔEorb term. ∆𝐸orb = 𝐸[Ψ𝐴𝐵] −𝐸[Ψ𝐴𝐵
+0 ] $\Psi_{AB}$ is the actual complex wavefunction yielded after self-consistent field (SCF) convergence. The change from Ψ𝐴𝐵 0 to Ψ𝐴𝐵 arises from intrafragment and interfragment orbital mixing (also known as orbital relaxation). $\Delta E_{\mathrm{orb}}$ is always a negative term and thus stabilizes the complex. The ETS-NOCV method focuses on gaining deep chemical insights into the ΔEorb term. ∆𝐸orb = 𝐸[Ψ𝐴𝐵] −𝐸[Ψ𝐴𝐵
 
 In summary, aforementioned terms can be organized as the following relationship
 
-𝐸𝐴 iso + 𝐸𝐵 iso Δ𝐸prep→ 𝐸𝐴[Ψ𝐴] + 𝐸𝐵[Ψ𝐵] 0→ 𝐸[Ψ𝐴Ψ𝐵] Δ𝐸els+Δ𝐸XC Δ𝐸Pauli→ 𝐸[Ψ𝐴𝐵 0 ] Δ𝐸orb→ 𝐸[Ψ𝐴𝐵]
+𝐸𝐴 iso + 𝐸𝐵 iso $\Delta E_{prep}$→ 𝐸𝐴[Ψ𝐴] + 𝐸𝐵[Ψ𝐵] 0→ 𝐸[Ψ𝐴Ψ𝐵] Δ𝐸els+Δ𝐸XC $\Delta E_{Pauli}$→ 𝐸[$\Psi_{AB}$ 0 ] $\Delta E_{\mathrm{orb}}$→ 𝐸[Ψ𝐴𝐵]
 
-where ΔEprep is known as preparation energy, it includes distortion energy of fragments A and B from their isolated geometries to complex geometry, and it also includes the energy change of their
+$\Delta E_{prep}$ is known as preparation energy, it includes distortion energy of fragments A and B from their isolated geometries to complex geometry, and it also includes the energy change of their
 
-electronic states from most stable states to reference state ΨA and ΨB (for example, to use ETS-NOCV to study the double bond of H2Ge=GeH2, the reasonable fragment reference state should be triplet, however most stable state of GeH2 in its isolated status is singlet. This difference should be
+electronic states from most stable states to reference state ΨA $\Psi_B$ (for example, to use ETS-NOCV to study the double bond of H2Ge=GeH2, the reasonable fragment reference state should be triplet, however most stable state of GeH2 in its isolated status is singlet. This difference should be
 
-incorporated into the ΔEprep). Clearly the choice of reference states of the fragments affects result of ETS-NOCV analysis while it is somewhat arbitrary in certain cases.
+incorporated into the $\Delta E_{prep}$). Clearly the choice of reference states of the fragments affects result of ETS-NOCV analysis while it is somewhat arbitrary in certain cases.
 
 Frankly speaking, in my viewpoint, the above commonly accepted partition of interaction energy is not completely rigorous. Because during transformation of complex wavefunction from
 
-promolecular (reference) state ΨAΨB to actual state ΨAB, the electrostatic interaction energy and exchange-correlation energy must also markedly change, therefore the ΔEorb term should not be regarded as solely reflecting the contribution to interaction energy due to orbital mix effect.
+promolecular (reference) state ΨAΨB to actual state $\Psi_{AB}$, the electrostatic interaction energy and exchange-correlation energy must also markedly change, therefore the $\Delta E_{\mathrm{orb}}$ term should not be regarded as solely reflecting the contribution to interaction energy due to orbital mix effect.
 
-0 + ∆𝐸Pauli is sometimes referred to as steric term ΔEsteric in literature for convenience in discussion. Multiwfn is unable to directly evaluate it or its component, but you can The ∆𝐸els + ∆𝐸XC
+0 + ∆𝐸Pauli is sometimes referred to as steric term ΔEsteric in literature for convenience in discussion. Multiwfn is unable to directly evaluate it or its component, but you can $\Delta E_{\mathrm{els}} + \Delta E_{\mathrm{XC}}^{0} + \Delta E_{\mathrm{Pauli}}$
 
-calculate ΔEsteric by Gaussian in combination with Multiwfn, see Section 3.100.8. The ΔEprep can be directly manually calculated via any quantum chemistry code.
+calculate ΔEsteric by Gaussian in combination with Multiwfn, see Section 3.100.8. The $\Delta E_{prep}$ can be directly manually calculated via any quantum chemistry code.
 
 NOCV theory First, we look at the natural orbitals for chemical valence (NOCV) theory. The orbital interaction between the two fragments leads to a density matrix difference
 
 
 <!-- p.356 -->
 
-0 ] where P and P0 are density matrices of actual complex state and frozen state, respectively; they can be easily generated based on coefficient matrix of occupied orbitals in corresponding state. The ∆𝐏orb = 𝐏−𝐏0 = 𝐏[Ψ𝐴𝐵] −𝐏[Ψ𝐴𝐵
+0 ] where P and P0 are density matrices of actual complex state and frozen state, respectively; they can be easily generated based on coefficient matrix of occupied orbitals in corresponding state. The $\Delta P^{\text{orb}}$ = 𝐏−𝐏0 = 𝐏[Ψ𝐴𝐵] −𝐏[Ψ𝐴𝐵
 
-NOCV method diagonalizes the ∆𝐏orb to solve its eigenvalues and eigenvectors, namely one has the following relationship (the matrices are expressed in Löwdin orthogonalized basis functions)
+NOCV method diagonalizes the $\Delta P^{\text{orb}}$ to solve its eigenvalues and eigenvectors, namely one has the following relationship (the matrices are expressed in Löwdin orthogonalized basis functions)
 
-∆𝐏orb𝐂NOCV = 𝐂NOCV𝐯 where CNOCV is the coefficient matrix of NOCV orbitals, each of its columns corresponds to expansion coefficients of a NOCV orbital with respect to Löwdin orthogonalized basis functions. v is a diagonal matrix, vi,i corresponds to eigenvalue of the ith NOCV orbital. One can also say NOCV orbitals are eigenfunctions of density matrix difference operator, namely
+$\Delta P^{\text{orb}}$𝐂NOCV = 𝐂NOCV𝐯 where CNOCV is the coefficient matrix of NOCV orbitals, each of its columns corresponds to expansion coefficients of a NOCV orbital with respect to Löwdin orthogonalized basis functions. v is a diagonal matrix, $\mathbf{v}$ corresponds to eigenvalue of the ith NOCV orbital. One can also say NOCV orbitals are eigenfunctions of density matrix difference operator, namely
 
 ∆𝑃̂orb𝜑𝑖= 𝑣𝑖𝜑𝑖 Note that the number of NOCV orbitals (N) is equal to the number of basis functions. Hence, usually the N is large, but only very few NOCV orbitals have notable magnitude of eigenvalues and which are what one should focus on during analysis.
 
@@ -90,9 +90,9 @@ $$\Delta\rho^{\mathrm{o r b}}(\mathbf{r})=\sum_{i=1}^{N}v_{i}\varphi_{i}^{2}(\ma
 
 <!-- formula-ocr: formula_p356_250.png 已替换为LaTeX, 原图保留备查 -->
 
-Because ∆𝐏orb is a traceless matrix represented under a set of orthonormal basis, a noteworthy feature of NOCV orbitals is that they occur in pairs, that is if the eigenvalues are sorted from most
+Because $\Delta P^{\text{orb}}$ is a traceless matrix represented under a set of orthonormal basis, a noteworthy feature of NOCV orbitals is that they occur in pairs, that is if the eigenvalues are sorted from most
 
-positive to most negative, then vN+1-i = −vi. For simplicity, N+1−i will be abbreviated to −i later. So, the ∆𝜌orb can also be decomposed as NOCV pair contributions for easier analysis and discussion
+positive to most negative, then vN+1-i = −vi. For simplicity, N+1−i will be abbreviated to −i later. So, $\Delta\rho^{\mathrm{orb}}$ can also be decomposed as NOCV pair contributions for easier analysis and discussion
 
 
 $$\Delta\rho^{\mathrm{o r b}}(\mathbf{r})=\sum_{i=1}^{N/2}v_{i}\varphi_{i}^{2}(\mathbf{r})+v_{-i}\varphi_{-i}^{2}(\mathbf{r})=\sum_{i=1}^{N/2}v_{i}[\varphi_{i}^{2}(\mathbf{r})-\varphi_{-i}^{2}(\mathbf{r})]$$
@@ -124,7 +124,7 @@ $$\Delta E_{\mathrm{orb}}=\sum_{i=1}^{N}\Delta E_{i}^{\mathrm{orb}}=\sum_{i=1}^{
 
 where i is index of NOCV, and 𝐹̃𝑖,𝑖 TS is the ith diagonal term of Fock matrix in the basis of NOCV
 
-orbitals; in other words, it corresponds to energy of the ith NOCV orbital estimated using 𝐹̂TS operator, namely 𝐹̃𝑖,𝑖 TS = ⟨𝜑𝑖|𝐹̂TS|𝜑𝑖⟩. Again, because NOCV orbitals are paired, the ∆𝐸orb can be decomposed as contributions of NOCV pairs
+orbitals; in other words, it corresponds to energy of the ith NOCV orbital estimated using 𝐹̂TS operator, namely 𝐹̃𝑖,𝑖 TS = ⟨𝜑𝑖|𝐹̂TS|𝜑𝑖⟩. Again, because NOCV orbitals are paired, the $\Delta E_{orb}$ can be decomposed as contributions of NOCV pairs
 
 
 $$\Delta E_{\mathrm{orb}}=\sum_{i=1}^{N/2}v_{i}\big[\tilde{F}_{i,i}^{\mathrm{TS}}-\tilde{F}_{-i,-i}^{\mathrm{TS}}\big]$$
@@ -133,7 +133,7 @@ $$\Delta E_{\mathrm{orb}}=\sum_{i=1}^{N/2}v_{i}\big[\tilde{F}_{i,i}^{\mathrm{TS}
 
 From the energy contributions, we can determine which NOCV pairs play a major role in orbital interaction and then analyze their characters emphatically. The NOCV pairs with very small eigenvalues or energies can be ignored during discussion.
 
-Deformation density Finally, three kinds of deformation densities are summarized below, they are involved in ETS-NOCV analysis in Multiwfn, note that ρ, ρ0, ρA and ρB correspond to electron density of Ψ𝐴𝐵, Ψ𝐴𝐵 0 , Ψ𝐴 and Ψ𝐵, respectively.
+Deformation density Finally, three kinds of deformation densities are summarized below, they are involved in ETS-NOCV analysis in Multiwfn, note that ρ, ρ$\rho, \rho^{0}, \rho_{A}$ ρA and ρB correspond to electron density of Ψ𝐴𝐵, Ψ𝐴𝐵 0 , Ψ𝐴 and Ψ𝐵, respectively.
 
 Pauli deformation density:
 
@@ -168,11 +168,11 @@ Only restricted closed-shell or unrestricted open-shell wavefunctions are accept
 
 If complex is open-shell, or any fragment is open-shell, the ETS-NOCV analysis will be automatically conducted in open-shell form. In this case, the alpha and beta NOCV orbitals are solved independently, and their energies are estimated using alpha and beta Fock matrices respectively.
 
-The energies of NOCV orbitals in Multiwfn are not calculated in the strict way of the standard ETS-NOCV method as described above! This is because the FTS in ETS-NOCV analysis currently is not available in Multiwfn. In the post-processing menu of ETS-NOCV module, you can choose to load a file containing the actual Fock matrix of the complex outputted by a quantum chemistry code, or you can also choose to let Multiwfn directly generate the actual Fock matrix of the complex based on the orbital energies and coefficients recorded in input file via F=SCEC-1 relationship, then for example the ith NOCV orbital energy will be evaluated as ⟨𝜑𝑖|𝐹̂|𝜑𝑖⟩ , where 𝐹̂ is the Fock operator corresponding to the loaded or generated Fock matrix. According to my comparison with some published ETS-NOCV data and result of ORCA code, the NOCV energies evaluated in this
+The energies of NOCV orbitals in Multiwfn are not calculated in the strict way of the standard ETS-NOCV method as described above! This is because the $\mathbf{F}^{\mathrm{TS}}$ in ETS-NOCV analysis currently is not available in Multiwfn. In the post-processing menu of ETS-NOCV module, you can choose to load a file containing the actual Fock matrix of the complex outputted by a quantum chemistry code, or you can also choose to let Multiwfn directly generate the actual Fock matrix of the complex based on the orbital energies and coefficients recorded in input file via $\mathbf{F}=\mathbf{SCEC}^{-1}$ relationship, then for example the ith NOCV orbital energy will be evaluated as ⟨𝜑𝑖|𝐹̂|𝜑𝑖⟩ , where 𝐹̂ is the Fock operator corresponding to the loaded or generated Fock matrix. According to my comparison with some published ETS-NOCV data and result of ORCA code, the NOCV energies evaluated in this
 
 approximated way using 𝐹̂ is close to the NOCV energies in strict sense derived based on 𝐹̂TS (especially for weak interaction case), at least this discrepancy does not qualitatively affect your identification of dominant NOCV orbitals/pairs. Notice that due to this difference, the sum of
 
-energies of all NOCV orbitals or pairs given by Multiwfn is not exactly equal to ΔEorb.
+energies of all NOCV orbitals or pairs given by Multiwfn is not exactly equal to $\Delta E_{\mathrm{orb}}$
 
 Input files You need to provide wavefunction files of the complex and that of each fragment. The file should contain basis function information, for example you can use .fch, .mwfn, .molden, and so on; however, .wfn and .wfx cannot be used since they do not contain basis function information. If you are confused, see Section 2.5.
 
@@ -210,24 +210,24 @@ To obtain NOCV energies, you need to select either “-1 Load Fock/KS matrix and
 
 “2 Show isosurface of NOCV pair density” is used to visually examine density of NOCV pair(s). After choosing it, NOCV information will be shown on screen for user’s convenience, and then you can input the NOCV pair index of interest. For example, if then you input 6, then grid data of 𝑣6[𝜑6 2 (𝐫)] will be calculated and its isosurface map will be shown in a GUI window. It is important to note that you can input a range of pair indices to obtain their total density; for example, if you input 2,4-6,9, then the grid data of ∑𝑣𝑖[𝜑𝑖 2 (𝐫)]𝑖=2,4,5,6,9 will be calculated and plotted as isosurface. If there are e.g. 50 NOCVs in total and you input 1-50, then the grid data 2(𝐫) −𝜑−6 2(𝐫) −𝜑−𝑖
 
-will simply correspond to the orbital deformation density Δρorb. In addition, it is worth to note that for open-shell case, pair index of alpha and beta spins is different (as shown on screen), therefore you can input proper indices to view sum of specific alpha and beta NOCV pair(s).
+will simply correspond to the orbital deformation density $\Delta\rho^{\text{rb}}$. In addition, it is worth to note that for open-shell case, pair index of alpha and beta spins is different (as shown on screen), therefore you can input proper indices to view sum of specific alpha and beta NOCV pair(s).
 
-If you want to visualize the ΔρPauli, Δρorb, and Δρ mentioned above, you can respectively select
+If you want to visualize the $\Delta\rho^{\mathrm{Pauli}}$ mentioned above, you can respectively select
 
 
 <!-- p.360 -->
 
 “3 Show isosurface of Pauli deformation density”, “4 Show isosurface of orbital deformation density”
 
-and “5 Show isosurface of total deformation density”. The ΔρPauli allows you to vividly understand how electrons are repulsed in the region between fragments due to Pauli repulsion. Δρorb enables you to graphically examine electron concentration between fragments due to formation of covalent interaction or electron transfer between fragments due to mix of occupied orbitals of fragment(s)
+and “5 Show isosurface of total deformation density”. The $\Delta\rho^{\text{Pauli}}$ allows you to vividly understand how electrons are repulsed in the region between fragments due to Pauli repulsion. Δρorb enables you to graphically examine electron concentration between fragments due to formation of covalent interaction or electron transfer between fragments due to mix of occupied orbitals of fragment(s)
 
-and unoccupied orbitals of other fragments. The Δρ is simply the sum of ΔρPauli and Δρorb, in fact it can also be calculated by making use of the custom operation feature of main function 5 (Section 3.7.1).
+and unoccupied orbitals of other fragments. The Δρ is simply the sum of $\Delta\rho^{\text{Pauli}}$ and Δρorb, in fact it can also be calculated by making use of the custom operation feature of main function 5 (Section 3.7.1).
 
-The grid data of a NOCV orbital, NOCV pair(s), ΔρPauli, Δρorb, and Δρ can also be exported as .cub file so that you can visualize them in third-part visualization softwares, you just need to select corresponding one of options 6~10.
+The grid data of a NOCV orbital, NOCV pair(s), $\Delta\rho^{\text{Pauli}}$, Δρorb, and Δρ can also be exported as .cub file so that you can visualize them in third-part visualization softwares, you just need to select corresponding one of options 6~10.
 
 When selecting options 2 to 8 to visualize or export various kinds of densities, if you have not defined grid setting by “-5 Set grid for calculation of various densities”, you will be automatically asked to set grid first. Next time you will not need to set the grid again, but you can still change grid setting anytime via option -5.
 
-0 and Ψ𝐴𝐵 mentioned in Section 3.26.1, you can respectively select “11 Visualize promolecular orbitals”, “12 Visualize frozen state orbitals” and “13 Visualize actual complex orbitals” to visualize the corresponding orbital isosurfaces. The orbitals of Ψ𝐴Ψ𝐵 are simply the orbitals in the fragment wavefunction files, the orbitals of Ψ𝐴𝐵 are simply those in the complex wavefunction file. By comparing the orbitals in Ψ𝐴𝐵 0 and those in Ψ𝐴Ψ𝐵 , you can examine how Pauli repulsion between electrons of the fragments (realized by Löwdin orthogonalization as mentioned earlier) deform the occupied fragment molecular orbitals. If isovalue has been set to a small enough value, you will be able to observe the additional nodal plane(s) on the fragment orbitals of Ψ𝐴𝐵 0 caused by the Löwdin orthogonalization. Note that the orthogonalization is not applied to unoccupied orbitals during ETS-NOCV analysis in Multiwfn, hence the unoccupied orbitals in Ψ𝐴𝐵 0 and Ψ𝐴Ψ𝐵 are exactly the same. Studying composition of NOCV pairs and that of corresponding NOCV orbitals is often useful when you want to better understand their nature. If you choose option “14 Calculate composition of NOCV orbitals and pairs”, you will be asked to choose a NOCV pair, then contributions from every basis function, shell, angular moment, and atom to the NOCV pair and corresponding NOCV orbitals will be printed on screen. The compositions of NOCV orbitals are evaluated using the SCPA method mentioned in Section 3.10.3. The composition of NOCV pair is calculated as 𝑣𝑖Θ𝑖+ 𝑣𝑗Θ𝑗, If you are interested in the occupied orbitals of Ψ𝐴Ψ𝐵 , Ψ𝐴𝐵
+0 and $\Psi_A \Psi_B$ mentioned in Section 3.26.1, you can respectively select “11 Visualize promolecular orbitals”, “12 Visualize frozen state orbitals” and “13 Visualize actual complex orbitals” to visualize the corresponding orbital isosurfaces. The orbitals of Ψ𝐴Ψ𝐵 are simply the orbitals in the fragment wavefunction files, the orbitals of Ψ𝐴𝐵 are simply those in the complex wavefunction file. By comparing the orbitals in Ψ𝐴𝐵 0 and those in Ψ𝐴Ψ𝐵 , you can examine how Pauli repulsion between electrons of the fragments (realized by Löwdin orthogonalization as mentioned earlier) deform the occupied fragment molecular orbitals. If isovalue has been set to a small enough value, you will be able to observe the additional nodal plane(s) on the fragment orbitals of Ψ𝐴𝐵 0 caused by the Löwdin orthogonalization. Note that the orthogonalization is not applied to unoccupied orbitals during ETS-NOCV analysis in Multiwfn, hence the unoccupied orbitals in Ψ𝐴𝐵 0 and Ψ𝐴Ψ𝐵 are exactly the same. Studying composition of NOCV pairs and that of corresponding NOCV orbitals is often useful when you want to better understand their nature. If you choose option “14 Calculate composition of NOCV orbitals and pairs”, you will be asked to choose a NOCV pair, then contributions from every basis function, shell, angular moment, and atom to the NOCV pair and corresponding NOCV orbitals will be printed on screen. The compositions of NOCV orbitals are evaluated using the SCPA method mentioned in Section 3.10.3. The composition of NOCV pair is calculated as 𝑣𝑖Θ𝑖+ 𝑣𝑗Θ𝑗, If you are interested in the occupied orbitals of $\Psi_A \Psi_B$
 
 where i and j are indices of the two paired NOCV orbitals, 𝑣𝑗= −𝑣𝑖, and Θ is orbital composition
 
