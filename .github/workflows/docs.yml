@@ -19,7 +19,7 @@ jobs:
         with:
           personal_token: ${{ secrets.GH_PAGES_TOKEN }}
           external_repository: wxyhgk/wxyhgk.github.io
-          publish_branch: main
+          publish_branch: master
           publish_dir: ./site
           destination_dir: doc/multiwfn
           keep_files: true
