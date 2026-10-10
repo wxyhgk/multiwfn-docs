@@ -48,7 +48,7 @@ Obviously, if G(x) and L(x) are normalized, normalization condition for P(x) alw
 
 <!-- p.156 -->
 
-regardless of the select of wGauss.
+regardless of the select of $w_{Gauss}$
 
 The curve map of broadened partial DOS (PDOS) and overlap DOS (OPDOS) are very valuable for visual study of orbital composition. PDOS of fragment A is defined as
 
@@ -57,7 +57,7 @@ $$\mathrm{P D O S}_{A}(E)=\sum_{i}\Theta_{i,A}F(E-\varepsilon_{i})$$
 
 <!-- formula-ocr: formula_p156_092.png 已替换为LaTeX, 原图保留备查 -->
 
-where Θi,A is the composition of fragment A in orbital i. Note that the word "projected DOS" used in some papers is essentially equivalent to the partial DOS.
+$\Theta_{i,A}$ is the composition of fragment A in orbital i. Note that the word "projected DOS" used in some papers is essentially equivalent to the partial DOS.
 
 The OPDOS between fragment A and B is defined as
 
@@ -89,7 +89,7 @@ Illustration of DOS: Ferrocene Below is a DOS map of a typical molecule ferrocen
 
 <!-- p.157 -->
 
-The graph clearly exhibits orbital characteristics in different energy ranges, each discrete line corresponds to a MO. The curves are yielded by applying a broadening function to the discrete lines. The left and right Y-axes correspond to the curves and discrete lines, respectively. Notice that only relative height rather than absolute height of curves is meaningful. It is obvious that the major contribution from s, px and py atomic orbitals of carbon (magenta curve) is due to low-lying MOs rather than frontier MOs. The major composition of MOs around -0.25 a.u. comes from pz orbital of carbon (blue curve) and iron atom (red curve). Inspection of the green OPDOS curve, which corresponds to the bonding between carbon pz and iron atom, suggests that carbon pz orbitals are very important for stabilization of ferrocene, since OPDOS has large positive value in these ranges. HOMO is almost purely contributed by iron orbitals, however its slight overlap with carbon pz orbitals is still beneficial to bonding. For all virtual MOs, OPDOS curve is in negative region and shows antibonding characteristic, this is due to the unfavorable overlapping in orbital phase, as can been seen from LUMO isosurface.
+The graph clearly exhibits orbital characteristics in different energy ranges, each discrete line corresponds to a MO. The curves are yielded by applying a broadening function to the discrete lines. The left and right Y-axes correspond to the curves and discrete lines, respectively. Notice that only relative height rather than absolute height of curves is meaningful. It is obvious that the major contribution from s, px and py atomic orbitals of carbon (magenta curve) is due to low-lying MOs rather than frontier MOs. The major composition of MOs around -0.25 a.u. comes from $p_z$ orbital of carbon (blue curve) and iron atom (red curve). Inspection of the green OPDOS curve, which corresponds to the bonding between carbon pz and iron atom, suggests that carbon pz orbitals are very important for stabilization of ferrocene, since OPDOS has large positive value in these ranges. HOMO is almost purely contributed by iron orbitals, however its slight overlap with carbon pz orbitals is still beneficial to bonding. For all virtual MOs, OPDOS curve is in negative region and shows antibonding characteristic, this is due to the unfavorable overlapping in orbital phase, as can been seen from LUMO isosurface.
 
 
 ### 3.12.2 Input file
@@ -146,7 +146,7 @@ It is noteworthy that, when plotting OPDOS, the defined fragment 1 and fragment 
 
 3 Set full width at half maximum (FWHM): As the title says. 4 Set scale ratio for DOS curve: If this option is set to k, then height of all curves will multiply k (in full energy range).
 
-5 Set Gaussian-weighting coefficient: This option sets wgauss, which is mentioned in last section. This option only appears when Pseudo-Voigt function is chosen.
+5 Set Gaussian-weighting coefficient: This option sets $w_{gauss}$, which is mentioned in last section. This option only appears when Pseudo-Voigt function is chosen.
 
 6 Choose orbital spin: This option appears only when the loaded file contains basis function information and the wavefunction is unrestricted. This option determines which set of orbitals (alpha, beta, or both alpha and beta) will be taken into account.
 

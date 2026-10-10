@@ -41,11 +41,11 @@ Totally found    3 local minimum,    4 local maximum
 
 Using the same procedure illustrated above, you can plot curve map for any real space function supported by Multiwfn, please have a try.
 
-4.3.2 Study Fermi hole and Coulomb hole of H2
+4.3.2 Study Fermi hole and Coulomb hole of $H_{2}$
 
 This is a relatively advanced example, you can skip this section if you are a newbie of quantum chemistry.
 
-In this example we will plot correlation hole (Fermi hole and Coulomb hole) along the axis of H2. This is an advanced topic, if you are not familiar with the concept of correlation hole, please consult the discussion in part 17 of Section 2.6.
+In this example we will plot correlation hole (Fermi hole and Coulomb hole) along the axis of $H_{2}$. This is an advanced topic, if you are not familiar with the concept of correlation hole, please consult the discussion in part 17 of Section 2.6.
 
 Hartree-Fock wavefunction is capable to exhibit Fermi correlation, but Coulomb correlation is completely omitted. In this case exact Fermi hole can be calculated and plotted by Multiwfn. If Coulomb hole is needed to be analyzed, then post-HF wavefunction must be employed. In current version, Multiwfn is able to evaluate and plot approximate Fermi hole and Coulomb hole for post-
 
@@ -103,7 +103,7 @@ PAEM (potential acting on one electron in a molecule) refers to the total potent
 
 electron at point r, and can be written as )()()(XCESPPAEMrrrVVV+−= ; where ESPV is
 
-molecular electrostatic potential and has been introduced in part 12 of Section 2.6. -VESP can be regarded as the classical potential acting on an electron in the system, while the exchange-correlation (XC) potential VXC represents the important correction to the classical potential due to quantum effect. VXC has two components, namely correlation potential (VC) and exchange potential (VXC); in fact, only the latter is important, that means even the potential obtained at Hartree-Fock level is in general a good approximation to exact VXC.
+molecular electrostatic potential and has been introduced in part 12 of Section 2.6. -VESP can be regarded as the classical potential acting on an electron in the system, while the exchange-correlation (XC) potential $V_{\mathrm{PAEM}}(\mathbf{r}) = -V_{\mathrm{ESP}}(\mathbf{r}) + V_{\mathrm{XC}}(\mathbf{r})$ represents the important correction to the classical potential due to quantum effect. VXC has two components, namely correlation potential (VC) and exchange potential (VXC); in fact, only the latter is important, that means even the potential obtained at Hartree-Fock level is in general a good approximation to exact $V_{\mathrm{XC}}$
 
 In wavefunction theory, the exchange-correlation potential can be explicitly written as
 
@@ -113,7 +113,7 @@ of Section 2.6 for detail. In DFT theory, the XC potential directly comes from t
 
 $$V_{\mathrm{PAEM}}(\mathbf{r}) = -V_{\mathrm{ESP}}(\mathbf{r}) + V_{\mathrm{XC}}(\mathbf{r})$$
 
-The VXC can be used in Multiwfn in terms of user-defined function. If parameter "iuserfunc" is set
+The $V_{\mathrm{PAEM}}(\mathbf{r}) = -V_{\mathrm{ESP}}(\mathbf{r}) + V_{\mathrm{XC}}(\mathbf{r})$ can be used in Multiwfn in terms of user-defined function. If parameter "iuserfunc" is set
 
 
 ![](../imgs/p509_122.png)

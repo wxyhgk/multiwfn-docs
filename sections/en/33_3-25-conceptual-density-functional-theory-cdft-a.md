@@ -66,7 +66,7 @@ To yield all below quantities, electronic energy (E) and electron density of N, 
 - Condensed local nucleophilicity index: 𝑁Nu −
 - Condensed local hyper-softness: 𝑠𝐴 𝐴= 𝑁Nu𝑓𝐴
 
-BDD essentially is the first derivative of bond order (P) with respect to number of electrons under constant external potential. According to J. Math. Chem., 63, 1588 (2025), using finite-difference approximation, BDD for bond A-B can be calculated as 𝐵𝐷𝐷𝐴,𝐵= 𝑓𝐴,𝐵 + and 𝑓𝐴,𝐵 − are two types of bond Fukui function and evaluated as follows + −𝑓𝐴,𝐵 −, where 𝑓𝐴,𝐵
+BDD essentially is the first derivative of bond order (P) with respect to number of electrons under constant external potential. According to J. Math. Chem., 63, 1588 (2025), using finite-difference approximation, BDD for bond A-B can be calculated as $BDD_{A,B} = f_{A,B}^{+} - f_{A,B}^{-}$ + and 𝑓𝐴,𝐵 − are two types of bond Fukui function and evaluated as follows + −𝑓𝐴,𝐵 −, where 𝑓𝐴,𝐵
 
 
 $$f_{A,B}^{+}=P_{A,B}(N+1)-P_{A,B}(N)$$
@@ -78,7 +78,7 @@ In J. Math. Chem., 63, 1588 (2025) the author employed Wiberg bond order based o
 
 <!-- p.343 -->
 
-➢ ωcubic electrophilicity index The electrophilicity index ωcubic introduced in J. Phys. Chem. A, 124, 2090 (2020) is somewhat special, it also relies on N-2 electronic states. It includes higher-order terms than the aforementioned
+$\omega_{cubic}$ electrophilicity index The electrophilicity index ωcubic introduced in J. Phys. Chem. A, 124, 2090 (2020) is somewhat special, it also relies on N-2 electronic states. It includes higher-order terms than the aforementioned
 
 electrophilicity index ω. Its definition is
 
@@ -99,11 +99,11 @@ $$\eta_{cubic}=I_{1}-A$$
 
 $$\gamma_{cubic}=2I_{1}-I_{2}-A$$
 
-where I2 is the second vertical ionization potential and defined as E(N-2) − E(N-1). Correspondingly, there is a cubic form of condensed local electrophilicity index 𝜔cubic +. In J. Phys. Chem. A, 124, 2090 (2020) is shown that 𝜔cubic 𝐴 value of halogen atom (which behaves as Lewis acid due to its σ-hole) in halogen-bond dimers R-X···NH3 has excellent correlation with calculated binding energies (however, note that they employed AIM partition for atomic spaces rather than the Hirshfeld partition utilized in the present module). 𝐴= 𝜔cubic𝑓𝐴
+where I2 is the second vertical ionization potential and defined as E(N-2) − E(N-1). Correspondingly, there is a cubic form of condensed local electrophilicity index $\omega_{cubic}$ +. In J. Phys. Chem. A, 124, 2090 (2020) is shown that 𝜔cubic 𝐴 value of halogen atom (which behaves as Lewis acid due to its σ-hole) in halogen-bond dimers R-X···NH3 has excellent correlation with calculated binding energies (however, note that they employed AIM partition for atomic spaces rather than the Hirshfeld partition utilized in the present module). 𝐴= 𝜔cubic𝑓𝐴
 
 ➢ Electrophilic descriptor (ε) The electrophilic descriptor (ε) was introduced in Int. J. Quantum Chem., 124, e27366 (2024), it was shown to correlate with Mayr’s electrophilic parameter (E) significantly better than the
 
-electrophilicity index (ω) using a test set consisting of 35 organic molecules. In contrast to ω, whose derivation is only based on second-order Taylor expansion of system energy, derivation of ε is based on third-order expansion, which makes ε explicitly involve hyperhardness. Like ωcubic, calculation of ε also relies on N-2 electronic state.
+electrophilicity index (ω) using a test set consisting of 35 organic molecules. In contrast to ω, whose derivation is only based on second-order Taylor expansion of system energy, derivation of ε is based on third-order expansion, which makes ε explicitly involve hyperhardness. Like $\omega_{cubic}$, calculation of ε also relies on N-2 electronic state.
 
 The working equation for computing ε is as follows
 
@@ -137,7 +137,7 @@ with A’ = E(N+1) − E(N), which is electron affinity but differs with standar
 
 𝑣𝑁−phile(𝐫) ≈𝑉𝑁−phile ESP(𝐫) −∆𝑁∫ 𝑓𝑁−phile −(𝐫′) |𝐫−𝐫′|d𝐫′
 
-where ΔN is number of transferred electrons from the electrophile to nucleophile (negative value in this case), 𝑓𝑁−phile − is Fukui function f− of the nucleophile. Three kinds of Fukui potential are defined
+$\Delta N$ is number of transferred electrons from the electrophile to nucleophile (negative value in this case), 𝑓𝑁−phile − is Fukui function f− of the nucleophile. Three kinds of Fukui potential are defined
 
 as follows
 
@@ -148,7 +148,7 @@ $$v_{N-\mathrm{p h i l e}}(\mathbf{r})\approx V_{N-\mathrm{p h i l e}}^{\mathrm{
 
 ESP is only able to predict regioselectivity dominated by electrostatics effect with assumption that there is no electron transfer, however, evidently this assumption is far from true for general chemical reactions (but basically true for many noncovalent interactions). Clearly, Fukui potential should be more focused on in studying general reactions, especially for those with significant electron transfer.
 
-Fukui potential is more rigorous than Fukui function in predicting regioselectivity, as emphasized in J. Phys. Chem. A, 115, 2325 (2011) that “It is the value of the Fukui potential, more than the value of the Fukui function itself, that determines the reactive site”. However, Fukui potential is not so popular as Fukui function, because their distribution characteristics usually coincide with each other, while evaluation of Fukui potential needs calculating ESP twice, which is considerably more expensive than evaluating electron density twice. According to finite difference definition of Fukui function, for example, 𝑉𝑓− can be evaluated as
+Fukui potential is more rigorous than Fukui function in predicting regioselectivity, as emphasized in J. Phys. Chem. A, 115, 2325 (2011) that “It is the value of the Fukui potential, more than the value of the Fukui function itself, that determines the reactive site”. However, Fukui potential is not so popular as Fukui function, because their distribution characteristics usually coincide with each other, while evaluation of Fukui potential needs calculating ESP twice, which is considerably more expensive than evaluating electron density twice. According to finite difference definition of Fukui function, for example, $V_{f}$ can be evaluated as
 
 
 $$V_{f^{-}}(\mathbf{r})=\int\frac{f^{-}(\mathbf{r}^{\prime})}{|\mathbf{r}-\mathbf{r}^{\prime}|}\mathrm{d}\mathbf{r}^{\prime}=\int\frac{\rho_{N}(\mathbf{r}^{\prime})-\rho_{N-1}(\mathbf{r}^{\prime})}{|\mathbf{r}-\mathbf{r}^{\prime}|}\mathrm{d}\mathbf{r}^{\prime}=V_{N-1}^{\mathrm{ESP}}(\mathbf{r})-V_{N}^{\mathrm{ESP}}(\mathbf{r})$$
@@ -164,7 +164,7 @@ $$D D P(\mathbf{r})=\int\frac{\Delta f(\mathbf{r}^{\prime})}{|\mathbf{r}-\mathbf
 
 Unlike dual descriptor, which often has many nodal planes hindering discussion, distribution of DDP is much smoother, enabling researchers to identify preferential reactive sites easier.
 
-Like the Fukui function, the more positive the 𝑉𝑓+ is in a region, the more likely it is for
+Like the Fukui function, the more positive the $V_{f}^{+}$ is in a region, the more likely it is for
 
 
 <!-- p.345 -->
@@ -180,7 +180,7 @@ For using the present module, namely main function 22, the file loaded after boo
 
 After entering the present module, you will see a menu, in which options 2, 3 and 9 are used to calculate above quantities. Before using them, generally you should provide N.wfn, N-1.wfn and N+1.wfn in current folder, which contain wavefunction and electronic energy of N, N-1 and N+1 states respectively for present system, the geometries must be the same and correspond to the optimized geometry of N state. The calculation level of the three files must also be the same. If any of the three .wfn files is missing, Multiwfn will ask you to manually input path of .wfn file for corresponding state (.wfx, .fch and .mwfn files are also allowed, since they also carry wavefunction and electronic energy information).
 
-Option 2: Used to calculate all aforementioned global indices and atomic indices, the result will be exported to CDFT.txt in current folder. Because as mentioned in Section 4.7.3, Hirshfeld method is an ideal choice for calculating condensed Fukui functions and may be other relevant atomic indices, therefore Hirshfeld charges are automatically calculated and used for evaluation of all atomic indices. Nucleophilicity index as well as its local version are dependent of HOMO energy of TCE, which should be calculated using the same level for present system, notice that these indices printed in present module simply employ the EHOMO(TCE) = -0.335198 Hartree calculated at the commonly used B3LYP/6-31G* level (clearly, if you want to get more reliable result and your current calculation level is not B3LYP/6-31G*, you should calculate EHOMO(TCE) yourself and then manually evaluate these indices).
+Option 2: Used to calculate all aforementioned global indices and atomic indices, the result will be exported to CDFT.txt in current folder. Because as mentioned in Section 4.7.3, Hirshfeld method is an ideal choice for calculating condensed Fukui functions and may be other relevant atomic indices, therefore Hirshfeld charges are automatically calculated and used for evaluation of all atomic indices. Nucleophilicity index as well as its local version are dependent of HOMO energy of TCE, which should be calculated using the same level for present system, notice that these indices printed in present module simply employ the $E_{\text{HOMO}}(\text{TCE}) = -0.335198$(TCE) = -0.335198 Hartree calculated at the commonly used B3LYP/6-31G* level (clearly, if you want to get more reliable result and your current calculation level is not B3LYP/6-31G*, you should calculate EHOMO(TCE) yourself and then manually evaluate these indices).
 
 Option 3: Used to calculate grid data of Fukui function, dual descriptor and functions related to them, then their isosurface maps can be directly visualized, the grid data can be exported to cube files in current folder. In this option you can set the scale factor to be multiplied to the calculated grid data. For example, if you set the scale factor to the global softness outputted by option 2, then
 
@@ -227,7 +227,7 @@ In order to address these problems, in J. Comput. Chem., 38, 481 (2017), the aut
 
 <!-- p.347 -->
 
-orbital-weighted Fukui function, and in J. Phys. Chem. A, 123, 10556 (2019), they further proposed orbital-weighted dual descriptor, they are summarized below (the 𝑓𝑤0 is defined by me)
+orbital-weighted Fukui function, and in J. Phys. Chem. A, 123, 10556 (2019), they further proposed orbital-weighted dual descriptor, they are summarized below (the $f_{w}^{0}$ is defined by me)
 
 $$\begin{array}{r l r l}&{f_{w}^{+}(\mathbf{r})=\displaystyle\sum_{i=\mathrm{L U M O}}^{\infty}w_{i}\mid\varphi_{i}(\mathbf{r})\mid^{2}}&{}&{w_{i}=\frac{\exp[-\left(\frac{\mu-\varepsilon_{i}}{\Delta}\right)^{2}]}{\displaystyle\sum_{i=\mathrm{L U M O}}^{\infty}\exp[-\left(\frac{\mu-\varepsilon_{i}}{\Delta}\right)^{2}]}}\end{array}$$
 
@@ -243,22 +243,22 @@ where εi and φi are energy and wavefunction of orbital i; μ is chemical poten
 
 Clearly the most appropriate Δ is dependent on practical system, usually 0.1 Hartree is a worth-trying guess. If you find the orbital-weighted functions under this value do not work well, you can try to properly change it and redo calculations.
 
-Compared to the frozen orbital approximation form of f −, namely f −(r)=|φHOMO(r)|2, the advantage of 𝑓𝑤− is that it takes all orbitals into account with different weights. From the expression it can be seen that the closer a low-lying orbital energy is to the HOMO energy, the greater its weight. Evidently degenerate orbitals share the same weight. The Gaussian function involved in the formula
+Compared to the frozen orbital approximation form of f −, namely f −(r)=|φHOMO(r)|2, the advantage of $\Delta f_w$ is that it takes all orbitals into account with different weights. From the expression it can be seen that the closer a low-lying orbital energy is to the HOMO energy, the greater its weight. Evidently degenerate orbitals share the same weight. The Gaussian function involved in the formula
 
-behaves as a decay function, the larger the Δ, the higher the contribution of low-lying orbitals to the 𝑓𝑤−. When energy difference between HOMO and HOMO-1 is significant, there will be no reason
+behaves as a decay function, the larger the Δ, the higher the contribution of low-lying orbitals to the $\Delta f_w$. When energy difference between HOMO and HOMO-1 is significant, there will be no reason
 
-to use 𝑓𝑤− instead of f −. The situation is similar for 𝑓𝑤+, 𝑓𝑤0 and ∆𝑓𝑤.
+to use $\Delta f_w$ instead of f −. The situation is similar for 𝑓𝑤+, $f_{w}^{0}$ and ∆𝑓𝑤.
 
 Usage Since orbital-weighted functions involve virtual orbitals, you should use .mwfn, .fch, .molden or .gms file as input file. Commonly, the geometry in the input file should correspond to the optimized geometry of N-electronic state; however, it is also possible to study them for nonequilibrium structure, such as a point in intrinsic reaction coordinate (IRC).
 
-Only closed-shell single-determinant wavefunction is acceptable. Diffuse functions should not be used if you intend to calculate 𝑓𝑤+, 𝑓𝑤0and ∆𝑓𝑤, since they utilize virtural orbitals, whose chemical meaning may be severely broken when diffuse functions are employed.
+Only closed-shell single-determinant wavefunction is acceptable. Diffuse functions should not be used if you intend to calculate 𝑓𝑤+, $f_{w}^{0}$and ∆𝑓𝑤, since they utilize virtural orbitals, whose chemical meaning may be severely broken when diffuse functions are employed.
 
 In main function 22, four options are related to the orbital-weighted calculation:
 
 - Option 4: Set the Δ parameter used in the subsequent orbital-weighted calculations
 - Option 5: Print the highest 10 weights (i.e. the {w} in the aforementioned formulae) involved in the orbital-weighted calculations. This option is useful to check if current Δ parameter is reasonable and helps users to better understand how the orbital-weighted method works
 
-- Option 6: Calculating condensed 𝑓𝑤+ , 𝑓𝑤− , 𝑓𝑤0 and Δ𝑓𝑤 values, in other words, calculating integration of these functions in Hirshfeld atomic spaces. The result is useful in quantitatively examining net amount of these functions at various atoms. The default radial and angular integration points are usually fine enough, if you find the sum of condensed 𝑓𝑤+ or 𝑓𝑤− deviates from 1.0 evidently, you should set "iautointgrid" parameter in `settings.ini` to 0 and then properly enlarge "radpot" and "sphpot" parameters.
+- Option 6: Calculating condensed 𝑓𝑤+ , $\Delta f_w$ , $f_{w}^{0}$ and Δ𝑓𝑤 values, in other words, calculating integration of these functions in Hirshfeld atomic spaces. The result is useful in quantitatively examining net amount of these functions at various atoms. The default radial and angular integration points are usually fine enough, if you find the sum of condensed 𝑓𝑤+ or 𝑓𝑤− deviates from 1.0 evidently, you should set "iautointgrid" parameter in `settings.ini` to 0 and then properly enlarge "radpot" and "sphpot" parameters.
 
 
 <!-- p.348 -->
@@ -276,9 +276,9 @@ Examples of using this module to calculate orbital-weighted Fukui function and o
 
 Theory In the last section, I have introduced orbital-weighted Fukui function and dual descriptor, which are suitable when frontier molecular orbitals are (quasi-)degenerate. However, they are defined based on orbital approximation, namely the orbital relaxation effect is not taken into account, while this effect cannot be always safely overlooked. In J. Comput. Chem., 37, 2279 (2016), an alternative form of Fukui function and dual descriptor that work for (quasi-)degenerate HOMO/LUMO case was proposed, and this form is defined directly based on electron density, that means orbital relaxation effect is fully taken into account as the original Fukui function and dual descriptor. This (quasi-)degenerate Fukui function and dual descriptor based on electron density will be referred to
 
-as fQ and ΔfQ, respectively.
+as $f_{Q}$ and ΔfQ, respectively.
 
-The idea of fQ is very simple. If at electronic state N the degree of degeneracy of LUMO and HOMO is p and q, respectively, then three forms of fQ are evaluated as follows
+The idea of $f_{Q}$ is very simple. If at electronic state N the degree of degeneracy of LUMO and HOMO is p and q, respectively, then three forms of fQ are evaluated as follows
 
 fp Q ++ ( )( )( ) rrr −= ρρ NpN
 
@@ -286,20 +286,20 @@ fq Q −− ( )( )( ) rrr −= ρρ NN q
 
 fff 0QQQ ( )[( )( )] / 2 rrr =+ +−
 
-ΔfQ can be evaluated based on 𝑓Q + and 𝑓Q − as usual
+Δ$f_{Q}$ can be evaluated based on 𝑓Q + and 𝑓Q − as usual
 
 QQQ( )( )( )fff+−Δ=−rrr
 
-Clearly, if both HOMO and LUMO are nondegenerate, then fQ and ΔfQ will be equivalent to the original form of Fukui function and dual descriptor, f and Δf, respectively.
+Clearly, if both HOMO and LUMO are nondegenerate, then $f_{Q}$ and ΔfQ will be equivalent to the original form of Fukui function and dual descriptor, f and Δf, respectively.
 
-To reasonably calculate fQ and ΔfQ, it is crucial to properly determine p and q. Commonly they can be assigned by inspecting energies of several lowest unoccupied MOs and several highest occupied MOs, respectively. If energy difference between an occupied (unoccupied) MO and HOMO (LUMO) is very small, e.g. less than 0.01 eV, then they may be regarded as degenerate. Obvious, there is no strict energy threshold for judging orbital degeneracy, and in some cases you may need to judge by considering various factors, e.g. HOMO-LUMO gap, reasonableness of actual calculation result, orbital shape, etc.
+To reasonably calculate $f_{Q}$ and ΔfQ, it is crucial to properly determine p and q. Commonly they can be assigned by inspecting energies of several lowest unoccupied MOs and several highest occupied MOs, respectively. If energy difference between an occupied (unoccupied) MO and HOMO (LUMO) is very small, e.g. less than 0.01 eV, then they may be regarded as degenerate. Obvious, there is no strict energy threshold for judging orbital degeneracy, and in some cases you may need to judge by considering various factors, e.g. HOMO-LUMO gap, reasonableness of actual calculation result, orbital shape, etc.
 
-Note that fQ and ΔfQ are defined only for closed-shell case. Multiwfn is not only able to calculate fQ and ΔfQ, but also able to calculate local properties
+Note that $f_{Q}$ and ΔfQ are defined only for closed-shell case. Multiwfn is not only able to calculate fQ and ΔfQ, but also able to calculate local properties
 
 
 <!-- p.349 -->
 
-described in Section 3.25.1 (except for ωcubic) based on them. For example, local softness with consideration of degeneracy is product of global softness and fQ. Note that the involved first VEA
+described in Section 3.25.1 (except for $\omega_{cubic}$) based on them. For example, local softness with consideration of degeneracy is product of global softness and $f_Q$. Note that the involved first VEA
 
 and VIP are still evaluated as usual, namely VEA = E(N) − E(N+1) and VIP = E(N-1) − E(N).
 
@@ -376,11 +376,11 @@ Theory
 
 <!-- p.351 -->
 
-Nucleophilic and electrophilic delocalizabilities are also known as nucleophilic and electrophilic superdelocalizabilities, they were proposed by Schüürmann in Environ. Toxicof. Chem., 9, 417 (1990) and Quant. Struct.-Act. Relat., 9, 326 (1990), and have been employed as molecular descriptors for building quantitative structure-activity relationship (QSAR) equations. In the Schüürmann’s work, nucleophilic superdelocalizability (DN) and electrophilic superdelocalizability (DE) of atom A are defined as follows, respectively
+Nucleophilic and electrophilic delocalizabilities are also known as nucleophilic and electrophilic superdelocalizabilities, they were proposed by Schüürmann in Environ. Toxicof. Chem., 9, 417 (1990) and Quant. Struct.-Act. Relat., 9, 326 (1990), and have been employed as molecular descriptors for building quantitative structure-activity relationship (QSAR) equations. In the Schüürmann’s work, nucleophilic superdelocalizability ($D^{N}$) and electrophilic superdelocalizability (DE) of atom A are defined as follows, respectively
 
 $$D^{N}(A)=2\sum_{i}^{unocc}\sum_{\mu\in A}\frac{C_{\mu,i}^{2}}{\alpha-\varepsilon_{i}}$$
 
-where εi is energy of molecular orbital i, α = (EHOMO + ELUMO)/2, μA stands for basis function μ of atom A, and C is coefficient matrix. Evidently, both DN and DE are negative.
+where εi is energy of molecular orbital i, α = (EHOMO + ELUMO)/2, μ∈A stands for basis function μ of atom A, and C is coefficient matrix. Evidently, both $D^{N}$ and DE are negative.
 
 However, the expression of superdelocalizabilities by Schüürmann is only suitable for semi-empirical calculation, which employs orthonormal basis functions. In Sci. Rep., 5, 13695 (2015), a different version of electrophilic superdelocalizability was proposed and it is compatible with non-orthonormal basis functions. In this work, it was shown that electrophilic superdelocalizability of an atom is closely related to its atomic polarizability.
 
@@ -391,16 +391,16 @@ $$D^{N}(A)=2\sum_{i}^{unocc}\sum_{\mu\in A}\frac{C_{\mu,i}^{2}}{\alpha-\varepsil
 
 <!-- formula-ocr: formula_p351_243.png 已替换为LaTeX, 原图保留备查 -->
 
-where ΘA,i is composition of atom A in orbital i calculated by Hirshfeld method, see Section 3.10.5 for detail. Multiwfn also calculates the superdelocalizabilities without the α shift parameter, namely
+$\varepsilon_i$ is composition of atom A in orbital i calculated by Hirshfeld method, see Section 3.10.5 for detail. Multiwfn also calculates the superdelocalizabilities without the α shift parameter, namely
 
 
 $$D^{N}(A)=2\sum_{i}^{unocc}\frac{\Theta_{A,i}}{\alpha-\varepsilon_{i}}$$
 
 <!-- formula-ocr: formula_p351_244.png 已替换为LaTeX, 原图保留备查 -->
 
-Usage Since superdelocalizabilities involve virtual orbitals, you should use .mwfn, .fch, .molden or .gms file as input file. Only closed-shell single-determinant wavefunction is acceptable. Diffuse functions should not be used if you intend to calculate DN and DN0, since it utilizes virtual orbitals, whose chemical meaning may be severely broken when diffuse functions are employed.
+Usage Since superdelocalizabilities involve virtual orbitals, you should use .mwfn, .fch, .molden or .gms file as input file. Only closed-shell single-determinant wavefunction is acceptable. Diffuse functions should not be used if you intend to calculate $D^{N}$ and DN0, since it utilizes virtual orbitals, whose chemical meaning may be severely broken when diffuse functions are employed.
 
-After loading input file, enter main function 22, then choose option 8, you will obtain DN, DE, DN0, and DE0 for all atoms. Example of output (examples\oxirane.fchk):
+After loading input file, enter main function 22, then choose option 8, you will obtain $D^{N}$, DE, DN0, and DE0 for all atoms. Example of output (examples\oxirane.fchk):
 
 
 ```text
@@ -474,7 +474,7 @@ $$\begin{aligned}\boldsymbol{g}_{AB}^{+}&=\boldsymbol{S}_{\mathrm{LL}}(A)\boldsy
 
 When the total number of electrons changes by an integer, variation of DI can be expressed as
 
-It should be emphasized that ∆𝛿𝐴𝐵 − are just approximation to accurate variations of DI, which can be respectively evaluated using finite-difference as 𝛿+ = 𝛿(𝑁+ 1) −𝛿(𝑁) and 𝛿−=𝛿(𝑁) −𝛿(𝑁−1). + and ∆𝛿𝐴𝐵
+It should be emphasized that ∆𝛿𝐴𝐵 − are just approximation to accurate variations of DI, which can be respectively evaluated using finite-difference as $\delta^{+}=\delta(N+1)-\delta(N)$𝛿(𝑁) −𝛿(𝑁−1). + and ∆𝛿𝐴𝐵
 
 − , which corresponds to the asymmetry of the response of DI resulting from the addition and removal of an electron. Second-order dual delocalization descriptor is defined as 𝑓𝐴𝐵 (2) = ∆𝛿𝐴𝐵 + −∆𝛿𝐴𝐵
 

@@ -54,7 +54,7 @@ $$E_{_{AB}}^{ele}=\frac{q_{_{A}}q_{_{B}}}{r_{_{AB}}}$$
 
 <!-- formula-ocr: formula_p334_225.png 已替换为LaTeX, 原图保留备查 -->
 
-where q is atomic charge and rAB is distance between A and B.
+where q is atomic charge and $r_{AB}$ is distance between A and B.
 
 ·vdW interaction energy between atoms A and B:
 
@@ -64,7 +64,7 @@ $$E_{_{AB}}^{\mathrm{vdW}}=E_{_{AB}}^{\mathrm{rep}}+E_{_{AB}}^{\mathrm{disp}}$$
 
 where Erep represents repulsive interaction due to Pauli repulsion effect (also known as exchange-
 
-repulsion), while Edisp is attractive dispersion interaction. The εAB is well depth of interatomic vdW interaction potential, while R0AB is vdW nonbond distance. When rAB=RAB0, the interaction energy just corresponds to well depth.
+repulsion), while Edisp is attractive dispersion interaction. The εAB is well depth of interatomic vdW interaction potential, while R0AB is vdW nonbond distance. When $r_{AB}$=RAB0, the interaction energy just corresponds to well depth.
 
 The parameters ε and R0 are provided by FFs, and the values are commonly defined for each atom type. The interatomic parameters used in practical calculation are commonly evaluated as geometric average or arithmetic average of atomic parameters. For example, in UFF forcefield, the following mixing rule is used
 
@@ -108,7 +108,7 @@ Usage The basic steps of using this module are:
 
 There are other options you can select before calculation: ·Option -1: This is used to choose the FF employed in the calculation. Currently, AMBER99 & GAFF (default) and UFF are supports, their difference is that the built-in atomic vdW parameters and the mixing rule used in the calculation are different.
 
-·Option -2: This option can choose the operator in calculating electrostatic interactions. By default 1/r operator is employed, while using this option you can change it to 1/r2. Obviously, the attenuation of Eele calculated based on 1/r2 with respect to interaction distance r is much faster than the default case, this is why some studies employ this simple strategy to effectively exhibit water environment, since it is well-known that polar solvents such as water can significantly shield electrostatic interaction strength due to its large dielectric constant.
+·Option -2: This option can choose the operator in calculating electrostatic interactions. By default 1/r operator is employed, while using this option you can change it to 1/$1/r^{2}$. Obviously, the attenuation of Eele calculated based on 1/r2 with respect to interaction distance r is much faster than the default case, this is why some studies employ this simple strategy to effectively exhibit water environment, since it is well-known that polar solvents such as water can significantly shield electrostatic interaction strength due to its large dielectric constant.
 
 ·Option -3: If you choose this option once to switch the status to "Yes", then after calculation, all interatomic interaction energy terms including their physical components will be exported to interatm.txt in current folder.
 
@@ -143,7 +143,7 @@ The first column is atom type corresponding to the FF you currently choose, the 
 
 Note: The atom types assigned by GaussView are always in upper case, however, some atom types of AMBER99 are lower case, e.g. Br. Clearly, you should manually make modification before loading the file into Multiwfn. If you are confused, take a look at examples\EDA\EDA_FF\AMBER99.txt.
 
-·On the choice of forcefield: For organic type of systems, commonly I suggest using AMBER/GAFF forcefield to conduct the analysis, the result should be reasonable and chemically meaningful. In fact, since vdW parameters of GAFF are directly inherited from AMBER, commonly there should be no difference between using GAFF and AMBER atom types. Evidently, the geometry used in the analysis should be firstly optimized under reasonable level. Using UFF is generally deprecated, since I found that when UFF is employed, the total interfragment interaction energy is usually positive due to overestimation of Erep, even if the geometry has already been substantially optimized with appropriate quantum chemistry method. A way to solve this problem is using the geometry optimized by UFF itself (many programs can do this, such as Gaussian and OpenBabel), however the resulting geometry for weakly interacting molecular dimer or multimer is often not quite good. The unique advantage of UFF is that it covers almost entire periodic table. Considering this, I designed a trick in Multiwfn: If you are using AMBER/GAFF, when atom type is written as UF, then UFF vdW parameter will be employed. This treatment greatly extends the application scope of AMBER and GAFF.
+·On the choice of forcefield: For organic type of systems, commonly I suggest using AMBER/GAFF forcefield to conduct the analysis, the result should be reasonable and chemically meaningful. In fact, since vdW parameters of GAFF are directly inherited from AMBER, commonly there should be no difference between using GAFF and AMBER atom types. Evidently, the geometry used in the analysis should be firstly optimized under reasonable level. Using UFF is generally deprecated, since I found that when UFF is employed, the total interfragment interaction energy is usually positive due to overestimation of $E^{rep}$, even if the geometry has already been substantially optimized with appropriate quantum chemistry method. A way to solve this problem is using the geometry optimized by UFF itself (many programs can do this, such as Gaussian and OpenBabel), however the resulting geometry for weakly interacting molecular dimer or multimer is often not quite good. The unique advantage of UFF is that it covers almost entire periodic table. Considering this, I designed a trick in Multiwfn: If you are using AMBER/GAFF, when atom type is written as UF, then UFF vdW parameter will be employed. This treatment greatly extends the application scope of AMBER and GAFF.
 
 
 <!-- p.337 -->
@@ -174,7 +174,7 @@ Finally, the quantum term is the energy purely caused by quantum effect:
 
 quantumPauliXCEEE=+
 
-where the EXC is exchange-correlation energy, the EPauli=TS-TW is Pauli kinetic energy, in which the TS stands for total kinetic energy of non-interacting electron model and can be computed as the sum of kinetic energy of all occupied molecular orbitals. The Equantum essentially exhibits electronic correlation effect as well as influence of Pauli exclusion principle on electronic kinetic energy under non-interacting particle assumption.
+where the EXC is exchange-correlation energy, the EPauli=$E_{Pauli}=T_{S}-T_{W}$-TW is Pauli kinetic energy, in which the TS stands for total kinetic energy of non-interacting electron model and can be computed as the sum of kinetic energy of all occupied molecular orbitals. The $E_{quantum}$ essentially exhibits electronic correlation effect as well as influence of Pauli exclusion principle on electronic kinetic energy under non-interacting particle assumption.
 
 
 <!-- p.338 -->
@@ -185,7 +185,7 @@ Usage Multiwfn itself is unable to evaluate all terms in the EDA-SBL method, Mul
 
 (1) Manually create a special Gaussian input file of single point task based on optimized geometry
 
-(2) Run the input file by Gaussian and get output file as well as fch/fchk file (3) Boot up Multiwfn and load the fch/fchk file, then enter subfunction 2 of main function 21 (4) Input the path of the Gaussian output file Then Multiwfn calculates the Esteric term, and prints all three energy components defined by the EDA-SBL method. Other intermediate terms involved in the EDA-SBL terms are also simultaneously given, such as Pauli kinetic energy, nuclear-electronic Coulomb attraction energy and so on.
+(2) Run the input file by Gaussian and get output file as well as fch/fchk file (3) Boot up Multiwfn and load the fch/fchk file, then enter subfunction 2 of main function 21 (4) Input the path of the Gaussian output file Then Multiwfn calculates the $E_{steric}$ term, and prints all three energy components defined by the EDA-SBL method. Other intermediate terms involved in the EDA-SBL terms are also simultaneously given, such as Pauli kinetic energy, nuclear-electronic Coulomb attraction energy and so on.
 
 The special Gaussian input file should be coincident with following format, the geometry has been optimized using appropriate level.
 
@@ -229,7 +229,7 @@ The sobEDA and sobEDAw energy decomposition analyses defined based on dispersion
 
 Theory For a DFT functional such as B3LYP whose ability to describe dispersion interaction is zero, the well-known DFT-D3 dispersion correction energy can be approximately regarded as the dispersion energy. This point has been proposed in J. Phys. Chem. A, 127, 7023 (2023), and further confirmed in J. Chem. Theory Comput., 20, 1923 (2024) by comparing with the dispersion energy calculated by DLPNO-CCSD(T). Without considering the three-body coupling term, the total dispersion correction energy of DFT-D3 is the sum of the dispersion interaction energy between each pair of atoms. Therefore, the contribution of atom A to dispersion energy of a system can be
 
-calculated as 𝜀𝐴= (1/2) ∑𝜀𝐴,𝐵𝐵≠𝐴, where 𝜀𝐴,𝐵 is DFT-D3 dispersion correction energy between atoms A and B. Contribution of a fragment to dispersion energy is simply the sum of contributions of its atoms. The dispersion interaction energy between two fragments is equal to the sum of the dispersion interaction energy between each pair of atoms between them.
+calculated as $\varepsilon_{A} = (1/2)\sum_{B\neq A}\varepsilon_{A,B}$$\varepsilon_{A,B}$ is DFT-D3 dispersion correction energy between atoms A and B. Contribution of a fragment to dispersion energy is simply the sum of contributions of its atoms. The dispersion interaction energy between two fragments is equal to the sum of the dispersion interaction energy between each pair of atoms between them.
 
 Furthermore, J. Chem. Theory Comput., 20, 1923 (2024) proposed the idea of dispersion energy, which is defined as
 
@@ -242,7 +242,7 @@ where α usually takes 0.5, RA is coordinate of atom A. Essentially, the 𝜌dis
 
 contributions to dispersion energy into Gaussian functions to obtain a real space function, which can be exhibited graphically.
 
-The difference in dispersion energy contributed by a certain atom A shared by different chemical environments (such as structures m and n) is denoted as ∆𝜀𝐴. Replacing 𝜀𝐴 in the above formula with ∆𝜀𝐴 results in the ∆𝜌disp function. If the nuclear coordinates used to calculate ∆𝜌disp correspond to the structure m, then ∆𝜌disp can be used to color the atoms of structure m, or drawn
+The difference in dispersion energy contributed by a certain atom A shared by different chemical environments (such as structures m and n) is denoted as ∆𝜀𝐴. Replacing 𝜀𝐴 in the above formula with ∆𝜀𝐴 results in the ∆𝜌disp function. If the nuclear coordinates used to calculate ∆𝜌disp correspond to the structure $\rho_{\text{disp}}$ can be used to color the atoms of structure m, or drawn
 
 
 <!-- p.340 -->
@@ -257,7 +257,7 @@ The functions of the present module are as follows
 - Calculate atomic contributions to dispersion energy for current system: The value of each atom is shown on screen, and a file named atomdisp.pqr can be exported, in which the “charge” property (third to last column in the file) corresponds to the atomic contributions to dispersion energy. If you load the file into VMD program, you can color atoms according to the “charge” property to intuitively exhibit the atomic contributions.
 - Calculate dispersion density for current system: You will be asked to define grid setting, then grid data of dispersion density will be calculated, and then can be exported as dispdens.cub in current folder. After that, you can use such as VMD and VESTA to load it and plot isosurface of dispersion density.
 - Calculate difference of atomic contributions to dispersion energy between current and another system: You will be asked to define a fragment for present system (fragment i for system A), and then be asked to input file path of another system and define a fragment for it (fragment j for system B). The two systems do not necessarily correspond to the same system, but the two fragments must have the same number of atoms and same atomic order. After that, Multiwfn will print total dispersion energy for system B and then for system A in turn. Then difference between contributions of atoms in fragment i to dispersion energy of system A and contributions of atoms in fragment j to dispersion energy of system B will be printed, and diffatomdisp.pqr can be exported, whose “charge” property corresponds to the difference.
-- Calculate dispersion density difference between current and another system. Similar to the last function, but grid data of ∆𝜌disp is calculated and exported as dispdensdiff.cub in
+- Calculate dispersion density difference between current and another system. Similar to the last function, but grid data of $\Delta\rho_{\mathrm{disp}}$ is calculated and exported as dispdensdiff.cub in
 
 current folder.
 - Calculate contribution of a fragment to dispersion energy

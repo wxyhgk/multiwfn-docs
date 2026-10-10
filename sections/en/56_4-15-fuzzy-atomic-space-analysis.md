@@ -240,17 +240,17 @@ partition, the sum of all αeff(0) will be as high as 37.9 a.u. In this case, th
 
 For example, according to percentage atomic contribution printed by Multiwfn, we can find carbon atoms have very large contribution (each of them contributes 29% to molecular polarizability).
 
-It is worth to mention that if interatomic interaction is extremely weak, the Veff should be very close to Vfree. For example, Veff of Ar atom in Ar2 dimer is almost identical to Vfree of Ar.
+It is worth to mention that if interatomic interaction is extremely weak, the $V^{\mathrm{eff}}$ should be very close to Vfree. For example, Veff of Ar atom in Ar2 dimer is almost identical to Vfree of Ar.
 
 There is another way of evaluating atomic volumes in practical chemical environment, namely performing basin analysis for electron density. This idea comes from atoms-in-molecules (AIM) theory. An example can be found in Section 4.17.1.
 
-Part 2: C6 coefficients of SiH4 In this example we focus on evaluating atomic C6 coefficients and homomolecular C6 coefficients in SiH4. According to the benchmark in Section 5 of MBIS original paper (J. Chem. Theory Comput., 12, 3894 (2016)), MBIS atomic space performs best in combination with B3LYP/6-311+G(2df,p) level to evaluate molecular C6 coefficients using the Tkatchenko-Scheffler method. So, in this example we also employ this scheme. The .fch file of SiH4 as well as .wfn file of Si and H atoms calculated at B3LYP/6-311+G(2df,p) level have been provided in “examples\SiH4_C6\” folder.
+Part 2: $C_6$ coefficients of SiH4 In this example we focus on evaluating atomic C6 coefficients and homomolecular C6 coefficients in SiH4. According to the benchmark in Section 5 of MBIS original paper (J. Chem. Theory Comput., 12, 3894 (2016)), MBIS atomic space performs best in combination with B3LYP/6-311+G(2df,p) level to evaluate molecular C6 coefficients using the Tkatchenko-Scheffler method. So, in this example we also employ this scheme. The .fch file of SiH4 as well as .wfn file of Si and H atoms calculated at B3LYP/6-311+G(2df,p) level have been provided in “examples\SiH4_C6\” folder.
 
-Boot up Multiwfn and input examples\SiH4_C6\SiH4.fch 15 // Fuzzy analysis -1 // Select the method for partitioning atomic spaces 5 // MBIS 1 // Start calculation. Then MBIS atomic spaces will be constructed 13 // Calculate atomic effective volume, free volume, polarizability and C6 coefficient examples\SiH4_C6\H.wfn // Wavefunction file of H atom in isolated state examples\SiH4_C6\Si.wfn // Wavefunction file of Si atom in isolated state You will see the following output along with
+Boot up Multiwfn and input examples\SiH4_$C_6$\SiH4.fch 15 // Fuzzy analysis -1 // Select the method for partitioning atomic spaces 5 // MBIS 1 // Start calculation. Then MBIS atomic spaces will be constructed 13 // Calculate atomic effective volume, free volume, polarizability and C6 coefficient examples\SiH4_C6\H.wfn // Wavefunction file of H atom in isolated state examples\SiH4_C6\Si.wfn // Wavefunction file of Si atom in isolated state You will see the following output along with
 
 
 ```text
-Atomic C6 coefficients estimated using Tkatchenko-Scheffler method:
+Atomic $C_6$ coefficients estimated using Tkatchenko-Scheffler method:
    1(Si):  118.31 a.u. (Ref. data:   305.0 a.u.)
    2(H ):    3.83 a.u. (Ref. data:     6.5 a.u.)
    3(H ):    3.83 a.u. (Ref. data:     6.5 a.u.)
@@ -258,10 +258,10 @@ Atomic C6 coefficients estimated using Tkatchenko-Scheffler method:
    5(H ):    3.83 a.u. (Ref. data:     6.5 a.u.)
 
 Note: Reference data denotes the built-in value of free-state atom
-Homomolecular C6 coefficient:    347.07 a.u.
+Homomolecular $C_6$ coefficient:    347.07 a.u.
 ```
 
-You can see C6 coefficient of each atom in SiH4. According to their magnitude, clearly the Si atom contributes to dispersion effect significantly more than H atoms. The “Ref. data” denotes C6 coefficients of atoms in their isolated state and are taken from literature. It is seen that Multiwfn also calculated and printed homomolecular C6 coefficient for SiH4, which corresponds to the C6 coefficient used to calculate dispersion interaction between two SiH4 molecules. The present value 347.07 a.u. is in very good agreement with the 343.9 a.u. given in Table I of J. Chem. Phys., 123, 024101 (2005)! However, it should be noted that the molecular C6 coefficient calculated in this way is not always quite accurate, sometimes the relative error may be close to 10% or even more. In addition, it should be recognized that MBIS does not perform best in all cases; for some molecules,
+You can see $C_6$ coefficient of each atom in SiH4. According to their magnitude, clearly the Si atom contributes to dispersion effect significantly more than H atoms. The “Ref. data” denotes C6 coefficients of atoms in their isolated state and are taken from literature. It is seen that Multiwfn also calculated and printed homomolecular C6 coefficient for SiH4, which corresponds to the C6 coefficient used to calculate dispersion interaction between two SiH4 molecules. The present value 347.07 a.u. is in very good agreement with the 343.9 a.u. given in Table I of J. Chem. Phys., 123, 024101 (2005)! However, it should be noted that the molecular C6 coefficient calculated in this way is not always quite accurate, sometimes the relative error may be close to 10% or even more. In addition, it should be recognized that MBIS does not perform best in all cases; for some molecules,
 
 
 <!-- p.761 -->
@@ -271,7 +271,7 @@ using Hirshfeld partition may obtain better results.
 
 ### 4.15.5 Visualizing atomic electric dipole and quadrupole moments
 
-Please check Section 3.18.3 to understand definition of atomic electric dipole moment (μA) and atomic electric quadrupole moment (ΘA). These two quantities convey important information about electron density distribution around nuclei under a given atomic space partition scheme. In the examples in the next two sections, we will calculate and then visualize them in VMD program via a special script, you will find they are pretty intuitive and important in understanding status of atoms in actual chemical environment.
+Please check Section 3.18.3 to understand definition of atomic electric dipole moment (μA) and atomic electric quadrupole moment ($\mu^A$). These two quantities convey important information about electron density distribution around nuclei under a given atomic space partition scheme. In the examples in the next two sections, we will calculate and then visualize them in VMD program via a special script, you will find they are pretty intuitive and important in understanding status of atoms in actual chemical environment.
 
 4.15.5.1 Plotting atomic dipole moments
 
@@ -304,9 +304,9 @@ Atomic dipole moment:   0.066   -0.045   -0.043  Norm:   0.090
 
 In VMD graphical window you can see
 
-The yellow arrows correspond to μA vectors of every atom, pointing from negative charge center to positive charge center in corresponding atomic space, and their lengths are proportional to
+The yellow arrows correspond to $\mu^A$ vectors of every atom, pointing from negative charge center to positive charge center in corresponding atomic space, and their lengths are proportional to
 
-magnitude of μA. The direction of the arrow on the oxygen atoms in the figure is easy to understand. It is well known that the oxygen in H2O2 has obvious lone pair electrons, and the lone pair region carries a dense negative charge, while the positive charge in the atomic space is only contributed by the nuclear charge, so the arrow must approximately point from the lone pair region to the nucleus.
+magnitude of $\mu^A$. The direction of the arrow on the oxygen atoms in the figure is easy to understand. It is well known that the oxygen in H2O2 has obvious lone pair electrons, and the lone pair region carries a dense negative charge, while the positive charge in the atomic space is only contributed by the nuclear charge, so the arrow must approximately point from the lone pair region to the nucleus.
 
 Adjusting graphical effects The graphical effects can be adjusted. For example, in “Graphics” - “Representation” panel you can set drawing method as CPK and properly define thickness of bonds and radius of atom spheres. Then inputting following command in VMD console window to change background color and material of plotted objects
 
@@ -337,7 +337,7 @@ source atomquad.tcl atomquad After some adjustments on graphical effects, you ca
 
 The yellow ellipsoid over each atom intuitively characterizes traceless Cartesian atomic
 
-electric quadrupole moment tensor ΘA. The shape of the ellipsoid is determined by directions of three principal axes (eigenvectors of ΘA) and semi-axis lengths, which are printed in VMD console window after running the “atomquad” command:
+electric quadrupole moment tensor $\Theta^A$. The shape of the ellipsoid is determined by directions of three principal axes (eigenvectors of ΘA) and semi-axis lengths, which are printed in VMD console window after running the “atomquad” command:
 
 
 ```text
@@ -350,7 +350,7 @@ Principal axis 3:   0.000    0.475    0.880  Semi-axis length:    0.432
 
 The ellipsoid semi-axis lengths {l} are determined via the following way proposed by me.
 
-Given that eigenvalues of ΘA, namely {v}, may be negative, in order to make visualization feasible, they are first transformed to values equal or larger than 1 via the following equation
+Given that eigenvalues of $\Theta^A$, namely {v}, may be negative, in order to make visualization feasible, they are first transformed to values equal or larger than 1 via the following equation
 
 
 $$t_{i}=1+v_{i}-v_{\min}\qquad i=1,2,3$$

@@ -6,7 +6,7 @@
 
 <!-- p.472 -->
 
-using MP2/aug-cc-pVDZ level to evaluate ΔΔVn is a very ideal choice.
+using MP2/aug-cc-pVDZ level to evaluate $\Delta\Delta V_n$ is a very ideal choice.
 
 
 ## 4.2 Topology analysis
@@ -100,7 +100,7 @@ It is also worth to note that in Chem. Phys. Lett., 285, 170 (1998), Espinosa an
 
 $$BE=V(\mathbf{r}_{BCP})/2$$
 
-BE=V(rBCP)/2
+$V(\mathbf{r}_{\mathrm{BCP}})/2$
 
 As shown in above output, V(r) at the BCP of N23-H25····O1 is -0.026148, thus the BE could be predicted to be -0.026148/2*2625.5 = -34.3 kJ/mol, which notably differs from the -26 kJ/mol using the prediction equation proposed in the J. Comput. Chem. (2019) paper. Which one is more accurate? As rigorously demonstrated in the J. Comput. Chem. article, the popular V(rBCP)/2 equation in fact has an evidently larger error and thus cannot be recommended; in other words, the BE of -26.1 kJ/mol should be more reliable.
 
@@ -493,7 +493,7 @@ Since the atoms involved in the combination of each search is required to simult
 
 
 
-Topology analysis module is able to exactly locate various types of CPs, however, if distribution of a real space function is relatively complicated, such as ELF, orbital wavefunction and density difference, it is usually difficult to locate all CPs. In contrast, the basin analysis module guarantees that all minima of negative region and maxima of positive region can be successfully located, they are collectively known as "attractors", see examples of Section 4.17. However, since the basin analysis is carried out based on evenly distributed grid, the accuracy of the attractors is limited, because each attractor corresponds to a grid, while grid spacing is usually larger than 0.05 Bohr, which is several magnitudes larger than displacement convergence threshold of topology analysis. If you are only interested in minima and maxima of a real space function, obviously it is a good idea to use attractors determined by basin analysis as starting points for locating CPs in topology analysis module, in other words, one can use topology analysis module to refine the positions of the attractors. The joint use of the two modules ensures that all minima of negative region and maxima of positive region can be accurately located. In this example, I take spin density of C4H8 biradical as an example to illustrate how to realize this.
+Topology analysis module is able to exactly locate various types of CPs, however, if distribution of a real space function is relatively complicated, such as ELF, orbital wavefunction and density difference, it is usually difficult to locate all CPs. In contrast, the basin analysis module guarantees that all minima of negative region and maxima of positive region can be successfully located, they are collectively known as "attractors", see examples of Section 4.17. However, since the basin analysis is carried out based on evenly distributed grid, the accuracy of the attractors is limited, because each attractor corresponds to a grid, while grid spacing is usually larger than 0.05 Bohr, which is several magnitudes larger than displacement convergence threshold of topology analysis. If you are only interested in minima and maxima of a real space function, obviously it is a good idea to use attractors determined by basin analysis as starting points for locating CPs in topology analysis module, in other words, one can use topology analysis module to refine the positions of the attractors. The joint use of the two modules ensures that all minima of negative region and maxima of positive region can be accurately located. In this example, I take spin density $C_4H_8$ biradical as an example to illustrate how to realize this.
 
 The example file is examples\C4H8.wfn. Before conducting basin and topology analyses for spin density, we can use main function 5 to visualize its isosurface to examine its basic distribution feature. The isosurface corresponding to spin density = 0.01 a.u. is shown below
 
@@ -528,7 +528,7 @@ H2O as an example
 
 In this example, I further illustrate the extreme flexibility of topology analysis in Multiwfn. I
 
-will show how to perform topology analysis for deformation density of H2O, that is ρdef = ρ(H2O) − ρ(H1) − ρ(H2) − ρ(O). See Section 3.7.2 for more information about deformation property. Similarly, you can use the same way to perform topology analysis for other kinds of density difference, such as Fukui function and dual descriptor.
+will show how to perform topology analysis for deformation density of H2O, that is ρdef = ρ(H2O) $\rho_{\text{def}} = \rho(\text{H}_2\text{O}) - \rho(\text{H}1) - \rho(\text{H}2) - \rho(\text{O})$(O). See Section 3.7.2 for more information about deformation property. Similarly, you can use the same way to perform topology analysis for other kinds of density difference, such as Fukui function and dual descriptor.
 
 - Generate grid data of deformation density Move “atomwfn” folder from “examples” folder to current folder so that Multiwfn can directly utilize atomic wavefunction files in it during generating deformation density. Then input
 

@@ -49,19 +49,19 @@ Hint: You can make use of the script examples\runall.sh (for Linux) or examples\
 
 (7) Input the path of the folder containing Gaussian output files yielded in the last step. Then Multiwfn will load the magnetic shielding tensors from the NICS0001.out, NICS0002.out ... in this folder.
 
-(8) Select the property you are interested in. (9) Visualize isosurface or export the grid data to cube file by corresponding option. For example, in step 8 you selected "ZZ component", then the isosurface and the grid data will correspond to ICSSZZ. You can also select "-1 Load another ICSS form" to study other forms.
+(8) Select the property you are interested in. (9) Visualize isosurface or export the grid data to cube file by corresponding option. For example, in step 8 you selected "$\mathrm{NICS}(0)_{\mathrm{ZZ}}$ component", then the isosurface and the grid data will correspond to ICSSZZ. You can also select "-1 Load another ICSS form" to study other forms.
 
 Notice that if this is not the first time you analyze your system and you already have Gaussian output files of NMR task of present system in hand, you can start from step 2 and input y in step 4 to bypass steps 5 and 6. In this case, the grid setting selected in step 3 must exactly accord with the that originally used in generating the Gaussian output files of NMR task.
 
 An example is given in Section 4.25.3.
 
-3.28.4 Obtain NICSZZ value for non-planar or tilted system
+3.28.4 Obtain NICS$\mathrm{NICS}(0)_{\mathrm{ZZ}}$ value for non-planar or tilted system
 
-Introduction Nucleus-independent chemical shift (NICS) is a very popular index used to measure aromaticity. In many papers, such as Org. Lett., 8, 863 (2006), It was shown that NICS(0)ZZ or NICS(1)ZZ is a better index than the original definition of NICS, which is currently known as NICS(0).
+Introduction Nucleus-independent chemical shift (NICS) is a very popular index used to measure aromaticity. In many papers, such as Org. Lett., 8, 863 (2006), It was shown that NICS(0)$\mathrm{NICS}(0)_{\mathrm{ZZ}}$ or $\mathrm{NICS}(1)_{\mathrm{ZZ}}$ is a better index than the original definition of NICS, which is currently known as NICS(0).
 
-For exactly planar systems, if the system plane is parallel to XY plane, then NICS(0)ZZ means the ZZ component of magnetic shielding tensor at ring center. The only difference from NICS(1)ZZ to NICS(0)ZZ is that the calculated point is not ring center, but the point above (or below) 1 Å of the plane from ring center. Note that the definition of ring center is highly arbitrary, the original definition uses geometry center, while some people use center of mass, and some researchers recommend using ring critical point (RCP) of AIM theory as ring center, for example WIREs Comput. Mol. Sci., 3, 105 (2013). (Personally, I think using RCP is the best choice)
+For exactly planar systems, if the system plane is parallel to XY plane, then NICS(0)$\mathrm{NICS}(0)_{\mathrm{ZZ}}$ means the ZZ component of magnetic shielding tensor at ring center. The only difference from $\mathrm{NICS}(1)_{\mathrm{ZZ}}$ to NICS(0)ZZ is that the calculated point is not ring center, but the point above (or below) 1 Å of the plane from ring center. Note that the definition of ring center is highly arbitrary, the original definition uses geometry center, while some people use center of mass, and some researchers recommend using ring critical point (RCP) of AIM theory as ring center, for example WIREs Comput. Mol. Sci., 3, 105 (2013). (Personally, I think using RCP is the best choice)
 
-If the ring of interest is skewed, not exactly planar or tilted, calculation of NICSZZ is difficult,
+If the ring of interest is skewed, not exactly planar or tilted, calculation of NICS$\mathrm{NICS}(0)_{\mathrm{ZZ}}$ is difficult,
 
 
 <!-- p.379 -->
@@ -70,7 +70,7 @@ because one cannot directly acquire the component of magnetic shielding tensor p
 
 In this function, the component of magnetic shielding tensor perpendicular to a given ring is
 
-calculated as σ⊥=uTσu, where σ is magnetic shielding tensor, u is column unit vector perpendicular to the ring, and uT is transpose of u.
+calculated as σ⊥=$\sigma_{\perp} = \mathbf{u}^{\mathrm{T}} \boldsymbol{\sigma} \mathbf{u}$σu, where σ is magnetic shielding tensor, u is column unit vector perpendicular to the ring, and uT is transpose of u.
 
 Steps for obtaining NICS(1)ZZ If you want to calculate NICS(1)ZZ for a non-planar system, you should follow below steps: (1) Use Multiwfn to open a file containing atomic coordinates of your system (e.g. .xyz/.pdb/.mol/.wfn/.mwfn/.fch/.molden...)
 
@@ -106,7 +106,7 @@ HOMA index Harmonic oscillator measure of aromaticity (HOMA) is the most popular
 
 ,2ref,HOMA1()i j α= −− i ji RRN
 
-where N is the total number of the atoms considered, j denotes the atom next to atom i, α and RRef are pre-calculated constants given in original paper for each type of atomic pair. If HOMA equals 1, that means length of each bond is identical to optimal value Rref and thus the ring is fully aromatic. While if HOMA is equal to 0, that means the ring is completely nonaromatic. If HOMA is a significantly negative value, then the ring shows anti-aromaticity characteristic.
+where N is the total number of the atoms considered, j denotes the atom next to atom i, α and RRef are pre-calculated constants given in original paper for each type of atomic pair. If HOMA equals 1, that means length of each bond is identical to optimal value $R_{\mathrm{ref}}$ and thus the ring is fully aromatic. While if HOMA is equal to 0, that means the ring is completely nonaromatic. If HOMA is a significantly negative value, then the ring shows anti-aromaticity characteristic.
 
 The inventor of HOMA develops the HOMA parameters in the following way, see Chem. Inf. Comput. Sci., 33, 70 (1993) for detail
 
@@ -117,7 +117,7 @@ $$\begin{aligned}&R_{ref}=(R_{s}+wR_{d})/(1+w)\\ &\alpha=\frac{2}{(R_{s}-R_{ref}
 
 where Rs and Rd are experimental bond lengths of single bond and double bond, respectively. w=kd/ks, where ks and kd are force constants of single and double bonds, respectively. Usually, w is assumed
 
-to be 2.0 (special case also exists, such as w=4.2 for BN bond). For example, the Rref and α parameters for CO bond were derived based on the experimental lengths of C-O and C=O bonds in formic acid with assumption of w=2.0.
+to be 2.0 (special case also exists, such as w=4.2 for BN bond). For example, the $R_{\mathrm{ref}}$ and α parameters for CO bond were derived based on the experimental lengths of C-O and C=O bonds in formic acid with assumption of w=2.0.
 
 HOMA can be calculated by subfunction 6 in main function 25. When you choose option 0, Multiwfn will prompt you to input the indices of the atoms in the local system, for example, 2,3,4,5,6,7 (assume that there are six atoms in the ring. The input order must be consistent with atom connectivity), then HOMA value and contributions from each atomic pair will be immediately outputted on the screen. For example, thiophene optimized under MP2/6-311+G**, the output is
 
@@ -155,7 +155,7 @@ $$V=\frac{100}{\overline{N}}\sqrt{\frac{\sum_{i}(N_{i.j}-\overline{N})^{2}}{n}}\
 
 <!-- formula-ocr: formula_p381_285.png 已替换为LaTeX, 原图保留备查 -->
 
-In the formula, i cycles all of the bonds in the ring, j denotes the atom next to atom i. n is the total number of the bonds considered. N denotes Gordy bond order, 𝑁̅ is the average value of the N values. Ri,j is bond length. a and b are predefined parameters respectively for each type of bonds. VK is pre-determined reference V, for five and six-membered rings the value is 35 and 33.2, respectively. The more the Bird index close to 100, the stronger the aromaticity is.
+In the formula, i cycles all of the bonds in the ring, j denotes the atom next to atom i. n is the total number of the bonds considered. N denotes Gordy bond order, $\overline{N}$ is the average value of the N values. Ri,j is bond length. a and b are predefined parameters respectively for each type of bonds. VK is pre-determined reference V, for five and six-membered rings the value is 35 and 33.2, respectively. The more the Bird index close to 100, the stronger the aromaticity is.
 
 Available a and b parameters include C-C, C-N, C-O, C-S, N-O and N-N, they are taken from Tetrahedron, 57, 5715 (2001), the B-N parameter was obtained from Tetrahedron, 54, 14913 (1998). For other type of bonds user should provide corresponding parameter by option 3. By option 4 user can adjust or add VK parameter.
 
@@ -166,13 +166,13 @@ Corresponding example of this function is provided in Section 4.25.6. Informatio
 
 HOMER and HOMAc were proposed in Phys. Chem. Chem. Phys., 25, 16763 (2023) and J.
 
-Org. Chem., 90, 1297 (2025), respectively. They reparameterized Rref and α parameters, and can be used for a ring containing CC, CN, CO, NN bonds.
+Org. Chem., 90, 1297 (2025), respectively. They reparameterized $R_{ref}$ and α parameters, and can be used for a ring containing CC, CN, CO, NN bonds.
 
 HOMER is abbreviation of Harmonic Oscillator Model of Excited-state aRomaticity. HOMER aims at characterizing aromaticity at T1 state simply based on optimized geometry, it is found that it has a reasonable correlation with NICS(1)zz index calculated for T1 state; in contrast, HOMA has negligible correlation with NICS(1)zz. Of course, HOMER is unable to characterize T1 aromaticity at Franck-Condon point, because the geometry is the same as S0.
 
 HOMAc aims at improving the ability of HOMA in determining aromaticity for S0 ground state. Indeed, comparisons in original paper showed that it performs better than HOMA. So, using HOMAc instead of HOMA is recommended.
 
-It is noted that HOMAc and HOMER derived the Rref parameters in the way that they are exactly 1.0 for prototypical S0 and T1 aromaticity molecules at corresponding minima, respectively,
+It is noted that HOMAc and HOMER derived the $R_{ref}$ parameters in the way that they are exactly 1.0 for prototypical S0 and T1 aromaticity molecules at corresponding minima, respectively,
 
 while the α parameters of HOMAc and HOMER were further determined in the way that they are very close to -1 for prototypical S0 and T1 antiaromaticity molecules at corresponding minima,
 

@@ -132,11 +132,11 @@ $$\begin{array}{r l r l}{{3}960\mathrm{(2012))}\mathrm{:}}&{\chi(\mathbf{r}_{1},
 
 localized electrons detector (LED), is useful to discuss bonding and very similar to reduced density gradient, see Theor. Chem. Acc., 127, 393 (2010)
 
-26 Integrand of Thomas-Fermi kinetic energy functional (closed-shell form): τTF(r) = CTFρ(r)5/3, where CTF=(3/10)(3π2)2/3=2.871234. This is the exact kinetic energy density of non-interacting, uniform electron gas. If you need spin-polarized form, use user-defined function 1200.
+26 Integrand of Thomas-Fermi kinetic energy functional (closed-shell form): $\tau_{\mathrm{TF}}(\mathbf{r}) = C_{\mathrm{TF}}\rho(\mathbf{r})^{5/3}$ where CTF=(3/10)(3π2)2/3=2.871234. This is the exact kinetic energy density of non-interacting, uniform electron gas. If you need spin-polarized form, use user-defined function 1200.
 
 27 Local electron affinity (LEA): $EA_{\mathrm{L}}(\mathbf{r}) = \frac{-\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2}$ $E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$
 
-i  vir
+i ∈ vir
 
 local ionization energy, but i cycles all unoccupied orbitals. See J. Mol. Model., 9, 342 (2003). Illustration of applying this function for a practical molecule is given in Section 4.12.13.
 
@@ -150,18 +150,18 @@ orbitals with negative energy. For restricted and unrestricted wavefunctions, n 
 
 29 Local hardness: $\eta_{\mathrm{L}}(\mathbf{r})=[\overline{I}(\mathbf{r})-EA_{\mathrm{L}}(\mathbf{r})]/2$ $EA_{L}$ $E_{\mathrm{att}}$ $\chi_{L}$ $\eta_{L}$ $EA_{\mathrm{L}}$ $\chi_{\mathrm{L}}$ $\eta_{\mathrm{L}}$ $E_{\mathrm{att}}$ $E_{\mathrm{att}}$ $EA_{\mathrm{L}}$ $E_{\mathrm{att}}$ $E_{att}$
 
-Note: In order to use EAL, Eatt, χL and ηL, the input file must contain both occupied and unoccupied orbitals of a single determinant wavefunction (but restricted open-shell is not supported), formats such as .mwfn, .fch, .molden and .gms should be used as input file.
+Note: In order to use EAL, $E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$, χL and ηL, the input file must contain both occupied and unoccupied orbitals of a single determinant wavefunction (but restricted open-shell is not supported), formats such as .mwfn, .fch, .molden and .gms should be used as input file.
 
-Generally, EAL (and thus χL and ηL) is not compatible with basis sets with diffuse functions, while any basis set may be used for evaluating Eatt. The much better compatibility with augmented basis set is a notable advantage of Eatt over EAL. However, in order to use Eatt, at least LUMO should
+Generally, EAL (and thus χL and ηL) is not compatible with basis sets with diffuse functions, while any basis set may be used for evaluating $E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$. The much better compatibility with augmented basis set is a notable advantage of Eatt over EAL. However, in order to use Eatt, at least LUMO should
 
 
 <!-- p.58 -->
 
-has a negative energy, while often this condition is not satisfied under commonly used levels. It is found in the original paper of Eatt that this function works reasonably with B3LYP/6-31+G(d,p) orbitals.
+has a negative energy, while often this condition is not satisfied under commonly used levels. It is found in the original paper of $E_{att}$ that this function works reasonably with B3LYP/6-31+G(d,p) orbitals.
 
 30 Ellipticity of electron density: $\varepsilon(\mathbf{r})=[\lambda_{1}(\mathbf{r})/\lambda_{2}(\mathbf{r})]-1$
 
-the second lowest eigenvalues of Hessian matrix of ρ, respectively. At bond critical point (BCP), λ1 and λ2 are both negative and exhibit the curvatures of electron density in the two orthogonal directions that perpendicular to the bond. The ε at BCP is often viewed as an indicator of asymmetric distribution of electron density around the bond, the higher deviation to axisymmetric distribution,
+the second lowest eigenvalues of Hessian matrix of ρ, respectively. At bond critical point (BCP), λ1 $\lambda_{2}$ are both negative and exhibit the curvatures of electron density in the two orthogonal directions that perpendicular to the bond. The ε at BCP is often viewed as an indicator of asymmetric distribution of electron density around the bond, the higher deviation to axisymmetric distribution,
 
 the larger the ε value at BCP.
 
@@ -177,7 +177,7 @@ $$V_{\mathrm{P A E M}}(\mathbf{r})=-V_{\mathrm{E S P}}(\mathbf{r})+V_{\mathrm{X 
 
 $$V_{\mathrm{P A E M}}(\mathbf{r})=-V_{\mathrm{E S P}}(\mathbf{r})+V_{\mathrm{X C}}(\mathbf{r})=-V_{\mathrm{E S P}}(\mathbf{r})+\frac{1}{\rho(\mathbf{r})}\int\frac{\Gamma_{\mathrm{X C}}^{\alpha,\mathrm{tot}}(\mathbf{r},\mathbf{r}^{\prime})+\Gamma_{\mathrm{X C}}^{\beta,\mathrm{tot}}(\mathbf{r},\mathbf{r}^{\prime})}{|\mathbf{r}-\mathbf{r}^{\prime}|}\mathrm{d}\mathbf{r}^{\prime},\mathrm{w h e r e}V_{\mathrm{E S P}}(\mathbf{r}^{\prime})=\Gamma_{\mathrm{X C}}(\mathbf{r}^{\prime})+\Gamma_{\mathrm{X C}}(\mathbf{r}),$$
 
-is the total molecular electrostatic potential and VXC is exchange-correction potential. In Multiwfn, the exchange-correlation density Γ is evaluated in terms of Müller approximation, see part 17 of Section 2.6 for detail. It was shown in the original paper that PAEM may be useful to distinguish covalent and noncovalent interactions. An example of application of PAEM can be found in Section 4.3.3. 34 The same as 33, but now VXC directly corresponds to DFT exchange-correlation potential. Its specific form can be chosen via "iDFTxcsel" parameter, see the end of this section for detail. This form of PAEM is significantly cheaper than 33 but only supports closed-shell wavefunction. For very large systems, cost of 33 is computationally forbidden, so 34 is the only choice. 35 |𝑉(𝐫)|/𝐺(𝐫). In J. Chem. Phys., 117, 5529 (2002) it was proposed that this quantity at BCP can be used to discriminate interaction types. <1 corresponds to closed-shell interaction; >2 corresponds to covalent interaction; while the case that >1 and < 2 corresponds to intermediate interaction.
+is the total molecular electrostatic potential and $V_{XC}$ is exchange-correction potential. In Multiwfn, the exchange-correlation density Γ is evaluated in terms of Müller approximation, see part 17 of Section 2.6 for detail. It was shown in the original paper that PAEM may be useful to distinguish covalent and noncovalent interactions. An example of application of PAEM can be found in Section 4.3.3. 34 The same as 33, but now VXC directly corresponds to DFT exchange-correlation potential. Its specific form can be chosen via "iDFTxcsel" parameter, see the end of this section for detail. This form of PAEM is significantly cheaper than 33 but only supports closed-shell wavefunction. For very large systems, cost of 33 is computationally forbidden, so 34 is the only choice. 35 |𝑉(𝐫)|/𝐺(𝐫). In J. Chem. Phys., 117, 5529 (2002) it was proposed that this quantity at BCP can be used to discriminate interaction types. <1 corresponds to closed-shell interaction; >2 corresponds to covalent interaction; while the case that >1 and < 2 corresponds to intermediate interaction.
 
 36 On-top pair density, namely the two positions of the pair density are identical: π(r,r). See such as Int. J. Quantum Chem., 61, 197 (1995) for discussion. "paircorrtype" parameter in `settings.ini` mentioned earlier affects the result. 37 The strong covalent interaction index (SCI) defined in J. Phys. Chem. A, 122, 3087 (2018) and further examined in J. Mol. Model., 24, 213 (2018). This function was shown to be very useful for
 
@@ -190,7 +190,7 @@ $$V_{\mathrm{P A E M}}(\mathbf{r})=-V_{\mathrm{E S P}}(\mathbf{r})+V_{\mathrm{X 
 
 $$V_{\mathrm{n}}(\mathbf{r}) = \sum_{A \neq K} \frac{Z_A}{|\mathbf{r} - \mathbf{R}_A|} - \int \frac{\rho(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|} \, \mathrm{d}\mathbf{r}'$$
 
-1000 (which is hidden in main interface but can be chosen). Vn is a useful quantity, for example if K is chosen as index of a hydrogen, then the value correlates with its pKa, because in this case Vn approximately reflects the binding energy of a proton at the position of K and rest of the system; In addition, J. Phys. Chem. A, 118, 1697 (2014) showed that Vn can be used to quantitatively predict interaction energy of the weak interactions dominated by electrostatic effect (viz. H-bonds, halogen-bonds, dihydrogen bonds), see Section 4.1.2 for introduction and example.
+1000 (which is hidden in main interface but can be chosen). $V_n$ is a useful quantity, for example if K is chosen as index of a hydrogen, then the value correlates with its pKa, because in this case Vn approximately reflects the binding energy of a proton at the position of K and rest of the system; In addition, J. Phys. Chem. A, 118, 1697 (2014) showed that Vn can be used to quantitatively predict interaction energy of the weak interactions dominated by electrostatic effect (viz. H-bonds, halogen-bonds, dihydrogen bonds), see Section 4.1.2 for introduction and example.
 
 It is worth to mention that in main function 1, when you request Multiwfn to print properties at nuclear position of an atom, the electrostatic potential without contribution of nuclear charge of this atom is automatically printed.
 
@@ -208,7 +208,7 @@ known as one-electron potential (OEP). Notice that the δ is a very small term a
 
 Notice that the δ term, which is mentioned above, also affects steric force and steric charge. Discussions of steric energy/potential/force/charge can be found in J. Chem. Phys., 126, 244103 (2007). 44,45,46 Damped Steric potential, steric force based on damped steric potential, directly damped Steric force: Documented privately 47 Damped steric charge: Documented privately
 
-49 Relative Shannon entropy density, also known as information gain density: 𝑖G = 𝜌(𝐫)ln 𝜌0(𝐫), 𝜌(𝐫)
+49 Relative Shannon entropy density, also known as information gain density: $i_{G} = \rho(\mathbf{r})\ln\frac{\rho(\mathbf{r})}{\rho_{0}(\mathbf{r})}$ 𝜌(𝐫)
 
 where ρ0(r) is promolecular density. Before performing any analysis or visualization for this function, you must enter main function 1000 (a hidden function) and then select subfunction 17 to construct promolecular wavefunction and store it into a special space in memory; this promolecular
 
@@ -247,12 +247,12 @@ Note that user-defined functions 57, 58, 59 can only be studied by plotting as m
 
 60 Pauli potential: $V_{\theta}$
 
-- ispecial=0: According to Eq. 17 of Comput. Theor. Chem., 1006, 92 (2013), Vθ = μ + VESP − VXC − VW, where μ is chemical potential (assumed to be zero by Multiwfn), VESP is electrostatic potential
+- ispecial=0: According to Eq. 17 of Comput. Theor. Chem., 1006, 92 (2013), $V_{\theta}$ = μ + VESP − VXC − VW, where μ is chemical potential (assumed to be zero by Multiwfn), VESP is electrostatic potential
 
 
 <!-- p.61 -->
 
-(as described in Section 2.6) and VXC is exchange-correlation potential (its form is determined by "iDFTxcsel" in `settings.ini`, see later).
+(as described in Section 2.6) and $V_{XC}$ is exchange-correlation potential (its form is determined by "iDFTxcsel" in `settings.ini`, see later).
 
 - ispecial=1: Use original definition, namely 𝑉θ = 𝑉S −𝑉W = 𝛿𝜏S[𝜌]/𝛿𝜌−𝛿𝜏W[𝜌]/𝛿𝜌, where VS is potential of non-interacting kinetic energy functional (τS), and VW is potential of Weizsäcker kinetic energy functional (τW). The form of τS can be chosen by "iKEDsel" in `settings.ini`, see later; currently only iKEDsel of 3, 5, 7 are supported.
 
@@ -285,7 +285,7 @@ $$\upsilon_{\mathrm{e}}(\mathbf{r})=\rho(\mathbf{r})\left[\int\frac{\rho(\mathbf
 
 Liu's energy decomposition, see Section 3.24.2.
 
-69, -69 Energy density of quantum part of Shubin Liu's energy decomposition: τs(r) − τW(r) + εXC(r), where τs is Hamiltonian kinetic energy density (if userfunc = 69) or Lagrangian kinetic energy density (if userfunc = -69). τW is integrand of Weizsäcker functional (the same as userfunc=5), εXC is exchange-correlation energy density (the same as userfunc=1000), whose form can be chosen by "iDFTxcsel" parameter in `settings.ini`, see later for detail.
+69, -69 Energy density of quantum part of Shubin Liu's energy decomposition: $\tau_s(\mathbf{r}) - \tau_W(\mathbf{r}) + \varepsilon_{XC}(\mathbf{r})$ $\tau_s$ is Hamiltonian kinetic energy density (if userfunc = 69) or Lagrangian kinetic energy density (if userfunc = -69). τW is integrand of Weizsäcker functional (the same as userfunc=5), εXC is exchange-correlation energy density (the same as userfunc=1000), whose form can be chosen by "iDFTxcsel" parameter in `settings.ini`, see later for detail.
 
 
 **r** 70 Phase-space-defined Fisher information density (PS-FID): )( rrrrGTkiρρ== , Bfr )(3)( )(29)( 2
@@ -326,7 +326,7 @@ The 75, 76, 77th user-defined functions correspond to X, Y, Z components, respec
 
 user-defined function is magnitude of MDMD: )()()()(222totrrrrzyxmmmm++=.
 
-79 Gradient norm of electron energy density: |∇E(r)| 80 Laplacian of electron energy density: ∇2E(r) 81, 82, 83 X, Y, Z component of Hamiltonian kinetic energy density, respectively. 84, 85, 86 X, Y, Z component of Lagrangian kinetic energy density, respectively.
+79 Gradient norm of electron energy density: |∇E(r)| 80 Laplacian of electron energy density: $\nabla^{2}E(\mathbf{r})$ 81, 82, 83 X, Y, Z component of Hamiltonian kinetic energy density, respectively. 84, 85, 86 X, Y, Z component of Lagrangian kinetic energy density, respectively.
 
 87, 88, 89 Local total, dynamic, nondynamic electron correlation functions, respectively. See introduction and calculation example of these functions in Section 4.A.7.2. 90 Fractional Occupation Number Weighted Electron Density (FOD) proposed by Grimme in Angew. Chem. Int. Ed., 54, 1 (2015). See introduction and calculation example of FOD in Section 4.A.7.1.
 
@@ -339,7 +339,7 @@ user-defined function is magnitude of MDMD: )()()()(222totrrrrzyxmmmm++=.
 
 95, 96, 97, 98 Orbital-weighted f +, f −, f 0 Fukui functions as well as orbital-weighted dual descriptor, respectively. They were originally proposed in J. Comput. Chem., 38, 481 (2017) and J. Phys. Chem. A, 123, 10556 (2019). They are useful in studying local reactivity for systems whose frontier molecular orbitals are (quasi-)degenerate, see Section 3.25.3 for brief introduction and Section
 
-4.22.2 for illustrative examples. The Δ parameter in these functions can be set by option 6 of main function 1000 (a hidden option). Since these functions involve virtual orbitals, you should use mwfn/fch/molden/gms as input file. Only closed-shell single-determinant wavefunction is supported. 99 Interaction region indicator (IRI): The same as function 24 described in Section 2.6. 100 Disequilibrium (also known as semi-similarity): 𝐷r(𝐫) = 𝜌2(𝐫). See illustrative applications in Int. J. Quantum Chem., 113, 2589 (2013). 101 Positive part of ESP: 𝑉ESP += 𝑉ESP; where ESP is negative, 𝑉ESP += 0. 102 Negative part of ESP: 𝑉ESP + . 103 Magnitude of electric field |F|. Since electric field vector is simply negative gradient vector of ESP, therefore this quantity corresponds to norm of gradient of ESP. −, defined similarly as 𝑉ESP + . In the region where VESP is positive, 𝑉ESP
+4.22.2 for illustrative examples. The Δ parameter in these functions can be set by option 6 of main function 1000 (a hidden option). Since these functions involve virtual orbitals, you should use mwfn/fch/molden/gms as input file. Only closed-shell single-determinant wavefunction is supported. 99 Interaction region indicator (IRI): The same as function 24 described in Section 2.6. 100 Disequilibrium (also known as semi-similarity): 𝐷r(𝐫) = 𝜌2(𝐫). See illustrative applications in Int. J. Quantum Chem., 113, 2589 (2013). 101 Positive part of ESP: $V_{ESP}^{+}$ += 𝑉ESP; where ESP is negative, 𝑉ESP += 0. 102 Negative part of ESP: 𝑉ESP + . 103 Magnitude of electric field |F|. Since electric field vector is simply negative gradient vector of ESP, therefore this quantity corresponds to norm of gradient of ESP. −, defined similarly as 𝑉ESP + . In the region where VESP is positive, 𝑉ESP
 
 110 Total energy density of the steric, electrostatic and quantum components defined in Shubin Liu's energy decomposition analysis (see Section 3.24.2 for introduction), corresponding to sum of user-defined functions 40, 68 and 69 111 Sum of steric potential, electrostatic potential and quantum potential. Note that "ispecial", "iDFTxcsel" and "iKEDsel" in `settings.ini` affect this and next two functions, see description of user-defined function 60 for detail. 112 Magnitude of vector sum of steric force, electrostatic force and quantum force. 113 Sum of steric charge, electrostatic charge and quantum charge.
 
@@ -370,7 +370,7 @@ $$\sigma_{i,j}(\mathbf{r})=-\frac{1}{4}\Biggl[\Biggl(\frac{\partial^{2}}{\partia
 
 where r1=x, r2=y, r3=z, and the one-electron reduced density matrix in real space form can be
 
-evaluated based on orbitals as Γ(1)(𝐫,𝐫′) = ∑𝜂𝑖𝜑𝑖 ∗(𝐫)𝜑𝑖(𝐫′)𝑖. Currently only real wavefunctions are considered, so elements of stress tensor are readily evaluated in Multiwfn as
+evaluated based on orbitals as $\Gamma^{(1)}(\mathbf{r},\mathbf{r}') = \sum_i \eta_i \varphi_i^*(\mathbf{r}) \varphi_i(\mathbf{r}')$ ∗(𝐫)𝜑𝑖(𝐫′)𝑖. Currently only real wavefunctions are considered, so elements of stress tensor are readily evaluated in Multiwfn as
 
 $$\sigma_{i,j}(\mathbf{r})=-\frac{1}{4}\sum_{t}\eta_{t}\left[2\frac{\partial\varphi_{t}(\mathbf{r})}{\partial r_{i}}\frac{\partial\varphi_{t}(\mathbf{r})}{\partial r_{j}}-2\frac{\partial^{2}\varphi_{t}(\mathbf{r})}{\partial r_{i}\partial r_{j}}\varphi_{t}(\mathbf{r})\right]$$
 
@@ -378,7 +378,7 @@ If you need to obtain the entire stress tensor, you can input coordinate in main
 
 The path-packets analysis, which is very closely related to stress tensor, can be realized using the shell script contributed by Asdrubal Lozada based on patched Multiwfn code, check http://sobereva.com/wfnbbs/viewtopic.php?pid=4698 for relevant information and https://github.com/aslozada/Stress_tensor. 200 Random number of [0,1).
 
-819 Ultrastrong interaction (USI): USI(𝐫) = ∇2𝜌(𝐫)/𝜌5/3(𝐫) . See J. Phys. Chem. A, 126, 2437 (2022) for detail. 820 Bonding and noncovalent interaction (BNI): BNI(𝐫) = [𝐺(𝐫) −𝜏W(𝐫)]/𝜏W(𝐫), where G(r) is Lagrangian kinetic energy density. See J. Phys. Chem. A, 126, 2437 (2022) for detail. 900, 901, 902 X, Y and Z coordinate variables, respectively.
+819 Ultrastrong interaction (USI): $\nabla^2 \rho(r)/\rho^{5/3}(r)$ J. Phys. Chem. A, 126, 2437 (2022) for detail. 820 Bonding and noncovalent interaction (BNI): BNI(𝐫) = [𝐺(𝐫) −𝜏W(𝐫)]/𝜏W(𝐫), where G(r) is Lagrangian kinetic energy density. See J. Phys. Chem. A, 126, 2437 (2022) for detail. 900, 901, 902 X, Y and Z coordinate variables, respectively.
 
 Functions 910~914 shown below calculate atomic weighting function. The atom to be calculated is determined by “uservar” in `settings.ini`. Periodic system is supported except for Becke atomic weighting function. 910 Hirshfeld atomic weighting function. 911,912 Becke atomic weighting function using Tian Lu covalent radii and CSD covalent radii, respectively. Sharpness parameter of the boundary is 3 913 Tian Lu error function type atomic weighting function 914 Tian Lu Gaussian function type atomic weighting function
 
@@ -386,7 +386,7 @@ Functions 910~914 shown below calculate atomic weighting function. The atom to b
 
 Closed-shell situation:
 
-bdbdbdeEEv= −rrrr HFX 1( )( )( )( )4
+$$e_{\mathrm{HFX}}(\mathbf{r})=-\frac{1}{4}\sum_{bd}E_{b}(\mathbf{r})E_{d}(\mathbf{r})v_{bd}(\mathbf{r})$$
 
 where
 
@@ -402,7 +402,7 @@ $$E_{d}(\mathbf{r})=\sum_{i}P_{id}\chi_{i}(\mathbf{r})$$
 
 in which χ is basis function, P is total density matrix.
 
-Open-shell situation: eHFX is the sum of its alpha and beta parts
+Open-shell situation: $e_{HFX}$ is the sum of its alpha and beta parts
 
 $$e_{\mathrm{H F X}}^{\alpha}(\mathbf{r})=-\frac{1}{2}\sum_{b d}E_{b}^{\alpha}(\mathbf{r})E_{d}^{\alpha}(\mathbf{r})v_{b d}(\mathbf{r})$$
 
@@ -452,11 +452,11 @@ There is a subfunction 92 in the main function 1000 (hidden in the main menu), i
 
 - iKEDsel=2: Lagrangian KED, identical to real space function 7
 
-- iKEDsel=3: Thomas-Fermi KED: σσαβσαβττρ 5/3TFTFTF,,( )[( )]Cσ ====rr,
+- iKEDsel=3: $$\tau_{\mathrm{TF}}(\mathbf{r})=\sum_{\sigma=\alpha,\beta} \tau_{\mathrm{TF}}^{\sigma}=\sum_{\sigma=\alpha,\beta}C_{\mathrm{TF}}[\rho_{\sigma}(\mathbf{r})]^{5/3}$$, where $C_{\mathrm{TF}}=\frac{3}{10}(6\pi^{2})^{2/3}=4.557799872$ is Thomas-Fermi constant in spin polarized case.
 
 where 22/33TF10 (6)4.557799872Cπ== is Thomas-Fermi constant in spin polarized case.
 
-- iKEDsel=4: Weizsäcker KED:  σρρτ W)(8 )()(rrr ∇= βασσ = , 2
+- iKEDsel=4: $$\tau_{\mathrm{W}}(\mathbf{r})=\sum_{\sigma=\alpha,\beta}\frac{|\nabla \rho_{\sigma}(\mathbf{r})|^{2}}{8\rho_{\sigma}(\mathbf{r})}$$
 
 Most of below-mentioned KEDs can be represented using a general form
 
@@ -464,13 +464,13 @@ $$\bullet\mathrm{iKEDsel}=10:\mathrm{Pearson}\mathrm{KED},\tau_{\mathrm{Pear}}^{
 
 factor, see J. Chem. Phys., 127, 144109 (2007) for detail. This paper systematically introduced and compared a variety of existing KEDs. Note that a lot of expressions given in this paper are wrong, while the formulae given below are absolutely correct, and all of them are explicitly written as spin polarized form, if they will be involved in your works, please cite my paper J. Chem. Phys., 150, 204106 (2019); citation of each KED is also given in this paper. More information and comparison about KEDs can be found in Phys. Rev. A, 46, 6920 (1992) and J. Chem. Phys., 100, 4446 (1994).
 
-- iKEDsel=5: Second order gradient expansion approximation,  11rσσsCF TF2GEA)(72 +=2 
+- iKEDsel=5: $$F^{\sigma}_{\mathrm{GEA2}}=\left[1+\frac{1}{72C_{\mathrm{TF}}}s^{\sigma}(\mathbf{r})^{2}\right]$$
 
-- iKEDsel=6: Thomas-Fermi + 1/5 Weizsäcker KED,  11rσσsCF TFW5TF)(40 +=2 
+- iKEDsel=6: $$F^{\sigma}_{\mathrm{TF5W}}=\left[1+\frac{1}{40C_{\mathrm{TF}}}s^{\sigma}(\mathbf{r})^{2}\right]$$
 
-- iKEDsel=7: Thomas-Fermi + Weizsäcker KED,  11rσσsCF TFTFvW)(8 +=2 
+- iKEDsel=7: $$F^{\sigma}_{\mathrm{TFvW}}=\left[1+\frac{1}{8C_{\mathrm{TF}}}s^{\sigma}(\mathbf{r})^{2}\right]$$
 
-- iKEDsel=8: Thomas-Fermi + b/9 Weizsäcker KED,  067.11rσσsCF TFW9TF)(72 +=2 
+- iKEDsel=8: $$F^{\sigma}_{\mathrm{TF9W}}=\left[1+\frac{1.067}{72C_{\mathrm{TF}}}s^{\sigma}(\mathbf{r})^{2}\right]$$
 
 - iKEDsel=9: N-dependent Thomas-Fermi KED, 3/23/1NTF 187.0313.01NNF−+=−σ , where N is the
 
@@ -484,7 +484,7 @@ $$s_{r}^{\sigma}(\mathbf{r})=s^{\sigma}(\mathbf{r})/[2(6\pi^{2})^{1/3}],\mathrm{
 
 )72/()]([TF2Csxrσ=, a1 = 0.95, a2 = 14.28111, a3 = −19.57962, b1 = −0.05, b2 = 9.99802 and
 
-b3=2.96085
+$b_{3}=2.96085$
 
 
 <!-- p.68 -->
@@ -526,7 +526,7 @@ $$F_{\mathrm{LG}94}^{\sigma}=\frac{\left\{1+a_{2}[s_{r}^{\sigma}(\mathbf{r})]^{2
 
 - iKEDsel=22: Acharya-Bartolotti-Sears-Parr KED, 11.412[( )]18FsCN 2ABSP1/3TF σσ=+ −r
 
-- iKEDsel=23: Gázquez-Robles KED, +−−+=3/23/12 NNNsCFrσσ TFGR 029.0303.1121)]([8 1
+- iKEDsel=23: $$F^{\sigma}_{\mathrm{GR}}=\frac{1}{8C_{\mathrm{TF}}}[s^{\sigma}(\mathbf{r})]^{2}+\left(1-\frac{2}{N}\right)\left(1-\frac{1.303}{N^{1/3}}+\frac{0.029}{N^{2/3}}\right)$$
 
 - iKEDsel=24: Fourth order gradient expansion approximation,
 
@@ -537,7 +537,7 @@ $$\tau_{\mathrm{GEA4}}^{\sigma}=\tau_{\mathrm{GEA2}}^{\sigma}+\frac{(6\pi^{2})^{
 
 Note that if the "uservar" in `settings.ini` is not equal to zero, all above-mentioned KEDs will be
 
-added by "∇2ρ /uservar" term. For example, when iuserfunc=1200, iKEDsel=5 and uservar=6, the user-defined function will correspond to τGEA2+∇2ρ /6 (which corresponds to the KED employed by Tsirelson type of ELF and LOL, as shown in Section 2.6).
+added by "∇2ρ /uservar" term. For example, when iuserfunc=1200, iKEDsel=5 and uservar=6, the user-defined function will correspond to $\nabla^2\rho$ /6 (which corresponds to the KED employed by Tsirelson type of ELF and LOL, as shown in Section 2.6).
 
 1201 Difference between KED selected by "iKEDsel" and Weizsäcker KED. 1202 Difference between KED selected by "iKEDsel" and Lagrangian KED. 1203 Absolute difference between KED selected by "iKEDsel" and Lagrangian KED.
 

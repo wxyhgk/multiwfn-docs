@@ -92,7 +92,7 @@ After the calculation of grid data is finished, choose option 3 to export sign(�
 
 <!-- p.878 -->
 
-It is clear that there are π-π stacking interactions between neighbouring base pairs (big flat isosurfaces), and there are two strong hydrogen bonds among each base-pairs. The region pointed by red arrow seems to be hydrogen bond because it connects hydrogen and oxygen, however since the filled-color is green, we can conclude that it can only be regarded as vdW interaction.
+It is clear that there are $\pi-\pi$ stacking interactions between neighbouring base pairs (big flat isosurfaces), and there are two strong hydrogen bonds among each base-pairs. The region pointed by red arrow seems to be hydrogen bond because it connects hydrogen and oxygen, however since the filled-color is green, we can conclude that it can only be regarded as vdW interaction.
 
 The default isovalue 0.3 in RDGfill_pro.vmd is suitable for present case, but may not be suitable for exhibiting weak interaction region of other systems, in that situation you need to adjust it manually. You can either edit the .vmd file, or choose “Graphics”-“Representation” in VMD, then select the representation with style “Isosurface” and reset isovalue by inputting expected value in text box.
 
@@ -339,7 +339,7 @@ By the way, there is another way of visualizing grid data of vdW potential, name
 
 <!-- p.891 -->
 
-colored vdW surface map, the procedure in Windows system is: copying vdWpot.bat and vdWpot.txt from "examples\scripts\vdWpot" folder to current folder, properly modifying the path of input file and VMD folder in the .bat file, and then run this .bat file. After that, boot up VMD, copying all content from the vdWpot.vmd file in "examples\scripts\vdwpot" folder to the VMD console window, you will see the vdW potential colored ρ=0.001 a.u. surface (note that the ρ is estimated using promolecular approximation). However, since the graphical effect of this kind of map is not quite good, I prefer to study vdW potential in terms of isosurface map.
+colored vdW surface map, the procedure in Windows system is: copying vdWpot.bat and vdWpot.txt from "examples\scripts\vdWpot" folder to current folder, properly modifying the path of input file and VMD folder in the .bat file, and then run this .bat file. After that, boot up VMD, copying all content from the vdWpot.vmd file in "examples\scripts\vdwpot" folder to the VMD console window, you will see the vdW potential colored $\rho=0.001$ surface (note that the ρ is estimated using promolecular approximation). However, since the graphical effect of this kind of map is not quite good, I prefer to study vdW potential in terms of isosurface map.
 
 4.20.6.2 Example 2: Cyclo[18]carbon
 
@@ -420,11 +420,11 @@ NOTE: If your system is not extremely large and wavefunction file can be generat
 
 The IGM framework includes many useful ideas and defined many useful concepts, a series of analyses will be conducted in this example. A simple system guanine-cytosine (GC) base pair is taken as instance here. Some analyses may be ignored in practical studies, and sequence of analyses is completely arbitrary.
 
-(1) Studying δg function We first study the distribution character of δg function by plotting it as color-filled plane map. Boot up Multiwfn and input below commands
+(1) Studying $\delta g$ function We first study the distribution character of δg function by plotting it as color-filled plane map. Boot up Multiwfn and input below commands
 
 examples\GC.pdb 4 // Plot plane map
 
-22 // δg 1 // Color-filled map [Press ENTER button to use default grid setting] 1 // XY plane 0 // Z=0 The graph shown on screen currently looks obscure, this is because the default color scale is not suitable for present case, so we close the graph and input
+22 // $\delta g$ 1 // Color-filled map [Press ENTER button to use default grid setting] 1 // XY plane 0 // Z=0 The graph shown on screen currently looks obscure, this is because the default color scale is not suitable for present case, so we close the graph and input
 
 1 // Set color scale 0,0.2 // Lower and upper limits 4 // Show atomic labels 1 // Red color -2 // Set label intervals of axes 3,3,0.02 // Intervals for X, Y and color bar
 
@@ -433,24 +433,24 @@ examples\GC.pdb 4 // Plot plane map
 
 8 // Enable showing bonds 14 // Brown -1 // Plot again You will see the graph below
 
-The graph above clearly reveals all interatomic interactions, and the magnitude of δg is positively relevant to interaction strength. As can be seen from the graph, all chemical bond regions
+The graph above clearly reveals all interatomic interactions, and the magnitude of $\delta g$ is positively relevant to interaction strength. As can be seen from the graph, all chemical bond regions
 
-have large δg value (the region with value higher than 0.2 is shown as white). The δg function also outlines three hydrogen bond regions among the base pair, where the δg function has evidently smaller value compared to the chemical bond regions.
+have large $\delta g$ value (the region with value higher than 0.2 is shown as white). $\delta g$ function also outlines three hydrogen bond regions among the base pair, where the δg function has evidently smaller value compared to the chemical bond regions.
 
-The δg can also be plotted as isosurface map. Return to main menu and input 5 // Calculate grid data
+$\delta g$ can also be plotted as isosurface map. Return to main menu and input 5 // Calculate grid data
 
-22 // δg 2 // Medium-quality grid -1 // Show isosurface The isosurface with isovalue of 0.15 and 0.03 are shown below (you can use higher quality of grid or set the extension distance of grid data smaller to make the graph smoother)
+22 // $\delta g$ 2 // Medium-quality grid -1 // Show isosurface The isosurface with isovalue of 0.15 and 0.03 are shown below (you can use higher quality of grid or set the extension distance of grid data smaller to make the graph smoother)
 
 
 ![](../imgs/p895_432.png)
 
 <!-- p.896 -->
 
-Since chemical bond regions have relatively large value of δg, only chemical bonding interactions are visible when isovalue is set to 0.15. Clearly, δg may be used as a function to exhibit chemical bonds like ELF and IRI functions, with additional advantage that only geometry information is needed. The weak interaction regions can also be simultaneously visualized when isovalue is decreased to a small value, e.g. 0.02.
+Since chemical bond regions have relatively large value of $\delta g$, only chemical bonding interactions are visible when isovalue is set to 0.15. Clearly, δg may be used as a function to exhibit chemical bonds like ELF and IRI functions, with additional advantage that only geometry information is needed. The weak interaction regions can also be simultaneously visualized when isovalue is decreased to a small value, e.g. 0.02.
 
-(2) Studying δginter function between base pair The δginter is a key function in the IGM analysis framework, it is designed to reveal interaction regions between two (or even more) fragments defined by users. Here we plot this function to study the interactions between the two bases. Although as shown earlier, these interactions can also be
+(2) Studying $\delta g$inter function between base pair $\delta g^{inter}$ is a key function in the IGM analysis framework, it is designed to reveal interaction regions between two (or even more) fragments defined by users. Here we plot this function to study the interactions between the two bases. Although as shown earlier, these interactions can also be
 
-revealed by simply drawing δg, the isosurfaces corresponding to intrafragment interactions severely polluted the graph. Fortunately, the IGM analysis allows us to separate the δg as δginter and δgintra, which solely reflect the contribution to δg due to interfragment and intrafragment interactions, respectively.
+revealed by simply drawing $\delta g$, the isosurfaces corresponding to intrafragment interactions severely polluted the graph. Fortunately, the IGM analysis allows us to separate the δg as δginter and δgintra, which solely reflect the contribution to δg due to interfragment and intrafragment interactions, respectively.
 
 Return to main menu and input following commands 20 // Visual study of weak interactions 10 // IGM analysis 2 // Define two fragments 1-13 // Range of atoms in the first base 14-29 // Range of atoms in the second base (you can also input c here to define the rest of the present system as the second fragment)
 
@@ -465,11 +465,11 @@ $$\delta g^{inter}$$
 
 If you are familiar with NCI method, you will naturally know how to discuss this graph, now
 
-we try to identify character of peaks in the scatter graph. In the region where sign(λ2)ρ is about -0.04, you can find that the δginter has a remarkable peak (with height about 0.06), which implies presence of hydrogen bonds. If δginter isosurface is set to an isovalue lower than about 0.06, the corresponding isosurfaces should be visible in the graph. In the region where sign(λ2)ρ is approximately +0.02, there is also a small peak of δginter. Since positive sign(λ2)ρ implies repulsive interaction, the peak may reflect weak steric regions in the center of the two rings between the two
+we try to identify character of peaks in the scatter graph. In the region where sign(λ2)ρ is about -0.04, you can find that the $\delta g^{\text{inter}}$ has a remarkable peak (with height about 0.06), which implies presence of hydrogen bonds. If δginter isosurface is set to an isovalue lower than about 0.06, the corresponding isosurfaces should be visible in the graph. In the region where sign(λ2)ρ is approximately +0.02, there is also a small peak of δginter. Since positive sign(λ2)ρ implies repulsive interaction, the peak may reflect weak steric regions in the center of the two rings between the two
 
 bases. In above scatter map, there is a very prominent peak of δgintra around sign(λ2)ρ = -0.3. Since this peak corresponds to intrafragment interaction, and corresponding sign(λ2)ρ is not only negative but large, rendering attractive and strong interaction, the peak must result from chemical bond.
 
-Using Multiwfn you can directly visualize isosurface of δginter and δgintra. To do this, we close the scatter map, select option "4 Show isosurface of grid data", then choose corresponding options and properly set isovalue, you will obtain below isosurface graphs
+Using Multiwfn you can directly visualize isosurface of $\delta g^{\text{inter}}$ and δgintra. To do this, we close the scatter map, select option "4 Show isosurface of grid data", then choose corresponding options and properly set isovalue, you will obtain below isosurface graphs
 
 
 ![](../imgs/p897_434.png)
@@ -478,17 +478,17 @@ Using Multiwfn you can directly visualize isosurface of δginter and δgintra. T
 
 <!-- p.898 -->
 
-As can be seen, δginter and δgintra indeed solely exhibit inter- and intra-fragment interactions, respectively. This greatly facilitates separate discussion of the two kinds of interactions.
+As can be seen, $\delta g^{inter}$ and δgintra indeed solely exhibit inter- and intra-fragment interactions, respectively. This greatly facilitates separate discussion of the two kinds of interactions.
 
-From the above δginter = 0.02 isosurface map we are only able to visualize hydrogen bond regions. To find steric region in the ring center between the two bases, we should further decrease
+From the above $\delta g^{inter}$ = 0.02 isosurface map we are only able to visualize hydrogen bond regions. To find steric region in the ring center between the two bases, we should further decrease
 
-the isovalue of δginter to e.g. 0.008, as shown below. The ring-center steric regions are highlighted by arrows.
+the isovalue of $\delta g^{inter}$ to e.g. 0.008, as shown below. The ring-center steric regions are highlighted by arrows.
 
-(3) Drawing sign(λ2)ρ mapped δginter isosurfaces If sign(λ2)ρ is mapped to δginter isosurfaces by different colors, then one can not only recognize where weak interactions occur, but also immediately capture the character of the interactions. Multiwfn itself is currently unable to plot color-filled isosurface map, we need to use VMD program to do this, just like what we do in the NCI analysis.
+(3) Drawing sign(λ2)ρ mapped $\delta g^{inter}$ isosurfaces If sign(λ2)ρ is mapped to δginter isosurfaces by different colors, then one can not only recognize where weak interactions occur, but also immediately capture the character of the interactions. Multiwfn itself is currently unable to plot color-filled isosurface map, we need to use VMD program to do this, just like what we do in the NCI analysis.
 
 Select option "3 Output cube files to current folder" in IGM post-processing menu, then
 
-sign(λ2)ρ, δg, δginter and δgintra will be exported to sl2r.cub, dg.cub, dg_inter.cub and dg_intra.cub in current folder, respectively. Move sl2r.cub and dg_inter.cub as well as VMD plotting script examples\IGM_inter.vmd into VMD folder. Boot up VMD, input source IGM_inter.vmd in the console window, you will immediately see the graph below
+sign(λ2)ρ, δg, $\delta g^{inter}$ and δgintra will be exported to sl2r.cub, dg.cub, dg_inter.cub and dg_intra.cub in current folder, respectively. Move sl2r.cub and dg_inter.cub as well as VMD plotting script examples\IGM_inter.vmd into VMD folder. Boot up VMD, input source IGM_inter.vmd in the console window, you will immediately see the graph below
 
 The default isovalue employed by the IGM_inter.vmd script is 0.01, you can manually change isovalue by dragging the isovalue bar in "Graphics" - "Representation" panel. In the script the
 
@@ -531,7 +531,7 @@ Atom pair delta-g indices and percentage contributions (zero terms are not shown
 
 If you compare above data with the structure map of present system shown below, you will find the indices are very meaningful and useful for discussing interfragment interactions
 
-The largest three δGatom of fragment 1 are 6, 13 and 8, while that of fragment 2 are 25, 24 and 29, they are just the atoms closest to another fragment, undoubtedly they should have the most important contributions to the interfragment interactions. H13-O24, N6-H25 and O8-H29 have the
+The largest three $\delta G^{atom}$ of fragment 1 are 6, 13 and 8, while that of fragment 2 are 25, 24 and 29, they are just the atoms closest to another fragment, undoubtedly they should have the most important contributions to the interfragment interactions. H13-O24, N6-H25 and O8-H29 have the
 
 largest δGpair, reflecting that they are the most crucial interactions for formation of the base pair.
 
@@ -542,19 +542,19 @@ Note that Multiwfn also exports IBSIW (intrinsic bond strength index for weak in
 
 <!-- p.900 -->
 
-correlation with interatomic interaction strength than atomic pair δg index.
+correlation with interatomic interaction strength than atomic pair $\delta g$ index.
 
-(5) Coloring molecular structure by percentage atom δg indices Using VMD, it is also possible to map δGatom and δGatom(%) on molecular structure, so that relative importance of various atoms for interfragment interaction can be vividly exhibited. If
+(5) Coloring molecular structure by percentage atom $\delta g$ indices Using VMD, it is also possible to map δGatom and δGatom(%) on molecular structure, so that relative importance of various atoms for interfragment interaction can be vividly exhibited. If
 
-needed, the δginter isosurfaces can also be shown together. Now we plot such a map.
+needed, the $\delta g$inter isosurfaces can also be shown together. Now we plot such a map.
 
-First, plot color-filled δginter isosurfaces using the IGM_inter.vmd script as mentioned earlier. After that, we need to remove the default representation showing molecular structure, so we enter "Graphics" - "Representation", choose the first term (its current style is CPK), click "Delete Rep" button. Then we drag the previously generated atmdg.pdb into VMD main window to load it. In this
+First, plot color-filled $\delta g$inter isosurfaces using the IGM_inter.vmd script as mentioned earlier. After that, we need to remove the default representation showing molecular structure, so we enter "Graphics" - "Representation", choose the first term (its current style is CPK), click "Delete Rep" button. Then we drag the previously generated atmdg.pdb into VMD main window to load it. In this
 
 file the “occupancy” field records δGatom(%), to graphically exhibit its value for every atom, we should let VMD color the atoms according to their occupancy property. We enter "Graphics" - "Representation" again, set "Drawing method" to CPK, and set "Coloring method" to “Occupancy”, then click "Trajectory" tab, set upper limit of color scale to 50 and press ENTER button, now the system in graphical window should look like below
 
 Since the color transition set by IGM_inter.vmd is Blue-Green-Red, the largest percentage atom
 
-δg index in present case is 27% (as can be seen in atmdg.txt), while currently the range of color scale for mapping δGatom(%) is set to 0~50, therefore in the map above, the greener the atom, the larger the δGatom(%). The green atoms may be viewed as "hot atom" for interfragment interactions. Contribution to interfragment interactions due to the blue atoms can be ignored, since their δGatom(%) are very close to zero.
+$\delta g$ index in present case is 27% (as can be seen in atmdg.txt), while currently the range of color scale for mapping δGatom(%) is set to 0~50, therefore in the map above, the greener the atom, the larger the δGatom(%). The green atoms may be viewed as "hot atom" for interfragment interactions. Contribution to interfragment interactions due to the blue atoms can be ignored, since their δGatom(%) are very close to zero.
 
 This example ends here, through this example I think you have already recognized basic steps of IGM analysis. In next several examples I will illustrate more.
 
@@ -586,7 +586,7 @@ In this example, we will carry out IGM analysis for C60-coronene dimer, and fina
 
 <!-- p.902 -->
 
-In the map above, the major van der Waals interaction region (more specifically, the π-π stacking region) is exhibited as green isosurface, the more red-colored atoms contribute to the interaction more. If you think this graph is pretty and want to reproduce it, just follow the steps below.
+In the map above, the major van der Waals interaction region (more specifically, the $\pi-\pi$ stacking region) is exhibited as green isosurface, the more red-colored atoms contribute to the interaction more. If you think this graph is pretty and want to reproduce it, just follow the steps below.
 
 The pdb file of the dimer optimized at PM6-D3 level using Gaussian is provided as examples\C60_coronene.pdb. Boot up Multiwfn and load it, then input below commands
 
@@ -594,7 +594,7 @@ The pdb file of the dimer optimized at PM6-D3 level using Gaussian is provided a
 
 6 // Evaluate atom and atomic pair δg indices 2 // High quality y // Export atmdg.pdb in current folder Boot up VMD, enter below commands into VMD console window: color scale method BWR color Display Background white axes location Off display depthcue off display rendermode GLSL Then drag the atmdg.pdb into VMD main window, enter "Graphics" - "Representation", set "Drawing Method" to "CPK", change bond radius from the default 0.3 to 0.8, set "Coloring Method" to "Occupancy", set "Material" to "EdgyShiny". Then go to "Trajectory" tab, set lower and upper limit of color scale to -15 and 15, respectively.
 
-Next, we need to draw the δginter isosurface on the map. Drag dg_inter.cub into VMD main window to load it, then enter "Graphics" - "Representation", change the default style from "lines" to "Isosurface", set "Draw" to "Solid Surface", set "Show" to "Isosurface", then input 0.004 in the
+Next, we need to draw the $\delta g^{inter}$ isosurface on the map. Drag dg_inter.cub into VMD main window to load it, then enter "Graphics" - "Representation", change the default style from "lines" to "Isosurface", set "Draw" to "Solid Surface", set "Show" to "Isosurface", then input 0.004 in the
 
 
 ![](../imgs/p902_441.png)
@@ -611,11 +611,11 @@ Note that in present example, color-filled effect is only applied to molecular s
 
 The IGM module of Multiwfn is extremely flexible, it can be applied to any number of fragments. In this example I use oxazolidinone trimer to show this point. The geometry was taken from J. Chem. Theory Comput., 11, 3065 (2015).
 
-We first use δginter to reveal all interactions between the three monomers. Boot up Multiwfn and input
+We first use $\delta g^{\text{inter}}$ to reveal all interactions between the three monomers. Boot up Multiwfn and input
 
 examples\oxazolidinone_trimer.xyz 20 // Visual study of weak interactions 10 // IGM analysis 3 // Define three fragments 1-11 // Fragment 1: Monomer 1 12-22 // Fragment 2: Monomer 2 23-33 // Fragment 3: Monomer 3 2 // Medium-quality grid 3 // Output cube files in current folder
 
-Then we use aforementioned method to plot color-filled δginter isosurface map via IGM_inter.vmd script, you will see the graph below
+Then we use aforementioned method to plot color-filled $\delta g^{\text{inter}}$ isosurface map via IGM_inter.vmd script, you will see the graph below
 
 From color of isosurfaces in the graph it is found that the 1-2 and 1-3 interactions correspond to typical hydrogen bonding, while 2-3 interaction is significantly weaker and thus more appropriate
 
@@ -657,9 +657,9 @@ As can be seen in this example, the partition of fragments is highly arbitrary. 
 
 In this example only a simple system is taken as instance, however I think it is enough to substantially exhibit the extreme flexibility and powerfulness of IGM analysis, Multiwfn and VMD programs. The IGM method can also be easily applied to much more complicated systems; for example, in my blog article http://sobereva.com/407 (in Chinese), I showed that IGM can clearly reveal the interaction between two monomers in a tetramer consisting of four large flexible molecules.
 
-It is worth to mention that δg value at bond critical points (BCP) is positively correlated to interaction strength (see Table 1 of IGM original paper), Multiwfn is also able to calculate it. First, load a file containing wavefunction information into Multiwfn, then use main function 2 to carry out topology analysis and locate BCPs, then use option 7 to examine properties of the BCPs, from
+It is worth to mention that $\delta g$ value at bond critical points (BCP) is positively correlated to interaction strength (see Table 1 of IGM original paper), Multiwfn is also able to calculate it. First, load a file containing wavefunction information into Multiwfn, then use main function 2 to carry out topology analysis and locate BCPs, then use option 7 to examine properties of the BCPs, from
 
-screen you can directly read δg value. I do not explicitly present a corresponding analysis example
+screen you can directly read $\delta g$ value. I do not explicitly present a corresponding analysis example
 
 
 ![](../imgs/p905_444.png)
@@ -780,17 +780,17 @@ Section 3.23.11. Here we choose option 3 to export the grid data of averaged δg
 
 Current map is difficult to view clearly, so we need to change plotting settings. In VMD main window, choose “Graphics” - “Representation”, input 0.003 in the “Isovalue” text box to set
 
-isovalue of averaged δginter to 0.003 a.u. Then click the representation corresponding to CPK style, input fragment 0 in “Selected Atoms” text box to only make the phenol visible. Now you should see:
+isovalue of averaged $\delta g^{inter}$ to 0.003 a.u. Then click the representation corresponding to CPK style, input fragment 0 in “Selected Atoms” text box to only make the phenol visible. Now you should see:
 
 The color bar corresponding to this map is examples\IGMH_colorbar.png. Clearly, the map above very vividly and successfully exhibited the average interactions between the phenol and surrounding waters, demonstrating the great value of amIGM. If you further decrease the isovalue to e.g. 0.0018 a.u., additional isosurfaces will also be visible, which exhibit weaker interactions (mostly dispersion effect), see original paper of amIGM for relevant discussion and many other examples.
 
 Studying interaction stability In the post-processing menu, choose option 8 to calculate grid data of standard deviation of
 
-δginter and TFIamIGM (thermal fluctuation index of amIGM), then they are exported to stddg_inter.cub and TFI_amIGM.cub in current folder, respectively. You can map either one onto the isosurfaces of
+$\delta g^{inter}$ and TFIamIGM (thermal fluctuation index of amIGM), then they are exported to stddg_inter.cub and TFI_amIGM.cub in current folder, respectively. You can map either one onto the isosurfaces of
 
-averaged δginter to graphically exhibit difference in interaction stability; usually their graphical effects are similar, the larger the value at a location on the isosurface, the lower the dynamics stability of the corresponding interaction. aIGM_TFI.vmd in “examples” folder is a VMD script file used to map TFI_amIGM.cub onto isosurfaces of avgdg_inter.cub by colors. Now we move TFI_amIGM.cub and aIGM_TFI.vmd to VMD folder, then boot up VMD and run source
+averaged $\delta g^{inter}$ to graphically exhibit difference in interaction stability; usually their graphical effects are similar, the larger the value at a location on the isosurface, the lower the dynamics stability of the corresponding interaction. aIGM_TFI.vmd in “examples” folder is a VMD script file used to map TFI_amIGM.cub onto isosurfaces of avgdg_inter.cub by colors. Now we move TFI_amIGM.cub and aIGM_TFI.vmd to VMD folder, then boot up VMD and run source
 
-aIGM_TFI.vmd in console window of VMD, then change isovalue of averaged δginter to 0.003 a.u.,
+aIGM_TFI.vmd in console window of VMD, then change isovalue of averaged $\delta g^{inter}$ to 0.003 a.u.,
 
 
 ![](../imgs/p911_448.png)
@@ -808,7 +808,7 @@ Important notes on amIGM analysis
 - The more the considered trajectory frames, the more realistic the result, and the smoother the isosurfaces. Usually at least 500 frames should be taken into account.
 - As mentioned earlier, the position and structure of the key object should be fixed. As you can see, in the MD simulation of the above instance, the phenol atoms were fully frozen at the initial coordinate. If the key object can freely translate or rotate, or its conformation changes a
 
-lot during the MD simulation, the isosurfaces of δginter will be cluttered, making it infeasible to visually study interactions.
+lot during the MD simulation, the isosurfaces of $\delta g^{inter}$ will be cluttered, making it infeasible to visually study interactions.
 - To greatly reduce computational cost of amIGM and aIGM, Multiwfn employs a scheme: If a grid is within scaled vdW radius of any atom of fragment 1, then this grid will be calculated while others will be ignored to save cost. The parameter “amIGMvdwscl” in `settings.ini` corresponds to the scale factor, the smaller the value, the lower the cost. The default amIGMvdwscl=2 is found to be very safe. Employing this acceleration scheme clearly implies that the fragment 1 defined by the user should correspond to the key region, which is fixed during the MD simulation. The acceleration scheme can be disabled by setting “amIGMvdwscl” to 0, then the order of the defined fragments is arbitrary, for example, in the above instance, one may also define the waters as fragment 1 while the phenol as fragment 2.
 - Atom names in MD simulation codes are generally different to element names. It is best to
 

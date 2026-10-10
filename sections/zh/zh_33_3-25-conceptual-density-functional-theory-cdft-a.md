@@ -406,7 +406,7 @@ $$f_{\Delta N_{S}>0}^{-}(\mathbf{r})=\frac{\rho_{N}(\mathbf{r})-\rho_{N-q_{\beta
 
 $$D^{N}(A)=2\sum_{i}^{unocc}\sum_{\mu\in A}\frac{C_{\mu,i}^{2}}{\alpha-\varepsilon_{i}}$$
 
-其中 εi 为分子轨道 i 的能量，α = (EHOMO + ELUMO)/2，μA 表示原子 A 的基函数 μ，C 为系数矩阵。显然，DN 和 DE 均为负值。
+其中 εi 为分子轨道 i 的能量，α = (EHOMO + ELUMO)/2，μ∈A 表示原子 A 的基函数 μ，C 为系数矩阵。显然，DN 和 DE 均为负值。
 
 然而，Schüürmann 的超离域性表达式仅适用于采用正交基函数的半经验计算。在 Sci. Rep., 5, 13695 (2015) 中，提出了另一版本的亲电超离域性，它兼容非正交基函数。在该工作中表明，原子的亲电超离域性与其原子极化率密切相关。
 

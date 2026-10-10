@@ -211,9 +211,9 @@ for phenol_N-1.wfn, and finally get their difference to yield grid data of f −
 
 In the map, green and blue isosurface correspond to positive and negative region of f −, respectively. Clearly, most positive part of f − function is localized on O12, C1, C3, C4 and C5, that means para and ortho positions of hydroxyl are favourable reactive sites for electrophilic attack, this conclusion is in agreement with common knowledge, namely hydroxyl group is an ortho-para- director.
 
-Calculating Fukui functions f 0 Next, I take propylene as an example to illustrate how to plot Fukui function for radical attack,
+Calculating Fukui functions $f^{0}$ Next, I take propylene as an example to illustrate how to plot Fukui function for radical attack,
 
-namely f 0 = (ρN+1 − ρN-1)/2. Of course, we should yield wavefunction file corresponding to N+1 state and N-1 state. We first optimize geometry of neutral state (examples\propylene\opt_N.gjf), then use this geometry to perform single point task of N-1 and N+1 states to yield corresponding .fch files.
+namely $f^{0}$ = (ρN+1 − ρN-1)/2. Of course, we should yield wavefunction file corresponding to N+1 state and N-1 state. We first optimize geometry of neutral state (examples\propylene\opt_N.gjf), then use this geometry to perform single point task of N-1 and N+1 states to yield corresponding .fch files.
 
 Boot up Multiwfn and input: examples\propylene\N+1.fch // N+1 electrons state, namely -1 charged state 5 // Calculate grid data 0 // Set custom operation 1 // One file will be operated with propylene-1.fch -,examples\propylene\N-1.fch // N-1 electrons state, namely +1 charged state 1 // Electron density
 
@@ -222,13 +222,13 @@ Boot up Multiwfn and input: examples\propylene\N+1.fch // N+1 electrons state, n
 
 <!-- p.550 -->
 
-2 // Medium-quality grid 6 // Divide all grid data by a factor 2 // Divided by 2 -1 // Visualize isosurface map The isosurface map of f 0 = 0.01 is shown below
+2 // Medium-quality grid 6 // Divide all grid data by a factor 2 // Divided by 2 -1 // Visualize isosurface map The isosurface map of $f^{0}=0.01$ = 0.01 is shown below
 
 4.5.4.2 Dual descriptor
 
 Theory Dual descriptor is another useful function used to reveal reactive sites, see J. Phys. Chem. A,
 
-109, 205 (2005) for detail. Formally, the definition of the dual descriptor Δf has close relationship with Fukui function:
+109, 205 (2005) for detail. Formally, the definition of the dual descriptor $\Delta f$ has close relationship with Fukui function:
 
 $$\Delta f(\mathbf{r})=f^{+}(\mathbf{r})-f^{-}(\mathbf{r})$$
 
@@ -236,9 +236,9 @@ $$=[\rho_{N+1}(\mathbf{r})-\rho_{N}(\mathbf{r})]-[\rho_{N}(\mathbf{r})-\rho_{N-1
 
 It is noteworthy that dual descriptor can also be evaluated in terms of spin density 𝜌𝑠. Since 𝜌𝑁+1 −𝜌𝑁 and 𝜌𝑁−𝜌𝑁−1 can be approximated as 𝜌𝑁+1 𝑠 respectively, it is clear that ∆𝑓(𝐫) ≈𝜌𝑁+1 𝑠(𝐫) . Commonly, there is no evident qualitative difference between the dual descriptor evaluated based on electron density of three states (N+1, N, N-1) and the one based on spin density of two states (N+1, N-1). 𝑠(𝐫) −𝜌𝑁−1 𝑠 and 𝜌𝑁−1
 
-Unlike Fukui function, via Δf both types of reactive sites can be revealed simultaneously. It is argued that if Δf > 0, then the site is favorable for a nucleophilic attack, whereas if Δf < 0, then the site is favorable for an electrophilic attack. However, according to my experience, if your aim is to figure out which ones are more favorable among many potential sites, you do not need to concern
+Unlike Fukui function, via $\Delta f$ both types of reactive sites can be revealed simultaneously. It is argued that if Δf > 0, then the site is favorable for a nucleophilic attack, whereas if Δf < 0, then the site is favorable for an electrophilic attack. However, according to my experience, if your aim is to figure out which ones are more favorable among many potential sites, you do not need to concern
 
-the sign of Δf, you only need to study which sites have more positive or more negative of Δf. If the distribution of Δf around a site A is more positive than another site B, then one can say A is a more favorable site for nucleophilic attack than B, and meantime B is a more preferential site for electrophilic attack than A.
+the sign of $\Delta f$, you only need to study which sites have more positive or more negative of Δf. If the distribution of Δf around a site A is more positive than another site B, then one can say A is a more favorable site for nucleophilic attack than B, and meantime B is a more preferential site for electrophilic attack than A.
 
 Approximately evaluating dual descriptor based on spin density Here we calculate dual descriptor for phenol based on spin density of N-1 and N+1 states. Since we have already calculated phenol_N-1.wfn earlier, now we only need to calculate phenol_N+1.wfn (this file and corresponding input file phenol_N+1.gjf has been provided in "example" folder). After that, boot up Multiwfn and input:
 
@@ -266,9 +266,9 @@ examples\phenol_N+1.wfn // N+1 electron system 5 // Calculate grid data 0 // Set
 
 <!-- p.552 -->
 
-It can be seen that although this map is qualitatively consistent with the Δf map evaluated based on spin density, the difference between ortho-carbons and meta-carbons is not so remarkable, showing
+It can be seen that although this map is qualitatively consistent with the $\Delta f$ map evaluated based on spin density, the difference between ortho-carbons and meta-carbons is not so remarkable, showing
 
-that this time Δf does not have good ability to discriminate preferential sites. So, using exact form to evaluate Δf does not necessarily give rise to better result than using spin density to approximately evaluate Δf !
+that this time $\Delta f$ does not have good ability to discriminate preferential sites. So, using exact form to evaluate Δf does not necessarily give rise to better result than using spin density to approximately evaluate Δf !
 
 On the "condensed" Fukui function and dual descriptor Above we used visualization manners to examine Fukui function and dual descriptor and obtained the conclusion what we expected. However, visual analysis is somewhat ambiguous and subjective. Therefore, sometimes we hope that the discussions of Fukui function and dual descriptor can be quantified, namely assigning a value for each atom to exhibit the extent that it can be acted as reactive site. To do so, one should calculate "condensed" version of Fukui function and dual descriptor based on population analysis techniques. Since population analysis is exemplified in Section 4.7, the method for calculating condensed Fukui function and condensed dual descriptor will be deferred to be introduced as Section 4.7.3. Another scheme to study Fukui function and dual descriptor is to first partition the whole molecular surface to local surface corresponding to each atom, and then examine their average values on these local surfaces. Because this scheme relies on quantitative molecular surface analysis technique, illustration is deferred to Section 4.12.4.
 

@@ -36,7 +36,7 @@ Beijing Kein Research Center for Natural Sciences
 
 ## !!!!!!!!!! ALL USERS MUST READ !!!!!!!!!!
 
-1. Please feel free to ask questions about using Multiwfn by posting topic on Multiwfn English forum (http://sobereva.com/wfnbbs) or Multiwfn Chinese forum (http://bbs.keinsci.com/wfn)! I am always willing to provide as much help as I can for any Multiwfn user!!! \(°°)/
+1. Please feel free to ask questions about using Multiwfn by posting topic on Multiwfn English forum (http://sobereva.com/wfnbbs) or Multiwfn Chinese forum (http://bbs.keinsci.com/wfn)! I am always willing to provide as much help as I can for any Multiwfn user!!! \(°◡°)/
 
 2. To very quickly understand how to use Multiwfn to carry out very common tasks, please check "Multiwfn quick start.pdf" in the Multiwfn binary package.
 

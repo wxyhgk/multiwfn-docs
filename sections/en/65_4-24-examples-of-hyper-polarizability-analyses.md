@@ -234,7 +234,7 @@ Next, we calculate first hyperpolarizability and consider the static case β(0;0
 
 output we find β||(0;0,0) is -38.98. The corresponding experimental value is not available, however this value is close to the highly accurate value calculated by CCSD(T) method (-34.3, see J. Chem. Phys., 98, 3022 (1993)).
 
-Subsequently, we calculate β(-2ω;ω,ω) at ω=0.0656 a.u. Select option 2 again and input 0.0656, 0.0656 to set the frequency of both two external fields as 0.0656 a.u. This time the β|| value is -49.69, which is again in excellent agreement with the experimentally determined value -48.9±1.2 (see A. Hernández-Laguna et al. (eds.), Quantum Systems in Chemistry and Physics, Vol. 1, p111)
+Subsequently, we calculate $\beta(-2\omega;\omega,\omega)$=0.0656 a.u. Select option 2 again and input 0.0656, 0.0656 to set the frequency of both two external fields as 0.0656 a.u. This time the β|| value is -49.69, which is again in excellent agreement with the experimentally determined value -48.9±1.2 (see A. Hernández-Laguna et al. (eds.), Quantum Systems in Chemistry and Physics, Vol. 1, p111)
 
 Note: Although in this example the agreement between our SOS/CIS calculations and the reference values is surprisingly good, this is not always held for other systems. The SOS/CIS method sometimes severely overestimates β value!
 
@@ -246,7 +246,7 @@ of γ is 928.74. Beware that this value may be inaccurate (reference value is no
 
 excitation calculation is not large enough. Accurate calculation of γ usually requires a basis set like d-aug-cc-pVTZ (or an even better one), which has an additional shell of diffuse functions compared to the commonly used aug-cc-pVTZ.
 
-Multiwfn is also capable of calculating third hyperpolarizability δ(-ω;ω1,ω2,ω3,ω4) where ω=ω1+ω2+ω3+ω4, but we do not do this in present example, because this quantity is fairly unimportant, and the calculation is terribly expensive when the number of states in consideration is large; moreover, a sky-high quality of basis set must be employed in the calculation...
+Multiwfn is also capable of calculating third hyperpolarizability $\delta(-\omega;\omega_1,\omega_2,\omega_3,\omega_4)$ $\omega=(\omega_1+\omega_2+\omega_3+\omega_4$, but we do not do this in present example, because this quantity is fairly unimportant, and the calculation is terribly expensive when the number of states in consideration is large; moreover, a sky-high quality of basis set must be employed in the calculation...
 
 Variation of (hyper)polarizability with respect to number of considered states A very important point in SOS calculation is that the number of states used must be high enough; in other words, if n states are involved in your SOS studies, the variation of the (hyper)polarizability with respect to the number of states have to be converged before n, otherwise n must be enlarged. By using Multiwfn we can readily examine if the convergence condition is satisfied. Here we check
 
@@ -281,7 +281,7 @@ You can also analogously use options 5 and 7 to study the convergence behavior o
 
 Variation of (hyper)polarizability with respect to frequency of external fields In the SOS module of Multiwfn, one can also easily study the variation of dynamic (hyper)polarizability with respect to the frequency of external fields. For example, we investigate
 
-the variation of β(-ω1;ω1,0) as ω1 varies from 0 to 0.5 a.u. with stepsize of 0.01. Write a plain text file, each row corresponds to a pair of ω1, ω2 (ω2 is fixed at zero in this example), for example
+the variation of $\beta(-\omega_1; \omega_1, 0)$ varies from 0 to 0.5 a.u. with stepsize of 0.01. Write a plain text file, each row corresponds to a pair of ω1, ω2 (ω2 is fixed at zero in this example), for example
 
 
 ```text
@@ -305,7 +305,7 @@ directly plotted as curve map by Origin, for example the magnitude of β(-ω1;ω
 
 90000
 
-Magnitude of β (−ω1;ω1,0) 80000 70000 60000 50000 40000 30000 20000
+Magnitude of β (−$\omega_1$;ω1,0) 80000 70000 60000 50000 40000 30000 20000
 
 10000
 
@@ -313,19 +313,19 @@ Magnitude of β (−ω1;ω1,0) 80000 70000 60000 50000 40000 30000 20000
 
 0.00.10.20.30.40.5
 
-Frequency of external field ω1
+Frequency of external field $\omega_1$
 
 Similarly, you can also use options 15 and 17 to study the variation of α and γ with respect to frequency of external fields, respectively.
 
-Scanning both ω1 and ω2 of β(-(ω1+ω2);ω1,ω2) By subfunction 19 of the SOS module, you can also scan both ω1 and ω2 of β(-(ω1+ω2);ω1,ω2). For example, we input below commands in the SOS module
+Scanning both $\omega_1$ and ω2 of β(-(ω1+ω2);ω1,ω2) By subfunction 19 of the SOS module, you can also scan both $\beta(-(\omega_1+\omega_2);\omega_1,\omega_2)$ For example, we input below commands in the SOS module
 
 19
 
--0.6,0.6,100 // Lower limit, upper limit and number of steps of ω1 (in a.u.) -0.6,0.6,100 // Lower limit, upper limit and number of steps of ω2 (in a.u.) After a while, beta_w.txt and beta_w_comp.txt are generated in current folder, the meaning of
+-0.6,0.6,100 // Lower limit, upper limit and number of steps of $\omega_1$ (in a.u.) -0.6,0.6,100 // Lower limit, upper limit and number of steps of $\omega_2$ After a while, beta_w.txt and beta_w_comp.txt are generated in current folder, the meaning of
 
-each column of the files is clearly mentioned on screen. To visually study how total β varies with respect to change in ω1 and ω2, you can plot a relief map with first, second and 7th columns as X, Y and Z data, respectively. The map shown below was plotted by Sigmaplot:
+each column of the files is clearly mentioned on screen. To visually study how total β varies with respect to change in $\omega_1$ and ω2, you can plot a relief map with first, second and 7th columns as X, Y and Z data, respectively. The map shown below was plotted by Sigmaplot:
 
-This kind map exhibits one photon resonance β(-ω1;ω1,0) or β(-ω2;0,ω2), sum frequency
+This kind map exhibits one photon resonance β(-$\omega_1$;ω1,0) or β(-ω2;0,ω2), sum frequency
 
 
 ![](../imgs/p976_495.png)
@@ -348,7 +348,7 @@ also provides clear insight into the difference in β between analogous systems.
 
 It is important to emphasize that the two- or three-level analysis is useful only when these two conditions are satisfied:
 
-- Only one component of β (namely βXXX or βYYY or βZZZ) plays dominant role. This component should be subjected to the analysis
+- Only one component of β (namely $\beta_{XXX}$ or βYYY or βZZZ) plays dominant role. This component should be subjected to the analysis
 
 - One excited state (for two-level model) or two excited states (for three-level model) has much larger contribution to β than all other excited states
 
@@ -358,7 +358,7 @@ models to very roughly discuss the factors influencing the β, so using these tw
 
 Prepare input file Boot up Multiwfn and input below commands examples\excit\D-pi-A.fchk 18 // Electron excitation analysis module 5 // Calculate transition dipole moments and dipole moment for all excited states examples\excit\D-pi-A.out 3 // Generate SOS.txt, which contains all information needed by the two- or three-level analysis Now we are ready to perform the two/three-level analysis. Before doing this, we need to
 
-confirm which component of β should be studied. The molecular geometry of D-pi-A.fchk is shown below (displayed by main function 0). As can be see, the direction of donor-π-acceptor path is fully parallel to X-axis, hence it is expected that only βXXX of current system is prominent.
+confirm which component of β should be studied. The molecular geometry of D-pi-A.fchk is shown below (displayed by main function 0). As can be see, the direction of donor-π-acceptor path is fully parallel to X-axis, hence it is expected that only $\beta_{XXX}$ of current system is prominent.
 
 
 <!-- p.978 -->
@@ -394,7 +394,7 @@ beta evaluated by two-level model: (a.u.)
  #    5: XXX=         0.00  YYY=        -0.13  ZZZ=        -0.27  Norm=         0.30
 ```
 
-Clearly, only excited state 2 has significant contribution to βXXX.
+Clearly, only excited state 2 has significant contribution to $\beta_{XXX}$
 
 We can ask Multiwfn to print more detailed information about the excited state 2. Input the following commands
 
@@ -470,7 +470,7 @@ Three-level analysis We can also carry out three-level model analysis. In the Mu
 
 It can be seen that all terms involved in the three-level model analysis have been given. We
 
-also find that the individual contribution of excited state 1 to βXXX is quite small, and the term due to coupling between the two states is also negligible, implying that employing two-level model analysis is completely adequate for the present system, including more states into the analysis does not provide additional insight.
+also find that the individual contribution of excited state 1 to $\beta_{XXX}$ is quite small, and the term due to coupling between the two states is also negligible, implying that employing two-level model analysis is completely adequate for the present system, including more states into the analysis does not provide additional insight.
 
 The reason why the individual contribution corresponding to the excited state 1 is fairly low is
 

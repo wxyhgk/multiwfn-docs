@@ -49,15 +49,15 @@ $$\nabla^{2}\rho(\mathbf{r})=\frac{\partial^{2}\rho(\mathbf{r})}{\partial x^{2}}
 
 <!-- formula-ocr: formula_p42_003.png 已替换为LaTeX, 原图保留备查 -->
 
-The positive and negative values of this function correspond to electron density is locally depleted and locally concentrated, respectively. The relationships between ∇2𝜌 and valence shell electron pair repulsion (VSEPR) model, chemical bond type, electron localization and chemical reactivity have been built by Bader and many other researchers.
+The positive and negative values of this function correspond to electron density is locally depleted and locally concentrated, respectively. The relationships between $\nabla^2 \rho$ and valence shell electron pair repulsion (VSEPR) model, chemical bond type, electron localization and chemical reactivity have been built by Bader and many other researchers.
 
 Notice that in some other codes, such as AIMALL and AIM2000, Laplacian of electron density
 
-is defined as (− 1 4)∇2𝜌, which differs from the value given by Multiwfn by a factor of -1/4.
+is defined as (− 1 4)$\nabla^2 \rho$, which differs from the value given by Multiwfn by a factor of -1/4.
 
-If “laplfac” in `settings.ini` is set to other value rather than the default one 1.0, ∇2𝜌 will be multiplied with this value.
+If “laplfac” in `settings.ini` is set to other value rather than the default one 1.0, $\nabla^2 \rho$ will be multiplied with this value.
 
-The ∇2𝜌 outputted by Multiwfn is in atomic unit, which can be explicitly written as 1 Bohr-5 (corresponding to 24.09874 Å-5, since 1 Bohr = 0.529177 Å).
+The $\nabla^2 \rho$ outputted by Multiwfn is in atomic unit, which can be explicitly written as 1 Bohr-5 (corresponding to 24.09874 Å-5, since 1 Bohr = 0.529177 Å).
 
 4 Value of orbital wavefunction; 44 Orbital probability density They are respectively defined as
 
@@ -158,9 +158,9 @@ i
 
 $$\mathrm{ELF}(\mathbf{r})=\frac{1}{1+[\boldsymbol{D}(\mathbf{r})/\boldsymbol{D}_{0}(\mathbf{r})]^{2}}$$
 
-energy density caused by Pauli repulsion and it is known as Pauli kinetic energy density. The D0(r)
+energy density caused by Pauli repulsion and it is known as Pauli kinetic energy density. The $D_0$
 
-can be interpreted as Thomas-Fermi kinetic energy density τTF, which is the exact kinetic energy density of non-interacting, uniform electron gas. Since D0(r) is introduced into ELF as reference, what the ELF reveals is actually degree of relative localization.
+can be interpreted as Thomas-Fermi kinetic energy density $\tau_{\mathrm{TF}}$, which is the exact kinetic energy density of non-interacting, uniform electron gas. Since $D_0$ is introduced into ELF as reference, what the ELF reveals is actually degree of relative localization.
 
 ELF is within the range of [0,1]. A large ELF value means that electrons are greatly localized, indicating that there is a covalent bond, a lone pair or inner shells of the atom involved. ELF has been widely used for a wide variety of systems, such as organic and inorganic small molecules, atomic crystals, coordination compounds, clusters, and for different problems, such as the revealing atomic shell structure, classification of chemical bonding, verification of charge-shift bonds, studying aromaticity.
 
@@ -237,7 +237,7 @@ $$V_{\mathrm{ESP}}(\mathbf{r})=V_{\mathrm{nuc}}(\mathbf{r})+V_{\mathrm{ele}}(\ma
 
 <!-- formula-ocr: formula_p46_017.png 已替换为LaTeX, 原图保留备查 -->
 
-For chemical system, if P(x) is replaced with ρ(r)/N, then the integrand may be called as local information entropy of electrons
+For chemical system, if P(x) is replaced with $\rho(\mathbf{r})/N$, then the integrand may be called as local information entropy of electrons
 
 $$V_{\mathrm{ESP}}(\mathbf{r})=V_{\mathrm{nuc}}(\mathbf{r})+V_{\mathrm{ele}}(\mathbf{r})=\sum_{A}\frac{Z_{A}}{\left|\mathbf{r}-\mathbf{R}_{A}\right|}-\int\frac{\rho(\mathbf{r}^{\prime})}{\left|\mathbf{r}-\mathbf{r}^{\prime}\right|}\mathrm{d}\mathbf{r}^{\prime}$$
 
@@ -284,7 +284,7 @@ evaluated extremely rapidly
 
 $$\rho^{\mathrm{p r o}}(\mathbf{r})=\sum_{A}\rho_{A}^{\mathrm{f r e e,f i t}}(\mathbf{r}-\mathbf{R}_{A})$$
 
-free,fit(𝐫) is pre-fitted spherically averaged electron density of atom A. The atomic densities for H~Lr are built-in data of Multiwfn, among which the data for H~Ar are taken from supplemental material of J. Am. Chem. Soc., 132, 6498 (2010), while those for other elements are evaluated according to the description in Appendix 3. For elements heavier than Lr the promolecular approximation is not currently available. where 𝜌𝐴
+$\rho_{A}^{free,fit}(\mathbf{r})$ is pre-fitted spherically averaged electron density of atom A. The atomic densities for H~Lr are built-in data of Multiwfn, among which the data for H~Ar are taken from supplemental material of J. Am. Chem. Soc., 132, 6498 (2010), while those for other elements are evaluated according to the description in Appendix 3. For elements heavier than Lr the promolecular approximation is not currently available. where 𝜌𝐴
 
 For efficiency consideration, if contribution from H, C, N or O atom to the function value at a specific point is less than 0.00001, then the contribution will not be calculated, for huge system this treatment improves efficiency several times and the result is almost unperturbed. You can also disable this treatment by setting “atomdenscut” in `settings.ini` to 0.
 
@@ -308,14 +308,14 @@ where sign[λ2(r)] means the sign of the second largest eigenvalue of electron d
 
 $$\pi(\mathbf{r}_{1},\mathbf{r}_{2})=N(N-1)\int\int\cdots\int\left|\Psi(\mathbf{x}_{1},\mathbf{x}_{2}\ldots\mathbf{x}_{N})\right|^{2}\mathrm{d}\sigma_{1}\mathrm{d}\sigma_{2}\mathrm{d}\mathbf{x}_{3}\mathrm{d}\mathbf{x}_{4}\ldots\mathrm{d}\mathbf{x}_{N}$$
 
-where Ψ is system wavefunction, r is space coordinate, σ is spin coordinate, x is space-spin coordinate. Pair density denotes the probability that finding an electron at r1 and another electron at r2, regardless of the spin type. If we perform double-integration for pair density over the whole space, we will get N(N-1), reflecting the nature that there are N(N-1) electron pairs in present system. Obviously, pair density can be decomposed to contributions from different spin types of electron pairs
+where Ψ is system wavefunction, r is space coordinate, σ is spin coordinate, x is space-spin coordinate. Pair density denotes the probability that finding an electron at $\mathbf{r}_{1}$ and another electron at $\mathbf{r}_{2}$ regardless of the spin type. If we perform double-integration for pair density over the whole space, we will get N(N-1), reflecting the nature that there are N(N-1) electron pairs in present system. Obviously, pair density can be decomposed to contributions from different spin types of electron pairs
 
 
 $$\mathbf{r}$$
 
 <!-- formula-ocr: formula_p48_020.png 已替换为LaTeX, 原图保留备查 -->
 
-If the electron motions are completely independent with each other, then the probability density of finding two electrons with spin σ1 at r1 and with σ2 at r2 respectively should simply be
+If the electron motions are completely independent with each other, then the probability density of finding two electrons with spin σ1 at $\mathbf{r}_{1}$ and with σ2 at r2 respectively should simply be
 
 
 <!-- p.49 -->
@@ -351,14 +351,14 @@ Collectively, one can write out
 
 $$f_{\mathrm{XC}}^{\sigma_{1}\sigma_{2}}(\mathbf{r}_{1},\mathbf{r}_{2})=\frac{h_{\mathrm{XC}}^{\sigma_{1}\sigma_{2}}(\mathbf{r}_{1},\mathbf{r}_{2})}{\rho^{\sigma_{2}}(\mathbf{r}_{2})}=\frac{\Gamma_{\mathrm{XC}}^{\sigma_{1}\sigma_{2}}(\mathbf{r}_{1},\mathbf{r}_{2})}{\rho^{\sigma_{1}}(\mathbf{r}_{1})\rho^{\sigma_{2}}(\mathbf{r}_{2})}$$
 
-ГXC can be decomposed to the sum of exchange correlation (also called as Fermi correlation) part ГX and Coulomb correlation part ГC, therefore hXC can be straightforwardly decomposed to exchange hole hX (also called as Fermi hole) and Coulomb hole hC as follows. Likewise, fXC can be decomposed to fX and fC
+ГXC can be decomposed to the sum of exchange correlation (also called as Fermi correlation) part ГX and Coulomb correlation part ГC, therefore $h_X$C can be straightforwardly decomposed to exchange hole hX (also called as Fermi hole) and Coulomb hole $h_C$ as follows. Likewise, fXC can be decomposed to fX and fC
 
 
 $$\pi^{\sigma_{1}\sigma_{2}}(\mathbf{r}_{1},\mathbf{r}_{2})=\rho^{\sigma_{1}}(\mathbf{r}_{1})\rho^{\sigma_{2}}(\mathbf{r}_{2})+\rho^{\sigma_{1}}(\mathbf{r}_{1})h_{\mathrm{X C}}^{\sigma_{1}\sigma_{2}}(\mathbf{r}_{1},\mathbf{r}_{2})=\rho^{\sigma_{1}}(\mathbf{r}_{1})\rho^{\sigma_{2}}(\mathbf{r}_{2})\left[1+f_{\mathrm{X C}}^{\sigma_{1}\sigma_{2}}(\mathbf{r}_{1},\mathbf{r}_{2})\right]$$
 
 <!-- formula-ocr: formula_p49_024.png 已替换为LaTeX, 原图保留备查 -->
 
-Fermi correlation only presents between like-spin electrons; while Coulomb correlation occurs between any two electrons. Fermi correlation is much more important than Coulomb correlation, even at Hartree-Fock level, Fermi correlation is always well represented due to the anti-symmetry requirement of Slater determinant, while Coulomb is completely omitted. Only post-HF wavefunction is capable of simultaneously exhibiting Fermi and Coulomb correlation effects. Commonly we only focus on Fermi hole while neglecting Coulomb hole. One can easily show that integration of hX over whole space is exactly equal to -1, hence Fermi correlation perfectly avoided self-pairing problem, which may cause significant rise in system energy; while the integration for hC is zero, this is mainly why Coulomb correlation has less influence on system energy.
+Fermi correlation only presents between like-spin electrons; while Coulomb correlation occurs between any two electrons. Fermi correlation is much more important than Coulomb correlation, even at Hartree-Fock level, Fermi correlation is always well represented due to the anti-symmetry requirement of Slater determinant, while Coulomb is completely omitted. Only post-HF wavefunction is capable of simultaneously exhibiting Fermi and Coulomb correlation effects. Commonly we only focus on Fermi hole while neglecting Coulomb hole. One can easily show that integration of $h_X$ over whole space is exactly equal to -1, hence Fermi correlation perfectly avoided self-pairing problem, which may cause significant rise in system energy; while the integration for $h_C$ is zero, this is mainly why Coulomb correlation has less influence on system energy.
 
 It is also rather straightforward to obtain the pair density and conditional probability when only exchange correlation or Coulomb correlation is taken into account.
 
@@ -387,9 +387,9 @@ For post-HF wavefunction, exact evaluation of pair density requires two-particle
 
 $$\Gamma_{\mathrm{XC,approx}}^{\alpha,\mathrm{tot}}(\mathbf{r}_{1},\mathbf{r}_{2})=-\sum_{i\in\alpha}\sum_{j\in\alpha}\sqrt{\eta_{i}\eta_{j}}\varphi_{i}^{*}(\mathbf{r}_{1})\varphi_{j}^{*}(\mathbf{r}_{2})\varphi_{j}(\mathbf{r}_{1})\varphi_{i}(\mathbf{r}_{2})$$
 
-α,tot reduces to single-determinant form. so ΓXC,approx Obviously, if occupation numbers of natural spin orbitals are integer (0 or 1), then ΓXC,approx α,tot can be regarded as a general form to evaluate
+α,tot reduces to single-determinant form. so $\Gamma_{\mathrm{XC},\mathrm{approx}}^{\alpha\alpha}$ Obviously, if occupation numbers of natural spin orbitals are integer (0 or 1), then $\Gamma_{\mathrm{XC},\mathrm{approx}}^{\alpha,\mathrm{tot}}$ can be regarded as a general form to evaluate
 
-exchange-correlation density. Note that post-HF wavefunction has taken Coulomb correlation between unlike-spin electrons into account, however there is no way to separate ΓXC,approx αα and
+exchange-correlation density. Note that post-HF wavefunction has taken Coulomb correlation between unlike-spin electrons into account, however there is no way to separate $\Gamma_{\mathrm{XC},\mathrm{approx}}^{\alpha\alpha}$ αα and
 
 $$\Gamma_{\mathrm{XC},\mathrm{approx}}^{\alpha,\mathrm{tot}}$$
 
@@ -451,11 +451,11 @@ where ρi(r) and εi are the electron density function and orbital energy of the
 
 <!-- p.52 -->
 
-predicting reactive site of electrophilic or radical attack. It was proved that the minima of ALIE on vdW surface are good indicators to reveal which atoms are more likely to be the preferential site of electrophilic or radical attack. There are also many potential uses of 𝐼̅ waiting for further investigation. Excellent reviews of 𝐼̅ have been given by Politzer et al, see J. Mol. Model., 16, 1731 (2010) and Chapter 8 of the book Theoretical Aspects of Chemical Reactivity (2007).
+predicting reactive site of electrophilic or radical attack. It was proved that the minima of ALIE on vdW surface are good indicators to reveal which atoms are more likely to be the preferential site of electrophilic or radical attack. There are also many potential uses of $\bar{I}$ waiting for further investigation. Excellent reviews of 𝐼̅ have been given by Politzer et al, see J. Mol. Model., 16, 1731 (2010) and Chapter 8 of the book Theoretical Aspects of Chemical Reactivity (2007).
 
-Since 𝐼̅ is dependent upon orbital energies, while orbital energy for post-HF wavefunction is undefined, therefore when post-HF wavefunction is used, 𝐼̅ will be simply outputted as zero everywhere.
+Since $\bar{I}$ is dependent upon orbital energies, while orbital energy for post-HF wavefunction is undefined, therefore when post-HF wavefunction is used, 𝐼̅ will be simply outputted as zero everywhere.
 
-If the parameter "iALIEdecomp" in `settings.ini` is set to 1, in main function 1, not only 𝐼̅ will be outputted, the contribution from each occupied MOs will also be outputted, the contribution due to MO i is defined as
+If the parameter "iALIEdecomp" in `settings.ini` is set to 1, in main function 1, not only $\bar{I}$ will be outputted, the contribution from each occupied MOs will also be outputted, the contribution due to MO i is defined as
 
 
 $$\overline{I}_{i}(\mathbf{r})=\frac{\rho_{i}(\mathbf{r})\mid\varepsilon_{i}\mid}{\rho(\mathbf{r})}$$
@@ -488,7 +488,7 @@ Content of this section and all analysis code of EDR(r;d) and D(r) was kindly co
 
 The electron delocalization range function EDR(r;d) (J. Chem. Phys., 141, 144104 (2014); J. Chem. Theory Comput., 12, 3185 (2016); Angew. Chem. Int. Ed., 56, 6878 (2017)) quantifies the extent to which electrons at point r in a wave function occupy orbital lobes of size d. EDR(r;d) is
 
-built from the nonlocal one-particle reduced density matrix (1-RDM) ( , ')( ) ( ')iiγηφφ= r rrr
+built from the nonlocal one-particle reduced density matrix (1-RDM) $\gamma(\mathbf{r},\mathbf{r}')=\sum_{i}\eta_{i}\varphi_{i}(\mathbf{r})\varphi_{i}(\mathbf{r}')$
 
 as
 
@@ -497,22 +497,21 @@ $$\begin{aligned}&EDR(\mathbf{r};d)=\int g_{d}(\mathbf{r},\mathbf{r}^{\prime})\g
 
 <!-- formula-ocr: formula_p53_031.png 已替换为LaTeX, 原图保留备查 -->
 
-$$\begin{aligned}&EDR(\mathbf{r};d)=\int g_{d}(\mathbf{r},\mathbf{r}^{\prime})\gamma(\mathbf{r},\mathbf{r}^{\prime})d\mathbf{r}^{\prime}\\&g_{d}(\mathbf{r},\mathbf{r}^{\prime})=\left(\frac{2}{\pi d^{2}}\right)^{3/4}\rho^{-1/2}(\mathbf{r})\exp\left(-\frac{|\mathbf{r}-\mathbf{r}^{\prime}|^{2}}{d^{2}}\right)\\ \end{aligned}$$
 
 Here ρ(r) is the electron density at point r. The prefactor ensures that the EDR is between -1 and +1. The Multiwfn implementation evaluates the EDR on grids, for a single global input value of distance d. Section 4.5.6 illustrates an example.
 
 At each point, the orbital overlap distance function D(r)=argmaxdEDR(r;d) corresponds to the distance d that maximizes EDR(r;d). Compact, chemically "hard" regions of small D(r) are distinguished from diffuse, chemically "soft" regions of large D(r). Atomic averages of valence-electron D(r) complement the information obtained from atomic partial charges. Plots of D(r) on density isosurfaces, and quantitative analysis of such surfaces, complement molecular electrostatic potentials. The Multiwfn implementation evaluates EDR(r;di) on a grid of distances di, then uses a three-point numerical fit to find the maximum. Sections 4.5.7 and 4.12.8 illustrate example calculations.
 
-22, 23 δg function defined in Independent Gradient Model (IGM) method The δg function is defined as below in the original paper of Independent Gradient Model (IGM) method (Phys. Chem. Chem. Phys., 19, 17928 (2017)):
+22, 23 δg function defined in Independent Gradient Model (IGM) method $\delta g$ function is defined as below in the original paper of Independent Gradient Model (IGM) method (Phys. Chem. Chem. Phys., 19, 17928 (2017)):
 
 $$\delta g(\mathbf{r})=g^{\mathrm{I G M}}(\mathbf{r})-g(\mathbf{r})=\left|\sum_{A}\mathrm{a b s}[\nabla\rho_{A}(\mathbf{r})]\right|-\left|\sum_{A}\nabla\rho_{A}(\mathbf{r})\right|$$
 
-where ρA stands for atomic density of atom A, the abs() operator makes each of the three gradient components to be its absolute value. Specifically, Multiwfn supports two ways to calculate the δg:
+$\rho_{A}$ stands for atomic density of atom A, the abs() operator makes each of the three gradient components to be its absolute value. Specifically, Multiwfn supports two ways to calculate the $\delta g$
 
-- Real space function 22: Corresponding to the δg calculated under promolecular approximation, namely the ρA corresponds to spherically density of atom A in its isolated state, in this case only geometry information is needed to be supplied by input file, since the atomic densities are built-in data in Multiwfn (see Appendix 3 for detail).
+- Real space function 22: Corresponding to the δg calculated under promolecular approximation, namely the $\rho_{A}$ corresponds to spherically density of atom A in its isolated state, in this case only geometry information is needed to be supplied by input file, since the atomic densities are built-in data in Multiwfn (see Appendix 3 for detail).
 
 - Real space function 23: Corresponding to the δg calculated based on Hirshfeld partition of actual molecular electron density, thus wavefunction must be supplied by input file. This definition
 
-was proposed by me in J. Comput. Chem., 43, 539 (2022). In this case the ρA is defined as wAρ, where ρ is molecular electron density calculated in usual way, wA is Hirshfeld weighting function of atom A (see Section 3.9.1 for its definition).
+was proposed by me in J. Comput. Chem., 43, 539 (2022). In this case the $\rho_{A}$ is defined as wAρ, where ρ is molecular electron density calculated in usual way, wA is Hirshfeld weighting function of atom A (see Section 3.9.1 for its definition).
 
-The δg function at bond critical point in weak interaction region is shown to be closely related to interaction strength. This function can also be plotted as plane map or isosurface map to reveal all bonding regions. Very detailed introduction of IGM method is given in Section 3.23.5, and if you want to study weak interaction due to specific two or more fragments, you should use the function described in this section.
+$\delta g$ function at bond critical point in weak interaction region is shown to be closely related to interaction strength. This function can also be plotted as plane map or isosurface map to reveal all bonding regions. Very detailed introduction of IGM method is given in Section 3.23.5, and if you want to study weak interaction due to specific two or more fragments, you should use the function described in this section.

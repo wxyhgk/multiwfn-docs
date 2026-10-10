@@ -77,7 +77,7 @@ In this function Monte Carlo method is used for evaluating van der Waals (vdW) v
 
 definition by "MCvolmethod" in `settings.ini`.
 
-The principle of the Monte Carlo procedure is very simple: If we define a box (volume is L) which is able to hold the entire system, and let N particles randomly distributed in the box, if n particles are presented in the vdW region, then the vdW volume of present system is n/N*L. Of course, the result improves with the increase of N. In Multiwfn, you need to define N by input a number i, the relationship is N=100*2i, for small molecular when i=9 the accuracy is generally acceptable, for large system you may need to increase i gradually until the result variation between i and i+1 is small enough to be acceptable as converged. For definition 2 of vdW region, you also need to input the isovalue of density, and the factor k used to define the box, see below illustration, where Rvdw is vdW radius. If k is too small, then the vdW region may be truncated, however if k is too large, more points are needed to maintain enough accuracy. For isovalue of 0.001, k=1.7 is recommended.
+The principle of the Monte Carlo procedure is very simple: If we define a box (volume is L) which is able to hold the entire system, and let N particles randomly distributed in the box, if n particles are presented in the vdW region, then the vdW volume of present system is n/N*L. Of course, the result improves with the increase of N. In Multiwfn, you need to define N by input a number i, the relationship is $N=100*2^i$, for small molecular when i=9 the accuracy is generally acceptable, for large system you may need to increase i gradually until the result variation between i and i+1 is small enough to be acceptable as converged. For definition 2 of vdW region, you also need to input the isovalue of density, and the factor k used to define the box, see below illustration, where Rvdw is vdW radius. If k is too small, then the vdW region may be truncated, however if k is too large, more points are needed to maintain enough accuracy. For isovalue of 0.001, k=1.7 is recommended.
 
 Information needed: atom coordinates (for definition 1), GTFs (for definition 2)
 
@@ -103,7 +103,7 @@ In J. Comput. Chem., 38, 2258 (2017), the authors proposed that the optimal ω p
 
 $$r_{ELF}=\sqrt{\frac{\int ELF(\mathbf{r})\mathbf{r}^{2}ELF(\mathbf{r})d\mathbf{r}}{\int ELF(\mathbf{r})ELF(\mathbf{r})d\mathbf{r}}}$$
 
-In Multiwfn, this quantity will be automatically calculated and outputted if you select ELF as the integrand in present function. The rELF is outputted as “spherically symmetric average ELF”, the numerator and denominator in the root sign are also outputted together.
+In Multiwfn, this quantity will be automatically calculated and outputted if you select ELF as the integrand in present function. The $r_{ELF}$ is outputted as “spherically symmetric average ELF”, the numerator and denominator in the root sign are also outputted together.
 
 In J. Phys. Chem. C, 123, 4407 (2019), the LOL-tuning is proposed, in which the “spherically symmetric average LOL” is involved:
 
@@ -130,14 +130,14 @@ The diagonal elements are useful for evaluating the matching degree of correspon
 
 In present function, there are two options, option 1 calculates the full overlap matrix, the diagonal elements will be printed on screen and the whole overlap matrix can be selected to output to ovlpmat.txt in current folder; in addition, the maximum pairing between Alpha and Beta orbitals are shown. This calculation may be time-consuming for large systems. Option 2 only calculates and prints the diagonal elements, this is always fast.
 
-Since the expectation of S2 operator for single determinant (SD) wavefunction can be easily derived from the overlap matrix, if option 1 is selected, Multiwfn also outputs this quantity:
+Since the expectation of $S^{2}$ operator for single determinant (SD) wavefunction can be easily derived from the overlap matrix, if option 1 is selected, Multiwfn also outputs this quantity:
 
 
 $$\left\langle S^{2}\right\rangle_{\mathrm{S D}}=\left\langle S^{2}\right\rangle_{\mathrm{e x a c t}}+N^{\beta}-\sum_{i}^{N^{\alpha}}\sum_{j}^{N^{\beta}}\left|S_{i,j}^{\alpha\beta}\right|^{2}$$
 
 <!-- formula-ocr: formula_p389_287.png 已替换为LaTeX, 原图保留备查 -->
 
-where Nα and Nβ are the number of alpha and beta electrons, 〈𝑆2〉exact is the exact value of square of total spin angular momentum
+where Nα and Nβ are the number of alpha and beta electrons, 〈$S^{2}$〉exact is the exact value of square of total spin angular momentum
 
 
 $$\left\langle S^{2}\right\rangle_{\mathrm{e x a c t}}=S(S+1)=\frac{N^{\alpha}-N^{\beta}}{2}\left(\frac{N^{\alpha}-N^{\beta}}{2}+1\right)$$
@@ -203,13 +203,13 @@ where ΔEels is electrostatic interaction term, normally negative if the fragmen
 
 <!-- p.391 -->
 
-change of exchange-correlation energy during complexation process; ΔEPauli comes from the Pauli repulsion effect between electrons in occupied orbitals of the fragments and is invariably positive, sometimes it is also referred to as exchange-repulsion term. For convenience, it is customary to
+change of exchange-correlation energy during complexation process; $\Delta E_{Pauli}$ comes from the Pauli repulsion effect between electrons in occupied orbitals of the fragments and is invariably positive, sometimes it is also referred to as exchange-repulsion term. For convenience, it is customary to
 
 combine these three terms as steric term (ΔEsteric).
 
-ΔEorb in above formula is orbital interaction term, it arises from the mix of occupied MOs and virtual MOs, and it exhibits polarization and charge-transfer effects. If the combined wavefunction
+$\Delta E_{orb}$ in above formula is orbital interaction term, it arises from the mix of occupied MOs and virtual MOs, and it exhibits polarization and charge-transfer effects. If the combined wavefunction
 
-is used as initial guess for complex, then ΔEorb can be evaluated by subtracting the first SCF iteration energy from the last SCF iteration energy:
+is used as initial guess for complex, then $\Delta E_{orb}$ can be evaluated by subtracting the first SCF iteration energy from the last SCF iteration energy:
 
 $$\Delta E_{\mathrm{o r b}}=E_{\mathrm{S C F,l a s t}}-E_{\mathrm{S C F,l s t}}$$
 
@@ -268,7 +268,7 @@ $$CN_{_{A}}=\sum_{_{B\neq A}}\frac{1}{1+\exp\left\{-16\times\left[(4/3)(R_{_{A}}
 
 <!-- formula-ocr: formula_p392_291.png 已替换为LaTeX, 原图保留备查 -->
 
-where R is Pyykkö covalent radius from Chem. Eur. J., 15, 186 (2009), and rAB is distance between A and B.
+where R is Pyykkö covalent radius from Chem. Eur. J., 15, 186 (2009), and $r_{AB}$ is distance between A and B.
 
 According to this idea, in present module the interatomic connectivity index (I) between A and B is determined as follows:
 
@@ -360,15 +360,15 @@ $$\begin{aligned}&C^{\alpha}_{biortho}=\mathbf{U}\mathbf{C}^{\alpha}_{original}\
 
 Since U and V are unitary matrices, such a transformation does not affect observable quantities of current system.
 
-Notice that the biorthogonalization transformation should not be done for all orbitals at once, because this will lead to mix between occupied and virtual orbitals and thus results in change of observable properties. In Multiwfn, the transformation is successively carried out via below three steps. The total number of orbitals of each spin will be denoted as ntot, the numbers of alpha and
+Notice that the biorthogonalization transformation should not be done for all orbitals at once, because this will lead to mix between occupied and virtual orbitals and thus results in change of observable properties. In Multiwfn, the transformation is successively carried out via below three steps. The total number of orbitals of each spin will be denoted as $n_{\text{tot}}$, the numbers of alpha and
 
 $$\begin{aligned}&C^{\alpha}_{biortho}=\mathbf{U}\mathbf{C}^{\alpha}_{original}\\&C^{\beta}_{biortho}=\mathbf{V}\mathbf{C}^{\beta}_{original}\\ \end{aligned}$$
 
-(1) Biorthogonalization between all occupied alpha orbitals (1~nα) and all occupied beta orbitals (1~nβ). This step makes each resulting occupied beta orbital paired with a resulting alpha orbital.
+(1) Biorthogonalization between all occupied alpha orbitals (1~$n_{\alpha}$) and all occupied beta orbitals (1~nβ). This step makes each resulting occupied beta orbital paired with a resulting alpha orbital.
 
-(2) Biorthogonalization between alpha orbitals (nβ+1~nα) and all virtual beta orbitals (nβ+1~ntot). This step makes each resulting "singly occupied" alpha orbital paired with a resulting beta virtual orbital
+(2) Biorthogonalization between alpha orbitals (nβ+1~$n_{\alpha}$) and all virtual beta orbitals (nβ+1~$n_{\text{tot}}$). This step makes each resulting "singly occupied" alpha orbital paired with a resulting beta virtual orbital
 
-(3) Biorthogonalization between all alpha virtual orbitals (nα+1~ntot) and the virtual beta orbitals that have not been paired (nα+1~ntot).
+(3) Biorthogonalization between all alpha virtual orbitals ($n_{\alpha}$+1~$n_{\text{tot}}$) and the virtual beta orbitals that have not been paired (nα+1~ntot).
 
 Note that in biorthogonalization steps 2 and 3, the utilized overlap integral matrix O should be reconstructed based on the coefficient matrices updated at the last step.
 
@@ -380,7 +380,7 @@ $$\mathbf{F}_{\mathrm{b i o r t h o}}^{\alpha}=(\mathbf{C}^{\alpha})^{\mathrm{T}
 
 where FσAO is the Fock matrix of σ spin in original basis functions that loaded from external file, Cσ(μ,i) corresponds to coefficient of basis function μ in biorthogonalized orbital i of σ spin. Energy of biorthogonalized orbital j is simply Fbiortho(j,j).
 
-Note: Commonly, the numbers of α and β electrons are different, and/or their distributions are unsymmetric, therefore the single-electron effective potential (reflected by the corresponding Fock operator) of the two spins are different. So, even if you find an α and a β biorthogonalized orbitals with the same index show almost completely identical shape, their energies could be significantly different.
+Note: Commonly, the numbers of α and β electrons are different, and/or their distributions are unsymmetric, therefore the single-electron effective potential (reflected by the corresponding Fock operator) of the two spins are different. So, even if you find a$n_{\alpha}$ and a β biorthogonalized orbitals with the same index show almost completely identical shape, their energies could be significantly different.
 
 
 <!-- p.396 -->
@@ -393,7 +393,7 @@ Since the number of unoccupied MOs is generally much higher than the number of o
 
 step (3) shown above. In this case the alpha and beta orbitals in the range of (nα+1~ntot) will be meaningless and you should not then study them.
 
-Usage After booting up Multiwfn, simply loading a file containing basis function information (e.g. .mwfn, .fch, .molden, .gms) that generated by UHF or UKS calculation, then go to subfunction 12 of main function 100, you will be asked to choose if also performing biorthogonalization for unoccupied MOs, if evaluating energies of biorthogonalized orbitals, and if ordering the biorthogonalized orbitals according to their energies in the way mentioned earlier. The Fock matrix used to evaluate energies of the biorthogonalized orbitals can either be directly generated using MO energies and coefficient matrix via F=SCEC-1, or be loaded from a file (see Appendix 7 of this manual).
+Usage After booting up Multiwfn, simply loading a file containing basis function information (e.g. .mwfn, .fch, .molden, .gms) that generated by UHF or UKS calculation, then go to subfunction 12 of main function 100, you will be asked to choose if also performing biorthogonalization for unoccupied MOs, if evaluating energies of biorthogonalized orbitals, and if ordering the biorthogonalized orbitals according to their energies in the way mentioned earlier. The Fock matrix used to evaluate energies of the biorthogonalized orbitals can either be directly generated using MO energies and coefficient matrix via $\mathbf{F} = \text{SCEC}^{-1}$, or be loaded from a file (see Appendix 7 of this manual).
 
 After finishing the biorthogonalization, two files are exported to current folder
 
@@ -432,17 +432,17 @@ If you want to visually verify the distribution of the points actually included 
 Examples of this function is provided in Section 4.100.14. Information needed: GTFs, atom coordinates
 
 
-### 3.100.15 Calculate intermolecular orbital overlap
+### 3.100.15 Calculate $S_{8,15}^{inter}$molecular orbital overlap
 
 This function is used to calculate orbital overlap integral between two molecules, namely
 
 $$S_{i,j}^{\mathrm{i n t e r}}=\int\varphi_{i}^{\mathrm{m o n o m e r1}}(\mathbf{r})\varphi_{j}^{\mathrm{m o n o m e r2}}(\mathbf{r})\mathrm{d}\mathbf{r}$$
 
-where i and l are molecular orbital indices of monomer 1 and monomer 2, respectively. This integral is useful in discussions of intermolecular charge transfer, e.g. J. Phys. Chem. B, 106, 2093 (2002).
+where i and l are molecular orbital indices of monomer 1 and monomer 2, respectively. This integral is useful in discussions of $S_{8,15}^{inter}$molecular charge transfer, e.g. J. Phys. Chem. B, 106, 2093 (2002).
 
 Below three files are required for evaluating the integral, any kind of file containing basis function can be used as the input files.
 
-(1) Wavefunction file of dimer (2) Wavefunction file of monomer 1 (3) Wavefunction file of monomer 2 To calculate the integral, after booting up Multiwfn, file (1) should be loaded first. After entering the present module, the paths of files (2) and (3) should be inputted in turn. Then you can input such as 8,15 to obtain 𝑆8,15 inter, that is the integral between MO 8 of monomer 1 and MO 15 of monomer 2. If you input letter o, then the entire Sinter matrix will be outputted to ovlpint.txt in current folder.
+(1) Wavefunction file of dimer (2) Wavefunction file of monomer 1 (3) Wavefunction file of monomer 2 To calculate the integral, after booting up Multiwfn, file (1) should be loaded first. After entering the present module, the paths of files (2) and (3) should be inputted in turn. Then you can input such as 8,15 to obtain 𝑆8,15 $S_{8,15}^{inter}$, that is the integral between MO 8 of monomer 1 and MO 15 of monomer 2. If you input letter o, then the entire $S^{inter}$ matrix will be outputted to ovlpint.txt in current folder.
 
 Notice that the atomic coordinates in files (2) and (3) must be in accordance with those in file (1), and the atomic sequence in the files should be identical. The basis set used for the three
 
@@ -468,7 +468,7 @@ Corresponding example of this function is provided in Section 4.100.15.
 
 This function is used to generate one-electron effective Hamiltonian matrix based on orbital energies and expansion coefficients with respect to basis function. The generated matrix corresponds to Fock matrix for Hartree-Fock wavefunction and Kohn-Sham matrix for Kohn-Sham DFT wavefunction.
 
-The principle of this function is very easy to comprehend: The HF or KS-DFT equation is FC=SCE, where F is Fock/KS matrix, C is coefficient matrix, S is overlap matrix, and E is a diagonal matrix whose diagonal terms correspond to various molecular orbital energies. Clearly F can be solved as F=SCEC-1 when other matrices are available.
+The principle of this function is very easy to comprehend: The HF or KS-DFT equation is FC=SCE, where F is Fock/KS matrix, C is coefficient matrix, S is overlap matrix, and E is a diagonal matrix whose diagonal terms correspond to various molecular orbital energies. Clearly F can be solved as $\mathbf{F}=\mathbf{SCEC}^{-1}$ when other matrices are available.
 
 To use this function to yield Fock/KS matrix, after booting up Multiwfn, you should load a file containing basis function information with all molecular orbitals. For example, the .fch/.molden/.mwfn/.gms file produced by HF or DFT calculation can be used. Then enter subfunction 17 of main function 100, Fock/KS matrix will be generated in the above-mentioned way. Then you will be asked to input path of a plain text file, the generated Fock/KS matrix will be exported to it in a lower-triangular form, thus the structure of the file is:
 
@@ -476,7 +476,7 @@ F(1,1) F(2,1) F(2,2) F(3,1) F(3,2) F(3,3) ... F(nbasis,nbasis) where nbasis is t
 
 Fa(1,1) Fa(2,1) Fa(2,2) Fa(3,1) Fa(3,2) Fa(3,3) ... Fa(nbasis,nbasis) Fb(1,1) Fb(2,1) Fb(2,2) Fb(3,1) Fb(3,2) Fb(3,3) ... Fb(nbasis,nbasis) Note that some functions of Multiwfn need user to provide a file containing Fock/KS matrix so that energies of specific orbitals can be evaluated, the file exported by the present function is compatible with requirement of those functions.
 
-It is worth to mention that due to numerical error, the Fock/KS matrix obtained as F=SCEC-1 is inevitably lower than that originally produced by quantum chemistry code, but the difference is very small.
+It is worth to mention that due to numerical error, the Fock/KS matrix obtained as $\mathbf{F}=\mathbf{SCEC}^{-1}$ is inevitably lower than that originally produced by quantum chemistry code, but the difference is very small.
 
 The present function cannot be used if linearly dependent basis functions are automatically eliminated during quantum chemistry calculation, in this case the number of solved MOs (and hence the number of loaded MO energies) is smaller than the number of basis functions. Usually this issue
 
@@ -536,7 +536,7 @@ Then you will see a menu, the options are explained below: -4 Set distance crite
 
 -2 Set Fermi energy level: Namely set EF in the Yoshizawa's formula. -1 Select the range of MOs to be considered: Namely set the MO range of the summation in the Yoshizawa's formula.
 
-0 View molecular structure: As the title says. 1 Output detail of electron transport probability between two atoms: You need to input index for two atoms, they will be regarded as site r and s, then Grs (the value behind "Total value") will be outputted; meanwhile program also outputs the contribution from each MO, the distance between the two atoms, and the calculated Grs for the case when only HOMO and LUMO are taken into the summation.
+0 View molecular structure: As the title says. 1 Output detail of electron transport probability between two atoms: You need to input index for two atoms, they will be regarded as site r and s, then $G_{rs}$ (the value behind "Total value") will be outputted; meanwhile program also outputs the contribution from each MO, the distance between the two atoms, and the calculated Grs for the case when only HOMO and LUMO are taken into the summation.
 
 2 Output and rank all electron transport routes in the system: All routes in current system will be tested, if the route simultaneously fulfills the G and distance criteria set by -3 and -4, then the involved atoms, G and distance of the route will be printed. The routes are ranked by absolute value of G.
 
@@ -576,13 +576,13 @@ $$\mathbf{F}_{A}=-\Big\langle\Psi\Big|\frac{\hat{H}}{\partial\mathbf{R}_{A}}\Big
 
 <!-- p.402 -->
 
-Present function calculates and prints total H-F force as well as the contribution from electron density and other nuclei respectively.
+Present function calculates and prints total H-F fo$\mathbf{r}$e as well as the contribution from electron density and other nuclei respectively.
 
-In practice, notice that the H-F forces calculated as above based on the electronic wavefunction and nuclear information recorded in the wavefunction file are generally not equivalent to the forces computed by quantum chemistry program at current calculation level (FQC), which may be expressed as:
+In practice, notice that the H-F fo$\mathbf{r}$es calculated as above based on the electronic wavefunction and nuclear information recorded in the wavefunction file are generally not equivalent to the forces computed by quantum chemistry program at current calculation level ($F^{QC}$), which may be expressed as:
 
 $$\mathbf{F}_{A}^{\mathrm{Q C}}=-\frac{\partial E}{\partial\mathbf{R}_{A}}=-\big\langle\Psi\big|\frac{\hat{H}}{\partial\mathbf{R}_{A}}\big|\Psi\big\rangle-2\big\langle\partial\Psi\big/\partial\mathbf{R}_{A}\big|\hat{H}\big|\Psi\big\rangle$$
 
-The partial derivative of wavefunction with respect to nuclear coordinate involves partial derivative of orbital coefficients, configuration state coefficients and basis functions with respect to RA. Therefore, only for the fully variational wavefunctions such as HF, DFT and MCSCF with basis functions independent of nuclear coordinates (e.g. plane wave), the second term on the r.h.s. of above equation is vanishing, and then the H-F forces just equal to the force at current calculation level.
+The partial derivative of wavefunction with respect to nuclea$\mathbf{r}$oordinate involves partial derivative of orbital coefficients, configuration state coefficients and basis functions with respect to RA. Therefore, only for the fully variational wavefunctions such as HF, DFT and MCSCF with basis functions independent of nuclear coordinates (e.g. plane wave), the second term on the r.h.s. of above equation is vanishing, and then the H-F forces just equal to the force at current calculation level.
 
 Information needed: GTFs, atom coordinates
 
@@ -595,7 +595,7 @@ This function aims at characterizing structural properties of a molecule or its 
 
 Calculate geometry information for selected atoms Input index range of some atoms (or input all to select the whole system), then many properties based on geometry information will be calculated for them, including
 
-(1) Mass (2) Geometry center, center of mass, center of nuclear charges (3) Radius of gyration (4) Sum of nuclear charges and dipole moments from nuclear charges (5) The atom having minimum/maximum coordinate in X/Y/Z (6) Minimum and maximum distance (7) Moments of inertia tensor, principal axes and principal moments of inertia (8) Rotational constant (9) Electrostatic interaction energy between nuclear charges Note: If the input file is .chg, then "nuclear charges" mentioned above will correspond to atomic charges.
+(1) Mass (2) Geometry center, center of mass, center of nuclea$\mathbf{r}$harges (3) Radius of gyration (4) Sum of nuclear charges and dipole moments from nuclear charges (5) The atom having minimum/maximum coordinate in X/Y/Z (6) Minimum and maximum distance (7) Moments of inertia tensor, principal axes and principal moments of inertia (8) Rotational constant (9) Electrostatic interaction energy between nuclear charges Note: If the input file is .chg, then "nuclear charges" mentioned above will correspond to atomic charges.
 
 Radius of gyration is computed as
 
@@ -604,7 +604,7 @@ $$R_{\mathrm{g}}=\sqrt{\frac{\sum\limits_{i}m_{i}\left(\mathbf{r}_{i}-\mathbf{r}
 
 <!-- formula-ocr: formula_p402_296.png 已替换为LaTeX, 原图保留备查 -->
 
-where r is the coordinate of nucleus, rc is mass center, m is atomic mass.
+where r is the coordinate of nucleus, $\mathbf{r}$ is mass center, m is atomic mass.
 
 
 <!-- p.403 -->
@@ -642,7 +642,7 @@ The ring can contain arbitrary number of atoms, and the ring may be non-planar; 
 
 It is noteworthy that in J. Org. Chem., 72, 9163 (2007), it was proposed that the aromaticity of an entire polycyclic system can be evaluated as ΣNICS(1)ZZ/area2.
 
-Study molecular planarity Molecular planarity has close relationship with numerous molecular properties. In J. Mol. Model., 27, 263 (2021), I proposed two rigorous, meaningful and universal metrics of planarity of a whole molecule or its local region, namely molecular planarity parameter (MPP) and span of deviation from plane (SDP), see the original paper for detail and application examples. Briefly speaking, for a given set of atoms (totally Natom atoms), the MPP is defined as
+Study molecular planarity Molecular planarity has close relationship with numerous molecular properties. In J. Mol. Model., 27, 263 (2021), I proposed two rigorous, meaningful and universal metrics of planarity of a whole molecule or its local region, namely molecular planarity parameter (MPP) and span of deviation from plane (SDP), see the original paper for detail and application examples. Briefly speaking, for a given set of atoms (totally $N_{atom}$ atoms), the MPP is defined as
 
 
 $$MPP=\sqrt{\frac{1}{N_{atom}}\sum_{i}d_{i}^{2}}$$
@@ -778,7 +778,7 @@ $$V^{\prime}(\mathbf{r}_{i})=\sum_{A}\frac{p_{A}}{r_{A,i}}$$
 
 <!-- formula-ocr: formula_p408_300.png 已替换为LaTeX, 原图保留备查 -->
 
-where A denotes atom index, rA,i corresponds to the distance between nucleus of atom A and the fitting point i.
+where A denotes atom index, $r_{A,i}$ corresponds to the distance between nucleus of atom A and the fitting point i.
 
 The error of fitting is measured by RMSE and RRMSE
 

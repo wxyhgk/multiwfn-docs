@@ -37,7 +37,7 @@ $$p_{A}^{i}$$
 
 iA
 
-In the original paper of PM method J. Chem. Phys., 90, 4916 (1989), pAi corresponds to Mulliken population of atom A in MO i. While in J. Chem. Theory Comput., 10, 642 (2014), it was shown that other population methods such as Löwdin, Hirshfeld, Becke, AIM can also be used in combination with PM and obtaining reasonable result. Currently PM method based on Mulliken, Löwdin and Becke populations are supported in Multiwfn.
+In the original paper of PM method J. Chem. Phys., 90, 4916 (1989), $p_{A}^{i}$ corresponds to Mulliken population of atom A in MO i. While in J. Chem. Theory Comput., 10, 642 (2014), it was shown that other population methods such as Löwdin, Hirshfeld, Becke, AIM can also be used in combination with PM and obtaining reasonable result. Currently PM method based on Mulliken, Löwdin and Becke populations are supported in Multiwfn.
 
 Algorithm details If you are not interested in the implementation details of the orbital localization methods, you can safely skip this part.
 
@@ -57,7 +57,7 @@ $$\begin{array}{r}{Q_{A}^{i j}=\frac{1}{2}\displaystyle\sum_{\mu\in A}\displayst
 
 where μ and ν correspond to basis function index and the latter cycles all basis functions.
 
-For PM-Löwdin method, because the basis functions have been orthonormalized by Löwdin symmetrization, the term Q is simplified as ijAijAQC Cμμμ= 
+For PM-Löwdin method, because the basis functions have been orthonormalized by Löwdin symmetrization, the term Q is simplified as ijAijAQC Cμμμ∈= 
 
 The PM-Löwdin is seemingly much cheaper than PM-Mulliken; however, if properly programming, the cost of two methods are essentially identical, because the Q for PM-Mulliken case can be reformulated as
 
@@ -110,7 +110,7 @@ Once the localization is converged, orbital composition of all resulting LMOs wi
 
 Finally, the LMOs are exported to new.fch in current folder, and then Multiwfn automatically loads it, after that you can analyze the localized orbitals in various ways; for example, plotting them as isosurfaces by main function 0 or performing orbital composition analysis by main function 8. If you do not want to let Multiwfn automatically load the newly generated new.fch, you can choose option -3 once to switch the status.
 
-Hints on performing orbital localization analysis In Multiwfn, the cost of PM-Löwdin and PM-Mulliken methods are proportional to Norb2Nbas, while cost of FB is proportional to Norb2Nbas2, where Norb and Nbas are the number of orbitals to be localized and the number of basis functions, respectively. Clearly, FB is much more expensive. The
+Hints on performing orbital localization analysis In Multiwfn, the cost of PM-Löwdin and PM-Mulliken methods are proportional to $N_{\mathrm{orb}}2N_{\mathrm{bas}}$ while cost of FB is proportional to Norb2Nbas2, where Norb and Nbas are the number of orbitals to be localized and the number of basis functions, respectively. Clearly, FB is much more expensive. The
 
 
 <!-- p.308 -->
@@ -129,11 +129,11 @@ Basis set of 2-zeta with polarization functions quality (e.g. 6-31G* and def2-SV
 
 Special topic 1: Evaluating LMO energies Despite LMO is not an eigenfunction of Fock operator, its energy may be evaluated as expectation of Fock operator, which can be solved via a matrix equation. Specifically, Fock matrix in the basis of LMOs can be obtained as
 
-CFCFAOTLMO =
+CFC$F_{AO}$TLMO =
 
-where FAO is the Fock matrix in original basis functions, C(μ,i) corresponds to coefficient of basis function μ in LMO i. Energy of LMO i is simply the diagonal term FLMO(i,i).
+where $F_{AO}$ is the Fock matrix in original basis functions, C(μ,i) corresponds to coefficient of basis function μ in LMO i. Energy of LMO i is simply the diagonal term FLMO(i,i).
 
-If you want to obtain energy of LMOs in this way, you should choose option “-4 If calculating and print orbital energies” before starting orbital localization. Then you can choose two ways to provide the FAO: (1) Generate it based on energies and coefficient matrix of MOs via FAO=SCEC-1 relationship (2) Input path of a file containing FAO, then the matrix will be loaded, see Appendix 7 of this manual for details.
+If you want to obtain energy of LMOs in this way, you should choose option “-4 If calculating and print orbital energies” before starting orbital localization. Then you can choose two ways to provide the $F_{AO}$: (1) Generate it based on energies and coefficient matrix of MOs via FAO=SCEC-1 relationship (2) Input path of a file containing FAO, then the matrix will be loaded, see Appendix 7 of this manual for details.
 
 Special topic 2: Revealing center of LMOs To facilitate capturing basic distribution character of the generated LMOs, Multiwfn is able to calculate center position of LMOs and add them as Bq atom (ghost atom) into current system, so that you can use main function 0 to easily visualize them. The center of LMO is evaluated as follows
 
@@ -146,37 +146,37 @@ To generate the LMO centers, you should choose “-8 If calculating center posit
 
 <!-- p.309 -->
 
-moment of LMOs” once to switch its status to “Yes”. Then after generating LMOs, exporting .fch and reloading it, the center positions of the LMOs will be evaluated and added as Bq atoms. The coordinate of LMO centers as well as the correspondence between LMO indices and Bq indices will be outputted to LMOcen.txt in current folder, meantime the setting of main function 0 will be set to the best status for showing LMO centers (as illustrated in Section 4.19.1). Since the newly added Bq atoms do not have accompanying basis functions, the current wavefunction should not be subjected to wavefunction analyses, otherwise Multiwfn may crash or the result is completely meaningless.
+moment of LMOs” once to switch its status to “Yes”. Then after generating LMOs, exporting .fch and reloa$d_i$ng it, the center positions of the LMOs will be evaluated and added as Bq atoms. The coordinate of LMO centers as well as the correspondence between LMO indices and Bq indices will be outputted to LMOcen.txt in current folder, meantime the setting of main function 0 will be set to the best status for showing LMO centers (as illustrated in Section 4.19.1). Since the newly added Bq atoms do not have accompanying basis functions, the current wavefunction should not be subjected to wavefunction analyses, otherwise Multiwfn may crash or the result is completely meaningless.
 
 Note that if there are multiple bonds and PM localization algorithm is used, the Bq atom
 
-corresponding to the center of σ-LMO and π-LMO of the same bond may overlay with each other. This can be avoided using FB algorithm instead, because FB represents multiple bond as multiple banana LMOs, whose center positions are evidently different with each other.
+correspon$d_i$ng to the center of σ-LMO and π-LMO of the same bond may overlay with each other. This can be avoided using FB algorithm instead, because FB represents multiple bond as multiple banana LMOs, whose center positions are evidently different with each other.
 
-Special topic 3: Dipole moment analysis for occupied LMOs Once “-8 If calculating center position and dipole moment of LMOs” has been switched to “Yes”, after performing orbital localization, you will be asked to choose if also performing dipole moment analysis for occupied LMOs. If you input y, then you will have LMOdip.txt, which contains dipole moment analysis result for all occupied LMOs. In order to make you correctly understand the output, below I describe the details.
+Special topic 3: Dipole moment analysis for occupied LMOs Once “-8 If calculating center position and $d_i$pole moment of LMOs” has been switched to “Yes”, after performing orbital localization, you will be asked to choose if also performing dipole moment analysis for occupied LMOs. If you input y, then you will have LMOdip.txt, which contains dipole moment analysis result for all occupied LMOs. In order to make you correctly understand the output, below I describe the details.
 
-The contribution of electron of an occupied LMO to dipole moment of the whole system is
+The contribution of electron of an occupied LMO to $d_i$pole moment of the whole system is
 
 
 $$\mathbf{D}_{i}=\left\langle\boldsymbol{\varphi}_{i}\middle|-\mathbf{r}\middle|\boldsymbol{\varphi}_{i}\right\rangle$$
 
 <!-- formula-ocr: formula_p309_217.png 已替换为LaTeX, 原图保留备查 -->
 
-This vector for all LMOs is outputted as “Contributions of all occupied LMOs to system dipole moment” in the LMOdip.txt file.
+This vector for all LMOs is outputted as “Contributions of all occupied LMOs to system $d_i$pole moment” in the LMOdip.txt file.
 
-However, this quantity is unable to be directly used to measure polarity of a LMO. Given that r = (r-rc)+rc, where rc is a fixed point, the above quantity can be rewritten as follows
+However, this quantity is unable to be $d_i$rectly used to measure polarity of a LMO. Given that r = (r-$\mathbf{r} = (\mathbf{r} - \mathbf{r}_c) + \mathbf{r}_c$)+rc, where rc is a fixed point, the above quantity can be rewritten as follows
 
 $$\mathbf{D}_{i}=\left\langle\varphi_{i}\left|-(\mathbf{r}-\mathbf{r}_{\mathrm{c}}^{i})\right|\varphi_{i}\right\rangle-\left\langle\varphi_{i}\left|\mathbf{r}_{\mathrm{c}}^{i}\right|\varphi_{i}\right\rangle=-\left\langle\varphi_{i}\left|\mathbf{r}-\mathbf{r}_{\mathrm{c}}^{i}\right|\varphi_{i}\right\rangle-\mathbf{r}_{\mathrm{c}}^{i}\left\langle\varphi_{i}\left|\varphi_{i}\right|\varphi_{i}\right\rangle=-\left\langle\varphi_{i}\left|\mathbf{r}-\mathbf{r}_{\mathrm{c}}^{i}\right|\varphi_{i}\right\rangle-\mathbf{r}_{\mathrm{c}}^{i}$$
 
-we can define a quantity di, which measures dipole moment of the orbital with respect to the rc:
+we can define a quantity $d_i$, which measures dipole moment of the orbital with respect to the $\mathbf{r} = (\mathbf{r} - \mathbf{r}_c) + \mathbf{r}_c$:
 
 cciiiiiiφφ= −−=+drrDr
 
-If we properly choose the rc for an orbital, then the di may be able to reflect polarity of the LMO.
+If we properly choose the $\mathbf{r} = (\mathbf{r} - \mathbf{r}_c) + \mathbf{r}_c$ for an orbital, then the $d_i$ may be able to reflect polarity of the LMO.
 
-For each LMO that identified as single-center one, the rc is automatically set to be the position of the atom having largest contribution to the LMO. Therefore, the di represents deviation of centroid of the LMO electron distribution with respect to the nuclear position. These {d} are printed as “Single-center orbital dipole moments (a.u.)” in the LMOdip.txt.
+For each LMO that identified as single-center one, the $\mathbf{r} = (\mathbf{r} - \mathbf{r}_c) + \mathbf{r}_c$ is automatically set to be the position of the atom having largest contribution to the LMO. Therefore, the $d_i$ represents deviation of centroid of the LMO electron distribution with respect to the nuclear position. These {d} are printed as “Single-center orbital dipole moments (a.u.)” in the LMOdip.txt.
 
-For each LMO that identified as two-center one, assume that the two atoms with largest contributions are A and B, the rc is set to
+For each LMO that identified as two-center one, assume that the two atoms with largest contributions are A and B, the $\mathbf{r} = (\mathbf{r} - \mathbf{r}_c) + \mathbf{r}_c$ is set to
 
-RRRRRR=+++rrr c BAABABAB
+RRRRRR=+++rr$\mathbf{r} = (\mathbf{r} - \mathbf{r}_c) + \mathbf{r}_c$ BAABABAB
 
-where rA and RA are nuclear position and covalent radius of atom A, respectively. Similarly for atom B. The rc locates at center of the bonding region, therefore the di, which exhibits deviation of centroid of LMO electron distribution from rc, is capable of revealing the bond polarity. These {d} are printed as “Two-center orbital dipole moments (a.u.)” in the LMOdip.txt.
+where rA and RA are nuclear position and covalent ra$d_i$us of atom A, respectively. Similarly for atom B. The $\mathbf{r} = (\mathbf{r} - \mathbf{r}_c) + \mathbf{r}_c$ locates at center of the bonding region, therefore the di, which exhibits deviation of centroid of LMO electron distribution from rc, is capable of revealing the bond polarity. These {d} are printed as “Two-center orbital dipole moments (a.u.)” in the LMOdip.txt.

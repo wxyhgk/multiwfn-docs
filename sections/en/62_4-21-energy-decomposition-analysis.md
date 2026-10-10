@@ -126,7 +126,7 @@ The units in the output are all kJ/mol. The above information shows that the tot
 
 In the original text of the S66 test set, the ratio of the dispersion interaction energy to the electrostatic interaction energy of water dimer given by the very ideal DFT-SAPT method is 0.29, which is qualitatively consistent with the value yielded by EDA-FF (4.43/21.15=0.21). Therefore, with the very simple water dimer as instance, it can be seen that as long as the choice of forcefield and atomic charges are suitable, the result of EDA-FF is generally reliable. For some systems, the total interaction energy calculated by forcefield is not quite close to that evaluated by reliable quantum chemistry method, but even so, in general the ratio between various physical components provided by the EDA-FF is still meaningful. In my view of point, it is not a bad idea to
 
-approximately estimate electrostatic interaction energy (ΔEele) via multiplying the total interaction energy (ΔEtot) obtained using quantum chemistry method by the ratio of the ΔEele and ΔEtot that evaluated by proper forcefield.
+approximately estimate electrostatic interaction energy ($\Delta E^{ele}$) via multiplying the total interaction energy (ΔEtot) obtained using quantum chemistry method by the ratio of the ΔEele and ΔEtot that evaluated by proper forcefield.
 
 The above output also shows contribution of each atom to the total interaction between all the defined fragments, so that you can easily recognize which atoms have a critical impact on the interfragment interaction. The sum of all atomic contributions is equal to the total interaction energy (if the system only has two atoms A and B, and each one is defined as a fragment, then the contribution of atom A will be half of the interaction energy between A-B). From the data given above, it can be seen that influence of each atom is not negligible. After all, the distance between the atoms in the system is not far. The most important contribution to the attraction is the electrostatic interaction of the O4 atom (-23.52 kJ/mol), this result is easy to understand since O4 is the acceptor atom of H-bond. The H3, which directly acts with O4 to form the H-bond, also contributes greatly to the binding (-16.87 kJ/mol) due to significant electrostatic effect. The data shows that only oxygen atoms have nonvanishing repulsion and dispersion terms, this is because the parameters of van der Waals potential of atom type HW is zero, hence HW atoms only behave as point charges to exhibit electrostatic effect.
 
@@ -261,7 +261,7 @@ In the above figure, the bluer the atomic color, the greater it contributes to t
 
 <!-- p.922 -->
 
-different. The hydrogen atoms in the GC pair contribute very little to the C3-GC dispersion interaction, this is because the hydrogen atoms only have very few numbers of electrons. On the C3 part, the color of the carbons that directly contact the GC pair is light blue, indicating their notable contributions to the dispersion interaction. The color of the C3 atoms that are far away from the GC pair is white, reflecting that their influences on dispersion interaction are negligible (recall the fact that dispersion attraction attenuates sharply with distance, it has 1/r6 asymptotic behavior).
+different. The hydrogen atoms in the GC pair contribute very little to the C3-GC dispersion interaction, this is because the hydrogen atoms only have very few numbers of electrons. On the C3 part, the color of the carbons that directly contact the GC pair is light blue, indicating their notable contributions to the dispersion interaction. The color of the C3 atoms that are far away from the GC pair is white, reflecting that their influences on dispersion interaction are negligible (recall the fact that dispersion attraction attenuates sharply with distance, it has 1/$1/r^6$ asymptotic behavior).
 
 Note: The heavy atoms in the GC pair in the graph above are very blue, while the atoms in the equivalent position of C3 are not so blue, the reason is that: Because there are many atoms in C3, each heavy atom in the GC pair can form dispersion interaction with a large range of C3 atoms, thus the sum of the terms is large. Since the number of atoms in the GC pair is small, each atom of C3 can only interact with relatively few numbers of atoms in the GC pair, so the sum of terms is not large. If you want to make atomic color of the C3 part more prominent, you can set the color scale range of the representation corresponding to the C3 part to a smaller value than the -10~10 we previously used; for example, changing to -6 to 6 will yield satisfactory graph.
 
@@ -342,15 +342,15 @@ The E_total is identical to the single point energy in the Gaussian output file.
 
 We repeat the analysis for eclipsed ethane, then summarize the data into the table below
 
-Etotal Esteric Eelectrostatic Equantum
+Etotal Esteric Eelectrostatic $E_{quantum}$
 
 Eclipsed (a.u.) -79.85972 64.21925 -146.10780 2.02883 Staggered (a.u.) -79.86398 64.21341 -146.11486 2.03747 Diff. (kJ/mol) 11.2 15.3 18.5 -22.7
 
 It can be seen that the eclipsed conformation has energy higher than the staggered one by 11.2 kJ/mol, which corresponds to the barrier of C-C single-bond rotation of the ethane. The data implies
 
-that steric effect should be one of the major contributors of the barrier since ΔEsteric is evidently positive. In addition, the fairly large ΔEelectrostatic=18.5 kJ/mol suggests that the electrostatic interaction is the dominating factor to determine the barrier height. In contrast, the variation of Equantum, which reflects the change in energy purely due to quantum effect, significantly cancels the steric and classical electrostatic terms and thus plays an important role of reducing the barrier.
+that steric effect should be one of the major contributors of the barrier since ΔEsteric is evidently positive. In addition, the fairly large $\Delta E_{\text{electrostatic}} = 18.5$=18.5 kJ/mol suggests that the electrostatic interaction is the dominating factor to determine the barrier height. In contrast, the variation of $E_{quantum}$, which reflects the change in energy purely due to quantum effect, significantly cancels the steric and classical electrostatic terms and thus plays an important role of reducing the barrier.
 
-As you can see on the screen, the EDA-SBL module also prints other intermediate quantities comprising the Esteric, Eelectrostatic and Equantum, such as Pauli kinetic energy, so you can use them to try to analyze the energy difference between the two conformations from more perspectives.
+As you can see on the screen, the EDA-SBL module also prints other intermediate quantities comprising the Esteric, Eelectrostatic and $E_{quantum}$, such as Pauli kinetic energy, so you can use them to try to analyze the energy difference between the two conformations from more perspectives.
 
 A thorough analysis using the EDA-SBL method for rotation barriers for a series of small organic molecules is presented in J. Phys. Chem. A, 117, 962 (2013), interested users are suggested to read it.
 
@@ -471,7 +471,7 @@ y // Export diffatomdisp.pqr in current folder Load the diffatomdisp.pqr into VM
 
 <!-- p.930 -->
 
-The adsorbed toluene is fully white in the picture above because it is not within the atomic range of interest in the zeolite-mol.cif we defined earlier, so its data is completely zero. The pink or red atoms in the figure suggest that the dispersion energy contributed by the zeolite atoms closer to the toluene changed greatly due to the adsorption. Since the structure of the zeolite moiety in zeolite-mol.cif is the same as zeolite.cif, therefore, the atom colors in the above figure completely reflect the dispersion interaction between the zeolite atoms and the toluene. It can be seen from the figure that the dispersion interaction decays very quickly with distance (known to be 1/r6 decay behavior). Basically, only the zeolite atoms in the closest layer to the toluene have a significant dispersion interaction with it.
+The adsorbed toluene is fully white in the picture above because it is not within the atomic range of interest in the zeolite-mol.cif we defined earlier, so its data is completely zero. The pink or red atoms in the figure suggest that the dispersion energy contributed by the zeolite atoms closer to the toluene changed greatly due to the adsorption. Since the structure of the zeolite moiety in zeolite-mol.cif is the same as zeolite.cif, therefore, the atom colors in the above figure completely reflect the dispersion interaction between the zeolite atoms and the toluene. It can be seen from the figure that the dispersion interaction decays very quickly with distance (known to be 1/$1/r^6$ decay behavior). Basically, only the zeolite atoms in the closest layer to the toluene have a significant dispersion interaction with it.
 
 The above figure can be changed to the following map, which shows the atoms of zeolite that interact prominently with toluene much more clearly. Specifically, in VMD, three Reps should be created in “Graphics” - “Representation” interface
 

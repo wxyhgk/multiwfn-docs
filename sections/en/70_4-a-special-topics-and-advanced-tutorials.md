@@ -67,8 +67,8 @@ DA adduction
 
 
 ```text
-      blank line
-      blank line
+     ← blank line
+     ← blank line
 ```
 
 Notice that the basis set we used here (6-31G*) is different to the one used in IRC task (6-31+G*), because Mayer bond order does not work well when diffuse functions are presented. By the way, ignoring diffuse functions will not lead to detectable change of ELF isosurface. Also note that the "nosymm" keyword is specified, because if we do not do this Gaussian will automatically translate and rotate the molecule to put it to standard orientation, which may lead to discontinuity problem in the animation of ELF (You will see molecule suddenly jumps in certain frames of the animation).
@@ -267,7 +267,7 @@ Overall, if you only need to calculate atomic spin population, using fuzzy atomi
 
 Aromaticity is a fundamental concept in organic chemistry and wavefunction analysis realm. Previously I wrote a post to thoroughly discuss the methods for studying aromaticity, see "The methods for measuring aromaticity and their calculations in Multiwfn" (in Chinese, http://sobereva.com/176). Multiwfn supports a very large number of methods for investigating aromaticity, they are summarized in the table below and will be briefly introduced in turn. There are also many other methods, such as induced ring current, ARCS, magnetic susceptibility exaltation, aromatic stabilization energy (ASE), CiLC; they will not be mentioned since they are not directly related to the capacities of Multiwfn.
 
-Method Principle Year Pop. Reliab. Univ. Ref. Anti. σ/π Cost Value
+Method Principle Year Pop. Reliab. Univ. Ref. Anti. $\sigma/\pi$ Cost Value
 
 1 Molecular orbital Hückel 1951 ++ 0 0 N Y Y 0 +
 
@@ -284,7 +284,7 @@ Method Principle Year Pop. Reliab. Univ. Ref. Anti. σ/π Cost Value
 
 6 Bird Geom. 1985 − − 0 − Y ? N − − − 7 Multi-center BO Delocal. 1990 + +++ ++ N N Y − +++
 
-8 ELF-σ/π Delocal. 2004 + 0 − N Y Y 0 +
+8 $\sigma/\pi$ Delocal. 2004 + 0 − N Y Y 0 +
 
 9 PDI Delocal. 2003 0 + 0 N N Y 0 +
 
@@ -352,7 +352,7 @@ Note that the definition of MCBO in many papers differs with that in Multiwfn by
 
 The ΔDI is simply defined as the difference of delocalization index (DI) between the formal C=C bond and the C-C bond. The DI can be either calculated by fuzzy atomic space analysis module or by basin analysis module (though the definitions of atomic spaces are different in these two modules, the results are similar in common). In fact, you can also use Mayer bond order instead of DI. I do
 
-not believe ΔDI is reliable, since aromaticity is an overall property of a system, while the delocalization over C-X bond is completely ignored in ΔDI.
+not believe ΔDI is reliable, since aromaticity is an overall property of a system, while the delocalization over C-X bond is completely ignored in $\Delta DI$
 
 13. FLU and FLU-π (Aromatic fluctuation index): They were proposed in J. Chem. Phys., 122, 014109 (2005). See Section 3.18.7 for introduction and Section 4.15.2 for example.
 
@@ -436,7 +436,7 @@ Chemistry−Methods, 1, 231 (2021).
 
 (3) IGM analysis. A key advantage of IGM analysis compared to NCI analysis is that this method is able to visually study intrafragment and interfragment interaction regions separately by properly defining fragments. Contributions by atoms and atomic pairs can be quantified as atomic
 
-δg index and atomic pair δg index defined in the IGM framework, respectively, and atoms can be colored according to the atomic δg indices to vividly exhibit the role played by various atoms. Three forms of IGM are supported, namely the original IGM, and the IGMH and mIGM proposed by me, see Sections 3.23.5, 3.23.6, 3.23.10 for introduction, respectively, as well as see Sections 4.20.10, 4.20.11, 4.20.12 for examples, respectively. Graphical effect of IGMH is much better than IGM, but the computational cost is evidently higher. mIGM has similar graphical effects as IGMH, while the cost is the same as the original IGM, so the original IGM in my opinion is no longer useful.
+$\delta g$ index and atomic pair δg index defined in the IGM framework, respectively, and atoms can be colored according to the atomic δg indices to vividly exhibit the role played by various atoms. Three forms of IGM are supported, namely the original IGM, and the IGMH and mIGM proposed by me, see Sections 3.23.5, 3.23.6, 3.23.10 for introduction, respectively, as well as see Sections 4.20.10, 4.20.11, 4.20.12 for examples, respectively. Graphical effect of IGMH is much better than IGM, but the computational cost is evidently higher. mIGM has similar graphical effects as IGMH, while the cost is the same as the original IGM, so the original IGM in my opinion is no longer useful.
 
 I also extended IGM analysis to the case of molecular dynamics simulation and proposed a new form of IGM, namely averaged IGM (aIGM), which is able to represent averaged interaction between specific fragments in the simulation trajectory. A variant of aIGM is amIGM, the latter has significantly better graphical effect, so amIGM should always be used instead of aIGM. See Section 3.23.11 for introduction of amIGM and 4.20.13 for example.
 
@@ -503,7 +503,7 @@ hole, π-hole and lone pair, see Section 4.12.10 for example.
 
 <!-- p.1100 -->
 
-2090 (2020) it is shown that condensed form of ωcubic at halogen atom in halogen bond dimers has nice linear relationship with binding energy, therefore this quantity may be useful in predicting strength of interaction and revealing interaction nature in some cases. This quantity can be calculated in a fully automatic way via main function 22, see Section 3.25 for detail.
+2090 (2020) it is shown that condensed form of $\omega_{cubic}$ at halogen atom in halogen bond dimers has nice linear relationship with binding energy, therefore this quantity may be useful in predicting strength of interaction and revealing interaction nature in some cases. This quantity can be calculated in a fully automatic way via main function 22, see Section 3.25 for detail.
 
 (18) ETS-NOCV. This popular method was proposed in J. Chem. Theory Comput., 5, 962 (2009), it focuses on deciphering orbital interaction between fragments. The key advantage of this analysis is that it is able to transform variation of electron density due to orbital interaction to a set of NOCV pairs, each pair has corresponding energy contribution to orbital interaction energy and has corresponding density which can be visualized to easily understand nature, therefore ETS-NOCV analysis provides very deep insight into orbital interaction. See Section 3.26 for detailed introduction of this analysis and Section 4.23 for examples of applying ETS-NOCV on studying various kinds of interactions. Although orbital interaction commonly is not the dominant physical component of weak interactions, ETS-NOCV is still useful in some cases. For example, Section 4.23.4 illustrates how to utilize ETS-NOCV to investigate hydrogen-bond interaction.
 
@@ -549,7 +549,7 @@ Sum of occupation numbers of selected orbitals:    0.628552
 
 This value is total number of odd electrons, and it also corresponds to integral of OED over the whole space. It may be employed as a metric of electron correlation. Then input
 
-q // Return -1 // Return to main menu Then we plot isosurface map of electron density in usual way by inputting the following commands. Since the current orbital occupation numbers have been transformed to min(2-nk, nk), the resulting map will correspond to OED map
+q // Return -1 // Return to main menu Then we plot isosurface map of electron density in usual way by inputting the following commands. Since the current orbital occupation numbers have been transformed to $\min(2-n_k, n_k)$ the resulting map will correspond to OED map
 
 5 // Calculate grid data 1 // Electron density 2 // Medium-quality grid -1 // Visualize isosurface Then set isovalue to 0.005 a.u., the OED map shown in the GUI window will be
 
@@ -636,7 +636,7 @@ $$\rho^{\mathrm{F O D}}(\mathbf{r})=\sum_{i}(\delta_{1}-\delta_{2}\eta_{i})\left
 
 where i loops over all spin molecular orbitals, whose occupancy range is [0,1]. The orbitals are obtained by DFT calculation with a specific electronic temperature. With a proper temperature setting, the resulting frontier orbitals will be evidently partially occupied. For orbitals lower than
 
-Fermi level, δ1=δ2=1, while for other orbitals, δ1=0 and δ2=-1. So, FOD is equivalent to a measure of the degree to which the electron density at each position deviates from 0 K (integer occupancy) at a finite temperature. The larger the FOD at a position, the stronger the static correlation in the corresponding region. Integral of FOD over the whole space is referred to as NFOD, which quantifies overall static correlation of the whole system like the well-known T1 diagnostic value. Because the T1 diagnostic is dependent on the expensive CCSD calculation, NFOD is highly recommended for measuring static correlation of medium to large systems.
+Fermi level, δ1=δ2=1, while for other orbitals, δ1=0 and δ2=-1. So, FOD is equivalent to a measure of the degree to which the electron density at each position deviates from 0 K (integer occupancy) at a finite temperature. The larger the FOD at a position, the stronger the static correlation in the corresponding region. Integral of FOD over the whole space is referred to as $N_{\mathrm{FOD}}$, which quantifies overall static correlation of the whole system like the well-known T1 diagnostic value. Because the T1 diagnostic is dependent on the expensive CCSD calculation, NFOD is highly recommended for measuring static correlation of medium to large systems.
 
 Note that FOD corresponds to the 90th user-defined function.
 
@@ -645,11 +645,11 @@ Examples As an example, we perform FOD analysis for HNO2. ORCA 6.0.1 program is 
 
 <!-- p.1105 -->
 
-finite-temperature B3LYP calculation for this molecule at 9000 K. Note that the suitable electronic temperature for FOD analysis is T=20000*ax+5000, where ax is the Hartree-Fock composition in the employed DFT functional. Because ax of B3LYP is 0.2, the temperature used in this example is 9000 K. The ORCA input file is examples\HNO2_FOD.inp. After executing it by ORCA, you will have HNO2_FOD.gbw, then use orca_2mkl HNO2_FOD -molden command to convert it to HNO2_FOD.molden.input, which has been provided in “examples” folder.
+finite-temperature B3LYP calculation for this molecule at 9000 K. Note that the suitable electronic temperature for FOD analysis is T=20000*$T=20000*a_x+5000$+5000, where ax is the Hartree-Fock composition in the employed DFT functional. Because ax of B3LYP is 0.2, the temperature used in this example is 9000 K. The ORCA input file is examples\HNO2_FOD.inp. After executing it by ORCA, you will have HNO2_FOD.gbw, then use orca_2mkl HNO2_FOD -molden command to convert it to HNO2_FOD.molden.input, which has been provided in “examples” folder.
 
 First, we plot FOD isosurface map. Set “iuserfunc” in `settings.ini` to 90, then boot up Multiwfn and load examples\HNO2_FOD.molden.input, then input
 
-5 // Calculate grid data 100 // User-defined function, which corresponds to FOD now 2 // Medium-quality grid Now from screen you can see the following information, showing that integral of FOD over the whole space using uniform grids is 0.139, which is just the NFOD index. NFOD of HNO2 is not large (see Chem. Eur. J., 23, 6150 (2017) for rich examples), indicating that HNO2 does not show noticeable static correlation.
+5 // Calculate grid data 100 // User-defined function, which corresponds to FOD now 2 // Medium-quality grid Now from screen you can see the following information, showing that integral of FOD over the whole space using uniform grids is 0.139, which is just the $N_{FOD}$ index. NFOD of HNO2 is not large (see Chem. Eur. J., 23, 6150 (2017) for rich examples), indicating that HNO2 does not show noticeable static correlation.
 
 
 ```text
@@ -659,9 +659,9 @@ Summing up all value and multiply differential element:
 
 Then choose option -1 to visualize isosurface map and set isovalue to 0.005 a.u., you will see the following map. It shows that the static correlation mainly comes from the region above and below the nitrogen, and the circular region surrounding O2.
 
-Due to the very flexible design of Multiwfn, contributions to NFOD from basis functions, shells, angular moments, atoms, fragments can also be derived. Next, I illustrate how to use Mulliken population analysis to realize this purpose (many other population methods such as Löwdin and Hirshfeld are also feasible). In the main menu of Multiwfn, we directly input fod to transform orbital occupancies according to the FOD formula, then from screen you can find NFOD is 0.139077, which corresponds to the sum of the current (transformed) orbital occupation numbers. From now on, studying electron density via usual steps will be equivalent to studying FOD.
+Due to the very flexible design of Multiwfn, contributions to $N_{FOD}$ from basis functions, shells, angular moments, atoms, fragments can also be derived. Next, I illustrate how to use Mulliken population analysis to realize this purpose (many other population methods such as Löwdin and Hirshfeld are also feasible). In the main menu of Multiwfn, we directly input fod to transform orbital occupancies according to the FOD formula, then from screen you can find NFOD is 0.139077, which corresponds to the sum of the current (transformed) orbital occupation numbers. From now on, studying electron density via usual steps will be equivalent to studying FOD.
 
-Next, we input 7 // Population analysis 5 // Mulliken analysis 1 // Output Mulliken population and atomic charges on screen Now you can see the following information, the population just corresponds to atomic contribution to NFOD. “Net charge” is meaningless in this situation. It is seen that static correlation in this system mostly comes from N1 and O2, then O3, which is fully in line with the isosurface map
+Next, we input 7 // Population analysis 5 // Mulliken analysis 1 // Output Mulliken population and atomic charges on screen Now you can see the following information, the population just corresponds to atomic contribution to $N_{FOD}$. “Net charge” is meaningless in this situation. It is seen that static correlation in this system mostly comes from N1 and O2, then O3, which is fully in line with the isosurface map
 
 
 ```text
@@ -680,7 +680,7 @@ Atom     3(O )    Population:  0.02487142    Net charge:  7.97512858
 Atom     4(H )    Population:  0.00223030    Net charge:  0.99776970
 ```
 
-Since the Mulliken population analysis decomposes electron population in a very detailed manner, you can also find more information about nature of NFOD. For example, the following information on screen shows that static correlation is almost exclusively generated by p electrons.
+Since the Mulliken population analysis decomposes electron population in a very detailed manner, you can also find more information about nature of $N_{FOD}$. For example, the following information on screen shows that static correlation is almost exclusively generated by p electrons.
 
 
 ```text
@@ -702,18 +702,18 @@ Theory The local total, dynamic and non-dynamic electron correlation functions p
 
 - Local nondynamic electron correlation function: $$I_{ND}(\mathbf{r})=\frac{1}{2}\sum_{i}\eta_{i}(1-\eta_{i})\,|\varphi_{i}(\mathbf{r})|^{2}$$
 
-It is clear that IT(r) = ID(r) + IND(r). It is noteworthy that the form of these functions is closely related to the OED introduced in Section 4.A.6.
+It is clear that $I_{\mathrm{T}}(\mathbf{r}) = \frac{1}{4} \sum_{i} \sqrt{\eta_i} (1 - \eta_i) \left| \phi_i(\mathbf{r}) \right|^2$(r) = ID(r) + IND(r). It is noteworthy that the form of these functions is closely related to the OED introduced in Section 4.A.6.
 
 Integral of the local total, dynamic and nondynamic electron correlation functions respectively correspond to the total, dynamic and nondynamic correlation indices proposed in Phys. Chem. Chem. Phys., 18, 24015 (2016).
 
-Examples As an example, let us plot IT for OC-BH3. Set "iuserfunc" in `settings.ini` to 87, then boot up Multiwfn and input
+Examples As an example, let us plot $I_{\mathrm{T}}(\mathbf{r}) = \frac{1}{4} \sum_{i} \sqrt{\eta_i} (1 - \eta_i) \left| \phi_i(\mathbf{r}) \right|^2$ for OC-BH3. Set "iuserfunc" in `settings.ini` to 87, then boot up Multiwfn and input
 
-examples\COBH3_CCSD.wfn //Wavefunction file containing CCSD/def2-SVP natural orbitals 5 // Grid data calculation 100 // User-defined function, currently corresponding to IT 2 // Medium-quality grid -1 // Visualize isosurface Set isovalue to 0.013, then you will see
+examples\COBH3_CCSD.wfn //Wavefunction file containing CCSD/def2-SVP natural orbitals 5 // Grid data calculation 100 // User-defined function, currently corresponding to $I_{\mathrm{T}}(\mathbf{r}) = \frac{1}{4} \sum_{i} \sqrt{\eta_i} (1 - \eta_i) \left| \phi_i(\mathbf{r}) \right|^2$ 2 // Medium-quality grid -1 // Visualize isosurface Set isovalue to 0.013, then you will see
 
 
 <!-- p.1107 -->
 
-This graph is rather similar to the isosurface map of OED in Section 4.A.6. Since IT is a real space function specific for revealing electron correlation, our observation implies that OED is also capable of visually exhibiting electron correlation.
+This graph is rather similar to the isosurface map of OED in Section 4.A.6. Since $I_{T}$ is a real space function specific for revealing electron correlation, our observation implies that OED is also capable of visually exhibiting electron correlation.
 
 Via the similar way, you can also easily plot ID and IND functions, you just need to set "iuserfunc" in `settings.ini` to 88 and 89 before booting up Multiwfn, respectively, and then repeat the aforementioned operations.
 
@@ -721,7 +721,7 @@ Note that it is possible to plot specific orbital contributions to local electro
 
 Using subfunction 4 of main function 100, you can integrate local electron correlation functions over the whole space, the result indicates the magnitude of electron correlation of the whole system. For example, we return to main menu and input
 
-100 // Other function (Part 1) 4 // Integrate a real space function over the whole space 100 // User-defined function, currently corresponding to IT The result, which is referred to as total correlation index, is 1.576. Repeat this calculation for dynamic and nondynamic electron correlation functions, you will find the resulting indices are 1.267 and 0.309, respectively. Evidently, the dynamic correlation governs the total correlation effect for the OC-BH3 system.
+100 // Other function (Part 1) 4 // Integrate a real space function over the whole space 100 // User-defined function, currently corresponding to $I_{T}$ The result, which is referred to as total correlation index, is 1.576. Repeat this calculation for dynamic and nondynamic electron correlation functions, you will find the resulting indices are 1.267 and 0.309, respectively. Evidently, the dynamic correlation governs the total correlation effect for the OC-BH3 system.
 
 Conveniently calculate all electron correlation indices at once The total, dynamic and nondynamic correlation indices can also be calculated by subfunction 15 of main function 200, which is significantly faster and more convenient. Still taking the COBH3_CCSD.wfn as example, we enter main function 200 and then choose subfunction 15, you will immediately see the following output, the result is exactly the same as the ones we manually obtained earlier
 
@@ -905,7 +905,7 @@ $$\varphi_{aa^{\prime}}^{A}(\mathbf{r})=\delta_{a,a^{\prime}}\sum_{I}\frac{Z_{I}
 
 <!-- formula-ocr: formula_p1111_350.png 已替换为LaTeX, 原图保留备查 -->
 
-where ZI and RI are nuclear charge and coordinate of atom I, respectively. δ is Kronecker function. ρa,a is transition density between state a and a'.
+where ZI and RI are nuclear charge and coordinate of atom I, respectively. δ is Kronecker function. $\rho_{a,a}$ is transition density between state a and a'.
 
 The ESP we commonly studied is ESP of a single state, i.e. a=a'. When a and a' correspond to different states, the potential may be referred to as "transition electrostatic potential", which measures ESP exerted by excitation corresponding to a-a' transition.
 
@@ -956,7 +956,7 @@ Beware that, the TrEsp charges obtained in this way must then be manually divide
 
 <!-- p.1113 -->
 
-by Gaussian, namely TDMi,j=(TDMi,j+TDMj,i)/ √2 rather than TDMi,j=(TDMi,j+TDMj,i)/2 as expected, therefore this problem should be manually fixed via dividing the resulting charges by √2.
+by Gaussian, namely TDMi,j=(TDMi,j+TDMj,i)/ $\sqrt{2}$ rather than TDM$\mathrm{TDM}_{i,j}=(\mathrm{TDM}_{i,j}+\mathrm{TDM}_{j,i})/\sqrt{2}$ as expected, therefore this problem should be manually fixed via dividing the resulting charges by $\sqrt{2}$
 
 In fact, in Multiwfn the transition charge can also be calculated by Mulliken method via hole-electron analysis module, see Section 3.21.1.3, and the computational cost is almost negligible. However, Mulliken transition charges must not be as good as TrEsp charges for approximately representing transition electrostatic potential and analyzing intermolecular exciton coupling purposes.
 
@@ -964,11 +964,11 @@ Skill 1: Accelerating calculation of TrEsp by making use of cubegen utility If n
 
 Since cubegen calculates ESP based on density matrix information in .fch/fchk file, we must first generate TDM and store it into a .fch file, the function mentioned in Section 3.21.9 can do this. We first use PBE1PBE/6-31g(d) TD IOp(9/40=4) keywords in Gaussian to carry out electron excitation calculation and meantime keep the .fch file, the corresponding files for 4-Nitroaniline are 4-Nitroaniline_IOp.gjf, 4-Nitroaniline_IOp.out and 4-Nitroaniline.fchk in the aforementioned TrEsp.zip package.
 
-Boot up Multiwfn and input 4-Nitroaniline.fchk 18 // Electron excitation analysis 9 // Generate and export TDM 1 // Generate TDM between ground state and excited state 4-Nitroaniline_IOp.out 2 // Generate TDM between S0 and S2 y // Symmetrize the resulting TDM in usual way, namely TDMi,j=(TDMi,j+TDMj,i)/2 y // Export TDM.fch, whose density matrix field corresponds to the just generated TDM Please make sure that "cubegenpath" parameter in `settings.ini` has been set to actual path of cubegen utility in Gaussian folder, then reboot Multiwfn and input
+Boot up Multiwfn and input 4-Nitroaniline.fchk 18 // Electron excitation analysis 9 // Generate and export TDM 1 // Generate TDM between ground state and excited state 4-Nitroaniline_IOp.out 2 // Generate TDM between S0 and S2 y // Symmetrize the resulting TDM in usual way, namely TDM$\mathrm{TDM}_{i,j}=(\mathrm{TDM}_{i,j}+\mathrm{TDM}_{j,i})/\sqrt{2}$ y // Export TDM.fch, whose density matrix field corresponds to the just generated TDM Please make sure that "cubegenpath" parameter in `settings.ini` has been set to actual path of cubegen utility in Gaussian folder, then reboot Multiwfn and input
 
 TDM.fch 7 // Population analysis 12 // CHELPG fitting method 5 // Choose form of ESP 3 // The ESP type specific for evaluating TrEsp 1 // Start calculation Immediately the TrESP charges are shown on screen. You do not need to manually divide the
 
-resulting charges by √2, because the TDM generated by Multiwfn has already been symmetrized in a correct way.
+resulting charges by $\sqrt{2}$, because the TDM generated by Multiwfn has already been symmetrized in a correct way.
 
 It is worth to note that if you want to verify whether the fitted TrEsp charges are reasonable, you can compare the electric dipole moment computed via these charges and the transition electric dipole moment printed by Gaussian (or other quantum chemistry codes). As it is well known that ESP fitting charges are able to well reproduce electric dipole moment, commonly the TrEsp charges are also able to well reproduce actual electric transition dipole moment.
 
@@ -1046,13 +1046,13 @@ $$\begin{aligned}V_{aa^{\prime},bb^{\prime}}^{A,B}=\delta_{a,a^{\prime}}\delta_{
 
 $$\begin{aligned}V_{aa^{\prime},bb^{\prime}}^{A,B}=\delta_{a,a^{\prime}}\delta_{b,b^{\prime}}\sum_{I\in A}\sum_{J\in B}\frac{Z_{I}Z_{J}}{\left|\mathbf{R}_{I}-\mathbf{R}_{J}\right|}+\iint\frac{\rho_{a,a}^{A}(\mathbf{r})\rho_{b,b}^{B}(\mathbf{r}^{\prime})}{\left|\mathbf{r}-\mathbf{r}^{\prime}\right|}\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{r}^{\prime}\\-\delta_{a,a^{\prime}}\sum_{I\in A}\int\frac{Z_{I}\rho_{b,b}^{B}(\mathbf{r})}{\left|\mathbf{R}_{I}-\mathbf{r}\right|}\mathrm{d}\mathbf{r}-\delta_{b,b^{\prime}}\sum_{J\in B}\int\frac{Z_{J}\rho_{a,a}^{A}(\mathbf{r})}{\left|\mathbf{R}_{J}-\mathbf{r}\right|}\mathrm{d}\mathbf{r}\end{aligned}$$
 
-This quantity may have different physical meanings. For example, 𝑉00,00 𝐴,𝐵: Coulomb interaction energy between A and B in their ground states 𝑉00,11 𝐴,𝐵: Coulomb interaction energy between A in ground state and B in the first excited state 𝑉01,10 𝐴,𝐵= 𝑉10,01 𝐴,𝐵: Excitation energy transfer couplings between transition of the two molecules
+This quantity may have different physical meanings. For example, 𝑉00,00 $V_{00,00}^{A,B}$: Coulomb interaction energy between A and B in their ground states 𝑉00,11 𝐴,𝐵: Coulomb interaction energy between A in ground state and B in the first excited state 𝑉01,10 𝐴,𝐵= 𝑉10,01 𝐴,𝐵: Excitation energy transfer couplings between transition of the two molecules
 
-Calculation of the integrals in 𝑉𝑎𝑎′,𝑏𝑏′ 𝐴,𝐵 is difficult, there is a method known as transition density
+Calculation of the integrals in 𝑉𝑎𝑎′,𝑏𝑏′ $V_{00,00}^{A,B}$ is difficult, there is a method known as transition density
 
 cube (TDC), which calculates the integrals by numerical integration based on evenly distributed grids, its cost is extremely high for large system. Fortunately, it was shown that by using TrEsp
 
-charges calculated for two molecules, their exciton coupling energy 𝑉𝑎𝑎′,𝑏𝑏′ 𝐴,𝐵 can be readily
+charges calculated for two molecules, their exciton coupling energy 𝑉𝑎𝑎′,𝑏𝑏′ $V_{00,00}^{A,B}$ can be readily
 
 evaluated using below formula at commonly satisfactory accuracy:
 
@@ -1150,9 +1150,9 @@ bond, hence character of chemical bonds can be characterized by various properti
 
 ·Electron density and potential energy at BCP, namely ρ(BCP) and V(BCP), are often used to discuss bonding strength. For the same kind of bond, they are usually positively and negatively correlated to bonding strength, respectively.
 
-·Laplacian of electron density at BCP, namely ∇2ρ(BCP), is often used to judge whether or not a bond mainly shows covalent character. Negative and positive values imply that the major nature of the bond is covalent and non-covalent, respectively. But notice that this criterion is often
+·Laplacian of electron density at BCP, namely $\nabla^2 \rho$(BCP), is often used to judge whether or not a bond mainly shows covalent character. Negative and positive values imply that the major nature of the bond is covalent and non-covalent, respectively. But notice that this criterion is often
 
-wrong (e.g. CO has positive ∇2ρ(BCP) but it is evidently a polar covalent bond)
+wrong (e.g. CO has positive $\nabla^2 \rho$(BCP) but it is evidently a polar covalent bond)
 
 ·In Angew. Chem. Int. Ed. Engl., 23, 627 (1984) it was argued that negative and positive values of energy density at BCP, i.e. H(BCP), implying the bond has covalent and non-covalent nature, respectively. But this criterion is not always true; for example, the Ca-O in CaO is typical ionic bond, but its H(BCP) is negative.
 
@@ -1160,7 +1160,7 @@ wrong (e.g. CO has positive ∇2ρ(BCP) but it is evidently a polar covalent bon
 
 ·The eta index was proposed in J. Phys. Chem. A, 114, 552 (2010) and further studied in
 
-Angew. Chem. Int. Ed., 53, 2766 (2014), it is defined as |λ1(r)|/λ3(r), where λ1 and λ3 are the smallest and largest eigenvalues of Hessian matrix of electron density, respectively. It was argued that if eta index at BCP is smaller than 1, then the bonding should be closed-shell interaction; while if it is larger than 1, the interaction should have covalent nature, and the more positive the value, the stronger the covalent character. However, I found this argument is not always true, for example this quantity of both Ni-C and C-O bonds in Ni(CO)4 is less than 1, but undoubtedly they should be attributed to polar covalent bonds.
+Angew. Chem. Int. Ed., 53, 2766 (2014), it is defined as |$|\lambda_1(\mathbf{r})|/\lambda_3(\mathbf{r})$ are the smallest and largest eigenvalues of Hessian matrix of electron density, respectively. It was argued that if eta index at BCP is smaller than 1, then the bonding should be closed-shell interaction; while if it is larger than 1, the interaction should have covalent nature, and the more positive the value, the stronger the covalent character. However, I found this argument is not always true, for example this quantity of both Ni-C and C-O bonds in Ni(CO)4 is less than 1, but undoubtedly they should be attributed to polar covalent bonds.
 
 ·Bond degree (BD) was proposed in J. Chem. Phys., 117, 5529 (2002) and defined as
 
@@ -1214,16 +1214,16 @@ isosurface around the bond. Multiwfn is also capable of studying ELF-π and ELF-
 
 Note that there are a lot of real functions having analogous distribution feature as ELF, though their underlying ideas may not be very similar to ELF. Multiwfn supports most of them and they can also be plotted in exactly the same way as ELF. These real space functions include LOL, SCI, SEDD, RoSE, PS-FID. The LOL is introduced in Section 2.6 and is sometimes preferred over ELF because of its clearer graphical effect; introduction of other real space functions can be found in Section 2.7.
 
-The negative part between two atoms in ∇2ρ map is able to reveal the region where electrons concentrate due to formation of covalent bond, this point is similar to ELF. In J. Phys. Chem., 100,
+The negative part between two atoms in $\nabla^2\rho$ map is able to reveal the region where electrons concentrate due to formation of covalent bond, this point is similar to ELF. In J. Phys. Chem., 100,
 
-15398 (1996), Bader believes that ∇2ρ and ELF are homeomorphic and their similarities and
+15398 (1996), Bader believes that $\nabla^2\rho$ and ELF are homeomorphic and their similarities and
 
 
 <!-- p.1122 -->
 
 differences are able to provide complementary information in understanding chemical bonds.
 
-However, notice that for bonds involving very heavy atom, ∇2ρ map often fails to reveal covalent character. For example, ∇2ρ in the interacting region of Re-Re bond is entirely positive.
+However, notice that for bonds involving very heavy atom, $\nabla^2 \rho$ map often fails to reveal covalent character. For example, ∇2ρ in the interacting region of Re-Re bond is entirely positive.
 
 By using Multiwfn and shell script as well as third-part software, anime of ELF or other functions during a chemical process (often represented as trajectory resulting from intrinsic reaction coordinate or rigid scan tasks) can be easily generated, such an anime is able to very vividly exhibit variation of characters of chemical bonds, see Section 4.A.1 on how to make the anime.
 
@@ -1252,13 +1252,13 @@ Do not forget that Multiwfn also provides advanced techniques for analyzing EDD,
 
 It is worth to note that plotting difference map of ELF between whole system and its fragments is also valuable, see illustration in Section 4.4.8.
 
-10 Analysis of δg function and IBSI index The real space function δg is defined in the framework of IGM theory, see Section 3.23.5 for introduction. δg is capable of revealing all kinds of interactions, including both chemical bonding and weak interaction, as well as both covalent and non-covalent ones. Moreover, the magnitude of
+10 Analysis of $\delta g$ function and IBSI index The real space function δg is defined in the framework of IGM theory, see Section 3.23.5 for introduction. δg is capable of revealing all kinds of interactions, including both chemical bonding and weak interaction, as well as both covalent and non-covalent ones. Moreover, the magnitude of
 
-δg in the bonding region is often positively correlated with bonding strength, therefore one can easily examine bonding strength in different regions by inspecting colors in color-filled maps or by
+$\delta g$ in the bonding region is often positively correlated with bonding strength, therefore one can easily examine bonding strength in different regions by inspecting colors in color-filled maps or by
 
-properly adjusting isovalue in isosurface maps. In addition, the isosurface of δg can be mapped by sign(λ2)ρ function via various colors, this makes the isosurface map informative. Please check Sections 4.20.10 and 4.20.11 for IGM examples; although the examples focus on studying weak interactions, the same procedure can also be migrated to chemical bond analysis.
+properly adjusting isovalue in isosurface maps. In addition, the isosurface of $\delta g$ can be mapped by sign(λ2)ρ function via various colors, this makes the isosurface map informative. Please check Sections 4.20.10 and 4.20.11 for IGM examples; although the examples focus on studying weak interactions, the same procedure can also be migrated to chemical bond analysis.
 
-The intrinsic bond strength index (IBSI) is defined based on integral of δg over the whole space. In J. Phys. Chem. A, 124, 1850 (2020) it was shown that it has the ability to measure bonding strength and distinguish type of bonds to a certain extent, see Section 3.11.9 for introduction and Section 4.9.6 for example.
+The intrinsic bond strength index (IBSI) is defined based on integral of $\delta g$ over the whole space. In J. Phys. Chem. A, 124, 1850 (2020) it was shown that it has the ability to measure bonding strength and distinguish type of bonds to a certain extent, see Section 3.11.9 for introduction and Section 4.9.6 for example.
 
 11 Quantifying amount of charge transfer due to bonding Formation of chemical bond between two different fragments must result in detectable charge transfer (CT) between the two fragments. The amount of CT can be obtained as difference between the fragment charge in actual system and the net charge of the fragment in its isolated state. The fragment charge is defined as sum of charges of the atoms in the fragment. In the population analysis module of Multiwfn, if a fragment has been defined, the fragment charge will be directly outputted when calculating atomic charges, see Section 4.7.1 for example.
 

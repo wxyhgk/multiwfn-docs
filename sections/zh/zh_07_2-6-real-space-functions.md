@@ -488,7 +488,7 @@ $$\rho(\mathbf{r})=\int S F(\mathbf{r},\mathbf{r}^{\prime})\mathrm{d}\mathbf{r}^
 
 电子离域范围函数EDR(r;d)（J. Chem. Phys., 141, 144104 (2014); J. Chem. Theory Comput., 12, 3185 (2016); Angew. Chem. Int. Ed., 56, 6878 (2017)）量化了波函数中r点电子占据尺寸为d的轨道瓣的程度。EDR(r;d）由
 
-非局域单粒子约化密度矩阵（1-RDM）（, ')( ) ( ')iiγηφφ= r rrr
+非局域单粒子约化密度矩阵（1-RDM） $\gamma(\mathbf{r},\mathbf{r}')=\sum_{i}\eta_{i}\varphi_{i}(\mathbf{r})\varphi_{i}(\mathbf{r}')$
 
 构建为
 
@@ -497,7 +497,6 @@ $$\begin{aligned}&EDR(\mathbf{r};d)=\int g_{d}(\mathbf{r},\mathbf{r}^{\prime})\g
 
 <!-- formula-ocr: formula_p53_031.png 已替换为LaTeX, 原图保留备查 -->
 
-$$\begin{aligned}&EDR(\mathbf{r};d)=\int g_{d}(\mathbf{r},\mathbf{r}^{\prime})\gamma(\mathbf{r},\mathbf{r}^{\prime})d\mathbf{r}^{\prime}\\&g_{d}(\mathbf{r},\mathbf{r}^{\prime})=\left(\frac{2}{\pi d^{2}}\right)^{3/4}\rho^{-1/2}(\mathbf{r})\exp\left(-\frac{|\mathbf{r}-\mathbf{r}^{\prime}|^{2}}{d^{2}}\right)\\ \end{aligned}$$
 
 其中ρ(r)为r点电子密度。前置因子保证EDR在-1至+1之间。Multiwfn实现在格点上对单一全局输入的距离d计算EDR。4.5.6节给出了示例。
 

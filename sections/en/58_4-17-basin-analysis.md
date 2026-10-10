@@ -630,7 +630,7 @@ The sum of the integrals is very close to the electron density at CP13 (0.276277
 
 ### 4.17.6 Local region basin analysis for polyyne
 
-Sometimes, the geometry of the system we studied is rather extended, for instance, polyyne C14H2, which can be formally illustrated as
+Sometimes, the geometry of the system we studied is rather extended, for instance, polyyne $C_{14}H_{2}$, which can be formally illustrated as
 
 H1−C2≡C3−C4≡C5−C6≡C7−C8≡C9−C10≡C11−C12≡C13−C14≡C15−H16 If we are only interested in the electronic structure characteristic of local region in this system, by properly setting up grid, basin analysis can be conducted only for the interesting region rather than for the whole system to save computational time. As an example, in this section we will try to acquire electron population number in the ELF basin of V(C7,C8) and V(C8,C9) with minimum computational cost.
 
@@ -730,7 +730,7 @@ There is a relationship E(r) = -K(r), where K(r) is Hamiltonian kinetic energy. 
 
 $$E_{_\Omega}=\frac{E_{_{QC}}}{T}\times T_{_\Omega}$$
 
-particles is absorbed into the exchange-correlation functional. Therefore, the actual EΩ should be finally scaled as follows so that sum of all EΩ just equals EQC:
+particles is absorbed into the exchange-correlation functional. Therefore, the actual EΩ should be finally scaled as follows so that sum of all EΩ just equals $E_{\Omega}$:
 
 
 $$E_{_\Omega}=\frac{E_{_{QC}}}{T}\times T_{_\Omega}$$
@@ -763,7 +763,7 @@ The electronic energy yielded by quantum chemistry calculation can be manually f
 
 It is noteworthy that the actual virial ratio of H2CO.wfn is 2.009, which can be found at the end of this file and also printed after Multiwfn loading this file. Since its deviation to exact virial
 
-ratio 2.0 is insignificant, our scaling treatment of EΩ is reasonable and acceptable.
+ratio 2.0 is insignificant, our scaling treatment of $E_{\Omega}$ is reasonable and acceptable.
 
 An evidently more convenient and better way of deriving atomic contribution to energy is choosing user-defined function -11 as the integrand, it is scaled electron energy density involving virial ratio, whose integral over the whole space exactly equals the electronic energy given by quantum chemistry code, see corresponding part of Section 2.7 for its definition. Now we redo the example above. Open `settings.ini` and set “iuserfunc” to -11, then boot up Multiwfn and input
 

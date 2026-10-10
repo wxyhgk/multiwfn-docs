@@ -443,7 +443,7 @@ $$ODI_{i}=0.01\times\sum_{A}(\Theta_{A,i})^{2}$$
 
 <!-- formula-ocr: formula_p611_338.png 已替换为LaTeX, 原图保留备查 -->
 
-where ΘA,i is composition of atom A in orbital i.
+$\Theta_{A,i}$ is composition of atom A in orbital i.
 
 The ODI a useful indicator of quantifying extent of orbital spatial delocalization, the lower (higher) the ODI, the stronger the orbital delocalization (localization).
 
@@ -550,18 +550,18 @@ In order to measure orbital delocalization extent on a specific fragment, I defi
 
 $$\mathrm{ODI}_{i}^{\mathrm{frag}}=0.01\times\sum_{A\in\mathrm{frag}}\left(\frac{\Theta_{A,i}}{p_{i}}\right)^{2}$$
 
-where p is normalization factor to account for the difference of total amount of orbital distribution on different fragments. If the fragment contains all atoms, then the ODIfrag will be identical to the aforementioned ODI.
+where p is normalization factor to account for the difference of total amount of orbital distribution on different $^{frag}$ments. If the fragment contains all atoms, then the ODIfrag will be identical to the aforementioned ODI.
 
-Clearly, fragment ODI is very useful if you want to quantitatively compare orbital delocalization for a fragment shared by analogues. Currently, only Hirshfeld, Hirshfeld-I and Becke orbital composition analysis modules can calculate fragment ODI. Now, let see an example.
+Clearly, $^{frag}$ment ODI is very useful if you want to quantitatively compare orbital delocalization for a fragment shared by analogues. Currently, only Hirshfeld, Hirshfeld-I and Becke orbital composition analysis modules can calculate fragment ODI. Now, let see an example.
 
-As vividly shown in the orbital isosurface maps of the D-pi-A.fchk given above, for the amino group, the MO 53 fully localizes on the nitrogen atom, while the MO 56 delocalizes over the entire group. Now we use fragment ODI to quantify this point. Boot up Multiwfn and input
+As vividly shown in the orbital isosurface maps of the D-pi-A.fchk given above, for the amino group, the MO 53 fully localizes on the nitrogen atom, while the MO 56 delocalizes over the entire group. Now we use $^{frag}$ment ODI to quantify this point. Boot up Multiwfn and input
 
-examples\excit\D-pi-A.fchk 8 // Orbital composition analysis 8 // Hirshfeld method -9 // Define fragment 24-26 // Index of the atoms in the amino group Next, if you input 53, you will see
+examples\excit\D-pi-A.fchk 8 // Orbital composition analysis 8 // Hirshfeld method -9 // Define $^{frag}$ment 24-26 // Index of the atoms in the amino group Next, if you input 53, you will see
 
 
 ```text
 Fragment contribution:     13.564%
-Orbital delocalization index of the fragment:   77.26
+Orbital delocalization index of the $^{frag}$ment:   77.26
 ```
 
 if inputting 62, you will see
@@ -569,12 +569,12 @@ if inputting 62, you will see
 
 ```text
 Fragment contribution:     71.819%
-Orbital delocalization index of the fragment:   33.41
+Orbital delocalization index of the $^{frag}$ment:   33.41
 ```
 
-Since fragment ODI of MO 62 is significantly smaller than that of MO 53, it is clear that delocalization of MO 62 over amino group is much stronger than MO 53.
+Since $^{frag}$ment ODI of MO 62 is significantly smaller than that of MO 53, it is clear that delocalization of MO 62 over amino group is much stronger than MO 53.
 
-Note that you can also use the option "Print orbital delocalization index (ODI) for a batch of orbitals" to calculate ODI and ODIfrag for a batch of orbitals. The ODI values will be printed followed by ODIfrag values.
+Note that you can also use the option "Print orbital delocalization index (ODI) for a batch of orbitals" to calculate ODI and ODI$^{frag}$ for a batch of orbitals. The ODI values will be printed followed by ODIfrag values.
 
 
 ### 4.8.6 Calculate orbital composition contributed by AIM basins and other type of basins

@@ -139,7 +139,7 @@ RMSE of fitting error at all points:           17.562831 a.u.^2
 Pearson correlation coefficient r:    0.995316  r^2:    0.990654
 ```
 
-As you can see, the integral of the originally fitted density over the whole space is 13.13399890, therefore the coefficients of the fitting functions are scaled by 14/13.13399890=1.06593583, where 14 is the actual number of electrons of silicon. In the current fitting, both coefficients and exponents of the four STOs are optimized, the final parameters are printed under "Fitted parameters (a.u.) after scaling" title. The RMSE is a quantity useful in quantitatively measuring fitting quality. The r2 coefficient between fitted density and actual density is as high as 0.99, implying that the fitting is reasonable; however, it is highly suggested also employing other ways to further examine the fitting quality and confirm the fitting reliability, so that the fitted parameters can be safely used in practical studies to estimate density.
+As you can see, the integral of the originally fitted density over the whole space is 13.13399890, therefore the coefficients of the fitting functions are scaled by 14/13.13399890=1.06593583, where 14 is the actual number of electrons of silicon. In the current fitting, both coefficients and exponents of the four STOs are optimized, the final parameters are printed under "Fitted parameters (a.u.) after scaling" title. The RMSE is a quantity useful in quantitatively measuring fitting quality. The $r^{2}$ coefficient between fitted density and actual density is as high as 0.99, implying that the fitting is reasonable; however, it is highly suggested also employing other ways to further examine the fitting quality and confirm the fitting reliability, so that the fitted parameters can be safely used in practical studies to estimate density.
 
 In the newly appeared menu you can see many options, whose meanings are either self-explanatory or have been described in Section 3.300.2.2. To quantitatively check fitting quality at the 4000 fitting points, we select option 1, then you will see
 
@@ -238,7 +238,7 @@ and you can find error statistics:
 Pearson correlation coefficient r:    0.999706  r^2:    0.999413
 ```
 
-From this data we can find the fitting quality is almost perfect! The r2 is almost exactly 1.0!
+From this data we can find the fitting quality is almost perfect! The $r^{2}$ is almost exactly 1.0!
 
 Please use the same way as illustrated in the last section to examine fitting quality, you will find current fitting is completely successful. For example, after choosing option 3 we can see the following map, which exhibits that the fitting quality in all regions is perfect.
 
@@ -281,7 +281,7 @@ examples\phenanthrene.fch 6 // Check & modify wavefunction
 
 Here we simulate STM image of constant height mode for phenanthrene. Boot up Multiwfn and input
 
-mol.mwfn 300 // Other function (Part 3) 4 // Simulating STM image From the message on screen, it can be seen that the Fermi level (EF) has been set to average of HOMO energy and LUMO energy, the bias voltage (V) has been automatically set to the difference between HOMO energy and EF, in this case only HOMO can contribute to the STM image. In order to obtain expected STM image, it is crucial to properly define the V. In the case of negative V, electrons flow from sample to STM tip, and the more negative the V, the more MOs may contribute to the STM image. Also, note that the distance between the atoms in the sample and the tip significantly affects STM image. From the information on option 7 you can find the default Z coordinate of the plane to be plotted is 0.7 Å. Since all atoms in the mol.mwfn have Z coordinate of
+mol.mwfn 300 // Other function (Part 3) 4 // Simulating STM image From the message on screen, it can be seen that the Fermi level ($E_F$) has been set to average of HOMO energy and LUMO energy, the bias voltage (V) has been automatically set to the difference between HOMO energy and EF, in this case only HOMO can contribute to the STM image. In order to obtain expected STM image, it is crucial to properly define the V. In the case of negative V, electrons flow from sample to STM tip, and the more negative the V, the more MOs may contribute to the STM image. Also, note that the distance between the atoms in the sample and the tip significantly affects STM image. From the information on option 7 you can find the default Z coordinate of the plane to be plotted is 0.7 Å. Since all atoms in the mol.mwfn have Z coordinate of
 
 0 Å, the distance between the nuclei and the tip is 0.7 − 0.0 = 0.7 Å. In this example, we will plot STM image with V= -5.0 V at Z=1.2 Å.
 

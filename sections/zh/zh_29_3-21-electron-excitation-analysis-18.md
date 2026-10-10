@@ -1449,7 +1449,7 @@ tran22||3fE=Δ×D
 
 $$\mathbf{D}^{\mathrm{tran}}=\sum_{i,a}(w_{i,a}+w_{i,a}^{\prime})\langle\varphi_{i}|-\mathbf{r}|\varphi_{a}\rangle$$
 
-其中 i 与 a 分别遍历全部占据与虚 MO。w 与 w 分别为激发与退激发的组态系数。
+其中 i 与 a 分别遍历全部占据与虚 MO。w 与 w′ 分别为激发与退激发的组态系数。
 <!-- p.293 -->
 
 
@@ -1524,7 +1524,7 @@ $$\Theta_{\mu}^{\mathrm{t r a n}}=P_{\mu\mu}^{\mathrm{t r a n}}+\sum_{\nu\neq\mu
 
 
 
-因此，原子 A 的 Mulliken 原子跃迁电荷应为 μμ−Θ。全部原子 A tran
+因此，原子 A 的 Mulliken 原子跃迁电荷应为 μμ∈−Θ。全部原子 A tran
 
 跃迁电荷之和必为零，因为电子激发中总电子数不变。
 

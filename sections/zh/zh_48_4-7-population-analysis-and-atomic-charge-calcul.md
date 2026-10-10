@@ -1197,8 +1197,8 @@ niconiconi
 %oldchk=C:\opt.chk
 %chk=C:\SP_solv.chk
 ## B3LYP/def2TZVP em=GD3BJ scrf=solvent=ethanol geom=allcheck
-     Blank line
-     Blank line
+    ← Blank line
+    ← Blank line
 ```
 
 计算后，你将在 C:\ 文件夹中得到 SP_gas.chk 和 SP_solv.chk。将它们转换为 .fch 文件，然后如常规用 Multiwfn 计算 RESP 电荷，你会发现气相中的电荷为

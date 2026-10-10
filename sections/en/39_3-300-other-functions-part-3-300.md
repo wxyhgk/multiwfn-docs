@@ -6,7 +6,7 @@
 
 <!-- p.437 -->
 
-it based on energies and coefficient matrix of MOs via F=SCEC-1 relationship (2) Input path of a file containing F, then the matrix will be loaded, see Appendix 7 of this manual for details. After that, energies of NAdOs will be evaluated during generation of NAdOs and recorded to NAdOs.mwfn.
+it based on energies and coefficient matrix of MOs via $\mathbf{F} = \mathbf{SCEC}^{-1}$ relationship (2) Input path of a file containing F, then the matrix will be loaded, see Appendix 7 of this manual for details. After that, energies of NAdOs will be evaluated during generation of NAdOs and recorded to NAdOs.mwfn.
 
 Examples of using BOD and NAdO to analyze practical chemical systems are given in Section 4.200.20.
 
@@ -99,9 +99,9 @@ This function is used to fit atomic radial density as linear combination of mult
 
 <!-- p.440 -->
 
-type orbitals (STOs) or S-type of Gaussian type functions (GTFs), so that the atomic radial density then can be evaluated analytically. The fitting involves many technical details, which will be introduced in Section 3.300.2.1, then the usage of the present module will be described in Section 4.300.2.2. Practical examples of using this module to perform fitting will be given in Section 4.300.2.
+type orbitals (STOs) or S-type of Gaussian type functions (GTFs), so that the atomic radial density then can be evaluated analytically. The fitting involves many technical details, which will be introduced in Section 3.300.2.1, then the usage of the present module will be desc$r_{i}$bed in Section 4.300.2.2. Practical examples of using this module to perform fitting will be given in Section 4.300.2.
 
-3.300.2.1 Algorithm and technical details
+3.300.2.1 Algo$r_{i}$thm and technical details
 
 Basic idea The purpose of this function is performing below fitting
 
@@ -109,7 +109,7 @@ $$\rho(r)\approx\rho^{\mathrm{f i t}}(r)\quad\forall r$$
 
 $$\rho^{\mathrm{fit}}(r)\left\{\begin{aligned}&\sum_{i\in\mathrm{STO}}c_{i}e^{-\zeta r}\\ &\sum_{i\in\mathrm{GTF}}c_{i}e^{-\zeta r^{2}}\end{aligned}\right.$$
 
-where {c} are coefficients to be fitted, {ζ} are exponents to be fitted, r is radial distance to nuclear position.
+where {c} are coefficients to be fitted, {ζ} are exponents to be fitted, $r_{i}$s radial distance to nuclear position.
 
 Fitting type To realize the fitting, a set of fitting points should be defined. The fitting essentially corresponds to minimizing the least-square residual that measures overall error between actual density and fitted density at the fitting points. There are three ways to define the residual, which correspond to different fitting types:
 
@@ -119,15 +119,15 @@ $$\mathrm{(3)}Minimizing~error~of~radial~distribution~function~(RDF):\sum_{i}\Bi
 
 $$\mathrm{(3)}Minimizing~error~of~radial~distribution~function~(RDF):\sum_{i}\Big[4\pi r_{i}^{2}\Big(\rho_{i}-\rho_{i}^{\mathrm{fit}}\Big)\Big]^{2}$$
 
-In above formulae, {i} are fitting points placed at different radial distances, ri denotes radial distance
+In above formulae, {i} are fitting points placed at different radial distances, $r_{i}$ denotes radial distance
 
-of point i. ρi is sphericalized (i.e. spherically averaged) electron density calculated based on loaded wavefunction file at point i. In Multiwfn, 170 Lebedev angular grid points are used to perform the spherical average.
+of point i. ρi is sphe$r_{i}$calized (i.e. spherically averaged) electron density calculated based on loaded wavefunction file at point i. In Multiwfn, 170 Lebedev angular grid points are used to perform the spherical average.
 
 Commonly, fitting type 2 is preferred over others and thus it is default, because the density fitted in this way can reproduce actual density over the entire range, including tail region where electron density is fairly small. The density fitted by type 1 can only well represent the region very close to nucleus, since electron density in this region is significantly larger than other regions. When fitting type 2 does not work well by visually inspecting the curve of fitted density, using type 3 instead may obtain better result. If none of types 2 and 3 work well, sometimes it is useful to use type 1 first and then 2 (namely using the fitted parameters from type 1 as initial guess for type 2), or use type 3 first and then 2.
 
 Fitting functions The STO and GTF, which are most important functions in quantum chemistry calculation, are supported in the present module as fitting functions.
 
-The fitting quality is quite sensitive to the number of fitting functions. Clearly, in principle, the
+The fitting quality is quite sensitive to the number of fitting functions. Clearly, in p$r_{i}$nciple, the
 
 
 <!-- p.441 -->
@@ -337,7 +337,7 @@ Examples of simulating STM images are given in Section 4.300.4. Information need
 
 
 
-This function calculates electric dipole, quadrupole, octopole and hexadecapole moments as well as electronic spatial extent <r2> based on analytically evaluated integrals (or based on atomic charges, see later). Note that the function described in Section 3.18.3 is also able to calculate dipole, quadrupole and octopole moments, however it calculates the data numerically based on integration grid, and thus it is evidently slower and its accuracy is marginally lower than the present function. The information printed by this function is shown below.
+This function calculates electric dipole, quadrupole, octopole and hexadecapole moments as well as electronic spatial extent <$<r^{2}>$> based on analytically evaluated integrals (or based on atomic charges, see later). Note that the function described in Section 3.18.3 is also able to calculate dipole, quadrupole and octopole moments, however it calculates the data numerically based on integration grid, and thus it is evidently slower and its accuracy is marginally lower than the present function. The information printed by this function is shown below.
 
 Dipole moment:
 
@@ -365,7 +365,7 @@ $$\Theta_{xyz}=\sum_{A}q_{A}X_{A}Y_{A}Z_{A}-\int xyz\rho(\mathbf{r})\mathrm{d}\m
 
 Note that since quadrupole moment in Cartesian form is a symmetric matrix, only 6 components are unique.
 
-The electronic spatial extent is defined as 〈𝑟2〉= ∫(𝑥2 + 𝑦2 + 𝑧2)𝜌(𝐫)d𝐫 . Essentially, it simply corresponds to the negative of the trace of the quadrupole moment tensor (Cartesian form) contributed by electrons. Multiwfn not only prints 〈𝑟2〉 , but also prints its three Cartesian components, so that you can understand its sources. A very detailed introduction of 〈𝑟2〉 is given in my blog article: http://sobereva.com/616 (in Chinese).
+The electronic spatial extent is defined as $\langle r^2 \rangle$= ∫(𝑥2 + 𝑦2 + 𝑧2)𝜌(𝐫)d𝐫 . Essentially, it simply corresponds to the negative of the trace of the quadrupole moment tensor (Cartesian form) contributed by electrons. Multiwfn not only prints 〈𝑟2〉 , but also prints its three Cartesian components, so that you can understand its sources. A very detailed introduction of 〈𝑟2〉 is given in my blog article: http://sobereva.com/616 (in Chinese).
 
 Quadrupole moment (spherical harmonic form):
 
@@ -566,16 +566,16 @@ $$n_{i}=\frac{\eta}{1+\exp[(E_{i}-E_{f})/(k_{B}T)]}$$
 
 <!-- formula-ocr: formula_p455_335.png 已替换为LaTeX, 原图保留备查 -->
 
-where Ei is energy of orbital i, Ef is Fermi-level, kB is Boltzmann constant, η is 2.0 and 1.0 if the orbital was produced by restricted and unrestricted calculations, respectively. Ef corresponds to the hypothetical level of 50% probability of being occupied.
+where Ei is energy of orbital i, $E_{f}$ is Fermi-level, kB is Boltzmann constant, η is 2.0 and 1.0 if the orbital was produced by restricted and unrestricted calculations, respectively. Ef corresponds to the hypothetical level of 50% probability of being occupied.
 
-By using the above way to assign orbital occupations, you will find the total number of electrons of all orbitals is dependent on the choice of Ef. Clearly, the physically meaningful Ef is the value making total number of electrons the same as the actual number of electrons in present system; so, in the present function of Multiwfn, the Ef is determined based on this fact (and this is the same
+By using the above way to assign orbital occupations, you will find the total number of electrons of all orbitals is dependent on the choice of $E_{f}$. Clearly, the physically meaningful Ef is the value making total number of electrons the same as the actual number of electrons in present system; so, in the present function of Multiwfn, the Ef is determined based on this fact (and this is the same
 
 
 <!-- p.456 -->
 
-way as CP2K program to determine Ef when smearing is enabled). Specifically, Multiwfn use bisection algorithm to iteratively adjust Ef until the deviation between current and expected total number of electrons is smaller than 1E-6. The maximum number of iterations is 1000, usually the iteration can converge within dozens of cycles.
+way as CP2K program to determine $E_f$ when smearing is enabled). Specifically, Multiwfn use bisection algorithm to iteratively adjust Ef until the deviation between current and expected total number of electrons is smaller than 1E-6. The maximum number of iterations is 1000, usually the iteration can converge within dozens of cycles.
 
-Ef is temperature dependent, therefore in this function you need to input a temperature. It is noteworthy that Ef is ill defined in the case of T = 0 K, because in this case Fermi-Dirac function is a step function, and any value between energies of HOMO and LUMO may be acceptable.
+$E_f$ is temperature dependent, therefore in this function you need to input a temperature. It is noteworthy that Ef is ill defined in the case of T = 0 K, because in this case Fermi-Dirac function is a step function, and any value between energies of HOMO and LUMO may be acceptable.
 
 Usage To use this function, you simply need to load a wavefunction file containing both occupied and virtual orbitals (you can use e.g. .mwfn, .fch, .molden, etc. .wfn format cannot be used, as it normally does not record virtual orbitals), then enter subfunction 9 of main function 300, and then input a temperature.
 
@@ -583,19 +583,19 @@ For example, boot up Multiwfn and input examples\Li6.fch 300 //Other function (P
 
 
 ```text
- Iter:    1  Nelec:     18.00331025  Dev.:  0.33102D-02  Ef:   -0.09099563 a.u.
- Iter:    2  Nelec:     17.49559527  Dev.: -0.50440D+00  Ef:   -0.10918015 a.u.
- Iter:    3  Nelec:     17.81870305  Dev.: -0.18130D+00  Ef:   -0.10008789 a.u.
+ Iter:    1  Nelec:     18.00331025  Dev.:  0.33102D-02  $E_f$:   -0.09099563 a.u.
+ Iter:    2  Nelec:     17.49559527  Dev.: -0.50440D+00  $E_f$:   -0.10918015 a.u.
+ Iter:    3  Nelec:     17.81870305  Dev.: -0.18130D+00  $E_f$:   -0.10008789 a.u.
 ...ignored
- Iter:   17  Nelec:     17.99999281  Dev.: -0.71905D-05  Ef:   -0.09117931 a.u.
- Iter:   18  Nelec:     17.99999782  Dev.: -0.21801D-05  Ef:   -0.09117904 a.u.
- Iter:   19  Nelec:     18.00000033  Dev.:  0.32506D-06  Ef:   -0.09117890 a.u.
+ Iter:   17  Nelec:     17.99999281  Dev.: -0.71905D-05  $E_f$:   -0.09117931 a.u.
+ Iter:   18  Nelec:     17.99999782  Dev.: -0.21801D-05  $E_f$:   -0.09117904 a.u.
+ Iter:   19  Nelec:     18.00000033  Dev.:  0.32506D-06  $E_f$:   -0.09117890 a.u.
  Converged! Fermi level is   -0.09117890 Hartree     -2.481104 eV
 ```
 
-Namely Ef is -2.481 eV.
+Namely $E_f$ is -2.481 eV.
 
-Multiwfn employs average of energies of HOMO and LUMO as initial guess. Isolated systems usually have a relatively large gap, therefore if the specified temperature is not high enough, the iteration will converge within 1 cycle. For example, if you set temperature to only 500 K in the example above, the Ef will be -2.476 eV, which is just average of HOMO and LUMO.
+Multiwfn employs average of energies of HOMO and LUMO as initial guess. Isolated systems usually have a relatively large gap, therefore if the specified temperature is not high enough, the iteration will converge within 1 cycle. For example, if you set temperature to only 500 K in the example above, the $E_f$ will be -2.476 eV, which is just average of HOMO and LUMO.
 
 Using plain text file as input file If the quantum chemistry or first-principles program you used cannot produce a wavefunction file that supported by Multiwfn, you can also use this function. You just need to manually write orbital information to a plain text and use it as input file. For closed-shell case, the format should look like this:
 

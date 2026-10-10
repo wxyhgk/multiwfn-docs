@@ -185,15 +185,15 @@ $$I_{A B C D E}=\sum_{a\in A}\sum_{b\in B}\sum_{c\in C}\sum_{d\in D}\sum_{e\in E
 
 $$I_{A B C D E}=\sum_{a\in A}\sum_{b\in B}\sum_{c\in C}\sum_{d\in D}\sum_{e\in E}(P S)_{a b}(P S)_{b c}(P S)_{c d}(P S)_{d e}(P S)_{e a}$$
 
-，则 MCBO 可简化为 ,() ()d adeeae EAPSPS = 
+，则 MCBO 可简化为 ,() ()d adeeae EAPSPS ∈= 
 
 $$I_{A B C D E}=\sum_{a\in A}\sum_{b\in B}\sum_{c\in C}\sum_{d\in D}\sum_{e\in E}(P S)_{a b}(P S)_{b c}(P S)_{c d}(P S)_{d e}(P S)_{e a}$$
 
-，则 MCBO 可简化为 ,,()c acdd ad DBPSA = 
+，则 MCBO 可简化为 ,,()c acdd ad DBPSA ∈= 
 
 $$I_{A B C D E}=\sum_{a\in A}\sum_{b\in B}\sum_{c\in C}\sum_{d\in D}\sum_{e\in E}(P S)_{a b}(P S)_{b c}(P S)_{c d}(P S)_{d e}(P S)_{e a}$$
 
-，则 MCBO 可最终简化为 ,,()b abcc ac CCPSB = 
+，则 MCBO 可最终简化为 ,,()b abcc ac CCPSB ∈= 
 
 很清楚，利用中间矩阵 A、B、C，MCBO 可以相当简单的方式求值，而构造 A、B、C 也很廉价。该 ,()ABCDEabb aa A b BIPSC =  的形式代价
 

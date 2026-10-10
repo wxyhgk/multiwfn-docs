@@ -884,7 +884,7 @@ Plotting PVS-NC(atom) map Assume that we want to study how the motions of C18 at
 
 <!-- p.684 -->
 
-1 // Define PVS fragment 1 1-18 // Atoms in C18 2 // Define PVS fragment 2 19-36 // Atoms in B9N9 l // Set legends of PVS curves 1 // Set legend for PVS cyclo[18]carbon // Full name C18 2 // Set legend for PVS B9N9 q // Save and return q // Generate PVS data and return to spectrum plotting interface From screen you can find composition of the two fragments we just defined in each vibrational mode:
+1 // Define PVS fragment 1 1-$C_{18}$ // Atoms in C18 2 // Define PVS fragment 2 19-36 // Atoms in B9N9 l // Set legends of PVS curves 1 // Set legend for PVS cyclo[18]carbon // Full name C18 2 // Set legend for PVS B9N9 q // Save and return q // Generate PVS data and return to spectrum plotting interface From screen you can find composition of the two fragments we just defined in each vibrational mode:
 
 
 ```text
@@ -899,7 +899,7 @@ Vibrational mode     1 (      7.20 cm^-1 )
 
 Select option 0 to plot spectrum, then you can see the following map on screen
 
-In fact, there are three curves in the map, total IR spectrum (black), PVS of fragment 1 (C18, red) and that of fragment 2 (B9N9, blue), the sum of the latter two corresponds to the former. However, from the current map we can only clearly see that there is an extraordinary strong absorption at about 2000 cm-1. Because the peak is fully in blue, we can conclude that this absorption must purely correspond to vibration of B9N9.
+In fact, there are three curves in the map, total IR spectrum (black), PVS of fragment 1 (C$C_{18}$, red) and that of fragment 2 (B9N9, blue), the sum of the latter two corresponds to the former. However, from the current map we can only clearly see that there is an extraordinary strong absorption at about 2000 cm-1. Because the peak is fully in blue, we can conclude that this absorption must purely correspond to vibration of B9N9.
 
 
 ![](../imgs/p684_233.png)

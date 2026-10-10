@@ -105,9 +105,9 @@ Frankly speaking, the outputted values involving energy of N+1 states, such as v
 
 Calculating Fukui function and dual descriptor
 
-Next, we study Fukui function (f) and dual descriptor (Δf), which are real space functions. Choose option "3 Calculate grid data of Fukui function, dual descriptor and related functions ", and then select "2 Medium-quality grid", then Multiwfn automatically calculates grid data of electron density for N, N+1 and N-1 states. After that, you can choose corresponding option to visualize Fukui function or dual descriptor, or export them as cube files in current folder. Various types of f
+Next, we study Fukui function (f) and dual descriptor ($\Delta f$), which are real space functions. Choose option "3 Calculate grid data of Fukui function, dual descriptor and related functions ", and then select "2 Medium-quality grid", then Multiwfn automatically calculates grid data of electron density for N, N+1 and N-1 states. After that, you can choose corresponding option to visualize Fukui function or dual descriptor, or export them as cube files in current folder. Various types of f
 
-and Δf plotted by Multiwfn are collectively given in the following graph, all isovalues are set to 0.007 a.u.:
+$\Delta f$ plotted by Multiwfn are collectively given in the following graph, all isovalues are set to 0.007 a.u.:
 
 
 <!-- p.934 -->
@@ -118,7 +118,7 @@ As mentioned in Section 4.5.4, the dual descriptor can also be approximately eva
 
 It is worth to note that if we export the grid data as cube file by corresponding option, then we can use the method described in Section 4.A.14 to very quickly and easily plot above functions as
 
-isosurface map by VMD at state-of-the-art quality. For example, below is the f − function rendered by VMD.
+isosurface map by VMD at state-of-the-art quality. For example, below is the $\Delta f$ function rendered by VMD.
 
 Calculating local (hyper-)softness and local electrophilicity/nucleophilicity index The module illustrated above can also be used to export or visualize local softness, local hyper-softness, local electrophilicity index and local nucleophilicity index.
 
@@ -135,15 +135,15 @@ factor to various grid data", input 0.4309 (which is the global electrophilicity
 
 Next example, we will export cube file of local hyper-softness (LHS), whose definition and practical value are carefully discussed in J. Math. Chem., 62, 461 (2024). It can be simply evaluated
 
-by multiplying Δf with square of global softness. Therefore, we select option "-1 Set the scale factor to various grid data" and input 6.828998 (which is the softness2 in Hartree-2 outputted by option 2, see the aforementioned CDFT.txt), then select option "5 Export grid data of scaled dual descriptor as DD.cub in current folder". Now, the exported DD.cub corresponds to LHS, the unit is 1/(Bohr3Hartree2) or simply a.u.
+by multiplying $\Delta f$ with square of global softness. Therefore, we select option "-1 Set the scale factor to various grid data" and input 6.828998 (which is the softness2 in Hartree-2 outputted by option 2, see the aforementioned CDFT.txt), then select option "5 Export grid data of scaled dual descriptor as DD.cub in current folder". Now, the exported DD.cub corresponds to LHS, the unit is 1/(Bohr3Hartree2) or simply a.u.
 
-Calculation of ωcubic and ε As described in Section 3.25, the electrophilicity index ωcubic is useful in studying weak interaction, at least for halogen bonds, and electrophilic descriptor ε is a quantity correlates with electrophilicity better than ω. If you also want to calculate them, after entering the present module you should select option -1 first to switch its status to "Yes", then simply follow the example shown above (i.e. prepare .wfn files with the aid of option 1, then use option 2 to perform calculation), then
+Calculation of $\omega_{cubic}$ and ε As described in Section 3.25, the electrophilicity index ωcubic is useful in studying weak interaction, at least for halogen bonds, and electrophilic descriptor ε is a quantity correlates with electrophilicity better than ω. If you also want to calculate them, after entering the present module you should select option -1 first to switch its status to "Yes", then simply follow the example shown above (i.e. prepare .wfn files with the aid of option 1, then use option 2 to perform calculation), then
 
-the CDFT.txt outputted by option 2 will contain ωcubic, its condensed value on every atom, as well as ε. An intermediate quantity, namely the second vertical ionization potential, is also printed.
+the CDFT.txt outputted by option 2 will contain $\omega_{cubic}$, its condensed value on every atom, as well as ε. An intermediate quantity, namely the second vertical ionization potential, is also printed.
 
 More specifically, for the present example, after entering the present module you should input
 
--1 // Toggle calculating ωcubic and ε 1 // Generate .wfn files for N, N+1, N-1, N-2 electronic states [Press ENTER button directly] // Use B3LYP/6-31G* level [Press ENTER button directly] // Use default charge and spin multiplicity, namely 0 1 for N state, -1 2 for N+1 state, 1 2 for N-1 state, 2 1 for N-2 state
+-1 // Toggle calculating $\omega_{cubic}$ and ε 1 // Generate .wfn files for N, N+1, N-1, N-2 electronic states [Press ENTER button directly] // Use B3LYP/6-31G* level [Press ENTER button directly] // Use default charge and spin multiplicity, namely 0 1 for N state, -1 2 for N+1 state, 1 2 for N-1 state, 2 1 for N-2 state
 
 Now run the newly generated four .gjf files to obtain N.wfn, N+1.wfn, N-1.wfn and N-2.wfn, then choose option 2. From the outputted CDFT.txt, you can find:
 
@@ -160,7 +160,7 @@ Electrophilic descriptor (epsilon):        0.080522 Hartree,    2.1911 eV
 
 Note: Chinese version of this section with extended discussions and more examples is my blog article “Prediction of nucleophilic and electrophilic reaction sites by orbital-weighted Fukui function and orbital-weighted dual descriptor” (http://sobereva.com/533).
 
-Please read Section 3.25.3 first, in which orbital-weighted Fukui function (𝑓𝑤+ and 𝑓𝑤−) and dual descriptor ∆𝑓𝑤 are introduced, also some important notes are given. In this section we will use these functions to study several systems.
+Please read Section 3.25.3 first, in which orbital-weighted Fukui function (𝑓𝑤+ and 𝑓𝑤−) and dual descriptor $\Delta f_{w}$ are introduced, also some important notes are given. In this section we will use these functions to study several systems.
 
 Part 1: C60 In this part we will use the orbital-weighted functions to reveal reactive sites of C60, which has high point group symmetry and its frontier molecular orbitals are highly degenerate. Molecules like this are unable to be reasonably studied via the Fukui function and dual descriptor in standard form. The .fch file of this system generated at B3LYP/6-31G* level can be downloaded at
 
@@ -220,28 +220,28 @@ The orbital-weighted form of Fukui function and dual descriptor are contributed 
 
 The "E_diff" is the difference between orbital energy and the chemical potential approximately evaluated as average of E(HOMO) and E(LUMO). Evidently, the more the orbital energy close to the chemical potential, the higher weight the orbital will have.
 
-You can also calculate condensed 𝑓𝑤+, 𝑓𝑤−, 𝑓𝑤0 and ∆𝑓𝑤, so that you can easily study their values at each atomic site quantitatively. To do so, in the present module you should choose "6 Calculate condensed OW Fukui function and OW dual descriptor". However, these condensed quantities are meaningless for the C60 we studied above, since all atoms are spatially equivalent.
+You can also calculate condensed 𝑓𝑤+, 𝑓𝑤−, 𝑓𝑤0 and $\Delta f_w$, so that you can easily study their values at each atomic site quantitatively. To do so, in the present module you should choose "6 Calculate condensed OW Fukui function and OW dual descriptor". However, these condensed quantities are meaningless for the C60 we studied above, since all atoms are spatially equivalent.
 
-It is worth to note in passing that extrema of 𝑓𝑤+, 𝑓𝑤−, 𝑓𝑤0 and ∆𝑓𝑤 on molecular surface can be exactly located via quantitative molecular surface analysis module, so that one can quantitatively compare their values in different regions. Many examples of using this module have been given in
+It is worth to note in passing that extrema of 𝑓𝑤+, 𝑓𝑤−, 𝑓𝑤0 and $\Delta f_w$ on molecular surface can be exactly located via quantitative molecular surface analysis module, so that one can quantitatively compare their values in different regions. Many examples of using this module have been given in
 
-Section 4.12. Below we will examine extrema of ∆𝑓𝑤 on ρ = 0.01 a.u. isosurface. First, we set "iuserfunc" parameter in `settings.ini` to 98, since as mentioned in Section 2.7, ∆𝑓𝑤 corresponds to the 98th user-defined function. Then boot up Multiwfn and input
+Section 4.12. Below we will examine extrema of $\Delta f_w$ on ρ = 0.01 a.u. isosurface. First, we set "iuserfunc" parameter in `settings.ini` to 98, since as mentioned in Section 2.7, ∆𝑓𝑤 corresponds to the 98th user-defined function. Then boot up Multiwfn and input
 
 C60.fch 12 // Quantitative analysis of molecular surface 1 // Select the way to define surface 1 // Isosurface of electron density
 
-0.01 // Use ρ = 0.01 a.u. isosurface to define the surface 2 // Select mapped function -1 // User-defined real space function, which now corresponds to ∆𝑓𝑤 3 // Spacing of grid points for generating molecular surface
+0.01 // Use ρ = 0.01 a.u. isosurface to define the surface 2 // Select mapped function -1 // User-defined real space function, which now corresponds to $\Delta f_w$ 3 // Spacing of grid points for generating molecular surface
 
 
 <!-- p.938 -->
 
 0.25 // Use slightly larger grid spacing than default to reduce cost. This setting is already fine enough for present investigation
 
-0 // Start analysis After the calculation is complete, select option 0 in post-processing menu to visualize extrema. In order to make the graph clear, we change the "Ratio of atomic size" in GUI to 3.0 to enlarge atomic spheres. The graph in the GUI window is shown below. Value of a few minima (blue spheres) of ∆𝑓𝑤 are labelled, the values can be found from text window. The red spheres correspond to maxima.
+0 // Start analysis After the calculation is complete, select option 0 in post-processing menu to visualize extrema. In order to make the graph clear, we change the "Ratio of atomic size" in GUI to 3.0 to enlarge atomic spheres. The graph in the GUI window is shown below. Value of a few minima (blue spheres) $\Delta f_{w}$ are labelled, the values can be found from text window. The red spheres correspond to maxima.
 
-As can be seen, the ∆𝑓𝑤 above [6,6] bond is remarkably more negative compared to other areas, thus these positions have highest reactivity for electrophilic reaction. Although there are also surface minima above center of each five-membered ring, the value is slightly positive, therefore the five-membered ring does not have evident tendency to participate in electrophilic reaction.
+As can be seen, the $\Delta f_{w}$ above [6,6] bond is remarkably more negative compared to other areas, thus these positions have highest reactivity for electrophilic reaction. Although there are also surface minima above center of each five-membered ring, the value is slightly positive, therefore the five-membered ring does not have evident tendency to participate in electrophilic reaction.
 
 Part 2: Cyclo[18]carbon The cyclo[18]carbon was very systematically studied in my work Carbon, 165, 468 (2020), Carbon, 165, 461 (2020) and http://sobereva.com/carbon_ring.html for more. This system has high symmetry (D9h) and is thus very suitable to be studied via the orbital-weighted functions. The .fchk of this system can be directly downloaded via http://sobereva.com/multiwfn/extrafiles/C18.zip,
 
-which was generated at ωB97XD/def2-TZVP level. The isosurface of ∆𝑓𝑤 =0.0008 a.u. of this system is shown below.
+which was generated at ωB97XD/def2-TZVP level. The isosurface $\Delta f_{w}$ =0.0008 a.u. of this system is shown below.
 
 
 ![](../imgs/p938_468.png)
@@ -250,24 +250,24 @@ which was generated at ωB97XD/def2-TZVP level. The isosurface of ∆𝑓𝑤 =0
 
 The cyclo[18]carbon contains two kinds of C-C bond, a short one and a long one, they occur alternatively. Two short bonds are highlighted by red arrows. From the map above it can be clearly seen that the short and long C-C bonds are vulnerable to electrophilic and nucleophilic attacks, respectively, since the former are enclosed by negative isosurfaces while the latter are enclosed by positive isosurfaces.
 
-In Multiwfn, it is also possible to plot ∆𝑓𝑤 as plane map. As an example, we will plot ∆𝑓𝑤 as color-filled map on the molecular plane of the cyclo[18]carbon. We first set "iuserfunc" parameter in `settings.ini` to 98, then boot up Multiwfn and input
+In Multiwfn, it is also possible to plot $\Delta f_{w}$ as plane map. As an example, we will plot ∆𝑓𝑤 as color-filled map on the molecular plane of the cyclo[18]carbon. We first set "iuserfunc" parameter in `settings.ini` to 98, then boot up Multiwfn and input
 
-C18.fchk 4 // Plot plane map 100 // User-defined real space function, which now corresponds to ∆𝑓𝑤 1 // Color-filled map [Press ENTER button to use default grid setting] 1 // XY plane 0 // Z=0 We close the map that pops up, then adjust some settings in the post-processing menu and replot, after that you will see the map below. The blue contour line corresponds to vdW surface.
+C18.fchk 4 // Plot plane map 100 // User-defined real space function, which now corresponds to $\Delta f_{w}$ 1 // Color-filled map [Press ENTER button to use default grid setting] 1 // XY plane 0 // Z=0 We close the map that pops up, then adjust some settings in the post-processing menu and replot, after that you will see the map below. The blue contour line corresponds to vdW surface.
 
 
 ![](../imgs/p939_469.png)
 
 <!-- p.940 -->
 
-From the map above we can find that the inner edge of the ring is more reactive than the outer edge, since inner edge has larger magnitude of ∆𝑓𝑤.
+From the map above we can find that the inner edge of the ring is more reactive than the outer edge, since inner edge has larger magnitude of $\Delta f_{w}$.
 
-Part 3: CH3Cl Finally, we employ ∆𝑓𝑤 to study reactivity of CH3Cl. The input file is examples\CH3Cl.fchk. We calculate grid data of ∆𝑓𝑤 using the same way as the examples above, however, in order to get better graphical effect, this time we do not visualize isosurface in Multiwfn directly, but export grid data of ∆𝑓𝑤 as OW_DD.cub via corresponding option, then use the method described in Section 4.A.14 to easily render it as isosurface map via VMD program. The isosurface of 0.008 a.u. is shown below.
+Part 3: CH3Cl Finally, we employ $\Delta f_{w}$ to study reactivity of CH3Cl. The input file is examples\CH3Cl.fchk. We calculate grid data of ∆𝑓𝑤 using the same way as the examples above, however, in order to get better graphical effect, this time we do not visualize isosurface in Multiwfn directly, but export grid data of ∆𝑓𝑤 as OW_DD.cub via corresponding option, then use the method described in Section 4.A.14 to easily render it as isosurface map via VMD program. The isosurface of 0.008 a.u. is shown below.
 
-As can be seen, the toroidal negative region appears around the Cl atom, implying that this region shows Lewis-base character. At the two ends of C-Cl bond the ∆𝑓𝑤 is notably positive, showing that the end of carbon site is vulnerable to nucleophilic attack (e.g. SN2 reaction), while
+As can be seen, the toroidal negative region appears around the Cl atom, implying that this region shows Lewis-base character. At the two ends of C-Cl bond the $\Delta f_{w}$ is notably positive, showing that the end of carbon site is vulnerable to nucleophilic attack (e.g. SN2 reaction), while
 
 the end of Cl site behaves as Lewis-acid, which is in line with the fact that there is a σ-hole region.
 
-By the way, you can also study extrema of ∆𝑓𝑤 on molecular surface like the example of C60 to make discussion of ∆𝑓𝑤 at quantitative level.
+By the way, you can also study extrema of $\Delta f_{w}$ on molecular surface like the example of C60 to make discussion of ∆𝑓𝑤 at quantitative level.
 
 
 ![](../imgs/p940_470.png)
@@ -332,11 +332,11 @@ Then we plot isosurface map of Fukui function and dual descriptor with considera
 
 2 // Medium-quality grid
 
-2 // Visualize isosurface of f − After changing isovalue to 0.005 a.u., you will see the following map
+2 // Visualize isosurface of $\Delta f$ After changing isovalue to 0.005 a.u., you will see the following map
 
-From the map above it can be seen that the distribution of f − with consideration of HOMO degeneracy, namely (ρN − ρN-2)/2, is fully in line with molecular symmetry. The positive regions (exhibited by green isosurfaces) mainly occur above and below the molecular plane at carbon atoms,
+From the map above it can be seen that the distribution of $\Delta f$ with consideration of HOMO degeneracy, namely (ρN − ρN-2)/2, is fully in line with molecular symmetry. The positive regions (exhibited by green isosurfaces) mainly occur above and below the molecular plane at carbon atoms,
 
-thus correctly indicating that the π-electron cloud is easy to undergo electrophilic attack. In contrast, if you plot f − in usual way, namely ρN − ρN-1, you will find its distribution obviously violates the actual molecular symmetry and thus leads to misleading conclusion about preferential site of electrophilic attack.
+thus correctly indicating that the π-electron cloud is easy to undergo electrophilic attack. In contrast, if you plot $\Delta f$ in usual way, namely ρN − ρN-1, you will find its distribution obviously violates the actual molecular symmetry and thus leads to misleading conclusion about preferential site of electrophilic attack.
 
 Similarly, you can use options 1, 3 and 4 to visualize isosurface map of f +, f 0, and dual
 
@@ -349,17 +349,17 @@ descriptor Δf calculated under consideration of frontier MO degeneracy, respect
 
 Notice about the choice of calculation level for f + and dual descriptor For the benzene system, if you use B3LYP with a basis set containing diffuse functions (e.g. 6-311+G*) to generate wavefunction files, you will find distribution of the calculated
 
-(quasi-)degenerate f + and Δf is extremely diffuse (showing strong Rydberg character) and not completely in line with molecular symmetry. This is because the severe self-interaction error (SIE) problem of this functional makes the electrons at the N+2 state over-diffuse, while the current basis set has capability of representing spatial regions far from the molecule. In this case, the resulting f +
+(quasi-)degenerate $\Delta f$ is extremely diffuse (showing strong Rydberg character) and not completely in line with molecular symmetry. This is because the severe self-interaction error (SIE) problem of this functional makes the electrons at the N+2 state over-diffuse, while the current basis set has capability of representing spatial regions far from the molecule. In this case, the resulting f +
 
-and Δf are not well-behaved and cannot be used to discuss preferential reactive sites.
+$\Delta f$ are not well-behaved and cannot be used to discuss preferential reactive sites.
 
 It is worth to note that in Chem. Phys. Lett., 724, 29 (2019), it was found that if Fukui function and dual descriptor are evaluated based on finite difference (the same as the present case), then even a 3-zeta basis set without diffuse functions can basically result in a meaningful dual descriptor.
 
 Despite that the B3LYP/6-31G* level, as what we employed in the present example, yields
 
-seemingly reasonable f + and Δf distributions, if you pursue a more rigorous result, I would like to recommend using a long-range corrected DFT functionals such as ωB97XD with a 3-zeta basis set without diffuse functions, e.g. 6-311G*. The ωB97XD suffers much weaker SIE problem than the popular B3LYP, therefore the electrons are more tightly bounded at anionic state; the 3-zeta basis set with no diffuse function represents valence electronic structure adequately, while electrons are
+seemingly reasonable $\Delta f$ distributions, if you pursue a more rigorous result, I would like to recommend using a long-range corrected DFT functionals such as ωB97XD with a 3-zeta basis set without diffuse functions, e.g. 6-311G*. The ωB97XD suffers much weaker SIE problem than the popular B3LYP, therefore the electrons are more tightly bounded at anionic state; the 3-zeta basis set with no diffuse function represents valence electronic structure adequately, while electrons are
 
-forced to be bounded within valence region, guaranteeing that f + and Δf only represent the region of chemical interest.
+forced to be bounded within valence region, guaranteeing that $\Delta f$ only represent the region of chemical interest.
 
 4.22.3.2 Local softness and local hyper-softness of C60 fullerene
 

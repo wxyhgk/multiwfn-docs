@@ -6,7 +6,7 @@
 
 <!-- p.865 -->
 
-Dissymmetry factor of CPL (gCPL) examples\excit\g_factor\TDDFT_opt_S1.out is output file of TDDFT geometry optimization for S1 state of the helicene, S0 minimum is taken as the initial geometry. Only 3 excited states were calculated, which is adequate since the emission state of CPL is just S1 (Kasha’s rule). To obtain gCPL, we load this file into Multiwfn, enter subfunction 18 of main function 18, Multiwfn will load the last outputted 𝛍tran and 𝐦tran, which correspond to the data at S1 minimum structure. Then choose “2 This study is for CPL” You will see the following information on screen:
+Dissymmetry factor of CPL ($g_{CPL}$) examples\excit\g_factor\TDDFT_opt_S1.out is output file of TDDFT geometry optimization for S1 state of the helicene, S0 minimum is taken as the initial geometry. Only 3 excited states were calculated, which is adequate since the emission state of CPL is just S1 (Kasha’s rule). To obtain gCPL, we load this file into Multiwfn, enter subfunction 18 of main function 18, Multiwfn will load the last outputted 𝛍tran and 𝐦tran, which correspond to the data at S1 minimum structure. Then choose “2 This study is for CPL” You will see the following information on screen:
 
 
 ```text
@@ -16,7 +16,7 @@ Dissymmetry factor of CPL (gCPL) examples\excit\g_factor\TDDFT_opt_S1.out is out
     3   334.0   748.12    3.693   73.04     0.292    805.8   5597.0   0.005759
 ```
 
-Clearly, gCPL is -0.0016, which has the same sign as the experimental value -0.0009 reported in Table 1 of Commun. Chem., 1, 38 (2026) for the same molecule under the same solvent. The corresponding value reported in Fig. 3(f) of Chem. Sci., 12, 5522 (2021) is +0.0013, their calculation level is the same as ours and has very close magnitude to ours, but the sign is different. I suspect that they made mistake on the sign. The difference between the gCPL and gCD of S1 (0.000003) comes from the small structure difference between S0 and S1 minima. As illustrated earlier, you can also ask Multiwfn to export the present structure to a pdb file and export a VMD script for visualizing the 𝛍tran and 𝐦tran of S1 to provide insight into gCPL. The files have been provided as S1.pdb and CPL.vmd in “examples\excit\g_factor\” folder.
+Clearly, $g_{CPL}$ is -0.0016, which has the same sign as the experimental value -0.0009 reported in Table 1 of Commun. Chem., 1, 38 (2026) for the same molecule under the same solvent. The corresponding value reported in Fig. 3(f) of Chem. Sci., 12, 5522 (2021) is +0.0013, their calculation level is the same as ours and has very close magnitude to ours, but the sign is different. I suspect that they made mistake on the sign. The difference between the gCPL and gCD of S1 (0.000003) comes from the small structure difference between S0 and S1 minima. As illustrated earlier, you can also ask Multiwfn to export the present structure to a pdb file and export a VMD script for visualizing the 𝛍tran and 𝐦tran of S1 to provide insight into gCPL. The files have been provided as S1.pdb and CPL.vmd in “examples\excit\g_factor\” folder.
 
 
 ## 4.19 Orbital localization analysis
@@ -144,7 +144,7 @@ From the graph, the variation of chemical bonds during the SN2 reaction is quite
 
 It is widely accepted that Re-Re bond in [Re2Cl8]2- anion is a quadruple bond, with
 
-configuration of (σ2π4δ2). The σ bond results from overlap of 𝑑𝑧2 −𝑝𝑧 hybrid orbitals of the two rhenium atoms, the two π bonds stem from overlap of their dxz and dyz orbitals, while the δ bond is formed by overlap of their dxy orbitals. Can this classic concept be validated via orbital localization analysis?
+configuration of (σ2π4δ2). The σ bond results from overlap of 𝑑𝑧2 −𝑝𝑧 hybrid orbitals of the two rhenium atoms, the two π bonds stem from overlap of their dxz and dyz orbitals, while the δ bond is formed by overlap of their $d_{xy}$ orbitals. Can this classic concept be validated via orbital localization analysis?
 
 The .fchk file of [Re2Cl8]2- anion produced under B3LYP with 6-31G* for Cl and SDD for Re is provided as examples\Re2Cl82-.fchk. Load it into Multiwfn and carry out orbital localization for occupied orbitals, from the output we can immediately identify the four LMOs corresponding to the Re-Re bond:
 

@@ -104,7 +104,7 @@ How to quantitatively demonstrate that the main distribution region of these Ryd
 
 From the map it can be seen that the global maximum peak is at about 4.6Å, indicating that the major distribution region of this orbital wavefunction is very far from origin (in present .fch file, Cartesian origin corresponds to molecular center), and thus MO11 can be unambiguously identified as a Rydberg orbital.
 
-Please also plot such an RDF map for a regular valence virtual MO, e.g. MO9, which is π* orbital. Where is its peak position?
+Please also plot such an RDF map for a regular valence virtual MO, e.g. MO9, which is $\pi^{*}$ orbital. Where is its peak position?
 
 
 ### 4.200.6 Studying correspondence between orbitals in different wavefunction files
@@ -479,7 +479,7 @@ Similarly, we do this for domain 4:
 
 From the output we know the number of electrons involved in the domains corresponding to H-bond and vdW interactions are 0.006933 and 0.011817, respectively. They can be interpreted as overlapping electrons and are closely related to strength of same type of interactions. However, since these two domains correspond to different types of weak interactions, the magnitude of overlapping electrons is not positively correlated to their strengths, namely we are unable thus to conclude that the vdW interaction between the two phenols is stronger than the intermolecular H-bond. The "Volume" in the output denotes volume of the domain, we can find that vdW interaction involves much wider spatial region than H-bond. "Average" corresponds to average value of real space function in the domain, from this quantity one can easily infer that the strength of interaction per contact region of H-bond must be significantly higher than that of vdW interaction, since as shown above, their average values are 0.0239 and 0.0045, respectively, the former is much larger than the latter.
 
-System 2: 2-pyridoxine 2-aminopyridine Intermolecular H-bonds of 2-pyridoxine 2-aminopyridine (PP) have been investigated in Section 4.2.1 by means of AIM analysis, while this time we will analyze them by means of qint index. This index was proposed in J. Phys. Chem. A, 115, 12983 (2011) for judging interaction of H-bond at various intermolecular distance, please check Section 3.200.14 for its definition. Commonly, the more negative of the qint index, the more stable the interaction.
+System 2: 2-pyridoxine 2-aminopyridine Intermolecular H-bonds of 2-pyridoxine 2-aminopyridine (PP) have been investigated in Section 4.2.1 by means of AIM analysis, while this time we will analyze them by means of $q_{int}$ index. This index was proposed in J. Phys. Chem. A, 115, 12983 (2011) for judging interaction of H-bond at various intermolecular distance, please check Section 3.200.14 for its definition. Commonly, the more negative of the qint index, the more stable the interaction.
 
 
 ![](../imgs/p1046_560.png)
@@ -488,7 +488,7 @@ System 2: 2-pyridoxine 2-aminopyridine Intermolecular H-bonds of 2-pyridoxine 2-
 
 <!-- p.1047 -->
 
-qint index is defined based on integrating domains enclosed by RDG = 0.6 isosurfaces, therefore we need to first calculate RDG grid data and generate corresponding domains. Note that it is not always appropriate to set extension distance of RDG grid data to zero. For present system, if you calculate RDG grid data by main function 5 with extension distance of zero, you will see some RDG isosurfaces are truncated by box boundary, as shown below and highlighted by red arrows. In this case the domain-integration module of Multiwfn does not work.
+$q_{int}$ index is defined based on integrating domains enclosed by RDG = 0.6 isosurfaces, therefore we need to first calculate RDG grid data and generate corresponding domains. Note that it is not always appropriate to set extension distance of RDG grid data to zero. For present system, if you calculate RDG grid data by main function 5 with extension distance of zero, you will see some RDG isosurfaces are truncated by box boundary, as shown below and highlighted by red arrows. In this case the domain-integration module of Multiwfn does not work.
 
 Therefore, when we calculate RDG grid data for this case, extension distance should be set somewhat larger than zero, 3 Bohr is safe enough for avoiding unexpected truncation. Extension distance should also never be set to an over-large value, otherwise the number of grid points to be calculated will be very high and thus very time-consuming.
 
@@ -498,7 +498,7 @@ to H-bond of N23-H25······O1 and N2-H12······N13, respectively.
 
 Next, select option "5 Calculate q_bind index for a domain" and input 2, then press ENTER
 
-button directly to use ρ4/3 as the integrand (which was used in J. Phys. Chem. A, 115, 12983 (2011)), the resulting qint and related details of the domain are shown below
+button directly to use $\rho^{4/3}$ as the integrand (which was used in J. Phys. Chem. A, 115, 12983 (2011)), the resulting $q_{int}$ and related details of the domain are shown below
 
 
 ![](../imgs/p1047_561.png)
@@ -633,7 +633,7 @@ We can also use option 11 to export boundary grids of a domain to domain.pdb, in
 
 In this section, we integrate electron density difference (EDD) in its isosurfaces. Specifically,
 
-the EDD in this section corresponds to deformation density (Δρdef), see Section 3.7.2 for its definition. Benzene is taken as instance.
+the EDD in this section corresponds to deformation density ($\Delta\rho_{def}$), see Section 3.7.2 for its definition. Benzene is taken as instance.
 
 The .cub file of EDD for benzene (benzene_EDD.cub) has been provided at http://sobereva.com/multiwfn/extrafiles/benzene_EDD.zip. You can also easily generate it using main function 5. We first examine its isosurface map. Boot up Multiwfn and load benzene_EDD.cub, then enter main function 0, set isovalue to 0.015, you will see the following map. The green and blue isosurfaces correspond to positive and negative parts, respectively, which correspond to electron density increase and decrease regions due to formation of benzene from isolated atoms. In this example, we will use domain analysis module to respectively integrate the EDD within the two domains indicated by the red and blue circles.
 
@@ -908,13 +908,13 @@ Note: Chinese version of this topic is "Using bond order density (BOD) and natur
 
 The theory of bond order density (BOD) and natural adaptive orbital (NAdO) has been detailedly introduced in Section 3.200.20, please carefully read it first. In this section I will present two examples to show how to use the BOD and NAdO to study chemical bonds.
 
-4.200.20.1 Plot bond order density for N2 molecule
+4.200.20.1 Plot bond order density for $_{2}$ molecule
 
 The delocalization index (DI) represents average number of electron pairs shared by two atoms and can be regarded as a definition of (covalent) bond order. By plotting BOD, we can better understand the nature of its value. The integral of the BOD defined for two atoms over the whole space exactly corresponds to the DI between the two atoms, therefore BOD is able to exhibit local contributions everywhere to DI.
 
-N2 molecule is taken as example in the present section, we will plot its BOD as color-filled map in the molecular plane. In Multiwfn, delocalization index (DI) can be calculated based on fuzzy partition via fuzzy atomic space analysis module (main function 15) or based on atom-in-molecules (AIM) partition via basin analysis module (main function 17); correspondingly, both the two modules can export atomic overlap matrix (AOM), which is needed by BOD analysis. In the present example, we use the former (the latter works equally well but more expensive).
+$_{2}$ molecule is taken as example in the present section, we will plot its BOD as color-filled map in the molecular plane. In Multiwfn, delocalization index (DI) can be calculated based on fuzzy partition via fuzzy atomic space analysis module (main function 15) or based on atom-in-molecules (AIM) partition via basin analysis module (main function 17); correspondingly, both the two modules can export atomic overlap matrix (AOM), which is needed by BOD analysis. In the present example, we use the former (the latter works equally well but more expensive).
 
-Boot up Multiwfn and input below commands examples\N2.fch // Optimized and generated at B3LYP/def-TZVP level. You can also use other files (e.g. .molden and .mwfn) as long as the file contains basis function information
+Boot up Multiwfn and input below commands examples\$_{2}$.fch // Optimized and generated at B3LYP/def-TZVP level. You can also use other files (e.g. .molden and .mwfn) as long as the file contains basis function information
 
 15 // Fuzzy atomic space analysis 3 // Calculate and output atomic overlap matrix to AOM.txt in current folder 0 // Return to main menu
 

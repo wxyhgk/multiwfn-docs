@@ -19,7 +19,7 @@ An example is given in Section 4.8.4.
 
 In the bond order analysis module, you can directly select an option to analyze bond order by corresponding method.
 
-If you want to obtain total bond order between atoms in two molecular fragments, you can use option -1 to define fragments 1 and 2 prior to bond order analysis. Then if you choose an option to calculate bond order, the total bond order IRS between the two fragments will be calculated as follows by summing up interatomic bond orders, and meantime be outputted along with two-center bond orders RSABA R B SII = 
+If you want to obtain total bond order between atoms in two molecular fragments, you can use option -1 to define fragments 1 and 2 prior to bond order analysis. Then if you choose an option to calculate bond order, the total bond order $I_{RS}$ between the two fragments will be calculated as follows by summing up interatomic bond orders, and meantime be outputted along with two-center bond orders RSABA R B SII = 
 
 Evidently, interfragment bond order calculation is not available for multi-center bond order analysis, orbital occupancy-perturbed Mayer bond order and Wiberg bond order decomposition analysis.
 
@@ -61,7 +61,7 @@ $$F_{A}=V_{A}-\sum_{B\neq A}I_{AB}=\sum_{a\in A}\sum_{b\in A}(\mathbf{P}^{\mathr
 
 The latter is defined as
 
-For restricted closed-shell wavefunctions free valences are zero since Ps=0, thus total valence of an atom is simply the sum of the related bond orders
+For restricted closed-shell wavefunctions free valences are zero since $P^{s}=0$=0, thus total valence of an atom is simply the sum of the related bond orders
 
 
 $$V_{A}=\sum_{B\neq A}I_{AB}$$
@@ -166,7 +166,7 @@ In this function, if you only input indices of two atoms, then the result is jus
 
 **Influence of input order of atomic indices on the result** Both the direction (e.g. A,B,C,D vs. D,C,B,A) and permutation (e.g. A,B,C,D vs. B,D,C,A ...) of the inputted atomic indices can influence the calculated MCBO, below I describe this point in detail.
 
-- Input direction Due to the mathematical form of the original MCBO (i.e. the one calculated by option 2), the result of MCBO may rely on input direction. For example, the result yielded by inputting A,B,C,D can be different from that by inputting D,C,B,A. The reason is clear: The term corresponding to A,B,C,D is (PS)ab(PS)bc(PS)cd(PS)da, while if we invert the input order, the term will become (PS)dc(PS)cb(PS)ba(PS)ad. Although both P and S are symmetry matrices, their product PS is not necessarily symmetry, so the two terms are not equivalent. In my own viewpoint, in order to obtain more reasonable result, if in a ring the atom connectivity is A-B-C-D-E-F (A also connects to F), one should calculate A,B,C,D,E,F and F,E,D,C,B,A respectively and then take their average. If you want Multiwfn to directly print the averaged value, you can set "iMCBOtype" in `settings.ini` to 1, in this case you do not need to manually perform the calculation twice, however, of course, the computational cost is doubled compared to normal case.
+- Input direction Due to the mathematical form of the original MCBO (i.e. the one calculated by option 2), the result of MCBO may rely on input direction. For example, the result yielded by inputting A,B,C,D can be different from that by inputting D,C,B,A. The reason is clear: The term corresponding to $(PS)_{ab}(PS)_{bc}(PS)_{cd}(PS)_{da}$, while if we invert the input order, the term will become $(PS)_{dc}(PS)_{cb}(PS)_{bd}(PS)_{ad}$. Although both P and S are symmetry matrices, their product PS is not necessarily symmetry, so the two terms are not equivalent. In my own viewpoint, in order to obtain more reasonable result, if in a ring the atom connectivity is A-B-C-D-E-F (A also connects to F), one should calculate A,B,C,D,E,F and F,E,D,C,B,A respectively and then take their average. If you want Multiwfn to directly print the averaged value, you can set "iMCBOtype" in `settings.ini` to 1, in this case you do not need to manually perform the calculation twice, however, of course, the computational cost is doubled compared to normal case.
 
 An advantage of using option -2 to calculate MCBO in NAO basis and using option -3 to calculate it in Löwdin orthogonalized basis is that the result is irrelevant to the input direction, this is because in these cases the overlap matrix S is not explicitly involved and the density matrix P is a symmetry matrix.
 
@@ -179,7 +179,7 @@ $$\mathrm{M C I}=\frac{1}{2n}\sum_{\hat{P}(A,B,C\ldots)}I_{A,B,C\ldots}$$
 
 <!-- formula-ocr: formula_p145_085.png 已替换为LaTeX, 原图保留备查 -->
 
-where n is the number of atoms involved in the calculation, 𝑃̂ is permutation operator that generates all possible permutation sequences. The MCI is significantly more expensive than the MCBO, and it is not suitable for measuring aromaticity or cyclic delocalization. However, it may be useful in measuring "global" electron delocalization among atoms in a cluster-like region.
+where n is the number of atoms involved in the calculation, $\tilde{P}$ is permutation operator that generates all possible permutation sequences. The MCI is significantly more expensive than the MCBO, and it is not suitable for measuring aromaticity or cyclic delocalization. However, it may be useful in measuring "global" electron delocalization among atoms in a cluster-like region.
 
 If you want to make Multiwfn directly print MCI, you can set "iMCBOtype" in `settings.ini` to 2, then if you calculate MCBO as usual (via any of options 2, -2 and -3), the printed result will correspond to MCI.
 
@@ -200,15 +200,15 @@ $$I_{A B C D E}=\sum_{a\in A}\sum_{b\in B}\sum_{c\in C}\sum_{d\in D}\sum_{e\in E
 
 $$I_{A B C D E}=\sum_{a\in A}\sum_{b\in B}\sum_{c\in C}\sum_{d\in D}\sum_{e\in E}(P S)_{a b}(P S)_{b c}(P S)_{c d}(P S)_{d e}(P S)_{e a}$$
 
-, then MCBO can be simplified to ,() ()d adeeae EAPSPS = 
+, then MCBO can be simplified to ,() ()d adeeae EAPSPS ∈= 
 
 $$I_{A B C D E}=\sum_{a\in A}\sum_{b\in B}\sum_{c\in C}\sum_{d\in D}\sum_{e\in E}(P S)_{a b}(P S)_{b c}(P S)_{c d}(P S)_{d e}(P S)_{e a}$$
 
-, then MCBO can be simplified to ,,()c acdd ad DBPSA = 
+, then MCBO can be simplified to ,,()c acdd ad DBPSA ∈= 
 
 $$I_{A B C D E}=\sum_{a\in A}\sum_{b\in B}\sum_{c\in C}\sum_{d\in D}\sum_{e\in E}(P S)_{a b}(P S)_{b c}(P S)_{c d}(P S)_{d e}(P S)_{e a}$$
 
-, then MCBO can be finally simplified to ,,()b abcc ac CCPSB = 
+, then MCBO can be finally simplified to ,,()b abcc ac CCPSB ∈= 
 
 It is clear that using the intermediate matrices A, B, C, MCBO can be evaluated in a quite simple manner, while construction of A, B, C is also very cheap. The formal cost of this ,()ABCDEabb aa A b BIPSC = 
 
@@ -234,7 +234,7 @@ The original definition of Wiberg bond order is only suitable for the wavefuncti
 
 In this function, Multiwfn first orthogonalizes basis functions by Löwdin method and then performs usual Mayer bond order analysis. The threshold for printing is controlled by “bndordthres” in `settings.ini` too.
 
-As shown in J. Mol. Struct. (THEOCHEM), 870, 1 (2008), the Wiberg bond order calculated in this manner, say WL, has much less sensitivity to basis set than Mayer bond order (whereas for small basis sets, their results are close to each other). One should be aware that WL tends to overestimate bond order for polar bonds in comparison with Mayer bond order.
+As shown in J. Mol. Struct. (THEOCHEM), 870, 1 (2008), the Wiberg bond order calculated in this manner, say $W_{L}$, has much less sensitivity to basis set than Mayer bond order (whereas for small basis sets, their results are close to each other). One should be aware that WL tends to overestimate bond order for polar bonds in comparison with Mayer bond order.
 
 Commonly, if there is no special reason, using Mayer bond order is preferred. Notice that numerous papers used NBO program to calculate Wiberg bond order, the result
 
@@ -271,22 +271,22 @@ $$I_{A,B}^{*}=I_{AB}^{*,\alpha}+I_{AB}^{*,\beta}=2\sum_{a\in A}\sum_{b\in B}[(\m
 
 The only difference between this definition and Mayer bond order shown in Section 3.11.1 is that
 
-𝛽 respectively. PX stands for the density matrix generated when occupation number of a specific orbital is set to zero. The difference between 𝐼𝐴,𝐵 Pα and Pβ have been replaced by 𝐏𝑋 𝛼 and 𝐏𝑋 ∗ and Mayer
+𝛽 respectively. PX stands for the density matrix generated when occupation number of a specific orbital is set to zero. The difference between $I_{A,B}^{*}$ Pα and Pβ have been replaced by 𝐏𝑋 𝛼 and 𝐏𝑋 ∗ and Mayer
 
-bond order can be regarded as a measure of contribution from the orbital to Mayer bond order. Bear in mind, because Mayer bond order is not a linear function of density matrix, the sum of 𝐼𝐴,𝐵 ∗ for all
+bond order can be regarded as a measure of contribution from the orbital to Mayer bond order. Bear in mind, because Mayer bond order is not a linear function of density matrix, the sum of $I_{A,B}^{*}$ ∗ for all
 
 orbitals is not equal to Mayer bond order generally.
 
-∗ for all occupied orbitals and the difference between 𝐼𝐴,𝐵 In Multiwfn, you only need to input indices of two atoms, then 𝐼𝐴,𝐵 ∗ and Mayer bond order will be outputted. The more negative
+∗ for all occupied orbitals and the difference between $I_{A,B}^{*}$ In Multiwfn, you only need to input indices of two atoms, then 𝐼𝐴,𝐵 ∗ and Mayer bond order will be outputted. The more negative
 
 
 <!-- p.149 -->
 
 (positive) the difference, the more beneficial (harmful) to the bonding due to the existence of the orbital.
 
-You can also use another way to calculate 𝐼𝐴,𝐵 ∗, that is using wavefunction modification module
+You can also use another way to calculate $I_{A,B}^*$ ∗, that is using wavefunction modification module
 
-(main function 6) to manually set occupation number of a specific orbital to zero, and then calculate Mayer bond order as usual, but this manner may be tedious if you want to calculate 𝐼𝐴,𝐵 ∗ for many
+(main function 6) to manually set occupation number of a specific orbital to zero, and then calculate Mayer bond order as usual, but this manner may be tedious if you want to calculate $I_{A,B}^*$ ∗ for many
 
 orbitals.
 
@@ -313,7 +313,7 @@ The threshold for printing results is controlled by “bndordthres” parameter 
 
 ### 3.11.7 Laplacian bond order (8)
 
-In J. Phys. Chem. A, 117, 3100 (2013) (http://pubs.acs.org/doi/abs/10.1021/jp4010345), I proposed a novel definition of covalent bond order based on the Laplacian of electron density ∇2𝜌 in fuzzy overlap space, called Laplacian bond order (LBO). The LBO between atom A and B can be simply written as
+In J. Phys. Chem. A, 117, 3100 (2013) (http://pubs.acs.org/doi/abs/10.1021/jp4010345), I proposed a novel definition of covalent bond order based on the Laplacian of electron density $\nabla^2 \rho$ in fuzzy overlap space, called Laplacian bond order (LBO). The LBO between atom A and B can be simply written as
 
 
 $$L_{A,B}=-10\times\int\limits_{\nabla^{2}\rho<0}w_{A}(\mathbf{r})w_{B}(\mathbf{r})\nabla^{2}\rho(\mathbf{r})\mathrm{d}\mathbf{r}$$
@@ -323,7 +323,7 @@ $$L_{A,B}=-10\times\int\limits_{\nabla^{2}\rho<0}w_{A}(\mathbf{r})w_{B}(\mathbf{
 
 <!-- p.150 -->
 
-where w is a smoothly varying weighting function proposed by Becke and represents fuzzy atomic space, hence wAwB corresponds to fuzzy overlap space between A and B. Note that the integration is only restricted to negative part of ∇2𝜌. The physical basis of LBO is that the larger magnitude the integral of negative ∇2𝜌 in the fuzzy overlap space, the more intensively the electron density is concentrated in the bonding region, and therefore, the stronger the covalent bonding.
+where w is a smoothly varying weighting function proposed by Becke and represents fuzzy atomic space, hence wAwB corresponds to fuzzy overlap space between A and B. Note that the integration is only restricted to negative part of $\nabla^{2}\rho$. The physical basis of LBO is that the larger magnitude the integral of negative ∇2𝜌 in the fuzzy overlap space, the more intensively the electron density is concentrated in the bonding region, and therefore, the stronger the covalent bonding.
 
 In the original paper of LBO, the reasonableness and usefulness of LBO were demonstrated by applying it to a wide variety of molecules and by comparing it with many existing bond order definitions. It is shown that LBO has a direct correlation with bond polarity, bond dissociation energy and bond vibrational frequency. The computational cost of LBO is low, also LBO is insensitive to the computational level used to generate electron density. In addition, since LBO is inherently independent of wavefunction, one can in principle obtain LBO by making use of accurate electron densities derived from X-ray diffraction data.
 
@@ -347,7 +347,7 @@ $$I_{_{AB}}=\sum_{a\in A}\sum_{b\in B}P_{ab}^{2}$$
 
 <!-- formula-ocr: formula_p150_088.png 已替换为LaTeX, 原图保留备查 -->
 
-The data is calculated for atomic pairs. Since the expression is simply a linear combination of square of density matrix element, it is straightforward to decompose Wiberg bond order as basis function pair contribution (this idea is to be published). For example, Pab2 is simply the contribution from interaction between basis functions a and b. Since one-to-one correspondence between basis function and atomic orbital is lacking when extended basis set is used, in order to make the decomposition method full of physical meaning, the decomposition is best to be carried out under natural atomic orbitals (NAOs). Each non-Rydberg type of NAO uniquely corresponds to an atomic orbital, thus, by above decomposition method, Wiberg bond order at the atomic orbital scale can be obtained.
+The data is calculated for atomic pairs. Since the expression is simply a linear combination of square of density matrix element, it is straightforward to decompose Wiberg bond order as basis function pair contribution (this idea is to be published). For example, $P_{ab}^{2}$ is simply the contribution from interaction between basis functions a and b. Since one-to-one correspondence between basis function and atomic orbital is lacking when extended basis set is used, in order to make the decomposition method full of physical meaning, the decomposition is best to be carried out under natural atomic orbitals (NAOs). Each non-Rydberg type of NAO uniquely corresponds to an atomic orbital, thus, by above decomposition method, Wiberg bond order at the atomic orbital scale can be obtained.
 
 In addition, contribution from interaction between atomic orbital shells i and j can be obtained
 
@@ -386,9 +386,9 @@ $$\mathrm{IBSI}=\frac{(1/d^{2})\int\delta g^{\mathrm{pair}}\mathrm{d}\mathbf{r}}
 
 where d is the distance between the two atoms for which the interaction is to be studied. The integral
 
-in the numerator is equivalent to the atomic pair δg index defined by me between the two atoms, see Section 3.23.6 for detail. The denominator is the data for reference system, the 𝑑H2 and the
+in the numerator is equivalent to the atomic pair $\delta g$ index defined by me between the two atoms, see Section 3.23.6 for detail. The denominator is the data for reference system, the 𝑑H2 and the
 
-integral are the bond length and atomic pair δg index of H2 in its equilibrium structure, respectively. In the original paper of IBSI, it was shown that the IBSI value is modestly positively correlated with strength of covalent bond. Furthermore, it was found that magnitude of IBSI of transition metal coordinate bond is markedly smaller than that of covalent bond, and magnitude of IBSI of weak interactions is even much lower, this feature of IBSI may be used to distinguish type of interaction.
+integral are the bond length and atomic pair $\delta g$ index of H2 in its equilibrium structure, respectively. In the original paper of IBSI, it was shown that the IBSI value is modestly positively correlated with strength of covalent bond. Furthermore, it was found that magnitude of IBSI of transition metal coordinate bond is markedly smaller than that of covalent bond, and magnitude of IBSI of weak interactions is even much lower, this feature of IBSI may be used to distinguish type of interaction.
 
 Implementation It is important to note that in the IBSI paper the authors calculated the IBSI using the IGM based on gradient-based partition (IGMGBP), however this form of IGM is not supported by Multiwfn. Currently Multiwfn supports the original form of IGM, namely IGM based on promolecular approximation (IGMpro), and also supports IGM based on Hirshfeld partition of
 
@@ -431,17 +431,17 @@ its AV1245 is calculated as
 
 AV1245=[ESI(1,2,4,5)+ESI(2,3,5,6)+ESI(3,4,6,1)+ESI(4,5,1,2)+ESI(5,6,2,3)+ESI(6,1,3,4)] / 6
 
-where the nc-ESI (n-center electron sharing index) can be directly obtained via the multi-center bond order with all possible permutations (namely I perm, see Section 3.11.2 for detail) by below relationship
+where the nc-ESI (n-center electron sharing index) can be directly obtained via the multi-center bond order with all possible permutations (namely $I^{perm}$, see Section 3.11.2 for detail) by below relationship
 
 perm2ESI In= (1)! −
 
-where n is the number of atoms. Evidently, 4c-ESI = (4c-Iperm) / 3.
+where n is the number of atoms. Evidently, 4c-ESI = (4c-$I^{perm}$) / 3.
 
 The central idea of AV1245 is based on the fact that in an aromatic ring, the resonance between 1-2 bond and 4-5 bond is strong, as illustrated below. This feature can be captured by ESI(1,2,4,5).
 
 Larger value of AV1245 of a cyclic path implies stronger delocalization and thus larger aromaticity of the ring. Since magnitude of AV1245 is small, it is often multiplied by 1000 when presenting the data.
 
-It is worth to note that in the original paper of AV1245, the MCBO was calculated in terms of atomic overlap matrix under AIM partition, this way of calculation is not only expensive but complicated. In Multiwfn, the MCBO involved in the AV1245 is calculated in usual way, namely based on density matrix and overlap matrix. Since in this case the calculation of 4-center I perm is fairly cheap, the AV1245 can be quickly obtained even for large systems and macro-rings. However, due to the difference in the calculation of MCBO, the result of AV1245 produced by Multiwfn is smaller than that in the original paper. In addition, when directly calculating AV1245 by Multiwfn (in other words, calculating AV1245 in original basis functions), the employed basis set should not contain diffuse functions, otherwise the AV1245 will be meaningless.
+It is worth to note that in the original paper of AV1245, the MCBO was calculated in terms of atomic overlap matrix under AIM partition, this way of calculation is not only expensive but complicated. In Multiwfn, the MCBO involved in the AV1245 is calculated in usual way, namely based on density matrix and overlap matrix. Since in this case the calculation of 4-center $I^{perm}$ is fairly cheap, the AV1245 can be quickly obtained even for large systems and macro-rings. However, due to the difference in the calculation of MCBO, the result of AV1245 produced by Multiwfn is smaller than that in the original paper. In addition, when directly calculating AV1245 by Multiwfn (in other words, calculating AV1245 in original basis functions), the employed basis set should not contain diffuse functions, otherwise the AV1245 will be meaningless.
 
 Multiwfn also supports calculating AV1245 in natural atomic orbital (NAO) basis, in this case reasonable result can be obtained even if diffuse functions are presented. If there is no diffuse
 

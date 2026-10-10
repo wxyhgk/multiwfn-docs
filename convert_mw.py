@@ -8,13 +8,95 @@
 - 页眉(y<68)/页脚(y>758)丢弃; 等宽区排除在表格识别外
 用法: python3 convert_mw.py  (输出 multiwfn_full.md + mw_imgs/)
 """
-import fitz, re, os, sys
+import fitz, re, os, sys, json, unicodedata
 
 SRC = "Multiwfn_manual_2026.10.1.pdf"
 OUT_MD = "multiwfn_full.md"
 IMG_DIR = "mw_imgs"
+FUSE_DIR = "/Users/wxyhgk/Documents/Quamtum_Chemistry_md/doc-fuse/work"
 os.makedirs(IMG_DIR, exist_ok=True)
 doc = fitz.open(SRC)
+SPLIT_START = [(1, "01"), (31, "02"), (77, "03"), (134, "04"), (183, "05"),
+    (222, "06"), (257, "07"), (310, "08"), (354, "09"), (409, "10"),
+    (458, "11"), (505, "12"), (563, "13"), (617, "14"), (655, "15"),
+    (694, "16"), (731, "17"), (804, "18"), (873, "19"), (931, "20a"),
+    (961, "20b"), (990, "21"), (1031, "22"), (1084, "23")]
+_SYM_MAP = {0x41:'Α',0x42:'Β',0x47:'Γ',0x44:'Δ',0x45:'Ε',0x5A:'Ζ',0x48:'Η',
+    0x51:'Θ',0x49:'Ι',0x4B:'Κ',0x4C:'Λ',0x4D:'Μ',0x4E:'Ν',0x58:'Ξ',0x4F:'Ο',
+    0x50:'Π',0x52:'Ρ',0x53:'Σ',0x54:'Τ',0x55:'Υ',0x46:'Φ',0x43:'Χ',0x59:'Ψ',
+    0x57:'Ω',0x61:'α',0x62:'β',0x67:'γ',0x64:'δ',0x65:'ε',0x7A:'ζ',0x68:'η',
+    0x71:'θ',0x69:'ι',0x6B:'κ',0x6C:'λ',0x6D:'μ',0x6E:'ν',0x78:'ξ',0x6F:'ο',
+    0x70:'π',0x72:'ρ',0x73:'σ',0x74:'τ',0x75:'υ',0x66:'φ',0x63:'χ',0x79:'ψ',
+    0x77:'ω',0xE5:'∑',0xD5:'∏',0xF2:'∫',0xB6:'∂',0xD1:'∇',0xCE:'∈',0xB1:'±',
+    0xB4:'×',0xB8:'÷',0xA3:'≤',0xB3:'≥',0xB9:'≠',0xBB:'↔',0xAC:'→',0xAB:'⇒',
+    0xA5:'∞',0xD6:'√',0x2D:'−'}
+
+def _fuse_dec(c):
+    _o = ord(c)
+    if 0xF020 <= _o <= 0xF0FF:
+        return _SYM_MAP.get(_o - 0xF000, c)
+    return c
+
+def _fuse_norm(s):
+    return re.sub(r"\s+", "", unicodedata.normalize("NFKD", "".join(_fuse_dec(c) for c in s)))
+FUSE = {}  # 全局页 -> [(seg_norm, seg, latex)]
+try:
+    _starts = [s for s, _ in SPLIT_START] + [1162]
+    for _si, (_st, _tag) in enumerate(SPLIT_START):
+        _rp = os.path.join(FUSE_DIR, f"report_{_tag}.json")
+        if not os.path.exists(_rp):
+            continue
+        _d = json.load(open(_rp, encoding="utf-8"))
+        for _pg in _d["pages"]:
+            _gp = _st + _pg["page"] - 1
+            if _gp >= _starts[_si + 1]:
+                continue
+            _hits = [(_fuse_norm(h["seg"]), h["seg"], h["latex"])
+                     for h in _pg["hits"]]
+            _hits.sort(key=lambda x: -len(x[0]))
+            if _hits:
+                FUSE[_gp] = _hits
+except Exception as _e:
+    print(f"fuse: load failed ({_e}), skip inline fusion", flush=True)
+    FUSE = {}
+
+def apply_inline(pno, text):
+    """该页替换表应用: 归一化子串定位, 映射回原文替换为$latex$."""
+    hits = FUSE.get(pno + 1)
+    if not hits or "$" in text:
+        return text, 0
+    comp_chars = []
+    idx = []  # compact索引 -> 原文索引(NFKD展开对齐)
+    for _k, _ch in enumerate(text):
+        for _c in unicodedata.normalize("NFKD", _fuse_dec(_ch)):
+            if not _c.isspace():
+                comp_chars.append(_c)
+                idx.append(_k)
+    compact = "".join(comp_chars)
+    out = text
+    n = 0
+    _off = 0  # 已替换导致的原文偏移(重建方式避免偏移: 从后往前)
+    reps = []
+    for _sn, _seg, _lx in hits:
+        _at = compact.find(_sn)
+        if _at < 0:
+            continue
+        _s0 = idx[_at]
+        _s1 = idx[_at + len(_sn) - 1] + 1
+        reps.append((_s0, _s1, f"${_lx}$"))
+    # 去重叠(保留先出现的长段) + 从后往前替换
+    reps.sort()
+    _keep = []
+    _last = -1
+    for _s0, _s1, _r in reps:
+        if _s0 < _last:
+            continue
+        _keep.append((_s0, _s1, _r))
+        _last = _s1
+    for _s0, _s1, _r in reversed(_keep):
+        out = out[:_s0] + _r + out[_s1:]
+        n += 1
+    return out, n
 
 EN_WORDS = re.compile(r"[A-Za-z]{3,}")
 
@@ -226,9 +308,10 @@ for pno in range(len(doc)):
         if txt.startswith("======="):
             body = re.sub(r"={3,}\s*Usage\s*={3,}", "", txt).strip()
             body = re.sub(r"\s+", " ", body).replace("settings.ini", "`settings.ini`")
+            body, _nc = apply_inline(pno, body)
+            globals()["inline_count"] = globals().get("inline_count", 0) + _nc
             page_lines.append(("p", f"\n> **Usage** — {body}\n"))
             continue
-        # 单行全粗体标题
         if len(band) == 1:
             b = band_blocks[0]
             if len(b["lines"]) == 1:
@@ -254,15 +337,22 @@ for pno in range(len(doc)):
             lead = clean(f0["text"]).strip()
             rest = txt[len(f0["text"]):].strip() if txt.startswith(lead) else txt
             rest = re.sub(r"\s+", " ", rest).replace("settings.ini", "`settings.ini`")
+            rest, _nc = apply_inline(pno, rest)
+            globals()["inline_count"] = globals().get("inline_count", 0) + _nc
             page_lines.append(("p", f"\n**{lead}** {rest}\n"))
             continue
         # 普通段落
         if txt.startswith("•"):
-            page_lines.append(("p", "- " + re.sub(r"\s+", " ", txt[1:].strip()) + "\n"))
+            _t = re.sub(r"\s+", " ", txt[1:].strip())
+            _t, _nc = apply_inline(pno, _t)
+            globals()["inline_count"] = globals().get("inline_count", 0) + _nc
+            page_lines.append(("p", "- " + _t + "\n"))
             continue
         p = re.sub(r"\s+", " ", txt).replace("settings.ini", "`settings.ini`")
         if re.search(r"\.{6,}", p) and len(p) > 100:
             continue
+        p, _nc = apply_inline(pno, p)
+        globals()["inline_count"] = globals().get("inline_count", 0) + _nc
         page_lines.append(("p", p + "\n"))
     flush_code()
 
@@ -301,4 +391,4 @@ for pno in range(len(doc)):
 
 with open(OUT_MD, "w", encoding="utf-8") as f:
     f.writelines(md)
-print(f"done: {OUT_MD}, formula={formula_count}, codeblocks={code_count}, images={img_count}")
+print(f"done: {OUT_MD}, formula={formula_count}, codeblocks={code_count}, images={img_count}, inline={globals().get('inline_count', 0)}")

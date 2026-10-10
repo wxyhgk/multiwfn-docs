@@ -436,7 +436,7 @@ Determine correspondence between basis functions and atomic orbitals is importan
 
 Two typical examples will be given below, more examples and discussions can be found from my blog article “Determining correspondence between basis functions and atomic orbitals via population analysis” (http://sobereva.com/418, in Chinese). In the text below atomic orbitals will be denoted as lower case (e.g. s, p, d...), while basis functions will be written as upper case (e.g. S, P, D...).
 
-Example 1: cc-pVTZ for sulfur Sulfur atom has configuration of 1s22s22p63s23p4, the ground state is triplet. The
+Example 1: cc-pVTZ for sulfur Sulfur atom has configuration of 1$1s^{2}2s^{2}2p^{6}3s^{2}3p^{4}$, the ground state is triplet. The
 
 
 ![](../imgs/p573_182.png)
@@ -1194,8 +1194,8 @@ niconiconi
 %oldchk=C:\opt.chk
 %chk=C:\SP_solv.chk
 ## B3LYP/def2TZVP em=GD3BJ scrf=solvent=ethanol geom=allcheck
-     Blank line
-     Blank line
+    ← Blank line
+    ← Blank line
 ```
 
 After calculation, you will obtain SP_gas.chk and SP_solv.chk in C:\ folder. Convert them to .fch files and then use Multiwfn to calculate RESP charge as usual, you will find the charges in gas phase is

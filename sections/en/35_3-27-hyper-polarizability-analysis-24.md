@@ -40,7 +40,7 @@ where μ0 is permanent dipole moment, which is a vector; α is polarizability, w
 
 $$\mathbf{\mu}=-\frac{\partial E}{\partial\mathbf{F}}=\mathbf{\mu}_{0}+\underbrace{\mathbf{\alpha}\mathbf{F}}_{\mathbf{\mu}_{1}}+\underbrace{(1/2)\mathbf{\beta}\mathbf{F}^{2}}_{\mathbf{\mu}_{2}}+\underbrace{(1/6)\mathbf{\gamma}\mathbf{F}^{3}}_{\mathbf{\mu}_{3}}+\ldots$$
 
-The linear response of dipole moment with respect to F, namely the μ1 term, can be explicitly written as below
+The linear response of dipole moment with respect to F, namely the $\mu_{1}$ term, can be explicitly written as below
 
 $$\boldsymbol{\mu}_{1}=\boldsymbol{\alpha}\cdot\mathbf{F}\quad\Rightarrow\quad\begin{bmatrix}\mu_{x}\\ \mu_{y}\\ \mu_{z}\end{bmatrix}=\begin{bmatrix}\alpha_{xx}&\alpha_{xy}&\alpha_{xz}\\ \alpha_{yx}&\alpha_{yy}&\alpha_{yz}\\ \alpha_{zx}&\alpha_{zy}&\alpha_{zz}\end{bmatrix}\begin{bmatrix}F_{x}\\ F_{y}\\ F_{z}\end{bmatrix}$$
 
@@ -404,13 +404,13 @@ between excited state i and ground state, namely 00AAAAiiiiiμμμμ=−= Δ; wh
 
 AAijijμμ= corresponds to transition dipole moment between excited state i and j.
 
-With the fact that 𝜇𝑖𝑗 𝐴= 𝜇𝑗𝑖 𝐴, the 𝛽𝑍𝑍𝑍 SOS shown above can be written as sum of contribution of
+With the fact that 𝜇𝑖𝑗 𝐴= 𝜇𝑗𝑖 𝐴, the $\beta_{ZZZ}$ SOS shown above can be written as sum of contribution of
 
 individual excited states and cross term contribution between various excited states:
 
 $$\beta_{ZZZ}^{\mathrm{sos}}=\sum_{i}6\frac{\left(\mu_{0i}^{Z}\right)^{2}\Delta\mu_{i}^{Z}}{\Delta_{i}^{2}}+\sum_{i}\sum_{j>i}12\frac{\mu_{0i}^{Z}\mu_{0j}^{Z}\mu_{ij}^{Z}}{\Delta_{i}\Delta_{j}}$$
 
-The two-level model is very popular, it assumes that the βZZZ is dominated by ground state and only one excited state:
+The two-level model is very popular, it assumes that the $\beta_{ZZZ}$ is dominated by ground state and only one excited state:
 
 
 $$\beta_{ZZZ}^{\mathrm{sos}}=\sum_{i}6\frac{\left(\mu_{0i}^{Z}\right)^{2}\Delta\mu_{i}^{Z}}{\Delta_{i}^{2}}+\sum_{i}\sum_{j>i}12\frac{\mu_{0i}^{Z}\mu_{0j}^{Z}\mu_{ij}^{Z}}{\Delta_{i}\Delta_{j}}$$
@@ -456,7 +456,7 @@ $$\mathbf{\mu}(\mathbf{F})=-\frac{\partial E}{\partial\mathbf{F}}=\mathbf{\mu}_{
 
 <!-- formula-ocr: formula_p372_274.png 已替换为LaTeX, 原图保留备查 -->
 
-where F is external electric field vector, E is system total energy, μ and μ0 are current electric dipole moment and permanent dipole moment, respectively. α, β and γ are polarizability, the first and second hyperpolarizability tensors, respectively.
+where F is external electric field vector, E is system total energy, $\mu_0$ are current electric dipole moment and permanent dipole moment, respectively. α, β and γ are polarizability, the first and second hyperpolarizability tensors, respectively.
 
 Similarly, Taylor expansion with respect to F can be applied to electron density
 
@@ -472,9 +472,9 @@ $$\mathbf{\boldsymbol{\beta}}=\int-\mathbf{\boldsymbol{\rho}}^{(2)}(\mathbf{r})\
 
 <!-- formula-ocr: formula_p372_276.png 已替换为LaTeX, 原图保留备查 -->
 
-where ρ(1) is known as polarizability density, while ρ(2) and ρ(3) are known as the first and second hyperpolarizability densities, respectively. Using (hyper)polarizability densities, we can easily investigate contribution of various spatial regions to total molecular (hyper)polarizabilities.
+where ρ(1) is known as polarizability density, while ρ(2) and $\boldsymbol{\mathbf{\rho}}^{(3)}$ are known as the first and second hyperpolarizability densities, respectively. Using (hyper)polarizability densities, we can easily investigate contribution of various spatial regions to total molecular (hyper)polarizabilities.
 
-The second hyperpolarizability density ρ(3) is a third-order tensor function, it can be explicitly represented as
+The second hyperpolarizability density $\boldsymbol{\mathbf{\rho}}^{(3)}$ is a third-order tensor function, it can be explicitly represented as
 
 
 $$\rho_{ijk}^{(3)}(\mathbf{r})=\frac{\partial^{3}\rho(\mathbf{r})}{\partial F_{i}\partial F_{j}\partial F_{k}}\bigg|_{\mathbf{F}=0}$$
@@ -493,13 +493,13 @@ $$\rho_{zzz}^{(3)}(\mathbf{r})=\frac{\partial^{3}\rho(\mathbf{r})}{\partial F_{z
 
 which relates to γZZZZ via
 
-(3)(𝐫) is the contribution of point r to the γZZZZ. If it is plotted as isosurface map or plane map, the source of γZZZZ can be intuitively revealed. However, the disadvantage of −𝑧𝜌𝑧𝑧𝑧 Clearly, −𝑧𝜌𝑧𝑧𝑧 (3)(𝐫) is that it depends on the choice origin, which is somewhat arbitrary, therefore 𝜌𝑧𝑧𝑧 (3) has its own value to study as it is independent of origin.
+$-z\rho_{zzz}^{(3)}(\mathbf{r})$ is the contribution of point r to the γZZZZ. If it is plotted as isosurface map or plane map, the source of γZZZZ can be intuitively revealed. However, the disadvantage of −𝑧𝜌𝑧𝑧𝑧 Clearly, −𝑧𝜌𝑧𝑧𝑧 (3)(𝐫) is that it depends on the choice origin, which is somewhat arbitrary, therefore 𝜌𝑧𝑧𝑧 (3) has its own value to study as it is independent of origin.
 
 (3) is using finite difference method (see my article http://sobereva.com/305 on how to derive it) The easiest way of obtaining the 𝜌𝑧𝑧𝑧
 
 FFFF−−−+−=ρρρρρ zzzF 3)3( )2()(2)(2)2( zzzz )(2 z
 
-where Fz is strength of the external electric field applied along Z axis. The functions such as ρ(Fz) and ρ(-Fz) denote the electron density distribution yielded when Fz is applied along positive and negative directions of Z-axis, respectively. The Fz in this case corresponds to finite difference step size, it should not be too large or too small, otherwise numerical error will be significant. According to my experience, 0.003 a.u. is a good choice of Fz.
+where $F^{z}$ is strength of the external electric field applied along Z axis. The functions such as ρ(Fz) and ρ(-Fz) denote the electron density distribution yielded when Fz is applied along positive and negative directions of Z-axis, respectively. The Fz in this case corresponds to finite difference step size, it should not be too large or too small, otherwise numerical error will be significant. According to my experience, 0.003 a.u. is a good choice of $F^{z}$
 
 Similarly, one can easily derive the equation for polarizability density
 
@@ -549,20 +549,20 @@ $$\boldsymbol{\beta}^{\mathrm{e f f}}(\theta,\phi)=\boldsymbol{\beta}\cdot\mathb
 
 <!-- p.375 -->
 
-where θ and φ are angles of spherical polar coordinate, e(θ,φ) is unit vector normal to the sphere surface. More specifically, the components of βeff can be explicitly written as
+where θ and φ are angles of spherical polar coordinate, e(θ,φ) is unit vector normal to the sphere surface. More specifically, the components of $\beta^{\mathrm{eff}}$ can be explicitly written as
 
 
 $$\boldsymbol{\beta}_{i}^{\mathrm{e f f}}=\sum_{j}\sum_{k}\beta_{i,j,k}\boldsymbol{e}_{k}\boldsymbol{e}_{j}\quad i,j,k=\{\boldsymbol{x},\boldsymbol{y},\boldsymbol{z}\}$$
 
 <!-- formula-ocr: formula_p375_280.png 已替换为LaTeX, 原图保留备查 -->
 
-The orientation and length of βeff(θ,φ) vector respectively reflect the direction and magnitude of induced dipole moment caused by combination of two incident electric fields exerted in the
+The orientation and length of $\beta^{\mathrm{eff}}$(θ,φ) vector respectively reflect the direction and magnitude of induced dipole moment caused by combination of two incident electric fields exerted in the
 
-direction of (θ,φ). If βeff is calculated at every vertex of a sphere surface enclosing the molecule, one can clearly and vividly understand the response of molecular dipole moment with respect to external electric field exerted in various directions. The original paper only employs this representation to
+direction of (θ,φ). If $\beta^{\mathrm{eff}}$ is calculated at every vertex of a sphere surface enclosing the molecule, one can clearly and vividly understand the response of molecular dipole moment with respect to external electric field exerted in various directions. The original paper only employs this representation to
 
 second harmonic generation (SHG) type of β, in fact it can also be applied to other kinds of β, including both static and dynamic ones (in the latter case, the exerted external field with varying strength comes from incident electromagnetic wave, and its direction is perpendicular to the propagation direction of the electromagnetic wave).
 
-Based on the same idea of βeff, I defined below quantities
+Based on the same idea of $\beta^{\mathrm{eff}}$, I defined below quantities
 
 $$\boldsymbol{\alpha}^{\mathrm{eff}}(\theta,\phi)$$
 

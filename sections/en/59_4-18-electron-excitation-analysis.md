@@ -90,7 +90,7 @@ The rest terms in the above output in turn are: The integral of transition densi
 
 <!-- p.807 -->
 
-space (ideal value is 0), transition electric dipole moment, Sm and Sr indices, centroid coordinate of
+space (ideal value is 0), transition electric dipole moment, Sm and $S_r$ indices, centroid coordinate of
 
 hole and electron, Dλ and D indices, X/Y/Z components and norm of variation of excited state dipole moment with respect to the ground state one, RMSD (σ) of hole and electron, Δσλ and Δσ indices, Hλ/HCT/H indices, t index, hole and electron delocalization index, Ghost-hunter index, excitation energy (which is loaded from Gaussian output file directly).
 
@@ -98,13 +98,13 @@ Note that the "Ghost-hunter index" in above output is slightly different to the 
 
 The transition dipole moment outputted above is obtained by integrating evenly distributed grids of transition dipole moment density. It can also be directly read from the Gaussian output file, the X/Y/Z components are 0.4427, -0.0005, -0.0012 a.u., which are very close to those outputted by Multiwfn, namely 0.444063, -0.000186, -0.001753. This observation further reflects that the grid setting we employed is appropriate.
 
-For the S0→S1 excitation under current study, from the above output, it can be seen that the D index is merely 0.522 Å, which is obviously a very small value since it is even less than half length of a typical C-C bond. The Sr index reaches 0.519 (the theoretical upper limit is 1.0), which is a large value, implying that about half part of hole and electron have perfectly matched. So, by simply examining Sr and D indices, we are already able to conclude that this excitation should be a typical local excitation (LE). Then let us look at the t index, its total value is -0.998, which is much less than 0, meaning that there is no significant separation of hole and electron distributions, further implying that this excitation should be attributed to LE type.
+For the S0→S1 excitation under current study, from the above output, it can be seen that the D index is merely 0.522 Å, which is obviously a very small value since it is even less than half length of a typical C-C bond. The $S_r$ index reaches 0.519 (the theoretical upper limit is 1.0), which is a large value, implying that about half part of hole and electron have perfectly matched. So, by simply examining Sr and D indices, we are already able to conclude that this excitation should be a typical local excitation (LE). Then let us look at the t index, its total value is -0.998, which is much less than 0, meaning that there is no significant separation of hole and electron distributions, further implying that this excitation should be attributed to LE type.
 
 Visual study of various real space functions in the hole-electron framework Now you should see the post-processing menu on the screen. The meaning of each option is self-explanatory. Please read through each option carefully. Here we choose option 3, we will see distribution of hole and electron at the same time:
 
 In above figures, green represents the electron distribution, and blue represents the hole distribution, isovalue has been set to 0.005. Both the hole and electron appear almost exclusively in the nitro
 
-group, so there is no doubt that S0→S1 is a LE excitation, well verifying our conclusion based on the D, Sr, and t indices. In addition, according to the above hole distribution map, the hole appears to be composed of lone pair orbitals of oxygens since there is one lobe on each side of each oxygen. Electron distribution has a nodal plane along the nitro group, therefore we can infer that the electron
+group, so there is no doubt that S0→S1 is a LE excitation, well verifying our conclusion based on the D, $S_r$, and t indices. In addition, according to the above hole distribution map, the hole appears to be composed of lone pair orbitals of oxygens since there is one lobe on each side of each oxygen. Electron distribution has a nodal plane along the nitro group, therefore we can infer that the electron
 
 distribution should be composed of π* orbital. Now we can draw the conclusion that that S0→S1 is a LE excitation with n→π* feature.
 
@@ -115,11 +115,11 @@ Then close the graphical window and select option 8 to visualize Chole and Cele,
 
 <!-- p.808 -->
 
-As can be seen, the graph of Chole and Cele look obviously more intuitive, they are very sleek and do not have any nodal character like hole and electron. Therefore, using Chole/Cele map to replace the hole/electron map is a good choice in many cases. (BTW: If isosurfaces of Chole and Cele are not visible in the GUI window, that means the current isovalue is too large, you should gradually and carefully decrease it until the isosurfaces are visible)
+As can be seen, the graph of Chole and Cele look obviously more intuitive, they are very sleek and do not have any nodal character like hole and electron. Therefore, using $C_{\text{hole}}/C_{\text{ele}}$ map to replace the hole/electron map is a good choice in many cases. (BTW: If isosurfaces of Chole and Cele are not visible in the GUI window, that means the current isovalue is too large, you should gradually and carefully decrease it until the isosurfaces are visible)
 
-Next, let us take a look at the overlap function of hole and electron, namely the Sr function. Close current graphical window, select option 4 in the post-processing menu, and then select option 2 to display the Sr function, you will see the map below (isovalue is set to 0.005)
+Next, let us take a look at the overlap function of hole and electron, namely the $S_{r}$ function. Close current graphical window, select option 4 in the post-processing menu, and then select option 2 to display the Sr function, you will see the map below (isovalue is set to 0.005)
 
-From the graph one can clearly find where the hole and electron overlap significantly. As can be seen, around each oxygen there are four regions where the hole and electron are highly overlapped. It is easy to understand why the Sr graph looks like this by comparing the hole and electron isosurfaces shown earlier.
+From the graph one can clearly find where the hole and electron overlap significantly. As can be seen, around each oxygen there are four regions where the hole and electron are highly overlapped. It is easy to understand why the $S_{r}$ graph looks like this by comparing the hole and electron isosurfaces shown earlier.
 
 Then close the window and select option 7, charge density difference (CDD) between the excited state and the ground state will be shown, see below. In this map, the isovalue is set to 0.005, green and blue correspond to increase and decrease of the excited state density with respect to the ground state density, respectively.
 
@@ -237,7 +237,7 @@ It can be seen from the figure that the spatial distribution range of electron i
 
 Collective comparison of all electron excitations
 
-At this point, various analyses in the hole-electron framework for the S0→S1 excitation of the NH2-biphenyl-NO2 system have been completely completed. If you also want to analyze other excited states, you should return to the menu of main function 18 by option 0, enter the hole-electron analysis function again, and then select the corresponding excited state. Here we put together the D, Sr, H, t index and hole-electron Coulomb attraction energy of all the five excited states calculated in this system. The hole delocalization index (HDI) and electron delocalization index (EDI), which have not been discussed earlier, are also given:
+At this point, various analyses in the hole-electron framework for the S0→S1 excitation of the NH2-biphenyl-NO2 system have been completely completed. If you also want to analyze other excited states, you should return to the menu of main function 18 by option 0, enter the hole-electron analysis function again, and then select the corresponding excited state. Here we put together the D, $S_{r}$ index and hole-electron Coulomb attraction energy of all the five excited states calculated in this system. The hole delocalization index (HDI) and electron delocalization index (EDI), which have not been discussed earlier, are also given:
 
 D(Å) Sr H(Å) t(Å) Ecoul(eV) HDI EDI
 
@@ -362,7 +362,7 @@ The corresponding Gaussian input file has been provided as examples\excit\Ru(bpy
 
 We arbitrarily select three excited states to perform hole-electron analysis, the results are
 
-D (Å) Sr H (Å) t (Å) hole (Ru%) ele (Ru%) MLCT(%)
+D (Å) $S_r$ H (Å) t (Å) hole (Ru%) ele (Ru%) MLCT(%)
 
 S0→S24 0.30 0.71 2.73 -1.35 77.3 19.6 57.7
 
@@ -370,7 +370,7 @@ S0→S37 0.11 0.84 3.52 -2.10 16.9 8.8 8.1
 
 S0→S40 0.13 0.71 2.00 -1.05 80.3 42.4 38.0
 
-All D indices in this table are very small, while all Sr indices are fairly large. The main reason is that the current molecule is a symmetric system, thus the CT transitions are multiple directional. The MLCT(%) in the table denotes percent of metal-to-ligand charge transfer character, which can be easily evaluated in terms of subtracting the percentage of metal in hole (namely hole(Ru%)) by that in electron (namely ele(Ru%)). Notice that, properly speaking, what we obtained is net MLCT percentage, it has been somewhat cancelled with LMCT (ligand-to-metal charge transfer).
+All D indices in this table are very small, while all $S_r$ indices are fairly large. The main reason is that the current molecule is a symmetric system, thus the CT transitions are multiple directional. The MLCT(%) in the table denotes percent of metal-to-ligand charge transfer character, which can be easily evaluated in terms of subtracting the percentage of metal in hole (namely hole(Ru%)) by that in electron (namely ele(Ru%)). Notice that, properly speaking, what we obtained is net MLCT percentage, it has been somewhat cancelled with LMCT (ligand-to-metal charge transfer).
 
 Below is hole&electron map of S0→S24 excitation with isovalue of 0.002. Since the hole and electron distributions have a large overlap, for the sake of clarity, the isosurfaces of hole and electron are given separately.
 
@@ -440,7 +440,7 @@ More discussions about these topics can be found from my blog article: "Using Mu
 
 in real space
 
-Theory of real space function form of transition density, namely T(r), has been introduced as "Theory 4" in Section 3.21.1.1, isosurface map of T(r) is capable of revealing apparent coherence region between hole and electron. While the real space function form of transition electric dipole moment density, namely Tx(r), Ty(r) and Tz(r), are able to exhibit contribution of various regions to transition electric dipole moment (Dx, Dy, Dz), this point has been introduced as "Theory 5" of Section 3.21.1.1. In this section, N-phenylpyrrole will be taken as instance to illustrate this kind of analysis, involved files are completely identical to those utilized in the example in Section 4.18.1.
+Theory of real space function form of transition density, namely T(r), has been introduced as "Theory 4" in Section 3.21.1.1, isosurface map of T(r) is capable of revealing apparent coherence region between hole and electron. While the real space function form of transition electric dipole moment density, namely Tx(r), Ty(r) and Tz(r), are able to exhibit contribution of various regions to transition electric dipole moment ($D_{x}$), this point has been introduced as "Theory 5" of Section 3.21.1.1. In this section, N-phenylpyrrole will be taken as instance to illustrate this kind of analysis, involved files are completely identical to those utilized in the example in Section 4.18.1.
 
 Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch // The .fch file yielded by Gaussian TDDFT task 18 // Electron excitation analysis 1 // hole-electron analysis module examples\excit\N-phenylpyrrole.out // The output file of Gaussian TDDFT task with IOp(9/40=4) keyword
 
@@ -806,23 +806,23 @@ Hint: If you would like to get better display effect of the C+ and C- isosurface
 
 
 
-In this section I will illustrate how to calculate the Δr index proposed in J. Chem. Theory Comput., 9, 3118 (2013) and the Λ index proposed in J. Chem. Phys., 128, 044118 (2008) to characterize electron excitations for N-phenylpyrrole. If you are not familiar with these two indices, please check Section 3.21.4 and Section 3.21.14, respectively.
+In this section I will illustrate how to calculate the $\Delta r$ index proposed in J. Chem. Theory Comput., 9, 3118 (2013) and the Λ index proposed in J. Chem. Phys., 128, 044118 (2008) to characterize electron excitations for N-phenylpyrrole. If you are not familiar with these two indices, please check Section 3.21.4 and Section 3.21.14, respectively.
 
 In my personal view, using quantities such as D and Sr indices defined in hole-electron framework to characterize electron excitation is already absolutely sufficient, as illustrated in
 
-Section 4.18.1. Theoretically, the Δr and Λ indices may be regarded as approximations of D and Sr, respectively. The only advantage of Δr and Λ is that in Multiwfn, they can be outputted for all selected excited states at the same time and can be decomposed into orbital pair contributions. In
+Section 4.18.1. Theoretically, the $\Delta r$ and Λ indices may be regarded as approximations of D and Sr, respectively. The only advantage of Δr and Λ is that in Multiwfn, they can be outputted for all selected excited states at the same time and can be decomposed into orbital pair contributions. In
 
-addition, calculation cost of Δr index is almost negligible.
+addition, calculation cost of $\Delta r$ index is almost negligible.
 
 The files used in this section are N-phenylpyrrole.fch and N-phenylpyrrole.out in "examples\excit" folder, they were yielded by Gaussian, the keywords are CAM-B3LYP/6-31+G(d) TD(nstates=5) IOp(9/40=4). Since the optimized ground state geometry was used in the calculation, therefore the analysis results can be regarded as corresponding to vertical absorption process.
 
-Calculating Δr index The Δr index is a quantitative indicator for measuring charge transfer (CT) length of electron excitation, larger Δr index implies longer CT distance.
+Calculating $\Delta r$ index $\Delta r$ index is a quantitative indicator for measuring charge transfer (CT) length of electron excitation, larger Δr index implies longer CT distance.
 
 Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis
 
-4 // Calculate Δr index examples\excit\N-phenylpyrrole.out
+4 // Calculate $\Delta r$ index examples\excit\N-phenylpyrrole.out
 
-1-5 // Assume that we want to calculate Δr index for all the five calculated singlet excited states
+1-5 // Assume that we want to calculate $\Delta r$ index for all the five calculated singlet excited states
 
 Immediately, the results are printed on screen:
 
@@ -835,11 +835,11 @@ Immediately, the results are printed on screen:
  Excited state    5:   Delta_r =    7.091127 Bohr,    3.752463 Angstrom
 ```
 
-The Δr indices imply that the excitations from ground state (S0) to the 3th, 4th and 5th excited states possess strong CT character since they have large Δr, while the excitations of S0→S1 and S0→S2 should be basically regarded as LE excitations because their Δr indices are not quite large (the original paper of Δr suggests using 2.0 Å as criterion for distinguishing LE and CT excitations). Bear in mind, definitive conclusion about the excitation character can only be finally drawn after visualizing the hole and electron distributions using the hole-electron analysis module of Multiwfn.
+$\Delta r$ indices imply that the excitations from ground state (S0) to the 3th, 4th and 5th excited states possess strong CT character since they have large Δr, while the excitations of S0→S1 and S0→S2 should be basically regarded as LE excitations because their Δr indices are not quite large (the original paper of Δr suggests using 2.0 Å as criterion for distinguishing LE and CT excitations). Bear in mind, definitive conclusion about the excitation character can only be finally drawn after visualizing the hole and electron distributions using the hole-electron analysis module of Multiwfn.
 
-In Multiwfn it is possible to decompose the Δr index as contributions of orbital pair transitions. For example, we want to do this for the S0→S4 excitation, we should first enter the Δr index calculation interface and then input
+In Multiwfn it is possible to decompose the $\Delta r$ index as contributions of orbital pair transitions. For example, we want to do this for the S0→S4 excitation, we should first enter the Δr index calculation interface and then input
 
-4 // Only calculate Δr index for a single excitation (S0→S4), in this case the result can be
+4 // Only calculate $\Delta r$ index for a single excitation (S0→S4), in this case the result can be
 
 
 <!-- p.837 -->
@@ -862,7 +862,7 @@ and de-excitation parts
      389     37     72       0.0436900          0.0215865       0.0114231
 ```
 
-As you can see, MO37→MO41 transition has predominating contribution (1.97 Å) to the Δr index of S0→S4 (3.11 Å), while the MO37→MO43 transition also has nonnegligible contribution (0.97 Å).
+As you can see, MO37→MO41 transition has predominating contribution (1.97 Å) to the $\Delta r$ index of S0→S4 (3.11 Å), while the MO37→MO43 transition also has nonnegligible contribution (0.97 Å).
 
 Calculating Λ (lambda) index The Λ index essentially measures overlapping degree of hole and electron of electron excitations. Here we calculate it for all the five excitations for N-phenylpyrrole.
 
@@ -879,7 +879,7 @@ Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron exc
  Excited state    5:   lambda =    0.235255
 ```
 
-From above output, it can be found that the Λ indices are nearly inversely proportional to the Δr indices, because the larger the hole-electron overlapping extent, usually the shorter the hole-electron separation distance (but bear in mind, this relationship is not always true).
+From above output, it can be found that the Λ indices are nearly inversely proportional to the $\Delta r$ indices, because the larger the hole-electron overlapping extent, usually the shorter the hole-electron separation distance (but bear in mind, this relationship is not always true).
 
 Then we decompose the Λ index for the fourth excitation. Input below commands y // Do the Λ index analysis again 4 // The fourth excitation
 
@@ -1595,19 +1595,19 @@ It can be seen that the 9th excited state has the largest ck and contributes mos
 
 to E(2) and δN, respectively, they have small magnitude because the point charge is small and not very close to any atom.
 
-We choose option “1 Visualize isosurface of density polarization” to visualize ρpol and then change isovalue to 0.0002, you will see the left map in the following figure, in which the green and blue colors correspond to positive (electron accumulation) and negative (electron depletion) zones, respectively. For ease of understanding, the position of the placed point charge is automatically
+We choose option “1 Visualize isosurface of density polarization” to visualize $\rho_{\mathrm{pol}}$ and then change isovalue to 0.0002, you will see the left map in the following figure, in which the green and blue colors correspond to positive (electron accumulation) and negative (electron depletion) zones, respectively. For ease of understanding, the position of the placed point charge is automatically
 
-plotted as Bq atom in the map. The ρpol obtained in this way is approximate. If you want to obtain rigorous ρpol (the right map in the following figure), you should use the common method, namely taking the difference between the electron density obtained with and without a background charge (please refer to Section 4.5.5 on how to plot electron density map), the wavefunction files generated with and without the background charge correspond to examples\excit\CH3Cl\bkchg\CH3Cl_Q.fch
+plotted as Bq atom in the map. The $\rho_{\mathrm{pol}}$ obtained in this way is approximate. If you want to obtain rigorous ρpol (the right map in the following figure), you should use the common method, namely taking the difference between the electron density obtained with and without a background charge (please refer to Section 4.5.5 on how to plot electron density map), the wavefunction files generated with and without the background charge correspond to examples\excit\CH3Cl\bkchg\CH3Cl_Q.fch
 
-and the aforementioned CH3Cl.fch, respectively. It can be seen that the approximate ρpol and rigorous ρpol are in qualitative agreement with each other, indicating that the approximate ρpol estimated by means of the perturbation theory is meaningful.
+and the aforementioned CH3Cl.fch, respectively. It can be seen that the approximate $\rho_{\mathrm{pol}}$ and rigorous ρpol are in qualitative agreement with each other, indicating that the approximate ρpol estimated by means of the perturbation theory is meaningful.
 
 As can be seen in the figure above, there is a region with reduced electron density at the end of the Cl-C bond axis, so it can be considered that when the nucleophile carrying a local negative charge that triggers the SN2 reaction approaches the carbon atom, the carbon atom becomes more electrophilic.
 
 Next, we choose option “2 Visualize isosurface of transition density of an excited state” and then input 9 to visualize transition density of the 9th electron excitation, which contributes most to
 
-ρpol. After setting isovalue to 0.004, you will see the following map, in which green and blue colors represent positive and negative parts, respectively. It can be seen that its distribution is fairly close
+$\rho_{\mathrm{pol}}$. After setting isovalue to 0.004, you will see the following map, in which green and blue colors represent positive and negative parts, respectively. It can be seen that its distribution is fairly close
 
-to the ρpol, further confirming that the excitation from ground state to the 9th excited state has the most crucial contribution to the electron density redistribution in response to the external potential. It is worth to mention that contribution of the kth electron excitation to the ρpol is simply 2𝑐𝑘𝜌0 𝑘, where 𝜌0 𝑘 is the transition density.
+to the $\rho_{\mathrm{pol}}$, further confirming that the excitation from ground state to the 9th excited state has the most crucial contribution to the electron density redistribution in response to the external potential. It is worth to mention that contribution of the kth electron excitation to the ρpol is simply 2𝑐𝑘𝜌0 𝑘, where 𝜌0 𝑘 is the transition density.
 
 
 ![](../imgs/p861_391.png)
@@ -1634,9 +1634,9 @@ From this example, we can see that the analysis of electron density polarization
 
 Please check Section 3.21.18 to understand relevant background information and the features of the function illustrated in this Section. In this section I will exemplify how to use Multiwfn to easily calculate ECD and CPL dissymmetry factor (g) for a typical chiral molecule (P)-[6]helicene, and I will also show that transition electric and magnetic dipole moments can be very conveniently visualized. TDDFT output file of Gaussian will be used for the illustration purpose, while output file of electronic excitation task of ORCA can also be used (examples\excit\g_factor\TDDFT_S0geom_ORCA.out is an example file).
 
-Dissymmetry factor of ECD spectrum (gCD) examples\excit\g_factor\TDDFT_S0geom.out is output file of TDDFT task of Gaussian 16 at CAM-B3LYP/def2-SV(P) level for the helicene at its ground state structure optimized using the same level, 30 excited states were calculated, CH2Cl2 solvent environment was represented by IEFPCM solvation model. Here we will obtain gCD and relevant information for these states. Boot up Multiwfn, load this file, and then input
+Dissymmetry factor of ECD spectrum ($g_{CD}$) examples\excit\g_factor\TDDFT_S0geom.out is output file of TDDFT task of Gaussian 16 at CAM-B3LYP/def2-SV(P) level for the helicene at its ground state structure optimized using the same level, 30 excited states were calculated, CH2Cl2 solvent environment was represented by IEFPCM solvation model. Here we will obtain gCD and relevant information for these states. Boot up Multiwfn, load this file, and then input
 
-18 // Electron excitation analyses 18 // Calculate ECD/CPL dissymmetry factor (g) of chiral systems 1 // This study is for ECD Then Multiwfn loads transition electric and magnetic dipole moments from the Gaussian output file and print them on screen, and outputs gCD along with various quantities closely related to it for all excited states:
+18 // Electron excitation analyses 18 // Calculate ECD/CPL dissymmetry factor (g) of chiral systems 1 // This study is for ECD Then Multiwfn loads transition electric and magnetic dipole moments from the Gaussian output file and print them on screen, and outputs $g_{CD}$ along with various quantities closely related to it for all excited states:
 
 
 ```text
@@ -1667,11 +1667,11 @@ It is noted that in the study work about helicene derivatives, Chem. Sci., 12, 5
 
 S3 is 0.0091, which is in good agreement with the 0.85×10-2 reported in Fig. 3(f) of Chem. Sci., 12, 5522 (2021).
 
-Now we visually check transition electric dipole moment (𝛍tran) and transition magnetic dipole moment (𝐦tran) of S3 in VMD visualization program (http://www.ks.uiuc.edu/Research/vmd/). In the post-processing menu of the present function, choose option “2 Export current structure to .pdb file” and then input S0.pdb to generate a pdb file named “S0.pdb” in current folder, which contains the current structure. Also choose option “1 Generate VMD script file for visualizing transition electric/magnetic moments” and then input ECD.vmd to generate a script of VMD with name “ECD.vmd” in current folder.
+Now we visually check transition electric dipole moment ($\mu^{\text{tran}}$) and transition magnetic dipole moment (𝐦tran) of S3 in VMD visualization program (http://www.ks.uiuc.edu/Research/vmd/). In the post-processing menu of the present function, choose option “2 Export current structure to .pdb file” and then input S0.pdb to generate a pdb file named “S0.pdb” in current folder, which contains the current structure. Also choose option “1 Generate VMD script file for visualizing transition electric/magnetic moments” and then input ECD.vmd to generate a script of VMD with name “ECD.vmd” in current folder.
 
-Boot up VMD (version 1.9.3 is recommended), load the S0.pdb into it can draw the molecular structure with licorice style. Move the ECD.vmd to VMD folder and run source ECD.vmd in VMD console window to execute the script. After that, you can run emtran 3 in VMD console window to plot 𝛍tran and 𝐦tran of S3 as red and cyan arrows, respectively, as shown below. By default, the arrow lengths are 5 Å, the arrow radius is 0.15 Å. See comments at the top of ECD.vmd on how to fine-tune the plotting settings.
+Boot up VMD (version 1.9.3 is recommended), load the S0.pdb into it can draw the molecular structure with licorice style. Move the ECD.vmd to VMD folder and run source ECD.vmd in VMD console window to execute the script. After that, you can run emtran 3 in VMD console window to plot $\mu^{\text{tran}}$ and 𝐦tran of S3 as red and cyan arrows, respectively, as shown below. By default, the arrow lengths are 5 Å, the arrow radius is 0.15 Å. See comments at the top of ECD.vmd on how to fine-tune the plotting settings.
 
-Next, we look at S2. Both 𝛍tran and 𝐦tran of S2 state are exactly parallel to Z axis. When plotting them together in a single map, slight shifts of arrow centers must be adopted to make them visually distinguishable. In VMD console window we run this command: emtran 2 5 5 0.15 0 0.3 0 0 -0.3 0, in which “5 5 0.15” means the lengths of the two arrows are all 5 Å, and radius is 0.15 Å. “0 0.3 0” and “0 -0.3 0” mean the centers of red and blue arrows are shifted by (0.0 0.3 0.0) and (0.0 -0.3 0.0) Å, respectively. Now you can view the following map, due to the center shifts, the two arrows are not overlapping with each other.
+Next, we look at S2. Both $\mu^{\text{tran}}$ and 𝐦tran of S2 state are exactly parallel to Z axis. When plotting them together in a single map, slight shifts of arrow centers must be adopted to make them visually distinguishable. In VMD console window we run this command: emtran 2 5 5 0.15 0 0.3 0 0 -0.3 0, in which “5 5 0.15” means the lengths of the two arrows are all 5 Å, and radius is 0.15 Å. “0 0.3 0” and “0 -0.3 0” mean the centers of red and blue arrows are shifted by (0.0 0.3 0.0) and (0.0 -0.3 0.0) Å, respectively. Now you can view the following map, due to the center shifts, the two arrows are not overlapping with each other.
 
 
 ![](../imgs/p864_394.png)

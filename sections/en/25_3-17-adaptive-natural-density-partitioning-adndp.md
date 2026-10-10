@@ -34,7 +34,7 @@ The basic idea of AdNDP to generate multi-center orbitals is very similar to NBO
 
 $$P^{(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D})}=\left[\begin{matrix}{P_{\boldsymbol{A},\boldsymbol{A}}}&{P_{\boldsymbol{A},\boldsymbol{B}}}&{P_{\boldsymbol{A},\boldsymbol{C}}}&{P_{\boldsymbol{A},\boldsymbol{D}}}\\ {P_{\boldsymbol{B},\boldsymbol{A}}}&{P_{\boldsymbol{B},\boldsymbol{B}}}&{P_{\boldsymbol{B},\boldsymbol{C}}}&{P_{\boldsymbol{B},\boldsymbol{D}}}\\ {P_{\boldsymbol{C},\boldsymbol{A}}}&{P_{\boldsymbol{C},\boldsymbol{B}}}&{P_{\boldsymbol{C},\boldsymbol{C}}}&{P_{\boldsymbol{C},\boldsymbol{D}}}\\ {P_{\boldsymbol{D},\boldsymbol{A}}}&{P_{\boldsymbol{D},\boldsymbol{B}}}&{P_{\boldsymbol{D},\boldsymbol{C}}}&{P_{\boldsymbol{D},\boldsymbol{D}}}\\ \end{matrix}\right]$$
 
-After diagonalization of P(A,B,C,D), if one or more eigenvalues exceeded the predefined threshold, which is commonly set to close to 2.0 (e.g. 1.7), then corresponding orbitals will be regarded as candidate 4c-2e bonds. Completely identical strategy can be used to generate orbitals with higher number of centers.
+After diagonalization of $P^{(A,B,C,D)}$, if one or more eigenvalues exceeded the predefined threshold, which is commonly set to close to 2.0 (e.g. 1.7), then corresponding orbitals will be regarded as candidate 4c-2e bonds. Completely identical strategy can be used to generate orbitals with higher number of centers.
 
 Indeed, the orbital generating process of AdNDP is quite easy once atom combination is determined, however the searching process of final Nc-2e orbitals in entire system is complicated, manual inspections and operations are necessary. AdNDP approach has large ambiguity, it is possible that the searching process carried out by different peoples finally results in different AdNDP pattern, I think this is the most serious limitation of current AdNDP approach. So, AdNDP is never a black box, before using it users must have preliminary understanding of the searching process of the AdNDP implemented in Multiwfn.
 
@@ -57,7 +57,7 @@ Multiwfn offers capacity for evaluating AdNDP orbital energies. You need to prov
 
 TAdNDPAOAONAO==FC FCCXc
 
-where FAO is the Fock matrix in original basis function that loaded from user-provided file, C(r,i) corresponds to coefficient of basis function r in AdNDP orbital i. c(s,i) corresponds to coefficient of NAO s in AdNDP orbital i. XAONAO is transformation matrix between original basis function and NAO, i.e. X(t,s) is coefficient of basis function t in NAO s. Energy of AdNDP orbital j is simply FAdNDP(j,j), which is expectation value of Fock operator of AdNDP orbital wavefunction.
+where FAO is the Fock matrix in original basis function that loaded from user-provided file, C(r,i) corresponds to coefficient of basis function r in AdNDP orbital i. c(s,i) corresponds to coefficient of NAO s in AdNDP orbital $X_{AONAO}$ is transformation matrix between original basis function and NAO, i.e. X(t,s) is coefficient of basis function t in NAO s. Energy of AdNDP orbital j is simply FAdNDP(j,j), which is expectation value of Fock operator of AdNDP orbital wavefunction.
 
 
 ### 3.17.2 Input file

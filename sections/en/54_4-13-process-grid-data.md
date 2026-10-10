@@ -6,15 +6,15 @@
 
 <!-- p.731 -->
 
-extrema of Eatt on ρ = 0.004 a.u. isosurface), then they will be automatically moved to VMD folder
+extrema of $E_{\text{att}}$ on ρ = 0.004 a.u. isosurface), then they will be automatically moved to VMD folder
 
 Boot up VMD and input source LEAE_isoext.vmd in VMD console window to run this script. However, under the default color scale (from -0.03 to 0.0 a.u.) the character in different regions of the molecular surface cannot be clearly distinguished. Therefore, we input this command in VMD console window to change color scale to [-0.015,0] a.u.: mol scaleminmax 0 1 -0.015 0, then you will see the following map, two perspectives are shown
 
-In this map, the color varies as blue-white-red, the bluer (more negative Eatt) the region, the stronger electrophilicity the corresponding area. This map conveys essentially the information as
+In this map, the color varies as blue-white-red, the bluer (more negative $E_{\text{att}}$) the region, the stronger electrophilicity the corresponding area. This map conveys essentially the information as
 
 EAL, namely the end of -CH3 group is most electrophilic, while the σ-hole of Cl atom also shows weak electrophilicity.
 
-The cyan spheres on the surface correspond to surface extrema of Eatt. Using the same way as the last example to inquire their values, you can find the surface extreme at the end of Cl atom is -0.29 eV, while that at the -CH3 side is -0.5 eV.
+The cyan spheres on the surface correspond to surface extrema of $E_{\text{att}}$. Using the same way as the last example to inquire their values, you can find the surface extreme at the end of Cl atom is -0.29 eV, while that at the -CH3 side is -0.5 eV.
 
 
 ## 4.13 Process grid data

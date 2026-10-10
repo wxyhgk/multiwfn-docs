@@ -114,16 +114,16 @@ This is an advanced example, if you are not interested in weak interactions, you
 
 In J. Phys. Chem. A, 118, 1697 (2014), Mohan and Suresh studied a batch of electrostatic dominated interacting systems, including hydrogen, halogen and dihydrogen bonds, all of them belong to electron donor-acceptor interactions, where donor stands for electron-rich moiety (Lewis base), while acceptor is electron-deficient moiety (Lewis acid). They fitted a surprisingly good
 
-linear equation to correlate ΔΔVn index with interaction energy (Enb) for all kinds of interactions, the R2 is as high as 0.9762. Their results can be summarized as following graph
+linear equation to correlate $\Delta\Delta V_{n}$ index with interaction energy (Enb) for all kinds of interactions, the R2 is as high as 0.9762. Their results can be summarized as following graph
 
-For an electrostatic dominated complex, assume that we can obtain ΔΔVn, then according to the equation shown in the graph above, we can easily predict the interaction energies as
+For an electrostatic dominated complex, assume that we can obtain $\Delta\Delta V_{n}$, then according to the equation shown in the graph above, we can easily predict the interaction energies as
 
 
 $$E_{\mathrm{n b}}=-89.2857\times\Delta\Delta V_{\mathrm{n}}-0.125$$
 
 <!-- formula-ocr: formula_p470_336.png 已替换为LaTeX, 原图保留备查 -->
 
-The ΔΔVn is defined based on ESP at nuclear positions
+$\Delta\Delta V_{n}$ is defined based on ESP at nuclear positions
 
 $$\Delta\Delta V_{\mathrm{n}}=\Delta V_{\mathrm{n-D}}-\Delta V_{\mathrm{n-A}}=(V_{\mathrm{n-D^{\prime}}}-V_{\mathrm{n-D}})-(V_{\mathrm{n-A^{\prime}}}-V_{\mathrm{n-A}})$$
 
@@ -136,13 +136,13 @@ D' is that the former is calculated in monomer state, therefore ΔVn-D = Vn-D' -
 
 <!-- p.471 -->
 
-the change in ESP at nuclear position of donor atom due to presence of another molecule, which directly reflects strength of intermolecular interaction. The definition of Vn-A' and Vn-A are identical to Vn-D' and Vn-D, respectively, but they are calculated for acceptor atom.
+the change in ESP at nuclear position of donor atom due to presence of another molecule, which directly reflects strength of intermolecular interaction. The definition of Vn-A' and Vn-A are identical to $V_{n-D}$' and Vn-D, respectively, but they are calculated for acceptor atom.
 
 In this example, we calculate ΔΔVn for H2O∙∙∙HF and check if the interaction energy predicted based on ΔΔVn is really closed to the accurately calculated interaction energy. In this complex the oxygen of H2O is electron donor atom and hydrogen of HF is electron acceptor atom. Because the equation presented by Mohan and Suresh was fitted for specific calculation level, in order to properly use their equation, the calculation level we employed here is identical to them. The .wfn files used below were produced at MP4(SDQ)/aug-cc-pVTZ level at MP2/6-311++G** optimized geometries, these .wfn files and the corresponding Gaussian input files can be found in "examples\Vn" folder.
 
 Note that if you are using relatively old revision of G09 and post-HF method is employed, "density" keyword is indispensable, otherwise the density in the resultant .wfn file will correspond to Hartree-Fock density. Besides, in G09 and G16, density cannot be produced at MP4 level, so we use MP4(SDQ) keyword instead (MP4 keyword is default to MP4(SDTQ), which is more accurate and but much expensive than MP4(SDQ)).
 
-First, we calculate Vn-A' and Vn-D'. Boot up Multiwfn and input examples\Vn\H2O-HF.wfn 1 // Calculate properties at a point a1 // Nuclear position of atom 1 From the output you can see
+First, we calculate Vn-A' and $V_{n-D}$'. Boot up Multiwfn and input examples\Vn\H2O-HF.wfn 1 // Calculate properties at a point a1 // Nuclear position of atom 1 From the output you can see
 
 
 ```text
@@ -150,16 +150,16 @@ Total ESP without contribution from nuclear charge of atom     1:
 -0.2228775074E+02 a.u. ( -0.6064805E+03 eV, -0.1398579E+05 kcal/mol)
 ```
 
-That means Vn-D' is -22.2877 a.u. Then input a5, you will find Vn-A' is -0.9608 a.u.
+That means $V_{n-D}$' is -22.2877 a.u. Then input a5, you will find Vn-A' is -0.9608 a.u.
 
-Next we calculate Vn-D. Reboot up Multiwfn and input below commands ?H2O.wfn // The symbol ? means the folder of the file we last time loaded 1 a1 // In H2O.wfn oxygen is atom 1 We find Vn-D is -22.3339 a.u. Then we calculate Vn-A. Reboot Multiwfn and input
+Next we calculate $V_{n-D}$. Reboot up Multiwfn and input below commands ?H2O.wfn // The symbol ? means the folder of the file we last time loaded 1 a1 // In H2O.wfn oxygen is atom 1 We find Vn-D is -22.3339 a.u. Then we calculate Vn-A. Reboot Multiwfn and input
 
 ?HF.wfn 1 a2 // In HF.wfn hydrogen is atom 2 The Vn-A is found to be -0.9136 a.u.
 
-The ΔΔVn is thus -22.2877-(-22.3339) - [-0.9608-(-0.9136)] = 0.0462 + 0.0472 = 0.0933 a.u. Using the equation mentioned earlier, the interaction energy can be approximately predicted as
+$\Delta\Delta V_n$ is thus -22.2877-(-22.3339) - [-0.9608-(-0.9136)] = 0.0462 + 0.0472 = 0.0933 a.u. Using the equation mentioned earlier, the interaction energy can be approximately predicted as
 
 -89.2857×0.0933-0.125 = -8.45 kcal/mol, this value is quite close to the accurate interaction energies (-8.31 kcal/mol) obtained by Mohan and Suresh at MP4/aug-cc-pVTZ level with Counterpoise correction.
 
-Generating wavefunction at MP4(SDQ)/aug-cc-pVTZ is quite time consuming even for small complex such as the system we studied here, thus it is important to find a calculation level that significantly saves computational time but without too much sacrifice in accuracy. For present system, based on the MP2/6-311++G** geometry, I tried using several levels to evaluate the ΔΔVn:
+Generating wavefunction at MP4(SDQ)/aug-cc-pVTZ is quite time consuming even for small complex such as the system we studied here, thus it is important to find a calculation level that significantly saves computational time but without too much sacrifice in accuracy. For present system, based on the MP2/6-311++G** geometry, I tried using several levels to evaluate the $\Delta\Delta V_n$
 
-B3LYP/6-311+G**: 0.1021 a.u. MP2/cc-pVTZ: 0.1052 a.u. MP2/aug-cc-pVTZ: 0.0955 a.u. B3LYP/aug-cc-pVTZ: 0.0985 a.u. MP2/aug-cc-pVDZ: 0.0939 a.u. B3LYP/aug-cc-pVDZ: 0.0980 a.u. The ΔΔVn produced at MP2/aug-cc-pVDZ (0.0939) is very close to the value we obtained above at MP4(SDQ)/aug-cc-pVTZ (0.0933), while the computational cost is reduced by factors of two. So, in practical studies,
+B3LYP/6-311+G**: 0.1021 a.u. MP2/cc-pVTZ: 0.1052 a.u. MP2/aug-cc-pVTZ: 0.0955 a.u. B3LYP/aug-cc-pVTZ: 0.0985 a.u. MP2/aug-cc-pVDZ: 0.0939 a.u. B3LYP/aug-cc-pVDZ: 0.0980 a.u. $\Delta\Delta V_n$ produced at MP2/aug-cc-pVDZ (0.0939) is very close to the value we obtained above at MP4(SDQ)/aug-cc-pVTZ (0.0933), while the computational cost is reduced by factors of two. So, in practical studies,

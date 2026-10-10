@@ -36,7 +36,7 @@ $$\left\{\begin{aligned}w_{A}(\mathbf{r})&=1&\text{if }\mathbf{r}\in\Omega_{A}\\
 
 <!-- p.223 -->
 
-where ΩA is atomic space of atom A.
+$\Omega_{A}$ is atomic space of atom A.
 
 2 Fuzzy partition methods: The representative methods include Hirshfeld, Becke, Hirshfeld-I, MBIS and ISA. They partition molecular space contiguously, atomic spaces overlap with each other, any point may be simultaneously attributed to many atoms to different extent, and the weights are normalized to unity. In other words, the two following conditions hold for all atoms and any point
 
@@ -58,7 +58,7 @@ $$w_{_{A}}^{^{Hirsh}}(\mathbf{r})=\frac{\rho_{_{A}}^{^{free}}(\mathbf{r}-\mathbf
 
 B
 
-where R is coordinate of nucleus, ρfree denotes spherically averaged atomic electron density in free-state.
+where R is coordinate of nucleus, $\rho^{\mathrm{free}}$ denotes spherically averaged atomic electron density in free-state.
 
 In option -1, you will find two options "Hirshfeld" and "Hirshfeld*". The former uses atomic .wfn files to calculate the weights, they must be provided yourself or let Multiwfn automatically invoke Gaussian to generate them, see Section 3.7.3 for detail. The latter evaluates the weights directly based on built-in radial atomic densities and thus is more convenient, detail can be found in Appendix 3. I strongly suggest using "Hirshfeld*" instead of "Hirshfeld".
 
@@ -89,7 +89,7 @@ $$s_{k}(t)=(1/2)[1-f_{k}(t)]$$
 
 <!-- formula-ocr: formula_p224_129.png 已替换为LaTeX, 原图保留备查 -->
 
-The plot of sk versus to t is
+The plot of $s_{k}$ versus to t is
 
 1.0
 
@@ -97,7 +97,7 @@ The plot of sk versus to t is
 
 0.6
 
-sk(t) 0.5
+$s_{k}$(t) 0.5
 
 0.4
 
@@ -111,7 +111,7 @@ sk(t) 0.5
 
 t
 
-From the graph above it can be seen that sk gradually reduces from 1 to 0 with t varying from -1 to 1. The larger the k is, the sharper the curve becomes. The weighting function of Becke atomic space is based on simple transformation of sk, for details please consult original paper J. Chem. Phys., 88, 2547 (1988).
+From the graph above it can be seen that $s_{k}$ gradually reduces from 1 to 0 with t varying from -1 to 1. The larger the k is, the sharper the curve becomes. The weighting function of Becke atomic space is based on simple transformation of sk, for details please consult original paper J. Chem. Phys., 88, 2547 (1988).
 
 $$w_{A}^{\mathrm{Becke}}\left(\mathbf{r}\right)=\frac{P_{A}(\mathbf{r})}{\sum_{B}P_{B}(\mathbf{r})}$$
 
@@ -128,7 +128,7 @@ $$\left\{\begin{aligned}a_{AB}&=-0.5&\text{if }a_{AB}<-0.5\\ a_{AB}&=0.5&\text{i
 
 μ BAAB )( RrRrRRr −=−=−=−= rr rrRR BBAABAABAB
 
-where R stands for coordinates of nucleus. Rcov denotes covalent radius.
+where R stands for coordinates of nucleus. $R^{\mathrm{cov}}$ denotes covalent radius.
 
 The number of iterations, namely k value, can be set by option -3. The default value (3) is appropriate for most cases. The definition of the covalent radius used to generate Becke atomic space can be chosen by option -2. Through corresponding suboptions, one can directly select a set of built-in radii (CSD radii, modified CSD radii, Pyykkö radii, Suresh radii, Hugo radii), load radii information from external plain text file (the format required is described in the program prompts), or modify current radii by manual input.
 
@@ -151,7 +151,7 @@ $$I_{A}=\int_{A}w_{A}(\mathbf{r})f(\mathbf{r})\mathrm{d}\mathbf{r}$$
 
 <!-- formula-ocr: formula_p226_130.png 已替换为LaTeX, 原图保留备查 -->
 
-For example, if f is chosen as electron density, then IA will be the electron population number of atom A.
+For example, if f is chosen as electron density, then $I_{A}$ will be the electron population number of atom A.
 
 f may be also chosen as the real space functions involving coordinates of two electrons, such as exchange-correlation density and source function. For this case, the coordinate of reference point can be set by option -10 (this is equivalent to set "refxyz" in `settings.ini`). If you have carried out topology analysis, you can also use option -11 to set a critical point as reference point, this is especially convenient for studying source function (for which bond critical point is usually set as reference point).
 
@@ -177,13 +177,13 @@ $$I_{AB}=\int_{A}w_{A}(\mathbf{r})w_{B}(\mathbf{r})f(\mathbf{r})\mathrm{d}\mathb
 
 <!-- p.227 -->
 
-For example, if f is chosen as electron density, then IAB will be the number of electrons shared by atom A and B. f may be also chosen as the real space functions involving coordinates of two electrons.
+For example, if f is chosen as electron density, then $I_{AB}$ will be the number of electrons shared by atom A and B. f may be also chosen as the real space functions involving coordinates of two electrons.
 
-Integrals of positive and negative parts of f are outputted separately. Meanwhile, sum of diagonal elements ∑𝐼𝐴𝐴𝐴 , sum of non-diagonal elements ∑∑𝐼𝐴𝐵𝐵≠𝐴𝐴 and sum of all elements ∑∑𝐼𝐴𝐵𝐵𝐴 for positive and negative parts are also outputted together. Currently only the fuzzy atomic space defined by Becke can be employed in this function.
+Integrals of positive and negative parts of f are outputted separately. Meanwhile, sum of diagonal elements ∑𝐼𝐴𝐴𝐴 , sum of non-diagonal elements ∑∑$I_{AB}$𝐵≠𝐴𝐴 and sum of all elements ∑∑𝐼𝐴𝐵𝐵𝐴 for positive and negative parts are also outputted together. Currently only the fuzzy atomic space defined by Becke can be employed in this function.
 
-3.18.3 Atomic and molecular multipole moments and <r2> (2)
+3.18.3 Atomic and molecular multipole moments and <$<r^{2}>$> (2)
 
-This function is used to evaluate atomic and molecular monopole, dipole, quadrupole moments and octopole moments as well as <r2>. All units in the output are in a.u.
+This function is used to evaluate atomic and molecular monopole, dipole, quadrupole moments and octopole moments as well as <$<r^{2}>$>. All units in the output are in a.u.
 
 In below formulae, superscript A means an atom named A. x, y and z are the components of electron coordinate r relative to nuclear coordinate R.
 
@@ -192,7 +192,7 @@ $$x=r_{x}-R_{x}^{A}\quad y=r_{y}-R_{y}^{A}\quad z=r_{z}-R_{z}^{A}$$
 
 <!-- formula-ocr: formula_p227_133.png 已替换为LaTeX, 原图保留备查 -->
 
-and r2 = x2 + y2 + z2.
+and $<r^{2}>$ = x2 + y2 + z2.
 
 Atomic monopole moment due to electrons is just negative of electron population number
 
@@ -300,7 +300,7 @@ In addition, Multiwfn outputs molecular quadrupole and octopole moments in Carte
 
 $$\Theta_{xy}=\frac{3}{2}\Biggl[\sum_{A}R_{x}^{A}R_{y}^{A}Z_{A}-\sum_{A}\int xy w_{A}(\mathbf{r})\rho(\mathbf{r})\mathrm{d}\mathbf{r}\Biggr]$$
 
-where x, y, z in this context are Cartesian components of r with respect to (0,0,0) position. <r2> of molecule can be written as
+where x, y, z in this context are Cartesian components of r with respect to (0,0,0) position. <$<r^{2}>$> of molecule can be written as
 
 
 $$\Theta_{xy}=\frac{3}{2}\Biggl[\sum_{A}R_{x}^{A}R_{y}^{A}Z_{A}-\sum_{A}\int xy w_{A}(\mathbf{r})\rho(\mathbf{r})\mathrm{d}\mathbf{r}\Biggr]$$
@@ -309,11 +309,11 @@ $$\Theta_{xy}=\frac{3}{2}\Biggl[\sum_{A}R_{x}^{A}R_{y}^{A}Z_{A}-\sum_{A}\int xy 
 
 where r is radial distance with respect to (0,0,0).
 
-By default, atomic multipole moments and <r2> for all atoms are evaluated, and finally, these quantities of the whole system are printed. If you only need them for specific atoms, you can use option -5 to define an atom list, in this case only the quantities of selected atoms will be calculated and outputted. In addition, via this feature you can calculate the quantities of a molecule in a molecular complex, or calculate them of a fragment in a molecule, because in this case the "Molecular dipole and multipole moments" printed at the end of output are only contributed by the atoms in the defined list. See example in Section 4.15.3 for illustration of use of this feature.
+By default, atomic multipole moments and <$<r^{2}>$> for all atoms are evaluated, and finally, these quantities of the whole system are printed. If you only need them for specific atoms, you can use option -5 to define an atom list, in this case only the quantities of selected atoms will be calculated and outputted. In addition, via this feature you can calculate the quantities of a molecule in a molecular complex, or calculate them of a fragment in a molecule, because in this case the "Molecular dipole and multipole moments" printed at the end of output are only contributed by the atoms in the defined list. See example in Section 4.15.3 for illustration of use of this feature.
 
 After entering the present function, you will be asked to choose destination of outputting. If you choose 2 to output result to multipole.txt, a file named atom_moment.txt will also be produced in the current folder. Based on this file, atomic electric dipole and quadrupole moments can be visualized in VMD program via a special script, see Section 4.15.5 for detail.
 
-PS 1: If your purpose is only calculating electric dipole/multipole moments and <r2> for the whole system, it is best to use the function described in Section 3.300.5, it is significantly faster and more accurate since it calculates them analytically.
+PS 1: If your purpose is only calculating electric dipole/multipole moments and <$<r^{2}>$> for the whole system, it is best to use the function described in Section 3.300.5, it is significantly faster and more accurate since it calculates them analytically.
 
 PS 2: If “ispecial” in `settings.ini` is set to 1, then the electron density involved in this function will be replaced with user-defined function. Via this feature, it is possible to realize some special purpose, such as calculating atomic dipole moments corresponding to variation of electron density, see #10 and relevant discussions in http://sobereva.com/wfnbbs/viewtopic.php?id=650.
 
@@ -374,7 +374,7 @@ For open-shell systems, the LI (λ) and DI (δ) are calculated for each spin of 
 
 $$\delta^{\alpha}(A\to B)=-\int_{A}\int_{B}\Gamma_{\mathrm{X C}}^{\alpha,\mathrm{tot}}(\mathbf{r}_{1},\mathbf{r}_{2})\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}$$
 
-where ГXC is exchange-correlation density; if you are not familiar with it, please consult the
+$\Gamma_{XC}$ is exchange-correlation density; if you are not familiar with it, please consult the
 
 
 <!-- p.231 -->
@@ -507,9 +507,9 @@ where NA is the electron population number in A. As mentioned above, the diagona
 
 <!-- p.234 -->
 
-matrix outputted by Multiwfn are calculated as the sum of off-diagonal elements in the corresponding row (or column), hence you can simply obtain σ2 by dividing corresponding diagonal term of DI matrix by two.
+matrix outputted by Multiwfn are calculated as the sum of off-diagonal elements in the corresponding row (or column), hence you can simply obtain $\sigma^{2}$ by dividing corresponding diagonal term of DI matrix by two.
 
-A quantity closely related to σ2 is the relative fluctuation parameter introduced by Bader, which indicates the electronic fluctuations for a given atomic space relative to its electron population, you can calculate it manually if you want
+A quantity closely related to $\sigma^{2}$ is the relative fluctuation parameter introduced by Bader, which indicates the electronic fluctuations for a given atomic space relative to its electron population, you can calculate it manually if you want
 
 2F( )( ) /AAANλσ=
 
@@ -595,7 +595,7 @@ $$\chi(\mathbf{r}_{1},\mathbf{r}_{2})=\left(\frac{\delta^{2}E}{\delta\nu(\mathbf
 
 <!-- formula-ocr: formula_p236_155.png 已替换为LaTeX, 原图保留备查 -->
 
-This quantity reflects the impact of the perturbation of external potential at r2 on the electron density at r1, which may also be regarded as the magnitude coupling between electron at r1 and r2.
+This quantity reflects the impact of the perturbation of external potential at $\mathbf{r}_{2}$ on the electron density at r1, which may also be regarded as the magnitude coupling between electron at r1 and r2.
 
 In Multiwfn, LRK is evaluated by an approximation form based on second-order perturbation theory (see Eq.3 of Phys. Chem. Chem. Phys., 14, 3960 (2012))
 
@@ -644,7 +644,7 @@ $$\delta(A,B,C...H)=2^{n-1}\sum_{i}\sum_{j}\sum_{k}\cdots\sum_{q}S_{i j}(A)S_{j 
 
 where i, j, k... only cycle occupied orbitals. The normalized form of multi-center DI is defined as
 
-δ1/n, and may be compared between rings with different numbers of members.
+$\delta^{1/n}$, and may be compared between rings with different numbers of members.
 
 Currently this function is only available for single-determinant closed-shell wavefunctions, and supports up to 10 centers. Note that for relatively large size of systems, calculating multi-center DI for more than 6 centers may be quite time-consuming.
 
@@ -679,9 +679,9 @@ Information needed by fuzzy analysis module: GTFs, atom coordinates
 
 Theory
 
-Atomic (effective) polarizability of zero frequency, 𝛼eff(0), in a molecule system, is a quantity of great important; however, there is no unique way to estimate it and it is not experimentally observable in general. In the original paper of Tkatchenko-Scheffler (TS) dispersion correction method, Phys. Rev. Lett., 102, 073005 (2009), the authors suggested a simple way of estimating it
+Atomic (effective) polarizability of zero frequency, $\alpha^{eff}(0)$, in a molecule system, is a quantity of great important; however, there is no unique way to estimate it and it is not experimentally observable in general. In the original paper of Tkatchenko-Scheffler (TS) dispersion correction method, Phys. Rev. Lett., 102, 073005 (2009), the authors suggested a simple way of estimating it
 
-by scaling known free-atom polarizability 𝛼free(0), they assumed that atomic polarizability of an element is positively proportional to its atomic volume. Then in a review article Chem. Rev., 117, 4714 (2017), this method is explicitly expressed as
+by scaling known free-atom polarizability $\alpha^{free}(0)$, they assumed that atomic polarizability of an element is positively proportional to its atomic volume. Then in a review article Chem. Rev., 117, 4714 (2017), this method is explicitly expressed as
 
 VVαα= free(0)(0)AAA effefffree A
 
@@ -696,7 +696,7 @@ in which wA is atomic weighting function of atom A. RA is nuclear position of at
 
 free is electron density of atom A in its free state. Note that the calculation level used for evaluating ρ and ρfree must be exactly the same. electron density, and 𝜌𝐴
 
-Ideally, the sum of 𝛼eff(0) of all atoms should be equal to static polarizability of the whole system. However, since the above method is not rigorous, this condition is obviously impossible to achieve. In addition, it is worth noting that the choice of atomic weighting function significantly affects calculation result, but it is unclear which weighting function is the best choice for this purpose.
+Ideally, the sum of $\alpha^{\text{eff}}(0)$ of all atoms should be equal to static polarizability of the whole system. However, since the above method is not rigorous, this condition is obviously impossible to achieve. In addition, it is worth noting that the choice of atomic weighting function significantly affects calculation result, but it is unclear which weighting function is the best choice for this purpose.
 
 In my opinion, it is useful to define percentage contribution of an atom to total polarizability as
 
@@ -707,26 +707,26 @@ $$\alpha_{_{A}}^{\%}=\frac{\alpha_{_{A}}^{\mathrm{eff}}(0)}{\sum\limits_{A}\alph
 
 This quantity is evidently useful in analyzing the major source of molecular polarizability.
 
-According to the TS method, C6 dispersion coefficient of an atom in practical chemical environment can be easily and approximately evaluated as
+According to the $C_{6,AA}^{\mathrm{TS}}$ method, $C_{6,AA}^{free}$ dispersion coefficient of an atom in practical chemical environment can be easily and approximately evaluated as
 
 $$C_{6,A A}^{\mathrm{T S}}=\left(\frac{V_{A}^{\mathrm{e f f}}}{V_{A}^{\mathrm{f r e e}}}\right)^{2}C_{6,A A}^{\mathrm{f r e e}}$$
 
-where 𝐶6,𝐴𝐴 free is the known C6 dispersion coefficient of the atom in free state. Furthermore, C6 between different two atoms can be calculated as
+where $C_{6,AA}^{free}$,𝐴𝐴 free is the known C6 dispersion coefficient of the atom in free state. Furthermore, C6 between different two atoms can be calculated as
 
 $$C_{6,A B}^{\mathrm{T S}}=\frac{2C_{6,A A}^{\mathrm{T S}}C_{6,B B}^{\mathrm{T S}}}{\frac{\alpha_{B}^{\mathrm{e f f}}\left(0\right)}{\alpha_{A}^{\mathrm{e f f}}\left(0\right)}C_{6,A A}^{\mathrm{T S}}+\frac{\alpha_{A}^{\mathrm{e f f}}\left(0\right)}{\alpha_{B}^{\mathrm{e f f}}\left(0\right)}C_{6,B B}^{\mathrm{T S}}}$$
 
-Finally, intermolecular C6 coefficient can be obtained as follows
+Finally, intermolecular $C_{6,AA}^{free}$ coefficient can be obtained as follows
 
 $$C_{6}^{\mathrm{m o l}}=\sum_{A\in\mathrm{m o l}1}\sum_{B\in\mathrm{m o l}2}C_{6,A B}^{\mathrm{T S}}$$
 
 Usage
 
-TS for all atoms. In addition, the 𝐶6 mol, is also given. To evaluate them, the steps are: mol between two present systems, in other words, homomolecular 𝐶6 Multiwfn is able to calculate Veff, Vfree, 𝛼eff(0), 𝛼%, and 𝐶6,𝐴𝐴
+$C_{6,AA}^{\mathrm{TS}}$ for all atoms. In addition, the $C_{6,AA}^{free}$ mol, is also given. To evaluate them, the steps are: mol between two present systems, in other words, homomolecular 𝐶6 Multiwfn is able to calculate Veff, Vfree, $\alpha^{\text{eff}}(0)$, 𝛼%, and $C_{6,AA}^{\mathrm{free}}$
 
 (1) Manually generate wavefunction file of each kind of atom in the current system by your
 
 favourite quantum chemistry code. (2) Boot up Multiwfn and load the wavefunction file of the system. (3) Enter main function 15, choose the weighting function you want to use by option -1. (4) Choose option 13. Multiwfn will ask you to input path of wavefunction file of each kind
 
-of element involved in the present system, the corresponding density will be used to evaluate Vfree. After inputting the paths, calculation will be started. During calculation, you can see Veff, Vfree and their ratio Veff/Vfree are printed for each atom. Once the calculation is completely finished, Multiwfn will print αeff(0), α% and 𝐶6,𝐴𝐴 TS for all atoms.
+of element involved in the present system, the corresponding density will be used to evaluate Vfree. After inputting the paths, calculation will be started. During calculation, you can see Veff, Vfree and their ratio Veff/Vfree are printed for each atom. Once the calculation is completely finished, Multiwfn will print $\alpha^{\text{eff}}(0)$, α% and $C_{6,AA}^{free}$,𝐴𝐴 $C_{6,AA}^{\mathrm{TS}}$ for all atoms.
 
-Note that the αfree(0) used for their evaluations come from the recommended values in CTCP atomic polarizability table (http://ctcp.massey.ac.nz/index.php?menu=dipole&page=dipole, data of Nov 16, 2020 version was taken). The built-in 𝐶6,𝐴𝐴 free comes from J. Chem. Phys., 121, 4083 (2004), the value of H comes from Table I of original paper of TS method. Only the 𝐶6,𝐴𝐴 free values of elements
+Note that the $\alpha^{\mathrm{free}}(0)$ used for their evaluations come from the recommended values in CTCP atomic polarizability table (http://ctcp.massey.ac.nz/index.php?menu=dipole&page=dipole, data of Nov 16, 2020 version was taken). The built-in $C_{6,AA}^{free}$,𝐴𝐴 free comes from J. Chem. Phys., 121, 4083 (2004), the value of H comes from Table I of original paper of $C_{6,AA}^{\mathrm{TS}}$ method. Only the 𝐶6,𝐴𝐴 free values of elements

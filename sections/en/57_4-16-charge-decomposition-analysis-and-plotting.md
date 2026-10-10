@@ -103,7 +103,7 @@ Orbital     2 of fragment  2, Occ: 2.00000    Contribution:   57.2921%
 Orbital     5 of fragment  2, Occ: 0.00000    Contribution:   14.5640%
 ```
 
-Only the FOs with contribution ≥ 1% to the complex orbital are shown (the threshold can be altered by "compthresCDA" in `settings.ini`). As already mentioned, the electron transfer from CO to BH3 is mainly due to the complex orbital 9, therefore from above data we can infer that the nature of the CO→BH3 electron transfer can be largely interpreted as the mix between FO 7 of CO (an occupied orbital) and FO 5 of BH3 (a virtual orbital). This viewpoint can also be manifested by comparing the shape of the two FOs (see below) with the shape of complex orbital 9 given above.
+Only the FOs with contribution ≥ 1% to the complex orbital are shown (the threshold can be altered by "compthresCDA" in `settings.ini`). As already mentioned, the electron transfer from CO to $BH_3$ is mainly due to the complex orbital 9, therefore from above data we can infer that the nature of the CO→BH3 electron transfer can be largely interpreted as the mix between FO 7 of CO (an occupied orbital) and FO 5 of BH3 (a virtual orbital). This viewpoint can also be manifested by comparing the shape of the two FOs (see below) with the shape of complex orbital 9 given above.
 
 Note: Sometimes a few contributions of FOs may be negative, this is a well-known drawback of Mulliken analysis, which is the method employed in CDA module to calculate the complex orbital composition. Since the magnitudes of the negative values are often small, you can simply ignore them.
 
@@ -122,7 +122,7 @@ FragA Orb(Occ.)  FragB Orb(Occ.)      d           b        d - b          r
   13( 0.0000)       2( 2.0000)    0.000000    0.021958   -0.021958    0.000000
 ```
 
-From the output it is clear that the mix between FO 7 of CO and FO 5 of BH3 contributes most of the d term of complex orbital 9.
+From the output it is clear that the mix between FO 7 of CO and FO 5 of $BH_3$ contributes most of the d term of complex orbital 9.
 
 Finally, we plot orbital interaction diagram. Input 0 to return to the last menu, and then select 5 to enter the menu for plotting orbital interaction diagram. Choose option 3 and input -30,10 to set lower and upper energy limits of the plot to -30eV and 10eV, respectively. Then select option 1 to plot the diagram under default settings, a graph will pop up on screen:
 
@@ -131,15 +131,15 @@ Finally, we plot orbital interaction diagram. Input 0 to return to the last menu
 
 <!-- p.769 -->
 
-In the graph above, occupied and virtual orbitals are represented as solid and dashed bars, respectively. Orbital indices are labelled by blue texts. If two or more labels occur in the same bar, e.g. 7 and 8, that means these orbitals are degenerated in energy. If composition of a FO in a complex orbital is larger than 10%, then the corresponding two bars will be linked by red line, and the composition will be labelled on the lines. By simply viewing the diagram we can directly understand how the MOs of COBH3 are constructed by FOs of CO and BH3. For example, complex orbital 7 and 8 only link to FO 5 and 6 of CO in this diagram, hence we immediately know that these two orbitals basically remain unperturbed during formation of the complex. In fact, they are π orbitals of CO, certainly they cannot participate to the σ type donor-acceptor interaction between CO and BH3.
+In the graph above, occupied and virtual orbitals are represented as solid and dashed bars, respectively. Orbital indices are labelled by blue texts. If two or more labels occur in the same bar, e.g. 7 and 8, that means these orbitals are degenerated in energy. If composition of a FO in a complex orbital is larger than 10%, then the corresponding two bars will be linked by red line, and the composition will be labelled on the lines. By simply viewing the diagram we can directly understand how the MOs of COBH3 are constructed by FOs of CO and $BH_{3}$ For example, complex orbital 7 and 8 only link to FO 5 and 6 of CO in this diagram, hence we immediately know that these two orbitals basically remain unperturbed during formation of the complex. In fact, they are π orbitals of CO, certainly they cannot participate to the σ type donor-acceptor interaction between CO and BH3.
 
 There are many options used to adjust plotting parameters (such as label size, the rule for drawing and linking bars, position of composition labels, energy range), please play with them, and replot the graph to check their effects.
 
-4.16.2 Open-shell interaction case: CH3NH2
+4.16.2 Open-shell interaction case: $CH_{3}NH_{2}$
 
-In this example, I use CH3NH2 to illustrate how to perform CDA for the complex in which the two fragments interact with each other covalently (open-shell interaction).
+In this example, I use $CH_{3}NH_{2}$ to illustrate how to perform CDA for the complex in which the two fragments interact with each other covalently (open-shell interaction).
 
-First, we need to generate Gaussian output file for CH3 (fragment 1), NH2 (fragment 2) and CH3NH2 (complex). For fragments 1 and 2, in present example we use unrestricted B3LYP method; while for the complex, since this is a closed-shell system, we use restricted B3LYP method (unrestricted B3LYP can also be used, the CDA result will be the same). The .fch files and corresponding input files can be found in "examples\CDA\CH3NH2" folder, the geometry was pre-
+First, we need to generate Gaussian output file for CH3 (fragment 1), NH2 (fragment 2) and $CH_{3}NH_{2}$ (complex). For fragments 1 and 2, in present example we use unrestricted B3LYP method; while for the complex, since this is a closed-shell system, we use restricted B3LYP method (unrestricted B3LYP can also be used, the CDA result will be the same). The .fch files and corresponding input files can be found in "examples\CDA\CH3NH2" folder, the geometry was pre-
 
 
 ![](../imgs/p769_313.png)
@@ -171,9 +171,9 @@ Select option 5 to enter the menu for plotting orbital interaction diagram. By o
 
 <!-- p.771 -->
 
-interaction diagram. From the graph it is very clear that beta orbital 3 and 4 of CH3NH2 are formed by mixing beta FO 2 in CH3 and beta FO 2 in NH2. To illustrate this point more intuitively, corresponding part is extracted from the whole diagram, and the orbital isosurfaces are attached on it, see below
+interaction diagram. From the graph it is very clear that beta orbital 3 and 4 of CH3$CH_{3}NH_{2}$ are formed by mixing beta FO 2 in CH3 and beta FO 2 in NH2. To illustrate this point more intuitively, corresponding part is extracted from the whole diagram, and the orbital isosurfaces are attached on it, see below
 
-It can be seen that beta complex orbital 3 shows bonding character (this is why r(3) is a positive value, namely 0.103), which is constructed by slightly mixing beta FO 2 of CH3 into beta FO 2 of NH2 with the same wavefunction phase. Beta complex orbital 4 is an anti-bonding orbital (this explained why r(4) is a negative value, namely -0.056), formation of which is due to the mixture of beta FO 2 of NH2 into beta FO 2 of CH3 in terms of different phases.
+It can be seen that beta complex orbital 3 shows bonding character (this is why r(3) is a positive value, namely 0.103), which is constructed by slightly mixing beta FO 2 of CH3 into beta FO 2 of $CH_{3}NH_{2}$ with the same wavefunction phase. Beta complex orbital 4 is an anti-bonding orbital (this explained why r(4) is a negative value, namely -0.056), formation of which is due to the mixture of beta FO 2 of NH2 into beta FO 2 of CH3 in terms of different phases.
 
 4.16.3 More than two fragments case: Pt(NH3)2Cl2
 

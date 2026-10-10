@@ -128,7 +128,7 @@ $$\begin{array}{r l r l}{{3}960\mathrm{(2012))}\mathrm{:}}&{\chi(\mathbf{r}_{1},
 
 27 局域电子亲和（LEA）： $EA_{\mathrm{L}}(\mathbf{r}) = \frac{-\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\sum_{i \in \mathrm{vir}} |\varphi_i(\mathbf{r})|^2}$ $E_{\mathrm{att}}(\mathbf{r}) = \frac{n \sum_{i=LUMO}^{E_i < 0} |\varphi_i(\mathbf{r})|^2 \varepsilon_i}{\rho(\mathbf{r})}$
 
-i  vir
+i ∈ vir
 
 局域电离能，但i遍历所有未占据轨道。见J. Mol. Model., 9, 342 (2003)。对实际分子的应用示例见4.12.13节。
 
@@ -380,7 +380,7 @@ $$\sigma_{i,j}(\mathbf{r})=-\frac{1}{4}\sum_{t}\eta_{t}\left[2\frac{\partial\var
 
 闭壳层情形：
 
-bdbdbdeEEv= −rrrr HFX 1( )( )( )( )4
+$$e_{\mathrm{HFX}}(\mathbf{r})=-\frac{1}{4}\sum_{bd}E_{b}(\mathbf{r})E_{d}(\mathbf{r})v_{bd}(\mathbf{r})$$
 
 其中
 
@@ -449,11 +449,11 @@ $$V_{\mathrm{XC}}(\mathbf{r}) = \delta E_{\mathrm{XC}} / \delta\rho(\mathbf{r})$
 
 - iKEDsel=2：Lagrange KED，与实空间函数7相同
 
-- iKEDsel=3：Thomas-Fermi KED：σσаβσαβττρ 5/3TFTFTF,,( )[( )]Cσ ====rr,
+- iKEDsel=3： $$\tau_{\mathrm{TF}}(\mathbf{r})=\sum_{\sigma=\alpha,\beta} \tau_{\mathrm{TF}}^{\sigma}=\sum_{\sigma=\alpha,\beta}C_{\mathrm{TF}}[\rho_{\sigma}(\mathbf{r})]^{5/3}$$, where $C_{\mathrm{TF}}=\frac{3}{10}(6\pi^{2})^{2/3}=4.557799872$ is Thomas-Fermi constant in spin polarized case.
 
 其中22/33TF10 (6)4.557799872Cπ==为自旋极化情形的Thomas-Fermi常数。
 
-- iKEDsel=4：Weizsäcker KED： σρρτ W)(8 )()(rrr ∇= βασσ = , 2
+- iKEDsel=4： $$\tau_{\mathrm{W}}(\mathbf{r})=\sum_{\sigma=\alpha,\beta}\frac{|\nabla \rho_{\sigma}(\mathbf{r})|^{2}}{8\rho_{\sigma}(\mathbf{r})}$$
 
 下面提到的大多数KED可用一般形式表示
 
@@ -461,13 +461,13 @@ $$\bullet\mathrm{iKEDsel}=10:\mathrm{Pearson}\mathrm{KED},\tau_{\mathrm{Pear}}^{
 
 因子，详见J. Chem. Phys., 127, 144109 (2007)。该论文系统介绍并比较了多种已有KED。注意该论文给出的许多表达式是错的，而下面给出的公式绝对正确，且都显式写为自旋极化形式，若在工作中涉及，请引用我的论文J. Chem. Phys., 150, 204106 (2019)；每种KED的引用也在该论文中给出。更多KED信息与比较见Phys. Rev. A, 46, 6920 (1992)和J. Chem. Phys., 100, 4446 (1994)。
 
-- iKEDsel=5：二阶梯度展开近似， 11rσσsCF TF2GEA)(72 +=2 
+- iKEDsel=5： $$F^{\sigma}_{\mathrm{GEA2}}=\left[1+\frac{1}{72C_{\mathrm{TF}}}s^{\sigma}(\mathbf{r})^{2}\right]$$
 
-- iKEDsel=6：Thomas-Fermi + 1/5 Weizsäcker KED， 11rσσsCF TFW5TF)(40 +=2 
+- iKEDsel=6： $$F^{\sigma}_{\mathrm{TF5W}}=\left[1+\frac{1}{40C_{\mathrm{TF}}}s^{\sigma}(\mathbf{r})^{2}\right]$$
 
-- iKEDsel=7：Thomas-Fermi + Weizsäcker KED， 11rσσsCF TFTFvW)(8 +=2 
+- iKEDsel=7： $$F^{\sigma}_{\mathrm{TFvW}}=\left[1+\frac{1}{8C_{\mathrm{TF}}}s^{\sigma}(\mathbf{r})^{2}\right]$$
 
-- iKEDsel=8：Thomas-Fermi + b/9 Weizsäcker KED， 067.11rσσsCF TFW9TF)(72 +=2 
+- iKEDsel=8： $$F^{\sigma}_{\mathrm{TF9W}}=\left[1+\frac{1.067}{72C_{\mathrm{TF}}}s^{\sigma}(\mathbf{r})^{2}\right]$$
 
 - iKEDsel=9：N依赖的Thomas-Fermi KED，3/23/1NTF 187.0313.01NNF−+=−σ，其中N为
 
@@ -524,7 +524,7 @@ $$F_{\mathrm{LG}94}^{\sigma}=\frac{\left\{1+a_{2}[s_{r}^{\sigma}(\mathbf{r})]^{2
 
 - iKEDsel=22：Acharya-Bartolotti-Sears-Parr KED，11.412[( )]18FsCN 2ABSP1/3TF σσ=+ −r
 
-- iKEDsel=23：Gázquez-Robles KED，+−−+=3/23/12 NNNsCFrσσ TFGR 029.0303.1121)]([8 1
+- iKEDsel=23： $$F^{\sigma}_{\mathrm{GR}}=\frac{1}{8C_{\mathrm{TF}}}[s^{\sigma}(\mathbf{r})]^{2}+\left(1-\frac{2}{N}\right)\left(1-\frac{1.303}{N^{1/3}}+\frac{0.029}{N^{2/3}}\right)$$
 
 - iKEDsel=24：四阶梯度展开近似，
 

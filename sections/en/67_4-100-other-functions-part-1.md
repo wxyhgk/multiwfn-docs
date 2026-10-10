@@ -29,7 +29,7 @@ examples\COCl2.wfn // HF/6-31G* wavefunction 100 // Other functions (Part 1) 4 /
 
 above procedure but select function 100 as integrand, you will get nuclear attraction potential energy -2839.1668, the value outputted by Gaussian is -2839.1629, evidently they are rather close. If you want to obtain nuclear attraction potential energy contributed from a specific orbital, use subfunction 26 of main function 6 to set occupation number of other orbitals to zero, and then do the integration as before.
 
-To further illustrate the flexibility of numerical integration function in Multiwfn, assume that you want to calculate expectation of r2 operator, you can modify the content of “userfunc” routine to "userfunc = (x*x+y*y+z*z)*fdens(x,y,z)", then recompile Multiwfn and redo the integration, you will get 444.6523, which is in excellent agreement with the analytically calculated <r2> 444.652363 outputted by subfunction 5 of main function 300 (see Section 3.300.5 for detail).
+To further illustrate the flexibility of numerical integration function in Multiwfn, assume that you want to calculate expectation of $r^2$ operator, you can modify the content of “userfunc” routine to "userfunc = (x*x+y*y+z*z)*fdens(x,y,z)", then recompile Multiwfn and redo the integration, you will get 444.6523, which is in excellent agreement with the analytically calculated <r2> 444.652363 outputted by subfunction 5 of main function 300 (see Section 3.300.5 for detail).
 
 Tip: You may have already noticed that the two lines of the codes colored by blue above have presented in "userfunc" routine, and they correspond to iuserfunc==12 and iuserfunc==3 respectively. So actually you needn't to modify and recompile the source code of Multiwfn, by simply changing "iuserfunc" parameter in `settings.ini` from the default value 0 to 12 and 3 respectively, the user-defined real space function will be equivalent to the two functions. For more about the built-in real space functions in "userfunc" routine, see Section 2.7.
 
@@ -57,13 +57,13 @@ The principle of the simple energy decomposition has been introduced in Section 
 
 <!-- p.1008 -->
 
-From NH3.out and BH3.out , we can find their single point energies: E(NH3) = -56.5477099 a.u. E(BH3) = -26.5929634 a.u. The single point energy of the adduct can be found in new.out: E(NH3BH3) = -83.2132069 a.u. We also refer it to as ESCF,last since it is the energy printed at last iteration of SCF procedure.
+From NH3.out and BH3.out , we can find their single point energies: E(NH3) = -56.5477099 a.u. E(BH3) = -26.5929634 a.u. The single point energy of the adduct can be found in new.out: E(NH3BH3) = -83.2132069 a.u. We also refer it to as $E_{SCF,last}$ since it is the energy printed at last iteration of SCF procedure.
 
 From line 639 of examples\EDA\EDA_simple\new.out, you can also find the energy printed at the first iteration of SCF procedure:
 
 ESCF,1st = -83.12546124 a.u. According to the equations shown in Section 3.100.8, we can calculate energy terms as
 
-ΔEtot = E(NH3BH3) - E(NH3) - E(BH3)= -0.0725336 a.u.= -190.44 kJ/mol ΔEorb = ESCF,last - ESCF,1st = -0.0877456 a.u.= -230.37 kJ/mol ΔEsteric = ΔEtot - ΔEorb = 0.017218 a.u.= 39.93 kJ/mol
+ΔEtot = E(NH3BH3) - E(NH3) - E(BH3)= -0.0725336 a.u.= -190.44 kJ/mol ΔEorb = $E_{SCF,last}$ - ESCF,1st = -0.0877456 a.u.= -230.37 kJ/mol ΔEsteric = ΔEtot - ΔEorb = 0.017218 a.u.= 39.93 kJ/mol
 
 namely the total interaction energy between NH3 and BH3 is -190.44 kJ/mol, the orbital interaction energy -230.37 kJ/mol significantly stabilized the adduct; while the steric term (sum of electrostatic interaction energy, Pauli repulsion energy and change in exchange-correlation energy), destabilized the adduct by 39.93 kJ/mol.
 
@@ -291,7 +291,7 @@ In this example, we will use Yoshizawa's formula (Acc. Chem. Res., 45, 1612 (201
 
 Boot up Multiwfn and input following commands: examples\phenanthrene_NAOMO.out //The Gaussian output file containing "NAOMO" matrix
 
-100 // Other functions (Part 1) 18 // Yoshizawa's electron transport route analysis 2 // Select YZ plane, which is the molecular plane Then program will detect which atom has expected pz atomic orbitals, and load their expansion coefficients in all MOs.
+100 // Other functions (Part 1) 18 // Yoshizawa's electron transport route analysis 2 // Select YZ plane, which is the molecular plane Then program will detect which atom has expected $p_{z}$ atomic orbitals, and load their expansion coefficients in all MOs.
 
 Now we select 1, and input 2,11 to check the transmission probability between 2 and 11. From the output we can know that the transmission probability is 0.855879. The contributions from each MO are also shown. From the output we also know that the probability will be 2.144432 if only HOMO and LUMO are considered. Although Yoshizawa's paper said that in common one only need to take HOMO and LUMO into account, it seems that this approximation is not true in quantitative level. The distance route 5.674656 Å is the distance between atom 2 and 11.
 
@@ -433,11 +433,11 @@ In this section we will study planarity of [14]annulene, which is not exactly pl
 
 effect in the small ring. Its structure optimized at ωB97XD/def2-TZVP level is shown below
 
-Please read my paper J. Mol. Model., 27, 263 (2021) DOI: 10.1007/s00894-021-04884-0 or Section 3.100.21 to gain basic knowledge about molecular planarity parameter (MPP), span of deviation from plane (SDP), and signed distance to plane (ds), which will be employed in this section to characterize molecular planarity of the [14]annulene.
+Please read my paper J. Mol. Model., 27, 263 (2021) DOI: 10.1007/s00894-021-04884-0 or Section 3.100.21 to gain basic knowledge about molecular planarity parameter (MPP), span of deviation from plane (SDP), an$d^{s}$igned distance to plane (ds), which will be employed in this section to characterize molecular planarity of the [14]annulene.
 
-Boot up Multiwfn and input examples\[14]annulene.xyz // It contains the optimized structure MPP // Enter the function of studying molecular planarity 1-14 // We only use all carbon atoms to determine the planarity. You can also simply input h to choose all non-hydrogen atoms
+Boot up Multiwfn and input examples\[14]annulene.xyz // It contains the optimize$d^{s}$tructure MPP // Enter the function of studying molecular planarity 1-14 // We only use all carbon atoms to determine the planarity. You can also simply input h to choose all non-hydrogen atoms
 
-Now you can immediately see the following output, which include the parameters of the plane fitted for the selected atoms (i.e. all carbons), signed deviations of atoms to the fitting plane (ds) and their most positive and most negative values. At the end, MPP and SDP are given.
+Now you can immediately see the following output, which include the parameters of the plane fitted for the selected atoms (i.e. all carbons), signed deviations of atoms to the fitting plane ($d^{s}$) and their most positive and most negative values. At the end, MPP and SDP are given.
 
 
 ```text
@@ -502,7 +502,7 @@ Boot up Multiwfn and input examples\C18_MD_500.xyz MPP // Enter the function of 
 
 <!-- p.1025 -->
 
-In addition, ds.pqr is generated in current folder. In this file, the "atomic charge" column corresponds to the ds value of selected atoms in every frame (the value for unselected atoms is zero). With this file and a special VMD script examples\scripts\ds.tcl, we are able to visualize trajectory with dynamic atomic coloring according to ds values, so that deviation from planarity of every atom can be very vividly exhibited. Now, load the examples\C18_MD_500.xyz into VMD, then copy the ds.pqr and examples\scripts\ds.tcl to VMD installation folder, boot up VMD and input source ds.tcl in console window of VMD to run this script, then this script will load ds data from ds.pqr and set up visualization status. After that, when you play the trajectory animation or drag progress bar in VMD, the atoms will be automatically colored according to ds value of the corresponding frame. If you are confused, see video illustration: http://sobereva.com/multiwfn/res/ds_color.mp4 (in this video I also used “RMSD trajectory tool” plugin in VMD to eliminate overall molecular motion to make inspection easier). Note that the default color scale set by the ds.tcl script is from -0.4 (blue) to 0.4 (red).
+In addition, $d^s$.pqr is generated in current folder. In this file, the "atomic charge" column corresponds to the ds value of selected atoms in every frame (the value for unselected atoms is zero). With this file and a special VMD script examples\scripts\ds.tcl, we are able to visualize trajectory with dynamic atomic coloring according to ds values, so that deviation from planarity of every atom can be very vividly exhibited. Now, load the examples\C18_MD_500.xyz into VMD, then copy the ds.pqr and examples\scripts\ds.tcl to VMD installation folder, boot up VMD and input source ds.tcl in console window of VMD to run this script, then this script will load ds data from ds.pqr and set up visualization status. After that, when you play the trajectory animation or drag progress bar in VMD, the atoms will be automatically colored according to ds value of the corresponding frame. If you are confused, see video illustration: http://sobereva.com/multiwfn/res/ds_color.mp4 (in this video I also used “RMSD trajectory tool” plugin in VMD to eliminate overall molecular motion to make inspection easier). Note that the default color scale set by the ds.tcl script is from -0.4 (blue) to 0.4 (red).
 
 4.100.21.4 Evaluating cavity diameter and graphically illustrating its region
 

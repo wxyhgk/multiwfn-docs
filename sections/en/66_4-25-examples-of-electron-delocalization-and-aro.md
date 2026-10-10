@@ -60,9 +60,9 @@ Assume that the output files (NICS0001.out, NICS0002.out...) have been placed in
 
 <!-- p.992 -->
 
-As you can see, the green isosurface (positive Z-component shielding value), completely covers the region above and below the benzene ring, suggesting that due to the induced ring current originated from the globally delocalized π-electrons, the Z-direction external magnetic field is largely shielded in these regions, this observation implies the strong aromaticity of benzene. From below scheme we can understand the ICSSZZ more deeply; in the cylindrical region perpendicular to and through the benzene, the direction of induced magnetic field (purple arrows) is exactly opposite to external magnetic field (B0), this is why in this region Z-component of magnetic shielding value is large.
+As you can see, the green isosurface (positive Z-component shielding value), completely covers the region above and below the benzene ring, suggesting that due to the induced ring current originated from the globally delocalized π-electrons, the Z-direction external magnetic field is largely shielded in these regions, this observation implies the strong aromaticity of benzene. From below scheme we can understand the ICSSZZ more deeply; in the cylindrical region perpendicular to and through the benzene, the direction of induced magnetic field (purple arrows) is exactly opposite to external magnetic field ($B_0$), this is why in this region Z-component of magnetic shielding value is large.
 
-You can also see, blue isosurface (negative Z-component shielding value) presents in the outlier region of benzene, exhibiting the de-shielding effect. This is mostly because the induced magnetic field is parallel to B0 and thus enhances B0 in this region.
+You can also see, blue isosurface (negative Z-component shielding value) presents in the outlier region of benzene, exhibiting the de-shielding effect. This is mostly because the induced magnetic field is parallel to $B_0$ and thus enhances B0 in this region.
 
 If you properly rotate viewpoint, you will clearly find the C-H bond is also completely covered by the green surface. The reason is that the σ-electrons involved in the C-H bonding form conspicuous local induced ring current, so the external magnetic field is also strongly shielded around the C-H bond.
 
@@ -118,17 +118,17 @@ Minimum X (Bohr):    8.000000  Value:    0.13254245E+02
 Maximum X (Bohr):    9.882667  Value:    0.28937419E+02
 ```
 
-That is the maximal value of ICSSZZ along the line is 28.9 ppm, whose position is 9.88-8=1.88 Bohr (0.995 Å) above/below the ring plane. While at the ring center, the ICSSZZ is merely 13.2 ppm.
+That is the maximal value of ICSS$_{ZZ}$ along the line is 28.9 ppm, whose position is 9.88-8=1.88 Bohr (0.995 Å) above/below the ring plane. While at the ring center, the ICSSZZ is merely 13.2 ppm.
 
-Beware that since the extension distance used in the calculation of grid data of ICSSZZ is only 12 Bohr, when we plot curve or plane map based on the interpolated data of ICSSZZ, the spatial range involved in the map should not be too large. For example, we cannot plot the curve map from (0,0,0) to (0,0,20). If a point is beyond the valid spatial range of grid data interpolation, the value will be 0.
+Beware that since the extension distance used in the calculation of grid data of ICSS$_{ZZ}$ is only 12 Bohr, when we plot curve or plane map based on the interpolated data of ICSSZZ, the spatial range involved in the map should not be too large. For example, we cannot plot the curve map from (0,0,0) to (0,0,20). If a point is beyond the valid spatial range of grid data interpolation, the value will be 0.
 
-Calculate NICS(0)ZZ and NICS(1)ZZ based on ICSSZZ data It is noteworthy that if you already have ICSSZZ grid data, you can directly obtain the popular NICS(0)ZZ and NICS(1)ZZ indices without doing any additional calculation, because the NICS value at any point can be directly obtained in terms of interpolation of ICSSzz grid data. As an example, we calculate NICS(1)ZZ. Ensure that "iuserfunc" in `settings.ini` has been set to -3 due to the aforementioned reason, then boot up Multiwfn and input
+Calculate NICS(0)$_{ZZ}$ and NICS(1)ZZ based on ICSSZZ data It is noteworthy that if you already have ICSSZZ grid data, you can directly obtain the popular NICS(0)ZZ and NICS(1)ZZ indices without doing any additional calculation, because the NICS value at any point can be directly obtained in terms of interpolation of ICSSzz grid data. As an example, we calculate NICS(1)ZZ. Ensure that "iuserfunc" in `settings.ini` has been set to -3 due to the aforementioned reason, then boot up Multiwfn and input
 
-ICSSZZ.cub 1 // Calculate function values at a point 0,0,1 // The point 1 Å above the ring center 2 // The inputted position is in Å From screen you can find the "User-defined real space function" value is 28.9, namely the NICS(1)ZZ is -28.9 ppm.
+ICSS$_{ZZ}$.cub 1 // Calculate function values at a point 0,0,1 // The point 1 Å above the ring center 2 // The inputted position is in Å From screen you can find the "User-defined real space function" value is 28.9, namely the NICS(1)ZZ is -28.9 ppm.
 
-Epilogue ICSS/ICSSZZ is really a very useful method for discussing aromaticity and anti-aromaticity, many instances can be found in the original paper of ICSS (J. Chem. Soc. Perkin Trans. 2, 2001, 1893), and in some applicative papers, such as J. Phys. Chem. C, 123, 18593 (2019) as well as my research on cyclo[18]carbon, Carbon, 165, 468 (2020).
+Epilogue ICSS/ICSS$_{ZZ}$ is really a very useful method for discussing aromaticity and anti-aromaticity, many instances can be found in the original paper of ICSS (J. Chem. Soc. Perkin Trans. 2, 2001, 1893), and in some applicative papers, such as J. Phys. Chem. C, 123, 18593 (2019) as well as my research on cyclo[18]carbon, Carbon, 165, 468 (2020).
 
-I strongly recommend you do some more practices about plotting and analyzing ICSS/ICSSZZ, I provided some ideal exercise systems in "examples\ICSS" folder, including azulene, cyclobutadiene, cycloheptatriene, porphyrin, propane and pyracylene; among them cyclobutadiene is the simplest one. Below is the ICSS = 0.5 isosurface of cyclobutadiene showing in two styles; from the graph it is clear that this system shows strong anti-aromaticity characteristic, the 4n π-electrons cause evident de-shielding effect in the cylindrical region perpendicular to and through the ring, this situation is in complete contrast to benzene.
+I strongly recommend you do some more practices about plotting and analyzing ICSS/ICSS$_{ZZ}$, I provided some ideal exercise systems in "examples\ICSS" folder, including azulene, cyclobutadiene, cycloheptatriene, porphyrin, propane and pyracylene; among them cyclobutadiene is the simplest one. Below is the ICSS = 0.5 isosurface of cyclobutadiene showing in two styles; from the graph it is clear that this system shows strong anti-aromaticity characteristic, the 4n π-electrons cause evident de-shielding effect in the cylindrical region perpendicular to and through the ring, this situation is in complete contrast to benzene.
 
 
 <!-- p.996 -->

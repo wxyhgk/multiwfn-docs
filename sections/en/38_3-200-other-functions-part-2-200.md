@@ -272,7 +272,7 @@ In present function, one can choose the real space function to be studied, set t
 
 radial and angular parts. The larger the number of points, the more accurate the integration curve.
 
-After the parameters have been properly set, selecting option 0 to start the calculation, then you will see a new menu, in which you can plot RDF and its integration curves, save the graph or export the corresponding original data. In this menu you can also find an option used to export spherically averaged function (f sph), it correlates with RDF via below relationship
+After the parameters have been properly set, selecting option 0 to start the calculation, then you will see a new menu, in which you can plot RDF and its integration curves, save the graph or export the corresponding original data. In this menu you can also find an option used to export spherically averaged function ($f^{sph}$), it correlates with RDF via below relationship
 
 2( )( )4RDF rfrrπ= sph
 
@@ -321,9 +321,9 @@ Present function can also be used to evaluate overlap between orbitals, the orbi
 
 After entering the interface of present function, if you want to obtain all overlap integrals (i.e. all <i|j>) between the above-mentioned orbitals istart1~iend1 in the first wavefunction and orbitals istart2~iend2 in the second wavefunction, simply input -1, then these integrals will be outputted to convmat.txt in current folder.
 
-If what you need is not common overlap integral between orbital wavefunctions but overlap integral between norm of orbital wavefunctions, which is useful for measuring orbital superposition and expressed as ∫|𝜑𝑖(𝐫)||𝜑𝑗(𝐫)|d𝐫, you should input -2 in the interface of present function, then
+If what you need is not common overlap integral between orbital wavefunctions but overlap integral between norm of orbital wavefunctions, which is useful for measuring orbital superposition and expressed as $\int|\varphi_i(\mathbf{r})||\varphi_j(\mathbf{r})|\mathrm{d}\mathbf{r}$, you should input -2 in the interface of present function, then
 
-all these integrals between the orbitals istart1~iend1 and istart2~iend2 will be outputted to Snormmat.txt in current folder. Similarly, if what you need is ∫|𝜑𝑖(𝐫)|2|𝜑𝑗(𝐫)|2d𝐫, you should input
+all these integrals between the orbitals istart1~iend1 and istart2~iend2 will be outputted to Snormmat.txt in current folder. Similarly, if what you need is $\int|\varphi_i(\mathbf{r})|^2|\varphi_j(\mathbf{r})|^2\mathrm{d}\mathbf{r}$, you should input
 
 -3 in the interface, then the result will be outputted to Snorm2mat.txt.
 
@@ -435,7 +435,7 @@ $$\mathbf{\mu}=\left[\begin{matrix}{\mu_{x}}\\ {\mu_{y}}\\ {\mu_{z}}\\ \end{matr
 
 <!-- formula-ocr: formula_p420_311.png 已替换为LaTeX, 原图保留备查 -->
 
-where x, y, z are the Cartesian coordinate components relative to rc.
+where x, y, z are the Cartesian coordinate components relative to $r_{c}$
 
 The second moment is a matrix and defined as
 
@@ -448,13 +448,13 @@ If its eigenvalues {ε} are sorted from low to high, then the anisotropy of Θ c
 
 $$\langle r^2 \rangle = \int(x^2 + y^2 + z^2)f(\mathbf{r})d\mathbf{r}$$
 
-Spatial extent 〈𝑟2〉= ∫(𝑥2 + 𝑦2 + 𝑧2)𝑓(𝐫)d𝐫 is simply the trace of the second moment matrix, or the sum of its three eigenvalues. If f(r) is chosen to be electron density, then <r2> corresponds to the well-known electronic spatial extent (ESE). Note that ESE and electric dipole/multipole moments can be evaluated analytically and much more efficiently by a specific function in Multiwfn, see Section 3.300.5.
+Spatial extent 〈$\langle r^2 \rangle = \int(x^2 + y^2 + z^2)f(\mathbf{r})d\mathbf{r}$〉= ∫(𝑥2 + 𝑦2 + 𝑧2)𝑓(𝐫)d𝐫 is simply the trace of the second moment matrix, or the sum of its three eigenvalues. If f(r) is chosen to be electron density, then <r2> corresponds to the well-known electronic spatial extent (ESE). Note that ESE and electric dipole/multipole moments can be evaluated analytically and much more efficiently by a specific function in Multiwfn, see Section 3.300.5.
 
 Usage This function employs Becke's multicenter integration method for evaluating above-mentioned quantities. The accuracy is fully determined by radial points and angular points, which can be set by "radpot" and "sphpot" in `settings.ini`, respectively.
 
-Option 1 calculates and outputs all aforementioned quantities. The real space function to be studied can be selected by option 3. The center (rc) defaults to (0,0,0), and it can be manually set by option 4. Option 2 is used to evaluate the center of the selected real space function, which can be directly taken as the rc for the subsequent calculation of option 1 (evidently, if rc is set to be the center of the selected function, the calculated first moment will be zero).
+Option 1 calculates and outputs all aforementioned quantities. The real space function to be studied can be selected by option 3. The center ($(r_c)$) defaults to (0,0,0), and it can be manually set by option 4. Option 2 is used to evaluate the center of the selected real space function, which can be directly taken as the rc for the subsequent calculation of option 1 (evidently, if rc is set to be the center of the selected function, the calculated first moment will be zero).
 
-When using option 1, if the real space function to be studied is chosen as electron density, then the nuclear contribution of quadrupole moment and molecular quadrupole moment tensors will also be outputted. In fact, the latter can be straightforwardly obtained by subtracting the former by the second moment of electron density.
+When using option 1, if the real space function to be studied is chosen as electron density, then the nuclea$(r_c)$ontribution of quadrupole moment and molecular quadrupole moment tensors will also be outputted. In fact, the latter can be straightforwardly obtained by subtracting the former by the second moment of electron density.
 
 If the real space function of interest has both positive and negative parts with comparable magnitude (e.g. orbital wavefunction with evident positive and negative phases), option 5 is usually recommended to use instead of option 2 for evaluating the distribution center of the selected real space function, because option 5 uses absolute function value in the evaluation, therefore cancellation effect can be avoided. In addition, for such kind of real space function, in order to calculate their aforementioned statistical quantities, it is suggested to choose option -1 once before choosing option 1, in this case the absolute function value will be used in the evaluation.
 
@@ -640,7 +640,7 @@ of interest, then Multiwfn will export the domain as domain.cub, in which the gr
 
 index of the domain of interest, then the resulting .pdb file will contain particles, each one corresponds to a boundary grid. You can directly drag this file into VMD and render the particles as spheres to visualize domain.
 
-Special usage: Studying interactions In the post-processing menu, there is an option "5 Calculate q_bind index for a domain", this is used to calculate the qbind index defined in J. Phys. Chem. A, 115, 12983 (2011), in which it was demonstrated that for hydrogen-bond dimer, the scan curve of qbind index well mimics to actual potential energy curve. This index for a domain is defined as:
+Special usage: Studying interactions In the post-processing menu, there is an option "5 Calculate q_bind index for a domain", this is used to calculate the $q_{\mathrm{bind}}$ index defined in J. Phys. Chem. A, 115, 12983 (2011), in which it was demonstrated that for hydrogen-bond dimer, the scan curve of qbind index well mimics to actual potential energy curve. This index for a domain is defined as:
 
 $$q_{\mathrm{rep}}=\int_{\lambda_{2}(\mathbf{r})>0}\rho^{n}(\mathbf{r})\mathrm{d}\mathbf{r}\quad\mathrm{repulsive~effect}$$
 
@@ -649,7 +649,7 @@ $$q_{\mathrm{b i n d}}=-(q_{\mathrm{a t t}}-q_{\mathrm{r e p}})$$
 
 <!-- formula-ocr: formula_p426_316.png 已替换为LaTeX, 原图保留备查 -->
 
-where λ2(r) is the second largest eigenvalue of electron density Hessian matrix at r, its sign can be utilized to discriminate interaction type. The paper showed that n = 4/3 gives best correlation between qbind and actual potential curve. In Multiwfn the n can be manually set. Note that the paper used isosurface of RDG = 0.6 when calculating this index. More negative of qbind may imply more stable interaction.
+where λ2(r) is the second largest eigenvalue of electron density Hessian matrix at r, its sign can be utilized to discriminate interaction type. The paper showed that n = 4/3 gives best correlation between $q_{\mathrm{bind}}$ and actual potential curve. In Multiwfn the n can be manually set. Note that the paper used isosurface of RDG = 0.6 when calculating this index. More negative of qbind may imply more stable interaction.
 
 It is noteworthy that in the post-processing menu there is a very flexible option "Perform integration for subregion of some domains according to range of sign(lambda)*rho", which may be useful in studying interactions. You can first select a batch of domains, and then define which
 
@@ -797,7 +797,7 @@ when Multiwfn boots up, after entering present function, you will be asked to in
 
 - Two cube files containing orbital wavefunction. You should input the cube file of the first orbital when Multiwfn boots up, and after entering present function, input cube file of another orbital. The cube file can be generated by any quantum chemistry code (also including main function 5 of Multiwfn).
 
-In the interface of present function, you can set truncation value for Coulomb (ζJ) integral and exchange integral (ζK) respectively prior to the calculation. The innermost summation of Coulomb
+In the interface of present function, you can set truncation value for Coulomb ($\zeta_J$) integral and exchange integral ($\zeta_K$) respectively prior to the calculation. The innermost summation of Coulomb
 
 $$\varphi_i^2(\mathbf{r}_k) < \zeta_J$$
 
@@ -895,7 +895,7 @@ Note that the NAdO has no relationship with the adaptive natural density partiti
 
 2 Theory of BOD In order to fully understand underlying idea of BOA, it is crucial to first familiar yourself with some related concepts.
 
-𝑛(𝐫1,𝐫2 ⋯𝐫𝑛) was detailedly introduced in Comput. Theor. Chem., 1003, 71 (2013), it represents the part of nth-order reduced density 𝜌𝑛(𝐫1,𝐫2 ⋯𝐫𝑛) that cannot be expressed in terms of lower orders of reduced density, and thus provides an appropriate measure of the n-electrons correlation existing in the system. Explicit expression of 𝜌C 3 are given below (expressions of other orders can be found in the Comput. Theor. Chem. paper).
+𝑛(𝐫1,𝐫2 ⋯𝐫𝑛) was detailedly introduced in Comput. Theor. Chem., 1003, 71 (2013), it represents the part of nth-order reduced density $\rho^n(\mathbf{r}_1,\mathbf{r}_2\cdots\mathbf{r}_n)$ cannot be expressed in terms of lower orders of reduced density, and thus provides an appropriate measure of the n-electrons correlation existing in the system. Explicit expression of 𝜌C 3 are given below (expressions of other orders can be found in the Comput. Theor. Chem. paper).
 - nth-order cumulant density The nth-order cumulant density 𝜌C 1, 𝜌C 2, and 𝜌C
 
 
@@ -1008,7 +1008,7 @@ In principle the BOD can be applied to multiconfiguration wavefunctions, however
 
 3 Natural adaptive orbital (NAdO)
 
-The BOD of σ spin can also be expressed in terms of natural adaptive orbitals (NAdOs, φ) of σ spin:
+The BOD of σ spin can also be expressed in terms of natural adaptive orbitals (NAdOs, φ) of $\sigma_{\mathrm{spin}}$
 
 
 $$\begin{aligned}\int\mathrm{BOD}_{AB}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=\delta^{\sigma}(A,B)\ $ 1/2)\int\mathrm{BOD}_{AA}^{\sigma}(\mathbf{r})\mathrm{d}\mathbf{r}=\lambda^{\sigma}(A)\end{aligned}$$

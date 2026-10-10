@@ -102,7 +102,7 @@ Sum of pair energies:    -116.63 kcal/mol
 
 As you can see from the output, this time each NOCV pair has a corresponding energy, the sum of energies of all NOCV pairs is -116.63 kcal/mol, indicating that the orbital interaction stabilizes
 
-the complex by 116.63 kcal/mol, which will be referred to as ΔEorb. The energy of a NOCV pair is calculated as the sum of the products of the energy and eigenvalue of the NOCV orbitals belonging
+the complex by 116.63 kcal/mol, which will be referred to as $\Delta E^{\mathrm{orb}}$. The energy of a NOCV pair is calculated as the sum of the products of the energy and eigenvalue of the NOCV orbitals belonging
 
 orb ) is -77.88 kcal/mol, it is calculated as −120.88×0.5651 + 16.93×(−0.5651). to it. For example, the energy of NOCV pair 1 (Δ𝛦1
 
@@ -112,7 +112,7 @@ Probably you have noticed that NOCV pair 9 is composed of two NOCV orbitals with
 
 Visual analysis of NOCV pairs
 
-Evidently, NOCV pair 1 (-77.9 kcal/mol) is the dominant contributor to the ΔEorb (-116.6 kcal/mol), by visualizing isosurface of density of this pair one can gain an deeper insight about the interaction mechanism that plays the vital role in the complexation between CO and BH3. The contribution by NOCV pairs 2 and 3 is not fully negligible, hence by visualizing their densities we can understand which kind of interactions play a secondary role for the interfragment binding.
+Evidently, NOCV pair 1 (-77.9 kcal/mol) is the dominant contributor to the $\Delta E^{\mathrm{orb}}$ (-116.6 kcal/mol), by visualizing isosurface of density of this pair one can gain an deeper insight about the interaction mechanism that plays the vital role in the complexation between CO and BH3. The contribution by NOCV pairs 2 and 3 is not fully negligible, hence by visualizing their densities we can understand which kind of interactions play a secondary role for the interfragment binding.
 
 Now we choose option “2 Show isosurface of NOCV pair density”, then choose “2 Medium-quality grid”, which is fine enough for showing NOCV pair density of small systems like COBH3.
 
@@ -251,7 +251,7 @@ As you can see, the contributions to the NOCV pair 1 and to the corresponding NO
 
 <!-- p.956 -->
 
-is mainly responsible for the negative part of this NOCV pair. Similarly, you can find 2pz atomic orbital contributes to NOCV pair 1 by 18.27% +1.77% = 20.04%, it is the dominant contributor to the positive part of the NOCV pair; this is fully in line with the observation from the isosurface of NOCV pair 1, namely there is a green (positive) isosurface around the boron atom with two lobes extended along Y-axis, clearly it must be mainly composed of boron pz atomic orbital.0
+is mainly responsible for the negative part of this NOCV pair. Similarly, you can find 2$2p_z$ atomic orbital contributes to NOCV pair 1 by 18.27% +1.77% = 20.04%, it is the dominant contributor to the positive part of the NOCV pair; this is fully in line with the observation from the isosurface of NOCV pair 1, namely there is a green (positive) isosurface around the boron atom with two lobes extended along Y-axis, clearly it must be mainly composed of boron pz atomic orbital.0
 
 Note that just like integral of a NOCV pair over the whole space must be exactly zero, the sum of compositions of a NOCV pair is also always zero.
 
@@ -261,13 +261,13 @@ $$\Delta\rho^{\mathrm{Pauli}}$$
 
 To visualize the three kinds of deformation densities, we choose options “3 Show isosurface of Pauli deformation density”, “4 Show isosurface of orbital deformation density” and “5 Show isosurface of total deformation density”, respectively. The corresponding isosurface maps are collectively shown below
 
-From the map of ΔρPauli it is clear that Pauli repulsion makes electron density obviously decrease in the interaction region between CO and BH3. In contrast, the Δρorb map shows that orbital interaction between the two fragments makes electron density significantly accumulate in the bonding region, and this is a typical signal of the formation of shared electron interaction. The
+From the map of $\Delta\rho^{\text{Pauli}}$ it is clear that Pauli repulsion makes electron density obviously decrease in the interaction region between CO and BH3. In contrast, the $\Delta\rho^{\text{orb}}$ map shows that orbital interaction between the two fragments makes electron density significantly accumulate in the bonding region, and this is a typical signal of the formation of shared electron interaction. The
 
 isosurface of Δρ exhibits that the overall effect of interfragment interaction results in considerable increase in electron density between CO and BH3.
 
-It is worth to note in passing that Δρorb corresponds to sum of all NOCV pair densities. In other words, if you select “2 Show isosurface of NOCV pair density” and then input indices of all NOCV
+It is worth to note in passing that $\Delta\rho^{\text{orb}}$ corresponds to sum of all NOCV pair densities. In other words, if you select “2 Show isosurface of NOCV pair density” and then input indices of all NOCV
 
-pairs, namely 1-26 in the present context, the resulting isosurface map will be exactly equal to Δρorb.
+pairs, namely 1-26 in the present context, the resulting isosurface map will be exactly equal to $\Delta\rho^{\text{orb}}$.
 
 Visualization of promolecular / frozen state / actual complex orbitals If you are interested in understanding how Pauli repulsion deforms fragment orbitals, you can visually compare promolecular orbitals and frozen state orbitals, the former ones correspond to the original molecular orbitals (MOs) of the fragments (i.e. the union set of the MOs in CO.fch and BH3.fch), while the latter ones correspond to the MOs of the fragments after orthogonalization between the occupied orbitals of the fragments (for unoccupied fragment MOs, there is no difference
 
@@ -502,15 +502,15 @@ corresponding to H-bond is by far weaker than chemical bond interaction (in fact
 
 From the map above we can see that the NOCV pairs 1 and 2 mainly represent the orbital
 
-(CO)5Cr=CH2
+(CO)$(CO)_{5}Cr=CH_{2}$
 
 All other NOCV pairs, as shown by sum of NOCV pairs 3 to 328 in the map above, mostly
 
 correspond to marginal transfer of π electron from H-bond donor atom to H-bond acceptor atom. Since the corresponding total energy is very small, I will not explore it any further.
 
-4.23.5 Transition metal coordinate instance: (CO)5Cr=CH2
+4.23.5 Transition metal coordinate instance: (CO)$(CO)_{5}Cr=CH_{2}$
 
-In this example, we use ETS-NOCV to study a transition metal coordinate, (CO)5Cr=CH2, which will be partitioned as two fragments (CO)5Cr and CH2 to study coordinate bond between them.
+In this example, we use ETS-NOCV to study a transition metal coordinate, (CO)$(CO)_{5}Cr=CH_{2}$, which will be partitioned as two fragments (CO)5Cr and CH2 to study coordinate bond between them.
 
 
 ![](../imgs/p964_489.png)
@@ -521,7 +521,7 @@ Gaussian 16 is used for calculations in this example. SDD pseudopotential with c
 
 It is worth to note that if you use different basis sets in the calculation of fragments and whole system like this example (“genecp” for coordinate but 6-311G* for CH2 ligand), and you are not familiar with the default rule of adapting Cartesian and spherical-harmonic basis functions in Gaussian, it is strongly suggest to always add 5d keyword in your input files to guarantee that all calculations use spherical-harmonic basis functions, otherwise the sum of number of basis functions of all fragments may be different to the number of basis function of the whole system.
 
-It is important to properly choose electronic states in the present investigation. The Cr atom in the whole coordinate and in the (CO)5Cr fragment should be in low-spin (all six 3d electrons are paired), so spin multiplicity of the whole coordinate and (CO)5Cr should be set to 1 during calculations. Even though ground state of CH2 is known to be triplet, in order to perform ETS-NOCV analysis for this system, we must adopt singlet for CH2 in its single point calculation, because this state is more close to actual electronic structure of CH2 in (CO)5Cr=CH2 than triplet (it is naturally expected that singlet CH2 utilizes its lone pair to form coordinate bond with unoccupied 3d orbital of the low-spin Cr atom).
+It is important to properly choose electronic states in the present investigation. The Cr atom in the whole coordinate and in the (CO)5Cr fragment should be in low-spin (all six 3d electrons are paired), so spin multiplicity of the whole coordinate and (CO)5Cr should be set to 1 during calculations. Even though ground state of CH2 is known to be triplet, in order to perform ETS-NOCV analysis for this system, we must adopt singlet for CH2 in its single point calculation, because this state is more close to actual electronic structure of CH$(CO)5CrCH2$ than triplet (it is naturally expected that singlet CH2 utilizes its lone pair to form coordinate bond with unoccupied 3d orbital of the low-spin Cr atom).
 
 Now boot up Multiwfn and input examples\ETS-NOCV\(CO)5CrCH2\(CO)5CrCH2.fch 23 // ETS-NOCV analysis 2 // Two fragments examples\ETS-NOCV\(CO)5CrCH2\(CO)5Cr.fch // Fragment 1 examples\ETS-NOCV\(CO)5CrCH2\CH2.fch // Fragment 2 -2 // Generate Fock/KS matrix and evaluate NOCV orbital energies The NOCV information currently shown on screen is
 

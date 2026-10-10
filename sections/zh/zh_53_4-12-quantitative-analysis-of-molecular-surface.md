@@ -1009,7 +1009,7 @@ $$E A_{\mathrm{L}}(\mathbf{r})=\frac{-\sum_{i\in\mathrm{v i r}}\left|\varphi_{i}
 
 <!-- formula-ocr: formula_p729_340.png 已替换为LaTeX, 原图保留备查 -->
 
-i  vir
+i ∈ vir
 
 其中 ε 表示轨道能量，φ 为轨道波函数。EAL 对应于 Multiwfn 中的自定义函数 27。
 
