@@ -24,7 +24,12 @@ RGB of complementary color (maximum brightness):     7    19   255
 
 examples\spectra\Allura_red_UV-Vis.txt 是著名染料诱惑红的实验紫外-可见光谱的 X-Y 曲线数据。在本例中我们基于该光谱预测诱惑红的颜色。
 
-启动 Multiwfn 并载入 examples\spectra\Allura_red_UV-Vis.txt，然后输入 11 // 绘制光谱 (Plotting spectrum) 0 // 基于文本文件中记录的紫外-可见光谱预测颜色 (Predicting color based on UV-Vis spectrum recorded in text file) 此时你可以在屏幕上看到如下图
+启动 Multiwfn 并载入 examples\spectra\Allura_red_UV-Vis.txt，然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **11** — 绘制光谱 (Plotting spectrum)
+    - **0** — 基于文本文件中记录的紫外-可见光谱预测颜色 (Predicting color based on UV-Vis spectrum recorded in text file) 此时你可以在屏幕上看到如下图
 
 从左下角显示的颜色可以看出，诱惑红的颜色为红色，这正是该物质实际观察到的颜色。该图还表明诱惑红吸收青色光。
 
@@ -45,7 +50,10 @@ examples\spectra\Allura_red_UV-Vis.txt 是著名染料诱惑红的实验紫外-�
 
 
 
-12 // 分子表面的定量分析 (Quantitative analysis of molecular surface) 0 // 在默认设置下开始分析。默认情况下，被映射的函数为 ESP (Start the analysis under default settings. By default, the mapped function is ESP) 此时计算开始。由于计算 ESP 耗时较长，你需要等待一会儿。在计算过程中会打印一些中间信息，大多数用户无需关注。计算最终完成后屏幕上将打印以下结果：
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 分子表面的定量分析 (Quantitative analysis of molecular surface)
+    - **0** — 在默认设置下开始分析。默认情况下，被映射的函数为 ESP (Start the analysis under default settings. By default, the mapped function is ESP) 此时计算开始。由于计算 ESP 耗时较长，你需要等待一会儿。在计算过程中会打印一些中间信息，大多数用户无需关注。计算最终完成后屏幕上将打印以下结果：
 
 
 ```text
@@ -128,7 +136,12 @@ all // 将所有原子纳入统计（或者，例如若输入2-4，则只计入�
 
 
 
-15 // 区间数目 3 // 输入和输出单位均为kcal/mol 然后您将看到每个连续ESP区间内的表面积（单位为Å2）及其占整个表面积的百分比。
+!!! terminal "Multiwfn 交互"
+
+    - **15** — 区间数目
+    - **3** — 输入和输出单位均为kcal/mol
+
+然后您将看到每个连续ESP区间内的表面积（单位为Å2）及其占整个表面积的百分比。
 
 
 ```text
@@ -193,7 +206,10 @@ kcal/mol的变化，绿色和橙色小球分别对应ESP表面极小点和极大
 
 让我们看一个例子。我们先照常在范德华表面上做ESP分析，输入以下命令：
 
-examples\N-phenylpyrrole.fch 12 // 定量分子表面分析(Quantitative molecular surface analysis) 0 // 开始分析(Start the analysis) 计算完成后，选择选项7(option 7)将带ESP值的表面顶点导出为当前文件夹中名为vtx.txt的纯文本文件。之后选择-1返回上一级菜单。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\N-phenylpyrrole.fch 12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **0** — 开始分析(Start the analysis) 计算完成后，选择选项7(option 7)将带ESP值的表面顶点导出为当前文件夹中名为vtx.txt的纯文本文件。之后选择-1返回上一级菜单。
 
 假设我们要再次进行分析。这次我们可以直接使用记录在纯文本文件中的ESP数据。输入以下命令
 
@@ -229,7 +245,14 @@ Dmol3和FHI-aims，无法产生Multiwfn支持的波函数文件，但在这种�
     - **2** — 选择映射函数(Select mapped function)
     - **1** — ESP 5
 
-映射函数将从外部cube文件插值得到(The mapped function will be interpolated from an external cube file) 0 // 开始计算(Start calculation) ESP.cub // 记录ESP的cube文件(The cube file recording ESP) 注意，用于生成density.cub和ESP.cub的格点设置必须完全相同，且格点间距不宜太大（不大于0.25 Bohr），否则分析结果将不准确。
+映射函数将从外部cube文件插值得到(The mapped function will be interpolated from an external cube file)
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 开始计算(Start calculation)
+    - **ESP.cub** — 记录ESP的cube文件(The cube file recording ESP)
+
+注意，用于生成density.cub和ESP.cub的格点设置必须完全相同，且格点间距不宜太大（不大于0.25 Bohr），否则分析结果将不准确。
 
 
 ### 4.12.2 苯酚分子表面上的平均局域电离能(ALIE)分析(Average local ionization energy analysis (ALIE) on phenol molecular surface)
@@ -461,7 +484,15 @@ NaN意味着局域分子表面上没有f −的负值。从结果中可以清楚
     - **3** — 高质量格点(High-quality grid)
     - **2** — 导出格点数据(Export grid data) 现在将刚导出的density.cub重命名为mapped.cub。然后输入0
 
-计算格点数据(Calculate grid data) 1 // 电子密度(Electron density) 3 // 高质量格点(High-quality grid) 2 // 导出格点数据(Export grid data) 现在您在当前文件夹中有了density.cub。将density.cub、mapped.cub、surfanalysis.pdb移动到VMD文件夹。并将“examples\scripts\”文件夹中的VMD绘图脚本molsurfmap.vmd复制到VMD文件夹。之后，启动VMD并在VMD控制台窗口中运行source molsurfmap.vmd执行该脚本，然后您将看到
+计算格点数据(Calculate grid data)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 电子密度(Electron density)
+    - **3** — 高质量格点(High-quality grid)
+    - **2** — 导出格点数据(Export grid data)
+
+现在您在当前文件夹中有了density.cub。将density.cub、mapped.cub、surfanalysis.pdb移动到VMD文件夹。并将“examples\scripts\”文件夹中的VMD绘图脚本molsurfmap.vmd复制到VMD文件夹。之后，启动VMD并在VMD控制台窗口中运行source molsurfmap.vmd执行该脚本，然后您将看到
 
 下图，其中青色和红色小球分别对应ρ = 0.01 a.u.等值面上的极大点和极小点。当前的着色方式为红-白-蓝，对应映射函数从0.0到0.002的变化。
 
@@ -539,7 +570,9 @@ urea.cif //尿素的.cif文件，请从互联网上寻找(.cif file of urea, ple
     - **25** — 提取分子团簇（中心分子+周围分子）(Extract a molecular cluster (central molecule + surrounding ones))
     - **1** — 将含原子1的整个分子作为中心分子，该分子及与其靠近的所有周围尿素都将被提取出来(The whole molecule containing atom 1 is taken as the central molecule, this molecule and all surrounding ureas close to it will be extracted)
 
-[按回车键] // 使用推荐的1.2接触判据([Press ENTER button] // Use recommended criterion of 1.2 to detect contact)
+!!! terminal "Multiwfn 交互"
+
+    - **[按回车键]** — 使用推荐的1.2接触判据([Press ENTER button]
 
 
 ![](../imgs/p710_260.png)
@@ -562,7 +595,15 @@ urea.cif //尿素的.cif文件，请从互联网上寻找(.cif file of urea, ple
 
 开始计算(Start calculation)。注意这里使用默认的映射函数dnorm(After the calculation is finished, you can select option 8 to export the surface vertices with the mapped electron density to vtx.pqr, and then plot them in VMD via the way described in the last section.) 计算完成后，您可以选择选项8(option 8)将带映射电子密度的表面顶点导出为vtx.pqr，然后按上一节所述方式在VMD中绘制它们。
 
-接下来，我们绘制指纹图。输入以下命令 20 // 指纹图分析(Fingerprint plot analysis) 0 // 开始指纹分析(Start fingerprint analysis) 1 // 将指纹图保存为图像文件(Save fingerprint plot to an image file) 您会发现在当前文件夹中已生成一个.pdf文件，打开后您将看到下图
+接下来，我们绘制指纹图。输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 指纹图分析(Fingerprint plot analysis)
+    - **0** — 开始指纹分析(Start fingerprint analysis)
+    - **1** — 将指纹图保存为图像文件(Save fingerprint plot to an image file)
+
+您会发现在当前文件夹中已生成一个.pdf文件，打开后您将看到下图
 
 
 ![](../imgs/p711_261.png)
@@ -620,7 +661,16 @@ The local surface occupies   69.45% of the total surface
     - **-1** — 返回上一级菜单(Return to upper level of menu)
     - **1** — 设置要考虑的内侧原子(Set the inside atoms to consider) [按 ENTER 键(Press ENTER button)]
 
-内侧原子必须是氢(The inside atoms must be hydrogen) 2 // 设置要考虑的外侧原子(Set the outside atoms to consider) 76 // 周围某个尿素中氧的序号(The index of the oxygen in one of surrounding urea) [按 ENTER 键(Press ENTER button)] // 不设置元素过滤条件(Do not set element filter condition) 0 // 开始指纹分析(Start fingerprint analysis) 从屏幕上输出的信息中，你可以发现这次产生的局域接触表面为 6.8 Å²，占总接触表面积的 7.2%。然后我们绘制指纹图及相应的表面顶点，如下所示
+内侧原子必须是氢(The inside atoms must be hydrogen)
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 设置要考虑的外侧原子(Set the outside atoms to consider)
+    - **76** — 周围某个尿素中氧的序号(The index of the oxygen in one of surrounding urea)
+    - **[按 ENTER 键(Press ENTER button)]** — 不设置元素过滤条件(Do not set element filter condition)
+    - **0** — 开始指纹分析(Start fingerprint analysis)
+
+从屏幕上输出的信息中，你可以发现这次产生的局域接触表面为 6.8 Å²，占总接触表面积的 7.2%。然后我们绘制指纹图及相应的表面顶点，如下所示
 
 在指纹图中可以看到表面点的分布范围较窄，且尖峰非常明显，表明由于 H 与 O 的接触而具有很强的氢键特征。
 
@@ -676,7 +726,14 @@ Area of total contact surface is    94.511 Angstrom^2
     - **1** — 改变表面定义(Change surface definition)
     - **5** — 使用 Hirshfeld 表面(Use Hirshfeld surface) 16,36,58,2,77,55,34,13
 
-开始计算(Start calculation) -2 // 将用于定义 Hirshfeld 表面的格点数据导出为当前文件夹下的 surf.cub(Export the grid data used to define Hirshfeld surface as surf.cub in current folder) 13 // 计算映射函数的格点数据并导出为当前文件夹下的 mapfunc.cub(Calculate grid data of mapped function and export it to mapfunc.cub in current folder) 现在你在当前文件夹下得到了 surf.cub 和 mapfunc.cub，将它们移动到 VMD 文件夹。然后将 examples\scripts\hirsh_rho.vmd 文件复制到 VMD 文件夹。启动 VMD，在 VMD 命令窗口中输入 source hirsh_rho.vmd 以运行该脚本。对于当前情形，最好还在命令窗口中输入 material change diffuse Translucent 0.8 以使表面更亮。
+开始计算(Start calculation)
+
+!!! terminal "Multiwfn 交互"
+
+    - **-2** — 将用于定义 Hirshfeld 表面的格点数据导出为当前文件夹下的 surf.cub(Export the grid data used to define Hirshfeld surface as surf.cub in current folder)
+    - **13** — 计算映射函数的格点数据并导出为当前文件夹下的 mapfunc.cub(Calculate grid data of mapped function and export it to mapfunc.cub in current folder)
+
+现在你在当前文件夹下得到了 surf.cub 和 mapfunc.cub，将它们移动到 VMD 文件夹。然后将 examples\scripts\hirsh_rho.vmd 文件复制到 VMD 文件夹。启动 VMD，在 VMD 命令窗口中输入 source hirsh_rho.vmd 以运行该脚本。对于当前情形，最好还在命令窗口中输入 material change diffuse Translucent 0.8 以使表面更亮。
 
 
 ![](../imgs/p715_267.png)
@@ -717,7 +774,12 @@ $$\rho=\alpha\frac{M}{V_{\mathrm{m}}}+\beta(v\sigma_{\mathrm{tot}}^{2})+\gamma$$
 
 首先，我们在 B3PW91/6-31G** 水平下优化 FOX-7 的几何并产生波函数文件，这是 Politzer 等人在其 Mol. Phys. 论文中使用的水平。所得的 FOX-7.wfn 已作为 examples\FOX-7.wfn 提供。
 
-启动 Multiwfn 并输入以下命令： examples\FOX-7.wfn 12 // 定量分子表面分析(Quantitative molecular surface analysis) 0 // 在默认表面（电子密度 0.001 a.u. 等值面）上对默认实空间函数（ESP）开始分析(Start analysis for default real space function (ESP) on default surface (0.001 a.u. isosurface of electron density))
+启动 Multiwfn 并输入以下命令： examples\FOX-7.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 定量分子表面分析(Quantitative molecular surface analysis)
+    - **0** — 在默认表面（电子密度 0.001 a.u. 等值面）上对默认实空间函数（ESP）开始分析(Start analysis for default real space function (ESP) on default surface (0.001 a.u. isosurface of electron density))
 
 稍候，你会在屏幕上发现以下输出
 
@@ -828,7 +890,10 @@ Overall surface area:         648.64293 Bohr^2  ( 181.63855 Angstrom^2)
 
 评估多巴胺中氨基的表面积 接下来，我举例说明如何计算特定片段的表面积，以多巴胺中的氨基为例。在后处理菜单中，我们输入
 
-12 // 输出特定片段的表面性质(Output surface properties of specific fragment) 3,19,20 // 氨基中原子的序号(The indices of the atoms in the amino group) 你会看到
+!!! terminal "Multiwfn 交互"
+
+    - **12** — 输出特定片段的表面性质(Output surface properties of specific fragment)
+    - **3,19,20** — 氨基中原子的序号(The indices of the atoms in the amino group) 你会看到
 
 
 ```text
@@ -917,9 +982,15 @@ vdW 表面上 ESP 的定量分析 首先，我们对 vdW 表面上的 ESP 进行
 
 由于 σ-hole 和 π-hole 对应于明显为正的 ESP 值，很自然地，围绕表面极大值的正 ESP 区域的面积就是 σ/π-hole 尺寸的直接度量。现在假设我们想测量对应于极大值 3 的 π-hole 的面积，在后处理菜单中应输入以下命令
 
-14 // 计算表面极值周围区域内的面积与函数平均值(Calculate area and function average in a region around a surface extreme) 2 // 表面极大值(Surface maximum)
+!!! terminal "Multiwfn 交互"
 
-3 // 选择极大值 3（对应于其中一个 π-hole）(Select maximum 3 (corresponding to one of π-holes)) 0 // 将判据设为 0 a.u.(Set criterion as 0 a.u.) 现在我们可以发现以下输出
+    - **14** — 计算表面极值周围区域内的面积与函数平均值(Calculate area and function average in a region around a surface extreme)
+    - **2** — 表面极大值(Surface maximum)
+
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 选择极大值 3（对应于其中一个 π-hole）(Select maximum 3 (corresponding to one of π-holes))
+    - **0** — 将判据设为 0 a.u.(Set criterion as 0 a.u.) 现在我们可以发现以下输出
 
 
 ```text
@@ -953,9 +1024,15 @@ Product of above two values:         1.48230 a.u.*Angstrom^2
 
 上面的图包含两个蓝色局域表面，因为磷原子的每一侧都有一个 π-hole。要计算每个 π-hole 的面积，我们输入
 
-14 // 计算表面极值周围区域内的面积与函数平均值(Calculate area and function average in a region around a surface extreme) 2 // 表面极大值(Surface maximum)
+!!! terminal "Multiwfn 交互"
 
-3 // 选择极大值 3（对应于其中一个 π-hole）(Select maximum 3 (corresponding to one of π-holes)) 0.04 // 将判据设为 0.04 a.u.(Set criterion as 0.04 a.u.) 结果为
+    - **14** — 计算表面极值周围区域内的面积与函数平均值(Calculate area and function average in a region around a surface extreme)
+    - **2** — 表面极大值(Surface maximum)
+
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 选择极大值 3（对应于其中一个 π-hole）(Select maximum 3 (corresponding to one of π-holes))
+    - **0.04** — 将判据设为 0.04 a.u.(Set criterion as 0.04 a.u.) 结果为
 
 
 ```text
@@ -981,9 +1058,15 @@ Product of above two values:         1.48230 a.u.*Angstrom^2
 
 找到最能代表 σ-hole 的最佳值。经过几次尝试，发现 0.03 a.u. 是合理值，因此我们在后处理菜单中输入以下命令
 
-14 // 计算表面极值周围区域内的面积与函数平均值(Calculate area and function average in a region around a surface extreme) 2 // 表面极大值(Surface maximum)
+!!! terminal "Multiwfn 交互"
 
-2 // 选择极大值 2（对应于 σ-hole）(Select maximum 2 (corresponding to the σ-hole)) 0.03 // 将判据值设为 0.03 a.u.(Set criterion value as 0.03 a.u.) 发现面积为 4.88 Å²，而该区域内的平均 ESP 值为 0.03617 a.u.，
+    - **14** — 计算表面极值周围区域内的面积与函数平均值(Calculate area and function average in a region around a surface extreme)
+    - **2** — 表面极大值(Surface maximum)
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 选择极大值 2（对应于 σ-hole）(Select maximum 2 (corresponding to the σ-hole))
+    - **0.03** — 将判据值设为 0.03 a.u.(Set criterion value as 0.03 a.u.) 发现面积为 4.88 Å²，而该区域内的平均 ESP 值为 0.03617 a.u.，
 
 明显小于 π-hole 的平均值。如果你将导出的 selsurf.pqr 在 VMD 中绘制为点，并将颜色标尺设为 0.0~0.05（在“Representation”面板中选择“Trajectory”选项卡，然后设置“Color Scale Data Range”），你会看到如下图，确实选定的表面区域很好地展示了
 

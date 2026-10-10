@@ -109,7 +109,11 @@ How to quantitatively demonstrate that the main distribution region of these Ryd
     - **Return -1** — Return to main menu 200
     - **5** — Plot RDF 3
 
-From 0 to 10 Å 4 // Set angular number of integration points. The default value is unnecessarily high for present purpose, therefore we set it to a smaller value to reduce computational time
+From 0 to 10 Å
+
+!!! terminal "Multiwfn session"
+
+    - **4** — Set angular number of integration points. The default value is unnecessarily high for present purpose, therefore we set it to a smaller value to reduce computational time
 
 !!! terminal "Multiwfn session"
 
@@ -137,7 +141,18 @@ In this section, two examples are given to illustrate how to use the function in
 
 In this section, we study the correspondence between HF/6-31+G* MOs and MP2/6-31+G* natural orbitals (NO) for CH3NH2.
 
-After booting up Multiwfn we input C:\CH3NH2_MP2.wfn // MP2/6-31+G* wavefunction file, there are 48 NOs 200 // Other function, part 2 6 // Analyze correspondence between orbitals in two wavefunctions [Press ENTER button directly to choose all orbitals] C:\CH3NH2_HF.wfn // HF/6-31+G* wavefunction file, there are 9 MOs [Press ENTER button directly to choose all orbitals] Then you will see
+After booting up Multiwfn we input
+
+!!! terminal "Multiwfn session"
+
+    - **C:\CH3NH2_MP2.wfn** — MP2/6-31+G* wavefunction file, there are 48 NOs
+    - **200** — Other function, part 2
+    - **6** — Analyze correspondence between orbitals in two wavefunctions
+    - **[Press ENTER button directly]** — Choose all orbitals
+    - **C:\CH3NH2_HF.wfn** — HF/6-31+G* wavefunction file, there are 9 MOs
+    - **[Press ENTER button directly]** — Choose all orbitals
+
+Then you will see
 
 
 ```text
@@ -199,7 +214,12 @@ will study contribution of lone pair of nitrogen in amino group to occupied MOs 
 
 We should first generate localized molecular orbitals (LMOs), because commonly a lone pair can be represented by an LMO.
 
-Boot up Multiwfn and input below commands examples\excit\D-pi-A.fchk 19 // Orbital localization analysis 1 // Localize occupied orbitals The LMOs are automatically exported to new.fch in current folder. From the outputted LMO composition on the screen, we can find there are several LMOs closely related to the N24, namely the nitrogen in amino group. Below are relevant lines of orbital composition output.
+Boot up Multiwfn and input below commands examples\excit\D-pi-A.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **19** — Orbital localization analysis
+    - **1** — Localize occupied orbitals The LMOs are automatically exported to new.fch in current folder. From the outputted LMO composition on the screen, we can find there are several LMOs closely related to the N24, namely the nitrogen in amino group. Below are relevant lines of orbital composition output.
 
 
 ```text
@@ -412,7 +432,10 @@ First, we generate cube file of f − type of Fukui function. Boot up Multiwfn a
     - **2** — Export the grid data as density.cub in current folder Now reboot Multiwfn and input examples\orb_densdiff\butadiene\BUTADIENE.31
     - **37** — Load the BUTADIENE.37 in the same folder, which records NBO orbitals Now if you enter main function 6 and choose option 3 to examine orbital information, you will find the first 15 orbitals correspond to Lewis type of NBOs due to their high occupation numbers. Next, we input below commands in the main menu
 
-200 // Other functions (Part 2) 13 // Evaluate orbital contributions to density difference or other grid data
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **13** — Evaluate orbital contributions to density difference or other grid data
 
 !!! terminal "Multiwfn session"
 
@@ -482,7 +505,10 @@ Now we calculate contribution of NBO orbitals to ΔρS0→S1 to characterize the
     - **2** — Set the constraint to a specific value
     - **0** — Since electron excitation does not alter the number of electrons, the sum of contributions is set to be constrained to zero
 
-0 // Choose orbital range and start analysis [Press ENTER button to consider all orbitals] // Note that during electron excitation, a portion of electrons is excited to empty orbitals, therefore only taking Lewis NBOs into account is evidently inadequate, so all orbitals should be taken into account in the present context
+!!! terminal "Multiwfn session"
+
+    - **0** — Choose orbital range and start analysis
+    - **[Press ENTER button to consider all orbitals]** — Note that during electron excitation, a portion of electrons is excited to empty orbitals, therefore only taking Lewis NBOs into account is evidently inadequate, so all orbitals should be taken into account in the present context
 
 The result is shown below
 
@@ -531,7 +557,12 @@ The domain analysis refers to quantitative analysis for the region enclosed by i
 
 Before reading this, please read Section 3.23.1 to understand how to use reduced density gradient (RDG) to reveal weak interaction regions. In this section, I show the possibility of characterizing weak interaction by integrating domains enclosed by RDG isosurfaces.
 
-System 1: Phenol dimer First, we use phenol dimer as example. Boot up Multiwfn and input examples\phenoldimer.wfn 200 // Other functions (Part 2) 14 // Integrate real space functions within isosurfaces of a real space function Here we want to study RDG domains defined as regions enclosed by isosurface of RDG = 0.5; in other words, these domains are composed of grid points where RDG < 0.5. Therefore, we select option 2 and choose "13 Reduced density gradient", and then select option 3 and input criterion, namely <0.5 (In fact, RDG < 0.5 is the default setting and you do not need to manually do these steps). Next, input below commands:
+System 1: Phenol dimer First, we use phenol dimer as example. Boot up Multiwfn and input examples\phenoldimer.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **14** — Integrate real space functions within isosurfaces of a real space function Here we want to study RDG domains defined as regions enclosed by isosurface of RDG = 0.5; in other words, these domains are composed of grid points where RDG < 0.5. Therefore, we select option 2 and choose "13 Reduced density gradient", and then select option 3 and input criterion, namely <0.5 (In fact, RDG < 0.5 is the default setting and you do not need to manually do these steps). Next, input below commands:
 
 !!! terminal "Multiwfn session"
 
@@ -858,9 +889,19 @@ Then enter "Tools" - "Atom Selection", you will find the atom indices of the sel
 
 Note: Of course, it is not absolutely necessary to use GaussView for the present function. However, without GaussView, you have to manually record indices of all atoms in the chain by means of visual inspection, obviously this process is fairly troublesome!
 
-Now boot up Multiwfn and input TP5.fchk 200 // Other functions (Part 2) 18 // Calculate bond length/order alternation (BLA/BOA) and study variation of bond characteristics with respect to bond index
+Now boot up Multiwfn and input TP5.fchk
 
-10,12,14,16-17,19,21,23-24,26,28,30-31,33,35 // The indices of the atoms in the chain 1,35 // Index of the atom at the beginning side and ending side Then Multiwfn automatically identifies the atom sequence of the chain based on your inputted information. As can be seen from screen, the identified sequence is
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **18** — Calculate bond length/order alternation (BLA/BOA) and study variation of bond characteristics with respect to bond index
+
+!!! terminal "Multiwfn session"
+
+    - **10,12,14,16-17,19,21,23-24,26,28,30-31,33,35** — The indices of the atoms in the chain
+    - **1,35** — Index of the atom at the beginning side and ending side
+
+Then Multiwfn automatically identifies the atom sequence of the chain based on your inputted information. As can be seen from screen, the identified sequence is
 
 
 ```text
@@ -941,7 +982,14 @@ The map below is a frame of ab-initio molecular dynamic trajectory of the cyclo[
 
 <!-- p.1057 -->
 
-Boot up Multiwfn and input examples\C18_MD_1.xyz // A frame extracted from molecular dynamics trajectory 200 // Other functions (Part 2) 18 1-18 // The atom indices in the ring 1,1 // The path under study is a closed path, i.e. a ring, in this case the two inputted atom indices must be the same. Index of any atom in the ring could be inputted, it will be regarded as the beginning atom
+Boot up Multiwfn and input examples\C18_MD_1.xyz
+
+!!! terminal "Multiwfn session"
+
+    - **200** — Other functions (Part 2)
+    - **18** — Calculate bond length/order alternation (BLA/BOA) and study variation of bond characteristics with respect to bond index
+    - **1-18** — The atom indices in the ring
+    - **1,1** — The path under study is a closed path, i.e. a ring, in this case the two inputted atom indices must be the same. Index of any atom in the ring could be inputted, it will be regarded as the beginning atom
 
 The outputted bond length variation is shown below
 
@@ -1045,7 +1093,10 @@ Calculate SDI based on grid data file To calculate SDI, you can not only provide
 
 <!-- p.1060 -->
 
-19 // Calculating SDI 3 // Calculate SDI based on grid data in memory Then you will see:
+!!! terminal "Multiwfn session"
+
+    - **19** — Calculating SDI
+    - **3** — Calculate SDI based on grid data in memory Then you will see:
 
 
 ```text
@@ -1142,7 +1193,12 @@ Boot up Multiwfn and input examples\butadiene.fch
 
 <!-- p.1063 -->
 
-[Press ENTER button] // Load the AOM.txt in current folder 4,6 // Indices of the two carbons at the center of the system Now you can see
+!!! terminal "Multiwfn session"
+
+    - **[Press ENTER button]** — Load the AOM.txt in current folder
+    - **4,6** — Indices of the two carbons at the center of the system
+
+Now you can see
 
 
 ```text

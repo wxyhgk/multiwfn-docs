@@ -336,16 +336,25 @@ In this section we perform AdNDP analysis for Au20 cluster, the needed files can
     - **2** — Perform exhaustive search of 3-centers orbitals. Again nothing can be found
     - **2** — Perform exhaustive search of 4-centers orbitals. Now you can see four candidates with 1.84 e and six candidates with 1.7589 e
 
-0 // Pick out orbitals 4 // Pick out first four orbitals. The remaining orbitals now have occupancy of 1.6913, which, although is not quite high, it is still worth to be picked out in current circumstance
+!!! terminal "Multiwfn session"
 
-0 // Pick out orbitals 6 // Pick out remaining six orbitals.
+    - **0** — Pick out orbitals
+    - **4** — Pick out first four orbitals. The remaining orbitals now have occupancy of 1.6913, which, although is not quite high, it is still worth to be picked out in current circumstance
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Pick out orbitals
+    - **6** — Pick out remaining six orbitals.
 
 
 <!-- p.752 -->
 
 Plotting AdNDP orbitals Next we plot all the ten picked 4c-orbitals by VMD using plotting script. We first export their cube files, input below commands
 
-9 // Export cube file of picked AdNDP orbitals 2 // Medium-quality grid, which is adequate for producing smooth orbital isosurface for present system
+!!! terminal "Multiwfn session"
+
+    - **9** — Export cube file of picked AdNDP orbitals
+    - **2** — Medium-quality grid, which is adequate for producing smooth orbital isosurface for present system
 
 101-110 // The index range of the picked 4c-orbitals After a while, we have ten cube files in current folder, the first one is AdNDPorb0101.cub, the last one is AdNDPorb0110.cub. We intend to plot the orbitals 101-104 (occ=1.84) using red color while 105-110 (occ=1.69) using orange color so that they can be clearly distinguished.
 

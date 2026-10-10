@@ -26,9 +26,16 @@ In subfunction 25 of main function 6, you can set orbital expansion coefficients
     - **25** — Set the coefficients of some GTFs that satisfied certain conditions
     - **0,0** — Set the index range of GTFs, only the GTFs satisfied this condition will be reserved to next step. 0,0 tell Multiwfn the range is “ALL”
 
-2,4 // Only the GTFs attributed to atoms 2, 3, 4 will be reserved to next step Z // Only reserve Z-type GTFs to next step 23,23 // Set lower and upper limit of orbital, if they are identical, then only one orbital is selected
+!!! terminal "Multiwfn session"
 
-0 // Set coefficients of selected GTFs in orbital 23 to zero, that is delete their information 0 // Save current wavefunction to new.wfn in current directory You can choose option 4 and input 23 to check expansion coefficient of orbital 23 to verify if
+    - **2,4** — Only the GTFs attributed to atoms 2, 3, 4 will be reserved to next step
+    - **Z** — Only reserve Z-type GTFs to next step
+    - **23,23** — Set lower and upper limit of orbital, if they are identical, then only one orbital is selected
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Set coefficients of selected GTFs in orbital 23 to zero, that is delete their information
+    - **0** — Save current wavefunction to new.wfn in current directory You can choose option 4 and input 23 to check expansion coefficient of orbital 23 to verify if
 
 
 ![](../imgs/p558_172.png)
@@ -54,7 +61,11 @@ Next, two examples of studying valence electron density are given.
 
 Example 1: Plotting color-filled map of valence electron density for HCN In this example, we will manually remove contributions from the MOs consisting of inner-core atomic orbitals to electron density for HCN, so that we can plot its valence electron density map, the procedure is very simple. Inner-core atomic orbitals always have very low energy, so they can only contribute to the MOs with lowest energy. Hydrogen has no inner-core atomic orbital, while both carbon and nitrogen have an inner-core atomic orbital, hence what we need to do is to set occupation numbers of the first two MOs to zero (note that this is closed-shell wavefunction).
 
-Now, boot up Multiwfn, and input following commands examples\HCN.wfn 6 // Modifying wavefunction
+Now, boot up Multiwfn, and input following commands examples\HCN.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **6** — Modifying wavefunction
 
 
 ![](../imgs/p559_173.png)

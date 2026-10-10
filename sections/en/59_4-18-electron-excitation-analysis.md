@@ -8,9 +8,15 @@
 
 that? You just need to ask Multiwfn to export grid data of function value for corresponding basins, draw them as isosurface and then directly specify the color. Let us do this, input the following commands
 
--5 // Export basins as cube file c // Export grid data of function value in the region of specific basins as basinsel.cub file in current folder
+!!! terminal "Multiwfn session"
 
-1,2,4,5 // Indices of the four V(C,H) basins 0 // In the exported .cub file, if a grid does not belong to the selected basins, its value will be the value you specified here
+    - **-5** — Export basins as cube file
+    - **c** — Export grid data of function value in the region of specific basins as basinsel.cub file in current folder
+
+!!! terminal "Multiwfn session"
+
+    - **1,2,4,5** — Indices of the four V(C,H) basins
+    - **0** — In the exported .cub file, if a grid does not belong to the selected basins, its value will be the value you specified here
 
 Now basinsel.cub has been generated in current folder. Load it into VMD, select “Graphics” - “Representation”, set “Drawing Method” to “Isosurface”, change “Coloring Method” to “Color ID” and choose “4 yellow”. Then change “Isovalue” to a value marginally smaller than the existing isosurfaces to guarantee to overlay them (for example 0.795 in this case, which is marginally than the 0.8 set by the basinsyn.vmd), now you can see the following graph, which is quite satisfactory!
 
@@ -514,7 +520,10 @@ Visualizing transition magnetic dipole moment density The transition dipole mome
 
 -1 // By default, transition magnetic dipole moment density is not calculated by option 1 of hole-electron module for saving time, we select this option now to make option 1 also calculate this quantity
 
-1 // Visualize and analyze hole, electron, transition density and so on 2 // Medium-quality grid Once the calculation is finished, from screen you can find the transition magnetic dipole moment evaluated based on the grid data:
+!!! terminal "Multiwfn session"
+
+    - **1** — Visualize and analyze hole, electron, transition density and so on
+    - **2** — Medium-quality grid Once the calculation is finished, from screen you can find the transition magnetic dipole moment evaluated based on the grid data:
 
 
 ```text
@@ -608,9 +617,20 @@ The system to be investigated next is shown below, the molecule is divided into 
 
 <!-- p.826 -->
 
-We first study S0→S1 excitation. Boot up Multiwfn and input tdmat.fchk 18 // Electron excitation 2 // Plot heat map of transition matrix tdmat.out
+We first study S0→S1 excitation. Boot up Multiwfn and input tdmat.fchk
 
-1 // Study S0→S1 excitation n // Do not symmetrize the newly generated TDM 1 // Use the way 1 to contract the TDM represented in basis functions to atom TDM Now you can choose option 1 to plot atom TDM. However, our present aim is to plot fragment TDM. In order to do this, we can create a plain text file (which has already been provided as tdmfrag.txt in the file.rar package), each line of it defines a fragment, the content of the file in this example is
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation
+    - **2** — Plot heat map of transition matrix tdmat.out
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Study S0→S1 excitation
+    - **n** — Do not symmetrize the newly generated TDM
+    - **1** — Use the way 1 to contract the TDM represented in basis functions to atom TDM
+
+Now you can choose option 1 to plot atom TDM. However, our present aim is to plot fragment TDM. In order to do this, we can create a plain text file (which has already been provided as tdmfrag.txt in the file.rar package), each line of it defines a fragment, the content of the file in this example is
 
 
 ```text
@@ -623,7 +643,10 @@ We first study S0→S1 excitation. Boot up Multiwfn and input tdmat.fchk 18 // E
 
 Note that you can also use such as 2,5-8,12-15,20 to define a batch of atoms with discontinuous indices as a fragment.
 
-Then input below commands -1 // Define fragments 0 // Load fragment definition from an external file (as prompted, you can also directly input atom indices)
+!!! terminal "Multiwfn session"
+
+    - **Then input below commands -1** — Define fragments
+    - **0** — Load fragment definition from an external file (as prompted, you can also directly input atom indices)
 
 !!! terminal "Multiwfn session"
 
@@ -672,7 +695,12 @@ In fact, the heat map plotting function illustrated in last section is a general
 
 Below, we still use the donor-π-acceptor employed in Section 4.18.2.2 as example to show how to plot TDMM as heat map. Multiwfn is able to plot both transition electric dipole moment matrix and transition magnetic dipole moment matrix, present section will limit to the former one.
 
-Initially we need to generate a file containing atom TDMM. Boot up Multiwfn and input examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk 18 // Electron excitation analysis 11 // Decompose transition dipole moment as basis function and atom contributions examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
+Initially we need to generate a file containing atom TDMM. Boot up Multiwfn and input examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+    - **11** — Decompose transition dipole moment as basis function and atom contributions examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
 
 !!! terminal "Multiwfn session"
 
@@ -742,7 +770,12 @@ Here S2→S3 transition of N-phenylpyrrole is taken as an example, below procedu
     - **9** — Generate and export transition density matrix
     - **2** — Generate transition density matrix between (TDM) two excited states examples\excit\N-phenylpyrrole.out
 
-2,3 // Assume that you want to analyze S2→S3 transition [Press ENTER button directly to use default threshold] y // Symmetrize the resulting TDM in usual way y // Export present wavefunction information including the newly generated TDM to TDM.fch in current folder
+!!! terminal "Multiwfn session"
+
+    - **2,3** — Assume that you want to analyze S2→S3 transition
+    - **[Press ENTER button directly]** — Use default threshold
+    - **y** — Symmetrize the resulting TDM in usual way
+    - **y** — Export present wavefunction information including the newly generated TDM to TDM.fch in current folder
 
 !!! terminal "Multiwfn session"
 
@@ -790,7 +823,11 @@ Now we have tdmat.txt in current folder, which records TDM of S1→S2.
     - **18** — Electron excitation analysis
     - **2** — Plot heat map for transition matrix tdmat.txt
 
-Construct atom transition matrix in terms of way 1 1 // Plot heat map The obtained graph is shown below, the isosurface map of density difference yielded by subtracting S1 density from S2 density is also given (see Section 4.18.13 on how to plot it).
+Construct atom transition matrix in terms of way 1
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Plot heat map The obtained graph is shown below, the isosurface map of density difference yielded by subtracting S1 density from S2 density is also given (see Section 4.18.13 on how to plot it).
 
 
 ![](../imgs/p832_376.png)
@@ -823,7 +860,10 @@ First, we calculate grid data of electron density variation Δρ during the exci
 
 from the excited one to generate Δρ
 
-1 // Electron density 2 // Medium-quality grid. If the system is much larger than present one, more grid points is required (e.g. using high-quality grid)
+!!! terminal "Multiwfn session"
+
+    - **1** — Electron density
+    - **2** — Medium-quality grid. If the system is much larger than present one, more grid points is required (e.g. using high-quality grid)
 
 Once the calculation is normally completed, you can choose option -1 to view the electron density variation during the electron excitation (default isovalue is too large for visualizing density
 
@@ -904,7 +944,11 @@ The files used in this section are N-phenylpyrrole.fch and N-phenylpyrrole.out i
 
 Calculating $\Delta r$ index $\Delta r$ index is a quantitative indicator for measuring charge transfer (CT) length of electron excitation, larger Δr index implies longer CT distance.
 
-Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis
+Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
 
 4 // Calculate $\Delta r$ index examples\excit\N-phenylpyrrole.out
 
@@ -932,7 +976,10 @@ In Multiwfn it is possible to decompose the $\Delta r$ index as contributions of
 
 decomposed
 
-y // Print orbital pair contributions 0.01 // Only the orbital pairs having contribution larger than 0.01 Å will be printed You will immediately see the information below
+!!! terminal "Multiwfn session"
+
+    - **y** — Print orbital pair contributions
+    - **0.01** — Only the orbital pairs having contribution larger than 0.01 Å will be printed You will immediately see the information below
 
 
 ```text
@@ -952,9 +999,16 @@ As you can see, MO37→MO41 transition has predominating contribution (1.97 Å) 
 
 Calculating Λ (lambda) index The Λ index essentially measures overlapping degree of hole and electron of electron excitations. Here we calculate it for all the five excitations for N-phenylpyrrole.
 
-Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron excitation analysis
+Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch
 
-14 // Calculate Λ index examples\excit\N-phenylpyrrole.out 1-5 // Analyze all the five calculated singlet excited states Immediately, the results are printed on screen:
+!!! terminal "Multiwfn session"
+
+    - **18** — Electron excitation analysis
+
+!!! terminal "Multiwfn session"
+
+    - **14** — Calculate Λ index examples\excit\N-phenylpyrrole.out
+    - **1-5** — Analyze all the five calculated singlet excited states Immediately, the results are printed on screen:
 
 
 ```text
@@ -967,9 +1021,17 @@ Boot up Multiwfn and input examples\excit\N-phenylpyrrole.fch 18 // Electron exc
 
 From above output, it can be found that the Λ indices are nearly inversely proportional to the $\Delta r$ indices, because the larger the hole-electron overlapping extent, usually the shorter the hole-electron separation distance (but bear in mind, this relationship is not always true).
 
-Then we decompose the Λ index for the fourth excitation. Input below commands y // Do the Λ index analysis again 4 // The fourth excitation
+Then we decompose the Λ index for the fourth excitation. Input below commands
 
-y // Decompose analysis on Λ index 0.01 // Printing threshold
+!!! terminal "Multiwfn session"
+
+    - **y** — Do the Λ index analysis again
+    - **4** — The fourth excitation
+
+!!! terminal "Multiwfn session"
+
+    - **y** — Decompose analysis on Λ index
+    - **0.01** — Printing threshold
 
 Then you will see all MO pairs having contribution to Λ index larger than 0.01:
 
@@ -1353,7 +1415,10 @@ First, we generate a .fch file containing TDM. Boot up Multiwfn and input exampl
     - **9** — Generate and export TDM
     - **1** — Generate TDM between ground state and excited state examples\excit\N-phenylpyrrole.out
 
-1 // Analyze electron transition from ground state to the 1st excited state (S0→S1) 1 // Symmetrize the raw TDM. This is important, the natural orbitals cannot be properly yielded later without symmetrization of the TDM
+!!! terminal "Multiwfn session"
+
+    - **1** — Analyze electron transition from ground state to the 1st excited state (S0→S1)
+    - **1** — Symmetrize the raw TDM. This is important, the natural orbitals cannot be properly yielded later without symmetrization of the TDM
 
 y // Export current wavefunction to TDM.fch in current folder, whose "Total SCF Density" field records the just generated symmetrized TDM
 
@@ -1455,7 +1520,10 @@ MO38→MO39 is set to zero, namely ignoring its contribution, then f will be low
 
 1 // The transition type is chosen as "Excitation", hence MO38→MO39 is selected (if inputting 2, then what we selected will be MO38←MO39)
 
-0 // Set the configuration coefficient to zero -3 // Export current excitation information to a plain text file
+!!! terminal "Multiwfn session"
+
+    - **0** — Set the configuration coefficient to zero
+    - **-3** — Export current excitation information to a plain text file
 
 S1.txt // The path of the file to store excitation information of S0→S1 Now S1.txt has been generated in current folder, if you open it with text editor, you will find
 
@@ -1499,7 +1567,12 @@ Boot up Multiwfn, load the azobenzene.fch, then input
 
 Assume that we want to study is electron excitation from ground state to excited state 2 (you can also input two indices to study transition between the two excited states)
 
-1 // The type of transition dipole moment to be decomposed is electric n // Do not generate AAtrdip.txt, which is not involved in the present example Now trdipcontri.txt is outputted to current folder, which contains transition dipole moment contributed by each basis function and each atom. Move this file to VMD folder.
+!!! terminal "Multiwfn session"
+
+    - **1** — The type of transition dipole moment to be decomposed is electric
+    - **n** — Do not generate AAtrdip.txt, which is not involved in the present example
+
+Now trdipcontri.txt is outputted to current folder, which contains transition dipole moment contributed by each basis function and each atom. Move this file to VMD folder.
 
 Return to main menu, then enter subfunction 2 of main function 100, export current molecular geometry to azobenzene.pdb.
 
@@ -1579,7 +1652,10 @@ Boot up Multiwfn and input below commands examples\excit\N-phenylpyrrole.fch
 
 Now, NO_0002.mwfn has been generated in current folder, it records wavefunction of the second excited state in terms of NOs.
 
-Reboot Multiwfn and input NO_0002.mwfn 9 // Bond order analysis 1 // Mayer bond order From the output you will find the bond order of the N5-C10 bond, namely the bond linking pyrrole and benzene moieties, is 0.794. If you repeat the calculation for examples\excit\N-phenylpyrrole.fch, the result will correspond to ground state, and you will find the Mayer bond order is 0.713. Clearly, the vertical excitation from S0 to S2 at minimum point of S0 weakens the strength of N5-C10 detectably.
+!!! terminal "Multiwfn session"
+
+    - **Reboot Multiwfn and input NO_0002.mwfn 9** — Bond order analysis
+    - **1** — Mayer bond order From the output you will find the bond order of the N5-C10 bond, namely the bond linking pyrrole and benzene moieties, is 0.794. If you repeat the calculation for examples\excit\N-phenylpyrrole.fch, the result will correspond to ground state, and you will find the Mayer bond order is 0.713. Clearly, the vertical excitation from S0 to S2 at minimum point of S0 weakens the strength of N5-C10 detectably.
 
 Plotting density difference between excited states Next I illustrate how to plot density difference between various excited states (corresponding to unrelaxed density). In fact, this is very easy, you simply need to generate Multiwfn input files containing NOs of the two excited states respectively, and then get their difference via the steps illustrated in Sections 4.5.5 or 4.18.3.
 
@@ -1748,7 +1824,11 @@ CT_multiple\CT_multiple.txt // The list file containing input files for plotting
     - **10** — Set text size of legend 45
     - **0** — Return 3
 
-Lower limit, upper limit, and label interval 0 // Replot The current CTS is shown below
+Lower limit, upper limit, and label interval
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Replot The current CTS is shown below
 
 
 <!-- p.859 -->

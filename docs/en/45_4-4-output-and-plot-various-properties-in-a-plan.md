@@ -43,7 +43,11 @@ After a few seconds the graph pops up
 
 The central regions of carbon and nitrogen are white, suggesting that electron density exceeds the upper limit of color scale (0.65). Close the graph, then a post-processing menu appears, there are many options and their meanings are very easy to understand. You can choose corresponding options to adjust plotting parameters and then use option -1 to replot again, or export X-Y data set to a plain text file so that you can then plot the graph by external softwares (Sigmaplot, Origin, Matlab, etc.), or save image file in current directory (the graphical format is controlled by "graphformat" in `settings.ini`).
 
-Now we slightly improve the graph above. Input below commands: -8 // Change length unit of the graph to Å
+Now we slightly improve the graph above. Input below commands:
+
+!!! terminal "Multiwfn session"
+
+    - **-8** — Change length unit of the graph to Å
 
 !!! terminal "Multiwfn session"
 
@@ -193,7 +197,12 @@ Example 1: Contour map of electron density Laplacian of uracil without contribut
 
 In main function 6, one can use subfunctions -3 and -4 to delete Gauss type functions (GTFs) centered at some atoms to remove their contributions to various kinds of analyses that are based on real space function. This feature will be utilized in present example. Since this treatment reduces total number of GTFs, the computational cost in the subsequent analyses will be lowered.
 
-Boot up Multiwfn and input following content examples\uracil.wfn 6 // Modify wavefunction -4 // Discard contribution of some atoms
+Boot up Multiwfn and input following content examples\uracil.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **6** — Modify wavefunction
+    - **-4** — Discard contribution of some atoms
 
 
 ![](../imgs/p519_133.png)
@@ -295,7 +304,11 @@ Boot up Multiwfn and input: examples\NH2COH.31
     - **4** — Orbital wavefunction
     - **12,56** — The two orbital indices. If you only input one index, then only one orbital will be plotted
 
-[Press ENTER button to use default grid setting] 7 // This mode is used to define a plotting plane parallel to a bond and meantime normal to a plane defined by three atoms
+[Press ENTER button to use default grid setting]
+
+!!! terminal "Multiwfn session"
+
+    - **7** — This mode is used to define a plotting plane parallel to a bond and meantime normal to a plane defined by three atoms
 
 !!! terminal "Multiwfn session"
 
@@ -372,7 +385,10 @@ Gradient map of electron density with bond paths and critical points of electron
     - **3** — Search CPs from midpoint of atomic pairs
     - **8** — Generating the paths connecting (3,-3) and (3,-1) CPs, namely generating bond paths in current context
 
-0 // Visually check if all expected CPs and paths have been generated. This step is optional -10 // Return to main menu Then draw a gradient line map for electron density via the way described above. The resulting graph should look like below. Brown, blue, and orange circles denote (3,-3), (3,-1) and (3,+1) critical points, respectively. Bold dark brown lines depict bond paths.
+!!! terminal "Multiwfn session"
+
+    - **0** — Visually check if all expected CPs and paths have been generated. This step is optional
+    - **-10** — Return to main menu Then draw a gradient line map for electron density via the way described above. The resulting graph should look like below. Brown, blue, and orange circles denote (3,-3), (3,-1) and (3,+1) critical points, respectively. Bold dark brown lines depict bond paths.
 
 
 ![](../imgs/p526_140.png)
@@ -416,7 +432,10 @@ Deformation map of electron density clearly shows variation of electron density 
 
 It is a labor work to draw such a graph via custom operation feature since there are so many atoms in practical chemical systems. Fortunately, Multiwfn provides a special option to realize this in a highly automatic way. Boot up Multiwfn and input following commands
 
-examples\CH3COCl.wfn 4 // Plot plane map -2 // Tell Multiwfn you want to draw deformation map, then Multiwfn prepares free-state atom wavefunctions
+!!! terminal "Multiwfn session"
+
+    - **examples\CH3COCl.wfn 4** — Plot plane map
+    - **-2** — Tell Multiwfn you want to draw deformation map, then Multiwfn prepares free-state atom wavefunctions
 
 B3LYP/6-31G* // The level used to generate atomic wavefunction files by Gaussian, it is the same as the level used for generating CH3COCl.wfn
 
@@ -509,7 +528,13 @@ Plotting difference map of ELF Next, we plot a color-filled difference map of EL
 
 <!-- p.533 -->
 
-9 // ELF 1 // Color-filled map [Press ENTER button] 4 // Define plane by three atoms 7,10,1 The graph shown on screen is ugly currently, because the default color scale is inappropriate for present case. Close the graph and input
+!!! terminal "Multiwfn session"
+
+    - **9** — ELF
+    - **1** — Color-filled map [Press ENTER button]
+    - **4** — Define plane by three atoms 7,10,1
+
+The graph shown on screen is ugly currently, because the default color scale is inappropriate for present case. Close the graph and input
 
 !!! terminal "Multiwfn session"
 
@@ -643,7 +668,11 @@ Gradient line map Boot up Multiwfn and input examples\LiF.wfn
     - **Modify extension distance 6** — 6 Bohr (larger than default value)
     - **3** — YZ plane 0
 
-Show a contour line to reveal van der Waals surface 10 // Show arrow on the gradient lines Now you can obtain the map below
+Show a contour line to reveal van der Waals surface
+
+!!! terminal "Multiwfn session"
+
+    - **10** — Show arrow on the gradient lines Now you can obtain the map below
 
 
 ![](../imgs/p537_150.png)
@@ -707,7 +736,10 @@ Boot up Multiwfn and input following commands examples\atomwfn\Kr.wfn
     - **0** — Return 3
     - **Change setting of contour lines 5** — Use built-in contour values suitable for special purpose
 
-3 // Suitable for plotting orbital wavefunction (namely ±0.01*2(i-1), i = 1-28) 1 // Save setting and return Now you can use option -1 to visualize the current map. In this example we will save the figure to a .pdf file. You can set the default file format via “graphformat” in `settings.ini`, however here we temporarily change the format to .pdf, so we input
+!!! terminal "Multiwfn session"
+
+    - **3** — Suitable for plotting orbital wavefunction (namely ±0.01*2(i-1), i = 1-28)
+    - **1** — Save setting and return Now you can use option -1 to visualize the current map. In this example we will save the figure to a .pdf file. You can set the default file format via “graphformat” in `settings.ini`, however here we temporarily change the format to .pdf, so we input
 
 !!! terminal "Multiwfn session"
 
@@ -738,7 +770,12 @@ Boot up Multiwfn and input examples\phenol.wfn
     - **2** — Contour line map [Press ENTER button]
     - **Use default number of grids 1** — XY plane 0
 
-Enable showing extrema of a function on a contour line 0.001 // Isovalue of present function (i.e. electron density) 12 // ESP -1 // Replot plane map Now you can see the following map, red and blue spheres correspond to maxima and minima on the contour line, respectively
+Enable showing extrema of a function on a contour line
+
+!!! terminal "Multiwfn session"
+
+    - **0.001** — Isovalue of present function (i.e. electron density)
+    - **12** — ESP -1
 
 
 ![](../imgs/p540_152.png)

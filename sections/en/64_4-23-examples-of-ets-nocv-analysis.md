@@ -331,7 +331,14 @@ Boot up Multiwfn and input examples\ETS-NOCV\ethane\ethane.fch
     - **Wavefunction file of the whole system 23** — ETS-NOCV analysis
     - **2** — Two fragments
 
-examples\ETS-NOCV\ethane\CH3_1.fch // Wavefunction file of the first ·CH3 radical examples\ETS-NOCV\ethane\CH3_2.fch // Wavefunction file of the second ·CH3 radical n // Do not flip spin of the first ·CH3 radical y // Flip spin of the second ·CH3 radical Unlike the closed-shell case exemplified in the last section, in the present example you are asked to choose if flipping spin of the two open-shell fragments. Flipping spin means exchanging information of alpha and beta electrons. Properly flipping spin is important, because we need to guarantee that sum of number of alpha (beta) electrons of all fragments is identical to that of the
+!!! terminal "Multiwfn session"
+
+    - **examples\ETS-NOCV\ethane\CH3_1.fch** — Wavefunction file of the first ·CH3 radical
+    - **examples\ETS-NOCV\ethane\CH3_2.fch** — Wavefunction file of the second ·CH3 radical
+    - **n** — Do not flip spin of the first ·CH3 radical
+    - **y** — Flip spin of the second ·CH3 radical
+
+Unlike the closed-shell case exemplified in the last section, in the present example you are asked to choose if flipping spin of the two open-shell fragments. Flipping spin means exchanging information of alpha and beta electrons. Properly flipping spin is important, because we need to guarantee that sum of number of alpha (beta) electrons of all fragments is identical to that of the
 
 whole system. The ethane has 9 alpha electrons and 9 beta electrons, while each ·CH3 radical has 5 alpha electrons and 4 beta electrons. Clearly, we need to flip spin of either the first or the second·CH3 radical, otherwise after combining the two fragments together there will be 5+5=10 alpha electrons and 4+4=8 beta electrons, which does not agree with ethane.
 
@@ -497,9 +504,16 @@ example we will use ORCA 5.0 program to conduct single point calculations at ωB
     - **23** — ETS-NOCV analysis
     - **2** — Two fragments A.molden
 
-Wavefunction file of thymine (T) fragment -2 // Generate Fock/KS matrix and re-evaluate NOCV orbital energies Currently, there are as many as 40 NOCV pairs printed on screen under the default printing threshold (NOCV eigenvalue > 0.001), the number is too large to easily inspect. So, we properly raise printing threshold, input
+Wavefunction file of thymine (T) fragment
 
--3 // Set printing threshold of NOCV eigenvalues 0.02 0 // Print NOCV information again Now the number of printed NOCV pairs is significantly reduced:
+!!! terminal "Multiwfn session"
+
+    - **-2** — Generate Fock/KS matrix and re-evaluate NOCV orbital energies Currently, there are as many as 40 NOCV pairs printed on screen under the default printing threshold (NOCV eigenvalue > 0.001), the number is too large to easily inspect. So, we properly raise printing threshold, input
+
+!!! terminal "Multiwfn session"
+
+    - **-3** — Set printing threshold of NOCV eigenvalues 0.02
+    - **0** — Print NOCV information again Now the number of printed NOCV pairs is significantly reduced:
 
 
 ```text

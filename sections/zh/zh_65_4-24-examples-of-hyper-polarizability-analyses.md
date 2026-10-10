@@ -160,7 +160,11 @@ Gaussian 也能计算静态和动态第二超极化率(γ)。示例输入文件�
 
 和 680 nm)。下面我说明使用 Multiwfn 解析 532 nm 处 γ(-2w;w,w,0) 数据的方法。
 
-启动 Multiwfn 并输入 examples\polar\NH3_gamma.out 24 // (超)极化率分析((Hyper)polarizability analysis)
+启动 Multiwfn 并输入 examples\polar\NH3_gamma.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **24** — (超)极化率分析((Hyper)polarizability analysis)
 
 
 <!-- p.972 -->
@@ -226,7 +230,12 @@ Gaussian 也能计算静态和动态第二超极化率(γ)。示例输入文件�
     - **5** — 计算所有激发态的跃迁偶极矩和偶极矩(Calculate transition dipole moments and dipole moment for all excited states) C:\NH3_SOS.out
     - **3** — 生成 SOS.txt(Generate SOS.txt) 当前文件夹中生成的 SOS.txt 文件包含 SOS (超)极化率计算所需的全部信息。该文件可直接被 Multiwfn 的 SOS 模块使用。
 
-重启 Multiwfn 并输入 SOS.txt 24 // (超)极化率分析((Hyper)polarizability analysis) 2 // 用态求和(SOS)方法研究(超)极化率(Study (hyper)polarizability by sum-over-states (SOS) method) 注意 SOS 模块中使用的单位均为原子单位。
+重启 Multiwfn 并输入 SOS.txt
+
+!!! terminal "Multiwfn 交互"
+
+    - **24** — (超)极化率分析((Hyper)polarizability analysis)
+    - **2** — 用态求和(SOS)方法研究(超)极化率(Study (hyper)polarizability by sum-over-states (SOS) method) 注意 SOS 模块中使用的单位均为原子单位。
 
 极化率(alpha)的计算
 
@@ -355,7 +364,10 @@ Multiwfn 也能计算第三超极化率 δ(-ω;ω1,ω2,ω3,ω4)，其中 ω=ω1+
 
 19
 
--0.6,0.6,100 // ω1 的下限、上限和步数(Lower limit, upper limit and number of steps of ω1)(单位 a.u.) -0.6,0.6,100 // ω2 的下限、上限和步数(Lower limit, upper limit and number of steps of ω2)(单位 a.u.) 稍后，当前文件夹中生成 beta_w.txt 和 beta_w_comp.txt，文件中
+!!! terminal "Multiwfn 交互"
+
+    - **-0.6,0.6,100** — ω1 的下限、上限和步数(Lower limit, upper limit and number of steps of ω1)(单位 a.u.)
+    - **-0.6,0.6,100** — ω2 的下限、上限和步数(Lower limit, upper limit and number of steps of ω2)(单位 a.u.) 稍后，当前文件夹中生成 beta_w.txt 和 beta_w_comp.txt，文件中
 
 各列的含义在屏幕上已清楚说明。为了直观研究总 β 如何随 ω1 和 ω2 的变化而变化，你可以以第一、第二和第 7 列分别作为 X、Y 和 Z 数据绘制浮雕图。下面所示的图是用 Sigmaplot 绘制的：
 
@@ -407,7 +419,12 @@ Multiwfn 也能计算第三超极化率 δ(-ω;ω1,ω2,ω3,ω4)，其中 ω=ω1+
 
 
 
-二能级分析 重启 Multiwfn 并输入 SOS.txt 24 // (超)极化率分析((Hyper)polarizability analysis) 2 // 用态求和(SOS)方法研究(超)极化率(Study (hyper)polarizability by sum-over-states (SOS) method)
+二能级分析 重启 Multiwfn 并输入 SOS.txt
+
+!!! terminal "Multiwfn 交互"
+
+    - **24** — (超)极化率分析((Hyper)polarizability analysis)
+    - **2** — 用态求和(SOS)方法研究(超)极化率(Study (hyper)polarizability by sum-over-states (SOS) method)
 
 20 // β 的二能级或三能级模型分析(Two- or three-level model analysis of β) 现在 Multiwfn 打印所有激发态的关键信息，它们与二能级和三能级分析密切相关：
 
@@ -449,7 +466,10 @@ beta evaluated by two-level model: (a.u.)
 
 
 
-20 // β 的二能级或三能级模型分析(Two or three-level model analysis of β) 2 // 选择激发态 2 进行二能级模型分析(Select excited state 2 for two-level model analysis) 输出的信息如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **20** — β 的二能级或三能级模型分析(Two or three-level model analysis of β)
+    - **2** — 选择激发态 2 进行二能级模型分析(Select excited state 2 for two-level model analysis) 输出的信息如下所示
 
 
 ```text
@@ -472,7 +492,10 @@ beta evaluated by two-level model: (a.u.)
 
 三能级分析 我们还可以进行三能级模型分析。在 Multiwfn 窗口中，我们输入
 
-20 // 再次进行 β 的二能级或三能级模型分析(Perform two- or three-level model analysis of β again) 1,2 // 选择激发态 1 和 2 进行三能级模型分析(Choose excited states 1 and 2 for the three-level model analysis) 你将看到以下输出
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 再次进行 β 的二能级或三能级模型分析(Perform two- or three-level model analysis of β again)
+    - **1,2** — 选择激发态 1 和 2 进行三能级模型分析(Choose excited states 1 and 2 for the three-level model analysis) 你将看到以下输出
 
 
 ```text
@@ -687,7 +710,10 @@ B3LYP/6-311++G** opted
 
 输入以下命令
 
-examples\polar\CH3NHCHO\polar.out 24 // （超）极化率分析 ((Hyper)polarizability analysis) 1 // 解析 Gaussian 的 “polar”任务 (Parse "polar" task of Gaussian。PS：如果你对该功能不熟悉，请参阅第 3.27.1 节的介绍和 4.24.1 节的例子）
+!!! terminal "Multiwfn 交互"
+
+    - **examples\polar\CH3NHCHO\polar.out 24** — （超）极化率分析 ((Hyper)polarizability analysis)
+    - **1** — 解析 Gaussian 的 “polar”任务 (Parse "polar" task of Gaussian。PS：如果你对该功能不熟悉，请参阅第 3.27.1 节的介绍和 4.24.1 节的例子）
 
 !!! terminal "Multiwfn 交互"
 
@@ -696,13 +722,19 @@ examples\polar\CH3NHCHO\polar.out 24 // （超）极化率分析 ((Hyper)polariz
     - **1** — 开始解析（超）极化率 (Start parsing (hyper)polarizability)
     - **2** — 如屏幕所示，第二个选项对应于 1030 nm 的情形 (As shown on screen, the second option corresponds to 1030 nm case)
 
-2 // 载入 SHG 形式的 β (Load SHG form of β) n // 不进行与超瑞利散射相关的分析 (Do not perform analysis related to hyper-Rayleigh scattering)
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 载入 SHG 形式的 β (Load SHG form of β)
+    - **n** — 不进行与超瑞利散射相关的分析 (Do not perform analysis related to hyper-Rayleigh scattering)
 
 现在对应于 1030 nm 的极化率张量（α）和 SHG 形式的 β 已分别被导出到当前文件夹下的 alpha.txt 和 beta.txt 中。
 
 如第 3.27.5 节所述，要实现单位球表示，一般应让 Multiwfn 载入一个包含原子坐标的文件，以便 Multiwfn 能确定合适的球半径。这里我们让 Multiwfn 直接从 Gaussian 输出文件中载入原子坐标。为此，我们将 `settings.ini` 中的 “iloadGaugeom”改为 2，这表示要求 Multiwfn 从所载入的 Gaussian 输出文件中以标准取向载入原子坐标。然后启动 Multiwfn 并输入
 
-examples\polar\CH3NHCHO\polar.out 24 // （超）极化率分析 ((Hyper)polarizability analysis) 5 // 通过单位球和矢量表示可视化（超）极化率 (Visualize (hyper)polarizability via unit sphere and vector representations) 现在你可以找到许多用于调节绘图参数的选项，如球上箭头的半径和长度、箭头数目等，目前我们使用默认设置。我们选择
+!!! terminal "Multiwfn 交互"
+
+    - **examples\polar\CH3NHCHO\polar.out 24** — （超）极化率分析 ((Hyper)polarizability analysis)
+    - **5** — 通过单位球和矢量表示可视化（超）极化率 (Visualize (hyper)polarizability via unit sphere and vector representations) 现在你可以找到许多用于调节绘图参数的选项，如球上箭头的半径和长度、箭头数目等，目前我们使用默认设置。我们选择
 
 选项 2，从屏幕提示可以发现，由于当前文件夹中已存在 beta.txt，Multiwfn 会自动从其中载入 β 张量，然后在当前文件夹下导出 beta.tcl，它对应于单位球表示的 VMD 绘图脚本。你还可以发现当前文件夹中已导出了 beta_vec.tcl，它是矢量表示的 VMD 绘图脚本。
 
@@ -785,7 +817,9 @@ http://sobereva.com/345 获得。在本例中，我们只研究静态 α 和 γ�
 
 0.005 // 该值小于默认值，因为 cyclo[18]carbon 的 α 相当大。如果使用默认值，你会发现箭头太长 (This value is smaller than default, since α of cyclo[18]carbon is fairly large. If default value is used, you will find the arrows are too long)
 
--5 // 改变矢量表示箭头的长度比例因子 (Change length scale factor for the arrow of vector representation) 0.01
+!!! terminal "Multiwfn 交互"
+
+    - **-5** — 改变矢量表示箭头的长度比例因子 (Change length scale factor for the arrow of vector representation)
 
 1 // 对 α 进行单位球表示分析。由于当前文件夹中已存在 alpha.txt，α 张量会自动从其中载入 (Perform unit sphere representation analysis of α. Since alpha.txt already exists in current folder, α tensor is automatically loaded from it)
 
@@ -810,7 +844,10 @@ http://sobereva.com/345 获得。在本例中，我们只研究静态 α 和 γ�
 
 -3 // 改变球面上箭头长度的比例因子 (Change scale factor of length of the arrows on sphere)
 
-1E-5 // 该值明显小于默认值，因为 γ 的量级相当大 (This value is significantly smaller than default one, since magnitude of γ is quite large) -5 // 改变矢量表示箭头的长度比例因子 (Change length scale factor for the arrow of vector representation) 0.00005
+!!! terminal "Multiwfn 交互"
+
+    - **1E-5** — 该值明显小于默认值，因为 γ 的量级相当大 (This value is significantly smaller than default one, since magnitude of γ is quite large)
+    - **-5** — 改变矢量表示箭头的长度比例因子 (Change length scale factor for the arrow of vector representation)
 
 1 // 对 γ 进行单位球表示分析。由于当前文件夹中已存在 gamma.txt，γ 张量会自动从其中载入 (Perform unit sphere representation analysis of γ. Since gamma.txt already exists in current folder, γ tensor is automatically loaded from it)
 

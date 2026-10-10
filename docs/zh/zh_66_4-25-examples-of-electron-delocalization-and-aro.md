@@ -41,7 +41,14 @@
 
 你应首先为当前体系准备一个标准的Gaussian单点任务输入文件，它将作为后续的模板输入文件。该文件已作为examples\ICSS\benzene.gjf提供，其中几何结构已在合理水平下优化过。
 
-启动Multiwfn并输入以下命令 examples\ICSS\benzene.gjf // 注意分子平面在XY平面内 25 // 电子离域与芳香性分析(Electron delocalization and aromaticity analyses) 3 // 生成ICSS或相关量的格点数据(Generate grid data of ICSS or related quantities) 1 // 低质量格点，后续将由Gaussian计算130910个点处的磁屏蔽张量。使用“中等质量格点”可以得到更光滑的图，但计算会昂贵得多。注意默认的外延距离是12 Bohr，这通常已经足够大
+启动Multiwfn并输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ICSS\benzene.gjf** — 注意分子平面在XY平面内
+    - **25** — 电子离域与芳香性分析(Electron delocalization and aromaticity analyses)
+    - **3** — 生成ICSS或相关量的格点数据(Generate grid data of ICSS or related quantities)
+    - **1** — 低质量格点，后续将由Gaussian计算130910个点处的磁屏蔽张量。使用“中等质量格点”可以得到更光滑的图，但计算会昂贵得多。注意默认的外延距离是12 Bohr，这通常已经足够大
 
 n // 不要跳过生成Gaussian输入文件的步骤，因为这是我们第一次进行分析，因此目前手头还没有Gaussian输入/输出文件
 
@@ -91,7 +98,10 @@ n // 不要跳过生成Gaussian输入文件的步骤，因为这是我们第一�
 
 我们首先绘制X=0的YZ平面内的ICSSZZ填充色图。该平面垂直于苯并经过C4-H10和C1-H7。将`settings.ini`中的“iuserfunc”设为-3，然后启动一个新的Multiwfn实例并输入以下命令
 
-ICSSZZ.cub 4 // 绘制平面图(Plot plane map) 100 // 用户自定义函数(User-defined function)，此时对应通过B样条算法对ICSSZZ.cub格点数据插值得到的函数
+!!! terminal "Multiwfn 交互"
+
+    - **ICSSZZ.cub 4** — 绘制平面图(Plot plane map)
+    - **100** — 用户自定义函数(User-defined function)，此时对应通过B样条算法对ICSSZZ.cub格点数据插值得到的函数
 
 !!! terminal "Multiwfn 交互"
 
@@ -99,7 +109,23 @@ ICSSZZ.cub 4 // 绘制平面图(Plot plane map) 100 // 用户自定义函数(Use
     - **0** — 设置图的扩展距离(Set extension distance of the plot)
     - **8** — 8 Bohr 3
 
-X=0 现在图形弹出，关闭它然后输入 4 // 显示原子标签(Show atom labels) 3 // 蓝色(Blue) 1 // 改变色标上下限(Change lower and upper limit of color scale) -60,60 2 // 显示等值线(Enable showing contour lines) -2 // 设置X、Y和色标轴的标签间隔(Set label interval in X, Y and color scale axes) 3,3,10 19 // 设置颜色过渡(Set color transition) 8 // 蓝-白-红(Blue-White-Red) -1 // 重新绘制(Replot the map) 现在你可以看到下图
+X=0 现在图形弹出，关闭它然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **4** — 显示原子标签(Show atom labels)
+    - **3** — 蓝色(Blue) 1
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 显示等值线(Enable showing contour lines)
+    - **-2** — 设置X、Y和色标轴的标签间隔(Set label interval in X, Y and color scale axes)
+    - **3,3,10** — 19
+
+!!! terminal "Multiwfn 交互"
+
+    - **8** — 蓝-白-红(Blue-White-Red)
+    - **-1** — 重新绘制(Replot the map) 现在你可以看到下图
 
 <!-- p.994 -->
 
@@ -159,7 +185,13 @@ HOMA是基于几何均等化最常用的芳香性指数，详见第3.28.6节。�
 
 由于HOMA计算只需要分子坐标，你可以直接使用如.pdb和.xyz作为输入文件。当然，其它包含分子坐标的文件，如.wfn和.fch文件也是可以的。本例中的几何结构是在B3LYP/6-31G*水平下优化的。
 
-启动Multiwfn并输入以下命令 examples/phenanthrene.pdb 25 // 电子离域与芳香性分析(Electron delocalization and aromaticity analyses) 6 // 计算HOMA和Bird芳香性指数(Calculate HOMA and Bird aromaticity index) 0 // 开始计算(Start the calculation) 你将看到打印出默认参数，它们取自J. Chem. Inf. Comput. Sci., 33, 70 (1993)，你也可以在计算前通过选项1自行修改这些参数。
+启动Multiwfn并输入以下命令 examples/phenanthrene.pdb
+
+!!! terminal "Multiwfn 交互"
+
+    - **25** — 电子离域与芳香性分析(Electron delocalization and aromaticity analyses)
+    - **6** — 计算HOMA和Bird芳香性指数(Calculate HOMA and Bird aromaticity index)
+    - **0** — 开始计算(Start the calculation) 你将看到打印出默认参数，它们取自J. Chem. Inf. Comput. Sci., 33, 70 (1993)，你也可以在计算前通过选项1自行修改这些参数。
 
 现在我们输入我们感兴趣的环中的原子序号，我们先计算中心环的HOMA，因此输入3,4,8,9,10,7，输入顺序必须与原子连接顺序一致。你将立即得到如下所示的结果
 
@@ -346,7 +378,11 @@ Multiwfn还在当前文件夹中导出了FiPC-NICS.txt，各列含义在屏幕�
 
 在B3LYP/6-31G*水平下优化的结构是examples\NICS_scan\coronene.pdb。分子恰好为平面并位于Z=0的XY平面上。
 
-启动Multiwfn并输入以下命令 examples\NICS_scan\coronene.pdb 25 //电子离域与芳香性分析(Electron delocalization and aromaticity analyses) 14 //NICS二维扫描平面图(NICS-2D scan plane map) 1 //填充色图(Color-filled map) [直接按回车键] //使用默认格点数（100*100）(Using default number of grid points) 0 //设置外延距离(Set extension distance) 1 // 1 Bohr 1 //XY平面(XY plane) 1a //Z = 1Å 1 //用于NICS二维扫描的Gaussian输入文件(Gaussian input file for NICS-2D scanning) examples\NICS_scan\template_NMR.gjf //Gaussian的NMR任务模板输入文件(Template input file of NMR task of Gaussian)，用于生成NICS二维扫描的Gaussian输入文件。该文件中的[geometry]行将被扫描点的坐标替换，其它部分保持不变
+启动Multiwfn并输入以下命令 examples\NICS_scan\coronene.pdb 25 //电子离域与芳香性分析(Electron delocalization and aromaticity analyses) 14 //NICS二维扫描平面图(NICS-2D scan plane map) 1 //填充色图(Color-filled map) [直接按回车键] //使用默认格点数（100*100）(Using default number of grid points) 0 //设置外延距离(Set extension distance)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 1 Bohr 1 //XY平面(XY plane) 1a //Z = 1Å 1 //用于NICS二维扫描的Gaussian输入文件(Gaussian input file for NICS-2D scanning) examples\NICS_scan\template_NMR.gjf //Gaussian的NMR任务模板输入文件(Template input file of NMR task of Gaussian)，用于生成NICS二维扫描的Gaussian输入文件。该文件中的[geometry]行将被扫描点的坐标替换，其它部分保持不变
 
 当前文件夹中已生成NICS_2D.gjf，你可根据实际情况适当修改它。用Gaussian运行它，输出文件是examples\NICS_scan\coronene_NICS_2D.out。
 

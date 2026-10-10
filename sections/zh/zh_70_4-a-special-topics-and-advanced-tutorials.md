@@ -81,7 +81,11 @@ DA adduction
 
 IRCsplit.exe 是一个用于为 Gaussian 的 IRC 和 SCAN 任务的每个点生成 .wfn/.chk 文件的工具，IRCsplit.f90 是相应的源代码，用它可以编译出 Linux 版的 IRCsplit。用鼠标双击图标启动 IRCsplit.exe，然后输入
 
-DA_IRC.out //IRC 任务的输出文件 DA_SP.gjf //用于生成单点输入文件的模板文件 2 //只生成 .chk 文件 C:\DA_IRCchk\DA //最终生成的 .chk 文件的路径和前缀 18,13 // 程序检测到在 DA_IRC.out 中 IRC 两个方向上分别有 18 和 13 个点。这里将它们与过渡态点一起全部提取
+DA_IRC.out //IRC 任务的输出文件 DA_SP.gjf //用于生成单点输入文件的模板文件 2 //只生成 .chk 文件 C:\DA_IRCchk\DA //最终生成的 .chk 文件的路径和前缀
+
+!!! terminal "Multiwfn 交互"
+
+    - **18,13** — 程序检测到在 DA_IRC.out 中 IRC 两个方向上分别有 18 和 13 个点。这里将它们与过渡态点一起全部提取
 
 现在你可以在当前文件夹中找到 DA_SP0001.gjf、DA_SP0002.gjf ... DA_SP0032.gjf。请手动检查其中一个，以确认这些输入文件的合理性。注意 DA_SP0014.gjf 对应于过渡态几何结构。
 
@@ -91,7 +95,12 @@ DA_IRC.out //IRC 任务的输出文件 DA_SP.gjf //用于生成单点输入文�
 
 3 计算所有 IRC 点的 Mayer 键级 我们特别感兴趣的是 C1-C16 的 Mayer 键级，它的形成是 DA 加成的关键过程。由于默认情况下 Multiwfn 只输出数值 > 0.05 的 Mayer 键级，而在 DA 加成的初始阶段 C1-C16 必然非常弱，我们需要把 Multiwfn 文件夹中 `settings.ini` 文件里的 "bndordthres" 参数设为 0.0，这样所有大于 0.0 的键级都能被输出。
 
-写一个纯文本文件（MBObatch.txt）并放入 Multiwfn 文件夹，内容为 9 // 进入键级分析模块 (Enter bond order analysis module) 1 // 计算 Mayer 键级 (Calculate Mayer bond order) 注：如果你不明白为什么这个文件要这样写，请阅读 5.2 节以学习如何在静默模式下运行 Multiwfn。
+写一个纯文本文件（MBObatch.txt）并放入 Multiwfn 文件夹，内容为
+
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 进入键级分析模块 (Enter bond order analysis module)
+    - **1** — 计算 Mayer 键级 (Calculate Mayer bond order) 注：如果你不明白为什么这个文件要这样写，请阅读 5.2 节以学习如何在静默模式下运行 Multiwfn。
 
 然后再写一个带 .bat 后缀的纯文本文件（MBObatchrun.bat）并放入 Multiwfn 文件夹，内容应为
 
@@ -587,7 +596,10 @@ Sum of occupation numbers of selected orbitals:    0.628552
 
 此值即为奇电子总数，它也对应于 OED 在全空间的积分。它可用作电子相关的度量。然后输入
 
-q // 返回 (Return) -1 // 返回主菜单 (Return to main menu) 然后我们用通常的方式输入以下命令绘制电子密度的等值面图。由于当前轨道占据数已被转换为 min(2-nk, nk)，所得图即对应于 OED 图
+!!! terminal "Multiwfn 交互"
+
+    - **q** — 返回 (Return)
+    - **-1** — 返回主菜单 (Return to main menu) 然后我们用通常的方式输入以下命令绘制电子密度的等值面图。由于当前轨道占据数已被转换为 min(2-nk, nk)，所得图即对应于 OED 图
 
 !!! terminal "Multiwfn 交互"
 
@@ -717,7 +729,12 @@ Summing up all value and multiply differential element:
 
 由于Multiwfn的设计非常灵活，还可以得到基函数、壳层、角动量、原子、碎片对NFOD的贡献。下面，我说明如何用Mulliken布居分析实现这一目的(其它许多布居方法如Löwdin和Hirshfeld同样可行)。在Multiwfn主菜单中，我们直接输入fod以按FOD公式变换轨道占据数，然后从屏幕上可发现NFOD为0.139077，它对应于当前(变换后)轨道占据数之和。从现在起，按通常步骤研究电子密度就等价于研究FOD。
 
-接下来，我们输入7 // 布居分析(Population analysis) 5 // Mulliken分析(Mulliken analysis) 1 // 在屏幕上输出Mulliken布居和原子电荷(Output Mulliken population and atomic charges on screen) 此时可以看到以下信息，布居数正对应于原子对NFOD的贡献。此时的“净电荷(Net charge)”没有意义。可以看到此体系的静态相关主要来自N1和O2，其次是O3，这与等值面图完全一致
+接下来，我们输入7 // 布居分析(Population analysis)
+
+!!! terminal "Multiwfn 交互"
+
+    - **5** — Mulliken分析(Mulliken analysis)
+    - **1** — 在屏幕上输出Mulliken布居和原子电荷(Output Mulliken population and atomic charges on screen) 此时可以看到以下信息，布居数正对应于原子对NFOD的贡献。此时的“净电荷(Net charge)”没有意义。可以看到此体系的静态相关主要来自N1和O2，其次是O3，这与等值面图完全一致
 
 
 ```text
@@ -854,7 +871,14 @@ Total correlation index:       1.57626103
 
 现在运行orca_2json H2CO.gbw，然后在当前文件夹中会得到H2CO.json。
 
-启动Multiwfn并输入H2CO.molden.input // 输入实际路径(Input actual path) 1000 // 主功能1000(隐藏功能)(Main function 1000 (a hidden function)) 98 // 基于ORCA程序输出的密度矩阵产生自然轨道(Generate natural orbitals based on density matrix outputted by ORCA program) H2CO.json // 输入实际路径(Input actual path) autocipre // json文件中待载入的1RDM标签(Label of the 1RDM to be loaded in the json file) 之后，Multiwfn载入1RDM并通过对角化产生自然轨道(NOs)，你可以在屏幕上看到各NO的占据数。接下来，我们输入y，Multiwfn会把NO导出到new.mwfn并载入。现在，内存中的波函数就是以NO表示的CCSD(T)波函数，你可以像往常一样做各种波函数分析，还可以
+启动Multiwfn并输入H2CO.molden.input // 输入实际路径(Input actual path)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1000** — 主功能1000(隐藏功能)(Main function 1000 (a hidden function))
+    - **98** — 基于ORCA程序输出的密度矩阵产生自然轨道(Generate natural orbitals based on density matrix outputted by ORCA program) H2CO.json
+
+json文件中待载入的1RDM标签(Label of the 1RDM to be loaded in the json file) 之后，Multiwfn载入1RDM并通过对角化产生自然轨道(NOs)，你可以在屏幕上看到各NO的占据数。接下来，我们输入y，Multiwfn会把NO导出到new.mwfn并载入。现在，内存中的波函数就是以NO表示的CCSD(T)波函数，你可以像往常一样做各种波函数分析，还可以
 
 
 <!-- p.1109 -->
@@ -1198,7 +1222,12 @@ $$V_{aa^{\prime},bb^{\prime}}^{A,B}\approx\sum_{I\in A}\sum_{J\in B}\frac{q_{a,a
     - **7** — 布居分析(Population analysis)
     - **11** — ADCH电荷(一般推荐此种电荷)(ADCH charge (this type of charge is generally recommended)) 1 y
 
-其它功能(第一部分)(Other functions (Part 1)) 2 // 导出新文件(Export new file) 1 // 新文件格式为.pqr(The format of the new file is .pqr) polyyne.pqr 现在当前文件夹中有polyyne.pqr。.pqr格式与流行的.pdb格式很相似，主要区别在于.pqr格式中最后两列专门记录原子电荷和原子半径。在当前文件中，原子电荷对应于聚炔ADCH电荷，而原子半径对应于Bondi范德华半径。
+其它功能(第一部分)(Other functions (Part 1))
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 导出新文件(Export new file)
+    - **1** — 新文件格式为.pqr(The format of the new file is .pqr) polyyne.pqr 现在当前文件夹中有polyyne.pqr。.pqr格式与流行的.pdb格式很相似，主要区别在于.pqr格式中最后两列专门记录原子电荷和原子半径。在当前文件中，原子电荷对应于聚炔ADCH电荷，而原子半径对应于Bondi范德华半径。
 
 .pqr文件可被VMD识别。我们启动VMD，再把polyyne.pqr拖入VMD主窗口载入。之后，修改绘图设置：
 
@@ -1781,7 +1810,12 @@ cub2iso 0.02：将两个等值面的等值都改为 0.02。cub2 f+ f- 0.02：相
 
 
 
-5 // 计算格点数据 5 // 自旋布居 3 // 高质量格点 2 // 把格点数据导出为当前文件夹中的 spindensity.cub 现在，把 spindensity.cub 移动到 VMD 文件夹，启动 VMD 并在 VMD 控制台窗口中输入 cub spindensity 0.01，你会看到等值为 0.01 的该 cube 文件的等值面图已显示在图形窗口中。
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 计算格点数据
+    - **5** — 自旋布居
+    - **3** — 高质量格点
+    - **2** — 把格点数据导出为当前文件夹中的 spindensity.cub 现在，把 spindensity.cub 移动到 VMD 文件夹，启动 VMD 并在 VMD 控制台窗口中输入 cub spindensity 0.01，你会看到等值为 0.01 的该 cube 文件的等值面图已显示在图形窗口中。
 
 为了获得更好的效果，在 VMD 中选择“文件(File)”—“渲染(Render)”—“Tachyon”，然后点击“开始渲染(Start Rendering)”，你会发现 VMD 文件夹中出现了 vmdscene.dat。现在双击 VMDrender_full.bat，它将以 vmdscene.dat 作为 Tachyon 渲染的输入文件，在当前文件夹中生成名为 full.bmp 的图像文件。得到的图形如下所示，质量显然非常好！
 

@@ -39,7 +39,11 @@ Boot up Multiwfn and input examples\coal.pdb
     - **1** — Gaussian function
     - **1.8** — FWHM of Gaussian function is 1.8 times of vdW radius, which is found to be able to result in satisfactory isosurface map of smoothed grid data for present system
 
-1 // Set grid and start calculation [Press ENTER button] // Use default origin (0,0,0), which is suitable for present system [Press ENTER button] // Use default box lengths, which correspond to the lengths of the three
+!!! terminal "Multiwfn session"
+
+    - **1** — Set grid and start calculation
+    - **[Press ENTER button]** — Use default origin (0,0,0), which is suitable for present system
+    - **[Press ENTER button]** — Use default box lengths, which correspond to the lengths of the three
 
 
 ![](../imgs/p1067_584.png)
@@ -144,7 +148,10 @@ STO  4:    1.000000E+00    1.000000E+00
 
 The initial parameters look reasonable. Then input below commands
 
-0 // Return to upper level of menu 1 // Start fitting By default, 4000 evenly distributed points with spacing of 0.001 Å are used for fitting, clearly they cover radial range of r = 0-4 Å. If you have carefully read Section 3.300.2, you will find the outputted information during the fitting is quite easy to understand. The second half of the output is shown below
+!!! terminal "Multiwfn session"
+
+    - **0** — Return to upper level of menu
+    - **1** — Start fitting By default, 4000 evenly distributed points with spacing of 0.001 Å are used for fitting, clearly they cover radial range of r = 0-4 Å. If you have carefully read Section 3.300.2, you will find the outputted information during the fitting is quite easy to understand. The second half of the output is shown below
 
 
 ```text
@@ -279,7 +286,12 @@ Clearly, the fitting procedure illustrated in this section is quite ideal when y
 
 By the way, from the parameters of the fitted GTF functions shown earlier, you can find GTF 3 and GTF 4 have almost identical exponent, that means they can be combined as a single GTF to reduce the parameters. To do so, we input
 
-0 // Return 3 // Check or set initial guess of coefficients and exponents. Then from screen you can find the parameters we fitted earlier
+!!! terminal "Multiwfn session"
+
+    - **0** — Return
+    - **3** — Check or set initial guess of coefficients and exponents.
+
+Then from screen you can find the parameters we fitted earlier
 
 !!! terminal "Multiwfn session"
 
@@ -313,13 +325,23 @@ examples\phenanthrene.fch 6 // Check & modify wavefunction
     - **33** — Rotate wavefunction, namely X→Y, Y→Z, Z→X
     - **0** — Rotate all orbitals y
 
-Rotate wavefunction again 0 // Rotate all orbitals y // Also rotate molecule structure Now the phenanthrene has exactly been on XY plane of Z=0 Å (you can check this point via main function 0). Then we enter main function 100, choose subfunction 2 and then select corresponding option to export the present wavefunction to a new .mwfn file. In the next sections, this new file will be referred to as mol.mwfn.
+Rotate wavefunction again
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Rotate all orbitals
+    - **y** — Also rotate molecule structure
+
+Now the phenanthrene has exactly been on XY plane of Z=0 Å (you can check this point via main function 0). Then we enter main function 100, choose subfunction 2 and then select corresponding option to export the present wavefunction to a new .mwfn file. In the next sections, this new file will be referred to as mol.mwfn.
 
 4.300.4.1 Simulating constant height STM image for phenanthrene
 
 Here we simulate STM image of constant height mode for phenanthrene. Boot up Multiwfn and input
 
-mol.mwfn 300 // Other function (Part 3) 4 // Simulating STM image From the message on screen, it can be seen that the Fermi level ($E_F$) has been set to average of HOMO energy and LUMO energy, the bias voltage (V) has been automatically set to the difference between HOMO energy and EF, in this case only HOMO can contribute to the STM image. In order to obtain expected STM image, it is crucial to properly define the V. In the case of negative V, electrons flow from sample to STM tip, and the more negative the V, the more MOs may contribute to the STM image. Also, note that the distance between the atoms in the sample and the tip significantly affects STM image. From the information on option 7 you can find the default Z coordinate of the plane to be plotted is 0.7 Å. Since all atoms in the mol.mwfn have Z coordinate of
+!!! terminal "Multiwfn session"
+
+    - **mol.mwfn 300** — Other function (Part 3)
+    - **4** — Simulating STM image From the message on screen, it can be seen that the Fermi level ($E_F$) has been set to average of HOMO energy and LUMO energy, the bias voltage (V) has been automatically set to the difference between HOMO energy and EF, in this case only HOMO can contribute to the STM image. In order to obtain expected STM image, it is crucial to properly define the V. In the case of negative V, electrons flow from sample to STM tip, and the more negative the V, the more MOs may contribute to the STM image. Also, note that the distance between the atoms in the sample and the tip significantly affects STM image. From the information on option 7 you can find the default Z coordinate of the plane to be plotted is 0.7 Å. Since all atoms in the mol.mwfn have Z coordinate of
 
 0 Å, the distance between the nuclei and the tip is 0.7 − 0.0 = 0.7 Å. In this example, we will plot STM image with V= -5.0 V at Z=1.2 Å.
 
@@ -374,7 +396,10 @@ In this section we again plot STM image for phenanthrene but using constant curr
 
 <!-- p.1077 -->
 
-2 // Set bias voltage -5 // Again we use bias voltage of -5.0 V In the constant current mode, LDOS is calculated for every evenly distributed point in a 3D region, whose X, Y and Z range can be set by options 5, 6 and 7, respectively, usually the default setting is appropriate. We directly choose option 0 to start the calculation, from the information on screen you can find the maximal value of LDOS in the calculated region is 0.048 a.u.
+!!! terminal "Multiwfn session"
+
+    - **2** — Set bias voltage
+    - **-5** — Again we use bias voltage of -5.0 V In the constant current mode, LDOS is calculated for every evenly distributed point in a 3D region, whose X, Y and Z range can be set by options 5, 6 and 7, respectively, usually the default setting is appropriate. We directly choose option 0 to start the calculation, from the information on screen you can find the maximal value of LDOS in the calculated region is 0.048 a.u.
 
 In the post-processing menu, you can find several options, we first use option 1 to visualize isosurface map of tunneling current, which corresponds to LDOS in the present context. The isosurface corresponding to LDOS=0.015 a.u. is shown below. Note that although the choice of isovalue is arbitrary, it should be between 0 and the maximum value (0.048 a.u. in this example)
 
@@ -422,7 +447,12 @@ If you want to further investigate the STM plane map with other constant current
 
 As described in Section 3.300.5, Multiwfn is able to analytically calculate electric dipole moment, quadrupole, octopole, hexadecapole moments and electronic spatial extent <r2>. In this section we calculate these quantities for a simple molecule, uracil.
 
-Boot up Multiwfn and input examples\uracil.wfn 300 // Other function (Part 3) 5 // Calculate electric dipole moment and multipole moments The calculation is quite fast, you will immediately see the following information, which is very easy to understand if you have read Section 3.300.5. As clearly indicated on screen, the unit is a.u. unless otherwise specified.
+Boot up Multiwfn and input examples\uracil.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **300** — Other function (Part 3)
+    - **5** — Calculate electric dipole moment and multipole moments The calculation is quite fast, you will immediately see the following information, which is very easy to understand if you have read Section 3.300.5. As clearly indicated on screen, the unit is a.u. unless otherwise specified.
 
 
 ```text
@@ -515,9 +545,16 @@ eigenvalue contributes 99.2% to this excitation, namely the S0→S1 excitation c
 
 Next, we generate a file containing Kohn-Sham matrix of present system, see Section 3.100.17 for details. Boot up Multiwfn and input
 
-examples\excit\D-pi-A.fchk 100 // Other functions (Part 1) 17 // Generate Fock/KS matrix based on orbital energies and coefficients KS.txt Now the KS.txt in current folder contains the Kohn-Sham matrix converted back from the energies and coefficients of molecular orbitals in the D-pi-A.fchk.
+!!! terminal "Multiwfn session"
 
-Finally, we calculate energies of the NTO orbitals. Boot up Multiwfn and input NTO.mwfn 300 // Other functions (Part 3)
+    - **examples\excit\D-pi-A.fchk 100** — Other functions (Part 1)
+    - **17** — Generate Fock/KS matrix based on orbital energies and coefficients KS.txt Now the KS.txt in current folder contains the Kohn-Sham matrix converted back from the energies and coefficients of molecular orbitals in the D-pi-A.fchk.
+
+Finally, we calculate energies of the NTO orbitals. Boot up Multiwfn and input NTO.mwfn
+
+!!! terminal "Multiwfn session"
+
+    - **300** — Other functions (Part 3)
 
 
 <!-- p.1081 -->
@@ -572,7 +609,12 @@ projection map for molecules and solids" (http://sobereva.com/589).
 
 Please read Section 3.300.8 first to gain basic knowledge about the molecular surface distance projection map. In this section, [Ru(bpy)3]2+ will be taken as an example to show how to plot this kind of map. The examples\excit\Ru(bpy3)2+.gjf contains optimized geometry of this system, therefore it will be used as input file (of course, you can also use file in other formats such as .xyz, .pdb and .mol2 as input file). The system is already in an appropriate orientation for studying burying of Ru atom by the ligands, see below figure. If the current orientation is not suitable for plotting this map, you should use molecular visualization softwares such as GaussView to rotate it.
 
-Boot up Multiwfn and input examples\excit\Ru(bpy3)2+.gjf 300 // Other functions (Part 3) 8 // Plot molecular surface distance projection map This time we do not alter any default setting, but simply select option 0 to start calculation. In this case, the molecular surface is defined as isosurface of promolecular electron density of 0.05 a.u.
+Boot up Multiwfn and input examples\excit\Ru(bpy3)2+.gjf
+
+!!! terminal "Multiwfn session"
+
+    - **300** — Other functions (Part 3)
+    - **8** — Plot molecular surface distance projection map This time we do not alter any default setting, but simply select option 0 to start calculation. In this case, the molecular surface is defined as isosurface of promolecular electron density of 0.05 a.u.
 
 Once the calculation is finished, you will enter an interface for plotting plane map. We directly choose option 0 to show the map on screen, you will see
 

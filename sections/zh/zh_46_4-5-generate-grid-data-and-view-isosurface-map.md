@@ -106,7 +106,10 @@ ELF-π分析π离域的非常好的例子：Theor. Chem. Acc., 139, 25 (2020)和
 
 为了分离σ和π轨道，我们首先需要知道哪些轨道是π轨道。启动Multiwfn并输入以下命令
 
-examples\benzene.wfn // 在B3LYP/6-311G*水平下优化(Optimized at B3LYP/6-311G* level) 0 // 查看分子轨道(View molecular orbitals (MOs)) 现在依次检查每个MO的轨道形状，我们发现第17、20和21个MO是π轨道，
+!!! terminal "Multiwfn 交互"
+
+    - **examples\benzene.wfn** — 在B3LYP/6-311G*水平下优化(Optimized at B3LYP/6-311G* level)
+    - **0** — 查看分子轨道(View molecular orbitals (MOs)) 现在依次检查每个MO的轨道形状，我们发现第17、20和21个MO是π轨道，
 
 如下所示。所有其它MO都被认定为σ轨道。
 
@@ -132,7 +135,10 @@ examples\benzene.wfn // 在B3LYP/6-311G*水平下优化(Optimized at B3LYP/6-311
 
 已变为零，即它们在后续计算的所有结果中将没有贡献（All other orbitals...）
 
-q // 返回上一级菜单（Return to last menu） -1 // 返回主菜单（Return to main menu） 对于此体系，事实上还有一种更方便的方法把除π轨道之外的所有轨道的占据数设为零。步骤是：进入主功能100的子功能22，选择0，则所有π轨道将被自动识别，然后选择1把所有其它轨道的占据数设为零(若体系中涉及硅等较重元素则选择选项3)。最后，选择0返回主菜单。关于π轨道自动识别的更多细节见3.100.22节。
+!!! terminal "Multiwfn 交互"
+
+    - **q** — 返回上一级菜单（Return to last menu）
+    - **-1** — 返回主菜单（Return to main menu） 对于此体系，事实上还有一种更方便的方法把除π轨道之外的所有轨道的占据数设为零。步骤是：进入主功能100的子功能22，选择0，则所有π轨道将被自动识别，然后选择1把所有其它轨道的占据数设为零(若体系中涉及硅等较重元素则选择选项3)。最后，选择0返回主菜单。关于π轨道自动识别的更多细节见3.100.22节。
 
 研究ELF-π 研究ELF-π有两种方式，方式1是直接检查ELF等值面，而方式2是进行拓扑分析。方式1更直观，但不如方式2准确。这里我先说明方式1。像往常一样用主功能5生成并查看ELF的等值面(回顾4.5.1节。推荐使用高质量格点)。这次ELF等值面只反映π电子定域特征。通过逐渐增大等值，你会发现两个圆环形ELF域在约0.91的等值处分叉为十二个类球形域(见下图)，意味着苯的ELF-π指数约为0.91。
 
@@ -161,7 +167,10 @@ q // 返回上一级菜单（Return to last menu） -1 // 返回主菜单（Retu
 
 通过将此图与ELF等值面图比较，可以清楚看到(3,-1)临界点(橙色)是ELF域的分叉位置，而(3,-3)临界点(紫色)对应于十二个ELF域的极大值点。现在我们查看一个(3,-1)临界点处的ELF值，任选其一即可，因为它们都是等价的。
 
-7 // 显示一个临界点处的所有性质（Show all properties at a CP） 23 // 临界点23(CP23) 从输出中，我们发现临界点23处的ELF值，即苯的ELF-π指数为0.91247，这一结果与Chem. Phys. Lett., 443, 439 (2007)中给出的0.913值非常吻合，注意我们的计算水平与该论文完全相同。显然，该值超过了π芳香性的标准(0.70)，表明苯具有强的π芳香性。
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 显示一个临界点处的所有性质（Show all properties at a CP）
+    - **23** — 临界点23(CP23) 从输出中，我们发现临界点23处的ELF值，即苯的ELF-π指数为0.91247，这一结果与Chem. Phys. Lett., 443, 439 (2007)中给出的0.913值非常吻合，注意我们的计算水平与该论文完全相同。显然，该值超过了π芳香性的标准(0.70)，表明苯具有强的π芳香性。
 
 研究ELF-σ 现在我们计算苯的ELF-σ。重新启动Multiwfn并载入benzene.wfn，把MO 17、20和21的占据数设为零(用主功能100中的子功能22来做更方便)。然后像往常一样生成ELF的等值面，逐渐调节等值，试图找出
 
@@ -249,7 +258,10 @@ $$Radical~attack:f^{0}(\mathbf{r})=\frac{f^{+}(\mathbf{r})+f^{-}(\mathbf{r})}{2}
     - **0** — 设置自定义操作（Set custom operation）
     - **1** — 只有一个文件将与已载入的文件(即phenol.wfn)进行操作（Only one file will be operated with the file that has been loaded） -,examples\phenol_N-1.wfn
 
-1 // 电子密度（Electron density） 2 // 中等质量格点（Medium-quality grid） 现在Multiwfn开始计算phenol.wfn的电子密度格点数据，然后计算phenol_N-1.wfn的格点数据，最后求其差值以产生f −的格点数据。我们选择选项-1查看等值面，把等值调到合适的值(0.007)后，图形将为
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 电子密度（Electron density）
+    - **2** — 中等质量格点（Medium-quality grid） 现在Multiwfn开始计算phenol.wfn的电子密度格点数据，然后计算phenol_N-1.wfn的格点数据，最后求其差值以产生f −的格点数据。我们选择选项-1查看等值面，把等值调到合适的值(0.007)后，图形将为
 
 在图中，绿色和蓝色等值面分别对应f −的正值和负值区域。显然，f −函数最正的部分定域在O12、C1、C3、C4和C5上，这意味着羟基的对位和邻位是亲电进攻的有利活泼位点，这一结论与常识一致，即羟基是邻对位定位基。
 
@@ -257,7 +269,16 @@ $$Radical~attack:f^{0}(\mathbf{r})=\frac{f^{+}(\mathbf{r})+f^{-}(\mathbf{r})}{2}
 
 即f 0 = (ρN+1 − ρN-1)/2。当然，我们应产生对应于N+1状态和N-1状态的波函数文件。我们先优化中性状态的几何(examples\propylene\opt_N.gjf)，然后用此几何对N-1和N+1状态做单点任务以产生相应的.fch文件。
 
-启动Multiwfn并输入： examples\propylene\N+1.fch // N+1电子状态，即-1带电状态（N+1 electrons state） 5 // 计算格点数据（Calculate grid data） 0 // 设置自定义操作（Set custom operation） 1 // 有一个文件将与propylene-1.fch进行操作（One file will be operated with propylene-1.fch） -,examples\propylene\N-1.fch // N-1电子状态，即+1带电状态（N-1 electrons state） 1 // 电子密度（Electron density）
+启动Multiwfn并输入：
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\propylene\N+1.fch** — N+1电子状态，即-1带电状态（N+1 electrons state）
+    - **5** — 计算格点数据（Calculate grid data）
+    - **0** — 设置自定义操作（Set custom operation）
+    - **1** — 有一个文件将与propylene-1.fch进行操作（One file will be operated with propylene-1.fch）
+    - **-,examples\propylene\N-1.fch** — N-1电子状态，即+1带电状态（N-1 electrons state）
+    - **1** — 电子密度（Electron density）
 
 
 ![](../imgs/p549_163.png)
@@ -327,7 +348,14 @@ $$=[\rho_{N+1}(\mathbf{r})-\rho_{N}(\mathbf{r})]-[\rho_{N}(\mathbf{r})-\rho_{N-1
     - **3** — 有三个文件将与已载入的文件进行操作（Three files will be operated with the file that has been loaded） -,examples\phenol.wfn
     - **N电子体系（N electron system） -,examples\phenol.wfn** — N电子体系（N electron system） +,examples\phenol_N-1.wfn
 
-电子密度（Electron density） 2 // 中等质量格点（Medium-quality grid） -1 // 可视化对偶描述符的等值面（Visualize isosurface of dual descriptor） 对应于等值0.01的图如下所示
+电子密度（Electron density）
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 中等质量格点（Medium-quality grid）
+    - **-1** — 可视化对偶描述符的等值面（Visualize isosurface of dual descriptor）
+
+对应于等值0.01的图如下所示
 
 
 ![](../imgs/p551_165.png)
@@ -403,7 +431,17 @@ examples\MN-NN.gjf是MN-NN体系的Gaussian输入文件(几何已优化)，修�
     - **绘制平面图 0 2 -,MN.wfn -,NN.wfn 1 2** — 等高线图 [按 ENTER 键使用默认格点设置]
     - **4** — 由三个原子定义平面 16,14,9 等高线图会立即弹出。实线和虚线等高线分别表示电子密度增加和减少的位置。图中的等高线有点稀疏，因此我们调整等高线设置，使图形看起来更密，从而包含更多信息。关闭图形，然后输入
 
-3 // 更改等高线设置 9 // 用几何级数生成等高线值 0.0001,2,30 // 分别为起始值、步长和步数 y // 清除已有等高线 9 -0.0001,2,30 // 设置负值等高线 n // 将新生成的等高线追加到已有等高线中 1 // 保存设置并返回 -1 // 重新绘制图形 下面是最终的图形，看起来很漂亮！
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 更改等高线设置 9
+    - **用几何级数生成等高线值 0.0001,2,30** — 分别为起始值、步长和步数 y
+    - **清除已有等高线 9 -0.0001,2,30** — 设置负值等高线 n
+
+保存设置并返回
+
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 重新绘制图形 下面是最终的图形，看起来很漂亮！
 
 <!-- p.556 -->
 
@@ -420,9 +458,15 @@ examples\MN-NN.gjf是MN-NN体系的Gaussian输入文件(几何已优化)，修�
 
 启动Multiwfn并输入以下命令： examples\solvatedelectron.wfn // 在B3LYP/6-311++G(2d,2p)水平下优化的阴离子水二聚体
 
-5 // 计算格点数据 20 // EDR(r;d) 11.22 // 输入长度尺度d（Bohr）。这里我们考虑在d=11.22 Bohr时相对离域的溶剂化电子。更多细节见J. Chem. Phys., 141, 144104 (2014)。
+!!! terminal "Multiwfn 交互"
 
-2 // 中等质量格点 -1 // 显示等值面图
+    - **5** — 计算格点数据 20
+    - **EDR(r;d) 11.22** — 输入长度尺度d（Bohr）。这里我们考虑在d=11.22 Bohr时相对离域的溶剂化电子。更多细节见J. Chem. Phys., 141, 144104 (2014)。
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 中等质量格点
+    - **-1** — 显示等值面图
 
 ![](../imgs/p556_170.png)
 
@@ -439,11 +483,26 @@ examples\MN-NN.gjf是MN-NN体系的Gaussian输入文件(几何已优化)，修�
 
 本例将展示硫代甲酸的轨道重叠距离函数D(r)的计算过程，并将其映射到分子电子密度表面上。如果你对D(r)不熟悉，可以查看第2.6节条目21或J. Chem. Theory Comput., 12, 3185 (2016)。
 
-启动Multiwfn并输入以下命令： examples\ThioformicAcid.wfn // 在B3LYP/6-311++G(2d,2p)下优化的硫代甲酸 5 // 计算格点数据 21 // 轨道重叠长度函数D(r)，即对d最大化EDR(r;d) 现在我们需要设置EDR指数αi=1/di2的输入总数、起始值和增量，因为重叠距离是用均匀递变指数网格拟合的。起始值为最大指数（α1），后续指数由αi+1/αi = 1/αinc产生，其中αinc为增量。默认设置（即n=20，α1=2.50，αinc=1.50）对常见体系已足够。在选择手动输入（选项1）或默认设置（选项2）后，将出现一个指数列表，将用于D(r)的求值
+启动Multiwfn并输入以下命令：
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ThioformicAcid.wfn** — 在B3LYP/6-311++G(2d,2p)下优化的硫代甲酸
+    - **5** — 计算格点数据
+    - **21** — 轨道重叠长度函数D(r)，即对d最大化EDR(r;d)
+
+现在我们需要设置EDR指数αi=1/di2的输入总数、起始值和增量，因为重叠距离是用均匀递变指数网格拟合的。起始值为最大指数（α1），后续指数由αi+1/αi = 1/αinc产生，其中αinc为增量。默认设置（即n=20，α1=2.50，αinc=1.50）对常见体系已足够。在选择手动输入（选项1）或默认设置（选项2）后，将出现一个指数列表，将用于D(r)的求值
 
 2 // 中等质量格点 此时Multiwfn开始计算。等待计算完成后，选择选项2将D(r)的格点数据导出为当前文件夹下的EDRDmax.cub。下一步是生成分子密度等值面。
 
-0 // 返回主菜单 5 // 计算格点数据 1 // 电子密度 2 // 中等质量格点（格点设置必须与D(r)计算时相同） 然后通过选择选项2将电子密度的格点数据导出为当前文件夹下的density.cub。
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回主菜单
+    - **5** — 计算格点数据
+    - **1** — 电子密度
+    - **2** — 中等质量格点（格点设置必须与D(r)计算时相同）
+
+然后通过选择选项2将电子密度的格点数据导出为当前文件夹下的density.cub。
 
 基于EDRDmax.cub和density.cub，就可以用许多可视化程序（如VMD和GaussView）将D(r)格点数据映射到分子密度等值面上。下面
 

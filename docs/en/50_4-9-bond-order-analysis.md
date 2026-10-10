@@ -20,7 +20,12 @@ This instance exemplifies how to calculate Mayer bond order and fuzzy bond order
 
 Calculation of Mayer bond order We first calculate Mayer bond order. Note that calculating Mayer bond order requires basis function information, thus currently .mwfn/.fch/.molden/.gms file must be used as input file.
 
-Boot up Multiwfn and input: examples\CH3CONH2.fch 9 // Bond order analysis 1 // Calculate Mayer bond order Immediately you get below output:
+Boot up Multiwfn and input: examples\CH3CONH2.fch
+
+!!! terminal "Multiwfn session"
+
+    - **9** — Bond order analysis
+    - **1** — Calculate Mayer bond order Immediately you get below output:
 
 
 ```text
@@ -123,7 +128,10 @@ Boot up Multiwfn and input examples\CH3CONH2.fch
     - **9** — Bond order analysis
     - **1** — Calculate Mayer bond order y
 
-Return to main menu 1000 // Hidden main function 13 // Convert the bndmat.txt in current folder to Gaussian .gjf file with bond order information Now we have gau.gjf in the current folder, which not only contains present molecular coordinate, but also contains bond orders between the connected atoms (the connectivity is automatically guessed based on current geometry, unless you employ a file containing connectivity information as input file, such as .mol and .mol2, see Section 2.5 for detail).
+!!! terminal "Multiwfn session"
+
+    - **Return to main menu 1000** — Hidden main function
+    - **13** — Convert the bndmat.txt in current folder to Gaussian .gjf file with bond order information Now we have gau.gjf in the current folder, which not only contains present molecular coordinate, but also contains bond orders between the connected atoms (the connectivity is automatically guessed based on current geometry, unless you employ a file containing connectivity information as input file, such as .mol and .mol2, see Section 2.5 for detail).
 
 Load the gau.gjf into GaussView, select "Results" - "Bond Properties", then after proper adjustments, you can obtain below effect.
 
@@ -246,7 +254,15 @@ As can be seen, the result is almost completely identical to the one we obtained
 
 The Laplacian bond order (LBO) was proposed by me in J. Phys. Chem. A, 117, 3100 (2013), see Section 3.11.7 for detail. LBO is very suitable for organic system and has close correlation with bonding strength. Let us calculate LBO for C-C bond of ethane, ethene and acetylene.
 
-Boot up Multiwfn and input following commands examples\ethane.wfn // Optimized and produced at B3LYP/6-31G** 9 // Bond order analysis 8 // Laplacian bond order You will see the result:
+Boot up Multiwfn and input following commands:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\ethane.wfn** — Optimized and produced at B3LYP/6-31G**
+    - **9** — Bond order analysis
+    - **8** — Laplacian bond order
+
+You will see the result:
 
 
 ```text
@@ -307,7 +323,10 @@ Boot up Multiwfn and input below command: examples\H2CO_DMNAO.out
 
 <!-- p.625 -->
 
-9 // Bond order analysis 9 // Decompose Wiberg bond order in NAO basis Then you can input two atom indices to obtain their Wiberg bond order calculated under NAO basis, and meantime obtain major components (the threshold for printing components is controlled by "bndordthres" parameter in `settings.ini`). For example, we input 1,4, below result is immediately shown on screen:
+!!! terminal "Multiwfn session"
+
+    - **9** — Bond order analysis
+    - **9** — Decompose Wiberg bond order in NAO basis Then you can input two atom indices to obtain their Wiberg bond order calculated under NAO basis, and meantime obtain major components (the threshold for printing components is controlled by "bndordthres" parameter in `settings.ini`). For example, we input 1,4, below result is immediately shown on screen:
 
 
 ```text
@@ -523,7 +542,12 @@ Calculating AV1245 and AVmin in natural atomic orbital (NAO) basis In Multiwfn, 
 
 Here we calculate AV1245 and AVmin in NAO basis for the phenanthrene, in this case NBO output information with DMNAO keyword should be employed as input. The Gaussian input file involved in this example is exampes\phenanthrene_DMNAO.gjf, the corresponding output file is examples\phenanthrene_DMNAO.out. As you can see from the .gjf file, the NBO module embedded in Gaussian is invoked and DMNAO keyword is passed into NBO module.
 
-Boot up Multiwfn and input examples\phenanthrene_DMNAO.out 9 // Bond order analysis 11 // Calculate AV1245
+Boot up Multiwfn and input examples\phenanthrene_DMNAO.out
+
+!!! terminal "Multiwfn session"
+
+    - **9** — Bond order analysis
+    - **11** — Calculate AV1245
 
 
 ![](../imgs/p630_205.png)

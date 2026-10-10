@@ -239,7 +239,15 @@ Boot up Multiwfn and input examples\Li6.fch
 
 If you plot color-filled map of valence electron density for the Li6 via the steps illustrated in Section 4.6.2, you will immediately understand why there exists NNAs at center of the boundary Li triangles. From the graph below you can clearly see that at center of each boundary triangle there is indeed a maximum of electron density, this observation also implies presence of three-center bonds
 
-Next, we calculate population number of the AIM basins. Input below commands 7 // Integrate real space functions in AIM basins with mixed type of grids 2 // Integrate and meantime refine basin boundary 1 // Electron density During integrating the basins, calculation will pause three times and meantime you will find prompt like below on screen. This is because program does not know how to properly deal with the three NNAs, namely attractors 2, 4, 8:
+Next, we calculate population number of the AIM basins. Input below commands
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Integrate real space functions in AIM basins with mixed type of grids
+    - **2** — Integrate and meantime refine basin boundary
+    - **1** — Electron density
+
+During integrating the basins, calculation will pause three times and meantime you will find prompt like below on screen. This is because program does not know how to properly deal with the three NNAs, namely attractors 2, 4, 8:
 
 
 ```text
@@ -378,7 +386,10 @@ Part 3: Estimate basin properties Multiwfn is able to calculate integral of any 
 
 example, we calculate integral of electron density in every basin, now input
 
-2 // Integrate a real space function in the basins 1 // Electron density Soon, we get the integrals, namely the average electron population number in each basin:
+!!! terminal "Multiwfn session"
+
+    - **2** — Integrate a real space function in the basins
+    - **1** — Electron density Soon, we get the integrals, namely the average electron population number in each basin:
 
 
 ```text
@@ -466,7 +477,14 @@ Not only basin analysis module, but also topology analysis module of Multiwfn ca
 
 Note: Calculation speed of ESP grid data by cubegen utility in Gaussian package is significantly faster than that of internal code of Multiwfn. If you have Gaussian installed on your system and the input file is .fch/fchk, it is strongly suggested to set "cubegenpath" parameter in `settings.ini` to actual path of cubegen, then at the step of calculating ESP grid data in the basin analysis, cubegen will be automatically invoked by Multiwfn to evaluate ESP. More information about invoking cubegen can be found in Section 5.7.
 
-Basic steps of performing ESP basin analysis Boot up Multiwfn and input following commands: examples\H2O.fch // Optimized and produced at B3LYP/6-31G** level 17 // Basin analysis 1 // Select real space function used to partitioning basins 12 // ESP
+Basic steps of performing ESP basin analysis Boot up Multiwfn and input following commands:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\H2O.fch** — Optimized and produced at B3LYP/6-31G** level
+    - **17** — Basin analysis
+    - **1** — Select real space function used to partitioning basins
+    - **12** — ESP
 
 
 ![](../imgs/p788_327.png)
@@ -574,7 +592,15 @@ Then boot up Multiwfn and input ESP.cub // This file contains ESP grid data. Aft
 
 <!-- p.792 -->
 
-Exit GUI, then input following commands 2 // Integrate real space functions in the basins -1 // Use the grid data stored in external file as integrand density.cub // This file contains electron density grid data The result is very close to the one we obtained in Part 1 of present section. For example, the electron population number in negative ESP region we get here is 0.339*2=0.678, while the counterpart value we obtained earlier is 0.682.
+Exit GUI, then input following commands
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Integrate real space functions in the basins
+    - **-1** — Use the grid data stored in external file as integrand
+    - **density.cub** — This file contains electron density grid data
+
+The result is very close to the one we obtained in Part 1 of present section. For example, the electron population number in negative ESP region we get here is 0.339*2=0.678, while the counterpart value we obtained earlier is 0.682.
 
 At last, we select option 3 to calculate electric multipole moments for the basins. Because the cube file does not contain GTF (Gaussian type function) information, you will be prompted to input the path of a file containing GTF information of present system, so that electric multipole moments can be calculated. We input the path of the H2O.fch file, and then input -1, the electric multipole moments of all basins will be immediately outputted on screen.
 
@@ -671,7 +697,15 @@ From the information shown in the command-line window you can find the coordinat
     - **1** — Electron density
     - **2** — Medium-quality grid Enter GUI by choosing function 0, you will see
 
-Now we integrate source function in the AIM basins. Input following commands 7 // Integrate real space functions in AIM basins with mixed type of grids 1 // Integrate a specific function with atomic-center + uniform grids 19 // Source function The result is
+Now we integrate source function in the AIM basins. Input following commands
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Integrate real space functions in AIM basins with mixed type of grids
+    - **1** — Integrate a specific function with atomic-center + uniform grids
+    - **19** — Source function
+
+The result is
 
 
 ```text
@@ -705,8 +739,20 @@ The sum of the integrals is very close to the electron density at CP13 (0.276277
 Sometimes, the geometry of the system we studied is rather extended, for instance, polyyne $C_{14}H_{2}$, which can be formally illustrated as
 
 H1−C2≡C3−C4≡C5−C6≡C7−C8≡C9−C10≡C11−C12≡C13−C14≡C15−H16 If we are only interested in the electronic structure characteristic of local region in this system, by properly setting up grid, basin analysis can be conducted only for the interesting region rather than for the whole system to save computational time. As an example, in this section we will try to acquire electron population number in the ELF basin of V(C7,C8) and V(C8,C9) with minimum computational cost.
+Boot up Multiwfn and input following commands:
 
-Boot up Multiwfn and input following commands: examples\polyyne.wfn // Optimized and produced under B3LYP/6-31G* 17 // Basin analysis 1 // Generate basins and locate attractors 9 // ELF 8 // Set the grid by inputting center coordinate, grid spacing and box length a8 // Take the position of atom 8 as box center 0.08 // Grid spacing (Bohr) 10,10,8 // Box length in X, Y and Z directions (Bohr). Note that current molecule is aligned in Z-axis. Obviously, the larger the box, the longer the computational time must be spent. While the box should not be too small, otherwise the basins of interest may be truncated. Choosing appropriate box size highly relies on users' experience
+!!! terminal "Multiwfn session"
+
+    - **examples\polyyne.wfn** — Optimized and produced under B3LYP/6-31G*
+    - **17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **9** — ELF
+    - **8** — Set the grid by inputting center coordinate, grid spacing and box length
+    - **a8** — Take the position of atom 8 as box center
+    - **0.08** — Grid spacing (Bohr)
+    - **10,10,8** — Box length in X, Y and Z directions (Bohr).
+
+Note that current molecule is aligned in Z-axis. Obviously, the larger the box, the longer the computational time must be spent. While the box should not be too small, otherwise the basins of interest may be truncated. Choosing appropriate box size highly relies on users' experience
 
 After the calculation is finished, enter GUI by selecting option 0, you will see the graph shown at the right side. Clearly, only several attractors near C8 are located. Basin 5 and basin 21 correspond to V(C7,C8) and V(C8,C9), respectively. Notice that although attractors 1 and 6 are also located, due to their corresponding basins are not only large but also close to box boundaries, it can be expected basins 1 and 6 are severely truncated and hence studying them is meaningless.
 
@@ -741,9 +787,25 @@ First, we need to generate a cube file named basin.cub, whose grid value corresp
 
 Evidently, basin 5 corresponds to V(N,C), which is the one we will study. Then close the GUI and input
 
--5 // Export basin as cube file a // Export basin.cub in current folder Next, we generate AIM basins as usual, the grid setting must be exactly identical to basin.cub 1 // Regenerate basins 1 // Select real space function 1 // Electron density 9 // Use grid setting of another cube file, this is the safest way to ensure the grid data to be generated has the same grid setting as basin.cub
+!!! terminal "Multiwfn session"
 
-basin.cub 0 // Check attractors
+    - **-5** — Export basin as cube file
+    - **a** — Export basin.cub in current folder
+
+Next, we generate AIM basins as usual, the grid setting must be exactly identical to basin.cub
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Regenerate basins
+    - **1** — Select real space function
+    - **1** — Electron density
+    - **9** — Use grid setting of another cube file, this is the safest way to ensure the grid data to be generated has the same grid setting as basin.cub
+
+basin.cub
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Check attractors
 
 It is clear that the attractor index corresponding to N and C are 2 and 3, respectively. Then we evaluate atomic contribution to population of the basins defined in basin.cub
 
@@ -777,7 +839,17 @@ From the map above it can be seen that this method defines a region named high E
 
 region (i.e. outside vdW surface, which corresponds to ρ = 0.001 a.u.) and the region without clear chemical meaning (i.e. ELF < 0.5) are excluded.
 
-Now we use Multiwfn to calculate HELV and HELP for PH3. Boot up Multiwfn and input examples\PH3.wfn // Generated at M06-2X/def2-TZVPP level, optimized at the same level 17 // Basin analysis 1 // Generate basins and locate attractors 9 // ELF must be chosen to define basins if you intend to calculate HELP and HELV 2 // Medium-quality grid Now we select option 0 to check attractor indices:
+Now we use Multiwfn to calculate HELV and HELP for PH3. Boot up Multiwfn and input
+
+!!! terminal "Multiwfn session"
+
+    - **examples\PH3.wfn** — Generated at M06-2X/def2-TZVPP level, optimized at the same level
+    - **17** — Basin analysis
+    - **1** — Generate basins and locate attractors
+    - **9** — ELF must be chosen to define basins if you intend to calculate HELP and HELV
+    - **2** — Medium-quality grid
+
+Now we select option 0 to check attractor indices:
 
 From the map above, we can find attractor 5 corresponds to lone pair of the P atom.
 
@@ -939,7 +1011,16 @@ Number of  2-synaptic basins is     7, their indices:
 
 By comparing the automatically assigned basin labels and the graph in GUI window, you can confirm that the basins are indeed correctly labelled.
 
-Then input -5 // Export basins as cube file b // A special mode designed for plotting basin type colored ELF isosurfaces in VMD 10,11 // Indices of the monosynaptic basins, corresponding to the highlighted text above 1-5,8,9 // Indices of the disynaptic basins, corresponding to the highlighted text above Now basinsyn.cub and basinfunc.cub are exported in current folder. In basinsyn.cub, the values within the monosynaptic and disynaptic basins regions are -1 and 1, respectively, while all other regions have value of 0. The basinfunc.cub records the real space function used to generate basins, namely ELF in the present context.
+Then input
+
+!!! terminal "Multiwfn session"
+
+    - **-5** — Export basins as cube file
+    - **b** — A special mode designed for plotting basin type colored ELF isosurfaces in VMD
+    - **10,11** — Indices of the monosynaptic basins, corresponding to the highlighted text above
+    - **1-5,8,9** — Indices of the disynaptic basins, corresponding to the highlighted text above
+
+Now basinsyn.cub and basinfunc.cub are exported in current folder. In basinsyn.cub, the values within the monosynaptic and disynaptic basins regions are -1 and 1, respectively, while all other regions have value of 0. The basinfunc.cub records the real space function used to generate basins, namely ELF in the present context.
 
 Move the basinsyn.cub and basinfunc.cub as well as plotting script examples\scripts\basinsyn.vmd to VMD folder. Then boot up VMD, input source basinsyn.vmd to execute the script, you will see the following figure. The default isosurface is 0.8, and the regions corresponding to monosynaptic and disynaptic basins are colored by green and red, respectively, while other basins (corresponding to core basins in this example) are colored by white.
 

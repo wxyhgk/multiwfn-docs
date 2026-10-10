@@ -200,7 +200,10 @@ Transition metals Large Small L/S (optional) Small Small
 <!-- p.479 -->
 
 
--9 // 返回上一级菜单（Return to upper menu） 0 // 可视化结果（Visualize the result）
+!!! terminal "Multiwfn 交互"
+
+    - **-9** — 返回上一级菜单（Return to upper menu）
+    - **0** — 可视化结果（Visualize the result）
 
 从上图中可以看出，LOL 的临界点数量非常多。实际上，在搜索中仍有一些临界点尚未找到。如果你再重复搜索一次，可能会定位到一些缺失的临界点。由于目前我们感兴趣的所有临界点都已找到，因此无需重复搜索。在图中，每个紫色小球表示一个 (3,-3) 类型的临界点，代表电子定域性的局部极大值。可以看出，CP15 描述了两个碳之间的共价键。CP8 和 CP9 对应于两个 C-O 键。CP 7、57、12 和 13 对应于氧的孤对电子。
 
@@ -221,7 +224,18 @@ Transition metals Large Small L/S (optional) Small Small
     - **-11** — 选择实空间函数（Select a real space function）
     - **9** — ELF -1
 
-选择搜索算法（Choose searching algorithm） 3 // 最速上升（Steepest ascent） 0 // 返回（Return） 6 // 从球内一批点出发搜索临界点(Search CPs from a batch of points within sphere(s)) -1 // 依次以每个原子核为球心开始搜索（Start the search using each nucleus as sphere center in turn） -9 // 返回（Return） 0 // 可视化结果（Visualize result） 经过对绘图设置的一些调整后，你可以清楚地看到 ELF 的极大值：
+选择搜索算法（Choose searching algorithm）
+
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 最速上升（Steepest ascent）
+    - **0** — 返回（Return）
+    - **6** — 从球内一批点出发搜索临界点(Search CPs from a batch of points within sphere(s))
+    - **-1** — 依次以每个原子核为球心开始搜索（Start the search using each nucleus as sphere center in turn）
+    - **-9** — 返回（Return）
+    - **0** — 可视化结果（Visualize result）
+
+经过对绘图设置的一些调整后，你可以清楚地看到 ELF 的极大值：
 
 ![](../imgs/p480_087.png)
 
@@ -246,7 +260,12 @@ Multiwfn 支持的所有实空间函数都可以很容易地沿拓扑路径绘�
     - **8** — 生成键径（Generate bond path）
     - **0** — 进入图形界面窗口以可视化结果（Enter GUI window to visualize result） 点击图形界面窗口右侧的“原子标签（Atom labels）”和“路径标签（Path labels）”按钮，然后我们会发现路径 5 和 6 共同构成了端部 C-C 键的键径：
 
-点击“返回（RETURN）”关闭窗口，然后输入 -5 // 对路径的各种操作（Various operations on paths） 7 // 沿路径计算并绘制特定的实空间函数（Calculate and plot a specific real space function along a path）
+点击“返回（RETURN）”关闭窗口，然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **-5** — 对路径的各种操作（Various operations on paths）
+    - **7** — 沿路径计算并绘制特定的实空间函数（Calculate and plot a specific real space function along a path）
 
 ![](../imgs/p481_088.png)
 
@@ -255,7 +274,10 @@ Multiwfn 支持的所有实空间函数都可以很容易地沿拓扑路径绘�
 <!-- p.482 -->
 
 
-5,6 // 路径的序号（事实上，你也可以等价地在这里输入 c13） 100 // 自定义函数，目前对应于电子密度椭率(User-defined function, which corresponds to ellipticity of electron density currently)
+!!! terminal "Multiwfn 交互"
+
+    - **5,6** — 路径的序号（事实上，你也可以等价地在这里输入 c13）
+    - **100** — 自定义函数，目前对应于电子密度椭率(User-defined function, which corresponds to ellipticity of electron density currently)
 
 沿端部 C-C 键键径的电子密度椭率曲线立即显示在屏幕上，虚线表示键临界点的位置。在图中，左端和右端分别对应于 CP3 和 CP4。同时，曲线的原始数据显示在命令行窗口中，你可以将它们复制出来，以便在 Origin 等第三方绘图工具中进一步分析或重绘。
 
@@ -285,7 +307,13 @@ Multiwfn 能够在任意点将任何实空间函数分解为轨道贡献，主�
 
 如图所示，CP13 和 CP17 是端部 C-C 键的 BCP。关闭图形界面，然后输入
 
-7 // 显示临界点处的性质（Show properties at a CP） 13d // 分解 CP13 的性质（Decompose properties of CP13） 1 // 要分解的实空间函数为电子密度（The real space function to be decomposed is electron density） [按回车键（Press ENTER button）] // 将所有占据轨道都考虑在内，但只打印贡献最大的十个轨道(Take all occupied orbitals into account, but only print ten orbitals having largest contributions)
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 显示临界点处的性质（Show properties at a CP）
+    - **13d** — 分解 CP13 的性质（Decompose properties of CP13）
+    - **1** — 要分解的实空间函数为电子密度（The real space function to be decomposed is electron density）
+
+[按回车键（Press ENTER button）] // 将所有占据轨道都考虑在内，但只打印贡献最大的十个轨道(Take all occupied orbitals into account, but only print ten orbitals having largest contributions)
 
 你将看到以下输出
 
@@ -312,7 +340,13 @@ Multiwfn 能够在任意点将任何实空间函数分解为轨道贡献，主�
     - **1** — 仅定域占据轨道（Only localize occupied orbitals）
     - **2** — 再次进入拓扑分析功能（Enter topology analysis function again）。我们不需要重做拓扑分析，因为当你退出拓扑分析模块时，所有拓扑信息都被保留
 
-7 // 显示临界点处的性质（Show properties at a CP） 13d // 分解 CP13 的性质（Decompose properties of CP13） 1 // 要分解的实空间函数为电子密度（The real space function to be decomposed is electron density） [按回车键（Press ENTER button）] 你将看到
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 显示临界点处的性质（Show properties at a CP）
+    - **13d** — 分解 CP13 的性质（Decompose properties of CP13）
+    - **1** — 要分解的实空间函数为电子密度（The real space function to be decomposed is electron density）
+
+[按回车键（Press ENTER button）] 你将看到
 
 ```text
  Contribution from orbital    11 (occ= 2.000000):      0.339266 a.u. ( 98.95% )
@@ -353,7 +387,11 @@ Index               XYZ Coordinate (Bohr)                 Type
     - **-10** — 返回主菜单（Return to main menu）
     - **1** — 在给定点打印各种性质（Print various properties at a given point） d
 
-输入坐标的单位为 Bohr(The unit of inputted coordinate is Bohr) 1 // 分解电子密度（Decompose electron density） [按回车键（Press ENTER button）] 然后你将看到以下信息
+输入坐标的单位为 Bohr(The unit of inputted coordinate is Bohr)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 分解电子密度（Decompose electron density） [按回车键（Press ENTER button）] 然后你将看到以下信息
 
 ```text
  Contribution from orbital    11 (occ= 2.000000):      0.110266 a.u. ( 66.33% )
@@ -521,7 +559,12 @@ labcp [type] [label size] [offset in X] [offset in Y] “type”可以是“all�
 
 (3) 仅保留连接两个特定片段的键路径和相应的BCP 有时我们只想研究两个特定片段之间的片段间相互作用，并希望完全删除所有无关的键路径和BCP，以使图形更清晰。虽然你可以通过选项-1和-2中的相应子选项分别手动删除不需要的BCP和键路径，但该过程通常很繁琐。幸运的是，在Multiwfn中有一个专门用于实现此目的的特殊选项。下面我将说明如何仅保留连接片段1和3的键路径和相应的BCP，同时删除所有其它BCP和键路径。
 
-启动Multiwfn并输入 GCGC.wfn 2 // 拓扑分析（Topology analysis） 2 // 从核位置出发搜索临界点（Search CPs from nuclear positions）
+启动Multiwfn并输入 GCGC.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 拓扑分析（Topology analysis）
+    - **2** — 从核位置出发搜索临界点（Search CPs from nuclear positions）
 
 
 ![](../imgs/p490_101.png)
@@ -596,7 +639,14 @@ labcp [type] [label size] [offset in X] [offset in Y] “type”可以是“all�
 
 在上图中，蓝色和绿色小球分别对应负值部分的极小值和正值部分的极大值。显然它们的位置与我们的预期完全一致，而预期可从等值面图推断得出。
 
-然后关闭图形界面并输入 -4 // 将吸引子导出为pdb/pqr/txt/gjf文件（Export attractors as pdb/pqr/txt/gjf file） 3 // 将所有吸引子的坐标和函数值作为attractors.txt导出（Export coordinates and function values of all attractors as attractors.txt） 现在当前文件夹中有了attractors.txt，其中前三列对应吸引子以Bohr为单位的X、Y、Z坐标。现在我们用它们作为自旋密度拓扑分析的起始点。重新启动Multiwfn并输入
+然后关闭图形界面并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **-4** — 将吸引子导出为pdb/pqr/txt/gjf文件（Export attractors as pdb/pqr/txt/gjf file）
+    - **3** — 将所有吸引子的坐标和函数值作为attractors.txt导出（Export coordinates and function values of all attractors as attractors.txt）
+
+现在当前文件夹中有了attractors.txt，其中前三列对应吸引子以Bohr为单位的X、Y、Z坐标。现在我们用它们作为自旋密度拓扑分析的起始点。重新启动Multiwfn并输入
 
 !!! terminal "Multiwfn 交互"
 
@@ -639,7 +689,16 @@ H2O的变形密度为例
 
 0 // 返回主菜单（Return to main menu）
 
-- 进行盆分析以定位极大值和极小值 17 // 盆分析模块（Basin analysis module） 1 // 生成盆（Generate basins） 2 // 使用内存中的格点数据（Use grid data in memory） -4 // 导出结果（Export result） 3 // 将定位到的极大值和极小值的位置导出到当前文件夹的attractors.txt中（Export position of located maxima and minima to attractors.txt in current folder） -10 // 返回主菜单（Return to main menu）
+进行盆分析以定位极大值和极小值
+
+!!! terminal "Multiwfn 交互"
+
+    - **17** — 盆分析模块（Basin analysis module）
+    - **1** — 生成盆（Generate basins）
+    - **2** — 使用内存中的格点数据（Use grid data in memory）
+    - **-4** — 导出结果（Export result）
+    - **3** — 将定位到的极大值和极小值的位置导出到当前文件夹的attractors.txt中（Export position of located maxima and minima to attractors.txt in current folder）
+    - **-10** — 返回主菜单（Return to main menu）
 
 
 ![](../imgs/p494_106.png)
@@ -648,7 +707,12 @@ H2O的变形密度为例
 
 
 
-- 对变形密度进行拓扑分析 iu // 改变自定义函数（Change user-defined function） -3 // 如2.7节所述，自定义函数将对应于基于内存中格点数据经B样条算法插值得到的函数(User-defined function will correspond to interpolation function via B-spline algorithm based on the grid data in memory, as mentioned in Section 2.7)
+对变形密度进行拓扑分析
+
+!!! terminal "Multiwfn 交互"
+
+    - **iu** — 改变自定义函数（Change user-defined function）
+    - **-3** — 如2.7节所述，自定义函数将对应于基于内存中格点数据经B样条算法插值得到的函数(User-defined function will correspond to interpolation function via B-spline algorithm based on the grid data in memory, as mentioned in Section 2.7)
 
 !!! terminal "Multiwfn 交互"
 
@@ -686,7 +750,12 @@ H2O的变形密度为例
 
 -1 // 依次以每个原子核为球心开始搜索（Start the search using each nucleus as sphere center in turn）(我建议多次选择此选项，直到找不到新的临界点为止)
 
--9 // 返回（Return） 8 // 生成连接(3,-3)和(3,-1)型临界点的路径(Generating the paths connecting (3,-3) and (3,-1) CPs)。这一步完全是可选的，我只是做个演示)
+!!! terminal "Multiwfn 交互"
+
+    - **-9** — 返回（Return）
+    - **8** — 生成连接(3,-3)和(3,-1)型临界点的路径(Generating the paths connecting (3,-3) and (3,-1) CPs)
+
+这一步完全是可选的，我只是做个演示)
 
 当前在选项0中显示的临界点为
 
@@ -726,7 +795,11 @@ H2O的变形密度为例
     - **-11** — 选择实空间函数（Select real space function）
     - **12** — ESP 6
 
-设置每个球中的起始点数目（Set number of starting points in each sphere） 100 // 因为搜索ESP临界点相当耗时，我们使用比默认值小的值，通常这已足够(Because searching ESP CPs is quite expensive, we use a relatively small value than default, usually this is adequate)
+设置每个球中的起始点数目（Set number of starting points in each sphere）
+
+!!! terminal "Multiwfn 交互"
+
+    - **100** — 因为搜索ESP临界点相当耗时，我们使用比默认值小的值，通常这已足够(Because searching ESP CPs is quite expensive, we use a relatively small value than default, usually this is adequate)
 
 -1 // 依次以每个原子核为球心开始搜索（Start the search using each nucleus as sphere center in turn） 过一会儿，你可以发现已找到一批临界点(注意每次用此搜索模式能获得的临界点数目有一定随机性)：
 
@@ -803,7 +876,14 @@ Totally find     3 new critical points
     - **-11** — 选择实空间函数（Select real space function）
     - **12** — ESP -1
 
-选择搜索算法（Choose searching algorithm） 4 // 最速下降法（Steepest descent） 6 // 从球内的一批点出发搜索临界点(Search CPs from a batch of points within sphere(s)) 11 // 设置每个球中的起始点数目（Set the number of starting points in each sphere） 10 // 尽管每个中心10个起始点很少，但对大多数情况已足够(Although 10 starting points per center is small, it is adequate for most case)。与牛顿法不同，最速下降法的所有起始点都会收敛到极小值，因此需要的起始点数目较少(Unlike Newton method, all starting points of steepest descent method will converge towards to minima, therefore a smaller number of starting points is needed)
+选择搜索算法（Choose searching algorithm）
+
+!!! terminal "Multiwfn 交互"
+
+    - **4** — 最速下降法（Steepest descent）
+    - **6** — 从球内的一批点出发搜索临界点(Search CPs from a batch of points within sphere(s))
+    - **11** — 设置每个球中的起始点数目（Set the number of starting points in each sphere）
+    - **10** — 尽管每个中心10个起始点很少，但对大多数情况已足够(Although 10 starting points per center is small, it is adequate for most case)。与牛顿法不同，最速下降法的所有起始点都会收敛到极小值，因此需要的起始点数目较少(Unlike Newton method, all starting points of steepest descent method will converge towards to minima, therefore a smaller number of starting points is needed)
 
 (3) 使用联合方法定位ESP极小值 二茂铁是一个典型例子，说明最速下降法不适合定位其ESP极小值，因为如下所示，一些极小值出现在ESP非常狭窄的谷区，使得该方法的收敛非常困难。牛顿法在这种情况下效果更好，因为其振荡行为不那么突出；然而，如果你希望定位到所有ESP极小值，需要设置非常多的起始点，这使得计算代价非常高。这里，我说明盆分析和拓扑分析模块的联合使用以定位所有ESP极小值，这非常适合此体系。顺便说一下，4.17.3节给出了ESP盆分析的详细例子，建议你先看一下。
 
@@ -872,7 +952,11 @@ Totally find     3 new critical points
     - **-11** — 选择实空间函数（Select real space function）
     - **25** — vdW势（vdW potential） 如屏幕提示所示，用于定位临界点的算法已自动改为最速下降法（Steepest descent method），因为它最适合定位vdW势的极小值(the algorithm for locating CPs has been automatically changed to steepest descent method, because which is most suitable for locating minima of vdW potential)。
 
-然后输入 6 // 从球内的一批点出发搜索临界点(Search CPs from a batch of points within sphere(s))
+然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 从球内的一批点出发搜索临界点(Search CPs from a batch of points within sphere(s))
 
 
 ![](../imgs/p501_114.png)
@@ -920,7 +1004,14 @@ Totally find     3 new critical points
     - **-11** — 选择实空间函数（Select real space function）
     - **24** — 相互作用区域指示符(Interaction region indicator (IRI)) 现在如屏幕提示所示，临界点搜索方法已从默认的牛顿法自动改为最速下降法（Steepest descent method），这是因为牛顿法很难收敛到某些IRI极小值，不仅因为它们常出现在非常小而狭窄的凹区，还因为这些极小值周围的局部区域不呈现二次行为(你可以通过绘制IRI的曲线图来直观理解这一点)。在这种情况下最速下降法比牛顿法合适得多。从屏幕提示你还可以发现梯度收敛判据已被自动设为非常大的值以使其在判断收敛时的作用失效，这是因为由于IRI(和RDG)特殊的函数行为，用最速下降法几乎不可能非常精确地收敛到梯度足够小的位置。
 
-然后输入以下命令开始搜索临界点 6 // 从球内的一批点出发搜索临界点(Search CPs from a batch of points within sphere(s)) -1 // 依次以每个原子核为球心开始搜索（Start the search using each nucleus as sphere center in turn） 过一会儿，你会发现已定位到大量(3,+3)型临界点，即极小值。注意与默认的牛顿法能定位所有种类的临界点不同，这里用的最速下降法只定位极小值。然后输入0返回上一级菜单，并选择选项0来可视化结果，你将看到
+然后输入以下命令开始搜索临界点
+
+!!! terminal "Multiwfn 交互"
+
+    - **6** — 从球内的一批点出发搜索临界点(Search CPs from a batch of points within sphere(s))
+    - **-1** — 依次以每个原子核为球心开始搜索（Start the search using each nucleus as sphere center in turn）
+
+过一会儿，你会发现已定位到大量(3,+3)型临界点，即极小值。注意与默认的牛顿法能定位所有种类的临界点不同，这里用的最速下降法只定位极小值。然后输入0返回上一级菜单，并选择选项0来可视化结果，你将看到
 
 
 <!-- p.504 -->
@@ -939,7 +1030,28 @@ Totally find     3 new critical points
     - **24** — 相互作用区域指示符(Interaction region indicator (IRI))
     - **1** — 填充色图（Color-filled map） [按ENTER键]
 
-设置扩展距离（Set extension distance） 1 // 1 Bohr 1 // XY平面（XY plane） 0 // Z=0 关闭图形，再稍稍修改绘图设置 4 // 启用显示原子标签和参考点（Enable showing atom labels and reference point） 1 // 红色（Red） 5 // 设置临界点和路径的绘制细节（Set details of plotting critical points and paths） 15 // 设置临界点的颜色（Set color for CPs） 4 // (3,+3) 10 // 品红（Magenta） 0 // 返回（Return） -1 // 再次显示图形（Show the graph again） 现在你可以看到
+设置扩展距离（Set extension distance）
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 1 Bohr
+    - **1** — XY平面（XY plane）
+    - **0** — Z=0
+
+关闭图形，再稍稍修改绘图设置
+
+!!! terminal "Multiwfn 交互"
+
+    - **4** — 启用显示原子标签和参考点（Enable showing atom labels and reference point）
+    - **1** — 红色（Red）
+    - **5** — 设置临界点和路径的绘制细节（Set details of plotting critical points and paths）
+    - **15** — 设置临界点的颜色（Set color for CPs）
+    - **4** — (3,+3)
+    - **10** — 品红（Magenta）
+    - **0** — 返回（Return）
+    - **-1** — 再次显示图形（Show the graph again）
+
+现在你可以看到
 
 
 ![](../imgs/p504_117.png)

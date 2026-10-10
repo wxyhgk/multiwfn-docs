@@ -154,7 +154,11 @@ Gaussian is also capable of calculating static and dynamic second hyperpolarizab
 
 and 680 nm). Below I illustrate using Multiwfn to parse data of γ(-2w;w,w,0) at 532 nm.
 
-Boot up Multiwfn and input examples\polar\NH3_gamma.out 24 // (Hyper)polarizability analysis
+Boot up Multiwfn and input examples\polar\NH3_gamma.out
+
+!!! terminal "Multiwfn session"
+
+    - **24** — (Hyper)polarizability analysis
 
 
 <!-- p.972 -->
@@ -218,7 +222,10 @@ Boot up Multiwfn and input below commands C:\NH3_SOS.fch
     - **5** — Calculate transition dipole moments and dipole moment for all excited states C:\NH3_SOS.out
     - **3** — Generate SOS.txt The file SOS.txt generated in current folder contains all information needed by SOS (hyper)polarizability calculation. This file can be directly used by SOS module of Multiwfn.
 
-Reboot Multiwfn and input SOS.txt 24 // (Hyper)polarizability analysis 2 // Study (hyper)polarizability by sum-over-states (SOS) method Note that all units used in the SOS module are atomic units.
+!!! terminal "Multiwfn session"
+
+    - **Reboot Multiwfn and input SOS.txt 24** — (Hyper)polarizability analysis
+    - **2** — Study (hyper)polarizability by sum-over-states (SOS) method Note that all units used in the SOS module are atomic units.
 
 Calculation of polarizability (alpha)
 
@@ -341,7 +348,10 @@ Scanning both $\omega_1$ and ω2 of β(-(ω1+ω2);ω1,ω2) By subfunction 19 of 
 
 19
 
--0.6,0.6,100 // Lower limit, upper limit and number of steps of $\omega_1$ (in a.u.) -0.6,0.6,100 // Lower limit, upper limit and number of steps of $\omega_2$ After a while, beta_w.txt and beta_w_comp.txt are generated in current folder, the meaning of
+!!! terminal "Multiwfn session"
+
+    - **-0.6,0.6,100** — Lower limit, upper limit and number of steps of $\omega_1$ (in a.u.)
+    - **-0.6,0.6,100** — Lower limit, upper limit and number of steps of $\omega_2$ After a while, beta_w.txt and beta_w_comp.txt are generated in current folder, the meaning of
 
 each column of the files is clearly mentioned on screen. To visually study how total β varies with respect to change in $\omega_1$ and ω2, you can plot a relief map with first, second and 7th columns as X, Y and Z data, respectively. The map shown below was plotted by Sigmaplot:
 
@@ -389,7 +399,12 @@ confirm which component of β should be studied. The molecular geometry of D-pi-
 
 <!-- p.978 -->
 
-Two-level analysis Reboot Multiwfn and input SOS.txt 24 // (Hyper)polarizability analysis 2 // Study (hyper)polarizability by sum-over-states (SOS) method
+Two-level analysis Reboot Multiwfn and input SOS.txt
+
+!!! terminal "Multiwfn session"
+
+    - **24** — (Hyper)polarizability analysis
+    - **2** — Study (hyper)polarizability by sum-over-states (SOS) method
 
 20 // Two- or three-level model analysis of β Now Multiwfn prints key information for all excited states, which are very closely related to two- and three-level analyses:
 
@@ -429,7 +444,10 @@ We can ask Multiwfn to print more detailed information about the excited state 2
 
 <!-- p.979 -->
 
-20 // Two or three-level model analysis of β 2 // Select excited state 2 for two-level model analysis The outputted information is shown below
+!!! terminal "Multiwfn session"
+
+    - **20** — Two or three-level model analysis of β
+    - **2** — Select excited state 2 for two-level model analysis The outputted information is shown below
 
 
 ```text
@@ -452,7 +470,10 @@ study how various factors cause the difference in βXXX according to the two-lev
 
 Three-level analysis We can also carry out three-level model analysis. In the Multiwfn window, we input
 
-20 // Perform two- or three-level model analysis of β again 1,2 // Choose excited states 1 and 2 for the three-level model analysis You will see the following output
+!!! terminal "Multiwfn session"
+
+    - **20** — Perform two- or three-level model analysis of β again
+    - **1,2** — Choose excited states 1 and 2 for the three-level model analysis You will see the following output
 
 
 ```text
@@ -661,7 +682,10 @@ Now we use Multiwfn to parse the output file and export β as .txt file. Boot up
 
 input below commands
 
-examples\polar\CH3NHCHO\polar.out 24 // (Hyper)polarizability analysis 1 // Parse "polar" task of Gaussian. PS: If you are not familiar with this function, please check Section 3.27.1 for introduction and 4.24.1 for example
+!!! terminal "Multiwfn session"
+
+    - **examples\polar\CH3NHCHO\polar.out 24** — (Hyper)polarizability analysis
+    - **1** — Parse "polar" task of Gaussian. PS: If you are not familiar with this function, please check Section 3.27.1 for introduction and 4.24.1 for example
 
 !!! terminal "Multiwfn session"
 
@@ -670,13 +694,19 @@ examples\polar\CH3NHCHO\polar.out 24 // (Hyper)polarizability analysis 1 // Pars
     - **1** — Start parsing (hyper)polarizability
     - **2** — As shown on screen, the second option corresponds to 1030 nm case
 
-2 // Load SHG form of β n // Do not perform analysis related to hyper-Rayleigh scattering
+!!! terminal "Multiwfn session"
+
+    - **2** — Load SHG form of β
+    - **n** — Do not perform analysis related to hyper-Rayleigh scattering
 
 Now polarizability tensor (α) and SHG form of β corresponding to 1030 nm have been exported to alpha.txt and beta.txt in current folder, respectively.
 
 As mentioned in Section 3.27.5, to realize unit sphere representation, generally you should let Multiwfn load a file containing atom coordinate, so that Multiwfn can determine proper radius of the sphere. Here we let Multiwfn directly load atom coordinate from Gaussian output file. To do so, we change "iloadGaugeom" in `settings.ini` to 2, that means requesting Multiwfn to load atom coordinate in standard orientation from the loaded Gaussian output file. Then boot up Multiwfn and input
 
-examples\polar\CH3NHCHO\polar.out 24 // (Hyper)polarizability analysis 5 // Visualize (hyper)polarizability via unit sphere and vector representations Now you can find many options used to adjust plotting parameters, such as radius and length of the arrows on sphere, number of arrows and so on, currently we use default setting. We select
+!!! terminal "Multiwfn session"
+
+    - **examples\polar\CH3NHCHO\polar.out 24** — (Hyper)polarizability analysis
+    - **5** — Visualize (hyper)polarizability via unit sphere and vector representations Now you can find many options used to adjust plotting parameters, such as radius and length of the arrows on sphere, number of arrows and so on, currently we use default setting. We select
 
 option 2, from prompt on screen you can find Multiwfn automatically loads β tensor from beta.txt in current folder because it exists, and then export beta.tcl in current folder, which corresponds to VMD plotting script of unit sphere representation. You can also find beta_vec.tcl has been exported in current folder, which is VMD plotting script of vector representation.
 
@@ -759,7 +789,9 @@ We first extract α and γ from Gaussian output file and write it as .txt file. 
 
 0.005 // This value is smaller than default, since α of cyclo[18]carbon is fairly large. If default value is used, you will find the arrows are too long
 
--5 // Change length scale factor for the arrow of vector representation 0.01
+!!! terminal "Multiwfn session"
+
+    - **-5** — Change length scale factor for the arrow of vector representation
 
 1 // Perform unit sphere representation analysis of α. Since alpha.txt already exists in current folder, α tensor is automatically loaded from it
 
@@ -786,7 +818,10 @@ Similarly, we use unit sphere representation to visually study γ. In the Multiw
 
 -3 // Change scale factor of length of the arrows on sphere
 
-1E-5 // This value is significantly smaller than default one, since magnitude of γ is quite large -5 // Change length scale factor for the arrow of vector representation 0.00005
+!!! terminal "Multiwfn session"
+
+    - **1E-5** — This value is significantly smaller than default one, since magnitude of γ is quite large
+    - **-5** — Change length scale factor for the arrow of vector representation
 
 1 // Perform unit sphere representation analysis of γ. Since gamma.txt already exists in current folder, γ tensor is automatically loaded from it
 

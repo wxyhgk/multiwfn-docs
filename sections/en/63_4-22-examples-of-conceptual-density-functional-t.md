@@ -26,14 +26,21 @@ Before following this example, please read Section 3.25 first, in which all quan
 
 Preparation of needed wavefunction files Phenol at neutral state should be optimized first, please do it yourself. The examples\phenol.xyz is geometry of phenol optimized at the widely used B3LYP/6-31G* level, its quality is fine enough for present study.
 
-Boot up Multiwfn and input below commands: examples\phenol.xyz 22 // Calculate various quantities in conceptual density functional theory
+Boot up Multiwfn and input below commands: examples\phenol.xyz
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Calculate various quantities in conceptual density functional theory
 
 
 ![](../imgs/p931_464.png)
 
 <!-- p.932 -->
 
-1 // Generate .wfn files for N, N+1 and N-1 electrons states [Press ENTER button directly] // The generated .gjf files will correspond to single point task at B3LYP/6-31G* level
+!!! terminal "Multiwfn session"
+
+    - **1** — Generate .wfn files for N, N+1 and N-1 electrons states
+    - **[Press ENTER button directly]** — The generated .gjf files will correspond to single point task at B3LYP/6-31G* level
 
 [Press ENTER button directly] // Use default charge and spin multiplicity, namely 0 1 for N state, -1 2 for N+1 state, and 1 2 for N-1 state
 
@@ -174,11 +181,20 @@ Part 1: C60 In this part we will use the orbital-weighted functions to reveal re
 
 http://sobereva.com/multiwfn/extrafiles/C60.zip, which is input file of the present analysis.
 
-Boot up Multiwfn and input below commands C60.fch 22 // Calculate various quantities in conceptual density functional theory
+Boot up Multiwfn and input below commands C60.fch
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Calculate various quantities in conceptual density functional theory
 
 In the current menu, you can use option 4 to set the Δ parameter used in the subsequent orbital-weighted calculations, in this example we keep the default value (0.1 Hartree) unchanged, it should be properly changed only when you find the result is not satisfactory.
 
-We first visualize isosurface of the orbital-weighted functions. Input below commands 7 // Calculate grid data of OW Fukui function and OW dual descriptor 2 // Medium quality Then you can use corresponding option to visualize isosurfaces of 𝑓𝑤+, 𝑓𝑤−, 𝑓𝑤0 and ∆𝑓𝑤, which are collectively shown below. Note that isovalue should be changed to proper value, otherwise isosurfaces may be even invisible. Isosurface of 0.0003 a.u. is used to plot the maps below.
+We first visualize isosurface of the orbital-weighted functions. Input below commands
+
+!!! terminal "Multiwfn session"
+
+    - **7** — Calculate grid data of OW Fukui function and OW dual descriptor
+    - **2** — Medium quality Then you can use corresponding option to visualize isosurfaces of 𝑓𝑤+, 𝑓𝑤−, 𝑓𝑤0 and ∆𝑓𝑤, which are collectively shown below. Note that isovalue should be changed to proper value, otherwise isosurfaces may be even invisible. Isosurface of 0.0003 a.u. is used to plot the maps below.
 
 In the map above, green and blue isosurfaces represent positive and negative parts, respectively. As you can see, distributions of all orbital-weighted functions are in line with molecular point group symmetry, this is a unique advantage of the orbital-weighted form. In contrast, if you plot density
 
@@ -306,7 +322,12 @@ As described in Section 3.25.4, aside from employing orbital-weighted form, Mult
 
 In this section I will take benzene as an example to illustrate calculating Fukui function and dual descriptor with consideration of HOMO/LUMO degeneracy. Because we need to determine the degeneracy based on orbital energies, therefore we should first generate a wavefunction file for the studied structure. examples\benzene.fch is the wavefunction file produced by geometry optimization task at B3LYP/6-31G* level by Gaussian 16.
 
-Boot up Multiwfn and input examples\benzene.fch 22 // Calculate various quantities in conceptual density functional theory -3 // Set degree of frontier molecular orbital degeneracy Now information of lowest 10 unoccupied MOs are shown on screen to help you determine LUMO degeneracy
+Boot up Multiwfn and input examples\benzene.fch
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Calculate various quantities in conceptual density functional theory
+    - **-3** — Set degree of frontier molecular orbital degeneracy Now information of lowest 10 unoccupied MOs are shown on screen to help you determine LUMO degeneracy
 
 
 ```text
@@ -388,11 +409,25 @@ fullerene. They are presented in J. Math. Chem., 62, 461 (2024) at ωB97XD/6-311
 
 (C60_wB97XD_opt.fchk) file produced by geometry optimization at ωB97XD/6-311G* level by Gaussian 16 can be downloaded at http://sobereva.com/multiwfn/extrafiles/C60_wB97XD_opt.7z.
 
-Boot up Multiwfn and input C60_wB97XD_opt.fchk 22 // Calculate various quantities in conceptual density functional theory -3 // Set degree of frontier molecular orbital degeneracy [Press ENTER button directly] // Use automatically determined LUMO degeneracy of 3 [Press ENTER button directly] // Use automatically determined HOMO degeneracy of 5 1 // Generate .wfn files for various electrons states wB97XD/6-311G* symm=loose scf=conver=7 // Keywords for performing single point task of Gaussian. The “symm=loose” ensures that Gaussian will utilize Ih point group of C60 to greatly reduce cost. “scf=conver=7” slightly loosens SCF convergence threshold to make it easier to reach
+Boot up Multiwfn and input C60_wB97XD_opt.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Calculate various quantities in conceptual density functional theory
+    - **-3** — Set degree of frontier molecular orbital degeneracy
+    - **[Press ENTER button directly]** — Use automatically determined LUMO degeneracy of 3
+    - **[Press ENTER button directly]** — Use automatically determined HOMO degeneracy of 5
+    - **1** — Generate .wfn files for various electrons states
+    - **wB97XD/6-311G* symm=loose scf=conver=7** — Keywords for performing single point task of Gaussian.
+
+The “symm=loose” ensures that Gaussian will utilize Ih point group of C60 to greatly reduce cost. “scf=conver=7” slightly loosens SCF convergence threshold to make it easier to reach
 
 [Press ENTER button] //Use default net charge and spin multiplicity of (0 1), (-3 4) and (5 6) for the N, N+3 and N-5 states, respectively
 
--1,2 // Net charge and spin multiplicity of N+1 state 1,2 // Net charge and spin multiplicity of N-1 state Now N.gjf, N-1.gjf, N+1.gjf, N-3.gjf and N+5.gjf have been generated in current folder, input y to let Multiwfn invoke Gaussian to perform calculation (or manually calculate them). After calculations, you will find N.wfn, N-1.wfn, N+1.wfn, N-3.wfn and N+5.wfn in current folder.
+!!! terminal "Multiwfn session"
+
+    - **-1,2** — Net charge and spin multiplicity of N+1 state
+    - **1,2** — Net charge and spin multiplicity of N-1 state Now N.gjf, N-1.gjf, N+1.gjf, N-3.gjf and N+5.gjf have been generated in current folder, input y to let Multiwfn invoke Gaussian to perform calculation (or manually calculate them). After calculations, you will find N.wfn, N-1.wfn, N+1.wfn, N-3.wfn and N+5.wfn in current folder.
 
 Then choose option 2 to calculate various CDFT quantities and print them to CDFT.txt in current folder. From which we find softness and its square:
 
@@ -440,11 +475,24 @@ Now the newly generated f-.cub in current folder corresponds to local softness s
 
 Please read Section 3.25.4.2 first to familiarize yourself with the working equations for evaluating Fukui function and dual descriptor of various forms for open-shell cases. In this example we calculate the functions for O2, which is a representative open-shell molecule (triplet ground state) with degeneracy in frontier MOs.
 
-Boot up Multiwfn and input examples\O2.fch // Wavefunction file of ground state O2 at B3LYP/6-31G* level 22 // Calculate various quantities in conceptual density functional theory 12 // Calculate Fukui function and dual descriptor based on formalism of conceptual spin-polarized DFT
+Boot up Multiwfn and input:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\O2.fch** — Wavefunction file of ground state O2 at B3LYP/6-31G* level
+    - **22** — Calculate various quantities in conceptual density functional theory
+    - **12** — Calculate Fukui function and dual descriptor based on formalism of conceptual spin-polarized DFT
 
 1 // Set degeneracy of frontier molecular orbitals
 
-[Press ENTER button directly] // Use suggested degeneracy of LUMO(α) [Press ENTER button directly] // Use suggested degeneracy of HOMO(α) [Press ENTER button directly] // Use suggested degeneracy of LUMO(β) [Press ENTER button directly] // Use suggested degeneracy of HOMO(β) Now you can see the summary of degeneracy of frontier MOs:
+!!! terminal "Multiwfn session"
+
+    - **[Press ENTER button directly]** — Use suggested degeneracy of LUMO(α)
+    - **[Press ENTER button directly]** — Use suggested degeneracy of HOMO(α)
+    - **[Press ENTER button directly]** — Use suggested degeneracy of LUMO(β)
+    - **[Press ENTER button directly]** — Use suggested degeneracy of HOMO(β)
+
+Now you can see the summary of degeneracy of frontier MOs:
 
 
 ```text
@@ -485,9 +533,16 @@ Boot up Multiwfn and input examples\maleic_anhydride.xyz //Geometry was optimize
     - **22** — Conceptual DFT (CDFT) analysis
     - **1** — Generate .wfn files for N, N+1, N-1 electrons states M062X/6-311++G(d,p)
 
-Use (0 1), (-1 2) and (1 2) for N, N+1 and N-1 states y // Invoke Gaussian to calculate the three states (assume that you have properly set “gaupath” in `settings.ini`)
+Use (0 1), (-1 2) and (1 2) for N, N+1 and N-1 states
 
-9 // Calculate grid data of Fukui potential and dual descriptor potential 1 // Because calculating ESP grid data is relatively expensive, so here we choose to use low-quality grid
+!!! terminal "Multiwfn session"
+
+    - **y** — Invoke Gaussian to calculate the three states (assume that you have properly set “gaupath” in `settings.ini`)
+
+!!! terminal "Multiwfn session"
+
+    - **9** — Calculate grid data of Fukui potential and dual descriptor potential
+    - **1** — Because calculating ESP grid data is relatively expensive, so here we choose to use low-quality grid
 
 Now, you can choose corresponding options to visualize various kinds of Fukui potential and dual descriptor potential (DDP), the isosurface maps of 𝑉𝑓+, 𝑉𝑓−, and 𝐷𝐷𝑃= 𝑉𝑓+ −𝑉𝑓− are shown
 
@@ -566,4 +621,10 @@ Please first carefully read Section 3.25.6 to gain basic knowledge about dual de
 
 framework of DDD for aminobenzene. The .fch file of this system calculated at ωB97XD/6-311G(d,p) can be downloaded at http://sobereva.com/multiwfn/extrafiles/aminobenzene_DDD.7z, the calculation level and geometry are exactly the same as those used in the original paper of DDD Phys. Chem. Chem. Phys., 28, 19133 (2026). We will use Hirshfeld partition to define the atomic spaces used for evaluating the atomic overlap matrix (AOM), which was also employed in the original paper of DDD.
 
-Boot up Multiwfn and input aminobenzene_DDD.fch // The file in the compressed package mentioned above 22 // Conceptual DFT (CDFT) analysis 11 // Calculate dual delocalization descriptor (DDD)
+Boot up Multiwfn and input:
+
+!!! terminal "Multiwfn session"
+
+    - **aminobenzene_DDD.fch** — The file in the compressed package mentioned above
+    - **22** — Conceptual DFT (CDFT) analysis
+    - **11** — Calculate dual delocalization descriptor (DDD)

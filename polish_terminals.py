@@ -15,14 +15,16 @@ SEC = [os.path.join(BASE, 'sections', 'en'), os.path.join(BASE, 'sections', 'zh'
 SPLIT_PAT = re.compile(r'(?<!:) // ')
 CMD_PAT = re.compile(r'^-?[\d,.\s\-+*a-zA-Z\\/_()]+$')
 GUIDE_PAT = re.compile(r'Boot up|input|输入|启动|below commands|如下|命令', re.I)
-FILE_PAT = re.compile(r'examples\\|\.(fch|out|wfn|mwfn|wfx)\b')
-TAIL_CMD = re.compile(r'\s(-?[\d,.\-]{1,12})$')
+FILE_PAT = re.compile(r'examples\\|\.(fchk?|out|wfn|mwfn|wfx|mol|pdb|xyz|cub|gjf|molden|txt)\b|(?<![\d.])\.\d+\b|\?[\w\\/.-]+')
+TAIL_CMD = re.compile(r'\s(-?[\d,.\-]{1,12}|[ynqYNQdlXD])$')
 
 
 def looks_cmd(s):
     s = s.strip()
     if not s:
         return False
+    if re.search(r'ENTER|回车', s, re.I) and len(s) <= 80:
+        return True
     if FILE_PAT.search(s):
         return True
     if len(s) > 40:
@@ -37,7 +39,17 @@ def looks_cmd(s):
 def parse_line(line):
     """返回 (pre, [(cmd, desc)], tail) 或 None."""
     parts = SPLIT_PAT.split(line)
-    if len(parts) < 4:
+    tmp = []
+    for pg in parts:
+        m = re.search(r'\s(-?[\d,.\-]+|[ynqYNQdlXD])$', pg.strip())
+        _front = pg.strip()[:m.start()] if m else ''
+        _cjk = sum(1 for _c in _front if '\u4e00' <= _c <= '\u9fff')
+        if m and (len(_front) >= 10 or _cjk >= 3):
+            tmp += [pg[:m.start()].strip(), m.group(1)]
+        else:
+            tmp.append(pg)
+    parts = tmp
+    if len(parts) < 3:
         return None
     start = -1
     for i, p in enumerate(parts):
@@ -46,13 +58,17 @@ def parse_line(line):
             break
     if start < 0:
         return None
-    if start == 0 and len(parts[0]) > 40:
+    if start == 0 and len(parts[0]) > 40 and not re.search(r'ENTER|回车', parts[0], re.I):
+        pre, start = parts[0].strip(), 1
+    elif start == 0 and not re.search(r'\d', parts[0]) and not FILE_PAT.search(parts[0]) and not re.search(r'ENTER|回车', parts[0], re.I):
         pre, start = parts[0].strip(), 1
     else:
         pre = ' // '.join(parts[:start]).strip() if start > 0 else ''
-    if pre and not GUIDE_PAT.search(pre) and not FILE_PAT.search(pre):
-        return None
     rest = parts[start:]
+    if pre and not GUIDE_PAT.search(pre) and not FILE_PAT.search(pre) and not re.search(r'ENTER|回车', pre, re.I):
+        first = rest[0].strip() if rest else ''
+        if not re.match(r'^-?[\d,.\-]+$', first) and len(first) > 6:
+            return None
     pairs = []
     lead = None
     m0 = re.search(r'\s(-?[\d,.\-]{1,12})$', pre)
@@ -67,6 +83,17 @@ def parse_line(line):
             pre = a[:m1.start()].strip()
     i = 0
     carry = lead
+    # rest首段是说明、次段是命令(如"概念DFT分析 1"): 说明并入pre
+    if rest and not looks_cmd(rest[0]) and len(rest) > 1 and looks_cmd(rest[1]):
+        pre = (pre + ' // ' + rest[0].strip()).strip() if pre else rest[0].strip()
+        i = 1
+    if not carry and rest and not looks_cmd(rest[0]):
+        if len(rest) > 1 and looks_cmd(rest[1]):
+            m = re.search(r'(\S+\.(?:fchk?|out|wfn|mwfn|wfx|mol|pdb|xyz|cub|gjf|molden|txt))\s*$', pre)
+            if m:
+                pairs.append((m.group(1), rest[0].strip()))
+                pre = pre[:m.start()].strip()
+                i = 1
     while True:
         if carry is not None:
             cmd, carry = carry, None
@@ -84,12 +111,26 @@ def parse_line(line):
         if len(desc) < 2:
             break
         m = TAIL_CMD.search(desc)
-        if m and len(desc) - len(m.group(1)) >= 10:
+        if not m or len(desc) - len(m.group(1)) < 10:
+            m2 = re.search(r'(\[.*ENTER.*\]|\S+\.(?:fchk?|out|wfn|mwfn|wfx|mol|pdb|xyz|cub|gjf|molden|txt))\s*$', desc)
+            if m2 and len(desc) - len(m2.group(1)) >= 10:
+                m = m2
+            else:
+                m = None
+        if m and len(desc) - len(m.group(1)) >= 10 and (
+                len(m.group(1)) > 1 or len(desc) <= 60):
             carry = m.group(1)
             desc = desc[:m.start()].strip()
         pairs.append((cmd, desc))
-    if len(pairs) < 2:
+    if not pairs:
         return None
+    if len(pairs) == 1:
+        c0, d0 = pairs[0]
+        import unicodedata as _ud
+        cjk = sum(1 for _c in d0 if '\u4e00' <= _c <= '\u9fff')
+        _cmax = 80 if re.search(r'ENTER|回车', c0, re.I) else 12
+        if not (len(c0) <= _cmax and (len(d0) >= 15 or cjk >= 6)):
+            return None
     tail = ' // '.join(rest[i:]).strip() if i < len(rest) else ''
     return pre, pairs, tail
 

@@ -132,7 +132,11 @@ HF···乙烯的波函数文件已作为examples\C2H4_HF.wfn提供，其几何�
     - **-11** — 选择要分析的实空间函数 (Select the real space function to be analyzed)
     - **9** — ELF 6
 
-将球心设为三个原子的几何中心 (Set the sphere center as geometry center of three atoms) 1,4,8 // C1、C4和H8的中心将被设为球心
+将球心设为三个原子的几何中心 (Set the sphere center as geometry center of three atoms)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1,4,8** — C1、C4和H8的中心将被设为球心
 
 ![](../imgs/p413_067.png)
 
@@ -143,7 +147,10 @@ HF···乙烯的波函数文件已作为examples\C2H4_HF.wfn提供，其几何�
 
 0 // 开始搜索（球半径、起始点数目可通过界面中相应选项设置） (Start searching (the sphere radius, the number of starting points can be set by corresponding options in the interface))
 
--9 // 返回 (Return) 0 // 可视化拓扑分析结果 (Visualize topology analysis result) 现在你可以看到下图。显然，临界点5对应于V(D,H)与π电子盆之间的分岔
+!!! terminal "Multiwfn 交互"
+
+    - **-9** — 返回 (Return)
+    - **0** — 可视化拓扑分析结果 (Visualize topology analysis result) 现在你可以看到下图。显然，临界点5对应于V(D,H)与π电子盆之间的分岔
 
 点。
 

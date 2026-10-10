@@ -33,7 +33,12 @@ input file in these examples, using .mwfn, .molden or .gms file is also OK, but 
 
 It is noteworthy that if you intend to plot PDOS and OPDOS based on the default Mulliken orbital composition method, employing diffuse functions must be avoided, because they severely hurt the reliability of the orbital compositions evaluated by Mulliken or SCPA method. However, you can safely use diffuse functions if you let Multiwfn calculate orbital composition via Hirshfeld or Becke method, but OPDOS cannot be plotted in this case. The wavefunction of present system was generated at B3LYP/6-31G* level.
 
-Part 1: Plot total DOS (TDOS) Boot up Multiwfn and input below commands examples\N-phenylpyrrole.fch 10 // Plot various kinds of DOS maps 0 // Plot map Since currently no fragment is defined, only TDOS is plotted. The TDOS map pops up immediately, see below
+Part 1: Plot total DOS (TDOS) Boot up Multiwfn and input below commands examples\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn session"
+
+    - **10** — Plot various kinds of DOS maps
+    - **0** — Plot map Since currently no fragment is defined, only TDOS is plotted. The TDOS map pops up immediately, see below
 
 TDOS
 
@@ -71,7 +76,9 @@ Clicking mouse right button on the graph to close it, and select option 0 to ret
 
 0.05 // If energy difference between two orbitals is less than 0.05 eV, they will be regarded as degenerate
 
-0 // Plot TDOS map again Now we have the map below. The line height indicates degeneracy and corresponds to the axis at right side. As can be seen, some orbitals have degeneracy of 2.
+!!! terminal "Multiwfn session"
+
+    - **0** — Plot TDOS map again Now we have the map below. The line height indicates degeneracy and corresponds to the axis at right side. As can be seen, some orbitals have degeneracy of
 
 0.36 TDOS 10
 
@@ -118,7 +125,12 @@ Part 2: Plot PDOS and OPDOS for fragments
 
 Next, we will define the heavy atoms of pyrrole moiety as fragment 1 and that of the phenyl moiety as fragment 2 to check their PDOS and OPDOS. In addition, we will define all hydrogens as fragment 3.
 
-Boot up Multiwfn and input examples\N-phenylpyrrole.fch 10 // Plot various kinds of DOS maps -1 // Enter the interface for defining fragments. You can define up to 10 fragments. PDOS will be plotted for all of them, but OPDOS will only be drawn between fragments 1 and 2
+Boot up Multiwfn and input examples\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn session"
+
+    - **10** — Plot various kinds of DOS maps
+    - **-1** — Enter the interface for defining fragments. You can define up to 10 fragments. PDOS will be plotted for all of them, but OPDOS will only be drawn between fragments 1 and
 
 !!! terminal "Multiwfn session"
 
@@ -248,7 +260,18 @@ cond // Use conditions to select basis functions. You will be prompted to input 
     - **X** — The third condition is that the type of basis function should be PX q
     - **Save fragment 1 2** — Define fragment 2 cond
 
-Atom index of the carbons in the phenyl moiety [Press ENTER button] // No requirement on index of basis functions X // Basis function must be PX type q // Save fragment 2 0 // Return to last menu 0 // Draw TDOS+PDOS+OPDOS
+Atom index of the carbons in the phenyl moiety [Press ENTER button] // No requirement on index of basis functions
+
+!!! terminal "Multiwfn session"
+
+    - **X** — Basis function must be PX type
+    - **q** — Save fragment
+
+Return to last menu
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Draw TDOS+PDOS+OPDOS
 
 9.00 1.80
 
@@ -288,7 +311,37 @@ Part 5: Plot PDOS for s, p, d atomic orbitals individually In the next, I illust
     - **q** — Save fragment
     - **2** — Define fragment 2 l p
 
-Save fragment 3 // Define fragment 3 l d // Add basis functions with angular moment of d to the fragment q // Save fragment 0 // Return to last menu 0 // Draw TDOS+PDOS+OPDOS Then close the graph and input the following command to improve graphical effect 9 // Disable showing OPDOS curves 10 // Disable showing OPDOS lines 4 // Set range of Y axis 0,10,1 // Lower and upper limits are set to 0 and 10 with label interval of 1.0 16 // Set legends 1 // Set legend of PDOS corresponding to fragment 1 s 2 // Set legend of PDOS corresponding to fragment 2 p 3 // Set legend of PDOS corresponding to fragment 3 d 0 // Exit the interface for setting legends 22 // Toggle drawing lines at bottom of curves, 1 // Replot the map Now you can see the map below
+Save fragment
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Define fragment 3
+
+Add basis functions with angular moment of d to the fragment
+
+!!! terminal "Multiwfn session"
+
+    - **q** — Save fragment
+    - **0** — Return to last menu
+    - **0** — Draw TDOS+PDOS+OPDOS Then close the graph and input the following command to improve graphical effect
+    - **9** — Disable showing OPDOS curves
+    - **10** — Disable showing OPDOS lines
+    - **4** — Set range of Y axis
+    - **0,10,1** — Lower and upper limits are set to 0 and 10 with label interval of
+    - **1.0** — 16
+
+Set legend of PDOS corresponding to fragment 1 s
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Set legend of PDOS corresponding to fragment 2 p
+    - **3** — Set legend of PDOS corresponding to fragment
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Exit the interface for setting legends
+    - **22** — Toggle drawing lines at bottom of curves,
+    - **1** — Replot the map Now you can see the map below
 
 10.00
 
@@ -353,7 +406,10 @@ In the current example, we plot LDOS for butadiene at selected points. First, we
 
 examples\butadiene.fch 0 // Visualize molecular structure From output in the command-line window we can find the expected point should be 1.137 3.308 1.5 (1.5 Bohr above C1). Close the GUI window and input
 
-10 // DOS plotting module 10 // Draw local DOS for a point 1.137,3.308,1.5 Then you will see (you can compare it with TDOS map)
+!!! terminal "Multiwfn session"
+
+    - **10** — DOS plotting module
+    - **10** — Draw local DOS for a point 1.137,3.308,1.5 Then you will see (you can compare it with TDOS map)
 
 0.038
 
@@ -417,7 +473,11 @@ First, we plot TDOS+PDOS map for alpha spin, the PDOS will correspond to the Na3
     - **1,4,27,28** — These four atoms correspond to the Na3O moiety q
     - **Save fragment 0** — Return 0
 
-Enable drawing lines at bottom of curves 1 // Replot You will see the graph below. By default, for unrestricted wavefunction, only alpha MOs are taken into account, therefore the following map is DOS map of alpha spin.
+Enable drawing lines at bottom of curves
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Replot You will see the graph below. By default, for unrestricted wavefunction, only alpha MOs are taken into account, therefore the following map is DOS map of alpha spin.
 
 27.81 TDOSPDOS frag.1
 
@@ -491,7 +551,12 @@ In Section 3.12.5, the theory of PES and the interface for plotting PES have bee
 
 Using the optimized structure of this system provided in supplemental material in the JPCA paper, I carried out a single point task using the same level as the paper by Gaussian 16, the resulting Cr3Si12-.fchk file can be downloaded here: http://sobereva.com/multiwfn/extrafiles/Cr3Si12-.rar.
 
-Boot up Multiwfn and input Cr3Si12-.fchk 10 // DOS module 12 // Interface for plotting PES. You will find HOMO level has been shown on the screen, namely -0.77 eV, which is the highest one among alpha HOMO and beta HOMO
+Boot up Multiwfn and input Cr3Si12-.fchk
+
+!!! terminal "Multiwfn session"
+
+    - **10** — DOS module
+    - **12** — Interface for plotting PES. You will find HOMO level has been shown on the screen, namely -0.77 eV, which is the highest one among alpha HOMO and beta HOMO
 
 !!! terminal "Multiwfn session"
 
@@ -538,11 +603,20 @@ Occupied valence MOs of this system consist of three types, you can identify the
 
 In the MO-PDOS map to be plotted, we will use different colors to respectively reveal the position of energy levels of these orbitals as well as their contributions to total DOS.
 
-Boot up Multiwfn and input C18.fchk 10 // Plot DOS -2 // Enter the interface for defining MO fragments of MO-PDOS 1 // Define 1st fragment
+Boot up Multiwfn and input C18.fchk
 
-19-36 // σ MOs 2 // Define 2nd fragment
+!!! terminal "Multiwfn session"
 
-37,39,40,45,46,49,50,53,54 // in-plane π MOs 3 // Define 3rd fragment
+    - **10** — Plot DOS
+    - **-2** — Enter the interface for defining MO fragments of MO-PDOS
+    - **1** — Define 1st fragment
+    - **19-36** — σ MOs
+    - **2** — Define 2nd fragment
+
+!!! terminal "Multiwfn session"
+
+    - **37,39,40,45,46,49,50,53,54** — in-plane π MOs
+    - **3** — Define 3rd fragment
 
 !!! terminal "Multiwfn session"
 
@@ -582,7 +656,25 @@ We can further improve the setting of the MO-PDOS map. After closing the graph, 
 
 -28,1,3 // Set lower and upper limits of plotting region to -28~1 eV with step of 3 eV, so that all occupied valence MOs and a few lowest-lying virtual MOs could be displayed in the map
 
-9 // Enabling using height of discrete lines to indicate orbital degeneracy [Press ENTER button directly] // Use default threshold to determine degeneracy 0 // Plot DOS map Close the map, then in the post-processing menu we input 16 // Set the texts in the legends 1 // Set legend for PDOS 1 sigma MOs 2 // Set legend for PDOS 2 in-plane pi MOs 3 // Set legend for PDOS 3 out-of-plane pi MOs 0 // Return to post-processing menu 6 // Disable showing TDOS discrete lines 1 // Redraw the graph You should see the map below, which is quite satisfactory
+!!! terminal "Multiwfn session"
+
+    - **9** — Enabling using height of discrete lines to indicate orbital degeneracy
+    - **[Press ENTER button directly]** — Use default threshold to determine degeneracy
+    - **0** — Plot DOS map
+
+Close the map, then in the post-processing menu we input
+
+!!! terminal "Multiwfn session"
+
+    - **16** — Set the texts in the legends
+    - **1** — Set legend for PDOS 1 sigma MOs
+    - **2** — Set legend for PDOS 2 in-plane pi MOs
+    - **3** — Set legend for PDOS 3 out-of-plane pi MOs
+    - **0** — Return to post-processing menu
+    - **6** — Disable showing TDOS discrete lines
+    - **1** — Redraw the graph
+
+You should see the map below, which is quite satisfactory
 
 10
 
@@ -613,7 +705,10 @@ The status file corresponding to the map above is given as examples\DOS\C18_MO_P
 
 <!-- p.651 -->
 
-l // Load status file examples\DOS\C18_MO_PDOS.dat 0 // Plot the map
+!!! terminal "Multiwfn session"
+
+    - **l** — Load status file examples\DOS\C18_MO_PDOS.dat
+    - **0** — Plot the map
 
 
 ### 4.10.6 Calculate d-band center for transition metal clusters
@@ -630,7 +725,17 @@ The DOS plotting module of Multiwfn can be used to evaluate d-band center. Since
     - **-1** — Define fragment
     - **1** — Define fragment 1 cond
 
-No requirement on atomic indices [Press ENTER button] // No requirement on basis function indices D // The basis functions must be D-type q // Save current fragment q // Return to DOS plotting interface 8 // Switch the energy unit from a.u. to eV 2 // Set range of X-axis -13,0,2 // Lower limit, upper limit and spacing between ticks 0 // Plot DOS map Now you can see the following map. The red curve corresponds to PDOS of d-band
+No requirement on atomic indices [Press ENTER button] // No requirement on basis function indices
+
+!!! terminal "Multiwfn session"
+
+    - **D** — The basis functions must be D-type
+    - **q** — Save current fragment
+    - **q** — Return to DOS plotting interface
+    - **8** — Switch the energy unit from a.u. to eV
+    - **2** — Set range of X-axis
+    - **-13,0,2** — Lower limit, upper limit and spacing between ticks
+    - **0** — Plot DOS map Now you can see the following map. The red curve corresponds to PDOS of d-band
 
 
 <!-- p.652 -->
@@ -732,7 +837,10 @@ Boot up Multiwfn and input examples\N-phenylpyrrole.fch
 
 The first condition is that the basis functions must belong to the heavy atoms in pyrrole moiety (atoms 1-5)
 
-[Press ENTER button] // The second condition. Index of basis function is arbitrary X // The third condition, the type of the basis functions must be PX (note that the current molecule is in YZ plane. So adding PX basis functions is equivalent to adding the p atomic orbitals
+!!! terminal "Multiwfn session"
+
+    - **[Press ENTER button]** — The second condition. Index of basis function is arbitrary
+    - **X** — The third condition, the type of the basis functions must be PX (note that the current molecule is in YZ plane. So adding PX basis functions is equivalent to adding the p atomic orbitals
 
 directly contributing to the π-interaction)
 

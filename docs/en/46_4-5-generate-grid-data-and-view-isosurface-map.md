@@ -101,7 +101,10 @@ aromaticity. While if the average of ELF-π and ELF-σ is larger than 0.70, one 
 
 In order to separate σ and π orbitals, we need to know which orbitals are π orbitals first. Boot up Multiwfn and input following commands
 
-examples\benzene.wfn // Optimized at B3LYP/6-311G* level 0 // View molecular orbitals (MOs) Now check orbital shape of each MO in turn, we found 17th, 20th and 21th MOs are π orbitals,
+!!! terminal "Multiwfn session"
+
+    - **examples\benzene.wfn** — Optimized at B3LYP/6-311G* level
+    - **0** — View molecular orbitals (MOs) Now check orbital shape of each MO in turn, we found 17th, 20th and 21th MOs are π orbitals,
 
 as shown below. All other MOs are recognized as σ orbitals.
 
@@ -125,7 +128,10 @@ We first calculate ELF-π. The contribution to ELF from σ orbitals should be om
 
 number of all σ orbitals have become zero, namely they will have no contribution to all results yielded in following calculations
 
-q // Return to last menu -1 // Return to main menu For this system, in fact there is a much more convenient way to set occupation numbers of all orbitals except for the π ones to zero. The procedure is: Enter subfunction 22 of main function 100, select 0, then all π orbitals will be automatically identified, then choose 1 to set occupation number of all other orbitals to zero (or choose option 3, if heavier elements such as silicon are involved in present system). Finally, choose 0 to return to main menu. More details about automatic identification of π orbitals can be found in Section 3.100.22.
+!!! terminal "Multiwfn session"
+
+    - **q** — Return to last menu
+    - **-1** — Return to main menu For this system, in fact there is a much more convenient way to set occupation numbers of all orbitals except for the π ones to zero. The procedure is: Enter subfunction 22 of main function 100, select 0, then all π orbitals will be automatically identified, then choose 1 to set occupation number of all other orbitals to zero (or choose option 3, if heavier elements such as silicon are involved in present system). Finally, choose 0 to return to main menu. More details about automatic identification of π orbitals can be found in Section
 
 Studying ELF-π There are two ways to study ELF-π, the way 1 is to examine ELF isosurface directly, while the way 2 is performing topology analysis. Way 1 is more intuitive but less accurate than way 2. Here I illustrate way 1 first. Generate and view isosurface for ELF by main function 5 as usual (recall Section 4.5.1. Using High-quality grid is recommended). This time the ELF isosurface only reflects π-electron localization character. By gradually increasing isovalue, you will find that the two circle-shape ELF domains are bifurcated to twelve spherical-like domains at about the isovalue of 0.91 (see the graph below), implying that ELF-π index of benzene is about 0.91.
 
@@ -152,7 +158,10 @@ Next, let us use way 2 to evaluate ELF-π index again, this way is more rigorous
 
 By comparing this graph with ELF isosurface map, it clear that the (3,-1) CPs (orange) are bifurcation positions of ELF domains, while (3,-3) CPs (purple) correspond to the maximum points of the twelves ELF domains. Now we check ELF value at a (3,-1) CPs, we can choose anyone, since they are all equivalent.
 
-7 // Show all properties at a CP 23 // CP23 From the output, we find the ELF value at CP 23, namely ELF-π index of benzene is 0.91247, this result is in very good agreement with the value 0.913 given in Chem. Phys. Lett., 443, 439 (2007), note that our calculation level is exactly identical to this paper. Evidently, this value exceeds the criteria (0.70) of π aromaticity, suggesting that benzene has strong π aromaticity.
+!!! terminal "Multiwfn session"
+
+    - **7** — Show all properties at a CP
+    - **23** — CP23 From the output, we find the ELF value at CP 23, namely ELF-π index of benzene is 0.91247, this result is in very good agreement with the value 0.913 given in Chem. Phys. Lett., 443, 439 (2007), note that our calculation level is exactly identical to this paper. Evidently, this value exceeds the criteria (0.70) of π aromaticity, suggesting that benzene has strong π aromaticity.
 
 Studying ELF-σ Now we calculate ELF-σ for benzene. Reboot Multiwfn and load benzene.wfn, set occupation number of MO 17, 20 and 21 to zero (it is more convenient to use subfunction 22 in main function 100 to do this). Then generate isosurface for ELF as usual, gradually adjust isovalue, try to find out
 
@@ -236,7 +245,10 @@ Calculating Fukui functions f − To study the isosurface of f −, we need to p
     - **0** — Set custom operation
     - **1** — Only one file will be operated with the file that has been loaded (namely phenol.wfn) -,examples\phenol_N-1.wfn
 
-1 // Electron density 2 // Medium-quality grid Now Multiwfn starts to calculate electron density grid data for phenol.wfn, then calculate that
+!!! terminal "Multiwfn session"
+
+    - **1** — Electron density
+    - **2** — Medium-quality grid Now Multiwfn starts to calculate electron density grid data for phenol.wfn, then calculate that
 
 for phenol_N-1.wfn, and finally get their difference to yield grid data of f −. We choose option -1 to check the isosurface, after adjusting the isovalue to a proper value (0.007), the graph will be
 
@@ -246,7 +258,16 @@ Calculating Fukui functions $f^{0}$ Next, I take propylene as an example to illu
 
 namely $f^{0}$ = (ρN+1 − ρN-1)/2. Of course, we should yield wavefunction file corresponding to N+1 state and N-1 state. We first optimize geometry of neutral state (examples\propylene\opt_N.gjf), then use this geometry to perform single point task of N-1 and N+1 states to yield corresponding .fch files.
 
-Boot up Multiwfn and input: examples\propylene\N+1.fch // N+1 electrons state, namely -1 charged state 5 // Calculate grid data 0 // Set custom operation 1 // One file will be operated with propylene-1.fch -,examples\propylene\N-1.fch // N-1 electrons state, namely +1 charged state 1 // Electron density
+Boot up Multiwfn and input:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\propylene\N+1.fch** — N+1 electrons state, namely -1 charged state
+    - **5** — Calculate grid data
+    - **0** — Set custom operation
+    - **1** — One file will be operated with propylene-1.fch
+    - **-,examples\propylene\N-1.fch** — N-1 electrons state, namely +1 charged state
+    - **1** — Electron density
 
 
 ![](../imgs/p549_163.png)
@@ -421,7 +442,10 @@ Boot up Multiwfn and input following commands: examples\solvatedelectron.wfn // 
     - **5** — Calculate grid data
     - **20** — EDR(r;d) 11.22
 
-2 // Medium-quality grid -1 // Show isosurface graph
+!!! terminal "Multiwfn session"
+
+    - **2** — Medium-quality grid
+    - **-1** — Show isosurface graph
 
 
 ![](../imgs/p556_170.png)
@@ -439,7 +463,15 @@ This section was contributed by Arshad Mehmood and slightly adapted by Tian Lu.
 
 This example will show the calculation procedure of orbital overlap distance function D(r) of thioformic acid and map it on molecular electron density surface. If you are not familiar with D(r), you can check entry 21 of Section 2.6 or J. Chem. Theory Comput., 12, 3185 (2016).
 
-Boot up Multiwfn and input following commands: examples\ThioformicAcid.wfn // Thioformic acid optimized at B3LYP/6-311++G(2d,2p) 5 // Calculate grid data 21 // Orbital overlap length function D(r), which maximizes EDR(r;d) with respect to d Now we need to set input total number, start and increment of EDR exponents αi=1/di2, since the overlap distance is fit using an even-tempered grid of exponents. The start value is the largest exponent (α1), subsequent exponents are yielded by αi+1/αi = 1/αinc, where αinc is increment. The default setting (i.e. n=20, α1=2.50, αinc=1.50) suffices for common systems. After selecting the manual input (option 1) or default setting (option 2), a list of exponents will appear, which will be used in evaluation of D(r)
+Boot up Multiwfn and input following commands:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\ThioformicAcid.wfn** — Thioformic acid optimized at B3LYP/6-311++G(2d,2p)
+    - **5** — Calculate grid data
+    - **21** — Orbital overlap length function D(r), which maximizes EDR(r;d) with respect to d
+
+Now we need to set input total number, start and increment of EDR exponents αi=1/di2, since the overlap distance is fit using an even-tempered grid of exponents. The start value is the largest exponent (α1), subsequent exponents are yielded by αi+1/αi = 1/αinc, where αinc is increment. The default setting (i.e. n=20, α1=2.50, αinc=1.50) suffices for common systems. After selecting the manual input (option 1) or default setting (option 2), a list of exponents will appear, which will be used in evaluation of D(r)
 
 2 // Medium-quality grid At this stage Multiwfn starts calculation. Wait until calculation is finished, then choose option 2 to export grid data of D(r) as EDRDmax.cub in current folder. The next step is to generate molecular density isosurface.
 

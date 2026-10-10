@@ -136,7 +136,10 @@ formamide part and methyl group. Boot up Multiwfn and input
     - **-1** — Define fragment 1 a
     - **1-4** — Add all basis functions in atom 1, 2, 3, 4 (methyl group) into fragment1 q
 
-Define fragment 2 a 5-9 // Add all basis functions in atom 5, 6, 7, 8, 9 (formamide moiety) into fragment 2 q 4 // Print composition of fragment 1 and the cross term between fragment 1 and 2 in all orbitals by Mulliken analysis. If you only defined fragment 1, then only composition of fragment 1 will be printed
+!!! terminal "Multiwfn session"
+
+    - **Define fragment 2 a 5-9** — Add all basis functions in atom 5, 6, 7, 8, 9 (formamide moiety) into fragment 2 q
+    - **4** — Print composition of fragment 1 and the cross term between fragment 1 and 2 in all orbitals by Mulliken analysis. If you only defined fragment 1, then only composition of fragment 1 will be printed
 
 Since amount of the printed information is huge, I only extract cross term composition in all occupied orbitals:
 
@@ -211,7 +214,10 @@ Assume that the Gaussian output file is named as H2O_NAOMO.out (can be found in
     - **8** — Enter orbital composition analysis module
     - **7** — Enter NAO analysis function You will find the default output mode is "Only show core and valence NAOs". Core and valence NAOs have one-to-one correspondence with actual atomic orbitals, if the MO to be analyzed is occupied, in general we only need to concern these NAOs, while Rydberg NAOs can be ignored. Assume that we want to analyze MO 4, we input
 
-0 // Show orbital composition of specific MO 4 // Analyze MO 4 The following information will appear on screen
+!!! terminal "Multiwfn session"
+
+    - **0** — Show orbital composition of specific MO
+    - **4** — Analyze MO 4 The following information will appear on screen
 
 
 ```text
@@ -304,7 +310,10 @@ In this section, we will first use Hirshfeld method and then Becke method to ana
 
 Boot up Multiwfn and input examples\CH3CONH2.fch // You can also use such as .wfn and .wfx file as input. But .wfn and .wfx files do not contain virtual orbital information!
 
-8 // Orbital composition analysis 8 // Use Hirshfeld partition Hirshfeld analysis requires electron density of atoms in their free-states, you need to choose a method to calculate atomic densities. Selecting 1 to use built-in atomic densities is very convenient, see Appendix 3 for detail; alternatively, you can select 2 to evaluate atomic densities based on atomic .wfn files, see Section 3.7.3 for detail. Here we choose option 1.
+!!! terminal "Multiwfn session"
+
+    - **8** — Orbital composition analysis
+    - **8** — Use Hirshfeld partition Hirshfeld analysis requires electron density of atoms in their free-states, you need to choose a method to calculate atomic densities. Selecting 1 to use built-in atomic densities is very convenient, see Appendix 3 for detail; alternatively, you can select 2 to evaluate atomic densities based on atomic .wfn files, see Section 3.7.3 for detail. Here we choose option
 
 Then Multiwfn initializes the data, for large system you may need to wait for a while. Assume that you want to analyze MO 6, then simply input 6, the result will be printed on screen, as shown below. (Because the integrals are evaluated numerically, the sum of all terms will be slightly deviated to 100%, so Multiwfn automatically normalizes the result.)
 

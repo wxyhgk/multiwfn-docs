@@ -6,7 +6,16 @@
 
 <!-- p.655 -->
 
-10-13,15,17 // Atom index of the carbons in the phenyl moiety [Press ENTER button] // No requirement on index of basis functions X // Basis functions must be PX type q // Save fragment 2 0 // Return to last menu 0 // Draw COHP between the two defined fragments Now you can see the following map, which is quite similar to the corresponding OPDOS curve plotted in Part 4 of Section 4.10.1. This example shows that COHP usually convey analogous information like OPDOS.
+!!! terminal "Multiwfn session"
+
+    - **10-13,15,17** — Atom index of the carbons in the phenyl moiety
+    - **[Press ENTER button]** — No requirement on index of basis functions
+    - **X** — Basis functions must be PX type
+    - **q** — Save fragment 2
+    - **0** — Return to last menu
+    - **0** — Draw COHP between the two defined fragments
+
+Now you can see the following map, which is quite similar to the corresponding OPDOS curve plotted in Part 4 of Section 4.10.1. This example shows that COHP usually convey analogous information like OPDOS.
 
 
 ## 4.11 Plot various kinds of spectra
@@ -294,7 +303,10 @@ Hint: Save and load plotting settings In order to replot the map above quickly i
     - **Save settings to Asn_ECD.dat in current folder Next time, if you want to recover the map above, you simply need to input examples\spectra\Asn_TDDFT.out 11** — Plot spectrum
     - **4** — ECD 2
 
-Load plotting settings Asn_ECD.dat // Save settings to Asn_ECD.dat in current folder 0 // Plot the spectrum Note that the Asn_ECD.dat corresponding to the map above has already been provided in examples\spectra folder.
+!!! terminal "Multiwfn session"
+
+    - **Load plotting settings Asn_ECD.dat** — Save settings to Asn_ECD.dat in current folder
+    - **0** — Plot the spectrum Note that the Asn_ECD.dat corresponding to the map above has already been provided in examples\spectra folder.
 
 
 ### 4.11.4 Plot conformational weighted UV-Vis and ECD spectra for plumericin
@@ -469,7 +481,10 @@ Boot up Multiwfn and input examples\spectra\2-methyloxirane_Raman.out // Output 
 
 Employ the fundamental scale factor 0.9614, which is suitable for B3LYP/6-31G* level
 
-19 // Convert Raman activities to intensities 15000 // Wavenumber (cm-1) of incident light. This value should be consistent with the actual experimental condition, the value we inputted here is arbitrarily chosen
+!!! terminal "Multiwfn session"
+
+    - **19** — Convert Raman activities to intensities
+    - **15000** — Wavenumber (cm-1) of incident light. This value should be consistent with the actual experimental condition, the value we inputted here is arbitrarily chosen
 
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 ( 1<br/>3 ( 1<br/>4 ( 3 | 9.5%)<br/>6.9%)<br/>.2%) |
@@ -612,7 +627,10 @@ examples\spectra\methyloxirane_VCD.out
     - **11** — Plot spectrum
     - **5** — VCD 14
 
-Select all frequencies 0.9614 // Employ fundamental scale factor prefitted for B3LYP/6-31G* level 0 // Show the spectrum You will see
+!!! terminal "Multiwfn session"
+
+    - **Select all frequencies 0.9614** — Employ fundamental scale factor prefitted for B3LYP/6-31G* level
+    - **0** — Show the spectrum You will see
 
 2.46 31.7
 
@@ -645,16 +663,31 @@ Boot up Multiwfn and input examples\spectra\S-methyloxirane_ROA.out
 
 There are totally six kinds of data can be selected, here we select the commonly studied "ROA SCP(180)", namely backscattered circular polarization ROA spectrum
 
-14 // Scale frequencies by a scale factor [Press ENTER button] // Select all frequencies
+!!! terminal "Multiwfn session"
+
+    - **14** — Scale frequencies by a scale factor
+    - **[Press ENTER button]** — Select all frequencies
 
 
 <!-- p.671 -->
 
 0.97 // Employ fundamental scale factor of 0.97, which is suitable for B3LYP/aug-cc-pVDZ level
 
-19 // Convert the ROA data outputted by Gaussian to "real" ROA intensities 532nm // Wavelength of incident light. This value should be consistent with actual experimental condition
+!!! terminal "Multiwfn session"
 
-[Press ENTER button] // Assume that experimental temperature is 298.15K 3 // Adjust range of X axis of the spectrum 3200,200,400 // Lower limit, upper limit and label interval 0 // Show the spectrum Now you can see below ROA spectrum:
+    - **19** — Convert the ROA data outputted by Gaussian to "real" ROA intensities
+    - **532nm** — Wavelength of incident light.
+
+This value should be consistent with actual experimental condition
+
+!!! terminal "Multiwfn session"
+
+    - **[Press ENTER button]** — Assume that experimental temperature is 298.15K
+    - **3** — Adjust range of X axis of the spectrum
+    - **3200,200,400** — Lower limit, upper limit and label interval
+    - **0** — Show the spectrum
+
+Now you can see below ROA spectrum:
 
 2532.2 34333.5
 
@@ -773,7 +806,10 @@ We first plot 13C NMR spectrum. Boot up Multiwfn and input
 
 <!-- p.675 -->
 
-examples\spectra\NMR\Acetaldehyde.out 11 // Plot various spectrum 7 // NMR From option 6 in the interface, you can find the element currently considered is carbon. Now if you directly select option 0, you will see 13C spectrum, however, the X-axis corresponds to absolute shielding value. In order to make X-axis correspond to chemical shift, we should input
+!!! terminal "Multiwfn session"
+
+    - **examples\spectra\NMR\Acetaldehyde.out 11** — Plot various spectrum
+    - **7** — NMR From option 6 in the interface, you can find the element currently considered is carbon. Now if you directly select option 0, you will see 13C spectrum, however, the X-axis corresponds to absolute shielding value. In order to make X-axis correspond to chemical shift, we should input
 
 !!! terminal "Multiwfn session"
 
@@ -898,7 +934,10 @@ Now boot up Multiwfn and input multiple.txt
     - **11** — Plot various spectrum
     - **7** — NMR 6
 
-Set how to determine chemical shifts 1 // Set reference shielding value to determine chemical shift 31.8294 // The TMS reference value that comes from examples\spectra\NMR\valine\TMS.out, which was calculated via exactly the same way as current system
+!!! terminal "Multiwfn session"
+
+    - **Set how to determine chemical shifts 1** — Set reference shielding value to determine chemical shift
+    - **31.8294** — The TMS reference value that comes from examples\spectra\NMR\valine\TMS.out, which was calculated via exactly the same way as current system
 
 !!! terminal "Multiwfn session"
 
@@ -914,7 +953,12 @@ Set how to determine chemical shifts 1 // Set reference shielding value to deter
 
 <!-- p.679 -->
 
-In order to improve the effect of the map, we close the graph and then input 3 // Set lower and upper limits of X-axis 4,0,0.5 // From 4.0 to 0.0 ppm with label spacing of 0.5 ppm
+In order to improve the effect of the map, we close the graph and then input
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Set lower and upper limits of X-axis
+    - **4,0,0.5** — From 4.0 to 0.0 ppm with label spacing of 0.5 ppm
 
 !!! terminal "Multiwfn session"
 
@@ -971,7 +1015,12 @@ Next, we will plot fluorescence emission for the well-known BODIPY molecule:
 
 Kasha’s rule is assumed to be valid for this system, therefore we should optimize geometry of S1 state. The output file of Gaussian 16 A.03 of this task at TD-B3LYP/6-311G* level is examples\excit\BODIPY_S1_opt.out, frequency analysis is also performed because we want to check if there is imaginary frequency (none is found). Note that “TD” keyword is employed without additional options, in this case the lowest three excited states S1, S2 and S3 will be solved, and the state of interest (the state to be optimized) is default to the first excited state (S1). The default setting is well-suited for optimizing the S1 state.
 
-Boot up Multiwfn and input examples\excit\BODIPY_S1_opt.out 11 // Plot spectrum 3 // UV-Vis After that, excitation energies and oscillator strengths of all excited states at the final geometry (S1 geometry) are loaded into Multiwfn. Then we clean oscillator strengths of S2 and S3 states by inputting following commands:
+Boot up Multiwfn and input examples\excit\BODIPY_S1_opt.out
+
+!!! terminal "Multiwfn session"
+
+    - **11** — Plot spectrum
+    - **3** — UV-Vis After that, excitation energies and oscillator strengths of all excited states at the final geometry (S1 geometry) are loaded into Multiwfn. Then we clean oscillator strengths of S2 and S3 states by inputting following commands:
 
 !!! terminal "Multiwfn session"
 

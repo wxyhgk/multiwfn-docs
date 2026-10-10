@@ -140,7 +140,11 @@ ELF(DH-A) of this system can be obtained via ELF topology analysis. To do this, 
     - **-11** — Select the real space function to be analyzed
     - **9** — ELF 6
 
-Set the sphere center as geometry center of three atoms 1,4,8 // Center of C1, C4 and H8 will be set as the sphere center
+Set the sphere center as geometry center of three atoms
+
+!!! terminal "Multiwfn session"
+
+    - **1,4,8** — Center of C1, C4 and H8 will be set as the sphere center
 
 
 ![](../imgs/p413_067.png)
@@ -151,7 +155,12 @@ Set the sphere center as geometry center of three atoms 1,4,8 // Center of C1, C
 
 0 // Start searching (the sphere radius, the number of starting points can be set by corresponding options in the interface)
 
--9 // Return 0 // Visualize topology analysis result Now you can see the graph below. Clearly, the critical point 5 corresponds to the bifurcation
+!!! terminal "Multiwfn session"
+
+    - **-9** — Return
+    - **0** — Visualize topology analysis result
+
+Now you can see the graph below. Clearly, the critical point 5 corresponds to the bifurcation
 
 point between V(D,H) and the basin of π electron.
 

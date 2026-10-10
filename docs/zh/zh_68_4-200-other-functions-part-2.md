@@ -112,9 +112,24 @@ Rydberg轨道指空间上非常弥散的MOs，它们的轨道形状类似于原�
     - **26** — 修改轨道占据数(Modify orbital occupation number)
     - **0** — 选择全部轨道 0
 
-选择轨道11 2 // 把轨道11的占据数设为2.0（假设它被双占据） q // 返回 -1 // 返回主菜单 200 5 // 绘制RDF(Plot RDF) 3 // 设置径向作图的下限和上限 0,10 // 从0到10 Å 4 // 设置积分的角向点数。默认值对当前目的来说不必要地高，因此我们设为较小值以减少计算时间
+选择轨道11
 
-302 // 302个角向点 0 // 计算电子密度的RDF（默认实空间函数） 1 // 绘制RDF图
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 把轨道11的占据数设为2.0（假设它被双占据）
+    - **q** — 返回 -1
+
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 绘制RDF(Plot RDF)
+    - **3** — 设置径向作图的下限和上限
+    - **0,10** — 从0到10 Å 4
+
+!!! terminal "Multiwfn 交互"
+
+    - **302** — 302个角向点
+    - **0** — 计算电子密度的RDF（默认实空间函数）
+    - **1** — 绘制RDF图
 
 
 ![](../imgs/p1034_550.png)
@@ -209,7 +224,14 @@ Total:    99.980 %
 
 我们应首先产生定域分子轨道（LMOs），因为通常孤对可用一个LMO表示。
 
-启动Multiwfn并输入以下命令examples\excit\D-pi-A.fchk 19 // 轨道定域化分析(Orbital localization analysis) 1 // 定域化占据轨道(Localize occupied orbitals) LMOs自动导出到当前文件夹下的new.fch。从屏幕上输出的LMO组成中，我们可以发现有几个LMOs与N24，即氨基中的氮密切相关。下面是轨道组成输出的相关行。
+启动Multiwfn并输入以下命令examples\excit\D-pi-A.fchk
+
+!!! terminal "Multiwfn 交互"
+
+    - **19** — 轨道定域化分析(Orbital localization analysis)
+    - **1** — 定域化占据轨道(Localize occupied orbitals)
+
+LMOs自动导出到当前文件夹下的new.fch。从屏幕上输出的LMO组成中，我们可以发现有几个LMOs与N24，即氨基中的氮密切相关。下面是轨道组成输出的相关行。
 
 
 ```text
@@ -342,7 +364,15 @@ MO对f −的贡献。分别携带N和N-1态轨道波函数的文件已作为phe
 
 贡献之前，我们首先需要生成f −的cube文件。为此，启动Multiwfn并输入
 
-examples\phenol.wfn // N态的波函数文件 5 // 计算格点数据(Calculate grid data) 0 // 设置自定义操作(Set custom operation) 1 // 只对已载入的文件操作一个文件(Only one file will be operated with the file that has been loaded) -,examples\phenol_N-1.wfn 1 // 电子密度(Electron density) 2 // 中等质量格点(Medium-quality grid) 2 // 将格点数据作为density.cub导出到当前文件夹(Export the grid data as density.cub in current folder)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\phenol.wfn** — N态的波函数文件
+    - **5** — 计算格点数据(Calculate grid data)
+    - **0** — 设置自定义操作(Set custom operation)
+    - **1** — 只对已载入的文件操作一个文件(Only one file will be operated with the file that has been loaded) -,examples\phenol_N-1.wfn
+    - **1** — 电子密度(Electron density)
+    - **2** — 中等质量格点(Medium-quality grid)
+    - **2** — 将格点数据作为density.cub导出到当前文件夹(Export the grid data as density.cub in current folder)
 
 现在，我们可以直接进入用于求轨道对Δρ贡献的功能。输入以下命令
 
@@ -425,7 +455,10 @@ f −非常相似，这就是为什么MO25有主导性贡献，也是为什么f 
     - **2** — 将格点数据作为density.cub导出到当前文件夹(Export the grid data as density.cub in current folder) 现在重新启动Multiwfn并输入 examples\orb_densdiff\butadiene\BUTADIENE.31
     - **37** — 载入同一文件夹中的BUTADIENE.37，它记录了NBO轨道 现在如果你进入主功能(main function) 6并选择选项3查看轨道信息，你会发现由于高占据数，前15个轨道对应于Lewis型NBO。接下来，我们在主菜单(main menu)中输入以下命令
 
-200 // 其他功能(Other functions, Part 2) 13 // 评估轨道对密度差或其他格点数据的贡献(Evaluate orbital contributions to density difference or other grid data)
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能(Other functions, Part 2)
+    - **13** — 评估轨道对密度差或其他格点数据的贡献(Evaluate orbital contributions to density difference or other grid data)
 
 !!! terminal "Multiwfn 交互"
 
@@ -499,7 +532,9 @@ f −非常相似，这就是为什么MO25有主导性贡献，也是为什么f 
     - **2** — 将约束设为特定值(Set the constraint to a specific value)
     - **0** — 由于电子激发不改变电子数，将贡献之和约束为零
 
-0 // 选择轨道范围并开始分析(Choose orbital range and start analysis) [直接按回车键(Press ENTER button)以考虑所有轨道] // 注意在电子激发过程中，一部分电子被激发到空轨道，因此只考虑Lewis NBO显然不够，所以在当前情况下应考虑所有轨道
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 选择轨道范围并开始分析(Choose orbital range and start analysis) [直接按回车键(Press ENTER button)以考虑所有轨道]
 
 结果如下所示
 
@@ -550,7 +585,14 @@ f −非常相似，这就是为什么MO25有主导性贡献，也是为什么f 
 
 在阅读本节之前，请先阅读第3.23.1节以了解如何用约化密度梯度(reduced density gradient, RDG)揭示弱相互作用区域。在本节中，我将展示通过在RDG等值面所包围的域内积分来表征弱相互作用的可能性。
 
-体系1：苯酚二聚体 首先，我们以苯酚二聚体为例。启动Multiwfn并输入 examples\phenoldimer.wfn 200 // 其他功能(Other functions, Part 2) 14 // 在实空间函数的等值面内积分实空间函数(Integrate real space functions within isosurfaces of a real space function) 这里我们要研究由RDG = 0.5等值面定义的RDG域；换句话说，这些域由RDG < 0.5的格点组成。因此，我们选择选项2并选择"13 Reduced density gradient"，然后选择选项3并输入判据，即<0.5（实际上，RDG < 0.5是默认设置，你不需要手动做这些步骤）。接下来，输入以下命令：
+体系1：苯酚二聚体 首先，我们以苯酚二聚体为例。启动Multiwfn并输入 examples\phenoldimer.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能(Other functions, Part 2)
+    - **14** — 在实空间函数的等值面内积分实空间函数(Integrate real space functions within isosurfaces of a real space function)
+
+这里我们要研究由RDG = 0.5等值面定义的RDG域；换句话说，这些域由RDG < 0.5的格点组成。因此，我们选择选项2并选择"13 Reduced density gradient"，然后选择选项3并输入判据，即<0.5（实际上，RDG < 0.5是默认设置，你不需要手动做这些步骤）。接下来，输入以下命令：
 
 !!! terminal "Multiwfn 交互"
 
@@ -722,7 +764,16 @@ $$\delta g^{\mathrm{inter}}$$
 
 很容易理解，如果我们用0.001 a.u.的阈值，则无法定义对应分子中心空腔的域，因为内部区域和外部区域通过红色箭头所指的三个通道连通。而在0.0001 a.u.的情况下，分子空腔可清晰辨认，因此我们可以用该阈值配合域分析模块研究空腔。
 
-返回主菜单(Return to main menu)，然后输入以下命令 200 // 其他功能(Other functions, Part 2) 14 // 域分析(Domain analysis) 2 // 选择要计算并用于划分域的实空间函数(Choose the real space function to be calculated and used for partitioning domains) 1 // 前分子密度(Promolecular density) 3 // 定义确定域的规则(Define the rule of determining domains) <0.0001 // 电子密度小于0.0001的区域将被定义为域(Regions with electron density less than 0.0001 will be defined as domains)
+返回主菜单(Return to main menu)，然后输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能(Other functions, Part 2)
+    - **14** — 域分析(Domain analysis)
+    - **2** — 选择要计算并用于划分域的实空间函数(Choose the real space function to be calculated and used for partitioning domains)
+    - **1** — 前分子密度(Promolecular density)
+    - **3** — 定义确定域的规则(Define the rule of determining domains)
+    - **<0.0001** — 电子密度小于0.0001的区域将被定义为域(Regions with electron density less than 0.0001 will be defined as domains)
 
 
 ![](../imgs/p1049_564.png)
@@ -798,7 +849,14 @@ Integration result:    0.3172320000E+03 a.u.
 
 苯的EDD的.cub文件（benzene_EDD.cub）已提供在http://sobereva.com/multiwfn/extrafiles/benzene_EDD.zip。你也可以用主功能(main function) 5很容易地生成它。我们先查看其等值面图。启动Multiwfn并载入benzene_EDD.cub，然后进入主功能(main function) 0，将等值面(isovalue)设为0.015，你将看到下图。绿色和蓝色等值面分别对应正和负部分，它们对应于由孤立原子形成苯时电子密度增加和减少的区域。在本例中，我们将用域分析模块分别在红色和蓝色圆圈标示的两个域内积分EDD。
 
-返回主菜单(Return to main menu)，然后输入 200 // 其他功能(Other functions, Part 2) 14 // 域分析(Domain analysis) 3 // 设置定义域的判据(Set criterion for defining domain) <-0.015 // 函数值比-0.015更负的区域将被确定为域，这与上图所示蓝色等值面一致(The regions with function value more negative than -0.015 will be determined as domains, which is in line with the blue isosurfaces shown above)
+返回主菜单(Return to main menu)，然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能(Other functions, Part 2)
+    - **14** — 域分析(Domain analysis)
+    - **3** — 设置定义域的判据(Set criterion for defining domain)
+    - **<-0.015** — 函数值比-0.015更负的区域将被确定为域，这与上图所示蓝色等值面一致(The regions with function value more negative than -0.015 will be determined as domains, which is in line with the blue isosurfaces shown above)
 
 
 ![](../imgs/p1052_567.png)
@@ -824,7 +882,24 @@ Domain:      7    Grids:      427    Volume:     0.1899 Angstrom^3
 
 输入选项3可视化这些域。通过检查每个域的分布，我们发现域3对应于上述蓝色等值面，如下所示。每个小绿球对应域内的一个格点。
 
-然后我们在域3内积分EDD。关闭图形界面(GUI)窗口并输入 1 // 对一个域进行积分(Perform integration for a domain) 3 // 域编号为3(Domain index is 3) 1 // 被积函数就是内存中的格点数据，即EDD(The integrand is just the grid data in memory, namely EDD) 结果为-0.032 a.u.。接下来，我们在前面提到的绿色等值面内积分EDD。输入： 0 // 退出域分析模块(Exit domain analysis module) 14 // 域分析(Domain analysis) 3 // 设置定义域的判据(Set criterion for defining domain) >0.015 -1 // 基于内存中的格点数据生成域(Yield domains based on the grid data in memory) 经直观检查后，我们发现域14对应于所感兴趣的等值面，如下所示
+然后我们在域3内积分EDD。关闭图形界面(GUI)窗口并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 对一个域进行积分(Perform integration for a domain)
+    - **3** — 域编号为3(Domain index is 3)
+    - **1** — 被积函数就是内存中的格点数据，即EDD(The integrand is just the grid data in memory, namely EDD)
+
+结果为-0.032 a.u.。接下来，我们在前面提到的绿色等值面内积分EDD。输入：
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 退出域分析模块(Exit domain analysis module)
+    - **14** — 域分析(Domain analysis)
+    - **3** — 设置定义域的判据(Set criterion for defining domain) >0.015
+    - **-1** — 基于内存中的格点数据生成域(Yield domains based on the grid data in memory)
+
+经直观检查后，我们发现域14对应于所感兴趣的等值面，如下所示
 
 
 ![](../imgs/p1053_569.png)
@@ -832,7 +907,15 @@ Domain:      7    Grids:      427    Volume:     0.1899 Angstrom^3
 <!-- p.1054 -->
 
 
-关闭GUI窗口并输入 1 // 对一个域执行积分 14 // 域编号为14 1 // 被积函数就是内存中的网格数据，即EDD 结果为0.156 a.u.。最后值得强调的是，由于积分是基于均匀网格以数值方式计算的，网格间距越小，积分精度越高。
+关闭GUI窗口并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 对一个域执行积分
+    - **14** — 域编号为14
+    - **1** — 被积函数就是内存中的网格数据，即EDD
+
+结果为0.156 a.u.。最后值得强调的是，由于积分是基于均匀网格以数值方式计算的，网格间距越小，积分精度越高。
 
 你可以类似地对其他种类的EDD进行积分，包括Fukui函数和对偶描述符(dual descriptor)。
 
@@ -867,9 +950,19 @@ Domain:      7    Grids:      427    Volume:     0.1899 Angstrom^3
 
 注：当然，对于本功能而言，使用GaussView并非绝对必要。但是，如果不用GaussView，你必须通过目视检查手动记录链中所有原子的序号，显然这个过程相当麻烦！
 
-现在启动Multiwfn并输入 TP5.fchk 200 // 其他功能(Other functions)(第二部分，Part 2) 18 // 计算键长/键级交替(BLA/BOA)并研究键特征随键序号的变化(Calculate bond length/order alternation (BLA/BOA) and study variation of bond characteristics with respect to bond index)
+现在启动Multiwfn并输入 TP5.fchk
 
-10,12,14,16-17,19,21,23-24,26,28,30-31,33,35 // 链中原子的序号 1,35 // 起始端和末端原子的序号 然后Multiwfn会根据你输入的信息自动识别链的原子顺序。从屏幕上可以看到，识别出的顺序为
+!!! terminal "Multiwfn 交互"
+
+    - **200** — 其他功能(Other functions)(第二部分，Part 2)
+    - **18** — 计算键长/键级交替(BLA/BOA)并研究键特征随键序号的变化(Calculate bond length/order alternation (BLA/BOA) and study variation of bond characteristics with respect to bond index)
+
+!!! terminal "Multiwfn 交互"
+
+    - **10,12,14,16-17,19,21,23-24,26,28,30-31,33,35** — 链中原子的序号
+    - **1,35** — 起始端和末端原子的序号
+
+然后Multiwfn会根据你输入的信息自动识别链的原子顺序。从屏幕上可以看到，识别出的顺序为
 
 
 ```text
@@ -1068,7 +1161,12 @@ SDI of orbital    20:   11.5668
 
 
 
-19 // 计算SDI(Calculating SDI) 3 // 基于内存中的网格数据计算SDI(Calculate SDI based on grid data in memory) 然后你将看到：
+!!! terminal "Multiwfn 交互"
+
+    - **19** — 计算SDI(Calculating SDI)
+    - **3** — 基于内存中的网格数据计算SDI(Calculate SDI based on grid data in memory)
+
+然后你将看到：
 
 
 ```text
@@ -1136,7 +1234,15 @@ Eigenvalues of NAdOs: (sum=   3.11681 )
     - **1** — 电子密度(在当前语境下对应于BOD)(Electron density (which corresponds to BOD in the present context))
     - **1** — 色彩填充图(Color-filled map) [按ENTER键(Press ENTER button)]
 
-设置扩展距离(Set extension distance) 2 // 2 Bohr 3 // YZ平面(YZ plane) 0 // Z=0 此时BOD图弹出。对绘图设置做一些调整后，你可以看到下图
+设置扩展距离(Set extension distance)
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 2 Bohr
+    - **3** — YZ平面(YZ plane)
+    - **0** — Z=0
+
+此时BOD图弹出。对绘图设置做一些调整后，你可以看到下图
 
 
 <!-- p.1062 -->
@@ -1171,7 +1277,12 @@ Eigenvalues of NAdOs: (sum=   3.11681 )
 
 
 
-[按ENTER键(Press ENTER button)] // 载入当前文件夹下的AOM.txt(Load the AOM.txt in current folder) 4,6 // 体系中心两个碳的序号 现在你可以看到
+!!! terminal "Multiwfn 交互"
+
+    - **[按ENTER键(Press ENTER button)]** — 载入当前文件夹下的AOM.txt(Load the AOM.txt in current folder)
+    - **4,6** — 体系中心两个碳的序号
+
+现在你可以看到
 
 
 ```text
@@ -1224,7 +1335,11 @@ Eigenvalues of NAdOs: (sum=   1.11455 )
     - **20** — 键级密度(BOD)和自然自适应轨道(NAdO)分析(Bond order density (BOD) and natural adaptive orbital (NAdO) analyses)
     - **1** — 使用原子重叠矩阵(AOM)进行分析(Use atomic overlap matrix (AOM) for the analysis) [按ENTER键(Press ENTER button)]
 
-体系边界两个碳的序号 y // 载入新生成的NAdOs.mwfn 此后，用主功能0可视化仅有的两个对DI有显著贡献的轨道，如下所示(等值面值=0.05)
+体系边界两个碳的序号
+
+!!! terminal "Multiwfn 交互"
+
+    - **y** — 载入新生成的NAdOs.mwfn 此后，用主功能0可视化仅有的两个对DI有显著贡献的轨道，如下所示(等值面值=0.05)
 
 C1-C4的σ型NAdO轨道的本征值与C4-C6的相当，表明这两种C-C键具有相近强度的σ作用。相比之下，C1-C4的π型NAdO轨道对DI的贡献远高于C4-C6，很好地反映了
 
@@ -1270,7 +1385,14 @@ C1-C4的σ型NAdO轨道的本征值与C4-C6的相当，表明这两种C-C键具�
 
 
 
-3 // 基于片段重叠矩阵(FOM)的片段间相互作用分析(Interfragment interaction analysis based on fragment overlap matrix (FOM)) [按ENTER键(Press ENTER button)] // 载入当前文件夹下的AOM.txt(Load AOM.txt in current folder) 3 // 片段1：氧原子 1,2 // 片段2：两个碳 载入的AOM用于构建两个片段的FOM，所生成NAdO的本征值为
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 基于片段重叠矩阵(FOM)的片段间相互作用分析(Interfragment interaction analysis based on fragment overlap matrix (FOM))
+    - **[按ENTER键(Press ENTER button)]** — 载入当前文件夹下的AOM.txt(Load AOM.txt in current folder)
+    - **3** — 片段1：氧原子
+    - **1,2** — 片段2：两个碳
+
+载入的AOM用于构建两个片段的FOM，所生成NAdO的本征值为
 
 
 ```text

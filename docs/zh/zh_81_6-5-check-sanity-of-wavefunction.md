@@ -10,7 +10,12 @@
 
 为了在Pt(NH3)2Cl2.wfn的分析中借用原子.wfx文件中的EDF信息，首先我们需要将`settings.ini`中的“isupplyEDF”参数设为1。然后启动Multiwfn并输入以下命令
 
-examples\Pt(NH3)2Cl2.wfn Pt // 载入元素Pt的EDF信息(load EDF information for element Pt) examples\Pt_lanl2.wfx // 从该文件获取Pt的EDF信息(take EDF information of Pt from this file) Cl // 载入元素Cl的EDF信息(load EDF information for element Cl) examples\Cl_lanl2.wfx // 从该文件获取Cl的EDF信息(take EDF information of Cl from this file) q // 我们已完成，退出(we have finished, exit)现在我们可以像往常一样进行波函数分析。但最好先进行一些测试以检查内层芯电子密度是否已被正确表示，例如，我们在全空间对电子密度积分
+!!! terminal "Multiwfn 交互"
+
+    - **examples\Pt(NH3)2Cl2.wfn Pt** — 载入元素Pt的EDF信息(load EDF information for element Pt)
+    - **examples\Pt_lanl2.wfx** — 从该文件获取Pt的EDF信息(take EDF information of Pt from this file) Cl
+    - **载入元素Cl的EDF信息(load EDF information for element Cl) examples\Cl_lanl2.wfx** — 从该文件获取Cl的EDF信息(take EDF information of Cl from this file)
+    - **q** — 我们已完成，退出(we have finished, exit)现在我们可以像往常一样进行波函数分析。但最好先进行一些测试以检查内层芯电子密度是否已被正确表示，例如，我们在全空间对电子密度积分
 
 !!! terminal "Multiwfn 交互"
 

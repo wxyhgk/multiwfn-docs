@@ -76,7 +76,12 @@ There are two ways to view NBOs, if you are a Gaussian user, way 2 may be more c
 
 Way 1: Using NBO plot files The common way is to generate NBO plot files (.31~.40) and load them into Multiwfn. To generate these files by Gaussian, you should add pop=nboread in route section, that means the keywords of NBO at the end of input file will be passed to NBO module (Link 607 in Gaussian), then add for example $NBO plot file=C:\NH2COH $END at the end of the input file with a blank line before it, you can refer to the NH2COH_NBO.gjf in “example” directory. Run the input file by Gaussian, you will find that NH2COH.31, NH2COH.32 ... NH2COH.41 have been generated in C:\ folder. The NH2COH.31 and NH2COH.37 have already been provided in “example” folder. Now boot up Multiwfn and input following commands
 
-examples\NH2COH.31 // .31 file contains necessary basis function information for plotting examples\NH2COH.37 // .37 file contains NBO information. .32~.40 files correspond to PNAO/NAO/PNHO/NHO/PNBO/NBO/PNLMO/NLMO/MO respectively. Hint: You can only input 37, because in present example the .37 and the .31 file share the same name
+!!! terminal "Multiwfn session"
+
+    - **examples\NH2COH.31** — .31 file contains necessary basis function information for plotting
+    - **examples\NH2COH.37** — .37 file contains NBO information.
+
+.32~.40 files correspond to PNAO/NAO/PNHO/NHO/PNBO/NBO/PNLMO/NLMO/MO respectively. Hint: You can only input 37, because in present example the .37 and the .31 file share the same name
 
 0 // Enter the GUI You can choose corresponding NBO orbital from right-bottom list to view the isosurface. Multiwfn is also capable to plot two orbitals simultaneously, for instance, here we will plot NBO 12 and NBO 56, which correspond to occupied lone pair of nitrogen atom and unoccupied anti-π bond between carbon and oxygen atoms respectively. Firstly, we choose 12 from the orbital list to plot NBO 12, and then click "Show+Sel. isosur#2", after that we click 56 in the list, you will see both of NBO 12 and NBO 56 are shown. The yellow-green and purple parts of NBO 56 (isosurface#2) correspond to positive and negative parts, respectively.
 

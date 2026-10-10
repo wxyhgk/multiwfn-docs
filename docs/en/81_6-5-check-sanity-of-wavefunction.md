@@ -8,7 +8,17 @@
 
 In order to borrow EDF information from the atomic .wfx files in the analysis of Pt(NH3)2Cl2.wfn, first we need to set "isupplyEDF" parameter in `settings.ini` to 1. Then boot up Multiwfn and input following commands
 
-examples\Pt(NH3)2Cl2.wfn Pt // Load EDF information for element Pt examples\Pt_lanl2.wfx // Take EDF information of Pt from this file Cl // Load EDF information for element Cl examples\Cl_lanl2.wfx // Take EDF information of Cl from this file q // We have finished, exit Now we can perform wavefunction analysis as usual. But it is better to first carry out some tests to check if inner-core electron density has been properly represented, for example, we integrate electron density over the whole space
+examples\Pt(NH3)2Cl2.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **Pt** — Load EDF information for element Pt
+    - **examples\Pt_lanl2.wfx** — Take EDF information of Pt from this file
+    - **Cl** — Load EDF information for element Cl
+    - **examples\Cl_lanl2.wfx** — Take EDF information of Cl from this file
+    - **q** — We have finished, exit
+
+Now we can perform wavefunction analysis as usual. But it is better to first carry out some tests to check if inner-core electron density has been properly represented, for example, we integrate electron density over the whole space
 
 !!! terminal "Multiwfn session"
 

@@ -171,7 +171,19 @@ grompp -f md.mdp -c water-pr.gro -p water.top -o water-md.tpr -n index.ndx mdrun
 
 重要提示：目前 wat.xyz 记录的是原子名称而不是元素名称。例如，如果您通过文本编辑器打开该文件，会发现每个水包含 OW、HW1 和 HW2，它们是原子名称。然而，在标准的 .xyz 文件中，只应记录原子元素。因此，一般情况下，您应手动将 VMD 生成的 .xyz 文件中的所有原子名称替换为元素名称。幸运的是，在当前例子中这一步可以跳过，因为元素周期表中没有名为 OW、HW1 和 HW2 的元素，因此，Multiwfn 将仅采用原子名称的首字母来尝试识别它们的元素，它们可被正确识别为氧和氢，因为加载 .xyz 文件后，您可以在屏幕上找到提示“Formula: H1022 O511”，这正是我们所期望的。如果您在“formula”中发现存在不需要的元素，那就意味着您必须将 .xyz 文件中相应的原子名称替换为其实际元素名称。
 
-用 Multiwfn 生成格点数据 启动 Multiwfn 并输入以下命令 wat.xyz 20 // 弱相互作用可视化研究(Visual study of weak interaction) 3 // aNCI 分析(aNCI analysis) 1,1000 // 要分析的帧范围(The range of the frames to be analyzed) 7 301,301 // 使用原子 301（被冻结的水的氧）作为格点数据的方框中心(Using atom 301 (the oxygen of the frozen water) as the box center of the grid data) 80,80,80 // 每一边的格点数目(The number of grid points on each side) 4.5,4.5,4.5 // 每一侧延伸 4.5 Bohr(Extend 4.5 Bohr in each side) 现在 Multiwfn 开始计算每一帧的电子密度、其梯度和 Hessian，然后将获得它们的平均量，最后 Multiwfn 计算平均 RDG 和平均
+用 Multiwfn 生成格点数据 启动 Multiwfn 并输入以下命令 wat.xyz
+
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用可视化研究(Visual study of weak interaction)
+    - **3** — aNCI 分析(aNCI analysis)
+    - **1,1000** — 要分析的帧范围(The range of the frames to be analyzed)
+
+!!! terminal "Multiwfn 交互"
+
+    - **301,301** — 使用原子 301（被冻结的水的氧）作为格点数据的方框中心(Using atom 301 (the oxygen of the frozen water) as the box center of the grid data)
+    - **80,80,80** — 每一边的格点数目(The number of grid points on each side)
+    - **4.5,4.5,4.5** — 每一侧延伸 4.5 Bohr(Extend 4.5 Bohr in each side) 现在 Multiwfn 开始计算每一帧的电子密度、其梯度和 Hessian，然后将获得它们的平均量，最后 Multiwfn 计算平均 RDG 和平均
 
 sign(λ2)ρ。整个过程耗时；在常见的 Intel 4 核计算机上约需半小时。（注意这里我所指的电子密度是由前分子近似产生的，它是通过简单叠加处于自由状态的原子的密度而构建的）
 
@@ -201,7 +213,13 @@ sign(λ2)ρ。整个过程耗时；在常见的 Intel 4 核计算机上约需半
 
 不幸的是，在所关注的水周围，存在大量噪声等值面，这在一定程度上扰乱了图形，因此最好将其屏蔽。该目的可通过 Multiwfn 的主功能 13 实现，步骤描述如下。
 
-然后启动 Multiwfn 并输入 avgRDG.cub 13 // 处理格点数据(Process grid data) 13 // 设置远离特定原子的格点的值(Set the value of the grid points far away from specific atoms) 1.5 // 如果一个格点与任何所选原子之间的距离大于相应原子 vdW 半径的 1.5 倍，则该格点的值将被设为给定值(If the distance between a grid point and any selected atoms is longer than 1.5 times of vdW radius of corresponding atom, then the value of the grid point will be set as given value)
+然后启动 Multiwfn 并输入 avgRDG.cub
+
+!!! terminal "Multiwfn 交互"
+
+    - **13** — 处理格点数据(Process grid data)
+    - **13** — 设置远离特定原子的格点的值(Set the value of the grid points far away from specific atoms)
+    - **1.5** — 如果一个格点与任何所选原子之间的距离大于相应原子 vdW 半径的 1.5 倍，则该格点的值将被设为给定值(If the distance between a grid point and any selected atoms is longer than 1.5 times of vdW radius of corresponding atom, then the value of the grid point will be set as given value)
 
 !!! terminal "Multiwfn 交互"
 
@@ -323,7 +341,28 @@ set xtic  -0.5,0.1,0.3 nomirror rotate font "Helvetica"
     - **启动 Multiwfn 并输入 examples\GC.wfn 4** — 绘制平面图(Plot plane map)
     - **24** — IRI 1
 
-使用默认格点数(Use default number of grids) 0 // 修改延伸距离(Modify extension distance) 1 // 1 Bohr 1 // XY 平面，即所有原子所在的平面(XY plane, which is the plane all atoms are) 0 // Z=0 关闭图形然后输入 19 // 设置颜色过渡(Set color transition) 2 // 反转彩虹(Reversed rainbow) 4 // 显示原子标签和参考点(Enable showing atom labels and reference point) 1 // 红色(Red) 8 // 显示键(Enable showing bonds) 14 // 棕色(Brown) -1 // 重新绘制(Plot again) 现在您可以看到下图
+使用默认格点数(Use default number of grids)
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 修改延伸距离(Modify extension distance)
+    - **1** — 1 Bohr
+    - **1** — XY 平面，即所有原子所在的平面(XY plane, which is the plane all atoms are)
+    - **0** — Z=0
+
+关闭图形然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **19** — 设置颜色过渡(Set color transition)
+    - **2** — 反转彩虹(Reversed rainbow)
+    - **4** — 显示原子标签和参考点(Enable showing atom labels and reference point)
+    - **1** — 红色(Red)
+    - **8** — 显示键(Enable showing bonds)
+    - **14** — 棕色(Brown)
+    - **-1** — 重新绘制(Plot again)
+
+现在您可以看到下图
 
 该图中的橙色和绿色区域（IRI < 1.0）清楚地揭示了显著化学键相互作用和弱相互作用发生的区域。IRI >1.0 的区域具有大的电子密度梯度或可忽略的电子密度，它们不具有化学意义。
 
@@ -431,7 +470,21 @@ vdW势图能否与实际观测相对应？答案是肯定的。我基于Grimme�
     - **0** — 设置延伸距离(Set extension distance)
     - **10** — 10 Bohr 1
 
-Z值(Z value) 在图上点击鼠标右键关闭图形，然后输入 1 // 设置色阶上下限(Set lower&upper limit of color scale) -0.8,0.8 // 注意vdW势的单位为kcal/mol 4 // 显示原子标签(Enable showing atom labels) 12 // 深绿(Dark green) 8 // 显示化学键(Enable showing bonds) 14 // 棕色(Brown) 19 // 设置颜色过渡(Set color transition) 8 // 蓝-白-红(Blue-White-Red) 2 // 显示等高线(Enable showing contour lines) 现在选择选项-1重新绘制图形，你将看到
+Z值(Z value) 在图上点击鼠标右键关闭图形，然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 设置色阶上下限(Set lower&upper limit of color scale)
+    - **-0.8,0.8** — 注意vdW势的单位为kcal/mol
+    - **4** — 显示原子标签(Enable showing atom labels)
+    - **12** — 深绿(Dark green)
+    - **8** — 显示化学键(Enable showing bonds)
+    - **14** — 棕色(Brown)
+    - **19** — 设置颜色过渡(Set color transition)
+    - **8** — 蓝-白-红(Blue-White-Red)
+    - **2** — 显示等高线(Enable showing contour lines)
+
+现在选择选项-1重新绘制图形，你将看到
 
 
 <!-- p.892 -->
@@ -464,13 +517,23 @@ User-defined real space function: -0.6979258635E+00
 
 
 
-1 // 产生盆并定位吸引子(Generate basins and locate attractors) 100 // 自定义实空间函数(User-defined real space function)。现在它对应于以He为探针原子的vdW势
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 产生盆并定位吸引子(Generate basins and locate attractors)
+    - **100** — 自定义实空间函数(User-defined real space function)。现在它对应于以He为探针原子的vdW势
 
 2 // 中等质量格点(Medium-quality grid) 等待一段时间直到计算完成，然后可以选择选项10以可视化定位到的vdW势极小点
 
 只有环中心周围的极小点具有化学意义。可以看到，这些极小点被自动聚类在一起并共享相同的编号（1），可视为简并极小点。环外围区域的极小点可以忽略，因为它们基本是由数值噪声造成的。
 
-然后输入 -3 // 显示吸引子信息(Show information of attractors) y // 按值排序后显示吸引子(Show attractors after sorting according to their values) 然后可以看到聚类前每个极小点的位置和数值。最后，可以看到最终极小点（即聚类后）的位置和数值：
+然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **-3** — 显示吸引子信息(Show information of attractors)
+    - **y** — 按值排序后显示吸引子(Show attractors after sorting according to their values)
+
+然后可以看到聚类前每个极小点的位置和数值。最后，可以看到最终极小点（即聚类后）的位置和数值：
 
 
 ```text
@@ -510,7 +573,14 @@ IGM框架包含许多有用的思想并定义了许多有用的概念，在本�
 
 examples\GC.pdb 4 // 绘制平面图(Plot plane map)
 
-22 // δg 1 // 填色图(Color-filled map) [按ENTER键使用默认格点设置] 1 // XY平面(XY plane) 0 // Z=0 当前屏幕上显示的图形看起来比较模糊，这是因为默认色阶不适合当前情况，因此关闭图形并输入
+!!! terminal "Multiwfn 交互"
+
+    - **22** — δg
+    - **1** — 填色图(Color-filled map) [按ENTER键使用默认格点设置]
+    - **1** — XY平面(XY plane)
+    - **0** — Z=0
+
+当前屏幕上显示的图形看起来比较模糊，这是因为默认色阶不适合当前情况，因此关闭图形并输入
 
 !!! terminal "Multiwfn 交互"
 
@@ -536,9 +606,19 @@ examples\GC.pdb 4 // 绘制平面图(Plot plane map)
 
 的δg值都很大（值高于0.2的区域显示为白色）。δg函数还勾勒出碱基对之间的三个氢键区域，其中δg函数的值与化学键区域相比明显较小。
 
-δg也可以绘制为等值面图。返回主菜单并输入 5 // 计算格点数据(Calculate grid data)
+δg也可以绘制为等值面图。返回主菜单并输入
 
-22 // δg 2 // 中等质量格点(Medium-quality grid) -1 // 显示等值面(Show isosurface) 等值设为0.15和0.03时的等值面如下所示（可以使用更高质量的格点或将格点数据的延伸距离设小一些使图形更光滑）
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 计算格点数据(Calculate grid data)
+
+!!! terminal "Multiwfn 交互"
+
+    - **22** — δg
+    - **2** — 中等质量格点(Medium-quality grid)
+    - **-1** — 显示等值面(Show isosurface)
+
+等值设为0.15和0.03时的等值面如下所示（可以使用更高质量的格点或将格点数据的延伸距离设小一些使图形更光滑）
 
 
 ![](../imgs/p895_432.png)
@@ -553,7 +633,15 @@ examples\GC.pdb 4 // 绘制平面图(Plot plane map)
 
 也可以通过简单绘制δg来揭示，但对应于片段内相互作用的等值面严重污染了图形。幸运的是，IGM分析允许我们将δg分离为δginter和δgintra，它们分别只反映片段间和片段内相互作用对δg的贡献。
 
-返回主菜单并输入以下命令 20 // 弱相互作用可视化研究(Visual study of weak interactions) 10 // IGM分析(IGM analysis) 2 // 定义两个片段(Define two fragments) 1-13 // 第一个碱基中的原子范围(Range of atoms in the first base) 14-29 // 第二个碱基中的原子范围(Range of atoms in the second base)（也可以在此输入c，将当前体系的其余部分定义为第二个片段）
+返回主菜单并输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **20** — 弱相互作用可视化研究(Visual study of weak interactions)
+    - **10** — IGM分析(IGM analysis)
+    - **2** — 定义两个片段(Define two fragments)
+    - **1-13** — 第一个碱基中的原子范围(Range of atoms in the first base)
+    - **14-29** — 第二个碱基中的原子范围(Range of atoms in the second base)（也可以在此输入c，将当前体系的其余部分定义为第二个片段）
 
 2 // 中等质量格点(Medium-quality grid) 计算完成后，你将看到一个后处理菜单。每个选项的含义已经
 
@@ -717,7 +805,11 @@ Atom pair delta-g indices and percentage contributions (zero terms are not shown
     - **2** — 定义两个片段(Define two fragments)
     - **1-60** — C60为片段1(C60 is fragment 1) c
 
-中等质量格点(Medium-quality grid) 3 // 输出cube文件到当前文件夹(Output cube files in current folder)
+中等质量格点(Medium-quality grid)
+
+!!! terminal "Multiwfn 交互"
+
+    - **3** — 输出cube文件到当前文件夹(Output cube files in current folder)
 
 !!! terminal "Multiwfn 交互"
 
@@ -912,7 +1004,11 @@ examples\phenylalanineresiduestrimer.xyz是优化过的加帽苯丙氨酸三聚�
     - **3** — 定义三个片段(Define three fragments)
     - **1-29** — 片段1中的原子序号（第一个单体）(Atom indices in fragment 1 (the first monomer)) 30-40,52,53,56,57,63-65,77-87
 
-其余所有原子（第三个单体）(All other atoms (the third monomer)) 4 // 手动输入格点间距(Manually input grid spacing)
+其余所有原子（第三个单体）(All other atoms (the third monomer))
+
+!!! terminal "Multiwfn 交互"
+
+    - **4** — 手动输入格点间距(Manually input grid spacing)
 
 !!! terminal "Multiwfn 交互"
 
@@ -934,11 +1030,28 @@ amIGM已在3.23.11节简要描述，并在Struct. Bond., 190, 297 (2026) DOI: 10
 
 首先，需运行分子动力学(MD)模拟以获得轨迹文件，且它必须为多帧.xyz格式。例如，你可将GROMACS/AMBER/NAMD/CP2K……程序产生的轨迹载入VMD软件，再保存为.xyz文件。重要的是，感兴趣区域应通过冻结或位置约束设置固定（最好靠近模拟盒中心）。本例中，唯一的溶质分子苯酚在整个模拟中固定于盒中心，而充满盒其余部分的水分子可自由运动。在室温下模拟1 ns的压缩.xyz轨迹文件可直接在http://sobereva.com/multiwfn/extrafiles/phenol_in_water.7z下载。解压后你将得到phenol_in_water.xyz，其中含1001帧（轨迹每1 ps保存一次）。
 
-启动Multiwfn并载入phenol_in_water.xyz，然后输入20 // 弱相互作用可视化研究(Visual study of weak interactions) -12 // amIGM分析(amIGM analysis) 2 // 为amIGM定义两个片段(Define two fragments for amIGM)。若你定义n个片段，则amIGM将揭示这n个片段之间的所有相互作用
+启动Multiwfn并载入phenol_in_water.xyz，然后输入
 
-1-13 // 片段1的原子序号，对应苯酚(Atomic indices of fragment 1, corresponding to the phenol) c // 其余原子（水）定义为片段2(The rest of atoms (waters) is defined as fragment 2) 1,1000 // 考虑第1至1000帧(Consider 1 to 1000 frames) 11 // 因苯酚-水相互作用发生在苯酚周围各区域，用于计算的格点盒应覆盖整个苯酚，我们选模式11以实现此目的，即我们将选一组原子，设定其周围的扩展距离和格点间距
+!!! terminal "Multiwfn 交互"
 
-1-13 // 用于定义盒的原子(The atoms for defining the box) 3 A // 扩展距离设为3 Å(Extension distance is set to 3 Å) [按ENTER键] // 格点间距设为默认0.2 Bohr，已足以获得足够精细的amIGM图(Grid spacing is set to the default 0.2 Bohr, which is adequate of obtaining fine enough amIGM maps)
+    - **20** — 弱相互作用可视化研究(Visual study of weak interactions)
+    - **-12** — amIGM分析(amIGM analysis)
+    - **2** — 为amIGM定义两个片段(Define two fragments for amIGM)
+
+若你定义n个片段，则amIGM将揭示这n个片段之间的所有相互作用
+
+!!! terminal "Multiwfn 交互"
+
+    - **1-13** — 片段1的原子序号，对应苯酚(Atomic indices of fragment 1, corresponding to the phenol)
+    - **c** — 其余原子（水）定义为片段2(The rest of atoms (waters) is defined as fragment 2)
+    - **1,1000** — 考虑第1至1000帧(Consider 1 to 1000 frames)
+    - **11** — 因苯酚-水相互作用发生在苯酚周围各区域，用于计算的格点盒应覆盖整个苯酚，我们选模式11以实现此目的，即我们将选一组原子，设定其周围的扩展距离和格点间距
+
+!!! terminal "Multiwfn 交互"
+
+    - **1-13** — 用于定义盒的原子(The atoms for defining the box)
+    - **3 A** — 扩展距离设为3 Å(Extension distance is set to 3 Å)
+    - **[按ENTER键]** — 格点间距设为默认0.2 Bohr，已足以获得足够精细的amIGM图(Grid spacing is set to the default 0.2 Bohr, which is adequate of obtaining fine enough amIGM maps)
 
 现在Multiwfn开始计算。耗时与考虑的帧数成线性正比，与原子数和待算格点数成正比。在Intel i9-13980HX移动CPU上，用16个并行线程，总计耗时8.8分钟。amIGM分析的并行效率很理想，故用核数多的服务器CPU将大有裨益。
 

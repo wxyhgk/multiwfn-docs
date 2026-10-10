@@ -46,7 +46,14 @@ AFAIK, ICSSZZ was first proposed by me during implementation of ICSS in Multiwfn
 
 You should first prepare a Gaussian input file of standard single point task for present system, which will be taken as template input file later. This file has already been provided as examples\ICSS\benzene.gjf, in which the geometry has already been optimized at a reasonable level.
 
-Boot up Multiwfn and input below commands examples\ICSS\benzene.gjf // Note that molecular plane is in XY plane 25 // Electron delocalization and aromaticity analyses 3 // Generate grid data of ICSS or related quantities 1 // Low-quality grid, magnetic shielding tensor at 130910 points will be calculated by Gaussian later. Using "medium-quality grid" could result in smoother maps, but the calculation will be much more expensive. Note that the default extension distance is 12 Bohr, which is usually large enough
+Boot up Multiwfn and input below commands:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\ICSS\benzene.gjf** — Note that molecular plane is in XY plane
+    - **25** — Electron delocalization and aromaticity analyses
+    - **3** — Generate grid data of ICSS or related quantities
+    - **1** — Low-quality grid, magnetic shielding tensor at 130910 points will be calculated by Gaussian later. Using "medium-quality grid" could result in smoother maps, but the calculation will be much more expensive. Note that the default extension distance is 12 Bohr, which is usually large enough
 
 n // Do not skip the step of generating Gaussian input file, because this is the first time we carry out analysis and thus currently we do not have Gaussian input/output files in hand
 
@@ -96,7 +103,11 @@ Next, I will show how to plot magnetic shielding value in a plane. Since we alre
 
 We first plot color-filled map for ICSSZZ in the YZ plane with X=0. This plane is normal to benzene and crosses C4-H10 and C1-H7. Set "iuserfunc" in `settings.ini` to -3, and then boot up a new Multiwfn instance and input below commands
 
-ICSSZZ.cub 4 // Plot plane map 100 //User-defined function, which now corresponds to the function interpolated by the grid data of ICSSZZ.cub via B-spline algorithm
+ICSSZZ.cub
+
+!!! terminal "Multiwfn session"
+
+    - **4** — Plot plane map 100 //User-defined function, which now corresponds to the function interpolated by the grid data of ICSSZZ.cub via B-spline algorithm
 
 !!! terminal "Multiwfn session"
 
@@ -152,7 +163,15 @@ Beware that since the extension distance used in the calculation of grid data of
 
 Calculate NICS(0)$_{ZZ}$ and NICS(1)ZZ based on ICSSZZ data It is noteworthy that if you already have ICSSZZ grid data, you can directly obtain the popular NICS(0)ZZ and NICS(1)ZZ indices without doing any additional calculation, because the NICS value at any point can be directly obtained in terms of interpolation of ICSSzz grid data. As an example, we calculate NICS(1)ZZ. Ensure that "iuserfunc" in `settings.ini` has been set to -3 due to the aforementioned reason, then boot up Multiwfn and input
 
-ICSS$_{ZZ}$.cub 1 // Calculate function values at a point 0,0,1 // The point 1 Å above the ring center 2 // The inputted position is in Å From screen you can find the "User-defined real space function" value is 28.9, namely the NICS(1)ZZ is -28.9 ppm.
+ICSS$_{ZZ}$.cub
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Calculate function values at a point
+    - **0,0,1** — The point 1 Å above the ring center
+    - **2** — The inputted position is in Å
+
+From screen you can find the "User-defined real space function" value is 28.9, namely the NICS(1)ZZ is -28.9 ppm.
 
 Epilogue ICSS/ICSS$_{ZZ}$ is really a very useful method for discussing aromaticity and anti-aromaticity, many instances can be found in the original paper of ICSS (J. Chem. Soc. Perkin Trans. 2, 2001, 1893), and in some applicative papers, such as J. Phys. Chem. C, 123, 18593 (2019) as well as my research on cyclo[18]carbon, Carbon, 165, 468 (2020).
 
@@ -170,7 +189,15 @@ HOMA is the most prevalently used aromaticity index based on geometry equalizati
 
 Since calculation of HOMA only requires molecular coordinate, you can simply use such as .pdb and .xyz as input file. Of course, other files containing molecular coordinate, such as .wfn and .fch files are acceptable too. The geometry in present instance is optimized under B3LYP/6-31G* level.
 
-Boot up Multiwfn and input following commands examples/phenanthrene.pdb 25 // Electron delocalization and aromaticity analyses 6 // Calculate HOMA and Bird aromaticity index 0 // Start the calculation You will see the default parameters are printed, they are taken from J. Chem. Inf. Comput. Sci., 33, 70 (1993), you can also change these parameters yourself via option 1 before the calculation.
+Boot up Multiwfn and input following commands examples/phenanthrene.pdb
+
+!!! terminal "Multiwfn session"
+
+    - **25** — Electron delocalization and aromaticity analyses
+    - **6** — Calculate HOMA and Bird aromaticity index
+    - **0** — Start the calculation
+
+You will see the default parameters are printed, they are taken from J. Chem. Inf. Comput. Sci., 33, 70 (1993), you can also change these parameters yourself via option 1 before the calculation.
 
 Now we input the atom indices in the ring that we are interested in, we calculate HOMA for the central ring first, so input 3,4,8,9,10,7, the input order must be consistent with atom connectivity. You will immediately obtain the result shown below
 
@@ -369,7 +396,11 @@ In this example we plot color-filled NICSZZ plane map above 1 Å of coronene, th
 
 optimized at B3LYP/6-31G* level is examples\NICS_scan\coronene.pdb. The molecule is exactly planar and lying at XY plane of Z=0.
 
-Boot up Multiwfn and input following commands examples\NICS_scan\coronene.pdb 25 //Electron delocalization and aromaticity analyses 14 //NICS-2D scan plane map 1 //Color-filled map [Press ENTER button directly] //Using default number of grid points (100*100) 0 //Set extension distance 1 // 1 Bohr 1 //XY plane 1a //Z = 1Å 1 //Gaussian input file for NICS-2D scanning examples\NICS_scan\template_NMR.gjf //Template input file of NMR task of Gaussian, which is used to generate Gaussian input file for NICS-2D scan. [geometry] line in this file will be replaced with coordinates of scanning points, while other parts are kept unchanged
+Boot up Multiwfn and input following commands examples\NICS_scan\coronene.pdb 25 //Electron delocalization and aromaticity analyses 14 //NICS-2D scan plane map 1 //Color-filled map [Press ENTER button directly] //Using default number of grid points (100*100) 0 //Set extension distance
+
+!!! terminal "Multiwfn session"
+
+    - **1** — 1 Bohr 1 //XY plane 1a //Z = 1Å 1 //Gaussian input file for NICS-2D scanning examples\NICS_scan\template_NMR.gjf //Template input file of NMR task of Gaussian, which is used to generate Gaussian input file for NICS-2D scan. [geometry] line in this file will be replaced with coordinates of scanning points, while other parts are kept unchanged
 
 NICS_2D.gjf has been generated in current folder, you can properly modify it according to actual situation. Run it by Gaussian, the output file is examples\NICS_scan\coronene_NICS_2D.out.
 

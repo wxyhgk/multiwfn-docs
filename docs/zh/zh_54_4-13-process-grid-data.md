@@ -47,7 +47,14 @@ dens.cub // 由 Multiwfn 或某些外部程序生成的 cube 文件，由于 cub
 
 现在数据点已导出到当前文件夹下的 output.txt，其中包括 X、Y 坐标和数值。你可以将该文件导入 Sigmaplot 等绘图软件绘制平面图。
 
-另一个例子，我们提取由原子 4、6、2 定义的平面上的数据点。dens.cub 13 // 处理格点数据 (Process grid data) 8 // 通过指定三个原子序号输出平面内数据 (Output data in a plane by specifying three atom indices)。该功能常用于提取倾斜平面，如果平面平行于 XY、YZ 或 XZ 平面，则应分别使用功能 1、2 或 3
+另一个例子，我们提取由原子 4、6、2 定义的平面上的数据点。dens.cub
+
+!!! terminal "Multiwfn 交互"
+
+    - **13** — 处理格点数据 (Process grid data)
+    - **8** — 通过指定三个原子序号输出平面内数据 (Output data in a plane by specifying three atom indices)。
+
+该功能常用于提取倾斜平面，如果平面平行于 XY、YZ 或 XZ 平面，则应分别使用功能 1、2 或 3
 
 0 // 使用自动确定的容差距离。如果任一点与你定义的平面之间的垂直距离小于容差距离，则该点将被输出
 
@@ -60,13 +67,28 @@ dens.cub // 由 Multiwfn 或某些外部程序生成的 cube 文件，由于 cub
 
 例1 假设我们有两个 cube 文件 A.cub 和 B.cub，在本例中我们得到它们的差值 cube 文件（即 A.cub 减 B.cub）。
 
-启动 Multiwfn 并输入以下命令 A.cub // 将第一个 cube 文件载入内存 13 // 处理格点数据 (Process grid data) 11 // 格点数据计算 (Grid data calculation) 4 // 将内存中的格点数据减去另一份格点数据 (Subtract the grid data in memory by another grid data) B.cub // 包含另一份格点数据的 cube 文件。注意该 cube 文件必须与第一个 cube 文件具有完全相同的格点设置
+启动 Multiwfn 并输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **A.cub** — 将第一个 cube 文件载入内存
+    - **13** — 处理格点数据 (Process grid data)
+    - **11** — 格点数据计算 (Grid data calculation)
+    - **4** — 将内存中的格点数据减去另一份格点数据 (Subtract the grid data in memory by another grid data)
+    - **B.cub** — 包含另一份格点数据的 cube 文件。
+
+注意该 cube 文件必须与第一个 cube 文件具有完全相同的格点设置
 
 现在内存中的格点数据已被更新，选择 0 将其导出为新的 cube 文件，即为我们所需的文件。
 
 例2 假设我们有两个 cube 文件 MO1.cub 和 MO2.cub，每个文件记录了一个轨道的波函数值。在本例中我们将生成一个包含由这两个轨道产生的总电子密度的 cube 文件。根据 Born 几率诠释，轨道波函数值的平方即为其密度几率，因此我们需要的是两份格点数据平方之和。
 
-启动 Multiwfn 并输入以下命令 MO1.cub 13 // 处理格点数据 (Process grid data) 11 // 格点数据计算 (Grid data calculation)
+启动 Multiwfn 并输入以下命令 MO1.cub
+
+!!! terminal "Multiwfn 交互"
+
+    - **13** — 处理格点数据 (Process grid data)
+    - **11** — 格点数据计算 (Grid data calculation)
 
 
 <!-- p.733 -->
@@ -75,7 +97,16 @@ dens.cub // 由 Multiwfn 或某些外部程序生成的 cube 文件，由于 cub
 
 10 // 执行 A2+B2=C 操作，其中 A 为当前格点数据 (MO1.cub)，B 为另一个 cube 文件 (MO2.cub)，C 为新的格点数据
 
-MO2.cub // 载入另一个 cube 文件 计算完成后，内存中的格点数据已更新为 C。0 // 输出更新后的格点数据 totdes.cub // 新 cube 文件的文件名，其中包含这两个轨道的总电子密度
+!!! terminal "Multiwfn 交互"
+
+    - **MO2.cub** — 载入另一个 cube 文件
+
+计算完成后，内存中的格点数据已更新为 C。
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 输出更新后的格点数据
+    - **totdes.cub** — 新 cube 文件的文件名，其中包含这两个轨道的总电子密度
 
 
 ### 4.13.3 缩放格点数据的数值范围 (Scaling numerical range of grid data)
@@ -114,9 +145,22 @@ ELF 函数的数值范围为 [0,1]，在本例中，我们将其数值范围缩�
 
 假设我们只希望显示右侧苯酚周围的等值面，我们需要将靠近左侧苯酚的格点的值设为非常小的值，例如零。
 
-关闭 Multiwfn 的图形界面窗口并输入 0 // 返回主菜单 (Return to main menu) 13 // 处理格点数据 (Process grid data) 13 // 设置远离/靠近某些原子的格点的值 (Set value of the grid points that far away from / close to some atoms) -0.7 // 这表示我们将把位于原子范德华半径 0.7 倍以内的格点的值进行设置。如果输入 0.7，则将把位于范德华半径 0.7 倍以外的格点的值进行设置
+关闭 Multiwfn 的图形界面窗口并输入
 
-0 // 将值设为 0 2 // 定义模式。2 表示手动输入原子序号（若选择 1，则用外部文件包含的原子序号列表定义片段，格式见 3.16.9 节或下一个例子）
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回主菜单 (Return to main menu)
+
+!!! terminal "Multiwfn 交互"
+
+    - **13** — 处理格点数据 (Process grid data)
+    - **13** — 设置远离/靠近某些原子的格点的值 (Set value of the grid points that far away from / close to some atoms)
+    - **-0.7** — 这表示我们将把位于原子范德华半径 0.7 倍以内的格点的值进行设置。如果输入 0.7，则将把位于范德华半径 0.7 倍以外的格点的值进行设置
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 将值设为 0
+    - **2** — 定义模式。2 表示手动输入原子序号（若选择 1，则用外部文件包含的原子序号列表定义片段，格式见 3.16.9 节或下一个例子）
 
 1-13 // 左侧苯酚的原子序号范围 现在格点数据已被更新，让我们选择选项 -2 显示当前格点数据的等值面。如你所见，左侧苯酚的等值面已经消失。
 
@@ -157,7 +201,13 @@ ELF 函数的数值范围为 [0,1]，在本例中，我们将其数值范围缩�
 318   <--- Atom index of the last atom in chain 2
 ```
 
-然后启动 Multiwfn 并输入：RDG.cub // 与上图对应的约化密度梯度的 cube 文件 13 // 处理格点数据 (Process grid data) 14 // 设置位于两个片段的缩放范德华区域重叠区域之外的格点的值 (Set value of the grid points outside overlap region of the scaled vdW regions of the two fragments)
+然后启动 Multiwfn 并输入：
+
+!!! terminal "Multiwfn 交互"
+
+    - **RDG.cub** — 与上图对应的约化密度梯度的 cube 文件
+    - **13** — 处理格点数据 (Process grid data)
+    - **14** — 设置位于两个片段的缩放范德华区域重叠区域之外的格点的值 (Set value of the grid points outside overlap region of the scaled vdW regions of the two fragments)
 
 1.8 // 缩放范德华半径所用的值。在你的实际研究中，你可能需要多次尝试该值以找到合适的值
 
@@ -238,7 +288,17 @@ Multiwfn 能够计算并绘制格点数据的积分曲线，介绍见 3.16.14 �
 
 绿色和蓝色部分分别代表施加外电场后电子密度增加和减少的区域。可以看出，虽然绿色和蓝色部分相互交错，但总体趋势是电子转移到 Z 轴正向一侧（即朝向电场源方向）。接下来，我们将绘制 CDC，它能够定量刻画不同区域的电子转移。
 
-点击图形界面中的 “Return”按钮，然后输入 0 // 返回主菜单 (Return to main menu) 13 // 处理格点数据 (Process grid data) 18 // 计算并绘制积分曲线 (Calculate and plot integral curve) Z // 将沿 Z 方向绘制曲线 (The curve will be plotted in Z direction) [按 ENTER 键] // 选择整个范围 (Select the entire range) 在菜单中，我们首先选择选项 2 绘制电子密度差格点数据的局域积分曲线。你将看到
+点击图形界面中的 “Return”按钮，然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回主菜单 (Return to main menu)
+    - **13** — 处理格点数据 (Process grid data)
+    - **18** — 计算并绘制积分曲线 (Calculate and plot integral curve)
+    - **Z** — 将沿 Z 方向绘制曲线 (The curve will be plotted in Z direction)
+    - **[按 ENTER 键]** — 选择整个范围 (Select the entire range)
+
+在菜单中，我们首先选择选项 2 绘制电子密度差格点数据的局域积分曲线。你将看到
 
 从该图中我们可以考察不同 Z 坐标对应的 XY 平面内电子密度差的积分。Z 坐标和数值分别对应于图的 X 轴和 Y 轴。你可以直接将该曲线与上图所示的等值面图对照，低于和高于零（虚线）的峰分别对应于蓝色和绿色的等值面。注意，在命令行窗口中，现在你可以找到该曲线所有极小值和极大值的位置和数值。
 
@@ -262,7 +322,10 @@ Multiwfn 能够计算并绘制格点数据的积分曲线，介绍见 3.16.14 �
 
 我们首先为二聚体得到任意实空间函数的格点数据。启动 Multiwfn 并输入：
 
-examples\rho_overlap\dimer.pdb 5 // 格点数据计算 (Grid data calculation) 100 // 自定义函数，默认情况下该函数不花费任何计算时间 (User define function)
+!!! terminal "Multiwfn 交互"
+
+    - **examples\rho_overlap\dimer.pdb 5** — 格点数据计算 (Grid data calculation)
+    - **100** — 自定义函数，默认情况下该函数不花费任何计算时间 (User define function)
 
 
 ![](../imgs/p739_293.png)
@@ -346,7 +409,13 @@ Multiwfn 能够在特定的空间和数值范围内获得统计信息（积分�
     - **17** — 显示格点统计数据 (Show statistic data of grid points)
     - **2** — 获取特定空间和数值范围内格点的统计数据 (Obtain statistic data for grid points in specific spatial and value ranges) [直接按 ENTER 键]
 
-圆柱区域 (Cylindrical region) 0.000000 0.000000 0.602676 // 作为圆柱第 1 个端点的 C1 的坐标（单位为 Å）(Coordinate of C1 as the 1st terminal of the cylinder) 0.000000 0.000000 -0.602676 // 作为圆柱第 2 个端点的 C3 的坐标（单位为 Å）(Coordinate of C3 as the 2nd terminal of the cylinder) 2 // 圆柱半径设为 2 Å (Radius of the cylinder is set to be 2 Å) 现在你可以找到所定义区域内格点数据的统计信息：
+圆柱区域 (Cylindrical region) 0.000000 0.000000
+
+!!! terminal "Multiwfn 交互"
+
+    - **0.602676** — 作为圆柱第 1 个端点的 C1 的坐标（单位为 Å）(Coordinate of C1 as the 1st terminal of the cylinder) 0.000000 0.000000
+    - **-0.602676** — 作为圆柱第 2 个端点的 C3 的坐标（单位为 Å）(Coordinate of C3 as the 2nd terminal of the cylinder)
+    - **2** — 圆柱半径设为 2 Å (Radius of the cylinder is set to be 2 Å) 现在你可以找到所定义区域内格点数据的统计信息：
 
 
 ```text

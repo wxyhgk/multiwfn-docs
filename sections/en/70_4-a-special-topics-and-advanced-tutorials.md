@@ -75,7 +75,11 @@ Notice that the basis set we used here (6-31G*) is different to the one used in 
 
 IRCsplit.exe is a tool used to produce .wfn/.chk file for each point of IRC and SCAN tasks of Gaussian, IRCsplit.f90 is the corresponding source code, by which you can compile Linux version of IRCsplit. Boot up IRCsplit.exe by double clicking its icon and then input
 
-DA_IRC.out //The file of the output file of the IRC task DA_SP.gjf //The template file used to generate single point input files 2 //Only yield .chk files C:\DA_IRCchk\DA //The path and prefix of the finally generated .chk files 18,13 // The program detected that in DA_IRC.out there are 18 and 13 points in the two directions of IRC, respectively. Here we extract all of them, together with the TS point
+DA_IRC.out //The file of the output file of the IRC task DA_SP.gjf //The template file used to generate single point input files 2 //Only yield .chk files C:\DA_IRCchk\DA //The path and prefix of the finally generated .chk files
+
+!!! terminal "Multiwfn session"
+
+    - **18,13** — The program detected that in DA_IRC.out there are 18 and 13 points in the two directions of IRC, respectively. Here we extract all of them, together with the TS point
 
 Now you can find DA_SP0001.gjf, DA_SP0002.gjf ... DA_SP0032.gjf in current folder. Please manually check one of them to verify the reasonableness of these input files. Note that DA_SP0014.gjf corresponds to the TS geometry.
 
@@ -85,7 +89,14 @@ Now you have DA0001.chk, DA0002.chk ... DA0032.chk in "C:\DA_IRCchk" folder. Cop
 
 3 Calculate Mayer bond orders for all IRC points Mayer bond order of C1-C16 is the one we are particularly interested in, whose formation is the key process of the DA adduction. Since by default Multiwfn only outputs Mayer bond orders with value > 0.05, while C1-C16 must be very weak at the initial stage of DA adduction, we need to set "bndordthres" parameter in the `settings.ini` file in Multiwfn folder to 0.0, so that all of the bond orders larger than 0.0 can be outputted.
 
-Write a plain text file (MBObatch.txt) and put it into Multiwfn folder, the content is 9 // Enter bond order analysis module 1 // Calculate Mayer bond order Note: If you are confused why this file is written in such manner, please read Section 5.2 to study how to run Multiwfn in silent mode.
+Write a plain text file (MBObatch.txt) and put it into Multiwfn folder, the content is
+
+!!! terminal "Multiwfn session"
+
+    - **9** — Enter bond order analysis module
+    - **1** — Calculate Mayer bond order
+
+Note: If you are confused why this file is written in such manner, please read Section 5.2 to study how to run Multiwfn in silent mode.
 
 Then write a plain text file with .bat suffix (MBObatchrun.bat) and put it into Multiwfn folder, the content should be
 
@@ -178,7 +189,16 @@ IRC point
 
 This graph vividly shows that the C1-C2 smoothly becomes to a single bond from a double bond during the DA adduction, and the reaction increases the double-bond character of C4-C5 significantly.
 
-5 Make animation of ELF isosurface Next, we make animation to study how the ELF isosurface varies during the DA adduction. Create a plain text file ELFbatch.txt in Multiwfn folder with the following content 5 // Generate grid data 9 // ELF 2 // Medium-quality grid 2 // Export the grid data to ELF.cub in current folder Create a script file named ELFbatchrun.bat, whose content is
+5 Make animation of ELF isosurface Next, we make animation to study how the ELF isosurface varies during the DA adduction. Create a plain text file ELFbatch.txt in Multiwfn folder with the following content
+
+!!! terminal "Multiwfn session"
+
+    - **5** — Generate grid data
+    - **9** — ELF
+    - **2** — Medium-quality grid
+    - **2** — Export the grid data to ELF.cub in current folder
+
+Create a script file named ELFbatchrun.bat, whose content is
 
 
 ```text
@@ -555,7 +575,12 @@ Sum of occupation numbers of selected orbitals:    0.628552
 
 This value is total number of odd electrons, and it also corresponds to integral of OED over the whole space. It may be employed as a metric of electron correlation. Then input
 
-q // Return -1 // Return to main menu Then we plot isosurface map of electron density in usual way by inputting the following commands. Since the current orbital occupation numbers have been transformed to $\min(2-n_k, n_k)$ the resulting map will correspond to OED map
+!!! terminal "Multiwfn session"
+
+    - **q** — Return
+    - **-1** — Return to main menu
+
+Then we plot isosurface map of electron density in usual way by inputting the following commands. Since the current orbital occupation numbers have been transformed to $\min(2-n_k, n_k)$ the resulting map will correspond to OED map
 
 !!! terminal "Multiwfn session"
 
@@ -1164,7 +1189,10 @@ The first step is calculating atomic charges. Boot up Multiwfn and input below c
     - **7** — Population analysis
     - **11** — ADCH charge (this type of charge is generally recommended) 1 y
 
-Other functions (Part 1) 2 // Export new file 1 // The format of the new file is .pqr polyyne.pqr Now we have polyyne.pqr in current folder. The .pqr format is very similar to the popular .pdb format, the major difference is that in the .pqr format the last two columns are specific for recording atomic charges and atomic radii, respectively. In current file, the atomic charges correspond to the polyyne ADCH charges, while the atomic radii correspond to Bondi van der Waals radii.
+!!! terminal "Multiwfn session"
+
+    - **Other functions (Part 1) 2** — Export new file
+    - **1** — The format of the new file is .pqr polyyne.pqr Now we have polyyne.pqr in current folder. The .pqr format is very similar to the popular .pdb format, the major difference is that in the .pqr format the last two columns are specific for recording atomic charges and atomic radii, respectively. In current file, the atomic charges correspond to the polyyne ADCH charges, while the atomic radii correspond to Bondi van der Waals radii.
 
 The .pqr file can be recognized by VMD. We boot up VMD, then drag the polyyne.pqr into VMD main window to load it. After that, we modify plotting settings:
 

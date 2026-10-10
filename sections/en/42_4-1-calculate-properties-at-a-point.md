@@ -146,7 +146,14 @@ In this example, we calculate ΔΔVn for H2O∙∙∙HF and check if the interac
 
 Note that if you are using relatively old revision of G09 and post-HF method is employed, "density" keyword is indispensable, otherwise the density in the resultant .wfn file will correspond to Hartree-Fock density. Besides, in G09 and G16, density cannot be produced at MP4 level, so we use MP4(SDQ) keyword instead (MP4 keyword is default to MP4(SDTQ), which is more accurate and but much expensive than MP4(SDQ)).
 
-First, we calculate Vn-A' and $V_{n-D}$'. Boot up Multiwfn and input examples\Vn\H2O-HF.wfn 1 // Calculate properties at a point a1 // Nuclear position of atom 1 From the output you can see
+First, we calculate Vn-A' and $V_{n-D}$'. Boot up Multiwfn and input examples\Vn\H2O-HF.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Calculate properties at a point
+    - **a1** — Nuclear position of atom 1
+
+From the output you can see
 
 
 ```text
@@ -155,8 +162,15 @@ Total ESP without contribution from nuclear charge of atom     1:
 ```
 
 That means $V_{n-D}$' is -22.2877 a.u. Then input a5, you will find Vn-A' is -0.9608 a.u.
+Next we calculate $V_{n-D}$. Reboot up Multiwfn and input below commands
 
-Next we calculate $V_{n-D}$. Reboot up Multiwfn and input below commands ?H2O.wfn // The symbol ? means the folder of the file we last time loaded 1 a1 // In H2O.wfn oxygen is atom 1 We find Vn-D is -22.3339 a.u. Then we calculate Vn-A. Reboot Multiwfn and input
+!!! terminal "Multiwfn session"
+
+    - **?H2O.wfn** — The symbol ? means the folder of the file we last time loaded
+    - **1** — Calculate properties at a point
+    - **a1** — In H2O.wfn oxygen is atom 1
+
+We find Vn-D is -22.3339 a.u. Then we calculate Vn-A. Reboot Multiwfn and input
 
 ?HF.wfn 1 a2 // In HF.wfn hydrogen is atom 2 The Vn-A is found to be -0.9136 a.u.
 

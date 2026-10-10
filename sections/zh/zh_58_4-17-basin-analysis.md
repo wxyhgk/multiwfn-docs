@@ -243,7 +243,15 @@ H3的LI仅为0.256，与盆电子布居数明显偏离。这一现象反映了�
 
 如果你按照4.6.2节所示步骤绘制Li6的价电子密度的颜色填充图，你会立刻理解为什么在边界Li三角形的中心存在NNA。从下图可以清楚看到，在每个边界三角形的中心确实存在电子密度极大，这一现象也意味着三中心键的存在
 
-接下来，我们计算AIM盆的布居数。输入以下命令 7 // Integrate real space functions in AIM basins with mixed type of grids 2 // Integrate and meantime refine basin boundary 1 // Electron density 在积分盆的过程中，计算会暂停三次，同时你会在屏幕上看到如下提示。这是因为程序不知道如何正确处理三个NNA，即吸引子2、4、8：
+接下来，我们计算AIM盆的布居数。输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **7** — Integrate real space functions in AIM basins with mixed type of grids
+    - **2** — Integrate and meantime refine basin boundary
+    - **1** — Electron density
+
+在积分盆的过程中，计算会暂停三次，同时你会在屏幕上看到如下提示。这是因为程序不知道如何正确处理三个NNA，即吸引子2、4、8：
 
 ```text
 Warning: Unable to determine the attractor     2 belongs to which atom!
@@ -377,7 +385,12 @@ Number of  2-synaptic basins is     3, their indices:
 
 我们计算每个盆中电子密度的积分，现在输入
 
-2 // Integrate a real space function in the basins 1 // Electron density 很快，我们得到积分，即每个盆中的平均电子布居数：
+!!! terminal "Multiwfn 交互"
+
+    - **2** — Integrate a real space function in the basins
+    - **1** — Electron density
+
+很快，我们得到积分，即每个盆中的平均电子布居数：
 
 ```text
   #Basin        Integral(a.u.)      Volume(a.u.^3)
@@ -462,7 +475,14 @@ pdb/pqr/txt/gjf file”并选择相应选项将所有吸引子导出为.pdb或.p
 
 注：如果你的系统上安装了Gaussian且输入文件为.fch/fchk，cubegen工具在Gaussian软件包中计算ESP网格数据的速度明显快于Multiwfn内部代码。强烈建议将settings.ini中的“cubegenpath”参数设为cubegen的实际路径，这样在盆分析中计算ESP网格数据时，Multiwfn会自动调用cubegen计算ESP。关于调用cubegen的更多信息见5.7节。
 
-执行ESP盆分析的基本步骤 启动Multiwfn并输入以下命令：examples\H2O.fch // Optimized and produced at B3LYP/6-31G** level 17 // Basin analysis 1 // Select real space function used to partitioning basins 12 // ESP
+执行ESP盆分析的基本步骤 启动Multiwfn并输入以下命令：
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\H2O.fch** — Optimized and produced at B3LYP/6-31G** level
+    - **17** — Basin analysis
+    - **1** — Select real space function used to partitioning basins
+    - **12** — ESP
 
 ![](../imgs/p788_327.png)
 
@@ -565,7 +585,15 @@ cubegen 0 potential H2O.fch ESP.cub 0 h
 <!-- p.792 -->
 
 
-退出GUI，然后输入以下命令 2 // Integrate real space functions in the basins -1 // Use the grid data stored in external file as integrand density.cub // This file contains electron density grid data 结果与我们在本节第1部分中获得的非常接近。例如，我们这里得到的负ESP区域中的电子布居数为0.339*2=0.678，而我们之前得到的相应值为0.682。
+退出GUI，然后输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — Integrate real space functions in the basins
+    - **-1** — Use the grid data stored in external file as integrand
+    - **density.cub** — This file contains electron density grid data
+
+结果与我们在本节第1部分中获得的非常接近。例如，我们这里得到的负ESP区域中的电子布居数为0.339*2=0.678，而我们之前得到的相应值为0.682。
 
 最后，我们选择选项3计算盆的电多极矩。因为cube文件不包含GTF（Gaussian型函数）信息，你将被提示输入包含当前体系GTF信息的文件路径，以便计算电多极矩。我们输入H2O.fch文件的路径，然后输入-1，所有盆的电多极矩将立刻输出到屏幕上。
 
@@ -650,9 +678,34 @@ calculated by main function 5)
 
 从命令行窗口显示的信息中可以找到 CP11 的坐标为 (0.0,-1.199262548,-1.909104063)，将其从窗口复制到剪贴板（若不知如何操作请参阅第 5.4 节）。接下来，我们将把 CP11 设为源函数的参考点。虽然你可以通过 `settings.ini` 中的 “refxyz” 参数来定义参考点，但有一个技巧可以达到同样的效果，用这种方法你无需关闭 Multiwfn 再重新启动以使参数生效！
 
-输入以下命令 -10 // 从拓扑分析模块返回主菜单(Return to main menu from topology analysis module) 1000 // 一个隐藏界面(A hidden interface) 1 // 设置参考点(Set reference point) 把 CP11 的坐标粘贴到窗口中然后按回车键。17 // 流域分析(Basin analysis) 1 // 生成流域并定位吸引子(Generate basins and locate attractors) 1 // 电子密度(Electron density) 2 // 中等质量网格(Medium-quality grid) 通过选择功能 0 进入图形界面，你将看到
+输入以下命令
 
-现在我们在 AIM 流域中对源函数进行积分。输入以下命令 7 // 以混合型网格在 AIM 流域中对实空间函数积分(Integrate real space functions in AIM basins with mixed type of grids) 1 // 以原子中心+均匀网格对特定函数积分(Integrate a specific function with atomic-center + uniform grids) 19 // 源函数(Source function) 结果为
+!!! terminal "Multiwfn 交互"
+
+    - **-10** — 从拓扑分析模块返回主菜单(Return to main menu from topology analysis module)
+    - **1000** — 一个隐藏界面(A hidden interface)
+    - **1** — 设置参考点(Set reference point)
+
+把 CP11 的坐标粘贴到窗口中然后按回车键。
+
+!!! terminal "Multiwfn 交互"
+
+    - **17** — 流域分析(Basin analysis)
+    - **1** — 生成流域并定位吸引子(Generate basins and locate attractors)
+    - **1** — 电子密度(Electron density)
+    - **2** — 中等质量网格(Medium-quality grid)
+
+通过选择功能 0 进入图形界面，你将看到
+
+现在我们在 AIM 流域中对源函数进行积分。输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 以混合型网格在 AIM 流域中对实空间函数积分(Integrate real space functions in AIM basins with mixed type of grids)
+    - **1** — 以原子中心+均匀网格对特定函数积分(Integrate a specific function with atomic-center + uniform grids)
+    - **19** — 源函数(Source function)
+
+结果为
 
 
 ```text
@@ -689,7 +742,20 @@ Sum of basin volumes (rho>0.001):     441.284 Bohr^3
 
 H1−C2≡C3−C4≡C5−C6≡C7−C8≡C9−C10≡C11−C12≡C13−C14≡C15−H16 如果我们只对该体系中局域区域的电子结构特征感兴趣，通过适当设置网格，可以只对感兴趣的区域而不是整个体系进行流域分析，以节省计算时间。作为例子，本节我们将尝试以最小的计算代价获取 V(C7,C8) 和 V(C8,C9) 的 ELF 流域中的电子布居数。
 
-启动 Multiwfn 并输入以下命令： examples\polyyne.wfn // 在 B3LYP/6-31G* 下优化并产生 17 // 流域分析(Basin analysis) 1 // 生成流域并定位吸引子(Generate basins and locate attractors) 9 // 电子定域函数(ELF) 8 // 通过输入中心坐标、网格间距和盒子长度设置网格(Set the grid by inputting center coordinate, grid spacing and box length) a8 // 以 8 号原子的位置作为盒子中心(Take the position of atom 8 as box center) 0.08 // 网格间距（Bohr）(Grid spacing (Bohr)) 10,10,8 // X、Y 和 Z 方向的盒子长度（Bohr）(Box length in X, Y and Z directions (Bohr))。注意当前分子是沿 Z 轴取向的。显然，盒子越大，花费的计算时间必然越长。而盒子也不应太小，否则感兴趣的流域可能被截断。选择合适的盒子尺寸高度依赖于用户的经验
+启动 Multiwfn 并输入以下命令：
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\polyyne.wfn** — 在 B3LYP/6-31G* 下优化并产生
+    - **17** — 流域分析(Basin analysis)
+    - **1** — 生成流域并定位吸引子(Generate basins and locate attractors)
+    - **9** — 电子定域函数(ELF)
+    - **8** — 通过输入中心坐标、网格间距和盒子长度设置网格(Set the grid by inputting center coordinate, grid spacing and box length)
+    - **a8** — 以 8 号原子的位置作为盒子中心(Take the position of atom 8 as box center)
+    - **0.08** — 网格间距（Bohr）(Grid spacing (Bohr))
+    - **10,10,8** — X、Y 和 Z 方向的盒子长度（Bohr）(Box length in X, Y and Z directions (Bohr))
+
+注意当前分子是沿 Z 轴取向的。显然，盒子越大，花费的计算时间必然越长。而盒子也不应太小，否则感兴趣的流域可能被截断。选择合适的盒子尺寸高度依赖于用户的经验
 
 计算完成后，通过选择选项 0 进入图形界面，你将看到如右侧所示的图形。显然，只定位到了 C8 附近的几个吸引子。流域 5 和流域 21 分别对应于 V(C7,C8) 和 V(C8,C9)。注意，虽然也定位到了吸引子 1 和 6，但由于它们对应的流域不仅很大而且靠近盒子边界，可以预期流域 1 和 6 被严重截断，因此研究它们没有意义。
 
@@ -729,9 +795,25 @@ H1−C2≡C3−C4≡C5−C6≡C7−C8≡C9−C10≡C11−C12≡C13−C14≡C15�
 
 显然，流域 5 对应于 V(N,C)，这正是我们要研究的。然后关闭图形界面并输入
 
--5 // 将流域导出为立方体文件(Export basin as cube file) a // 在当前文件夹导出 basin.cub(Export basin.cub in current folder) 接下来，按常规生成 AIM 流域，网格设置必须与 basin.cub 完全相同 1 // 重新生成流域(Regenerate basins) 1 // 选择实空间函数(Select real space function) 1 // 电子密度(Electron density) 9 // 使用另一个立方体文件的网格设置，这是确保将要生成的网格数据与 basin.cub 具有相同网格设置的最稳妥方法(Use grid setting of another cube file, this is the safest way to ensure the grid data to be generated has the same grid setting as basin.cub)
+!!! terminal "Multiwfn 交互"
 
-basin.cub 0 // 查看吸引子(Check attractors)
+    - **-5** — 将流域导出为立方体文件(Export basin as cube file)
+    - **a** — 在当前文件夹导出 basin.cub(Export basin.cub in current folder)
+
+接下来，按常规生成 AIM 流域，网格设置必须与 basin.cub 完全相同
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 重新生成流域(Regenerate basins)
+    - **1** — 选择实空间函数(Select real space function)
+    - **1** — 电子密度(Electron density)
+    - **9** — 使用另一个立方体文件的网格设置，这是确保将要生成的网格数据与 basin.cub 具有相同网格设置的最稳妥方法(Use grid setting of another cube file, this is the safest way to ensure the grid data to be generated has the same grid setting as basin.cub)
+
+basin.cub
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 查看吸引子(Check attractors)
 
 很清楚，对应于 N 和 C 的吸引子编号分别为 2 和 3。然后我们评估对 basin.cub 中定义的流域的原子贡献
 
@@ -768,7 +850,17 @@ basin.cub 0 // 查看吸引子(Check attractors)
 
 区域（即 vdW 面之外，对应于 ρ = 0.001 a.u.）和没有明确化学意义的区域（即 ELF < 0.5）被排除了。
 
-现在我们用 Multiwfn 计算 PH3 的 HELV 和 HELP。启动 Multiwfn 并输入 examples\PH3.wfn // 在 M06-2X/def2-TZVPP 水平产生，在相同水平优化 17 // 流域分析(Basin analysis) 1 // 生成流域并定位吸引子(Generate basins and locate attractors) 9 // 若打算计算 HELP 和 HELV 必须选择 ELF 来定义流域(ELF must be chosen to define basins if you intend to calculate HELP and HELV) 2 // 中等质量网格(Medium-quality grid) 现在我们选择选项 0 查看吸引子编号：
+现在我们用 Multiwfn 计算 PH3 的 HELV 和 HELP。启动 Multiwfn 并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\PH3.wfn** — 在 M06-2X/def2-TZVPP 水平产生，在相同水平优化
+    - **17** — 流域分析(Basin analysis)
+    - **1** — 生成流域并定位吸引子(Generate basins and locate attractors)
+    - **9** — 若打算计算 HELP 和 HELV 必须选择 ELF 来定义流域(ELF must be chosen to define basins if you intend to calculate HELP and HELV)
+    - **2** — 中等质量网格(Medium-quality grid)
+
+现在我们选择选项 0 查看吸引子编号：
 
 从上图可以发现吸引子 5 对应于 P 原子的孤对电子。
 
@@ -781,7 +873,15 @@ basin.cub 0 // 查看吸引子(Check attractors)
 
 
 
-接下来，我们输入 10 // 计算 HELP 和 HELV(Calculate HELP and HELV) 0 // 选择流域并计算它们的 HELP 和 HELV(Select basins and calculate their HELP and HELV) 5 // 对应于 P 原子孤对电子的流域编号(The basin index corresponding to the lone pair of the P atom) 稍后，你将看到：
+接下来，我们输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **10** — 计算 HELP 和 HELV(Calculate HELP and HELV)
+    - **0** — 选择流域并计算它们的 HELP 和 HELV(Select basins and calculate their HELP and HELV)
+    - **5** — 对应于 P 原子孤对电子的流域编号(The basin index corresponding to the lone pair of the P atom)
+
+稍后，你将看到：
 
 
 ```text
@@ -931,7 +1031,16 @@ Number of  2-synaptic basins is     7, their indices:
 
 通过比较自动指认的流域标签与图形界面窗口中的图形，你可以确认流域确实被正确标记了。
 
-然后输入 -5 // 将流域导出为立方体文件(Export basins as cube file) b // 专为在 VMD 中绘制按流域类型着色的 ELF 等值面设计的特殊模式(A special mode designed for plotting basin type colored ELF isosurfaces in VMD) 10,11 // 单齿流域的编号，对应于上面高亮的文本(Indices of the monosynaptic basins, corresponding to the highlighted text above) 1-5,8,9 // 双齿流域的编号，对应于上面高亮的文本(Indices of the disynaptic basins, corresponding to the highlighted text above) 现在 basinsyn.cub 和 basinfunc.cub 已导出到当前文件夹。在 basinsyn.cub 中，单齿和双齿流域区域内的值分别为 -1 和 1，而所有其他区域的值为 0。basinfunc.cub 记录了用于生成流域的实空间函数，在当前情况下即 ELF。
+然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **-5** — 将流域导出为立方体文件(Export basins as cube file)
+    - **b** — 专为在 VMD 中绘制按流域类型着色的 ELF 等值面设计的特殊模式(A special mode designed for plotting basin type colored ELF isosurfaces in VMD)
+    - **10,11** — 单齿流域的编号，对应于上面高亮的文本(Indices of the monosynaptic basins, corresponding to the highlighted text above)
+    - **1-5,8,9** — 双齿流域的编号，对应于上面高亮的文本(Indices of the disynaptic basins, corresponding to the highlighted text above)
+
+现在 basinsyn.cub 和 basinfunc.cub 已导出到当前文件夹。在 basinsyn.cub 中，单齿和双齿流域区域内的值分别为 -1 和 1，而所有其他区域的值为 0。basinfunc.cub 记录了用于生成流域的实空间函数，在当前情况下即 ELF。
 
 将 basinsyn.cub 和 basinfunc.cub 以及绘图脚本 examples\scripts\basinsyn.vmd 移动到 VMD 文件夹。然后启动 VMD，输入 source basinsyn.vmd 以执行该脚本，你将看到下图。默认等值面为 0.8，对应于单齿和双齿流域的区域分别着为绿色和红色，而其他流域（本例中对应于核流域）着为白色。
 

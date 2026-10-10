@@ -52,7 +52,13 @@ f(2):   -0.056481
 
 （OC→BH3为配位键）。
 
-ETS-NOCV数据的定量分析 启动Multiwfn并输入examples\ETS-NOCV\COBH3\COBH3.fch // 配合物波函数文件(Complex wavefunction file) 23 // ETS-NOCV分析(ETS-NOCV analysis) 2 // 两个片段(Two fragments) examples\ETS-NOCV\COBH3\CO.fch // 片段1的波函数文件(Wavefunction file of fragment 1)。注意片段波函数文件的载入顺序须与片段在配合物中的出现顺序一致(Note that loading order of the fragment wavefunction files must be in line with occurrence order of fragments in the complex)
+ETS-NOCV数据的定量分析
+
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入examples\ETS-NOCV\COBH3\COBH3.fch** — 配合物波函数文件(Complex wavefunction file)
+    - **23** — ETS-NOCV分析(ETS-NOCV analysis)
+    - **2** — 两个片段(Two fragments) examples\ETS-NOCV\COBH3\CO.fch
 
 examples\ETS-NOCV\COBH3\BH3.fch // 片段2的波函数文件(Wavefunction file of fragment 2) 现在NOCV轨道和NOCV对的信息立即打印出来：
 
@@ -337,9 +343,20 @@ Orb:    34 Ene(au/eV):     0.000000       0.0000 Occ: 2.000000 Type:A+B
 
 显然，在单点计算中 ·CH3 自由基应设为二重态。
 
-启动 Multiwfn 并输入 examples\ETS-NOCV\ethane\ethane.fch // 整个体系的波函数文件 23 // ETS-NOCV 分析 2 // 两个碎片
+启动 Multiwfn 并输入
 
-examples\ETS-NOCV\ethane\CH3_1.fch // 第一个 ·CH3 自由基的波函数文件 examples\ETS-NOCV\ethane\CH3_2.fch // 第二个 ·CH3 自由基的波函数文件 n // 不翻转第一个 ·CH3 自由基的自旋 y // 翻转第二个 ·CH3 自由基的自旋 与上一节 exemplified 的闭壳层情形不同，在本例中你被要求选择是否翻转两个开壳层碎片的自旋。翻转自旋意味着交换 alpha 和 beta 电子的信息。正确地翻转自旋很重要，因为我们需要保证所有碎片的 alpha（beta）电子数之和与整个
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ETS-NOCV\ethane\ethane.fch** — 整个体系的波函数文件
+    - **23** — ETS-NOCV 分析
+    - **2** — 两个碎片
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ETS-NOCV\ethane\CH3_1.fch** — 第一个 ·CH3 自由基的波函数文件
+    - **examples\ETS-NOCV\ethane\CH3_2.fch** — 第二个 ·CH3 自由基的波函数文件
+    - **n** — 不翻转第一个 ·CH3 自由基的自旋
+    - **y** — 翻转第二个 ·CH3 自由基的自旋 与上一节 exemplified 的闭壳层情形不同，在本例中你被要求选择是否翻转两个开壳层碎片的自旋。翻转自旋意味着交换 alpha 和 beta 电子的信息。正确地翻转自旋很重要，因为我们需要保证所有碎片的 alpha（beta）电子数之和与整个
 
 体系的相同。乙烷有 9 个 alpha 电子和 9 个 beta 电子，而每个 ·CH3 自由基有 5 个 alpha 电子和 4 个 beta 电子。显然，我们需要翻转第一个或第二个 ·CH3 自由基中的一个，否则将两个碎片合并后将有 5+5=10 个 alpha 电子和 4+4=8 个 beta 电子，这与乙烷不符。
 
@@ -423,7 +440,14 @@ Sum of pair energies:  Alpha=     -98.93  Beta=     -98.93  Total=    -197.86
 
 现在如上例在 B3LYP/6-31G* 水平下为乙烯及其两个 CH2 碎片生成波函数文件，相应的 Gaussian 输入文件和 .fch 文件已提供在“examples\ETS-NOCV\ethene”文件夹中。
 
-启动 Multiwfn 并输入 examples\ETS-NOCV\ethene\ethene.fch // 乙烯的波函数文件 23 // ETS-NOCV 分析 2 // 两个碎片 examples\ETS-NOCV\ethene\CH2_1.fch // 第一个 CH2 碎片的波函数文件 examples\ETS-NOCV\ethene\CH2_2.fch // 第二个 CH2 碎片的波函数文件
+启动 Multiwfn 并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\ETS-NOCV\ethene\ethene.fch** — 乙烯的波函数文件
+    - **23** — ETS-NOCV 分析
+    - **2** — 两个碎片 examples\ETS-NOCV\ethene\CH2_1.fch
+    - **第一个 CH2 碎片的波函数文件 examples\ETS-NOCV\ethene\CH2_2.fch** — 第二个 CH2 碎片的波函数文件
 
 
 ![](../imgs/p960_486.png)
@@ -432,7 +456,11 @@ Sum of pair energies:  Alpha=     -98.93  Beta=     -98.93  Total=    -197.86
 
 
 
-n // 不翻转第一个 CH2 碎片的自旋 y // 翻转第二个 CH2 碎片的自旋 -2 // 生成 Fock/KS 矩阵并计算 NOCV 轨道能量 现在我们可以看到
+!!! terminal "Multiwfn 交互"
+
+    - **n** — 不翻转第一个 CH2 碎片的自旋
+    - **y** — 翻转第二个 CH2 碎片的自旋
+    - **-2** — 生成 Fock/KS 矩阵并计算 NOCV 轨道能量 现在我们可以看到
 
 
 ```text
@@ -497,9 +525,23 @@ A-T 碱基对的几何结构取自 JSCH-2005 测试集（Phys. Chem. Chem. Phys.
 
 例中我们将使用 ORCA 5.0 程序在 ωB97M-V/def2-TZVP 水平下进行单点计算，当然你也可以用 Gaussian 等其他程序进行计算。二聚体和两个单体的 ORCA 输入文件 AT.inp、A.inp 和 T.inp 在“examples\ETS-NOCV\AT”文件夹中。运行它们后，用 ORCA 包中的“orca_2mkl”工具将所得的 .gbw 文件转为 Molden 输入文件；如果你不知道怎么做，请查看第 4 章开头。生成的 AT.molden、A.molden 和 T.molden 可在 http://sobereva.com/multiwfn/extrafiles/A-T_base_pair_molden.zip 下载。
 
-启动 Multiwfn 并输入 AT.molden // A-T 碱基对的波函数文件 23 // ETS-NOCV 分析 2 // 两个碎片 A.molden // 腺嘌呤（A）碎片的波函数文件 T.molden // 胸腺嘧啶（T）碎片的波函数文件 -2 // 生成 Fock/KS 矩阵并重新计算 NOCV 轨道能量 目前，在默认打印阈值（NOCV 本征值 > 0.001）下屏幕上打印有多达 40 个 NOCV 对，数量太多不便查看。因此，我们适当提高打印阈值，输入
+启动 Multiwfn 并输入 AT.molden // A-T 碱基对的波函数文件
 
--3 // 设置NOCV本征值的打印阈值 (Set printing threshold of NOCV eigenvalues) 0.02 0 // 重新打印 NOCV 信息 (Print NOCV information again) 现在打印的 NOCV 对数量显著减少：
+!!! terminal "Multiwfn 交互"
+
+    - **23** — ETS-NOCV 分析
+    - **2** — 两个碎片 A.molden
+
+胸腺嘧啶（T）碎片的波函数文件
+
+!!! terminal "Multiwfn 交互"
+
+    - **-2** — 生成 Fock/KS 矩阵并重新计算 NOCV 轨道能量 目前，在默认打印阈值（NOCV 本征值 > 0.001）下屏幕上打印有多达 40 个 NOCV 对，数量太多不便查看。因此，我们适当提高打印阈值，输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **-3** — 设置NOCV本征值的打印阈值 (Set printing threshold of NOCV eigenvalues) 0.02
+    - **0** — 重新打印 NOCV 信息 (Print NOCV information again) 现在打印的 NOCV 对数量显著减少：
 
 
 ```text

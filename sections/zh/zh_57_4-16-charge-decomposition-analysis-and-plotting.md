@@ -23,7 +23,17 @@ CDA模块支持.fch、.mwfn、.molden、GAMESS-US输出文件(.gms)和Gaussian�
 
 首先，我们为CO（片段1）、BH3（片段2）和COBH3（配合物）生成Gaussian输出文件。.fch文件和相应的输入文件已提供在"examples\CDA\COBH3"文件夹中。计算在HF/6-31G*水平下进行。关于如何准备用于CDA的输入文件，详见3.19.2节
 
-现在启动Multiwfn，并输入以下内容：examples\CDA\COBH3\COBH3.fch // 配合物的Gaussian .fch文件 16 // 进入CDA模块(Enter CDA module) 2 // 我们定义两个片段(We define two fragments) examples\CDA\COBH3\CO.fch // 片段1的Gaussian .fch文件 examples\CDA\COBH3\BH3.fch // 片段2的Gaussian .fch文件 随即，以下CDA结果输出到屏幕上
+现在启动Multiwfn，并输入以下内容：
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\CDA\COBH3\COBH3.fch** — 配合物的Gaussian .fch文件
+    - **16** — 进入CDA模块(Enter CDA module)
+    - **2** — 我们定义两个片段(We define two fragments)
+    - **examples\CDA\COBH3\CO.fch** — 片段1的Gaussian .fch文件
+    - **examples\CDA\COBH3\BH3.fch** — 片段2的Gaussian .fch文件
+
+随即，以下CDA结果输出到屏幕上
 
 
 ```text
@@ -160,7 +170,19 @@ FragA Orb(Occ.)  FragB Orb(Occ.)      d           b        d - b          r
 
 注意CH3和NH2都有5个alpha和4个beta电子，而CH3NH2有9个alpha和9个beta电子。显然，两个片段中的alpha和beta电子总数即5+5和4+4，与配合物的不匹配。因此，我们必须翻转一个片段（CH3或NH2均可）的电子自旋。在本例中，我们将翻转NH2的电子自旋，即交换其所有关于alpha和beta电子的信息。
 
-启动Multiwfn并输入以下内容：examples\CDA\CH3NH2\CH3NH2.fch // 配合物的Gaussian输出文件 16 // 进入CDA模块(Enter CDA module) 2 // 我们定义两个片段(We define two fragments) examples\CDA\CH3NH2\CH3.fch // 片段1的Gaussian输出文件 examples\CDA\CH3NH2\NH2.fch // 片段2的Gaussian输出文件 n // 不翻转片段1的电子自旋(Do not flip electron spin) y // 翻转片段2的电子自旋(Flip electron spin)，则NH2将有4个alpha和5个beta电子。CDA和ECDA结果将分别对alpha电子和beta电子计算并打印在屏幕上。如你所见，对于alpha（beta）部分，d - b和CT(1->2) - CT(2->1)项均为正（负），表明alpha（beta）电子从CH3转移到NH2（从NH2转移到CH3）。这主要是因为CH3的alpha电子（5个）多于beta电子（4个），而翻转电子自旋后NH2的beta电子（5个）多于alpha电子（4个），因此当它们结合形成CH3NH2时，CH3倾向于向NH2施舍alpha电子并从NH2接受beta电子。
+启动Multiwfn并输入以下内容：
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\CDA\CH3NH2\CH3NH2.fch** — 配合物的Gaussian输出文件
+    - **16** — 进入CDA模块(Enter CDA module)
+    - **2** — 我们定义两个片段(We define two fragments)
+    - **examples\CDA\CH3NH2\CH3.fch** — 片段1的Gaussian输出文件
+    - **examples\CDA\CH3NH2\NH2.fch** — 片段2的Gaussian输出文件
+    - **n** — 不翻转片段1的电子自旋(Do not flip electron spin)
+    - **y** — 翻转片段2的电子自旋(Flip electron spin)
+
+则NH2将有4个alpha和5个beta电子。CDA和ECDA结果将分别对alpha电子和beta电子计算并打印在屏幕上。如你所见，对于alpha（beta）部分，d - b和CT(1->2) - CT(2->1)项均为正（负），表明alpha（beta）电子从CH3转移到NH2（从NH2转移到CH3）。这主要是因为CH3的alpha电子（5个）多于beta电子（4个），而翻转电子自旋后NH2的beta电子（5个）多于alpha电子（4个），因此当它们结合形成CH3NH2时，CH3倾向于向NH2施舍alpha电子并从NH2接受beta电子。
 
 总电子的结果即alpha和beta结果之和也被输出。下面分别是CDA和ECDA的总结果
 
@@ -209,7 +231,18 @@ CT( 1-> 2) - CT( 2-> 1) for all electrons:    0.1252
 
 Pt--Cl2--(NH3)2，我们不应例如将Pt2+、(NH3)2和(Cl2)2-分别定义为片段1、2和3。
 
-现在启动Multiwfn并输入：examples\CDA\Pt(NH3)2Cl2\Pt(NH3)2Cl2.fch // 配合物(Complex) 16 // CDA模块(CDA module) 3 // 定义三个片段(Define three fragments) examples\CDA\Pt(NH3)2Cl2\Pt.fch // 片段1(Fragment 1) examples\CDA\Pt(NH3)2Cl2\Cl2.fch // 片段2(Fragment 2) examples\CDA\Pt(NH3)2Cl2\(NH3)2.fch // 片段3(Fragment 3) 然后选择选项0并输入1,2以输出片段对1-2的CDA分析结果。类似地，我们得到片段对1-3和2-3的CDA结果。我们无法得到当前体系的ECDA结果，因为ECDA仅适用于两片段情形。总的CDA结果总结如下。
+现在启动Multiwfn并输入：
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\CDA\Pt(NH3)2Cl2\Pt(NH3)2Cl2.fch** — 配合物(Complex)
+    - **16** — CDA模块(CDA module)
+    - **3** — 定义三个片段(Define three fragments)
+    - **examples\CDA\Pt(NH3)2Cl2\Pt.fch** — 片段1(Fragment 1)
+    - **examples\CDA\Pt(NH3)2Cl2\Cl2.fch** — 片段2(Fragment 2)
+    - **examples\CDA\Pt(NH3)2Cl2\(NH3)2.fch** — 片段3(Fragment 3)
+
+然后选择选项0并输入1,2以输出片段对1-2的CDA分析结果。类似地，我们得到片段对1-3和2-3的CDA结果。我们无法得到当前体系的ECDA结果，因为ECDA仅适用于两片段情形。总的CDA结果总结如下。
 
 1-2 1-3 2-3
 
@@ -289,7 +322,16 @@ d 0.0017 0.0077 0.0538 b 0.5156 0.0368 0.0071 d-b -0.5139 -0.0291 0.0467 r 0.058
 
 根据关于化学键的常识，第一个CH3用其alpha未成对电子与另一个CH3的beta未成对电子形成C-C键。从CDA角度看，如上所示，在C-C键形成过程中，第一个CH3向第二个CH3的未占据alpha轨道转移了0.155个alpha电子，而第二个CH3向第一个CH3的未占据beta轨道转移了0.155个beta电子。该结果看起来合理且符合化学直觉。
 
-然后我们绘制轨道相互作用图。输入以下命令 5 // 绘制轨道相互作用图(Plot orbital interaction diagram) 3 // 设置要绘制的能量范围(Set the energy range) -25,10 // 从-25到10 eV，经发现适合当前情形(From -25 to 10 eV) 1 // 现在绘制该图(Plot the diagram now) 现在你可以看到（还附上了一些MO图）
+然后我们绘制轨道相互作用图。输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 绘制轨道相互作用图(Plot orbital interaction diagram)
+    - **3** — 设置要绘制的能量范围(Set the energy range)
+    - **-25,10** — 从-25到10 eV，经发现适合当前情形(From -25 to 10 eV)
+    - **1** — 现在绘制该图(Plot the diagram now)
+
+现在你可以看到（还附上了一些MO图）
 
 从上图你可以清楚地识别成键轨道是如何由两个片段的MO混合生成的。该图当前是针对alpha自旋绘制的，而由于当前情形中alpha和beta MO本质上相同（片段的两套自旋轨道如我们之前所做是从ROKS轨道等同拆分而来，而配合物的两套自旋轨道在CDA分析过程中由RKS轨道等同拆分自动生成），针对beta自旋绘制的图与上图相同；唯一细微差别是在beta自旋的图中
 

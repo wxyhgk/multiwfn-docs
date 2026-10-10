@@ -247,9 +247,15 @@ y // 按能量对双正交化轨道排序(Ordering the biorthogonalized orbitals
 
 
 
-0 // 开始计算(Start the calculation) 8,9,11,13,14,15 // 你感兴趣的环中原子的序号。该环是边界环。注意你应按原子连接顺序输入序号
+!!! terminal "Multiwfn 交互"
 
-等待一会儿，从屏幕可见 LOLIPOP 值为 8.23。然后输入 0 // 再次开始计算(Start the calculation again) 7,3,4,8,9,10 // 中间环中的原子 LOLIPOP 值为 6.39 由于更小的 LOLIPOP 值对应更强的 π 堆积能力，我们可预期在中间环上方形成 π 堆积的趋势强于边界环。
+    - **0** — 开始计算(Start the calculation)
+    - **8,9,11,13,14,15** — 你感兴趣的环中原子的序号。该环是边界环。注意你应按原子连接顺序输入序号
+
+!!! terminal "Multiwfn 交互"
+
+    - **等待一会儿，从屏幕可见 LOLIPOP 值为 8.23。然后输入 0** — 再次开始计算(Start the calculation again)
+    - **7,3,4,8,9,10** — 中间环中的原子 LOLIPOP 值为 6.39 由于更小的 LOLIPOP 值对应更强的 π 堆积能力，我们可预期在中间环上方形成 π 堆积的趋势强于边界环。
 
 注意 LOLIPOP 界面中有选项 6。若你选择一次将其状态切换为 "Yes"，则在计算 LOLIPOP 后，满足过滤条件的点
 
@@ -280,7 +286,10 @@ Multiwfn 自动识别 π 型 LMO 的序号，相关例子见第 4.100.22 节更�
     - **1** — 仅定域化占据 MO(Only localize occupied MOs)
     - **100** — 其他功能（第一部分）(Other function (Part 1))
 
-22 // 自动识别 π 轨道(Automatically detect π orbitals) -1 // 当前轨道为定域形式(Current orbitals are in localized form)
+!!! terminal "Multiwfn 交互"
+
+    - **22** — 自动识别 π 轨道(Automatically detect π orbitals)
+    - **-1** — 当前轨道为定域形式(Current orbitals are in localized form)
 
 0 // 以默认设置开始 π 轨道识别(Start π orbital identification based on default settings) 现在可见有 6 个被识别的 π 轨道（更具体地，它们是 π LMO）：
 
@@ -295,9 +304,19 @@ Expected pi orbitals, occupation numbers and orbital energies (eV):
     41      2.000000     -6.046329
 ```
 
-然后我们输入 0 // 不修改轨道占据数(Do not modify orbital occupation numbers) 14 // LOLIPOP 计算(LOLIPOP calculation)
+然后我们输入
 
-1 // 选择 π 轨道(Choose π orbitals) 32,34,38,39,40,41 // π 轨道的序号 0 // 开始计算(Start calculation) 1,2,3,4,5,6 // 一个环中原子的序号 结果为 8.82，略高于边界环的结果（见
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 不修改轨道占据数(Do not modify orbital occupation numbers)
+    - **14** — LOLIPOP 计算(LOLIPOP calculation)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 选择 π 轨道(Choose π orbitals)
+    - **32,34,38,39,40,41** — π 轨道的序号
+    - **0** — 开始计算(Start calculation)
+    - **1,2,3,4,5,6** — 一个环中原子的序号 结果为 8.82，略高于边界环的结果（见
 
 上一节），表明联苯中的环具有显著的形成 π-π 堆积的能力。
 
@@ -336,7 +355,17 @@ LOL-π 分布相对所选环是对称的。所得 pt.xyz 中记录的点如下�
 
 
 
-现在，启动 Multiwfn 并输入以下命令：DB-TTFdimer.fchk // 二聚体的波函数文件(Wavefunction file of dimer) 100 // 其他功能（第一部分）(Other functions (Part 1)) 15 // 计算分子间轨道交叠积分的功能(Function for calculating intermolecular orbital overlap integral) DB-TTF1.fchk // 单体 1 的波函数文件(Wavefunction file of monomer 1) DB-TTF2.fchk // 单体 2 的波函数文件(Wavefunction file of monomer 2) 之后，若我们输入 i,j，则打印单体 1 中 MO i 与单体 2 中 MO j 之间的分子间轨道交叠积分。为得到 HOMO-HOMO 间的积分，我们输入 78,78，结果为 -0.01411983；然后输入 79,79，我们会发现 LUMO-LUMO 间的积分为 0.01025897。
+现在，启动 Multiwfn 并输入以下命令：
+
+!!! terminal "Multiwfn 交互"
+
+    - **DB-TTFdimer.fchk** — 二聚体的波函数文件(Wavefunction file of dimer)
+    - **100** — 其他功能（第一部分）(Other functions (Part 1))
+    - **15** — 计算分子间轨道交叠积分的功能(Function for calculating intermolecular orbital overlap integral)
+    - **DB-TTF1.fchk** — 单体 1 的波函数文件(Wavefunction file of monomer 1)
+    - **DB-TTF2.fchk** — 单体 2 的波函数文件(Wavefunction file of monomer 2)
+
+之后，若我们输入 i,j，则打印单体 1 中 MO i 与单体 2 中 MO j 之间的分子间轨道交叠积分。为得到 HOMO-HOMO 间的积分，我们输入 78,78，结果为 -0.01411983；然后输入 79,79，我们会发现 LUMO-LUMO 间的积分为 0.01025897。
 
 
 ### 4.100.18 对菲的 Yoshizawa 电子传输路径分析
@@ -420,7 +449,18 @@ To atom     5    Value and distance (Angstrom):   -1.571512    2.787501
 
 下面我将展示如何用 Multiwfn 基于 CO 和 BH3 的碎片波函数产生 COBH3 的前分子波函数，然后讨论相应的 ELF 特征。下面用的 .wfn 文件和相应的 Gaussian .gjf 文件可在 "examples\genpromol" 文件夹找到。
 
-启动 Multiwfn 然后输入 examples\genpromol\COBH3\CO.wfn // 碎片 1 的波函数文件路径(The path of wavefunction file of fragment 1) 100 // 其他功能（第一部分）(Other functions (Part 1)) 19 // 由碎片波函数生成前分子 .wfn 文件(Generate promolecular .wfn file from fragment wavefunctions) 1 // 输出为 combine.wfn(Output to combine.wfn) 2 // 共两个碎片(Two fragments in total) examples\genpromol\COBH3\BH3.wfn // 碎片 2 的波函数文件路径(The path of wavefunction file of fragment 2) 现在 COBH3 的前分子波函数文件已输出到当前文件夹的 combine.wfn。
+启动 Multiwfn 然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\genpromol\COBH3\CO.wfn** — 碎片 1 的波函数文件路径(The path of wavefunction file of fragment 1)
+    - **100** — 其他功能（第一部分）(Other functions (Part 1))
+    - **19** — 由碎片波函数生成前分子 .wfn 文件(Generate promolecular .wfn file from fragment wavefunctions)
+    - **1** — 输出为 combine.wfn(Output to combine.wfn)
+    - **2** — 共两个碎片(Two fragments in total)
+    - **examples\genpromol\COBH3\BH3.wfn** — 碎片 2 的波函数文件路径(The path of wavefunction file of fragment 2)
+
+现在 COBH3 的前分子波函数文件已输出到当前文件夹的 combine.wfn。
 
 让我们为此前分子波函数绘制 ELF。重启 Multiwfn 并输入 combine.wfn
 
@@ -429,16 +469,38 @@ To atom     5    Value and distance (Angstrom):   -1.571512    2.787501
     - **4** — 绘制平面图(Draw plane map)
     - **9** — ELF 1
 
-XZ 平面(XZ plane) 0 // Y=0 有趣的是，即使在前分子态，从所得图看碳和硼似乎已键合。为了弄清电子分布弛豫如何影响 COBH3 的 ELF 特征，我们决定绘制实际态与前分子态之间的 ELF 差值图。
+XZ 平面(XZ plane)
 
-重启 Multiwfn 并输入 examples\genpromol\COBH3\COBH3.wfn // 实际态的波函数文件(Wavefunction file of actual state of COBH3) 4 // 绘制平面图(Draw plane map) 0 // 自定义操作(Custom operation) 1 // 只处理一个文件(Deal with only one file) -,combine.wfn // 用 COBH3.wfn 的性质减去 combine.wfn 的性质(Subtracting property of COBH3.wfn by that of combine.wfn) 9 // ELF 1 // 颜色填充图(Color-filled map) [按 ENTER 键(Press ENTER button)] // 使用默认格点设置(Use default grid setting) 2 // XZ 平面(XZ plane) 0 // Y=0 关闭图形然后输入
+!!! terminal "Multiwfn 交互"
+
+    - **0** — Y=0 有趣的是，即使在前分子态，从所得图看碳和硼似乎已键合。为了弄清电子分布弛豫如何影响 COBH3 的 ELF 特征，我们决定绘制实际态与前分子态之间的 ELF 差值图。
+
+重启 Multiwfn 并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\genpromol\COBH3\COBH3.wfn** — 实际态的波函数文件(Wavefunction file of actual state of COBH3)
+    - **4** — 绘制平面图(Draw plane map)
+    - **0** — 自定义操作(Custom operation)
+    - **1** — 只处理一个文件(Deal with only one file)
+    - **-,combine.wfn** — 用 COBH3.wfn 的性质减去 combine.wfn 的性质(Subtracting property of COBH3.wfn by that of combine.wfn)
+    - **9** — ELF
+    - **1** — 颜色填充图(Color-filled map)
+    - **[按 ENTER 键(Press ENTER button)]** — 使用默认格点设置(Use default grid setting)
+    - **2** — XZ 平面(XZ plane)
+    - **0** — Y=0
+
+关闭图形然后输入
 
 
 <!-- p.1019 -->
 
 
 
-1 // 设置色标上下限(Set lower and upper limit of color scale) -0.2,0.4 // 将色标设为 -0.2 到 0.4(Set the color scale from -0.2 to 0.4)，因为如你从命令行窗口所见，此平面数据范围为 -0.248 到 0.436
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 设置色标上下限(Set lower and upper limit of color scale)
+    - **-0.2,0.4** — 将色标设为 -0.2 到 0.4(Set the color scale from -0.2 to 0.4)，因为如你从命令行窗口所见，此平面数据范围为 -0.248 到
 
 !!! terminal "Multiwfn 交互"
 
@@ -457,7 +519,11 @@ XZ 平面(XZ plane) 0 // Y=0 有趣的是，即使在前分子态，从所得图
     - **1** — 输出为 combine.wfn(Output as combine.wfn)
     - **2** — 共有两个碎片（包括已载入的）(There are totally two fragments (including the loaded one)) examples\genpromol\CH3NH2\NH2.wfn
 
-不翻转 CH3 轨道的自旋(Do not flip spin of orbitals of CH3) y // 翻转 NH2 轨道的自旋(Flip spin of orbitals of NH2)。若你不理解为何应翻转自旋，可参阅第 4.16.2 节中相应的 CDA 例子。
+不翻转 CH3 轨道的自旋(Do not flip spin of orbitals of CH3)
+
+!!! terminal "Multiwfn 交互"
+
+    - **y** — 翻转 NH2 轨道的自旋(Flip spin of orbitals of NH2)。若你不理解为何应翻转自旋，可参阅第 4.16.2 节中相应的 CDA 例子。
 
 现在你已在当前文件夹得到 CH3NH2 的前分子波函数。尝试为其绘制 ELF 并与实际态（即 examples\genpromol\CH3NH2\CH3NH2.wfn）的结果比较。
 
@@ -481,7 +547,15 @@ XZ 平面(XZ plane) 0 // Y=0 有趣的是，即使在前分子态，从所得图
 
 主功能 100 的子功能 21 可计算分子直径和长/宽/高，本节我将以 examples/alpha-cyclodextrin.pdb 为例说明。请先阅读第 3.100.21 节以理解该功能如何工作。
 
-启动 Multiwfn 并输入 examples/alpha-cyclodextrin.pdb 100 // 其他功能（第一部分）(Other functions (Part 1)) 21 // 计算纯基于几何的量(Calculate quantities that are purely based on geometry) size // 计算分子直径和长/宽/高(Calculate molecular diameter and length/width/height) 你将在屏幕上看到以下信息
+启动 Multiwfn 并输入 examples/alpha-cyclodextrin.pdb
+
+!!! terminal "Multiwfn 交互"
+
+    - **100** — 其他功能（第一部分）(Other functions (Part 1))
+    - **21** — 计算纯基于几何的量(Calculate quantities that are purely based on geometry)
+    - **size** — 计算分子直径和长/宽/高(Calculate molecular diameter and length/width/height)
+
+你将在屏幕上看到以下信息
 
 
 ```text
@@ -524,7 +598,13 @@ Length of the three sides:    15.341    14.714     9.511 Angstrom
 
 请先阅读我的论文J. Mol. Model., 27, 263 (2021) DOI: 10.1007/s00894-021-04884-0或第3.100.21节，以了解分子平面性参数（MPP）、偏离平面的跨度（SDP）和到平面的有符号距离（ds）的基本知识，本节将用它们来表征[14]轮烯的分子平面性。
 
-启动Multiwfn并输入examples\[14]annulene.xyz // 其中包含优化好的结构 MPP // 进入研究分子平面性的功能 1-14 // 我们只用全部碳原子来确定平面性。你也可以直接输入h选择全部非氢原子
+启动Multiwfn并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\[14]annulene.xyz** — 其中包含优化好的结构
+    - **MPP** — 进入研究分子平面性的功能
+    - **1-14** — 我们只用全部碳原子来确定平面性。你也可以直接输入h选择全部非氢原子
 
 此时你马上可以看到以下输出，其中包括为所选原子（即全部碳原子）拟合的平面的参数、原子到拟合平面的有符号偏差（ds）及其最正值和最负值。最后给出了MPP和SDP。
 
@@ -569,7 +649,12 @@ MPP和SDP都不小，即到拟合平面的均方根偏差和偏离拟合平面�
 
 接下来，我们通过给原子着色来图形化展示每个原子到拟合平面的偏差，因此接着输入
 
-y // 让Multiwfn导出包含ds值的.pqr文件 [直接按ENTER键] // 输出到当前文件夹下的[14]annulene.pqr 注意，导出的[14]annulene.pqr中原子的“charge”属性（倒数第二列）对应ds值。
+!!! terminal "Multiwfn 交互"
+
+    - **y** — 让Multiwfn导出包含ds值的.pqr文件
+    - **[直接按ENTER键]** — 输出到当前文件夹下的[14]annulene.pqr
+
+注意，导出的[14]annulene.pqr中原子的“charge”属性（倒数第二列）对应ds值。
 
 启动VMD可视化软件（http://www.ks.uiuc.edu/Research/vmd/），将.pqr文件拖到VMD主窗口中加载，然后进入“图形(Graphics)”-“显示方式(Representations)”面板，将“着色方式(Coloring Method)”设为“Charge”，将“绘制方式(Drawing Method)”设为“CPK”。然后进入“轨迹(Trajectory)”选项卡，在“颜色刻度数据范围(Color Scale Data Range)”标签下的两个文本框中分别输入-0.4和0.4，然后按ENTER键。最后，将背景色改为白色，你将看到
 
@@ -586,7 +671,15 @@ y // 让Multiwfn导出包含ds值的.pqr文件 [直接按ENTER键] // 输出到�
 
 在本例中我说明如何研究环[18]碳在其分子动力学轨迹中分子平面性的演化。整个2000 fs轨迹是在我关于环[18]碳及类似体系振动特征的工作中通过298.15 K下的从头算动力学模拟产生的，见Chem. Asian J., 16, 56 (2021) DOI: 10.1002/asia.202001228。前500 fs的xyz轨迹文件已作为examples\C18_MD_500.xyz提供。轨迹每1 fs保存一次，因此共有501帧（第一帧对应优化好的结构，它是严格平面的）。
 
-启动Multiwfn并输入examples\C18_MD_500.xyz MPP // 进入研究分子平面性的功能 a // 选择全部原子 a // 选择全部帧 现在当前文件夹中有了MPP_SDP.txt，其第1、2、3列分别对应所选全部帧的帧序号、MPP和SDP。然后你可以用例如Origin软件绘制MPP和SDP沿轨迹变化的曲线图，以方便地研究平面性在过程中的变化（下图是针对包含2001帧的整个轨迹绘制的，该轨迹可从http://sobereva.com/multiwfn/extrafiles/C18-MD.xyz下载）：
+启动Multiwfn并输入examples\C18_MD_500.xyz
+
+!!! terminal "Multiwfn 交互"
+
+    - **MPP** — 进入研究分子平面性的功能
+    - **a** — 选择全部原子
+    - **a** — 选择全部帧
+
+现在当前文件夹中有了MPP_SDP.txt，其第1、2、3列分别对应所选全部帧的帧序号、MPP和SDP。然后你可以用例如Origin软件绘制MPP和SDP沿轨迹变化的曲线图，以方便地研究平面性在过程中的变化（下图是针对包含2001帧的整个轨迹绘制的，该轨迹可从http://sobereva.com/multiwfn/extrafiles/C18-MD.xyz下载）：
 
 
 ![](../imgs/p1024_538.png)
@@ -612,7 +705,16 @@ y // 让Multiwfn导出包含ds值的.pqr文件 [直接按ENTER键] // 输出到�
 
 
 
-启动Multiwfn并输入open_fullerene.pdb cav // 进入计算空腔直径的功能 1,12-20,23-67,101 // 富勒烯部分的原子，它们将用于检测球半径 1 // 使用上面输入的原子的几何中心作为球心的初始位置 1 // 允许自动调整球心以使球尺寸最大 然后从屏幕上你可以看到
+启动Multiwfn并输入open_fullerene.pdb
+
+!!! terminal "Multiwfn 交互"
+
+    - **cav** — 进入计算空腔直径的功能
+    - **1,12-20,23-67,101** — 富勒烯部分的原子，它们将用于检测球半径
+    - **1** — 使用上面输入的原子的几何中心作为球心的初始位置
+    - **1** — 允许自动调整球心以使球尺寸最大
+
+然后从屏幕上你可以看到
 
 
 ```text
@@ -670,7 +772,12 @@ draw sphere {    3.942    3.621   11.903 } radius   1.707 resolution 100
 
 检测LMOs的π类型 对于非平面体系，为了分别研究σ和π电子，必须首先把分子轨道变换为LMOs。如果你不熟悉LMOs，见第3.22节。
 
-启动Multiwfn并输入：examples\cycloheptatriene.fch 19 // 轨道定域化 1 // 定域化占据轨道
+启动Multiwfn并输入：examples\cycloheptatriene.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **19** — 轨道定域化
+    - **1** — 定域化占据轨道
 
 
 ![](../imgs/p1027_541.png)
@@ -681,7 +788,10 @@ draw sphere {    3.942    3.621   11.903 } radius   1.707 resolution 100
 
 100 // 其它功能（第一部分）(Other functions (Part 1))
 
-22 // 检测π轨道 -1 // 当前轨道为定域化形式
+!!! terminal "Multiwfn 交互"
+
+    - **22** — 检测π轨道
+    - **-1** — 当前轨道为定域化形式
 
 0 // 在默认设置下检测π LMOs然后设置它们的占据数 识别出三个π LMOs：
 
@@ -752,9 +862,15 @@ C1-C4和C2-C3，因为在前者中π电子在相应的两个原子之间离域�
 
 计算占据MOs的π组成 基于已检测的π LMOs，我们可以计算当前体系任意轨道的π组成。让我们查看环庚三烯占据MO的π组成。在我们进行早先的轨道定域化时，当前文件夹中自动导出了new.fch，其中记录了全部占据LMOs。
 
-启动并输入以下命令：new.fch // 加载它以取回占据LMOs 100 // 其它功能（第一部分）(Other functions (Part 1))
+!!! terminal "Multiwfn 交互"
 
-22 // 检测π轨道 -1 // 当前轨道为定域化形式
+    - **启动并输入以下命令：new.fch** — 加载它以取回占据LMOs
+    - **100** — 其它功能（第一部分）(Other functions (Part 1))
+
+!!! terminal "Multiwfn 交互"
+
+    - **22** — 检测π轨道
+    - **-1** — 当前轨道为定域化形式
 
 
 ![](../imgs/p1029_545.png)
@@ -765,7 +881,10 @@ C1-C4和C2-C3，因为在前者中π电子在相应的两个原子之间离域�
 
 
 
--1 // 检测π轨道然后计算另一文件中轨道的π组成 examples\cycloheptatriene.fch // 此文件包含MOs [直接按ENTER键使用50%的打印阈值]
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 检测π轨道然后计算另一文件中轨道的π组成
+    - **examples\cycloheptatriene.fch** — 此文件包含MOs [直接按ENTER键使用50%的打印阈值]
 
 现在所有π组成高于50%的占据MOs都已显示：
 
@@ -790,7 +909,11 @@ C1-C4和C2-C3，因为在前者中π电子在相应的两个原子之间离域�
     - **2** — 同时定域化占据和非占据轨道
     - **100** — 其它功能（第一部分）(Other functions (Part 1))
 
-22 // 检测π轨道 -1 // 当前轨道为定域化形式 3 // 把考虑中的LMOs切换为“全部定域化轨道(all localized orbitals)”
+!!! terminal "Multiwfn 交互"
+
+    - **22** — 检测π轨道
+    - **-1** — 当前轨道为定域化形式
+    - **3** — 把考虑中的LMOs切换为“全部定域化轨道(all localized orbitals)”
 
 2 // 改变识别π轨道的默认密度阈值。因为当前几何高度扭曲，必须采用更宽松的密度阈值，否则你会发现没有
 

@@ -22,7 +22,12 @@ spectrum
 
 examples\spectra\Allura_red_UV-Vis.txt is X-Y curve data of experimental UV-Vis spectrum of a famous dye, allura red. In this example we predict color of allura red based on this spectrum.
 
-Boot up Multiwfn and load examples\spectra\Allura_red_UV-Vis.txt, then input 11 // Plotting spectrum 0 // Predicting color based on UV-Vis spectrum recorded in text file Now you can see the following map on screen
+Boot up Multiwfn and load examples\spectra\Allura_red_UV-Vis.txt, then input
+
+!!! terminal "Multiwfn session"
+
+    - **11** — Plotting spectrum
+    - **0** — Predicting color based on UV-Vis spectrum recorded in text file Now you can see the following map on screen
 
 From the color shown at bottom lower side, it can be seen that the color of allura red is red, this is exactly the actually observed color of this substance. This map also indicates that allura red absorb light of cyan color.
 
@@ -41,7 +46,10 @@ Boot up Multiwfn and input following commands examples\phenol_631Gxx.wfn // Phen
 
 <!-- p.695 -->
 
-12 // Quantitative analysis of molecular surface 0 // Start the analysis under default settings. By default, the mapped function is ESP Now the calculation starts. Since computing ESP is time consuming, you need to wait for a while. During the calculation some intermediate information is printed, most users do not need to concern about them. Below results will be printed on screen once the calculation has been finally finished:
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative analysis of molecular surface
+    - **0** — Start the analysis under default settings. By default, the mapped function is ESP Now the calculation starts. Since computing ESP is time consuming, you need to wait for a while. During the calculation some intermediate information is printed, most users do not need to concern about them. Below results will be printed on screen once the calculation has been finally finished:
 
 
 ```text
@@ -118,7 +126,10 @@ all // All atoms are taken into the statistics (alternatively, if you input for 
 
 <!-- p.698 -->
 
-15 // The number of intervals 3 // Both the inputted and outputted units are in kcal/mol Then you will see surface area (in Å2) and corresponding percentage in the whole surface area in each successive ESP range.
+!!! terminal "Multiwfn session"
+
+    - **15** — The number of intervals
+    - **3** — Both the inputted and outputted units are in kcal/mol Then you will see surface area (in Å2) and corresponding percentage in the whole surface area in each successive ESP range.
 
 
 ```text
@@ -179,7 +190,10 @@ Trick: Reuse data of mapped function generated during previous analysis Here I i
 
 Let us see an example. We first perform ESP analysis on vdW surface as usual, input below commands:
 
-examples\N-phenylpyrrole.fch 12 // Quantitative molecular surface analysis 0 // Start the analysis Once the calculation is finished, select option 7 to export the surface vertices with ESP values to a plain text file named vtx.txt in current folder. After that select -1 to return to last menu.
+!!! terminal "Multiwfn session"
+
+    - **examples\N-phenylpyrrole.fch 12** — Quantitative molecular surface analysis
+    - **0** — Start the analysis Once the calculation is finished, select option 7 to export the surface vertices with ESP values to a plain text file named vtx.txt in current folder. After that select -1 to return to last menu.
 
 Assume that we want to perform the analysis again. This time we can directly use the ESP data recorded in the plain text file. Input below commands
 
@@ -213,7 +227,14 @@ Dmol3 and FHI-aims, are unable to produce a wavefunction file that supported by 
     - **2** — Select mapped function
     - **1** — ESP 5
 
-The mapped function will be interpolated from an external cube file 0 // Start calculation ESP.cub // The cube file recording ESP Note that the grid setting used for yielding density.cub and ESP.cub must be exactly the same, and the grid spacing should not be too large (no larger than 0.25 Bohr), otherwise the analysis result will be inaccurate.
+The mapped function will be interpolated from an external cube file
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Start calculation
+    - **ESP.cub** — The cube file recording ESP
+
+Note that the grid setting used for yielding density.cub and ESP.cub must be exactly the same, and the grid spacing should not be too large (no larger than 0.25 Bohr), otherwise the analysis result will be inaccurate.
 
 
 ### 4.12.2 Average local ionization energy analysis (ALIE) on phenol molecular surface
@@ -279,7 +300,15 @@ carbon and β carbon; in particular, the former is the primary site for hard nuc
 
 In this example, we will try to interpret the site-selectivity of acrolein by analyzing ESP on its vdW surface. Note that average local ionization energy is only useful for studying electrophilic attack, but completely useless for analyzing nucleophilic attack.
 
-Boot up Multiwfn and input: examples\acrolein.wfn // Optimized and produced at B3LYP/6-31G** level 12 // Quantitative analysis of molecular surface 0 // Start the analysis for ESP After the calculation is finished, choose 0 to visualize surface extrema:
+Boot up Multiwfn and input:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\acrolein.wfn** — Optimized and produced at B3LYP/6-31G** level
+    - **12** — Quantitative analysis of molecular surface
+    - **0** — Start the analysis for ESP
+
+After the calculation is finished, choose 0 to visualize surface extrema:
 
 As you can see, there is a surface minimum of ESP at the boundary of α carbon and it is very close to β carbon. This observation indirectly reveals that nuclear charge of α carbon is more heavily screened by electron clouds, and hence is less probable to be the site of nucleophilic attack. However, quantitative analysis of ESP on the whole acrolein surface does not provide a direct and definitive interpretation on the preference of reactive sites, because no surface maxima are found on carbonyl
 
@@ -453,7 +482,18 @@ The concept of Hirshfeld and Becke surface analyses have been introduced in Sect
 
 that Hirshfeld surface analysis is more commonly used, see next section.
 
-Boot up Multiwfn and input examples\GC.wfn // Generated at M06-2X/6-31+G** level, optimized at PM7 level 12 // Quantitative molecular surface analysis 1 // Change the definition of surface 6 // Use Becke surface. You can also select 5 to use Hirshfeld surface 1-13 // The index range of the atoms you are interested in (cytosine in present case) 0 // Start calculation Multiwfn found numerous surface minima, which are meaningless in this case, and at the same time three surface maxima are found
+Boot up Multiwfn and input:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\GC.wfn** — Generated at M06-2X/6-31+G** level, optimized at PM7 level
+    - **12** — Quantitative molecular surface analysis
+    - **1** — Change the definition of surface
+    - **6** — Use Becke surface. You can also select 5 to use Hirshfeld surface
+    - **1-13** — The index range of the atoms you are interested in (cytosine in present case)
+    - **0** — Start calculation
+
+Multiwfn found numerous surface minima, which are meaningless in this case, and at the same time three surface maxima are found
 
 
 ```text
@@ -644,7 +684,10 @@ Boot up Multiwfn and input examples\Urea_crystal.pdb
     - **1** — Change surface definition
     - **5** — Use Hirshfeld surface 16,36,58,2,77,55,34,13
 
-Start calculation -2 // Export the grid data used to define Hirshfeld surface as surf.cub in current folder 13 // Calculate grid data of mapped function and export it to mapfunc.cub in current folder Now you have surf.cub and mapfunc.cub in current folder, move them to the VMD folder. Then copy the examples\scripts\hirsh_rho.vmd file into the VMD folder. Boot up VMD, input source hirsh_rho.vmd in VMD console window to run this script. For the present case it is better to also input material change diffuse Translucent 0.8 in the console window to make the surface brighter.
+!!! terminal "Multiwfn session"
+
+    - **Start calculation -2** — Export the grid data used to define Hirshfeld surface as surf.cub in current folder
+    - **13** — Calculate grid data of mapped function and export it to mapfunc.cub in current folder Now you have surf.cub and mapfunc.cub in current folder, move them to the VMD folder. Then copy the examples\scripts\hirsh_rho.vmd file into the VMD folder. Boot up VMD, input source hirsh_rho.vmd in VMD console window to run this script. For the present case it is better to also input material change diffuse Translucent 0.8 in the console window to make the surface brighter.
 
 
 ![](../imgs/p715_267.png)
@@ -684,7 +727,12 @@ where α = 0.9183, β = 0.0028 and γ = 0.0443 when the wavefunction is generate
 
 First, we optimize geometry of FOX-7 and yield wavefunction file at B3PW91/6-31G** level, which is the level used by Politzer et al. in their Mol. Phys. paper. The resulting FOX-7.wfn has provided as examples\FOX-7.wfn.
 
-Boot up Multiwfn and input below commands: examples\FOX-7.wfn 12 // Quantitative molecular surface analysis 0 // Start analysis for default real space function (ESP) on default surface (0.001 a.u. isosurface of electron density)
+Boot up Multiwfn and input below commands: examples\FOX-7.wfn
+
+!!! terminal "Multiwfn session"
+
+    - **12** — Quantitative molecular surface analysis
+    - **0** — Start analysis for default real space function (ESP) on default surface (0.001 a.u. isosurface of electron density)
 
 After a while, you will find below output on screen
 
@@ -794,7 +842,10 @@ That means, the area of the whole molecule is 181.6 Å2.
 
 Evaluating surface area of amino group in dopamine Next, I illustrate how to calculate surface area of a specific fragment, the amino group in the dopamine is taken as example. In the post-processing menu, we input
 
-12 // Output surface properties of specific fragment 3,19,20 // The indices of the atoms in the amino group You will see
+!!! terminal "Multiwfn session"
+
+    - **12** — Output surface properties of specific fragment
+    - **3,19,20** — The indices of the atoms in the amino group You will see
 
 
 ```text
@@ -881,9 +932,15 @@ Check surface region corresponding to positive ESP value
 
 Since σ-hole and π-hole correspond to evidently positive ESP value, it is naturally expected that area of positive ESP region around a surface maximum is a direct measure of σ/π-hole size. Now assume that we want to measure area of π-hole corresponding to maximum 3, in the post-processing menu we should input below commands
 
-14 // Calculate area and function average in a region around a surface extreme 2 // Surface maximum
+!!! terminal "Multiwfn session"
 
-3 // Select maximum 3 (corresponding to one of π-holes) 0 // Set criterion as 0 a.u. Now we can find below output
+    - **14** — Calculate area and function average in a region around a surface extreme
+    - **2** — Surface maximum
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Select maximum 3 (corresponding to one of π-holes)
+    - **0** — Set criterion as 0 a.u. Now we can find below output
 
 
 ```text
@@ -916,9 +973,15 @@ From the graph it can be seen that criterion of 0.04 a.u. is suitable for defini
 
 corresponding to π-hole of present system. The map above contains two blue local surfaces since there is a π-hole at each side of the phosphorus atom. To calculate area of each π-hole, we input
 
-14 // Calculate area and function average in a region around a surface extreme 2 // Surface maximum
+!!! terminal "Multiwfn session"
 
-3 // Select maximum 3 (corresponding to one of π-holes) 0.04 // Set criterion as 0.04 a.u. The result is
+    - **14** — Calculate area and function average in a region around a surface extreme
+    - **2** — Surface maximum
+
+!!! terminal "Multiwfn session"
+
+    - **3** — Select maximum 3 (corresponding to one of π-holes)
+    - **0.04** — Set criterion as 0.04 a.u. The result is
 
 
 ```text
@@ -945,9 +1008,15 @@ Calculate surface area corresponding to σ-hole Next, we use similar way to calc
 
 finding the best one to represent the σ-hole. After a few attempts, 0.03 a.u. was found to be a reasonable value, therefore we input below command in the post-processing menu
 
-14 // Calculate area and function average in a region around a surface extreme 2 // Surface maximum
+!!! terminal "Multiwfn session"
 
-2 // Select maximum 2 (corresponding to the σ-hole) 0.03 // Set criterion value as 0.03 a.u. The area is found to be 4.88 Å2, while average ESP value in this region is 0.03617 a.u., which is
+    - **14** — Calculate area and function average in a region around a surface extreme
+    - **2** — Surface maximum
+
+!!! terminal "Multiwfn session"
+
+    - **2** — Select maximum 2 (corresponding to the σ-hole)
+    - **0.03** — Set criterion value as 0.03 a.u. The area is found to be 4.88 Å2, while average ESP value in this region is 0.03617 a.u., which is
 
 evidently smaller than that of the π-hole. If you plot the exported selsurf.pqr in VMD as points, and set color scale as 0.0~0.05 (In the "Representation" panel, choose "Trajectory" tab, then set "Color Scale Data Range"), you will see the following map, indeed the selected surface region well exhibits
 
@@ -971,7 +1040,16 @@ Just as the whole 3-dimensions molecular space can be partitioned as basins base
 
 3.15.2.2 to gain basic knowledge about the algorithm employed in this analysis. The ClPO2 has already been investigated by means of molecular surface analysis in Section 4.12.10, please read it if you have not.
 
-Boot up Multiwfn and input examples\ClPO2.fch // Geometry and wavefunction were produced at PBE0/def2-TZVP 12 // Quantitative molecular surface analysis 0 // Start analysis, the mapped function is default to ESP 15 // Basin-like partition of surface and calculate areas Then you can find below output on screen
+Boot up Multiwfn and input:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\ClPO2.fch** — Geometry and wavefunction were produced at PBE0/def2-TZVP
+    - **12** — Quantitative molecular surface analysis
+    - **0** — Start analysis, the mapped function is default to ESP
+    - **15** — Basin-like partition of surface and calculate areas
+
+Then you can find below output on screen
 
 
 ```text

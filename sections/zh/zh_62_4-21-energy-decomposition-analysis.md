@@ -200,7 +200,17 @@ C:\C3.txt 1
     - **C3GC.pdb 21** — 能量分解分析(Energy decomposition analysis)
     - **1** — EDA-FF 3
 
-输入mollist.txt实际路径(Input actual path of mollist.txt) 2 // 定义片段(Define fragments) 3 // 将定义三个片段(Three fragments will be defined) 1-13 // 片段1中的原子序号，即胞嘧啶(C)(Atom indices in fragment 1, namely cytosine (C)) 14-29 // 片段2中的原子序号，即鸟嘌呤(G)(Atom indices in fragment 2, namely guanine (G)) 30-101 // 片段3中的原子序号，即C3(Atom indices in fragment 3, namely C3) 选选项1进行EDA-FF计算，结果如下（忽略原子贡献部分）
+输入mollist.txt实际路径(Input actual path of mollist.txt)
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 定义片段(Define fragments)
+    - **3** — 将定义三个片段(Three fragments will be defined)
+    - **1-13** — 片段1中的原子序号，即胞嘧啶(C)(Atom indices in fragment 1, namely cytosine (C))
+    - **14-29** — 片段2中的原子序号，即鸟嘌呤(G)(Atom indices in fragment 2, namely guanine (G))
+    - **30-101** — 片段3中的原子序号，即C3(Atom indices in fragment 3, namely C3)
+
+选选项1进行EDA-FF计算，结果如下（忽略原子贡献部分）
 
 ```text
                          Electrostatic   Repulsion   Dispersion     Total
@@ -347,7 +357,12 @@ Shubin Liu 能量分解（EDA-SBL）的思想和用法已在第 3.24.2 节中介
 
 我们首先评估交错式乙烷的 EDA-SBL 方法定义的能量项。启动 Multiwfn 并输入
 
-examples\EDA\EDA_SBL\ethane_staggered.fch 21 // 能量分解分析(Energy decomposition analysis) 2 // Shubin Liu 能量分解(Shubin Liu's energy decomposition) examples\EDA\EDA_SBL\ethane_staggered.out 现在 Multiwfn 从 Gaussian 输出文件中载入相关信息，然后评估 EDA-SBL 方法定义的空间位阻(steric)项。最后，打印 EDA-SBL 能量分量：
+examples\EDA\EDA_SBL\ethane_staggered.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **21** — 能量分解分析(Energy decomposition analysis)
+    - **2** — Shubin Liu 能量分解(Shubin Liu's energy decomposition) examples\EDA\EDA_SBL\ethane_staggered.out 现在 Multiwfn 从 Gaussian 输出文件中载入相关信息，然后评估 EDA-SBL 方法定义的空间位阻(steric)项。最后，打印 EDA-SBL 能量分量：
 
 
 ```text
@@ -478,7 +493,15 @@ Actos 是一种柔性药物分子，其卷曲构象和伸展构象的 xyz 文件
 
 Multiwfn 还可以生成色散密度的差值格点数据。在当前功能中输入以下命令
 
-4 // 计算当前体系与另一体系之间的色散密度差值(Calculate dispersion density difference between current and another system) [直接按 ENTER 键] //当前体系（Actos_curly.xyz）中的所有原子都是感兴趣的 examples\Actos_linear.xyz // 另一体系 [直接按 ENTER 键] //Actos_curly.xyz 中的所有原子都是感兴趣的 3 // 高质量格点(High-quality grid) 现在当前文件夹中生成了 dispdensdiff.cub。使用 VMD 通过第 4.A.14 节所述的便捷 VMD 脚本将其绘制为等值面图，等值设为 ±0.025，你将看到如下图所示，蓝色表示等值面对应负值。可以看出，等值面很好地突出了因结构卷曲导致色散能显著增强的区域。
+!!! terminal "Multiwfn 交互"
+
+    - **4** — 计算当前体系与另一体系之间的色散密度差值(Calculate dispersion density difference between current and another system)
+    - **[直接按 ENTER 键]** — 当前体系（Actos_curly.xyz）中的所有原子都是感兴趣的
+    - **examples\Actos_linear.xyz** — 另一体系
+    - **[直接按 ENTER 键]** — Actos_curly.xyz 中的所有原子都是感兴趣的
+    - **3** — 高质量格点(High-quality grid)
+
+现在当前文件夹中生成了 dispdensdiff.cub。使用 VMD 通过第 4.A.14 节所述的便捷 VMD 脚本将其绘制为等值面图，等值设为 ±0.025，你将看到如下图所示，蓝色表示等值面对应负值。可以看出，等值面很好地突出了因结构卷曲导致色散能显著增强的区域。
 
 ### 4.21.4.3 甲苯在沸石上的吸附
 

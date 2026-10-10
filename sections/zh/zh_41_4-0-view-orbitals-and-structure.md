@@ -82,7 +82,12 @@ PS3：若你能读中文，阅读这三篇文章将非常有帮助：“Multiwfn
 
 方法 1：使用 NBO 绘图文件 通常的方法是生成 NBO 绘图文件（.31~.40）并载入 Multiwfn。要用 Gaussian 生成这些文件，应在路线节中添加 pop=nboread，即表示输入文件末尾的 NBO 关键词将被传递给 NBO 模块（Gaussian 中的 Link 607），然后在输入文件末尾添加例如 $NBO plot file=C:\NH2COH $END，并在其前留一空行，可参考“example”目录中的 NH2COH_NBO.gjf。用 Gaussian 运行该输入文件，你会发现 C:\ 文件夹中已生成 NH2COH.31、NH2COH.32 ... NH2COH.41。“example”文件夹中已提供了 NH2COH.31 与 NH2COH.37。现在启动 Multiwfn 并输入以下命令
 
-examples\NH2COH.31 // .31 文件包含绘图所需的基函数信息 examples\NH2COH.37 // .37 文件包含 NBO 信息。.32~.40 文件分别对应 PNAO/NAO/PNHO/NHO/PNBO/NBO/PNLMO/NLMO/MO。提示：你可只输入 37，因为在本例中 .37 与 .31 文件同名
+!!! terminal "Multiwfn 交互"
+
+    - **examples\NH2COH.31** — .31 文件包含绘图所需的基函数信息
+    - **examples\NH2COH.37** — .37 文件包含 NBO 信息。
+
+.32~.40 文件分别对应 PNAO/NAO/PNHO/NHO/PNBO/NBO/PNLMO/NLMO/MO。提示：你可只输入 37，因为在本例中 .37 与 .31 文件同名
 
 0 // 进入 GUI 你可从右下角列表中选择相应的 NBO 轨道以查看等值面。Multiwfn 还能同时绘制两个轨道，例如，这里我们将绘制 NBO 12 与 NBO 56，它们分别对应氮原子的占据孤对与碳氧之间的非占据反 π 键。首先，我们从轨道列表中选择 12 以绘制 NBO 12，然后点击“Show+Sel. isosur#2（显示+选择等值面#2）”，之后在列表中点击 56，你将看到 NBO 12 与 NBO 56 同时显示。NBO 56（等值面#2）的黄绿色与紫色部分分别对应正值与负值部分。
 

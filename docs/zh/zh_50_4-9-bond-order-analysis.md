@@ -22,7 +22,10 @@
 
 Mayer 键级的计算 我们首先计算 Mayer 键级。注意，计算 Mayer 键级需要基函数信息，因此目前必须使用 .mwfn/.fch/.molden/.gms 文件作为输入文件。
 
-启动 Multiwfn 并输入：examples\CH3CONH2.fch 9 // 键级分析(Bond order analysis) 1 // 计算 Mayer 键级(Calculate Mayer bond order) 随即得到以下输出：
+!!! terminal "Multiwfn 交互"
+
+    - **启动 Multiwfn 并输入：examples\CH3CONH2.fch 9** — 键级分析(Bond order analysis)
+    - **1** — 计算 Mayer 键级(Calculate Mayer bond order) 随即得到以下输出：
 
 
 ```text
@@ -127,7 +130,14 @@ Bond orders with absolute value >=  0.050000
     - **启动 Multiwfn 并输入 examples\CH3CONH2.fch 9** — 键级分析(Bond order analysis)
     - **1** — 计算 Mayer 键级(Calculate Mayer bond order) y
 
-返回主菜单(Return to main menu) 1000 // 隐藏的主功能(Hidden main function) 13 // 把当前文件夹下的 bndmat.txt 转换为带键级信息的 Gaussian .gjf 文件(Convert the bndmat.txt in current folder to Gaussian .gjf file with bond order information) 现在我们在当前文件夹下得到了 gau.gjf，它不仅包含当前的分子坐标，还包含相连原子之间的键级（连接关系基于当前几何结构自动猜测，除非你使用包含连接信息的文件作为输入文件，如 .mol 和 .mol2，详见 2.5 节）。
+返回主菜单(Return to main menu)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1000** — 隐藏的主功能(Hidden main function)
+    - **13** — 把当前文件夹下的 bndmat.txt 转换为带键级信息的 Gaussian .gjf 文件(Convert the bndmat.txt in current folder to Gaussian .gjf file with bond order information)
+
+现在我们在当前文件夹下得到了 gau.gjf，它不仅包含当前的分子坐标，还包含相连原子之间的键级（连接关系基于当前几何结构自动猜测，除非你使用包含连接信息的文件作为输入文件，如 .mol 和 .mol2，详见 2.5 节）。
 
 把 gau.gjf 载入 GaussView，选择 "Results" - "Bond Properties"，再经过适当调整，即可得到如下效果。
 
@@ -326,7 +336,10 @@ The bond order >=  0.050000
 
 
 
-9 // 键级分析(Bond order analysis) 9 // 分解 NAO 基组下的 Wiberg 键级(Decompose Wiberg bond order in NAO basis) 然后你可以输入两个原子序号以得到它们在 NAO 基组下计算的 Wiberg 键级，同时得到主要成分（打印成分的阈值由 `settings.ini` 中的 "bndordthres" 参数控制）。例如，我们输入 1,4，以下结果立即显示在屏幕上：
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 键级分析(Bond order analysis)
+    - **9** — 分解 NAO 基组下的 Wiberg 键级(Decompose Wiberg bond order in NAO basis) 然后你可以输入两个原子序号以得到它们在 NAO 基组下计算的 Wiberg 键级，同时得到主要成分（打印成分的阈值由 `settings.ini` 中的 "bndordthres" 参数控制）。例如，我们输入 1,4，以下结果立即显示在屏幕上：
 
 
 ```text
@@ -550,7 +563,12 @@ Mulliken 键级已在 3.11.4 节中介绍，它也被称为 Mulliken 重叠布�
 
 这里我们在 NAO 基组下计算菲的 AV1245 和 AVmin，此时应采用带有 DMNAO 关键词的 NBO 输出信息作为输入。本例涉及的 Gaussian 输入文件为 exampes\phenanthrene_DMNAO.gjf，相应的输出文件为 examples\phenanthrene_DMNAO.out。从 .gjf 文件可以看出，调用了 Gaussian 内嵌的 NBO 模块，并向 NBO 模块传入了 DMNAO 关键词。
 
-启动 Multiwfn 并输入 examples\phenanthrene_DMNAO.out 9 // 键级分析(Bond order analysis) 11 // 计算 AV1245(Calculate AV1245)
+启动 Multiwfn 并输入 examples\phenanthrene_DMNAO.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 键级分析(Bond order analysis)
+    - **11** — 计算 AV1245(Calculate AV1245)
 
 
 ![](../imgs/p630_205.png)

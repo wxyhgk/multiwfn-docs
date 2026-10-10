@@ -152,7 +152,14 @@ D' 的唯一区别在于前者在单体状态下计算，因此 ΔVn-D = Vn-D' -
 
 注意若使用较旧版本的 G09 且采用 post-HF 方法，“density”关键词不可或缺，否则生成的 .wfn 文件中的密度将对应 Hartree-Fock 密度。此外，在 G09 与 G16 中，MP4 级别无法产生密度，因此我们改用 MP4(SDQ) 关键词（MP4 关键词默认为 MP4(SDTQ），比 MP4(SDQ）更精确但昂贵得多）。
 
-首先，我们计算 Vn-A' 与 Vn-D'。启动 Multiwfn 并输入 examples\Vn\H2O-HF.wfn 1 // 计算某点处的性质 a1 // 原子 1 的核位置 从输出中可见
+首先，我们计算 Vn-A' 与 Vn-D'。启动 Multiwfn 并输入 examples\Vn\H2O-HF.wfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 计算某点处的性质
+    - **a1** — 原子 1 的核位置
+
+从输出中可见
 
 
 ```text
@@ -161,8 +168,15 @@ Total ESP without contribution from nuclear charge of atom     1:
 ```
 
 即 Vn-D' 为 -22.2877 a.u.。再输入 a5，可发现 Vn-A' 为 -0.9608 a.u.。
+接下来计算 Vn-D。重新启动 Multiwfn 并输入以下命令
 
-接下来计算 Vn-D。重新启动 Multiwfn 并输入以下命令 ?H2O.wfn // 符号 ? 表示上次载入文件所在文件夹 1 a1 // H2O.wfn 中氧为原子 1 发现 Vn-D 为 -22.3339 a.u.。再计算 Vn-A。重启 Multiwfn 并输入
+!!! terminal "Multiwfn 交互"
+
+    - **?H2O.wfn** — 符号 ? 表示上次载入文件所在文件夹
+    - **1** — 计算某点处的性质
+    - **a1** — H2O.wfn 中氧为原子 1
+
+发现 Vn-D 为 -22.3339 a.u.。再计算 Vn-A。重启 Multiwfn 并输入
 
 ?HF.wfn 1 a2 // HF.wfn 中氢为原子 2 发现 Vn-A 为 -0.9136 a.u.。
 

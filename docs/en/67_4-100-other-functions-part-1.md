@@ -230,9 +230,17 @@ Boot up Multiwfn and input following commands examples/phenanthrene.wfn
 
 visualizing orbital isosurfaces via main function 0, or let Multiwfn automatically identify π orbitals by subfunction 22 of main function 100
 
-0 // Start the calculation 8,9,11,13,14,15 // The indices of the atoms in the ring that you are interested in. This ring is boundary ring. Note that you should input the indices according to atomic connectivity
+!!! terminal "Multiwfn session"
 
-Wait for a while, from screen we can see that the LOLIPOP value is 8.23. Then input 0 // Start the calculation again 7,3,4,8,9,10 // Atoms in the central ring The LOLIPOP value is 6.39 Since smaller LOLIPOP value corresponds to stronger π-stacking ability, we can expect that the tendency of forming π-stacking over the central ring is stronger than over the boundary rings.
+    - **0** — Start the calculation
+    - **8,9,11,13,14,15** — The indices of the atoms in the ring that you are interested in. This ring is boundary ring. Note that you should input the indices according to atomic connectivity
+
+Wait for a while, from screen we can see that the LOLIPOP value is 8.23. Then input
+
+!!! terminal "Multiwfn session"
+
+    - **0** — Start the calculation again
+    - **7,3,4,8,9,10** — Atoms in the central ring The LOLIPOP value is 6.39 Since smaller LOLIPOP value corresponds to stronger π-stacking ability, we can expect that the tendency of forming π-stacking over the central ring is stronger than over the boundary rings.
 
 Note that there is option 6 in the LOLIPOP interface. If you choose it once to switch its status to "Yes", then after calculation of LOLIPOP, the coordinate of the points satisfying filter conditions
 
@@ -263,7 +271,10 @@ Boot up Multiwfn and input examples\biphenyl.fch
     - **1** — Only localize occupied MOs
     - **100** — Other function (Part 1)
 
-22 // Automatically detect π orbitals -1 // Current orbitals are in localized form
+!!! terminal "Multiwfn session"
+
+    - **22** — Automatically detect π orbitals
+    - **-1** — Current orbitals are in localized form
 
 0 // Start π orbital identification based on default settings Now we can see there are 6 identified π orbitals (more specifically, they are π LMOs):
 
@@ -278,9 +289,19 @@ Expected pi orbitals, occupation numbers and orbital energies (eV):
     41      2.000000     -6.046329
 ```
 
-Then we input 0 // Do not modify orbital occupation numbers 14 // LOLIPOP calculation
+!!! terminal "Multiwfn session"
 
-1 // Choose π orbitals 32,34,38,39,40,41 // The indices of the π orbitals 0 // Start calculation 1,2,3,4,5,6 // Indices of the atoms in a ring The result is 8.82, which is slightly higher than that of the boundary ring of phenanthrene (see
+    - **Then we input 0** — Do not modify orbital occupation numbers
+    - **14** — LOLIPOP calculation
+
+!!! terminal "Multiwfn session"
+
+    - **1** — Choose π orbitals
+    - **32,34,38,39,40,41** — The indices of the π orbitals
+    - **0** — Start calculation
+    - **1,2,3,4,5,6** — Indices of the atoms in a ring
+
+The result is 8.82, which is slightly higher than that of the boundary ring of phenanthrene (see
 
 last section), indicating that the rings in biphenyl have prominent ability of forming π-π stacking.
 
@@ -402,7 +423,18 @@ distribution of promolecular state of a complex AB, by using custom operation, w
 
 Below I will show how to use Multiwfn to produce promolecular wavefunction for COBH3 based on fragment wavefunctions of CO and BH3, and then discuss the corresponding ELF character. The .wfn files used below and the corresponding Gaussian .gjf files can be found in "examples\genpromol" folder.
 
-Boot up Multiwfn and then input examples\genpromol\COBH3\CO.wfn // The path of wavefunction file of fragment 1 100 // Other functions (Part 1) 19 // Generate promolecular .wfn file from fragment wavefunctions 1 // Output to combine.wfn 2 // Two fragments in total examples\genpromol\COBH3\BH3.wfn // The path of wavefunction file of fragment 2 Now the promolecular wavefunction file of COBH3 has been outputted to combine.wfn in current folder.
+Boot up Multiwfn and then input
+
+!!! terminal "Multiwfn session"
+
+    - **examples\genpromol\COBH3\CO.wfn** — The path of wavefunction file of fragment 1
+    - **100** — Other functions (Part 1)
+    - **19** — Generate promolecular .wfn file from fragment wavefunctions
+    - **1** — Output to combine.wfn
+    - **2** — Two fragments in total
+    - **examples\genpromol\COBH3\BH3.wfn** — The path of wavefunction file of fragment 2
+
+Now the promolecular wavefunction file of COBH3 has been outputted to combine.wfn in current folder.
 
 Let us plot ELF for this promolecular wavefunction. Reboot Multiwfn and input combine.wfn
 
@@ -413,12 +445,30 @@ Let us plot ELF for this promolecular wavefunction. Reboot Multiwfn and input co
 
 XZ plane 0 // Y=0 Interestingly, even in the promolecular state, from the resultant graph it looks as if the carbon and boron have been bonded to each other. In order to make clear how the relaxation of electron distribution affects the ELF character of COBH3, we decide to draw difference map of ELF between the actual state and promolecular state.
 
-Reboot Multiwfn and input examples\genpromol\COBH3\COBH3.wfn // Wavefunction file of actual state of COBH3 4 // Draw plane map 0 // Custom operation 1 // Deal with only one file -,combine.wfn // Subtracting property of COBH3.wfn by that of combine.wfn 9 // ELF 1 // Color-filled map [Press ENTER button] // Use default grid setting 2 // XZ plane 0 // Y=0 Close the graph and then input
+Reboot Multiwfn and input
+
+!!! terminal "Multiwfn session"
+
+    - **examples\genpromol\COBH3\COBH3.wfn** — Wavefunction file of actual state of COBH3
+    - **4** — Draw plane map
+    - **0** — Custom operation
+    - **1** — Deal with only one file
+    - **-,combine.wfn** — Subtracting property of COBH3.wfn by that of combine.wfn
+    - **9** — ELF
+    - **1** — Color-filled map
+    - **[Press ENTER button]** — Use default grid setting
+    - **2** — XZ plane
+    - **0** — Y=0
+
+Close the graph and then input
 
 
 <!-- p.1019 -->
 
-1 // Set lower and upper limit of color scale -0.2,0.4 // Set the color scale from -0.2 to 0.4, since as you can see from the command-line window, in this plane the data range is from -0.248 to 0.436
+!!! terminal "Multiwfn session"
+
+    - **1** — Set lower and upper limit of color scale
+    - **-0.2,0.4** — Set the color scale from -0.2 to 0.4, since as you can see from the command-line window, in this plane the data range is from -0.248 to
 
 !!! terminal "Multiwfn session"
 
@@ -504,7 +554,13 @@ effect in the small ring. Its structure optimized at ωB97XD/def2-TZVP level is 
 
 Please read my paper J. Mol. Model., 27, 263 (2021) DOI: 10.1007/s00894-021-04884-0 or Section 3.100.21 to gain basic knowledge about molecular planarity parameter (MPP), span of deviation from plane (SDP), an$d^{s}$igned distance to plane (ds), which will be employed in this section to characterize molecular planarity of the [14]annulene.
 
-Boot up Multiwfn and input examples\[14]annulene.xyz // It contains the optimize$d^{s}$tructure MPP // Enter the function of studying molecular planarity 1-14 // We only use all carbon atoms to determine the planarity. You can also simply input h to choose all non-hydrogen atoms
+Boot up Multiwfn and input
+
+!!! terminal "Multiwfn session"
+
+    - **examples\[14]annulene.xyz** — It contains the optimize$d^{s}$tructure
+    - **MPP** — Enter the function of studying molecular planarity
+    - **1-14** — We only use all carbon atoms to determine the planarity. You can also simply input h to choose all non-hydrogen atoms
 
 Now you can immediately see the following output, which include the parameters of the plane fitted for the selected atoms (i.e. all carbons), signed deviations of atoms to the fitting plane ($d^{s}$) and their most positive and most negative values. At the end, MPP and SDP are given.
 
@@ -547,7 +603,12 @@ Both the MPP and SDP are not small, that is the root-mean-square deviation to th
 
 Next, we graphically exhibit deviation of every atom to the fitting plane by coloring atoms, therefore we then input
 
-y // Let Multiwfn to export .pqr file containing ds values [Press ENTER button directly] // Output to [14]annulene.pqr in current folder Note that the “charge” property of atoms (penultimate column) in the exported [14]annulene.pqr corresponds to ds value.
+!!! terminal "Multiwfn session"
+
+    - **y** — Let Multiwfn to export .pqr file containing ds values
+    - **[Press ENTER button directly]** — Output to [14]annulene.pqr in current folder
+
+Note that the “charge” property of atoms (penultimate column) in the exported [14]annulene.pqr corresponds to ds value.
 
 Boot up VMD visualization software (http://www.ks.uiuc.edu/Research/vmd/), drag the .pqr file to VMD main window to load it, then enter “Graphics” - “Representation” panel and set “Coloring Method” to “Charge”, set “Drawing Method” to “CPK”. Then enter “Trajectory” tab and input -0.4 and 0.4 respectively in the two text boxes under “Color Scale Data Range” label and then press ENTER button. Finally, change the background color to white, you will see
 
@@ -564,7 +625,15 @@ In the last example, we see that molecular planarity can be quantitatively and i
 
 In this example I illustrate how to study evolution of molecular planarity of cyclo[18]carbon in its molecular dynamics trajectory. The whole 2000 fs trajectory was generated by ab-initio dynamics simulation at 298.15 K in my work about vibrational character of cyclo[18]carbon and analogous systems, see Chem. Asian J., 16, 56 (2021) DOI: 10.1002/asia.202001228. The xyz trajectory file of the first 500 fs has been provided as examples\C18_MD_500.xyz. The trajectory was saved every 1 fs, so there are totally 501 frames (the first frame corresponds to optimized structure, which is exactly planar).
 
-Boot up Multiwfn and input examples\C18_MD_500.xyz MPP // Enter the function of studying molecular planarity a // Choose all atoms a // Choose all frames Now we have MPP_SDP.txt in current folder, whose 1st, 2nd and 3rd columns correspond to frame index, MPP and SDP of all selected frames, respectively. Then you can use e.g. Origin software to plot variation of MPP and SDP along the trajectory as curve map to conveniently study how planarity varies during the process (the following map was plotted for the entire trajectory containing 2001 frames, which can be downloaded at http://sobereva.com/multiwfn/extrafiles/C18-MD.xyz):
+Boot up Multiwfn and input
+
+!!! terminal "Multiwfn session"
+
+    - **examples\C18_MD_500.xyz MPP** — Enter the function of studying molecular planarity
+    - **a** — Choose all atoms
+    - **a** — Choose all frames
+
+Now we have MPP_SDP.txt in current folder, whose 1st, 2nd and 3rd columns correspond to frame index, MPP and SDP of all selected frames, respectively. Then you can use e.g. Origin software to plot variation of MPP and SDP along the trajectory as curve map to conveniently study how planarity varies during the process (the following map was plotted for the entire trajectory containing 2001 frames, which can be downloaded at http://sobereva.com/multiwfn/extrafiles/C18-MD.xyz):
 
 
 ![](../imgs/p1024_538.png)
@@ -586,7 +655,16 @@ Please check corresponding part of Section 3.100.21 first to understand basic id
 
 <!-- p.1026 -->
 
-Boot up Multiwfn and input open_fullerene.pdb cav // Enter the function for calculating cavity diameter 1,12-20,23-67,101 // Atoms in the fullerene part, they will be used to detect sphere radius 1 // Use the geometric center of the atoms inputted above as initial position of sphere center 1 // Allow automatic adjustment of sphere center to maximize sphere size Then from screen you can see
+Boot up Multiwfn and input
+
+!!! terminal "Multiwfn session"
+
+    - **open_fullerene.pdb cav** — Enter the function for calculating cavity diameter
+    - **1,12-20,23-67,101** — Atoms in the fullerene part, they will be used to detect sphere radius
+    - **1** — Use the geometric center of the atoms inputted above as initial position of sphere center
+    - **1** — Allow automatic adjustment of sphere center to maximize sphere size
+
+Then from screen you can see
 
 
 ```text
@@ -641,7 +719,12 @@ mentioned how to make Multiwfn automatically detect π molecular orbitals for an
 
 Detecting π type of LMOs For non-planar systems, to separately study σ and π electrons, the molecular orbitals must be firstly transformed to LMOs. If you are not familiar with LMOs, see Section 3.22.
 
-Boot up Multiwfn and input: examples\cycloheptatriene.fch 19 // Orbital localization 1 // Localize occupied orbitals
+Boot up Multiwfn and input: examples\cycloheptatriene.fch
+
+!!! terminal "Multiwfn session"
+
+    - **19** — Orbital localization
+    - **1** — Localize occupied orbitals
 
 
 ![](../imgs/p1027_541.png)
@@ -650,7 +733,10 @@ Boot up Multiwfn and input: examples\cycloheptatriene.fch 19 // Orbital localiza
 
 100 // Other functions (Part 1)
 
-22 // Detect π orbitals -1 // Current orbitals are in localized form
+!!! terminal "Multiwfn session"
+
+    - **22** — Detect π orbitals
+    - **-1** — Current orbitals are in localized form
 
 0 // Detect π LMOs under default settings and then set their occupation numbers There are three π LMOs identified:
 
@@ -719,9 +805,17 @@ representation, therefore you can easily identify strength of π conjugation of 
 
 Evaluating π composition of occupied MOs Based on detected π LMOs, we can evaluate π composition of any orbital of present system. Let us check π composition of occupied MO of the cycloheptatriene. The new.fch in current folder was automatically exported when we perform earlier orbital localization, all occupied LMOs are recorded in this file.
 
-Boot up and input below commands: new.fch // Load it to retrieve occupied LMOs 100 // Other functions (Part 1)
+Boot up and input below commands:
 
-22 // Detect π orbitals -1 // Current orbitals are in localized form
+!!! terminal "Multiwfn session"
+
+    - **new.fch** — Load it to retrieve occupied LMOs
+    - **100** — Other functions (Part 1)
+
+!!! terminal "Multiwfn session"
+
+    - **22** — Detect π orbitals
+    - **-1** — Current orbitals are in localized form
 
 
 ![](../imgs/p1029_545.png)
@@ -730,7 +824,10 @@ Boot up and input below commands: new.fch // Load it to retrieve occupied LMOs 1
 
 <!-- p.1030 -->
 
--1 // Detect π orbitals and then evaluate π composition for orbitals in another file examples\cycloheptatriene.fch // This file contains MOs [Press ENTER button directly to use printing threshold of 50%]
+!!! terminal "Multiwfn session"
+
+    - **-1** — Detect π orbitals and then evaluate π composition for orbitals in another file
+    - **examples\cycloheptatriene.fch** — This file contains MOs [Press ENTER button directly to use printing threshold of 50%]
 
 Now all occupied MOs with π composition higher than 50% have been shown:
 

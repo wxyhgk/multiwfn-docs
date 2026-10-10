@@ -153,7 +153,10 @@ factor to various grid data)”，输入 0.4309（即选项 2 输出的以 eV �
 
 更具体地，对于当前例子，进入当前模块后你应输入
 
--1 // 切换是否计算 ωcubic 和 ε(Toggle calculating ωcubic and ε) 1 // 生成 N、N+1、N-1、N-2 电子态的 .wfn 文件(Generate .wfn files for N, N+1, N-1, N-2 electronic states) [直接按 ENTER 键] //使用 B3LYP/6-31G* 水平 [直接按 ENTER 键] //使用默认电荷和自旋多重度，即 N 态为 0 1，N+1 态为 -1 2，N-1 态为 1 2，N-2 态为 2 1
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 切换是否计算 ωcubic 和 ε(Toggle calculating ωcubic and ε)
+    - **1** — 生成 N、N+1、N-1、N-2 电子态的 .wfn 文件(Generate .wfn files for N, N+1, N-1, N-2 electronic states) [直接按 ENTER 键] //使用 B3LYP/6-31G* 水平 [直接按 ENTER 键] //使用默认电荷和自旋多重度，即 N 态为 0 1，N+1 态为 -1 2，N-1 态为 1 2，N-2 态为 2
 
 现在运行新生成的四个 .gjf 文件以获得 N.wfn、N+1.wfn、N-1.wfn 和 N-2.wfn，然后选择选项 2。从输出的 CDFT.txt 中，你可以找到：
 
@@ -185,7 +188,12 @@ http://sobereva.com/multiwfn/extrafiles/C60.zip，它是当前分析的输入文
 
 在当前菜单中，你可以用选项 4 设置后续轨道加权计算中使用的 Δ 参数，在本例中我们保持默认值（0.1 Hartree）不变，只有当你发现结果不满意时才应适当改变。
 
-我们首先可视化轨道加权函数的等值面。输入以下命令 7 // 计算 OW Fukui 函数和 OW 对偶描述符的格点数据(Calculate grid data of OW Fukui function and OW dual descriptor) 2 // 中等质量(Medium quality) 然后你可以用相应选项可视化 𝑓𝑤+、𝑓𝑤−、𝑓𝑤0 和 ∆𝑓𝑤 的等值面，它们共同显示如下。注意应将等值改为适当的值，否则等值面甚至可能不可见。下面绘图使用了 0.0003 a.u. 的等值面。
+我们首先可视化轨道加权函数的等值面。输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **7** — 计算 OW Fukui 函数和 OW 对偶描述符的格点数据(Calculate grid data of OW Fukui function and OW dual descriptor)
+    - **2** — 中等质量(Medium quality) 然后你可以用相应选项可视化 𝑓𝑤+、𝑓𝑤−、𝑓𝑤0 和 ∆𝑓𝑤 的等值面，它们共同显示如下。注意应将等值改为适当的值，否则等值面甚至可能不可见。下面绘图使用了 0.0003 a.u. 的等值面。
 
 在上图中，绿色和蓝色等值面分别代表正值和负值部分。如你所见，所有轨道加权函数的分布都符合分子点群对称性，这是轨道加权形式独有的优势。相比之下，如果你绘制 HOMO 的密度（对应于 f − 的冻结轨道形式）或计算并绘制通过有限差分（ρN − ρN-1）得到的 f −，你会发现它们的分布是反直觉的（与分子对称性不一致），因此在揭示反应位点方面毫无用处。如第 4.5.4 节所述，具有大正 f − 的区域或具有显著负 Δf 的区域对应于具有显著亲核性的位点，或等价地，易受亲电攻击。从上图我们发现，最易发生亲电攻击的位点是 [6,6] 型 C-C 键（即由两个相邻六元环共用的键）上方的区域。该观察与实验发现完全一致（见 ∆𝑓𝑤 的原始论文，即 J. Phys. Chem. A, 123, 10556 (2019)，其中有广泛讨论），根据 vdW 表面上平均局域电离能极小值的分布也可以进一步证实这一结论，见第 4.12.2 节关于如何进行这类分析。
 
@@ -320,7 +328,10 @@ Cl一端表现为Lewis酸，这与存在σ-hole区域的事实一致。
 
 本节我将以苯为例说明如何考虑HOMO/LUMO简并来计算Fukui函数和对偶描述符。因为需要根据轨道能量确定简并度，所以我们应先为所研究的构型生成一个波函数文件。examples\benzene.fch是由Gaussian 16在B3LYP/6-31G*水平下做几何优化任务产生的波函数文件。
 
-启动Multiwfn并输入examples\benzene.fch 22 // 计算概念密度泛函理论中的各种量(Calculate various quantities in conceptual density functional theory) -3 // 设置前线分子轨道简并度(Set degree of frontier molecular orbital degeneracy) 现在屏幕上显示最低10个未占据MO的信息，以帮助你确定LUMO简并度
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入examples\benzene.fch 22** — 计算概念密度泛函理论中的各种量(Calculate various quantities in conceptual density functional theory)
+    - **-3** — 设置前线分子轨道简并度(Set degree of frontier molecular orbital degeneracy) 现在屏幕上显示最低10个未占据MO的信息，以帮助你确定LUMO简并度
 
 
 ```text
@@ -406,11 +417,23 @@ Orbital    18 (HOMO-3)   Energy:    -9.234 eV  E_diff:    -2.514 eV
 
 （C60_wB97XD_opt.fchk）可从http://sobereva.com/multiwfn/extrafiles/C60_wB97XD_opt.7z下载。
 
-启动Multiwfn并输入C60_wB97XD_opt.fchk 22 // 计算概念密度泛函理论中的各种量(Calculate various quantities in conceptual density functional theory) -3 // 设置前线分子轨道简并度(Set degree of frontier molecular orbital degeneracy) [直接按回车键(Press ENTER button directly)] // 使用自动确定的LUMO简并度3(Use automatically determined LUMO degeneracy of 3) [直接按回车键(Press ENTER button directly)] // 使用自动确定的HOMO简并度5(Use automatically determined HOMO degeneracy of 5) 1 // 生成各种电子态的.wfn文件(Generate .wfn files for various electrons states) wB97XD/6-311G* symm=loose scf=conver=7 // 执行Gaussian单点任务的关键词(Keywords for performing single point task of Gaussian)。“symm=loose”确保Gaussian将利用C60的Ih点群以大大降低耗时。“scf=conver=7”略放宽SCF收敛阈值以更容易收敛(The “symm=loose” ensures that Gaussian will utilize Ih point group of C60 to greatly reduce cost. “scf=conver=7” slightly loosens SCF convergence threshold to make it easier to reach)
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入C60_wB97XD_opt.fchk 22** — 计算概念密度泛函理论中的各种量(Calculate various quantities in conceptual density functional theory)
+    - **-3** — 设置前线分子轨道简并度(Set degree of frontier molecular orbital degeneracy) [直接按回车键(Press ENTER button directly)]
+
+使用自动确定的HOMO简并度5(Use automatically determined HOMO degeneracy of 5)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 生成各种电子态的.wfn文件(Generate .wfn files for various electrons states) wB97XD/6-311G* symm=loose scf=conver=7
 
 [按回车键(Press ENTER button)] //对N、N+3和N-5态使用默认净电荷与自旋多重度(0 1)、(-3 4)和(5 6)(Use default net charge and spin multiplicity of (0 1), (-3 4) and (5 6) for the N, N+3 and N-5 states, respectively)
 
--1,2 // N+1态的净电荷与自旋多重度(Net charge and spin multiplicity of N+1 state) 1,2 // N-1态的净电荷与自旋多重度(Net charge and spin multiplicity of N-1 state) 现在当前文件夹中已生成N.gjf、N-1.gjf、N+1.gjf、N-3.gjf和N+5.gjf，输入y让Multiwfn调用Gaussian执行计算（或手动计算它们）。计算后，当前文件夹中将有N.wfn、N-1.wfn、N+1.wfn、N-3.wfn和N+5.wfn。
+!!! terminal "Multiwfn 交互"
+
+    - **-1,2** — N+1态的净电荷与自旋多重度(Net charge and spin multiplicity of N+1 state)
+    - **1,2** — N-1态的净电荷与自旋多重度(Net charge and spin multiplicity of N-1 state) 现在当前文件夹中已生成N.gjf、N-1.gjf、N+1.gjf、N-3.gjf和N+5.gjf，输入y让Multiwfn调用Gaussian执行计算（或手动计算它们）。计算后，当前文件夹中将有N.wfn、N-1.wfn、N+1.wfn、N-3.wfn和N+5.wfn。
 
 然后选择选项2计算各种CDFT量并打印到当前文件夹的CDFT.txt中。从中我们找到软度及其平方：
 
@@ -470,7 +493,12 @@ Orbital    18 (HOMO-3)   Energy:    -9.234 eV  E_diff:    -2.514 eV
 
 1 // 设置前线分子轨道简并度(Set degeneracy of frontier molecular orbitals)
 
-[直接按回车键(Press ENTER button directly)] // 使用建议的LUMO(α)简并度(Use suggested degeneracy of LUMO(alpha)) [直接按回车键(Press ENTER button directly)] // 使用建议的HOMO(α)简并度(Use suggested degeneracy of HOMO(alpha)) [直接按回车键(Press ENTER button directly)] // 使用建议的LUMO(β)简并度(Use suggested degeneracy of LUMO(beta)) [直接按回车键(Press ENTER button directly)] // 使用建议的HOMO(β)简并度(Use suggested degeneracy of HOMO(beta)) 现在你可以看到前线MO简并度的汇总：
+!!! terminal "Multiwfn 交互"
+
+    - **[直接按回车键(Press ENTER button directly)]** — 使用建议的LUMO(α)简并度(Use suggested degeneracy of LUMO(alpha))
+    - **[直接按回车键(Press ENTER button directly)]** — 使用建议的HOMO(α)简并度(Use suggested degeneracy of HOMO(alpha))
+    - **[直接按回车键(Press ENTER button directly)]** — 使用建议的LUMO(β)简并度(Use suggested degeneracy of LUMO(beta))
+    - **[直接按回车键(Press ENTER button directly)]** — 使用建议的HOMO(β)简并度(Use suggested degeneracy of HOMO(beta)) 现在你可以看到前线MO简并度的汇总：
 
 
 ```text
@@ -516,9 +544,16 @@ Degeneracy of HOMO(beta):   2
     - **22** — 概念DFT(CDFT)分析(Conceptual DFT (CDFT) analysis)
     - **1** — 生成N、N+1、N-1电子态的.wfn文件(Generate .wfn files for N, N+1, N-1 electrons states) M062X/6-311++G(d,p)
 
-对N、N+1和N-1态使用(0 1)、(-1 2)和(1 2)(Use (0 1), (-1 2) and (1 2) for N, N+1 and N-1 states) y // 调用Gaussian计算这三个态(Invoke Gaussian to calculate the three states)（假设你已在`settings.ini`中正确设置“gaupath”(assume that you have properly set “gaupath” in `settings.ini`)）
+对N、N+1和N-1态使用(0 1)、(-1 2)和(1 2)(Use (0 1), (-1 2) and (1 2) for N, N+1 and N-1 states)
 
-9 // 计算Fukui势和对偶描述符势的格点数据(Calculate grid data of Fukui potential and dual descriptor potential) 1 // 因计算ESP格点数据相对昂贵，所以这里选择用低质量格点(Because calculating ESP grid data is relatively expensive, so here we choose to use low-quality grid)
+!!! terminal "Multiwfn 交互"
+
+    - **y** — 调用Gaussian计算这三个态(Invoke Gaussian to calculate the three states)（假设你已在`settings.ini`中正确设置“gaupath”(assume that you have properly set “gaupath” in `settings.ini`)）
+
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 计算Fukui势和对偶描述符势的格点数据(Calculate grid data of Fukui potential and dual descriptor potential)
+    - **1** — 因计算ESP格点数据相对昂贵，所以这里选择用低质量格点(Because calculating ESP grid data is relatively expensive, so here we choose to use low-quality grid)
 
 现在，你可以选择相应选项可视化各种Fukui势和对偶描述符势（DDP），𝑉𝑓+、𝑉𝑓−和𝐷𝐷𝑃= 𝑉𝑓+ −𝑉𝑓−的等值面图
 
@@ -538,7 +573,11 @@ Degeneracy of HOMO(beta):   2
 
 请先阅读3.25.1节中关于键对偶描述符（BDD）的简要介绍，并阅读4.22.1节了解概念DFT分析模块的基本用法。本节我将说明以丙烯腈为例计算BDD，其在B3LYP/6-31G*水平下优化的结构如下所示，结构文件为examples\acrylonitrile.xyz。
 
-启动Multiwfn，载入examples\acrylonitrile.xyz，然后输入22 // 概念DFT(CDFT)分析(Conceptual DFT (CDFT) analysis) 1 // 生成N、N+1、N-1电子态的.wfn文件(Generate .wfn files for N, N+1, N-1 electrons states) [直接按回车键(Press ENTER button directly)] // 生成的.gjf文件将对应B3LYP/6-31G*水平的单点任务(The generated .gjf files will correspond to single point task at B3LYP/6-31G* level)
+启动Multiwfn，载入examples\acrylonitrile.xyz，然后输入22 // 概念DFT(CDFT)分析(Conceptual DFT (CDFT) analysis)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 生成N、N+1、N-1电子态的.wfn文件(Generate .wfn files for N, N+1, N-1 electrons states) [直接按回车键(Press ENTER button directly)]
 
 [直接按回车键(Press ENTER button directly)] // 使用默认电荷与自旋多重度，即N态为0 1，N+1态为-1 2，N-1态为1 2(Use default charge and spin multiplicity, namely 0 1 for N state, -1 2 for N+1 state, and 1 2 for N-1 state)
 

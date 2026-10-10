@@ -10,9 +10,15 @@
 
 呢？你只需让 Multiwfn 导出相应流域的函数值网格数据，将它们绘制为等值面然后直接指定颜色即可。让我们这样做，输入以下命令
 
--5 // 将流域导出为立方体文件(Export basins as cube file) c // 将特定流域区域的函数值网格数据导出为当前文件夹中的 basinsel.cub 文件(Export grid data of function value in the region of specific basins as basinsel.cub file in current folder)
+!!! terminal "Multiwfn 交互"
 
-1,2,4,5 // 四个 V(C,H) 流域的编号(Indices of the four V(C,H) basins) 0 // 在导出的 .cub 文件中，若格点不属于所选流域，其值将为你在此指定的值(In the exported .cub file, if a grid does not belong to the selected basins, its value will be the value you specified here)
+    - **-5** — 将流域导出为立方体文件(Export basins as cube file)
+    - **c** — 将特定流域区域的函数值网格数据导出为当前文件夹中的 basinsel.cub 文件(Export grid data of function value in the region of specific basins as basinsel.cub file in current folder)
+
+!!! terminal "Multiwfn 交互"
+
+    - **1,2,4,5** — 四个 V(C,H) 流域的编号(Indices of the four V(C,H) basins)
+    - **0** — 在导出的 .cub 文件中，若格点不属于所选流域，其值将为你在此指定的值(In the exported .cub file, if a grid does not belong to the selected basins, its value will be the value you specified here)
 
 现在 basinsel.cub 已生成在当前文件夹中。将其载入 VMD，选择 “图形(Graphics)” - “表示(Representation)”，将 “绘制方式(Drawing Method)” 设为 “等值面(Isosurface)”，将 “着色方式(Coloring Method)” 改为 “颜色编号(Color ID)” 并选择 “4 黄色(yellow)”。然后将 “等值(Isovalue)” 改为比已有等值面略小的值以保证覆盖它们（例如本例中的 0.795，略小于 basinsyn.vmd 设置的 0.8），现在你可以看到下图，效果相当令人满意！
 
@@ -238,7 +244,17 @@ N21、O22 和 O23 的 “差值(Diff.)”之和约为 -12%，表明硝基中密�
 
 考察碎片对空穴和电子的贡献 上述空穴/电子组成分析界面中的选项“-1 加载碎片定义(Load fragment definition)”很重要，它用于加载碎片定义，随后将显示碎片对空穴和电子的贡献，并可绘制基于碎片的热图，这使讨论显著更加方便。在此我们按以下方式将体系划分为四个碎片。
 
-选择选项“-1 加载碎片定义(Load fragment definition)”，然后输入 4 // 定义四个碎片 21-23 // 碎片 1(硝基)的原子序号 11-20 // 碎片 2(与硝基相邻的苯环)的原子序号 1-10 // 碎片 3(与氨基相邻的苯环)的原子序号 24-26 // 碎片 4(氨基)的原子序号 你将立即看到以下输出
+选择选项“-1 加载碎片定义(Load fragment definition)”，然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **4** — 定义四个碎片
+    - **21-23** — 碎片 1(硝基)的原子序号
+    - **11-20** — 碎片 2(与硝基相邻的苯环)的原子序号
+    - **1-10** — 碎片 3(与氨基相邻的苯环)的原子序号
+    - **24-26** — 碎片 4(氨基)的原子序号
+
+你将立即看到以下输出
 
 ![](../imgs/p811_355.png)
 
@@ -502,7 +518,12 @@ Transition dipole moment in X/Y/Z:  -0.000021  -0.000045   1.767332 a.u.
 
 -1 // 默认情况下，空穴-电子模块的选项 1 为节省时间不计算跃迁磁偶极矩密度，我们现在选择此选项使选项 1 也计算该量
 
-1 // 可视化并分析空穴、电子、跃迁密度等 2 // 中等质量格点 计算完成后，从屏幕上可找到基于格点数据求得的跃迁磁偶极矩：
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 可视化并分析空穴、电子、跃迁密度等
+    - **2** — 中等质量格点
+
+计算完成后，从屏幕上可找到基于格点数据求得的跃迁磁偶极矩：
 
 ```text
       Transition magnetic dipole moment in X/Y/Z: -0.503315  0.000119 -0.000177 a.u.
@@ -592,9 +613,20 @@ n // 不对新生成的 TDM 做对角化，因为原始形式的 TDM 携带更�
 <!-- p.826 -->
 
 
-我们先研究 S0→S1 激发。启动 Multiwfn 并输入 tdmat.fchk 18 // 电子激发 2 // 绘制跃迁矩阵热图(Plot heat map of transition matrix) tdmat.out
+我们先研究 S0→S1 激发。启动 Multiwfn 并输入 tdmat.fchk
 
-1 // 研究 S0→S1 激发 n // 不对新生成的 TDM 做对称化 1 // 用方式 1 将以基函数表示的 TDM 收缩为原子 TDM 现在你可选择选项 1 绘制原子 TDM。但我们当前目的是绘制碎片 TDM。为此，我们可创建一个纯文本文件(在 file.rar 包中已作为 tdmfrag.txt 提供)，其每行定义一个碎片，本例中该文件内容为
+!!! terminal "Multiwfn 交互"
+
+    - **18** — 电子激发
+    - **2** — 绘制跃迁矩阵热图(Plot heat map of transition matrix) tdmat.out
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 研究 S0→S1 激发
+    - **n** — 不对新生成的 TDM 做对称化
+    - **1** — 用方式 1 将以基函数表示的 TDM 收缩为原子 TDM
+
+现在你可选择选项 1 绘制原子 TDM。但我们当前目的是绘制碎片 TDM。为此，我们可创建一个纯文本文件(在 file.rar 包中已作为 tdmfrag.txt 提供)，其每行定义一个碎片，本例中该文件内容为
 
 ```text
 1-23
@@ -606,7 +638,12 @@ n // 不对新生成的 TDM 做对角化，因为原始形式的 TDM 携带更�
 
 注意你也可用如 2,5-8,12-15,20 来将一批序号不连续的原子定义为一个碎片。
 
-然后输入以下命令 -1 // 定义碎片(Define fragments) 0 // 从外部文件加载碎片定义(按提示，你也可直接输入原子序号)
+然后输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **-1** — 定义碎片(Define fragments)
+    - **0** — 从外部文件加载碎片定义(按提示，你也可直接输入原子序号)
 
 !!! terminal "Multiwfn 交互"
 
@@ -656,7 +693,12 @@ S0→S6 和 S0→S7 在某种程度上互为镜像，从图中可以看出，电
 
 下面，我们仍以 4.18.2.2 节用的给体-π-受体为例，展示如何将 TDMM 绘制成热图。Multiwfn 既能绘制跃迁电偶极矩矩阵，也能绘制跃迁磁偶极矩矩阵，本节仅限于前者。
 
-首先需要生成包含原子 TDMM 的文件。启动 Multiwfn 并输入 examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk 18 // 电子激发分析 (Electron excitation analysis) 11 // 将跃迁偶极矩分解为基函数和原子贡献 (Decompose transition dipole moment as basis function and atom contributions) examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
+首先需要生成包含原子 TDMM 的文件。启动 Multiwfn 并输入 examples\excit\NH2_C8_NO2\NH2_C8_NO2.fchk
+
+!!! terminal "Multiwfn 交互"
+
+    - **18** — 电子激发分析 (Electron excitation analysis)
+    - **11** — 将跃迁偶极矩分解为基函数和原子贡献 (Decompose transition dipole moment as basis function and atom contributions) examples\excit\NH2_C8_NO2\NH2_C8_NO2.out
 
 !!! terminal "Multiwfn 交互"
 
@@ -670,7 +712,15 @@ S0→S6 和 S0→S7 在某种程度上互为镜像，从图中可以看出，电
 
 前缀导出为当前文件夹下的 .txt 文件，其中 AAtrdipX.txt 包含原子 TDMM 的 X 分量。接下来，我们将基于该矩阵绘制热图。
 
-重新启动 Multiwfn 并输入 o // 载入上次载入的文件 (Load the file last time loaded) 18 // 电子激发分析 (Electron excitation analysis) 2 // 绘制跃迁矩阵的热图 (Plot heat map of transition matrix) AAtrdipX.txt 此时可在屏幕上看到以下信息
+重新启动 Multiwfn 并输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **o** — 载入上次载入的文件 (Load the file last time loaded)
+    - **18** — 电子激发分析 (Electron excitation analysis)
+    - **2** — 绘制跃迁矩阵的热图 (Plot heat map of transition matrix) AAtrdipX.txt
+
+此时可在屏幕上看到以下信息
 
 
 ```text
@@ -684,7 +734,15 @@ S0→S6 和 S0→S7 在某种程度上互为镜像，从图中可以看出，电
 
 如上述提示所示，该矩阵的最小值为负值 -0.825，而本功能默认的颜色标尺下限为 0，因此必须更改颜色标尺，最好使下限和上限的绝对值相同。你可以反复尝试，找到最能反映矩阵特征的值。若范围太窄，超出颜色标尺上下限的部分将分别显示为白色和黑色，不美观。若范围太宽，矩阵元的差异则难以靠颜色区分。
 
-现在在 Multiwfn 中输入以下命令 5 // 修改颜色标尺范围 (Modify range of color scale) -0.7,0.7 // 下限和上限 (Lower and upper limits) 1 // 绘制热图 (Plot heat map) 立即即可看到下图。为了更好地理解热图，还一并展示了 X 分量的跃迁偶极矩密度的等值面（绘制方法见 4.18.2.1 节）
+现在在 Multiwfn 中输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **5** — 修改颜色标尺范围 (Modify range of color scale)
+    - **-0.7,0.7** — 下限和上限 (Lower and upper limits)
+    - **1** — 绘制热图 (Plot heat map)
+
+立即即可看到下图。为了更好地理解热图，还一并展示了 X 分量的跃迁偶极矩密度的等值面（绘制方法见 4.18.2.1 节）
 
 
 <!-- p.830 -->
@@ -720,7 +778,11 @@ S0→S6 和 S0→S7 在某种程度上互为镜像，从图中可以看出，电
     - **9** — 生成并导出跃迁密度矩阵 (Generate and export transition density matrix)
     - **2** — 生成两个激发态之间的跃迁密度矩阵 (Generate transition density matrix between (TDM) two excited states) examples\excit\N-phenylpyrrole.out
 
-2,3 // 假设你要分析 S2→S3 跃迁 [直接按 ENTER 键使用默认阈值] y // 以通常方式对称化所得 TDM (Symmetrize the resulting TDM in usual way) y // 将当前波函数信息（含新生成的 TDM）导出为当前文件夹下的 TDM.fch (Export present wavefunction information including the newly generated TDM to TDM.fch in current folder)
+!!! terminal "Multiwfn 交互"
+
+    - **2,3** — 假设你要分析 S2→S3 跃迁 [直接按 ENTER 键使用默认阈值]
+    - **y** — 以通常方式对称化所得 TDM (Symmetrize the resulting TDM in usual way)
+    - **y** — 将当前波函数信息（含新生成的 TDM）导出为当前文件夹下的 TDM.fch (Export present wavefunction information including the newly generated TDM to TDM.fch in current folder)
 
 !!! terminal "Multiwfn 交互"
 
@@ -764,7 +826,18 @@ y // 导出 new.mwfn，它包含对应 S2→S3 TDM 的自然轨道，并让 Mult
 
 现在当前文件夹下有了 tdmat.txt，它记录 S1→S2 的 TDM。
 
-重新启动 Multiwfn 然后输入 o // 载入上次载入的文件 (Load the file last time loaded) 18 // 电子激发分析 (Electron excitation analysis) 2 // 绘制跃迁矩阵的热图 (Plot heat map for transition matrix) tdmat.txt // 将从此文件载入矩阵数据 (Matrix data will be loaded from this file) 1 // 按方式 1 构建原子跃迁矩阵 (Construct atom transition matrix in terms of way 1) 1 // 绘制热图 (Plot heat map) 所得图形如下，还给出了用 S2 密度减去 S1 密度得到的密度差的等值面图（绘制方法见 4.18.13 节）。
+重新启动 Multiwfn 然后输入
+
+!!! terminal "Multiwfn 交互"
+
+    - **o** — 载入上次载入的文件 (Load the file last time loaded)
+    - **18** — 电子激发分析 (Electron excitation analysis)
+    - **2** — 绘制跃迁矩阵的热图 (Plot heat map for transition matrix)
+    - **tdmat.txt** — 将从此文件载入矩阵数据 (Matrix data will be loaded from this file)
+    - **1** — 按方式 1 构建原子跃迁矩阵 (Construct atom transition matrix in terms of way 1)
+    - **1** — 绘制热图 (Plot heat map)
+
+所得图形如下，还给出了用 S2 密度减去 S1 密度得到的密度差的等值面图（绘制方法见 4.18.13 节）。
 
 
 ![](../imgs/p832_376.png)
@@ -789,9 +862,18 @@ y // 导出 new.mwfn，它包含对应 S2→S3 TDM 的自然轨道，并让 Mult
 
 首先，我们计算激发过程中电子密度变化 Δρ 的格点数据。启动 Multiwfn 并输入：
 
-CT\extP2.wfn // 激发态波函数文件 5 // 生成格点数据 (Generate grid data) 0 // 设置自定义操作 (Set custom operation) 1 // 只处理一个文件 (Only one file will be dealt with) -,CT\basP2.wfn // 基态波函数文件。将从激发态中减去相应密度以生成 Δρ
+!!! terminal "Multiwfn 交互"
 
-1 // 电子密度 (Electron density) 2 // 中等质量格点。若体系比当前大得多，需要更多格点（如用高质量格点） (Medium-quality grid. If the system is much larger than present one, more grid points is required (e.g. using high-quality grid))
+    - **CT\extP2.wfn** — 激发态波函数文件
+    - **5** — 生成格点数据 (Generate grid data)
+    - **0** — 设置自定义操作 (Set custom operation)
+    - **1** — 只处理一个文件 (Only one file will be dealt with)
+    - **-,CT\basP2.wfn** — 基态波函数文件。将从激发态中减去相应密度以生成 Δρ
+
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 电子密度 (Electron density)
+    - **2** — 中等质量格点。若体系比当前大得多，需要更多格点（如用高质量格点） (Medium-quality grid. If the system is much larger than present one, more grid points is required (e.g. using high-quality grid))
 
 一旦计算正常完成，你可选择选项 -1 查看电子激发过程中的电子密度变化（默认等值对可视化密度
 
@@ -878,7 +960,11 @@ CT 距离相当长。显然，该体系 S0→S1 跃迁应判为典型的 CT 激�
 
 计算 Δr 指数 Δr 指数是定量量度电子激发电荷转移（CT）长度的指标，Δr 指数越大意味着 CT 距离越长。
 
-启动 Multiwfn 并输入 examples\excit\N-phenylpyrrole.fch 18 // 电子激发分析 (Electron excitation analysis)
+启动 Multiwfn 并输入 examples\excit\N-phenylpyrrole.fch
+
+!!! terminal "Multiwfn 交互"
+
+    - **18** — 电子激发分析 (Electron excitation analysis)
 
 4 // 计算 Δr 指数 (Calculate Δr index) examples\excit\N-phenylpyrrole.out
 
@@ -908,7 +994,12 @@ CT 距离相当长。显然，该体系 S0→S1 跃迁应判为典型的 CT 激�
 
 分解 (Only calculate Δr index for a single excitation (S0→S4), in this case the result can be decomposed)
 
-y // 打印轨道对贡献 (Print orbital pair contributions) 0.01 // 只打印贡献大于 0.01 Å 的轨道对 (Only the orbital pairs having contribution larger than 0.01 Å will be printed) 你将立即看到以下信息
+!!! terminal "Multiwfn 交互"
+
+    - **y** — 打印轨道对贡献 (Print orbital pair contributions)
+    - **0.01** — 只打印贡献大于 0.01 Å 的轨道对 (Only the orbital pairs having contribution larger than 0.01 Å will be printed)
+
+你将立即看到以下信息
 
 
 ```text
@@ -928,9 +1019,18 @@ and de-excitation parts
 
 计算 Λ (lambda) 指数 Λ 指数本质上量度电子激发的空穴和电子的重叠程度。这里我们计算 N-苯基吡咯全部五个激发的 Λ 指数。
 
-启动 Multiwfn 并输入 examples\excit\N-phenylpyrrole.fch 18 // 电子激发分析 (Electron excitation analysis)
+启动 Multiwfn 并输入 examples\excit\N-phenylpyrrole.fch
 
-14 // 计算 Λ 指数 (Calculate Λ index) examples\excit\N-phenylpyrrole.out 1-5 // 分析全部五个单重激发态 (Analyze all the five calculated singlet excited states) 立即，结果打印在屏幕上：
+!!! terminal "Multiwfn 交互"
+
+    - **18** — 电子激发分析 (Electron excitation analysis)
+
+!!! terminal "Multiwfn 交互"
+
+    - **14** — 计算 Λ 指数 (Calculate Λ index) examples\excit\N-phenylpyrrole.out
+    - **1-5** — 分析全部五个单重激发态 (Analyze all the five calculated singlet excited states)
+
+立即，结果打印在屏幕上：
 
 
 ```text
@@ -943,9 +1043,17 @@ and de-excitation parts
 
 从以上输出可见，Λ 指数与 Δr 指数近乎成反比，因为空穴-电子重叠程度越大，通常空穴-电子分离距离越短（但请记住，此关系并非恒成立）。
 
-接着我们分解第四个激发的 Λ 指数。输入以下命令 y // 重新做 Λ 指数分析 (Do the Λ index analysis again) 4 // 第四个激发 (The fourth excitation)
+接着我们分解第四个激发的 Λ 指数。输入以下命令
 
-y // 对 Λ 指数做分解分析 (Decompose analysis on Λ index) 0.01 // 打印阈值 (Printing threshold)
+!!! terminal "Multiwfn 交互"
+
+    - **y** — 重新做 Λ 指数分析 (Do the Λ index analysis again)
+    - **4** — 第四个激发 (The fourth excitation)
+
+!!! terminal "Multiwfn 交互"
+
+    - **y** — 对 Λ 指数做分解分析 (Decompose analysis on Λ index)
+    - **0.01** — 打印阈值 (Printing threshold)
 
 然后你将看到所有对 Λ 指数贡献大于 0.01 的 MO 对：
 
@@ -1324,7 +1432,10 @@ CTM也可以基于片段来绘制(To do this, you simply need to load fragment d
     - **9** — 生成并导出TDM(Generate and export TDM)
     - **1** — 生成基态与激发态之间的TDM(Generate TDM between ground state and excited state) examples\excit\N-phenylpyrrole.out
 
-1 // 分析从基态到第一激发态的电子跃迁(S0→S1)(Analyze electron transition from ground state to the 1st excited state (S0→S1)) 1 // 对原始TDM对称化。这很重要，若不对TDM对称化，之后无法正确得到自然轨道(Symmetrize the raw TDM. This is important, the natural orbitals cannot be properly yielded later without symmetrization of the TDM)
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 分析从基态到第一激发态的电子跃迁(S0→S1)(Analyze electron transition from ground state to the 1st excited state (S0→S1))
+    - **1** — 对原始TDM对称化。这很重要，若不对TDM对称化，之后无法正确得到自然轨道(Symmetrize the raw TDM. This is important, the natural orbitals cannot be properly yielded later without symmetrization of the TDM)
 
 y // 将当前波函数导出到当前文件夹下的TDM.fch，其“Total SCF Density”字段记录刚才生成的对称化TDM(Export current wavefunction to TDM.fch in current folder, whose "Total SCF Density" field records the just generated symmetrized TDM)
 
@@ -1363,7 +1474,10 @@ S0→S1 TDM转换而来的自然轨道。现在内存中的轨道也对应于这
     - **9** — 生成并导出TDM(Generate and export TDM)
     - **1** — 生成基态与激发态之间的TDM(Generate TDM between ground state and excited state) examples\excit\N-phenylpyrrole.out
 
-1 // 分析从基态到第一单重激发态(S0→S1)的电子跃迁(Analyze electron transition from ground state to the 1st excited state (S0→S1)) 1 // 对原始TDM对称化。这很重要，若不对TDM对称化，之后无法正确得到自然轨道(Symmetrize the raw TDM. This is important, the natural orbitals cannot be properly yielded later without symmetrization of the TDM)
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 分析从基态到第一单重激发态(S0→S1)的电子跃迁(Analyze electron transition from ground state to the 1st excited state (S0→S1))
+    - **1** — 对原始TDM对称化。这很重要，若不对TDM对称化，之后无法正确得到自然轨道(Symmetrize the raw TDM. This is important, the natural orbitals cannot be properly yielded later without symmetrization of the TDM)
 
 y // 将当前波函数导出到当前文件夹下的TDM.fch，其“Total SCF Density”字段记录刚才生成的对称化TDM(Export current wavefunction to TDM.fch in current folder, whose "Total SCF Density" field records the just generated symmetrized TDM)
 
@@ -1458,7 +1572,10 @@ MO38→MO39的组态系数设为零，即忽略其贡献，则f将明显降低�
 
 1 // 跃迁类型选为“激发(Excitation)”，因此选中MO38→MO39(若输入2，则选中的将是MO38←MO39)(The transition type is chosen as "Excitation", hence MO38→MO39 is selected (if inputting 2, then what we selected will be MO38←MO39))
 
-0 // 将组态系数设为零(Set the configuration coefficient to zero) -3 // 将当前激发信息导出到纯文本文件(Export current excitation information to a plain text file)
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 将组态系数设为零(Set the configuration coefficient to zero)
+    - **-3** — 将当前激发信息导出到纯文本文件(Export current excitation information to a plain text file)
 
 S1.txt // 存储S0→S1激发信息的文件的路径(The path of the file to store excitation information of S0→S1) 现在当前文件夹中已生成S1.txt，如果你用文本编辑器打开它，你会发现
 
@@ -1500,7 +1617,12 @@ MO38→MO39对S0→S1激发的强度有决定性影响(Now the printed f is only
 
 假设我们要研究的是从基态到第2激发态的电子激发(你也可以输入两个序号来研究两个激发态之间的跃迁)(Assume that we want to study is electron excitation from ground state to excited state 2 (you can also input two indices to study transition between the two excited states))
 
-1 // 要分解的跃迁偶极矩类型为电偶极矩(The type of transition dipole moment to be decomposed is electric) n // 不生成AAtrdip.txt，本例中不涉及它(Do not generate AAtrdip.txt, which is not involved in the present example) 现在trdipcontri.txt已输出到当前文件夹，其中包含每个基函数和每个原子贡献的跃迁偶极矩。将该文件移到VMD文件夹(Now trdipcontri.txt is outputted to current folder, which contains transition dipole moment contributed by each basis function and each atom. Move this file to VMD folder)。
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 要分解的跃迁偶极矩类型为电偶极矩(The type of transition dipole moment to be decomposed is electric)
+    - **n** — 不生成AAtrdip.txt，本例中不涉及它(Do not generate AAtrdip.txt, which is not involved in the present example)
+
+现在trdipcontri.txt已输出到当前文件夹，其中包含每个基函数和每个原子贡献的跃迁偶极矩。将该文件移到VMD文件夹(Now trdipcontri.txt is outputted to current folder, which contains transition dipole moment contributed by each basis function and each atom. Move this file to VMD folder)。
 
 返回主菜单，然后进入主功能100的子功能2，将当前分子几何导出为azobenzene.pdb(Return to main menu, then enter subfunction 2 of main function 100, export current molecular geometry to azobenzene.pdb)。
 
@@ -1577,7 +1699,14 @@ Phenyl group 2：0.14262 -1.43288 0.0
 
 现在，当前文件夹中已生成NO_0002.mwfn，它以NOs的形式记录了第二激发态的波函数(Now, NO_0002.mwfn has been generated in current folder, it records wavefunction of the second excited state in terms of NOs)。
 
-重新启动Multiwfn并输入(Reboot Multiwfn and input) NO_0002.mwfn 9 // 键级分析(Bond order analysis) 1 // Mayer键级(Mayer bond order) 从输出中你会发现连接吡咯和苯部分的N5-C10键的键级为0.794(From the output you will find the bond order of the N5-C10 bond, namely the bond linking pyrrole and benzene moieties, is 0.794)。若你对examples\excit\N-phenylpyrrole.fch重复计算，结果将对应于基态，你会发现Mayer键级为0.713。显然，在S0极小点处从S0到S2的垂直激发明显削弱了N5-C10的强度(If you repeat the calculation for examples\excit\N-phenylpyrrole.fch, the result will correspond to ground state, and you will find the Mayer bond order is 0.713. Clearly, the vertical excitation from S0 to S2 at minimum point of S0 weakens the strength of N5-C10 detectably)。
+重新启动Multiwfn并输入(Reboot Multiwfn and input) NO_0002.mwfn
+
+!!! terminal "Multiwfn 交互"
+
+    - **9** — 键级分析(Bond order analysis)
+    - **1** — Mayer键级(Mayer bond order)
+
+从输出中你会发现连接吡咯和苯部分的N5-C10键的键级为0.794(From the output you will find the bond order of the N5-C10 bond, namely the bond linking pyrrole and benzene moieties, is 0.794)。若你对examples\excit\N-phenylpyrrole.fch重复计算，结果将对应于基态，你会发现Mayer键级为0.713。显然，在S0极小点处从S0到S2的垂直激发明显削弱了N5-C10的强度(If you repeat the calculation for examples\excit\N-phenylpyrrole.fch, the result will correspond to ground state, and you will find the Mayer bond order is 0.713. Clearly, the vertical excitation from S0 to S2 at minimum point of S0 weakens the strength of N5-C10 detectably)。
 
 绘制激发态之间的密度差(Plotting density difference between excited states) 接下来我说明如何绘制各激发态之间的密度差(对应于非弛豫密度)。事实上这非常容易，你只需分别生成包含两个激发态NOs的Multiwfn输入文件，然后经由第4.5.5或4.18.3节说明的步骤求其差即可(Next I illustrate how to plot density difference between various excited states (corresponding to unrelaxed density). In fact, this is very easy, you simply need to generate Multiwfn input files containing NOs of the two excited states respectively, and then get their difference via the steps illustrated in Sections 4.5.5 or 4.18.3)。
 
@@ -1674,7 +1803,19 @@ Fragment charge:    0.54421290
 
 将以N-苯基吡咯为例，用Gaussian在CAM-B3LYP/6-31+G(d)水平下用TDDFT计算了五个激发态。注意计算中已用IOp(9/40=4)关键词。在本研究中，苯基和吡咯基将分别定义为两个片段，以便我们能从片段内电子重排和片段间电子转移的角度识别激发态的本质(The N-phenylpyrrole will be employed as an instance, five excited states were calculated by Gaussian using TDDFT at CAM-B3LYP/6-31+G(d) level. Note that IOp(9/40=4) keyword has been employed in the calculation. In this study, the phenyl group and the pyrrole group will be defined as two respective fragments, so that we can identify nature of the excited states from perspective of intrafragment electron redistribution and interfragment electron transfer)。
 
-为所有激发态计算IFCT数据(Calculate IFCT data for all excited states) 启动Multiwfn并输入(Boot up Multiwfn and input) examples\excit\N-phenylpyrrole.fch // 由Gaussian的TDDFT任务产生(Produced by TDDFT task of Gaussian) 18 // 电子激发分析(Electron excitation analysis) 16 // 计算电荷转移光谱和所有激发态的特征(Calculate charge-transfer spectrum and characters of all excited states) 2 // 定义两个片段(Define two fragments) 1-9 // 片段1，即吡咯部分(Fragment 1, namely the pyrrole moiety) 10-20 // 片段2，即苯基部分(Fragment 2, namely the phenyl moiety) [直接按回车键(Press ENTER button directly)] // 加载(Load) examples\excit\N-phenylpyrrole.out，即Gaussian TDDFT任务的输出文件(which is output file of Gaussian TDDFT task)
+为所有激发态计算IFCT数据(Calculate IFCT data for all excited states) 启动Multiwfn并输入(Boot up Multiwfn and input)
+
+!!! terminal "Multiwfn 交互"
+
+    - **examples\excit\N-phenylpyrrole.fch** — 由Gaussian的TDDFT任务产生(Produced by TDDFT task of Gaussian)
+    - **18** — 电子激发分析(Electron excitation analysis)
+    - **16** — 计算电荷转移光谱和所有激发态的特征(Calculate charge-transfer spectrum and characters of all excited states)
+    - **2** — 定义两个片段(Define two fragments)
+    - **1-9** — 片段1，即吡咯部分(Fragment 1, namely the pyrrole moiety)
+    - **10-20** — 片段2，即苯基部分(Fragment 2, namely the phenyl moiety)
+    - **[直接按回车键(Press ENTER button directly)]** — 加载(Load)
+
+examples\excit\N-phenylpyrrole.out，即Gaussian TDDFT任务的输出文件(which is output file of Gaussian TDDFT task)
 
 2 // Hirshfeld划分(Hirshfeld partition)(因为TDDFT任务中用了弥散函数，不应使用类似Mulliken划分)(because diffuse functions were employed in the TDDFT task, Mulliken-like partition should not be used here))
 

@@ -40,7 +40,11 @@ CRYST1   31.064   31.100   31.093  90.00  90.00  90.00 P 1         1
     - **1** — 高斯函数(Gaussian function)
     - **1.8** — 高斯函数的半高宽(FWHM)为vdW半径的1.8倍，经发现该值能对当前体系产生令人满意的平滑网格数据等值面图
 
-1 // 设置网格并开始计算(Set grid and start calculation) [按ENTER键(Press ENTER button)] // 使用默认原点(0,0,0)，它适合当前体系(Use default origin (0,0,0), which is suitable for present system) [按ENTER键(Press ENTER button)] // 使用默认盒子长度，它们对应于当前晶胞三条
+!!! terminal "Multiwfn 交互"
+
+    - **1** — 设置网格并开始计算(Set grid and start calculation) [按ENTER键(Press ENTER button)]
+
+使用默认盒子长度，它们对应于当前晶胞三条
 
 
 ![](../imgs/p1067_584.png)
@@ -152,7 +156,10 @@ STO  4:    1.000000E+00    1.000000E+00
 
 初始参数看起来是合理的。然后输入以下命令
 
-0 // 返回上一级菜单(Return to upper level of menu) 1 // 开始拟合(Start fitting) 默认情况下，用于拟合的是4000个均匀分布的点，间距为0.001 Å，显然它们覆盖了r = 0-4 Å的径向范围。如果你已认真阅读第3.300.2节，你会发现拟合过程中输出的信息是很容易理解的。输出的后半部分如下所示
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回上一级菜单(Return to upper level of menu)
+    - **1** — 开始拟合(Start fitting) 默认情况下，用于拟合的是4000个均匀分布的点，间距为0.001 Å，显然它们覆盖了r = 0-4 Å的径向范围。如果你已认真阅读第3.300.2节，你会发现拟合过程中输出的信息是很容易理解的。输出的后半部分如下所示
 
 
 ```text
@@ -292,7 +299,10 @@ Pearson correlation coefficient r:    0.999706  r^2:    0.999413
 
 顺便说一下，从前面所示的拟合GTF函数的参数中，你可以发现GTF 3和GTF 4的指数几乎相同，这意味着它们可以合并为单个GTF以减少参数。为此，我们输入
 
-0 // 返回(Return) 3 // 检查或设置拟合函数的系数和指数初猜(Check or set initial guess of coefficients and exponents)。然后从屏幕上你可以看到我们之前拟合的参数
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 返回(Return)
+    - **3** — 检查或设置拟合函数的系数和指数初猜(Check or set initial guess of coefficients and exponents)。然后从屏幕上你可以看到我们之前拟合的参数
 
 !!! terminal "Multiwfn 交互"
 
@@ -330,17 +340,32 @@ examples\phenanthrene.fch 6 // 检查并修改波函数(Check & modify wavefunct
     - **33** — 旋转波函数，即X→Y，Y→Z，Z→X(Rotate wavefunction, namely X→Y, Y→Z, Z→X)
     - **0** — 旋转所有轨道(Rotate all orbitals) y
 
-再次旋转波函数(Rotate wavefunction again) 0 // 旋转所有轨道(Rotate all orbitals) y // 同时旋转分子结构(Also rotate molecule structure) 现在菲正好位于Z=0 Å的XY平面上（你可以通过主功能0检查这一点）。然后我们进入主功能100，选择子功能2，再选择相应选项将当前波函数导出为新的.mwfn文件。在接下来几节中，该新文件将被称为mol.mwfn。
+再次旋转波函数(Rotate wavefunction again)
+
+!!! terminal "Multiwfn 交互"
+
+    - **0** — 旋转所有轨道(Rotate all orbitals)
+    - **y** — 同时旋转分子结构(Also rotate molecule structure) 现在菲正好位于Z=0 Å的XY平面上（你可以通过主功能0检查这一点）。然后我们进入主功能100，选择子功能2，再选择相应选项将当前波函数导出为新的.mwfn文件。在接下来几节中，该新文件将被称为mol.mwfn。
 
 ### 4.300.4.1 为菲模拟恒高STM图像(Simulating constant height STM image for phenanthrene)
 
 这里我们为菲模拟恒高模式的STM图像。启动Multiwfn并输入
 
-mol.mwfn 300 // 其他功能（第3部分）(Other function (Part 3)) 4 // 模拟STM图像(Simulating STM image) 从屏幕上的信息可以看到，费米能级（EF）已被设为HOMO能量和LUMO能量的平均值，偏压（V）已被自动设为HOMO能量与EF之差，在这种情况下只有HOMO能对STM图像有贡献。为了得到预期的STM图像，正确定义V至关重要。在V为负的情况下，电子从样品流向STM针尖，V越负，可能对STM图像有贡献的分子轨道就越多。还要注意，样品中原子与针尖之间的距离会显著影响STM图像。从选项7的信息中你会发现默认要绘制的平面的Z坐标为0.7 Å。由于mol.mwfn中所有原子的Z坐标均为
+!!! terminal "Multiwfn 交互"
+
+    - **mol.mwfn 300** — 其他功能（第3部分）(Other function (Part 3))
+    - **4** — 模拟STM图像(Simulating STM image) 从屏幕上的信息可以看到，费米能级（EF）已被设为HOMO能量和LUMO能量的平均值，偏压（V）已被自动设为HOMO能量与EF之差，在这种情况下只有HOMO能对STM图像有贡献。为了得到预期的STM图像，正确定义V至关重要。在V为负的情况下，电子从样品流向STM针尖，V越负，可能对STM图像有贡献的分子轨道就越多。还要注意，样品中原子与针尖之间的距离会显著影响STM图像。从选项7的信息中你会发现默认要绘制的平面的Z坐标为0.7 Å。由于mol.mwfn中所有原子的Z坐标均为
 
 0 Å，原子核与针尖之间的距离为0.7 − 0.0 = 0.7 Å。在本例中，我们将在Z=1.2 Å处绘制V= -5.0 V的STM图像。
 
-现在输入以下命令 2 // 设置偏压(Set bias voltage) -5 // -5.0 V的偏压(Bias voltage of -5.0 V) 7 // 设置Z坐标(Set Z coordinate) 1.2 // Z=1.2 Å 0 // 在平面上计算隧穿电流(Calculate tunneling current on the plane) 现在你可以在屏幕上看到以下信息
+现在输入以下命令
+
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 设置偏压(Set bias voltage)
+    - **-5** — -5.0 V的偏压(Bias voltage of -5.0 V)
+    - **7** — 设置Z坐标(Set Z coordinate)
+    - **1.2** — Z=1.2 Å 0
 
 
 ```text
@@ -390,7 +415,10 @@ Maximal value (LDOS) is    0.010218 a.u.
 
 
 
-2 // 设置偏压(Set bias voltage) -5 // 我们再次使用-5.0 V的偏压(Again we use bias voltage of -5.0 V) 在恒流模式下，对均匀分布在三维区域中每一点计算LDOS，其X、Y和Z范围可分别用选项5、6和7设置，通常默认设置是合适的。我们直接选择选项0开始计算，从屏幕信息中你会发现所计算区域中LDOS的最大值为0.048 a.u.。
+!!! terminal "Multiwfn 交互"
+
+    - **2** — 设置偏压(Set bias voltage)
+    - **-5** — 我们再次使用-5.0 V的偏压(Again we use bias voltage of -5.0 V) 在恒流模式下，对均匀分布在三维区域中每一点计算LDOS，其X、Y和Z范围可分别用选项5、6和7设置，通常默认设置是合适的。我们直接选择选项0开始计算，从屏幕信息中你会发现所计算区域中LDOS的最大值为0.048 a.u.。
 
 在后处理菜单中，你可以看到几个选项，我们首先用选项1可视化隧穿电流的等值面图，在当前语境下它对应于LDOS。对应于LDOS=0.015 a.u.的等值面如下所示。注意，虽然等值面的选择是任意的，但它应在0与最大值之间（本例中为0.048 a.u.）
 
@@ -442,7 +470,10 @@ Maximal Z is    1.206432 Angstrom
 
 如第3.300.5节所述，Multiwfn能够解析计算电偶极矩、四极矩、八极矩、十六极矩和电子空间范围<r2>。在本节中我们为一个简单分子尿嘧啶计算这些量。
 
-启动Multiwfn并输入examples\uracil.wfn 300 // 其他功能（第3部分）(Other function (Part 3)) 5 // 计算电偶极矩和多极矩(Calculate electric dipole moment and multipole moments) 计算非常快，你会立即看到以下信息，如果你已读过第3.300.5节，这些信息是很容易理解的。如屏幕上明确指出的，除非另有说明，单位均为a.u.。
+!!! terminal "Multiwfn 交互"
+
+    - **启动Multiwfn并输入examples\uracil.wfn 300** — 其他功能（第3部分）(Other function (Part 3))
+    - **5** — 计算电偶极矩和多极矩(Calculate electric dipole moment and multipole moments) 计算非常快，你会立即看到以下信息，如果你已读过第3.300.5节，这些信息是很容易理解的。如屏幕上明确指出的，除非另有说明，单位均为a.u.。
 
 
 ```text
@@ -539,7 +570,10 @@ The highest 10 eigenvalues of virtual NTOs:
 
 接下来，我们产生包含当前体系Kohn-Sham矩阵的文件，详见第3.100.17节。启动Multiwfn并输入
 
-examples\excit\D-pi-A.fchk 100 // 其他功能（第1部分）(Other functions (Part 1)) 17 // 基于轨道能量和系数产生Fock/KS矩阵(Generate Fock/KS matrix based on orbital energies and coefficients) KS.txt 现在当前文件夹中的KS.txt包含了从D-pi-A.fchk中分子轨道能量和系数反推转换得到的Kohn-Sham矩阵。
+!!! terminal "Multiwfn 交互"
+
+    - **examples\excit\D-pi-A.fchk 100** — 其他功能（第1部分）(Other functions (Part 1))
+    - **17** — 基于轨道能量和系数产生Fock/KS矩阵(Generate Fock/KS matrix based on orbital energies and coefficients) KS.txt 现在当前文件夹中的KS.txt包含了从D-pi-A.fchk中分子轨道能量和系数反推转换得到的Kohn-Sham矩阵。
 
 最后，我们计算NTO轨道的能量。启动Multiwfn并输入NTO.mwfn 300 // 其他功能（第3部分）(Other functions (Part 3))
 
@@ -600,7 +634,12 @@ $NBO archive file=C:\D-PI-A $END
 
 请先阅读第3.300.8节以了解分子表面距离投影图的基础知识。在本节中，将以[Ru(bpy)3]2+为例展示如何绘制这种图。examples\excit\Ru(bpy3)2+.gjf包含了该体系的优化几何结构，因此将用作输入文件（当然，你也可以用其他格式的文件如.xyz、.pdb和.mol2作为输入文件）。该体系已处于适合研究配体对Ru原子包埋的取向，见下图。如果当前取向不适合绘制该图，你应使用GaussView等分子可视化软件进行旋转。
 
-启动Multiwfn并输入examples\excit\Ru(bpy3)2+.gjf 300 // 其他功能（第3部分）(Other functions (Part 3)) 8 // 绘制分子表面距离投影图(Plot molecular surface distance projection map) 这次我们不改变任何默认设置，而直接选择选项0开始计算。此时，分子表面定义为0.05 a.u.的promolecular电子密度等值面。
+启动Multiwfn并输入examples\excit\Ru(bpy3)2+.gjf
+
+!!! terminal "Multiwfn 交互"
+
+    - **300** — 其他功能（第3部分）(Other functions (Part 3))
+    - **8** — 绘制分子表面距离投影图(Plot molecular surface distance projection map) 这次我们不改变任何默认设置，而直接选择选项0开始计算。此时，分子表面定义为0.05 a.u.的promolecular电子密度等值面。
 
 计算完成后，你将进入绘制平面图的界面。我们直接选择选项0在屏幕上显示该图，你将看到
 

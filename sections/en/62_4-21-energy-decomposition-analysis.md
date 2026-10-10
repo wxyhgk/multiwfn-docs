@@ -357,7 +357,12 @@ Run the two .gjf files by Gaussian to yield ethane_staggered.out and ethane_ecli
 
 We first evaluate the energy terms defined by EDA-SBL method for staggered ethane. Boot up Multiwfn and input
 
-examples\EDA\EDA_SBL\ethane_staggered.fch 21 // Energy decomposition analysis 2 // Shubin Liu's energy decomposition examples\EDA\EDA_SBL\ethane_staggered.out Now Multiwfn loads relevant information from the Gaussian output file, and then evaluates the steric term defined by EDA-SBL method. Finally, the EDA-SBL energy components are printed:
+examples\EDA\EDA_SBL\ethane_staggered.fch
+
+!!! terminal "Multiwfn session"
+
+    - **21** — Energy decomposition analysis
+    - **2** — Shubin Liu's energy decomposition examples\EDA\EDA_SBL\ethane_staggered.out Now Multiwfn loads relevant information from the Gaussian output file, and then evaluates the steric term defined by EDA-SBL method. Finally, the EDA-SBL energy components are printed:
 
 
 ```text
@@ -480,7 +485,15 @@ The redder atoms in the left figure above correspond to the atoms that contribut
 
 Multiwfn can also generate the difference grid data of dispersion density. Input the following commands in the present function
 
-4 // Calculate dispersion density difference between current and another system [Press ENTER button] //All atoms in the present system (Actos_curly.xyz) are of interest examples\Actos_linear.xyz // Another system [Press ENTER button] //All atoms in Actos_curly.xyz are of interest 3 // High-quality grid dispdensdiff.cub now is generated in current folder. Plotting it as isosurface map using VMD
+!!! terminal "Multiwfn session"
+
+    - **4** — Calculate dispersion density difference between current and another system
+    - **[Press ENTER button]** — All atoms in the present system (Actos_curly.xyz) are of interest
+    - **examples\Actos_linear.xyz** — Another system
+    - **[Press ENTER button]** — All atoms in Actos_curly.xyz are of interest
+    - **3** — High-quality grid
+
+dispdensdiff.cub now is generated in current folder. Plotting it as isosurface map using VMD
 
 with isovalue of ±0.025 via the convenient VMD script described in Section 4.A.14, you will see the following map, the blue color indicates that the isosurface corresponds to negative value. It can be seen that the isosurfaces well highlight the regions with significant enhancement of dispersion energy caused by structural curling.
 
@@ -507,7 +520,10 @@ Boot up Multiwfn and input examples\zeolite-mol.cif
 
 1-216 // The atoms of interest are those of the zeolite moiety (first 216 atoms) in the current system (zeolite-mol.cif)
 
-examples\zeolite.cif // Another system [Press ENTER button directly] // The atoms of interest are all 216 atoms in zeolite.cif, which also correspond to atoms 1-216 in zeolite-mol.cif
+!!! terminal "Multiwfn session"
+
+    - **examples\zeolite.cif** — Another system
+    - **[Press ENTER button directly]** — The atoms of interest are all 216 atoms in zeolite.cif, which also correspond to atoms 1-216 in zeolite-mol.cif
 
 y // Export diffatomdisp.pqr in current folder Load the diffatomdisp.pqr into VMD, color atoms by “charge” property, set color scale to -0.8 to 0.8, you will see
 

@@ -31,7 +31,14 @@ The DI calculated in fuzzy atomic space is essentially the fuzzy bond order prop
 
 Since benzene is an exactly planar molecule, we can decompose DI to DI-σ and DI-π. Here we calculate the latter. Input 0 to return to main menu, and then following commands
 
-6 //Modify wavefunction 26 //Modify occupation number 0 // Select all orbitals 0 // Make occupation number of all orbitals to zero 17,20,21 // MO 17,20,21 correspond to π orbitals. 2 // Set their occupation numbers to 2 (closed-shell orbitals)
+!!! terminal "Multiwfn session"
+
+    - **6** — Modify wavefunction
+    - **26** — Modify occupation number
+    - **0** — Select all orbitals
+    - **0** — Make occupation number of all orbitals to zero
+    - **17,20,21** — MO 17,20,21 correspond to π orbitals.
+    - **2** — Set their occupation numbers to 2 (closed-shell orbitals)
 
 
 <!-- p.754 -->
@@ -108,7 +115,18 @@ As mentioned in Section 3.18.3, Multiwfn is able to calculate atomic and molecul
 
 dipole/multipole moments; if you define an atom list, then the outputted molecular dipole and multipole moments will correspond to the moments of the fragment. In this calculation, we use this feature to calculate respective dipole moment of the two monomers in phenol dimer. We will use Hirshfeld weighting function, since its calculation is easy and its physical meaning is relatively clear.
 
-Boot up Multiwfn and input below commands examples\phenoldimer.wfn // Wavefunction file of optimized phenol dimer 15 // Fuzzy atomic space analysis -1 // Select method for defining atomic space 3 // Hirshfeld based on built-in spherically averaged atomic densities 2 // Calculate atomic and molecular multipole moments 1 // Output result on screen Then Multiwfn starts to calculate population number, dipole and multipole moments of every atom, and finally prints the data for the whole system (the "molecular" in this context corresponds to the entire current system):
+Boot up Multiwfn and input below commands:
+
+!!! terminal "Multiwfn session"
+
+    - **examples\phenoldimer.wfn** — Wavefunction file of optimized phenol dimer
+    - **15** — Fuzzy atomic space analysis
+    - **-1** — Select method for defining atomic space
+    - **3** — Hirshfeld based on built-in spherically averaged atomic densities
+    - **2** — Calculate atomic and molecular multipole moments
+    - **1** — Output result on screen
+
+Then Multiwfn starts to calculate population number, dipole and multipole moments of every atom, and finally prints the data for the whole system (the "molecular" in this context corresponds to the entire current system):
 
 
 ```text
@@ -143,7 +161,11 @@ Boot up Multiwfn and input below commands examples\phenoldimer.wfn // Wavefuncti
 
 As can be seen, the dipole moment of the dimer is (1.227306,-0.128087,0.650833) a.u.
 
-Next, we calculate dipole moment for the first phenol. We input -5 // Define the atoms to be calculated
+Next, we calculate dipole moment for the first phenol. We input
+
+!!! terminal "Multiwfn session"
+
+    - **-5** — Define the atoms to be calculated
 
 
 <!-- p.757 -->
@@ -283,7 +305,14 @@ Boot up Multiwfn and input examples\SiH4_$C_6$\SiH4.fch
     - **-1** — Select the method for partitioning atomic spaces
     - **5** — MBIS 1
 
-Calculate atomic effective volume, free volume, polarizability and C6 coefficient examples\SiH4_C6\H.wfn // Wavefunction file of H atom in isolated state examples\SiH4_C6\Si.wfn // Wavefunction file of Si atom in isolated state You will see the following output along with
+Calculate atomic effective volume, free volume, polarizability and C6 coefficient
+
+!!! terminal "Multiwfn session"
+
+    - **examples\SiH4_C6\H.wfn** — Wavefunction file of H atom in isolated state
+    - **examples\SiH4_C6\Si.wfn** — Wavefunction file of Si atom in isolated state
+
+You will see the following output along with
 
 
 ```text
