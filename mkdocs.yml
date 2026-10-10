@@ -1,7 +1,7 @@
 site_name: Multiwfn 官方手册
 site_description: Multiwfn 官方手册中文翻译 + 英文原文（由 PDF 转换，共 1161 页，行间公式为 LaTeX）
 site_author: PDF 转 Markdown + AI 翻译
-site_url: https://wxyhgk.github.io/multiwfn-docs/
+site_url: https://wxyhgk.github.io/doc/multiwfn/
 repo_url: https://github.com/wxyhgk/multiwfn-docs
 
 docs_dir: docs
