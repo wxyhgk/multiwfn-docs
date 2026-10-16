@@ -1,0 +1,100 @@
+# **6.2 计算实空间函数的程序**
+
+下面是 *function.f90* 文件中的程序。你可以利用它们自己构建新的实空间函数 (real space function)。更多细节请查看相应程序代码中的注释。
+
+## **实空间函数的计算**
+
+- function calcfuncall：在给定点计算任意支持的实空间函数的包装函数
+- function userfunc：用户定义的实空间函数
+- function linintp3d：通过三线性插值从内存中的格点数据得到的函数值
+- function splineintp3D：通过三次 B 样条插值从内存中的格点数据得到的函数值
+- function fmo：轨道波函数值
+- function forbdens：轨道概率密度
+- function fdens：电子密度
+- function fspindens：自旋电子密度，或 Alpha 电子密度，或 Beta 电子密度
+- function fgrad：密度的梯度（x、y、z 分量或其模），或约化密度梯度 (RDG)
+- function flapl：电子密度的拉普拉斯（xx 或 yy 或 zz 部分，或总值）
+- function Lagkin：拉格朗日动能 $G(\mathbf r)$，或其分量
+- function Hamkin：哈密顿动能 $K(\mathbf r)$，或其分量
+- function calcprodens：分子前密度 (promolecular density)
+- function signlambda2rho：$\mathrm{sign}[\lambda_2(\mathbf r)]\rho(\mathbf r)$
+- subroutine signlambda2rho_RDG：同时计算 $\mathrm{sign}[\lambda_2(\mathbf r)]\rho(\mathbf r)$ 和 RDG
+- function signlambda2rho_prodens：分子前近似下的 $\mathrm{sign}[\lambda_2(\mathbf r)]\rho(\mathbf r)$
+- function RDGprodens：分子前近似下的 RDG
+- subroutine signlambda2rho_RDG_prodens：在分子前近似下同时计算 $\mathrm{sign}[\lambda_2(\mathbf r)]\rho(\mathbf r)$ 和 RDG
+- subroutine IGMprodens：计算通常类型或独立梯度模型 (IGM) 类型的分子前密度梯度
+- function ELF_LOL：ELF 或 LOL 或 SCI（强共价作用指数）
+- function avglocion：平均局域电离能
+- function loceleaff：局域电子亲和能
+- function edr：电子离域范围 $\mathrm{EDR}(\mathbf r;d)$
+- function edrdmax：轨道重叠距离函数 $D(\mathbf r)$
+- function delta_g_IGM：IGM 方法中定义的 $\delta g(\mathbf r)$
+- function linrespkernel：闭壳层的 DFT 线性响应核近似形式
+- function pairfunc：交换相关密度、相关穴和相关因子、同位对密度
+- function srcfunc：源函数 (source function)
+- function infoentro：香农信息熵函数或香农熵密度
+- function totesp：总静电势 (ESP)
+- function nucesp：来自原子核或原子电荷的静电势
+- function eleesp：来自电子的静电势
+- function totespskip：不含由 *iskipnuc* 参数定义的原子核贡献的静电势
+- subroutine planeesp：计算平面内的静电势
+- subroutine espcub：计算电子静电势的格点数据
+- function twoorbnorm：两个轨道模的乘积
+- function beckewei：生成 Becke 权重函数
+- function densellip：电子密度的椭圆率、$\eta$ 指数和刚度
+- function xLSDA：LSDA 交换泛函的被积函数
+- function xBecke88：Becke88 交换泛函的被积函数
+- function cLYP：LYP 相关泛函的被积函数
+- function DFTxcfunc：各种 DFT 交换相关泛函的被积函数
+- function DFTxcpot：各种 DFT 交换相关势
+- function weizsacker：Weizsäcker 泛函（位阻能）的被积函数
+- function KED：电子的各种动能密度
+- function KEDpot：各种动能泛函的势
+- function stericpot：位阻势，其负值为单电子势
+- function stericcharge：位阻电荷
+- function stericforce：位阻力的大小
+- function paulipot：Pauli 势
+- function pauliforce：Pauli 力的大小
+- function paulicharge：Pauli 电荷
+- function Fisherinfo：Fisher 信息密度
+- function calcatmdens：基于内建原子径向密度的拉格朗日插值计算的分子前密度
+- function IRIfunc：相互作用区域指示符 (IRI)
+- function PAEM：分子中作用于单电子的势
+- function SEDD：单指数衰减探测器 (SEDD)
+- function DORI：密度重叠区域指示符 (DORI)
+- function localcorr：局域电子相关函数
+- function elemomdens：电子线动量密度
+- function magmomdens：磁偶极矩密度
+- function energydens_grdn：能量密度的梯度模
+- function energydens_lapl：能量密度的拉普拉斯
+- function vdwpotfunc：范德华势及其两个分量
+- function orbwei_Fukui：轨道加权的 Fukui 函数和对偶描述符
+- function relShannon：相对香农熵密度（信息增益密度）
+- function locHFexc：局域 Hartree-Fock 交换能
+- function stress_stiffness：应力张量刚度，其逆对应于应力张量极化率
+- function stress_ellipticity：应力张量椭圆率
+- subroutine calcGTFval：以数组形式返回所有 GTF 值
+- subroutine calcbasval：以数组形式返回所有基函数值
+
+## **实空间函数导数的计算**
+
+- subroutine gencalchessmat：在给定点计算各种实空间函数的值、梯度和 Hessian 矩阵的通用程序
+- subroutine orbderv：计算给定点处一系列轨道的波函数值及其导数，最高到三阶
+- subroutine EDFrho：计算 EDF 对密度及其相应导数（最高到三阶）的贡献
+- subroutine calchessmat_dens：计算电子密度及其梯度和 Hessian 矩阵
+- subroutine rho_tensor：计算电子密度及其梯度、Hessian 矩阵和三阶导数张量
+- subroutine calchessmat_prodens：基于内建原子密度，在分子前近似下计算电子密度及其梯度和 Hessian 矩阵
+- subroutine gendensgradab：同时生成 Alpha 和 Beta 电子的电子密度和梯度模
+- subroutine gendens_gradvec_lapl_ab：同时生成 Alpha 和 Beta 电子的电子密度、梯度矢量和拉普拉斯
+- subroutine calchessmat_lapl：计算电子密度拉普拉斯及其梯度和 Hessian 矩阵（Hessian 目前不可用）
+- subroutine calchessmat_ELF_LOL：计算 ELF/LOL 及其梯度和 Hessian 矩阵（Hessian 目前不可用）
+- subroutine calchessmat_orb：计算轨道波函数的梯度和 Hessian 矩阵
+- subroutine calchessmat_rhograd：计算电子密度梯度模的梯度和 Hessian 矩阵
+- subroutine calchessmat_IRI_RDG：计算 IRI 和 RDG 的梯度和 Hessian 矩阵
+- subroutine calchessmat_vdWpot：计算范德华势的梯度和 Hessian 矩阵
+- subroutine calchessmat_Shannon：计算局域信息熵（函数 11）或香农熵密度（用户自定义函数 50）及其梯度和 Hessian 矩阵
+- subroutine calchessmat_Fisherinfo：计算 Fisher 信息密度（用户自定义函数 51）及其梯度和 Hessian 矩阵
+- subroutine calchessmat_second_Fisherinfo：计算第二 Fisher 信息密度（用户自定义函数 52）及其梯度和（半数值）Hessian 矩阵
+- subroutine calchessmat_relShannon：计算相对香农熵密度（用户自定义函数 49，也称为信息增益密度）及其梯度和 Hessian 矩阵
+- subroutine stericderv：计算位阻势的一阶导数
+- subroutine proatmgrad：使用内建密度计算自由状态下原子的电子密度和梯度
